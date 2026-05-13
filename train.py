@@ -33,14 +33,18 @@ def _resolve_config_path(path, config_path=None):
     return path
 
 
-def load_config(path):
-    resolved_path = _resolve_config_path(path)
+def load_config(path, _visited=None):
+    if _visited is None:
+        _visited = set()
+    resolved_path = os.path.realpath(path)
+    if resolved_path in _visited:
+        raise ValueError(f"Circular config inheritance: {path}")
+    _visited.add(resolved_path)
     with open(resolved_path) as f:
         cfg = yaml.safe_load(f)
     if "_base_" in cfg:
         base_path = _resolve_config_path(cfg.pop("_base_"), resolved_path)
-        with open(base_path) as f:
-            base = yaml.safe_load(f)
+        base = load_config(base_path, _visited)
         merged = {**base, **cfg}
         for k in set(list(base.keys()) + list(cfg.keys())):
             if k in base and k in cfg and isinstance(base[k], dict) and isinstance(cfg[k], dict):
