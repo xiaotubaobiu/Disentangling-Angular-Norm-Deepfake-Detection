@@ -3,10 +3,17 @@ __pycache__/
 *.pyo
 outputs/
 experiments/*/output/best_model.pth
+experiments/*/output/last_model.pth
+experiments/*/output/checkpoint*.pth
+experiments/*/output/events.out.tfevents*
+experiments/*/output/*.log
+experiments/*/output/meta.json
+experiments/*/config/resolved_config.yaml
 .pytest_cache/
 *.egg-info/
 logs/
 experiments/logs/
+features/
 .claude/
 docs/
 tests/

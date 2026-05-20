@@ -169,7 +169,7 @@ def main():
     torch.backends.cudnn.benchmark = False
     torch.backends.cuda.matmul.allow_tf32 = False
     torch.backends.cudnn.allow_tf32 = False
-    torch.use_deterministic_algorithms(True)
+    torch.use_deterministic_algorithms(True, warn_only=True)
 
     logger = None
     run_dir = os.path.join(output_dir, exp_name)
@@ -196,7 +196,9 @@ def main():
             print(f"Missing keys: {len(missing)}, Unexpected keys: {len(unexpected)}")
     if torch.distributed.is_initialized():
         loss_name = cfg.get("loss", {}).get("name", "")
-        model = DDP(model, device_ids=[local_rank], find_unused_parameters=loss_name == "cross_entropy_plus_prompt")
+        model_name = cfg.get("model", {}).get("name", "")
+        model = DDP(model, device_ids=[local_rank], find_unused_parameters=(
+            loss_name == "cross_entropy_plus_prompt" or "dinov2" in model_name))
 
     optimizer = AdamW(model.parameters(), lr=lr, weight_decay=weight_decay)
     scheduler = build_scheduler(optimizer, epochs, warmup_epochs)
