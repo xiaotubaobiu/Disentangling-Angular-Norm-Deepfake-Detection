@@ -1,58 +1,37 @@
+#!/usr/bin/env python3
+"""Summarize video-level AUC results from a retained results CSV."""
+
 from __future__ import annotations
 
-import csv
+import argparse
 from pathlib import Path
-from statistics import mean
 
-ROOT = Path(__file__).resolve().parents[1]
-EXPERIMENTS = ROOT / "experiments"
-RAW_RUNS = {
-    "s42": "20260505_130308",
-    "s123": "20260505_163304",
-    "s7": "20260505_200221",
-    "s999": "20260505_234842",
-    "s2048": "20260506_032147",
-}
-
-
-def read_auc_by_variant(path: Path) -> dict[tuple[str, str], float]:
-    with path.open(newline="") as f:
-        rows = list(csv.DictReader(f))
-    result: dict[tuple[str, str], float] = {}
-    for row in rows:
-        result[(row["split"], row["variant"])] = float(row["auc"])
-    return result
+import pandas as pd
 
 
 def main() -> None:
-    rows = []
-    for seed, timestamp in RAW_RUNS.items():
-        output = EXPERIMENTS / timestamp / "output"
-        angle = read_auc_by_variant(output / "angle_length_metrics.csv")
-        length = read_auc_by_variant(output / "length_only_metrics.csv")
-        for split in ["ffpp", "cdf", "dfd"]:
-            rows.append({
-                "dataset": split.upper(),
-                "seed": seed,
-                "length": length[(split, "feature_length")],
-                "angle": angle[(split, "feature_norm")],
-                "raw": angle[(split, "raw")],
-            })
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--results-csv",
+        default="outputs/auc_video_level_60rows.csv",
+        help="CSV with columns: backbone, train_mode, seed, inference_mode, ffpp_auc, cdf_auc, dfd_auc",
+    )
+    args = parser.parse_args()
 
-    print("dataset,seed,length,angle,raw")
-    for row in rows:
-        print(f"{row['dataset']},{row['seed']},{row['length']:.4f},{row['angle']:.4f},{row['raw']:.4f}")
-
-    print("\nmean_auc")
-    print("dataset,length,angle,raw")
-    for dataset in ["FFPP", "CDF", "DFD"]:
-        dataset_rows = [row for row in rows if row["dataset"] == dataset]
-        print(
-            f"{dataset},"
-            f"{mean(row['length'] for row in dataset_rows):.4f},"
-            f"{mean(row['angle'] for row in dataset_rows):.4f},"
-            f"{mean(row['raw'] for row in dataset_rows):.4f}"
+    path = Path(args.results_csv)
+    if not path.exists():
+        raise FileNotFoundError(
+            f"Missing results CSV: {path}. Provide --results-csv pointing to a local retained results table."
         )
+
+    df = pd.read_csv(path)
+    auc_cols = ["ffpp_auc", "cdf_auc", "dfd_auc"]
+    summary = (
+        df.groupby(["backbone", "train_mode", "inference_mode"], as_index=False)[auc_cols]
+        .agg(["mean", "std"])
+        .round(6)
+    )
+    print(summary.to_string())
 
 
 if __name__ == "__main__":
