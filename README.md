@@ -1,6 +1,6 @@
 # Deepfake Detection Feature Geometry Experiments
 
-This repository contains the code and retained artifacts for studying whether CLIP-based deepfake detection transfers across datasets through feature direction, feature length, or both.
+This repository contains the code for studying whether deepfake detection transfers across datasets through feature direction, feature length, or both.
 
 ## Main result
 
@@ -25,7 +25,8 @@ scripts/evaluate_norm_correction.py   # paper raw / direction / length evaluatio
 scripts/prepare_dfd_df40.py           # prepare DFD in DF40-style JSON/frame layout
 scripts/summarize_paper_results.py    # print paper AUC tables
 src/deepfake_detection/               # package code
-experiments/                          # retained paper artifacts only
+configs/                              # reusable training config templates
+outputs/                              # local run outputs, ignored by git
 ```
 
 ## Installation
@@ -60,17 +61,17 @@ PYTHONPATH=src python scripts/prepare_dfd_df40.py \
 ## Train
 
 ```bash
-PYTHONPATH=src python train.py --config experiments/20260505_130308/config/config.yaml
+PYTHONPATH=src python train.py --config configs/clip_base.yaml
 ```
 
-Use the config from the timestamp folder closest to the experiment you want to reproduce.
+Use `configs/clip_base.yaml`, `configs/dinov2_base.yaml`, or `configs/efficientnet_base.yaml` as starting points. Local training outputs are written under `outputs/` and are ignored by git.
 
 ## Standard evaluation
 
 ```bash
 PYTHONPATH=src python evaluate.py \
-  --config experiments/20260505_130308/config/config.yaml \
-  --checkpoint $(cat experiments/20260505_130308/output/checkpoint_path.txt) \
+  --config configs/clip_base.yaml \
+  --checkpoint outputs/<run>/best_model.pth \
   --domain all
 ```
 
@@ -80,11 +81,11 @@ The retained artifact folders usually store the original checkpoint path in `out
 
 ```bash
 PYTHONPATH=src python scripts/evaluate_norm_correction.py \
-  --config experiments/20260505_130308/config/config.yaml \
-  --checkpoint $(cat experiments/20260505_130308/output/checkpoint_path.txt) \
+  --config configs/clip_base.yaml \
+  --checkpoint outputs/<run>/best_model.pth \
   --splits ffpp,cdf,dfd \
   --mode raw,feature_norm,feature_length \
-  --output-dir experiments/20260505_130308/output
+  --output-dir outputs/<run>
 ```
 
 ## Summarize paper results
@@ -95,35 +96,24 @@ PYTHONPATH=src python scripts/summarize_paper_results.py
 
 This prints the AUC table used in the paper.
 
-## Retained experiment artifacts
+## Artifact policy
 
-The retained experiment folders are:
-
-```text
-experiments/20260505_130308   raw seed 42
-experiments/20260505_163304   raw seed 123
-experiments/20260505_200221   raw seed 7
-experiments/20260505_234842   raw seed 999
-experiments/20260506_032147   raw seed 2048
-experiments/20260505_145908   normtrain seed 42
-experiments/20260505_181828   normtrain seed 123
-experiments/20260505_215543   normtrain seed 7
-experiments/20260506_013459   normtrain seed 999
-experiments/20260506_050719   normtrain seed 2048
-experiments/dfd_threshold_analysis
-```
-
-Each timestamp folder uses:
+This GitHub repository is code-only. The following are intentionally ignored and should stay local:
 
 ```text
-config/              # training config and resolved config
-logs/                # retained train/evaluation logs
-output/              # summaries, metadata, paper CSVs, checkpoint_path.txt
-experiment_name.txt  # original experiment name
+outputs/
+experiments/
+figures/
+features/
+tests/
 ```
+
+Large checkpoints, generated experiment CSVs, figures, frame-level feature caches, and local tests are not pushed.
 
 ## Metrics
 
 AUC is the main ranking metric and is independent of any fixed threshold. EER also scans thresholds. ACC, balanced ACC, real recall, and fake recall depend on the chosen threshold.
 
 DFD is highly imbalanced, with fake samples roughly ten times more frequent than real samples. Ordinary accuracy can therefore be misleading: an almost-always-fake threshold can reach high ordinary ACC while giving real recall near zero. Use AUC and balanced accuracy for DFD analysis.
+
+Use AUC and balanced accuracy for DFD analysis.

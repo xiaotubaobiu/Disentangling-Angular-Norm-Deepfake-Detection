@@ -8,17 +8,17 @@ from pathlib import Path
 
 BACKBONES = {
     "efficientnet": {
-        "base_config": "experiments/configs/efficientnet_base.yaml",
+        "base_config": "configs/efficientnet_base.yaml",
         "model_name": "efficientnet_b0",
         "lr": None,
     },
     "dinov2": {
-        "base_config": "experiments/configs/dinov2_base.yaml",
+        "base_config": "configs/dinov2_base.yaml",
         "model_name": "dinov2_vitb14",
         "lr": None,
     },
     "xception": {
-        "base_config": "experiments/configs/xception_base.yaml",
+        "base_config": "configs/xception_base.yaml",
         "model_name": "xception",
         "lr": None,
     },
@@ -53,7 +53,7 @@ def main():
     parser.add_argument("--dinov2-lr", type=float, required=True)
     parser.add_argument("--xception-lr", type=float, required=True)
     parser.add_argument("--run", action="store_true", help="Launch training (otherwise just generate configs)")
-    parser.add_argument("--config-dir", default="experiments/configs/multibb")
+    parser.add_argument("--config-dir", default="outputs/configs/multibb")
     args = parser.parse_args()
 
     BACKBONES["efficientnet"]["lr"] = args.efficientnet_lr
