@@ -34,12 +34,22 @@ def load_frame_subset(parquet_path, train_mode=None, infer_mode=None,
     return df.query(" and ".join(where))
 
 def dedup_reals(df):
+    """Drop duplicated real frames (parquet replicates real rows per method).
+
+    Dedup key includes `infer_mode` when present: Q1 loads multiple infer_modes
+    at once (raw + direction) and needs to keep one real row PER infer_mode so
+    the per-frame raw/direction merge stays intact, while still collapsing the
+    cross-method real copies within each infer_mode. For single-infer_mode
+    loaders (Q2/Q3) the extra key is a no-op.
+    """
     if df.empty:
         return df
     df = add_canonical_keys(df)
     real = df[df["label"] == 0]
     fake = df[df["label"] == 1]
-    real = real.drop_duplicates(subset=["domain", "source_video_id",
-                                        "canonical_frame_id"]).copy()
+    key = ["domain", "source_video_id", "canonical_frame_id"]
+    if "infer_mode" in real.columns:
+        key.append("infer_mode")
+    real = real.drop_duplicates(subset=key).copy()
     out = pd.concat([real, fake], ignore_index=True)
     return out
