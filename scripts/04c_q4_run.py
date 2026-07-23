@@ -106,6 +106,10 @@ def build_groups(domain: str, n_groups: int, seed: int) -> dict:
             str(ROOT / CFG.parquet["frame"]),
             train_mode="raw",
             infer_mode="raw",
+            # Group membership is keyed by image_path; all raw-trained
+            # checkpoints share the same frame universe, so grouping is
+            # checkpoint-independent by construction -> clip/seed_42 is
+            # sufficient (and cheapest) to enumerate the frame set here.
             backbones=["clip"],
             seeds=[42],
             domains=[domain],

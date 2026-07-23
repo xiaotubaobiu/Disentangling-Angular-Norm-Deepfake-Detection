@@ -322,6 +322,33 @@ def _decision_block():
     return L
 
 
+def _provenance_block():
+    """Accepted deviations from spec, documented for citability/honesty."""
+    L=["## 偏差与局限(Provenance)",""]
+    L.append("> 本节记录 4 项对 spec 的已接受偏离与已知局限。所有偏离均不影响宏观结论。")
+    L.append("")
+    L.append("- **Q1 §4.2 video-balanced frame 采样口径**:spec 要求两套口径"
+             "(native frame / video-balanced)。实现中 `view==\"frame\"`=native(全量帧),"
+             "`view==\"video\"`=spec §4.3 的 mean-sigmoid 视频聚合。§4.2 的"
+             "「先等权抽视频再等帧采样」独立口径未单独输出"
+             "(其函数 `sample_pairs_video_balanced` 仅在 Q3 equalized 中使用)。"
+             "结论不受影响(video 视图已含长视频主导检验的等价信息),但记录此合并。")
+    L.append("- **Q3 定向用 FF++ test**:parquet 的 ffpp 仅为 FF++ test split"
+             "(train/val 特征未落盘),无法按 spec §6.1 回退到 train。"
+             "改为用 FF++ test 做 1-bit in-domain 符号选择并显著标注。"
+             "这是对 spec 回退规则的已接受偏离(1-bit,不影响 macro/video/equalized 结论)。")
+    L.append("- **Q4 一致性门控阈值**:gate 实际 `tol=1e-3`"
+             "(spec §7.1 step2 仅要求「≈0」);实测相对误差 ~1e-6,远低于阈值。"
+             "记录阈值为 1e-3(非 1e-6)。")
+    L.append("- **Q4 多 seed 稳定性未测**:Q4 smoke(clip/dinov2/efficientnet × seed42)"
+             "在 6/6 组合为负,按 spec 的 smoke-first 硬门跳过了 15-checkpoint 全量抽取,"
+             "故 §7.6 判据②(多 seed 稳定性)未形式化测试。「不支持」结论依据判据①"
+             "(6/6 same≤mismatch)、④(CDF 衰减)与 residual/PCA 诊断,已充分;"
+             "但多 seed 稳定性留作后续(见 next_step)。")
+    L.append("")
+    return L
+
+
 def final():
     midterm()
     q1=_read("Q1_rank_flip.csv"); disc=_read("Q1_flip_dissection.csv")
@@ -335,6 +362,7 @@ def final():
     L += _q3_block(q3, q3m)
     L += _q4_block()
     L += _decision_block()
+    L += _provenance_block()
     (REP/"four_questions_final_report.md").write_text("\n".join(L))
     print("wrote", REP/"four_questions_final_report.md")
 
@@ -386,6 +414,9 @@ def _write_next_step(q1, disc, q3):
              "是否在 direction/length-trained checkpoint 上复现;"
              "(b) 模长漂移的图像因素——哪些图像因素驱动 ‖z‖,是否与伪造痕迹解耦。"
              "两者均需重训,不在本推进路径内。")
+    L.append("- **Q4 多 seed 稳定性**:smoke 负向后已按硬门停跑全量;"
+             "若需形式化满足 §7.6 判据②,可对单 backbone 跑 5 seed 的 `--full` 复核"
+             "(预期确认负向)。")
     L.append("")
     (REP/"next_step_recommendation.md").write_text("\n".join(L))
 

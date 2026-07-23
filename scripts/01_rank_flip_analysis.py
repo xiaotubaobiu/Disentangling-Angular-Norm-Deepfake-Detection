@@ -111,7 +111,6 @@ def dissect_and_gamma(bb, sd, fpath):
             wu, bb_ = recover_wdotu_b(df_w.s_raw.to_numpy(), df_w.s_dir.to_numpy(),
                                       df_w.feature_norm.to_numpy())
             # gamma curve at VIDEO level (mean sigmoid)
-            vt0 = _vid_table(df_w, "s_raw", "feature_norm")  # template for video grouping
             best_g, best_a = None, -1.0
             for g in CFG.gamma_grid:
                 s = score_gamma(wu, bb_, df_w.feature_norm.to_numpy(), g)  # per-frame signed

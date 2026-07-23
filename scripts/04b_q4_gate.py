@@ -35,15 +35,15 @@ if str(ROOT / "src") not in sys.path:
     sys.path.insert(0, str(ROOT / "src"))
 
 from deepfake_detection.diagnosis.checkpoint_index import discover_checkpoints
+from deepfake_detection.study.config import load_config
 from deepfake_detection.study.q4_extract import (
     consistency_check,
     extract_checkpoint,
     signed_head_from_model,
 )
 
-PARQUET_PATH = Path(
-    "outputs/frame_midt_diag/parallel_20260721_213914/per_frame_scores.parquet"
-)
+CFG = load_config(ROOT / "configs" / "study_config.yaml")
+PARQUET_PATH = ROOT / CFG.parquet["frame"]
 REPORT_PATH = Path("reports/Q4_consistency_gate.md")
 CKPT_BACKBONE = "clip"
 CKPT_MODE = "raw"
