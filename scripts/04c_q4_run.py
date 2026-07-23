@@ -390,7 +390,7 @@ def method_cosine_matrix(method_pairs: dict) -> tuple[list, np.ndarray]:
 # --------------------------------------------------------------------------- #
 # Plots
 # --------------------------------------------------------------------------- #
-def _plots(rows, lofo_rows, pca_per_run, method_matrix_runs):
+def _plots(rows, lofo_rows, pca_per_run, method_matrix_runs, smoke_suffix=""):
     import matplotlib
 
     matplotlib.use("Agg")
@@ -400,6 +400,11 @@ def _plots(rows, lofo_rows, pca_per_run, method_matrix_runs):
         return
     df = pd.DataFrame(rows)
     labels = [f"{r['backbone']}\n{r['domain']}" for _, r in df.iterrows()]
+
+    # In smoke mode, figure basenames are prefixed with the backbone (passed in
+    # as smoke_suffix == "__<backbone>") so backbones do not overwrite each
+    # other's figures. --full (smoke_suffix="") keeps the canonical names.
+    sf = smoke_suffix
 
     # 1. same-frame vs random alignment
     fig, ax = plt.subplots(figsize=(7, 5))
@@ -416,7 +421,7 @@ def _plots(rows, lofo_rows, pca_per_run, method_matrix_runs):
     ax.set_title("Q4: same-frame vs random alignment")
     ax.legend(fontsize=8)
     fig.tight_layout()
-    fig.savefig(FIG / "Q4_same_frame_vs_random_alignment.png", dpi=120)
+    fig.savefig(FIG / f"Q4_same_frame_vs_random_alignment{sf}.png", dpi=120)
     plt.close("all")
 
     # 2. residual after projecting out classifier w
@@ -432,7 +437,7 @@ def _plots(rows, lofo_rows, pca_per_run, method_matrix_runs):
     ax.set_title("Q4: residual common-direction after projecting out classifier w")
     ax.legend(fontsize=8)
     fig.tight_layout()
-    fig.savefig(FIG / "Q4_residual_after_classifier_proj.png", dpi=120)
+    fig.savefig(FIG / f"Q4_residual_after_classifier_proj{sf}.png", dpi=120)
     plt.close("all")
 
     # 3. PCA explained variance
@@ -452,7 +457,7 @@ def _plots(rows, lofo_rows, pca_per_run, method_matrix_runs):
     ax.set_title("Q4: PCA of chord displacement matrix")
     ax.legend(fontsize=8)
     fig.tight_layout()
-    fig.savefig(FIG / "Q4_PCA_explained_variance.png", dpi=120)
+    fig.savefig(FIG / f"Q4_PCA_explained_variance{sf}.png", dpi=120)
     plt.close("all")
 
     # 4. leave-one-method-out
@@ -474,7 +479,7 @@ def _plots(rows, lofo_rows, pca_per_run, method_matrix_runs):
         ax.legend(fontsize=7)
         plt.xticks(rotation=30, ha="right")
         fig.tight_layout()
-        fig.savefig(FIG / "Q4_leave_one_method_out.png", dpi=120)
+        fig.savefig(FIG / f"Q4_leave_one_method_out{sf}.png", dpi=120)
         plt.close("all")
 
     # 5. per-method cosine matrix (one per run; suffix by checkpoint/domain)
@@ -499,7 +504,7 @@ def _plots(rows, lofo_rows, pca_per_run, method_matrix_runs):
         fig.colorbar(im, ax=ax, fraction=0.046, pad=0.04)
         fig.tight_layout()
         safe = f"{ck}__{dom}"
-        fig.savefig(FIG / f"Q4_method_cosine_matrix__{safe}.png", dpi=120)
+        fig.savefig(FIG / f"Q4_method_cosine_matrix__{safe}{sf}.png", dpi=120)
         plt.close("all")
 
 
@@ -510,6 +515,12 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--smoke", action="store_true")
     ap.add_argument("--full", action="store_true")
+    ap.add_argument(
+        "--backbone",
+        default="clip",
+        help="backbone to evaluate in --smoke mode (clip/dinov2/efficientnet); "
+             "ignored in --full (all backbones/seeds)",
+    )
     ap.add_argument("--n-groups", type=int, default=None,
                     help="override groups-per-domain sample size")
     a = ap.parse_args()
@@ -519,14 +530,19 @@ def main():
 
     if a.smoke:
         cks = discover_checkpoints(
-            CFG.ckpt_root, modes=["raw"], backbones=["clip"], seeds=[42]
+            CFG.ckpt_root, modes=["raw"], backbones=[a.backbone], seeds=[42]
         )
         ngrp = a.n_groups if a.n_groups is not None else 400
         domains = list(CFG.domains)
+        # In smoke mode, scope output artifacts to the chosen backbone so they
+        # do not collide with / clobber other backbones' smoke results (clip is
+        # already in the canonical-named files). --full keeps canonical names.
+        smoke_suffix = f"__{a.backbone}"
     else:
         cks = discover_checkpoints(CFG.ckpt_root, modes=["raw"])
         ngrp = a.n_groups if a.n_groups is not None else CFG.q4["groups_target"]
         domains = list(CFG.domains)
+        smoke_suffix = ""
 
     if not cks:
         raise RuntimeError("No checkpoints discovered.")
@@ -572,12 +588,16 @@ def main():
             )
 
     # ---- write tables ------------------------------------------------------ #
+    # In smoke mode, all artifacts are scoped per-backbone (suffix) so backbones
+    # do not clobber each other. --full keeps the canonical names.
     align_df = pd.DataFrame(rows)
-    align_df.to_csv(TAB / "Q4_multiforgery_alignment.csv", index=False)
+    align_df.to_csv(
+        TAB / f"Q4_multiforgery_alignment{smoke_suffix}.csv", index=False
+    )
 
     # LOFO table: long format with per-method rows.
     pd.DataFrame(lofo_rows).to_csv(
-        TAB / "Q4_leave_one_method_out.csv", index=False
+        TAB / f"Q4_leave_one_method_out{smoke_suffix}.csv", index=False
     )
 
     # Per-method cosine matrix as a tidy long table (all method pairs, all runs).
@@ -594,10 +614,10 @@ def main():
                         )
                     )
     pd.DataFrame(mat_rows).to_csv(
-        TAB / "Q4_method_cosine_matrix.csv", index=False
+        TAB / f"Q4_method_cosine_matrix{smoke_suffix}.csv", index=False
     )
 
-    _plots(rows, lofo_rows, pca_per_run, method_matrix_runs)
+    _plots(rows, lofo_rows, pca_per_run, method_matrix_runs, smoke_suffix=smoke_suffix)
 
     # ---- console summary --------------------------------------------------- #
     print("\n" + "=" * 78, flush=True)
@@ -610,9 +630,9 @@ def main():
     ]
     print(align_df[show_cols].to_string(index=False, float_format=lambda v: f"{v:.4f}"),
           flush=True)
-    print(f"\n[q4] wrote {TAB/'Q4_multiforgery_alignment.csv'}", flush=True)
-    print(f"[q4] wrote {TAB/'Q4_leave_one_method_out.csv'}", flush=True)
-    print(f"[q4] wrote {TAB/'Q4_method_cosine_matrix.csv'}", flush=True)
+    print(f"\n[q4] wrote {TAB/f'Q4_multiforgery_alignment{smoke_suffix}.csv'}", flush=True)
+    print(f"[q4] wrote {TAB/f'Q4_leave_one_method_out{smoke_suffix}.csv'}", flush=True)
+    print(f"[q4] wrote {TAB/f'Q4_method_cosine_matrix{smoke_suffix}.csv'}", flush=True)
 
 
 if __name__ == "__main__":
