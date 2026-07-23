@@ -19,6 +19,20 @@ class StudyConfig:
     gamma_grid: list = field(default_factory=list)
     identity_tol: float = 1e-4
 
+    @property
+    def parquet(self) -> dict:
+        # Convenience accessor so plan scripts can write CFG.parquet["frame"];
+        # the parsed YAML keeps nested blocks under `raw`.
+        return self.raw.get("parquet", {})
+
+    @property
+    def ckpt_root(self) -> str:
+        return self.raw.get("ckpt_root", "experiments/final_results/checkpoints")
+
+    @property
+    def train_mode_primary(self) -> str:
+        return self.raw.get("train_mode_primary", "raw")
+
 def load_config(path) -> StudyConfig:
     path = Path(path)
     with open(path) as f:
