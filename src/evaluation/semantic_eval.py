@@ -51,7 +51,7 @@ GROUP_KEYS = (
     "variant_id",
     "question_id",
     "question_yes_means",
-    "candidate_order",
+    "question_pair_id",
     "method_id",
     "video_id",
     "video_key",
@@ -187,6 +187,7 @@ def frame_semantic_rows(
     task_ids = values("task_id", "")
     variants = values("variant_id", "")
     question_ids = values("question_id", "")
+    question_pair_ids = values("question_pair_id", "")
     polarities = values("question_yes_means_name", "")
     families = values("method_family", "")
     targets = values("target_semantic", "")
@@ -221,6 +222,7 @@ def frame_semantic_rows(
             "variant_id": str(variants[index]),
             "question_id": str(question_ids[index]),
             "question_yes_means": str(polarities[index]),
+            "question_pair_id": str(question_pair_ids[index]),
             "candidate_order": "|".join(ordered_semantics),
             "sample_id": str(sample_ids[index]),
             "image_path": str(image_paths[index]),
@@ -301,6 +303,7 @@ def _with_aggregation_defaults(rows: list[dict]) -> pd.DataFrame:
         "variant_id": "",
         "question_id": "",
         "question_yes_means": "",
+        "question_pair_id": "",
         "candidate_order": "",
         "method_family": "",
         "target_semantic": "",
@@ -322,7 +325,7 @@ def _with_aggregation_defaults(rows: list[dict]) -> pd.DataFrame:
 
 
 def _attach_paired_t4_fake_probabilities(frame: pd.DataFrame) -> None:
-    """Attach max(swap yes, reenact yes) only to correctly aligned T4 pairs."""
+    """Validate and attach one exact swap/reenact pair per T4 frame."""
     selected = frame["task_id"].astype(str) == "T4"
     if not selected.any():
         return
@@ -335,14 +338,25 @@ def _attach_paired_t4_fake_probabilities(frame: pd.DataFrame) -> None:
         "method_id",
         "video_id",
         "video_key",
+        "question_pair_id",
     ]
     for _, pair in frame.loc[selected].groupby(pair_keys, sort=False, dropna=False):
-        families = set(pair["question_yes_means"].astype(str))
-        if not {"swap", "reenact"} <= families:
-            continue
-        swap_yes = pair.loc[pair["question_yes_means"] == "swap", "p_yes"]
-        reenact_yes = pair.loc[pair["question_yes_means"] == "reenact", "p_yes"]
-        probability = max(float(swap_yes.max()), float(reenact_yes.max()))
+        if len(pair) == 1:
+            raise ValueError("incomplete T4 question pair")
+        polarities = pair["question_yes_means"].astype(str).tolist()
+        if (
+            len(pair) != 2
+            or sorted(polarities) != ["reenact", "swap"]
+            or pair["question_id"].astype(str).nunique() != 2
+        ):
+            raise ValueError("duplicate or ambiguous T4 question pair")
+        swap_yes = float(
+            pair.loc[pair["question_yes_means"] == "swap", "p_yes"].iloc[0]
+        )
+        reenact_yes = float(
+            pair.loc[pair["question_yes_means"] == "reenact", "p_yes"].iloc[0]
+        )
+        probability = max(swap_yes, reenact_yes)
         frame.loc[pair.index, "prob_fake"] = probability
 
 
@@ -374,7 +388,10 @@ def aggregate_semantic_videos(rows: Iterable[dict] | pd.DataFrame) -> pd.DataFra
     expected_keys = frame["method_id"].astype(str) + "::" + frame["video_id"].astype(str)
     if not (frame["video_key"].astype(str) == expected_keys).all():
         raise ValueError("video_key must equal method_id::video_id")
-    video_identity = list(SEMANTIC_CONDITION_KEYS) + [
+    video_identity = [
+        "seed",
+        "domain",
+        "condition",
         "method_id",
         "video_id",
         "video_key",
@@ -437,12 +454,13 @@ def _classification_metrics(
     labels: np.ndarray, predictions: np.ndarray, *, macro_name: bool = False
 ) -> dict[str, float]:
     prefix = "macro_" if macro_name else ""
+    f1_average = "macro" if macro_name else "binary"
     return {
         f"{prefix}balanced_accuracy": float(
             balanced_accuracy_score(labels, predictions)
         ),
         f"{prefix}f1": float(
-            f1_score(labels, predictions, average="macro", zero_division=0)
+            f1_score(labels, predictions, average=f1_average, zero_division=0)
         ),
     }
 

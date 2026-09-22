@@ -143,6 +143,7 @@ class FixedH1Dataset(Dataset):
                 "question_id": "fixed_h1_q",
                 "question_yes_means": torch.tensor(-1, dtype=torch.long),
                 "question_yes_means_name": "",
+                "question_pair_id": "",
                 "candidate_text_ids": torch.tensor(
                     [self.real_text_id, self.fake_text_id, -1], dtype=torch.long
                 ),
@@ -166,6 +167,74 @@ class FixedH1Dataset(Dataset):
             }
         )
         return sample
+
+
+class PairedT4EvaluationDataset(Dataset):
+    """Expand a semantic suite so every T4 frame has one exact family pair."""
+
+    def __init__(self, semantic_dataset):
+        if getattr(semantic_dataset, "mode", None) != "suite":
+            raise ValueError("paired T4 evaluation requires a suite dataset")
+        self.base_dataset = semantic_dataset.base_dataset
+        self.sampler = semantic_dataset.sampler
+        self.tasks = semantic_dataset.tasks
+        self.split = semantic_dataset.split
+        self.epoch = semantic_dataset.epoch
+
+        t4_questions = {}
+        if "T4" in self.tasks:
+            language = self.sampler.language_bank.task("T4", self.split)
+            for polarity in ("swap", "reenact"):
+                matching = tuple(
+                    question
+                    for question in language.questions
+                    if question.yes_means == polarity
+                )
+                if len(matching) != 1:
+                    raise ValueError(
+                        f"T4 {self.split} suite requires exactly one {polarity} question"
+                    )
+                t4_questions[polarity] = matching[0].name
+
+        slots = []
+        for task_id in self.tasks:
+            if task_id == "T4":
+                slots.extend(
+                    (
+                        ("T4", t4_questions["swap"]),
+                        ("T4", t4_questions["reenact"]),
+                    )
+                )
+            else:
+                slots.append((task_id, None))
+        self.slots = tuple(slots)
+
+    def __len__(self):
+        return len(self.base_dataset) * len(self.slots)
+
+    def __getitem__(self, index):
+        base_index, slot_index = divmod(index, len(self.slots))
+        task_id, question_id = self.slots[slot_index]
+        rendered = self.sampler.render(
+            self.base_dataset[base_index],
+            task_id,
+            self.split,
+            self.epoch,
+            force_question=question_id,
+        )
+        if task_id == "T4":
+            _, separator, candidate_set_id = rendered["variant_id"].partition("::")
+            if not separator or not candidate_set_id:
+                raise ValueError("T4 variant_id does not identify its candidate set")
+            rendered["question_pair_id"] = (
+                f"T4::{self.split}::{candidate_set_id}"
+            )
+        else:
+            rendered["question_pair_id"] = ""
+        return rendered
+
+    def set_epoch(self, epoch: int) -> None:
+        self.epoch = int(epoch)
 
 
 def _plain_loader(cfg: dict, dataset, distributed: bool) -> DataLoader:
@@ -209,13 +278,18 @@ def build_condition_loader(
     if spec.fixed_h1:
         dataset = FixedH1Dataset(build_eval_dataset(cfg, domain), language_bank)
         return _plain_loader(cfg, dataset, distributed)
-    return build_semantic_eval_loader(
+    ordinary_loader = build_semantic_eval_loader(
         cfg,
         language_bank,
         domain=domain,
-        distributed=distributed,
+        distributed=False,
         split=spec.language_split,
         tasks=condition_tasks(domain, condition),
+    )
+    return _plain_loader(
+        cfg,
+        PairedT4EvaluationDataset(ordinary_loader.dataset),
+        distributed,
     )
 
 

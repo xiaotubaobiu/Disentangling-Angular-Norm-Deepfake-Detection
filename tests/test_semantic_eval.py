@@ -6,8 +6,11 @@ from pathlib import Path
 import pandas as pd
 import pytest
 import torch
+from torch.utils.data import default_collate
 
+from data.semantic_dataset import SemanticDataset, SemanticTemplateSampler
 from data.semantic_language import SEMANTIC_TO_ID
+from data.semantic_language import load_language_bank
 from evaluation.semantic_eval import (
     aggregate_semantic_videos,
     canonical_fake_probability,
@@ -23,6 +26,18 @@ SCRIPT = (
     Path(__file__).parents[1]
     / "experiments/2026-09-22_semantic_visual_jev_e2/scripts/evaluate_semantic.py"
 )
+LANGUAGE_BANK = (
+    Path(__file__).parents[1]
+    / "experiments/2026-09-22_semantic_visual_jev_e2/configs/language_bank.yaml"
+)
+
+
+def _load_evaluator_script():
+    spec = importlib.util.spec_from_file_location("evaluate_semantic", SCRIPT)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
 
 
 def _frame_row(
@@ -222,6 +237,15 @@ def test_video_aggregation_rejects_conflicting_labels_for_one_video():
         aggregate_semantic_videos([first, second])
 
 
+def test_video_aggregation_rejects_cross_variant_physical_label_conflict():
+    first = _frame_row("simswap", "001", 1, 1, 0.9, variant_id="v1")
+    second = _frame_row("simswap", "001", 2, 0, 0.1, variant_id="v2")
+    second.update(task_id="T3", question_id="q2", candidate_order="fake|real")
+
+    with pytest.raises(ValueError, match="conflicting labels"):
+        aggregate_semantic_videos([first, second])
+
+
 def test_video_aggregation_keeps_same_sample_across_variants_distinct():
     first = _frame_row("simswap", "001", 1, 1, 0.9, variant_id="v1")
     second = dict(first, variant_id="v2", p_fake=0.3, prob_fake=0.3)
@@ -230,6 +254,19 @@ def test_video_aggregation_keeps_same_sample_across_variants_distinct():
 
     assert len(videos) == 2
     assert set(videos.variant_id) == {"v1", "v2"}
+
+
+def test_frame_permutations_aggregate_into_one_video_variant():
+    first = _frame_row("simswap", "001", 1, 1, 0.8)
+    second = _frame_row("simswap", "001", 2, 1, 0.2)
+    second["candidate_order"] = "fake|real"
+
+    videos = aggregate_semantic_videos([first, second])
+
+    assert len(videos) == 1
+    assert videos.iloc[0].prob_fake == pytest.approx(0.5)
+    assert videos.iloc[0].num_frames == 2
+    assert "candidate_order" not in videos.columns
 
 
 def test_t4_aggregation_pairs_family_questions_before_fake_probability():
@@ -261,6 +298,108 @@ def test_t4_aggregation_pairs_family_questions_before_fake_probability():
 
     assert len(videos) == 2
     assert videos.prob_fake.tolist() == pytest.approx([0.8, 0.8])
+
+
+@pytest.mark.parametrize(
+    ("rows", "message"),
+    [
+        (
+            [
+                dict(
+                    _frame_row("simswap", "001", 0, 1, 0.0, task_id="T4"),
+                    question_yes_means="swap",
+                    question_pair_id="pair-1",
+                    p_yes=0.8,
+                    prob_fake=float("nan"),
+                )
+            ],
+            "incomplete T4 question pair",
+        ),
+        (
+            [
+                dict(
+                    _frame_row("simswap", "001", 0, 1, 0.0, task_id="T4"),
+                    variant_id=f"swap-{index}",
+                    question_id=f"swap-{index}",
+                    question_yes_means="swap",
+                    question_pair_id="pair-1",
+                    p_yes=0.8,
+                    prob_fake=float("nan"),
+                )
+                for index in range(2)
+            ],
+            "duplicate or ambiguous T4 question pair",
+        ),
+    ],
+)
+def test_t4_aggregation_rejects_incomplete_or_duplicate_pairs(rows, message):
+    with pytest.raises(ValueError, match=message):
+        aggregate_semantic_videos(rows)
+
+
+def test_real_evaluator_expands_and_pairs_both_t4_questions():
+    script = _load_evaluator_script()
+    bank = load_language_bank(LANGUAGE_BANK)
+
+    class OneSampleDataset:
+        def __len__(self):
+            return 1
+
+        def __getitem__(self, index):
+            assert index == 0
+            return {
+                "image": torch.zeros(3, 2, 2),
+                "label": torch.tensor(1),
+                "method_id": "simswap",
+                "video_id": "001",
+                "video_key": "simswap::001",
+                "image_path": "/simswap/001/0.png",
+                "sample_id": "simswap-001-0",
+            }
+
+    ordinary = SemanticDataset(
+        OneSampleDataset(),
+        SemanticTemplateSampler(bank, seed=42),
+        mode="suite",
+        tasks=("T4",),
+        split="heldout",
+    )
+    expanded = script.PairedT4EvaluationDataset(ordinary)
+    rendered = [expanded[index] for index in range(len(expanded))]
+
+    assert len(rendered) == 2
+    assert {row["question_yes_means_name"] for row in rendered} == {
+        "swap",
+        "reenact",
+    }
+    assert len({row["question_pair_id"] for row in rendered}) == 1
+    assert len({row["question_id"] for row in rendered}) == 2
+
+    batch = default_collate(rendered)
+    probabilities = torch.zeros((2, 3))
+    for index, yes_probability in enumerate((0.8, 0.1)):
+        yes_column = int(
+            torch.where(
+                batch["candidate_semantic_ids"][index] == SEMANTIC_TO_ID["yes"]
+            )[0].item()
+        )
+        no_column = int(
+            torch.where(
+                batch["candidate_semantic_ids"][index] == SEMANTIC_TO_ID["no"]
+            )[0].item()
+        )
+        probabilities[index, yes_column] = yes_probability
+        probabilities[index, no_column] = 1.0 - yes_probability
+    frame_rows = frame_semantic_rows(
+        batch,
+        probabilities,
+        {"condition": "heldout", "seed": 42, "domain": "ffpp"},
+    )
+    videos = aggregate_semantic_videos(frame_rows)
+
+    assert len(videos) == 2
+    assert videos.prob_fake.tolist() == pytest.approx([0.8, 0.8])
+    assert videos.prob_fake.notna().all()
 
 
 def test_distributed_padding_is_deduplicated_only_when_rows_match():
@@ -312,6 +451,21 @@ def test_binary_and_multiclass_metrics_are_normalized_and_sliced():
     assert t5_overall.loc["macro_f1", "value"] == pytest.approx(1.0)
 
 
+def test_t2_f1_is_binary_positive_class_not_macro_average():
+    rows = [
+        dict(
+            _frame_row("mixed", str(index), 0, label, 0.9, task_id="T2"),
+            question_yes_means="fake",
+        )
+        for index, label in enumerate((1, 1, 1, 1, 0))
+    ]
+
+    metrics = compute_task_metrics(pd.DataFrame(rows))
+    overall = metrics[metrics.method_id == "__all__"].set_index("metric")
+
+    assert overall.loc["f1", "value"] == pytest.approx(8.0 / 9.0)
+
+
 def test_dfd_metrics_exclude_t4_and_t5():
     for task_id in ("T1", "T2", "T3"):
         validate_domain_task("dfd", task_id)
@@ -321,10 +475,7 @@ def test_dfd_metrics_exclude_t4_and_t5():
 
 
 def test_evaluator_manifest_gate_and_split_scope():
-    spec = importlib.util.spec_from_file_location("evaluate_semantic", SCRIPT)
-    module = importlib.util.module_from_spec(spec)
-    assert spec.loader is not None
-    spec.loader.exec_module(module)
+    module = _load_evaluator_script()
 
     assert module.required_text_splits("fixed_h1") == ("fixed",)
     assert module.required_text_splits("seen") == ("train",)
