@@ -145,6 +145,13 @@ def _validate_schema(raw: dict[str, Any]) -> None:
                 if reference not in answer_sets:
                     raise ValueError(f"unknown task reference: {reference}")
             candidate_sets = language.get("candidate_sets", [])
+            if task_id in {"T1", "T3"}:
+                for candidate_set in candidate_sets:
+                    options = candidate_set.get("options", [])
+                    if len(options) != 2 or {_semantic(item.get("semantic")) for item in options} != {"real", "fake"}:
+                        raise ValueError(
+                            f"non-binary {task_id} set: {candidate_set.get('id')}"
+                        )
             if task_id == "T5":
                 for candidate_set in candidate_sets:
                     options = candidate_set.get("options", [])

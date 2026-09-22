@@ -1,6 +1,7 @@
 from pathlib import Path
 
 import pytest
+import yaml
 
 from data.semantic_language import SEMANTIC_TO_ID, load_language_bank
 
@@ -35,4 +36,21 @@ def test_duplicate_text_or_id_is_rejected(tmp_path):
         "tasks: {}\n"
     )
     with pytest.raises(ValueError, match="duplicate"):
+        load_language_bank(path)
+
+
+def test_t1_candidate_sets_reject_a_third_option(tmp_path):
+    raw = yaml.safe_load(MANIFEST.read_text())
+    raw["tasks"]["T1"]["train"]["candidate_sets"][0]["options"].append(
+        {
+            "id": "t1_third_train",
+            "split": "train",
+            "kind": "candidate",
+            "semantic": "camera",
+            "text": "a third, invalid authenticity option.",
+        }
+    )
+    path = tmp_path / "three_t1_candidates.yaml"
+    path.write_text(yaml.safe_dump(raw))
+    with pytest.raises(ValueError, match="non-binary"):
         load_language_bank(path)
