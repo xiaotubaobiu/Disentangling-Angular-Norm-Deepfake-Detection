@@ -29,6 +29,38 @@ TRAIN_SCRIPT = REPO / (
 LOCKED_CONFIG = REPO / (
     "experiments/2026-09-22_semantic_visual_jev_e2/configs/semantic_jev.yaml"
 )
+EXPECTED_H1_AUGMENT = {
+    "pipeline": "build_rgb_augment",
+    "transforms": [
+        {"name": "HorizontalFlip", "p": 0.5},
+        {"name": "Rotate", "p": 0.5, "limit": [-10, 10]},
+        {"name": "GaussianBlur", "p": 0.5, "blur_limit": [3, 7]},
+        {
+            "name": "OneOf",
+            "p": 0.5,
+            "transforms": [
+                {
+                    "name": "RandomBrightnessContrast",
+                    "brightness_limit": 0.1,
+                    "contrast_limit": 0.1,
+                },
+                {"name": "FancyPCA"},
+                {"name": "HueSaturationValue"},
+            ],
+        },
+        {
+            "name": "ImageCompression",
+            "p": 0.5,
+            "quality_range": [40, 100],
+        },
+    ],
+    "normalization": {
+        "name": "CLIP",
+        "selected_by": "clip_model",
+        "mean": [0.48145466, 0.45762756, 0.40821073],
+        "std": [0.26862954, 0.26130258, 0.27577711],
+    },
+}
 
 
 def _load_train_script():
@@ -228,7 +260,7 @@ def test_train_epoch_updates_only_trainable_decision_parameters(toy_model, looku
     frozen_before = copy.deepcopy(toy_model.clip.state_dict())
     decision_before = toy_model.decision.weight.detach().clone()
     optimizer = torch.optim.AdamW(trainable_parameters(toy_model), lr=0.1)
-    scaler = torch.amp.GradScaler("cpu", enabled=False)
+    scaler = torch.cuda.amp.GradScaler(enabled=False)
 
     loss = run_semantic_train_epoch(
         toy_model,
@@ -295,6 +327,27 @@ def test_max_batch_flags_are_rejected_outside_smoke():
         ]
     )
     assert (args.seed, args.max_train_batches, args.max_val_batches) == (7, 2, 3)
+
+
+def test_grad_scaler_uses_pytorch_22_cuda_amp_api_and_disables_on_cpu(
+    monkeypatch,
+):
+    script = _load_train_script()
+    monkeypatch.delattr(script.torch.amp, "GradScaler", raising=False)
+    received = []
+
+    def pinned_grad_scaler(*, enabled):
+        received.append(enabled)
+        return "pinned-scaler"
+
+    monkeypatch.setattr(
+        script.torch.cuda.amp, "GradScaler", pinned_grad_scaler
+    )
+
+    scaler = script.build_grad_scaler(torch.device("cpu"), precision="amp")
+
+    assert scaler == "pinned-scaler"
+    assert received == [False]
 
 
 def test_reportable_checkpoint_path_is_deterministic_and_refuses_overwrite(
@@ -429,6 +482,25 @@ def test_checkpoint_contains_ema_model_and_required_provenance(toy_model):
     assert payload["val_seen_ce"] == 0.125
 
 
+def test_checked_in_augmentation_matches_effective_h1_pipeline():
+    script = _load_train_script()
+    cfg = yaml.safe_load(LOCKED_CONFIG.read_text())
+
+    script.validate_h1_augment_policy(cfg)
+
+    assert cfg["augment"] == EXPECTED_H1_AUGMENT
+
+
+def test_augmentation_drift_is_rejected_before_training():
+    script = _load_train_script()
+    cfg = yaml.safe_load(LOCKED_CONFIG.read_text())
+    cfg["augment"] = copy.deepcopy(EXPECTED_H1_AUGMENT)
+    cfg["augment"]["transforms"][4]["p"] = 0.2
+
+    with pytest.raises(ValueError, match="effective H1 augmentation"):
+        script.validate_h1_augment_policy(cfg)
+
+
 def test_locked_configuration_matches_accepted_e2_protocol():
     expected = {
         "experiment_name": "e2_semantic_visual_jev",
@@ -440,17 +512,7 @@ def test_locked_configuration_matches_accepted_e2_protocol():
             "frames_per_video": 8,
             "image_size": 224,
         },
-        "augment": {
-            "horizontal_flip_p": 0.5,
-            "rotate_p": 0.5,
-            "rotate_limit": 10,
-            "brightness_contrast_p": 0.5,
-            "brightness_limit": 0.1,
-            "contrast_limit": 0.1,
-            "compression_p": 0.2,
-            "compression_quality_lower": 40,
-            "compression_quality_upper": 100,
-        },
+        "augment": EXPECTED_H1_AUGMENT,
         "language": {
             "manifest": "experiments/2026-09-22_semantic_visual_jev_e2/configs/language_bank.yaml",
             "train_tasks": ["T1", "T2", "T3", "T4", "T5"],

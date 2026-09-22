@@ -41,6 +41,40 @@ from models.clip_semantic_jev import EncodedTextLookup
 from models.factory import build_model
 
 
+EFFECTIVE_H1_AUGMENT_POLICY = {
+    "pipeline": "build_rgb_augment",
+    "transforms": [
+        {"name": "HorizontalFlip", "p": 0.5},
+        {"name": "Rotate", "p": 0.5, "limit": [-10, 10]},
+        {"name": "GaussianBlur", "p": 0.5, "blur_limit": [3, 7]},
+        {
+            "name": "OneOf",
+            "p": 0.5,
+            "transforms": [
+                {
+                    "name": "RandomBrightnessContrast",
+                    "brightness_limit": 0.1,
+                    "contrast_limit": 0.1,
+                },
+                {"name": "FancyPCA"},
+                {"name": "HueSaturationValue"},
+            ],
+        },
+        {
+            "name": "ImageCompression",
+            "p": 0.5,
+            "quality_range": [40, 100],
+        },
+    ],
+    "normalization": {
+        "name": "CLIP",
+        "selected_by": "clip_model",
+        "mean": [0.48145466, 0.45762756, 0.40821073],
+        "std": [0.26862954, 0.26130258, 0.27577711],
+    },
+}
+
+
 def parse_args(argv=None):
     parser = argparse.ArgumentParser(
         description="Train the locked E2 semantic Visual-Jev model."
@@ -112,6 +146,11 @@ def is_better_seen_ce(val_seen_ce: float, best_seen_ce: float) -> bool:
 
 def effective_epochs(cfg: dict, smoke: bool) -> int:
     return 1 if smoke else int(cfg["train"]["epochs"])
+
+
+def build_grad_scaler(device: torch.device, precision: str):
+    use_amp = device.type == "cuda" and precision == "amp"
+    return torch.cuda.amp.GradScaler(enabled=use_amp)
 
 
 def _raw_model(model):
@@ -193,12 +232,20 @@ def _atomic_save(payload: dict, path: Path) -> None:
 
 
 def _validate_locked_training_contract(cfg: dict, seed: int) -> None:
+    validate_h1_augment_policy(cfg)
     if cfg.get("loss", {}).get("name") != "semantic_cross_entropy":
         raise ValueError("E2 training permits semantic_cross_entropy only")
     if cfg.get("model", {}).get("name") != "clip_semantic_jev":
         raise ValueError("E2 training requires clip_semantic_jev")
     if seed not in cfg.get("train", {}).get("seeds", ()):
         raise ValueError(f"seed {seed} is not registered in the locked config")
+
+
+def validate_h1_augment_policy(cfg: dict) -> None:
+    if cfg.get("augment") != EFFECTIVE_H1_AUGMENT_POLICY:
+        raise ValueError(
+            "augment must exactly match the effective H1 augmentation policy"
+        )
 
 
 def main(argv=None) -> int:
@@ -253,11 +300,9 @@ def main(argv=None) -> int:
             epochs,
             cfg["train"]["warmup_epochs"],
         )
-        use_amp = (
-            device.type == "cuda"
-            and cfg["train"].get("precision") == "amp"
+        scaler = build_grad_scaler(
+            device, precision=cfg["train"].get("precision", "amp")
         )
-        scaler = torch.amp.GradScaler(device.type, enabled=use_amp)
         ema = TrainableEMA(model, decay=cfg["train"]["ema_decay"])
 
         train_loader, seen_val_loader = build_training_loaders(
