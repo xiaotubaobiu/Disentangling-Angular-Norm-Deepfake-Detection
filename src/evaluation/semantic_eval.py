@@ -274,7 +274,7 @@ def _equal_values(name: str, left: object, right: object) -> bool:
         pass
     score = (name.startswith("p_") or name.startswith("meaningful_p_")
              or name in {"prob_fake", "meaningful_prob_fake", "meaningful_score",
-                         "control_score", "drop"})
+                         "control_score", "drop", "value"})
     if score and isinstance(left, (int, float, np.number)) and isinstance(right, (int, float, np.number)):
         # One float32 ULP can differ between otherwise identical physical
         # frames classified in different batch shapes on separate ranks.

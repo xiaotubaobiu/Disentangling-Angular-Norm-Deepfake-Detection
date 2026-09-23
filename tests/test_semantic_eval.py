@@ -414,6 +414,17 @@ def test_distributed_padding_is_deduplicated_only_when_rows_match():
         deduplicate_distributed_rows([row, dict(row, label=0)])
 
 
+def test_paired_control_value_allows_float32_duplicate_rounding_but_rejects_real_conflict():
+    row = {**_frame_row("simswap", "001", 1, 1, 0.9),
+           "value": 0.05474621057510376,
+           "metric": "target_probability_drop_diagnostic"}
+    rounded_duplicate = dict(row, value=0.054746270179748535)
+    assert deduplicate_distributed_rows([row, rounded_duplicate]) == [row]
+
+    with pytest.raises(ValueError, match="conflicting distributed rows"):
+        deduplicate_distributed_rows([row, dict(row, value=row["value"] + 1e-3)])
+
+
 def test_binary_and_multiclass_metrics_are_normalized_and_sliced():
     binary_rows = [
         _frame_row("real", "r1", 0, 0, 0.1),
