@@ -1,0 +1,103 @@
+# E2 Semantic Visual-Jev validation
+
+This experiment compares the frozen-vision E2-Semantic decision model with
+the already trained H1-Jev fixed-candidate baseline. The visual frame indexes,
+splits, transforms, and video aggregation are inherited from H1. The frozen
+question/candidate bank is in `configs/language_bank.yaml`; only `train` and
+`fixed` text is encoded during training. Final gate thresholds are implemented
+in `src/evaluation/e2_gates.py`.
+
+Run from `/home/z/project/deepfake_detection`. GPUs 0–3 are reserved for E2;
+do not use GPUs 4–7, which serve another workload.
+
+```bash
+export CUDA_VISIBLE_DEVICES=0,1,2,3
+export OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1
+python experiments/2026-09-22_semantic_visual_jev_e2/scripts/preflight.py \
+  --config experiments/2026-09-22_semantic_visual_jev_e2/configs/semantic_jev.yaml \
+  --output experiments/2026-09-22_semantic_visual_jev_e2/results/preflight.json \
+  --lock-output experiments/2026-09-22_semantic_visual_jev_e2/results/execution_manifest.json
+CUDA_VISIBLE_DEVICES='' pytest -q
+torchrun --standalone --nproc_per_node=4 \
+  experiments/2026-09-22_semantic_visual_jev_e2/scripts/train_semantic.py \
+  --config experiments/2026-09-22_semantic_visual_jev_e2/configs/semantic_jev.yaml \
+  --seed 42 --smoke --max-train-batches 4 --max-val-batches 2
+```
+
+The smoke checkpoint lives under `results/training/smoke` and declares
+`smoke: true`, `reportable: false`. Its per-rank diagnostics must show four
+train batches and two validation batches per rank, both two- and
+three-candidate examples, finite losses, and peak CUDA allocation below
+30 GiB. The launcher must exit zero without DataLoader worker errors or
+nondeterministic-kernel warnings.
+
+Prepare one float32 visual feature cache from the same frozen H1 tower. The
+cache records a SHA256 of the visual tensors, preprocessing implementation,
+feature-extraction implementation, Torch version, ordered sample records,
+source-image file stats (size, nanosecond modification
+and change times, inode), and feature array. Each evaluation run verifies those
+fingerprints and rejects a stale cache. This detects ordinary in-place dataset
+changes; it is not a cryptographic digest of all image contents. The cache
+stores no language representations
+and is never used for training augmentation. Some FF++ method indexes repeat
+the exact same real frame: the cache stores one feature per unique physical
+sample ID while retaining the full ordered index fingerprint and all original
+evaluation metadata/rows. Conflicting records sharing an ID are rejected.
+
+```bash
+CUDA_VISIBLE_DEVICES=0 python \
+  experiments/2026-09-22_semantic_visual_jev_e2/scripts/prepare_feature_cache.py \
+  --config experiments/2026-09-22_semantic_visual_jev_e2/configs/semantic_jev.yaml \
+  --output-root experiments/2026-09-22_semantic_visual_jev_e2/results/feature_cache \
+  --domains ffpp cdf dfd
+```
+
+After preflight and smoke verification, train the three fixed seeds. Do not
+pass `--allow-overwrite` for reportable checkpoints. Selection uses only the
+seen-language validation CE.
+
+```bash
+for seed in 42 7 2048; do
+  torchrun --standalone --nproc_per_node=4 \
+    experiments/2026-09-22_semantic_visual_jev_e2/scripts/train_semantic.py \
+    --config experiments/2026-09-22_semantic_visual_jev_e2/configs/semantic_jev.yaml \
+    --seed "$seed"
+done
+```
+
+The H1-Jev comparison root must contain `seed_42`, `seed_7`, and `seed_2048`
+with both `ffpp_video_predictions.csv` and `cdf_video_predictions.csv` in
+each. Recreate these using the unchanged H1 evaluator if necessary. Then run
+all seven E2 conditions for each seed. FF++ and CDF are primary; DFD is
+exploratory for T1–T3 and contributes to G3 if its permutation audit exists.
+Final evaluation rejects smoke/non-reportable checkpoints and records a
+per-seed `run_provenance.json`. A single-device diagnostic evaluation is
+possible only with `--allow-smoke-diagnostic` and cannot enter final gate
+adjudication. The run provenance also binds the evaluator's result-defining
+source bundle and one fixed three-domain cache (mode, absolute root, and
+manifest hashes); the final gate checks these against the live files.
+
+```bash
+for seed in 42 7 2048; do
+  torchrun --standalone --nproc_per_node=4 \
+    experiments/2026-09-22_semantic_visual_jev_e2/scripts/evaluate_semantic.py \
+    --config experiments/2026-09-22_semantic_visual_jev_e2/configs/semantic_jev.yaml \
+    --seed "$seed" \
+    --checkpoint "experiments/2026-09-22_semantic_visual_jev_e2/results/training/seed_${seed}/best_model.pth" \
+    --domains ffpp cdf dfd \
+    --conditions fixed_h1 seen heldout permutation counterfactual meaningless_candidates meaningless_questions \
+    --feature-cache-root experiments/2026-09-22_semantic_visual_jev_e2/results/feature_cache \
+    --output-dir "experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation/seed_${seed}"
+done
+python experiments/2026-09-22_semantic_visual_jev_e2/scripts/assess_gates.py \
+  --config experiments/2026-09-22_semantic_visual_jev_e2/configs/semantic_jev.yaml \
+  --evaluation-root experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation \
+  --baseline-root experiments/2026-09-22_semantic_visual_jev_e2/results/baseline_h1 \
+  --output-root experiments/2026-09-22_semantic_visual_jev_e2/results/summary \
+  --report experiments/2026-09-22_semantic_visual_jev_e2/reports/e2_validation_result.md
+```
+
+`supported` requires all six preregistered gates. A point-threshold failure
+yields `not_supported`; a confidence-bound failure with all point estimates
+passing yields `insufficient_evidence`. Brier score and per-method outputs
+remain diagnostics and do not override the gates.

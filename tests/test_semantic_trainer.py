@@ -277,6 +277,27 @@ def test_train_epoch_updates_only_trainable_decision_parameters(toy_model, looku
     assert not torch.equal(toy_model.decision.weight, decision_before)
 
 
+def test_rank_diagnostics_count_actual_batches_and_candidate_widths(toy_model, lookup):
+    loader = DataLoader(_Rows([
+        _row([1., 0.], [2, 5], 1),
+        _row([0., 1.], [4, 1, 3], 0),
+        _row([1., 1.], [3, 2], 0),
+    ]), batch_size=2, shuffle=False)
+    diagnostics = {"rank": 0, "train_batches": 0, "val_batches": 0,
+                   "candidate_counts": {"2": 0, "3": 0}}
+    optimizer = torch.optim.AdamW(trainable_parameters(toy_model), lr=0.001)
+    scaler = torch.cuda.amp.GradScaler(enabled=False)
+
+    run_semantic_train_epoch(toy_model, loader, optimizer, scaler,
+                             torch.device("cpu"), lookup,
+                             {"train": {"precision": "fp32"}}, diagnostics=diagnostics)
+    run_semantic_val_epoch(toy_model, loader, lookup, torch.device("cpu"),
+                           diagnostics=diagnostics)
+
+    assert diagnostics == {"rank": 0, "train_batches": 2, "val_batches": 2,
+                           "candidate_counts": {"2": 4, "3": 2}}
+
+
 def test_ema_tracks_and_applies_only_trainable_parameters(toy_model):
     ema = TrainableEMA(toy_model, decay=0.5)
     original_clip = copy.deepcopy(toy_model.clip.state_dict())
@@ -366,6 +387,28 @@ def test_reportable_checkpoint_path_is_deterministic_and_refuses_overwrite(
     script.ensure_checkpoint_writable(path, allow_overwrite=True)
 
 
+def test_reportable_runtime_requires_exact_four_authorized_cuda_ranks():
+    script = _load_train_script()
+    script.validate_reportable_runtime(torch.device("cuda:0"), 4, "0,1,2,3", 4)
+    for device, world_size, visible, count in (
+        (torch.device("cpu"), 4, "0,1,2,3", 4),
+        (torch.device("cuda:0"), 1, "0,1,2,3", 4),
+        (torch.device("cuda:0"), 4, "0,1,2", 3),
+        (torch.device("cuda:0"), 4, "4,5,6,7", 4),
+    ):
+        with pytest.raises(ValueError, match="reportable training requires"):
+            script.validate_reportable_runtime(device, world_size, visible, count)
+
+
+def test_rank_zero_checkpoint_failure_is_propagated(monkeypatch):
+    script = _load_train_script()
+    monkeypatch.setattr(script, "is_main_process", lambda: True)
+    with pytest.raises(RuntimeError, match="disk unavailable"):
+        script.synchronized_main_process(
+            lambda: (_ for _ in ()).throw(OSError("disk unavailable"))
+        )
+
+
 def test_epoch_is_set_on_distributed_sampler_and_semantic_dataset():
     script = _load_train_script()
 
@@ -386,6 +429,40 @@ def test_epoch_is_set_on_distributed_sampler_and_semantic_dataset():
 
     assert loader.sampler.epoch == 9
     assert loader.dataset.epoch == 9
+
+
+def test_smoke_batch_limit_exhausts_a_real_bounded_loader():
+    script = _load_train_script()
+    original = DataLoader(_Rows([_row([1., 0.], [1, 2], 0) for _ in range(9)]),
+                          batch_size=2, num_workers=0, shuffle=False)
+
+    bounded = script.bounded_loader(original, 2)
+
+    assert len(bounded) == 2
+    assert [len(batch["target_index"]) for batch in bounded] == [2, 2]
+    assert len(list(bounded)) == 2
+    assert len(original) == 5
+
+
+def test_determinism_uses_math_attention_and_strict_algorithms():
+    script = _load_train_script()
+    old_deterministic = torch.are_deterministic_algorithms_enabled()
+    old_warn = torch.is_deterministic_algorithms_warn_only_enabled()
+    old_backends = (torch.backends.cuda.flash_sdp_enabled(),
+                    torch.backends.cuda.mem_efficient_sdp_enabled(),
+                    torch.backends.cuda.math_sdp_enabled())
+    try:
+        script.configure_determinism(42)
+        assert torch.are_deterministic_algorithms_enabled()
+        assert not torch.is_deterministic_algorithms_warn_only_enabled()
+        assert not torch.backends.cuda.flash_sdp_enabled()
+        assert not torch.backends.cuda.mem_efficient_sdp_enabled()
+        assert torch.backends.cuda.math_sdp_enabled()
+    finally:
+        torch.use_deterministic_algorithms(old_deterministic, warn_only=old_warn)
+        torch.backends.cuda.enable_flash_sdp(old_backends[0])
+        torch.backends.cuda.enable_mem_efficient_sdp(old_backends[1])
+        torch.backends.cuda.enable_math_sdp(old_backends[2])
 
 
 def test_training_lookup_encodes_only_train_and_fixed(monkeypatch):
@@ -463,6 +540,12 @@ def test_checkpoint_contains_ema_model_and_required_provenance(toy_model):
         seed=42,
         language_manifest_sha256="abc123",
         cfg={"loss": {"name": "semantic_cross_entropy"}},
+        smoke=True,
+        config_sha256="config123",
+        visual_checkpoint_sha256="visual123",
+        rank_diagnostics=[{"rank": 0, "train_batches": 4, "val_batches": 2,
+                           "candidate_counts": {"2": 3, "3": 1},
+                           "peak_cuda_allocated_bytes": 1024}],
     )
 
     assert set(payload) == {
@@ -473,6 +556,16 @@ def test_checkpoint_contains_ema_model_and_required_provenance(toy_model):
         "seed",
         "language_manifest_sha256",
         "config",
+        "config_sha256",
+        "visual_checkpoint_sha256",
+        "encoded_text_splits",
+        "smoke",
+        "reportable",
+        "runtime_validated",
+        "world_size",
+        "visible_devices",
+        "rank_diagnostics",
+        "attention_backend",
     }
     torch.testing.assert_close(
         payload["model_state_dict"]["decision.weight"], ema_decision
@@ -480,6 +573,33 @@ def test_checkpoint_contains_ema_model_and_required_provenance(toy_model):
     torch.testing.assert_close(toy_model.decision.weight, live_decision)
     assert payload["ema_state_dict"].keys() == {"decision.weight"}
     assert payload["val_seen_ce"] == 0.125
+    assert payload["smoke"] is True and payload["reportable"] is False
+    assert payload["runtime_validated"] is False and payload["world_size"] == 1
+    assert payload["encoded_text_splits"] == ["train", "fixed"]
+    assert payload["config_sha256"] == "config123"
+    assert payload["visual_checkpoint_sha256"] == "visual123"
+    assert payload["rank_diagnostics"][0]["candidate_counts"] == {"2": 3, "3": 1}
+
+
+def test_four_rank_smoke_evidence_requires_work_masks_and_memory_headroom():
+    script = _load_train_script()
+    ranks = [{"rank": rank, "train_batches": 4, "val_batches": 2,
+              "candidate_counts": {"2": 10, "3": 10},
+              "peak_cuda_allocated_bytes": 3 * 1024**3}
+             for rank in range(4)]
+
+    script.validate_smoke_diagnostics(ranks)
+    for field, bad in (("train_batches", 0), ("val_batches", 0),
+                       ("peak_cuda_allocated_bytes", 30 * 1024**3)):
+        corrupted = copy.deepcopy(ranks)
+        corrupted[2][field] = bad
+        with pytest.raises(ValueError):
+            script.validate_smoke_diagnostics(corrupted)
+    corrupted = copy.deepcopy(ranks)
+    for rank in corrupted:
+        rank["candidate_counts"]["3"] = 0
+    with pytest.raises(ValueError, match="candidate"):
+        script.validate_smoke_diagnostics(corrupted)
 
 
 def test_checked_in_augmentation_matches_effective_h1_pipeline():

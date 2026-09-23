@@ -266,18 +266,25 @@ def _deduplication_key(row: Mapping[str, object]) -> tuple[object, ...]:
     return (*semantic_condition_key(row), sample_id)
 
 
-def _equal_values(left: object, right: object) -> bool:
+def _equal_values(name: str, left: object, right: object) -> bool:
     try:
         if math.isnan(float(left)) and math.isnan(float(right)):
             return True
     except (TypeError, ValueError):
         pass
+    score = (name.startswith("p_") or name.startswith("meaningful_p_")
+             or name in {"prob_fake", "meaningful_prob_fake", "meaningful_score",
+                         "control_score", "drop"})
+    if score and isinstance(left, (int, float, np.number)) and isinstance(right, (int, float, np.number)):
+        # One float32 ULP can differ between otherwise identical physical
+        # frames classified in different batch shapes on separate ranks.
+        return math.isclose(float(left), float(right), rel_tol=0.0, abs_tol=1e-6)
     return left == right
 
 
 def _equal_rows(left: Mapping[str, object], right: Mapping[str, object]) -> bool:
     return left.keys() == right.keys() and all(
-        _equal_values(left[key], right[key]) for key in left
+        _equal_values(key, left[key], right[key]) for key in left
     )
 
 
@@ -290,7 +297,14 @@ def deduplicate_distributed_rows(rows: Iterable[dict]) -> list[dict]:
         if previous is None:
             unique[key] = row
         elif not _equal_rows(previous, row):
-            raise ValueError(f"conflicting distributed rows for semantic sample {key}")
+            mismatches = {
+                name: (previous.get(name), row.get(name))
+                for name in previous.keys() | row.keys()
+                if not _equal_values(name, previous.get(name), row.get(name))
+            }
+            raise ValueError(
+                f"conflicting distributed rows for semantic sample {key}: {mismatches}"
+            )
     return list(unique.values())
 
 

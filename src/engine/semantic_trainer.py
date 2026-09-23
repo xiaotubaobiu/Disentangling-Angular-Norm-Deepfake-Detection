@@ -103,6 +103,18 @@ def _amp_enabled(device: torch.device, cfg: dict) -> bool:
     )
 
 
+def _record_batch(diagnostics: dict | None, batch: dict, phase: str) -> None:
+    if diagnostics is None:
+        return
+    diagnostics[f"{phase}_batches"] += 1
+    widths = batch["candidate_mask"].sum(dim=1).tolist()
+    for width in widths:
+        key = str(int(width))
+        if key not in diagnostics["candidate_counts"]:
+            raise ValueError(f"unexpected candidate width: {width}")
+        diagnostics["candidate_counts"][key] += 1
+
+
 def run_semantic_train_epoch(
     model,
     dataloader: Iterable,
@@ -112,6 +124,7 @@ def run_semantic_train_epoch(
     text_lookup,
     cfg,
     ema=None,
+    diagnostics: dict | None = None,
 ) -> float:
     """Train one epoch using candidate cross entropy and no auxiliary loss."""
     model.train()
@@ -124,6 +137,7 @@ def run_semantic_train_epoch(
     amp_enabled = _amp_enabled(device, cfg)
 
     for batch in dataloader:
+        _record_batch(diagnostics, batch, "train")
         optimizer.zero_grad(set_to_none=True)
         with torch.autocast(device_type=device.type, enabled=amp_enabled):
             loss, _ = semantic_classification_step(
@@ -145,12 +159,14 @@ def run_semantic_train_epoch(
 
 
 @torch.no_grad()
-def run_semantic_val_epoch(model, dataloader, text_lookup, device) -> dict:
+def run_semantic_val_epoch(model, dataloader, text_lookup, device,
+                           diagnostics: dict | None = None) -> dict:
     """Return deterministic, all-rank seen-language CE and accuracy."""
     model.eval()
     totals = torch.zeros(3, dtype=torch.float64, device=device)
 
     for batch in dataloader:
+        _record_batch(diagnostics, batch, "val")
         loss, logits = semantic_classification_step(
             model, batch, text_lookup, device
         )

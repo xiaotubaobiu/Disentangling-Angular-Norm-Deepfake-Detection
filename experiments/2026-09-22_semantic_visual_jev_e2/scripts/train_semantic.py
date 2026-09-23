@@ -18,6 +18,7 @@ import torch
 import torch.distributed as dist
 from torch.nn.parallel import DistributedDataParallel as DDP
 from torch.optim import AdamW
+from torch.utils.data import DataLoader
 
 
 REPO_ROOT = Path(__file__).resolve().parents[3]
@@ -73,6 +74,7 @@ EFFECTIVE_H1_AUGMENT_POLICY = {
         "std": [0.26862954, 0.26130258, 0.27577711],
     },
 }
+TRAIN_TEXT_SPLITS = ("train", "fixed")
 
 
 def parse_args(argv=None):
@@ -122,7 +124,7 @@ def build_training_text_lookup(model, language_bank, device):
     return EncodedTextLookup.build(
         model,
         language_bank,
-        allowed_splits=("train", "fixed"),
+        allowed_splits=TRAIN_TEXT_SPLITS,
         device=device,
     )
 
@@ -173,7 +175,14 @@ def build_checkpoint_payload(
     seed: int,
     language_manifest_sha256: str,
     cfg: dict,
+    smoke: bool,
+    config_sha256: str,
+    visual_checkpoint_sha256: str,
+    rank_diagnostics: list[dict],
+    runtime_validated: bool = False,
 ) -> dict:
+    if not smoke and not runtime_validated:
+        raise ValueError("reportable checkpoint requires validated four-GPU runtime")
     if ema is not None:
         ema.apply(model)
     try:
@@ -188,6 +197,22 @@ def build_checkpoint_payload(
         "val_seen_ce": float(val_seen_ce),
         "seed": int(seed),
         "language_manifest_sha256": language_manifest_sha256,
+        "config_sha256": config_sha256,
+        "visual_checkpoint_sha256": visual_checkpoint_sha256,
+        "encoded_text_splits": list(TRAIN_TEXT_SPLITS),
+        "smoke": bool(smoke),
+        "reportable": not smoke,
+        "runtime_validated": bool(runtime_validated),
+        "world_size": len(rank_diagnostics),
+        "visible_devices": os.environ.get("CUDA_VISIBLE_DEVICES", ""),
+        "rank_diagnostics": copy.deepcopy(rank_diagnostics),
+        "attention_backend": {
+            "flash": torch.backends.cuda.flash_sdp_enabled(),
+            "memory_efficient": torch.backends.cuda.mem_efficient_sdp_enabled(),
+            "math": torch.backends.cuda.math_sdp_enabled(),
+            "deterministic_algorithms": torch.are_deterministic_algorithms_enabled(),
+            "warn_only": torch.is_deterministic_algorithms_warn_only_enabled(),
+        },
         "config": copy.deepcopy(cfg),
     }
 
@@ -212,7 +237,10 @@ def configure_determinism(seed: int) -> None:
     torch.backends.cudnn.benchmark = False
     torch.backends.cuda.matmul.allow_tf32 = False
     torch.backends.cudnn.allow_tf32 = False
-    torch.use_deterministic_algorithms(True, warn_only=True)
+    torch.backends.cuda.enable_flash_sdp(False)
+    torch.backends.cuda.enable_mem_efficient_sdp(False)
+    torch.backends.cuda.enable_math_sdp(True)
+    torch.use_deterministic_algorithms(True)
 
 
 def _repo_path(path: str | Path) -> Path:
@@ -220,8 +248,73 @@ def _repo_path(path: str | Path) -> Path:
     return path if path.is_absolute() else REPO_ROOT / path
 
 
-def _limited(loader, maximum: int | None):
-    return loader if maximum is None else itertools.islice(loader, maximum)
+class _BoundedBatchSampler:
+    def __init__(self, batch_sampler, maximum: int):
+        self.batch_sampler = batch_sampler
+        self.maximum = maximum
+
+    def __iter__(self):
+        return itertools.islice(iter(self.batch_sampler), self.maximum)
+
+    def __len__(self):
+        return min(len(self.batch_sampler), self.maximum)
+
+
+def bounded_loader(loader: DataLoader, maximum: int | None) -> DataLoader:
+    """Construct an exhaustible smoke loader before spawning any workers."""
+    if maximum is None:
+        return loader
+    if maximum < 1:
+        raise ValueError("maximum smoke batches must be positive")
+    options = dict(
+        dataset=loader.dataset,
+        batch_sampler=_BoundedBatchSampler(loader.batch_sampler, maximum),
+        num_workers=loader.num_workers,
+        collate_fn=loader.collate_fn,
+        pin_memory=loader.pin_memory,
+        timeout=loader.timeout,
+        worker_init_fn=loader.worker_init_fn,
+        generator=loader.generator,
+        persistent_workers=False,
+    )
+    if loader.num_workers:
+        options["prefetch_factor"] = loader.prefetch_factor
+        options["multiprocessing_context"] = loader.multiprocessing_context
+    return DataLoader(**options)
+
+
+def collect_rank_diagnostics(local: dict) -> list[dict]:
+    if not (dist.is_available() and dist.is_initialized()):
+        return [local]
+    gathered = [None] * dist.get_world_size()
+    dist.all_gather_object(gathered, local)
+    return sorted(gathered, key=lambda item: item["rank"])
+
+
+def validate_smoke_diagnostics(ranks: list[dict]) -> None:
+    if len(ranks) != 4 or {item["rank"] for item in ranks} != {0, 1, 2, 3}:
+        raise ValueError("smoke requires evidence from exactly ranks 0 through 3")
+    for item in ranks:
+        if item["train_batches"] < 1 or item["val_batches"] < 1:
+            raise ValueError("each smoke rank must process train and validation batches")
+        peak = item["peak_cuda_allocated_bytes"]
+        if peak <= 0 or peak >= 30 * 1024**3:
+            raise ValueError("each smoke rank must stay below 30 GiB peak CUDA allocation")
+    for width in ("2", "3"):
+        if sum(item["candidate_counts"].get(width, 0) for item in ranks) < 1:
+            raise ValueError(f"smoke requires {width}-candidate examples")
+
+
+def validate_reportable_runtime(
+    device: torch.device, world_size: int, visible_devices: str, cuda_devices: int
+) -> None:
+    """Forbid CPU, partial-GPU, or wrong-GPU runs from becoming reportable."""
+    if (device.type != "cuda" or world_size != 4 or visible_devices != "0,1,2,3"
+            or cuda_devices != 4):
+        raise ValueError(
+            "reportable training requires four DDP CUDA ranks on exactly "
+            "CUDA_VISIBLE_DEVICES=0,1,2,3"
+        )
 
 
 def _atomic_save(payload: dict, path: Path) -> None:
@@ -229,6 +322,22 @@ def _atomic_save(payload: dict, path: Path) -> None:
     temporary = path.with_suffix(path.suffix + ".tmp")
     torch.save(payload, temporary)
     os.replace(temporary, path)
+
+
+def synchronized_main_process(operation) -> None:
+    """Propagate checkpoint serialization failures to every DDP rank."""
+    error = None
+    if is_main_process():
+        try:
+            operation()
+        except Exception as exc:
+            error = f"{type(exc).__name__}: {exc}"
+    if dist.is_available() and dist.is_initialized():
+        outcome = [error]
+        dist.broadcast_object_list(outcome, src=0)
+        error = outcome[0]
+    if error is not None:
+        raise RuntimeError(error)
 
 
 def _validate_locked_training_contract(cfg: dict, seed: int) -> None:
@@ -254,6 +363,7 @@ def main(argv=None) -> int:
     _validate_locked_training_contract(cfg, args.seed)
     cfg = copy.deepcopy(cfg)
     cfg["train"]["seed"] = args.seed
+    config_hash = file_sha256(_repo_path(args.config))
 
     save_path = checkpoint_path(cfg, args.seed, args.smoke)
     ensure_checkpoint_writable(save_path, args.allow_overwrite)
@@ -264,6 +374,13 @@ def main(argv=None) -> int:
     device = torch.device(
         f"cuda:{local_rank}" if torch.cuda.is_available() else "cpu"
     )
+    runtime_validated = False
+    if not args.smoke:
+        validate_reportable_runtime(
+            device, dist.get_world_size() if distributed else 1,
+            os.environ.get("CUDA_VISIBLE_DEVICES", ""), torch.cuda.device_count(),
+        )
+        runtime_validated = True
 
     try:
         language_manifest = _repo_path(cfg["language"]["manifest"])
@@ -274,6 +391,7 @@ def main(argv=None) -> int:
         visual_checkpoint = _repo_path(
             cfg["train"]["init_visual_checkpoint"]
         )
+        visual_checkpoint_hash = file_sha256(visual_checkpoint)
         raw_model.load_h1_visual_checkpoint(visual_checkpoint)
         text_lookup = build_training_text_lookup(
             raw_model, language_bank, device
@@ -318,29 +436,44 @@ def main(argv=None) -> int:
         patience_counter = 0
         best_epoch = None
         for epoch in range(epochs):
+            diagnostics = {"rank": dist.get_rank() if distributed else 0,
+                           "train_batches": 0, "val_batches": 0,
+                           "candidate_counts": {"2": 0, "3": 0}}
+            if device.type == "cuda":
+                torch.cuda.reset_peak_memory_stats(device)
             set_training_epoch(train_loader, epoch)
             train_loss = run_semantic_train_epoch(
                 model,
-                _limited(train_loader, max_train_batches),
+                bounded_loader(train_loader, max_train_batches),
                 optimizer,
                 scaler,
                 device,
                 text_lookup,
                 cfg,
                 ema=ema,
+                diagnostics=diagnostics,
             )
 
             ema.apply(model)
             try:
                 val_metrics = run_semantic_val_epoch(
                     model,
-                    _limited(seen_val_loader, max_val_batches),
+                    bounded_loader(seen_val_loader, max_val_batches),
                     text_lookup,
                     device,
+                    diagnostics=diagnostics,
                 )
             finally:
                 ema.restore(model)
             val_seen_ce = val_metrics["loss"]
+            diagnostics["peak_cuda_allocated_bytes"] = (
+                int(torch.cuda.max_memory_allocated(device))
+                if device.type == "cuda" else 0
+            )
+            rank_diagnostics = collect_rank_diagnostics(diagnostics)
+            validate_smoke_diagnostics(rank_diagnostics)
+            if not math.isfinite(train_loss) or not math.isfinite(val_seen_ce):
+                raise RuntimeError("training or seen-language validation loss is nonfinite")
 
             if is_main_process():
                 print(
@@ -351,6 +484,7 @@ def main(argv=None) -> int:
                             "val_seen_ce": val_seen_ce,
                             "val_seen_accuracy": val_metrics["accuracy"],
                             "val_seen_count": val_metrics["count"],
+                            "rank_diagnostics": rank_diagnostics,
                         },
                         sort_keys=True,
                     ),
@@ -361,7 +495,7 @@ def main(argv=None) -> int:
                 best_seen_ce = val_seen_ce
                 best_epoch = epoch
                 patience_counter = 0
-                if is_main_process():
+                def save_best_checkpoint():
                     payload = build_checkpoint_payload(
                         model,
                         ema,
@@ -370,8 +504,14 @@ def main(argv=None) -> int:
                         seed=args.seed,
                         language_manifest_sha256=manifest_hash,
                         cfg=cfg,
+                        smoke=args.smoke,
+                        config_sha256=config_hash,
+                        visual_checkpoint_sha256=visual_checkpoint_hash,
+                        rank_diagnostics=rank_diagnostics,
+                        runtime_validated=runtime_validated,
                     )
                     _atomic_save(payload, save_path)
+                synchronized_main_process(save_best_checkpoint)
             else:
                 patience_counter += 1
 

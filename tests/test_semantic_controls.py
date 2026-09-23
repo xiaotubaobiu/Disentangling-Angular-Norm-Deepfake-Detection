@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import importlib.util
+import json
 from collections import Counter
 from pathlib import Path
 
@@ -139,8 +140,9 @@ def test_global_audit_subset_uses_one_sorted_sample_order():
     sample_ids = ["z", "a", "m", "b"]
     assert select_global_audit_indices(sample_ids, limit=3) == (1, 3, 2)
     assert select_global_audit_indices(sample_ids, limit=99) == (1, 3, 2, 0)
-    with pytest.raises(ValueError, match="unique"):
-        select_global_audit_indices(["same", "same"], limit=1)
+    # FF++ indexes identical real frames repeatedly across method JSONs;
+    # audit one deterministic representative per physical sample ID.
+    assert select_global_audit_indices(["same", "same", "other"], limit=3) == (2, 0)
 
 
 @pytest.mark.parametrize(
@@ -356,6 +358,182 @@ class _FeatureModel(_EquivariantModel):
 class _Lookup:
     def lookup(self, question_ids, candidate_ids, mask):
         return question_ids.float()[:, None], candidate_ids.float()[:, :, None] / 100
+
+
+@pytest.mark.parametrize("condition", ["seen", "permutation", "meaningless_candidates"])
+def test_evaluator_uses_frozen_feature_cache_across_conditions(bank, monkeypatch, condition):
+    module = _load_evaluator_script()
+    monkeypatch.setattr(module, "build_eval_dataset", lambda cfg, domain: _PhysicalSamples())
+    monkeypatch.setattr("data.builders.build_eval_dataset", lambda cfg, domain: _PhysicalSamples())
+    cfg = {"train": {"seed": 42, "num_workers": 0, "per_gpu_batch": 5}}
+    loader = module.build_condition_loader(cfg, bank, domain="ffpp", condition=condition,
+                                           distributed=False)
+    model = _FeatureModel()
+
+    class Cache:
+        def lookup(self, sample_ids, device):
+            return torch.zeros(len(sample_ids), 2, device=device)
+
+    rows = module.evaluate_condition(model, loader, _Lookup(), torch.device("cpu"),
+                                     seed=42, domain="ffpp", condition=condition,
+                                     feature_cache=Cache())
+
+    assert rows
+    assert model.extractions == 0
+
+
+def test_cached_evaluation_uses_metadata_without_decoding_images(bank, monkeypatch):
+    from data.index_ffpp import FrameRecord
+
+    module = _load_evaluator_script()
+
+    class NoDecode:
+        augment = False
+        img_size = 224
+        records = [FrameRecord("real", "001", "a.png", "/missing/a.png", None, 0),
+                   FrameRecord("simswap", "002", "b.png", "/missing/b.png", None, 1)]
+
+        def __len__(self):
+            return len(self.records)
+
+        def __getitem__(self, index):
+            raise AssertionError("cache-backed evaluation must not decode images")
+
+    monkeypatch.setattr(module, "build_eval_dataset", lambda cfg, domain: NoDecode())
+    cfg = {"train": {"seed": 42, "num_workers": 0, "per_gpu_batch": 2}}
+    loader = module.build_condition_loader(cfg, bank, domain="ffpp",
+                                           condition="fixed_h1", distributed=False,
+                                           metadata_only=True)
+
+    class Cache:
+        def lookup(self, sample_ids, device):
+            return torch.zeros(len(sample_ids), 2, device=device)
+
+    rows = module.evaluate_condition(_FeatureModel(), loader, _Lookup(),
+                                     torch.device("cpu"), seed=42, domain="ffpp",
+                                     condition="fixed_h1", feature_cache=Cache())
+    assert len(rows) == 2
+    assert {row["video_key"] for row in rows} == {"real::001", "simswap::002"}
+
+
+@pytest.mark.parametrize("condition", ["fixed_h1", "seen", "meaningless_candidates"])
+def test_cached_and_direct_evaluation_probabilities_agree(bank, monkeypatch, condition):
+    from data.index_ffpp import FrameRecord
+
+    module = _load_evaluator_script()
+
+    class Physical:
+        augment = False
+        img_size = 224
+        records = [FrameRecord("real", "001", "a.png", "/missing/a.png", None, 0),
+                   FrameRecord("simswap", "002", "b.png", "/missing/b.png", None, 1)]
+
+        def __init__(self):
+            self.decodes = 0
+
+        def __len__(self):
+            return len(self.records)
+
+        def __getitem__(self, index):
+            self.decodes += 1
+            record = self.records[index]
+            return {"image": torch.full((3, 8, 8), float(index + 1)),
+                    "label": torch.tensor(record.label), "method_id": record.method,
+                    "video_id": record.video_id,
+                    "video_key": f"{record.method}::{record.video_id}",
+                    "image_path": record.frame_path, "sample_id": record.sample_id}
+
+    class FeatureSensitiveModel(_FeatureModel):
+        def classify_features(self, image, question, candidates, mask):
+            logits = candidates[..., 0] * (1 + image[:, :1])
+            return logits.masked_fill(~mask, float("-inf"))
+
+    physical = Physical()
+    monkeypatch.setattr(module, "build_eval_dataset", lambda cfg, domain: physical)
+    monkeypatch.setattr("data.builders.build_eval_dataset", lambda cfg, domain: physical)
+    cfg = {"train": {"seed": 42, "num_workers": 0, "per_gpu_batch": 8}}
+    kwargs = dict(domain="ffpp", condition=condition, distributed=False)
+    model = FeatureSensitiveModel()
+    direct_loader = module.build_condition_loader(cfg, bank, **kwargs)
+    direct = module.evaluate_condition(model, direct_loader, _Lookup(), torch.device("cpu"),
+                                       seed=42, domain="ffpp", condition=condition)
+    direct_decodes = physical.decodes
+    assert direct_decodes > 0
+
+    class Cache:
+        def lookup(self, sample_ids, device):
+            return torch.tensor([[float(1 if value == physical.records[0].sample_id else 2)] * 2
+                                 for value in sample_ids], device=device)
+
+    cached_loader = module.build_condition_loader(cfg, bank, metadata_only=True, **kwargs)
+    cached = module.evaluate_condition(model, cached_loader, _Lookup(), torch.device("cpu"),
+                                       seed=42, domain="ffpp", condition=condition,
+                                       feature_cache=Cache())
+    assert physical.decodes == direct_decodes
+    assert len(cached) == len(direct)
+    for left, right in zip(direct, cached):
+        assert left.keys() == right.keys()
+        for key in left:
+            if key.startswith("p_") or key.startswith("meaningful_p_") or key in {"prob_fake", "meaningful_prob_fake"}:
+                if pd.isna(left[key]) or pd.isna(right[key]):
+                    assert pd.isna(left[key]) and pd.isna(right[key])
+                else:
+                    assert left[key] == pytest.approx(right[key], abs=1e-7)
+            else:
+                assert left[key] == right[key]
+
+
+def test_final_evaluator_rejects_smoke_or_foreign_checkpoint():
+    module = _load_evaluator_script()
+    hashes = {"config_sha256": "config", "language_manifest_sha256": "language",
+              "visual_checkpoint_sha256": "visual"}
+    ranks = [{"rank": rank, "train_batches": 4, "val_batches": 2,
+              "peak_cuda_allocated_bytes": 2_000_000_000,
+              "candidate_counts": {"2": 10, "3": 2}} for rank in range(4)]
+    checkpoint = {**hashes, "seed": 42, "smoke": False, "reportable": True,
+                  "runtime_validated": True, "world_size": 4,
+                  "visible_devices": "0,1,2,3",
+                  "encoded_text_splits": ["train", "fixed"],
+                  "rank_diagnostics": ranks}
+    module.validate_evaluation_checkpoint(checkpoint, seed=42,
+                                          expected_hashes=hashes, allow_smoke=False)
+    with pytest.raises(ValueError, match="non-reportable|smoke"):
+        module.validate_evaluation_checkpoint({**checkpoint, "smoke": True,
+                                               "reportable": False}, seed=42,
+                                              expected_hashes=hashes,
+                                              allow_smoke=False)
+    for field in hashes:
+        with pytest.raises(ValueError, match="provenance"):
+            module.validate_evaluation_checkpoint({**checkpoint, field: "other"},
+                                                  seed=42, expected_hashes=hashes,
+                                                  allow_smoke=False)
+    with pytest.raises(ValueError, match="four.*GPU|four.*rank"):
+        module.validate_evaluation_checkpoint({**checkpoint, "world_size": 1},
+                                              seed=42, expected_hashes=hashes,
+                                              allow_smoke=False)
+
+
+def test_evaluation_run_provenance_cannot_be_rebound(tmp_path):
+    module = _load_evaluator_script()
+    first = {"seed": 42, "checkpoint_sha256": "first", "reportable": True}
+    dirty = tmp_path / "legacy_outputs"
+    (dirty / "seen").mkdir(parents=True)
+    (dirty / "seen" / "ffpp_videos.csv").write_text("old result")
+    with pytest.raises(ValueError, match="unprovenanced|nonempty"):
+        module.write_run_provenance(dirty, first)
+    clean = tmp_path / "clean_outputs"
+    module.write_run_provenance(clean, first)
+    module.write_run_provenance(clean, first)
+    assert json.loads((clean / "run_provenance.json").read_text()) == first
+    with pytest.raises(ValueError, match="different run provenance"):
+        module.write_run_provenance(clean, {**first, "checkpoint_sha256": "second"})
+
+
+def test_rank_zero_output_failure_is_propagated_without_barrier(monkeypatch):
+    module = _load_evaluator_script()
+    monkeypatch.setattr(module, "is_main_process", lambda: True)
+    with pytest.raises(RuntimeError, match="disk unavailable"):
+        module.synchronized_rank_zero(lambda: (_ for _ in ()).throw(OSError("disk unavailable")))
 
 
 @pytest.mark.parametrize("condition", ["counterfactual", "meaningless_candidates", "meaningless_questions", "permutation"])

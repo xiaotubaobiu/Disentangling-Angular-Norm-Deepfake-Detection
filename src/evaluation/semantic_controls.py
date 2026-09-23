@@ -176,13 +176,18 @@ def permutation_audit(
 def select_global_audit_indices(
     sample_ids: Sequence[str], limit: int = 4096
 ) -> tuple[int, ...]:
-    """Select one global first-N subset using canonical sample-id ordering."""
+    """Select first-N unique physical IDs in canonical order.
+
+    FF++ repeats some identical real records in multiple method indexes.  A
+    permutation audit is defined over physical frames, so one first-encountered
+    index is retained for each sample ID before the global rank split.
+    """
     if limit <= 0:
         raise ValueError("audit limit must be positive")
-    normalized = [str(sample_id) for sample_id in sample_ids]
-    if len(normalized) != len(set(normalized)):
-        raise ValueError("permutation audit sample IDs must be unique")
-    return tuple(sorted(range(len(normalized)), key=normalized.__getitem__)[:limit])
+    first_index = {}
+    for index, sample_id in enumerate(sample_ids):
+        first_index.setdefault(str(sample_id), index)
+    return tuple(first_index[key] for key in sorted(first_index)[:limit])
 
 
 def _pair_id(task_id: str, split: str, sample_id: str, candidate_set: str) -> str:

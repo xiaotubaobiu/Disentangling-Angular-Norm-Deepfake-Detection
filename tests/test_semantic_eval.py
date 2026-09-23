@@ -405,9 +405,13 @@ def test_real_evaluator_expands_and_pairs_both_t4_questions():
 def test_distributed_padding_is_deduplicated_only_when_rows_match():
     row = _frame_row("simswap", "001", 1, 1, 0.9)
     assert deduplicate_distributed_rows([row, dict(row)]) == [row]
+    # Different batch shapes/ranks may differ by one float32 probability ULP.
+    assert deduplicate_distributed_rows([row, dict(row, p_real=row["p_real"] + 6e-8)]) == [row]
 
     with pytest.raises(ValueError, match="conflicting distributed rows"):
         deduplicate_distributed_rows([row, dict(row, p_fake=0.1)])
+    with pytest.raises(ValueError, match="conflicting distributed rows"):
+        deduplicate_distributed_rows([row, dict(row, label=0)])
 
 
 def test_binary_and_multiclass_metrics_are_normalized_and_sliced():
