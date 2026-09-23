@@ -1,5 +1,7 @@
 # E2 Semantic Visual-Jev validation
 
+当前任务清单、训练曲线数值和正式评估完成情况见 [E2 实验进度](PROGRESS.md)。
+
 This experiment compares the frozen-vision E2-Semantic decision model with
 the already trained H1-Jev fixed-candidate baseline. The visual frame indexes,
 splits, transforms, and video aggregation are inherited from H1. The frozen
