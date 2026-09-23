@@ -1,0 +1,463 @@
+{
+  "created_utc": "2026-09-23T04:55:11.768323+00:00",
+  "scope": "只读数据来源/计数组成核查；无GPU，无模型、代码、门槛修改。",
+  "dataset_root": "/Dataset/deepfake_detection/DF40_all",
+  "config_path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/configs/semantic_jev.yaml",
+  "config_sha256": "f192983448e3a848a32199272916a381b4317eba46b7715f8e126b4f7cf27957",
+  "config_matches_frozen_provenance": true,
+  "verdict": "ffpp/cdf是DF40的FF++来源域与Celeb-DF来源域测试切分，不是原始官方FF++或Celeb-DF-v2 benchmark评估。",
+  "method_selection": "methods=[]触发ALL_METHODS；8种swap+8种reenact，两域使用相同16种方法。",
+  "domains": {
+    "ffpp": {
+      "recommended_name_zh": "DF40 FF++来源域",
+      "index_domain": "ff",
+      "split": "test",
+      "methods": [
+        {
+          "method": "simswap",
+          "family": "swap",
+          "fake_videos": 140,
+          "fake_frames": 4468
+        },
+        {
+          "method": "inswap",
+          "family": "swap",
+          "fake_videos": 118,
+          "fake_frames": 3762
+        },
+        {
+          "method": "blendface",
+          "family": "swap",
+          "fake_videos": 140,
+          "fake_frames": 4467
+        },
+        {
+          "method": "faceswap",
+          "family": "swap",
+          "fake_videos": 140,
+          "fake_frames": 4461
+        },
+        {
+          "method": "fsgan",
+          "family": "swap",
+          "fake_videos": 140,
+          "fake_frames": 4455
+        },
+        {
+          "method": "mobileswap",
+          "family": "swap",
+          "fake_videos": 858,
+          "fake_frames": 27279
+        },
+        {
+          "method": "e4s",
+          "family": "swap",
+          "fake_videos": 115,
+          "fake_frames": 3663
+        },
+        {
+          "method": "facedancer",
+          "family": "swap",
+          "fake_videos": 140,
+          "fake_frames": 4458
+        },
+        {
+          "method": "fomm",
+          "family": "reenact",
+          "fake_videos": 140,
+          "fake_frames": 4455
+        },
+        {
+          "method": "facevid2vid",
+          "family": "reenact",
+          "fake_videos": 140,
+          "fake_frames": 4468
+        },
+        {
+          "method": "wav2lip",
+          "family": "reenact",
+          "fake_videos": 140,
+          "fake_frames": 4379
+        },
+        {
+          "method": "sadtalker",
+          "family": "reenact",
+          "fake_videos": 138,
+          "fake_frames": 4416
+        },
+        {
+          "method": "MRAA",
+          "family": "reenact",
+          "fake_videos": 140,
+          "fake_frames": 4456
+        },
+        {
+          "method": "pirender",
+          "family": "reenact",
+          "fake_videos": 140,
+          "fake_frames": 4479
+        },
+        {
+          "method": "tpsm",
+          "family": "reenact",
+          "fake_videos": 140,
+          "fake_frames": 4443
+        },
+        {
+          "method": "lia",
+          "family": "reenact",
+          "fake_videos": 140,
+          "fake_frames": 4448
+        }
+      ],
+      "n_videos": 3049,
+      "n_real_videos": 140,
+      "n_fake_videos": 2909,
+      "n_unique_frames": 97036,
+      "n_real_frames": 4479,
+      "n_fake_frames": 92557,
+      "family_videos": {
+        "swap": 1791,
+        "reenact": 1118
+      },
+      "real_source_directories": {
+        "FaceForensics++/original_sequences": {
+          "videos": 140,
+          "frames": 4479
+        }
+      },
+      "existing_example_frame_paths": {
+        "FaceForensics++/original_sequences": "/Dataset/deepfake_detection/DF40_all/FaceForensics++/original_sequences/youtube/c23/frames/000/000.png",
+        "DF40_fake": "/Dataset/deepfake_detection/DF40_all/DF40_test/simswap/ff/frames/000_003/000.png"
+      },
+      "raw_index_frame_rows_with_real_duplicates": 164221,
+      "real_populations_identical_across_16_indexes": true,
+      "cache_manifest": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/feature_cache/ffpp/manifest.json",
+      "records_sha256_recomputed": "e1cd8b69b38a03c9491afd1d5275946113acbc2f4249c86f559ad1c051fc3790",
+      "records_hash_matches_frozen_cache": true,
+      "counts_and_video_identities_match_predictions": [
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/baseline_h1/seed_42/ffpp_video_predictions.csv",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/baseline_h1/seed_2048/ffpp_video_predictions.csv",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/baseline_h1/seed_7/ffpp_video_predictions.csv",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation/seed_42/fixed_h1/ffpp_videos.csv",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation/seed_2048/fixed_h1/ffpp_videos.csv",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation/seed_7/fixed_h1/ffpp_videos.csv"
+      ],
+      "index_files": [
+        {
+          "path": "/Dataset/deepfake_detection/DF40_all/dataset_json_update/simswap_ff.json",
+          "sha256": "026b043b0ae258746864b5f9193a9fa4461265d23851ce83fb073e67693324ac"
+        },
+        {
+          "path": "/Dataset/deepfake_detection/DF40_all/dataset_json_update/inswap_ff.json",
+          "sha256": "82b7b0430444b84f3b51f63b77b8341054f1d3b00d018617e57ed20a611b639a"
+        },
+        {
+          "path": "/Dataset/deepfake_detection/DF40_all/dataset_json_update/blendface_ff.json",
+          "sha256": "0dcf7f8f37c0417005d1f8f7b93519152a833d8d80e18fc013bc8765632815c2"
+        },
+        {
+          "path": "/Dataset/deepfake_detection/DF40_all/dataset_json_update/faceswap_ff.json",
+          "sha256": "8178df67cf78fcc80d8e6bfdb71b775f0e653bc2f148ba92e533001e1ec988fb"
+        },
+        {
+          "path": "/Dataset/deepfake_detection/DF40_all/dataset_json_update/fsgan_ff.json",
+          "sha256": "6012101b257b500e043c1540d8adee7a18ea0367e6fc19ce40d28514c655cb45"
+        },
+        {
+          "path": "/Dataset/deepfake_detection/DF40_all/dataset_json_update/mobileswap_ff.json",
+          "sha256": "7ae2310b0c1215e001c0952abd830802d2da7dff9b9cc48536675987df242c5a"
+        },
+        {
+          "path": "/Dataset/deepfake_detection/DF40_all/dataset_json_update/e4s_ff.json",
+          "sha256": "2dbde2769a75b2bfcbf7ce56c70117dfac56ad1ae426bc1f78f63198b8634a7f"
+        },
+        {
+          "path": "/Dataset/deepfake_detection/DF40_all/dataset_json_update/facedancer_ff.json",
+          "sha256": "e297535d51de2a8cd1b31a62836d33919aa7c66d3b0f6ce2b465ddac78a876dd"
+        },
+        {
+          "path": "/Dataset/deepfake_detection/DF40_all/dataset_json_update/fomm_ff.json",
+          "sha256": "252a8f56b96a1636848ad98ebe86e8231191e8589eee27c696091337f5e253ef"
+        },
+        {
+          "path": "/Dataset/deepfake_detection/DF40_all/dataset_json_update/facevid2vid_ff.json",
+          "sha256": "6ff53906413e92a45d8c8da02ce9e42d008e0ef795d75417f88696e43f5caab1"
+        },
+        {
+          "path": "/Dataset/deepfake_detection/DF40_all/dataset_json_update/wav2lip_ff.json",
+          "sha256": "da977c9d4372e3d5bd634da8c0fc454e1c56d5b6add7f26feab9a9e011f94445"
+        },
+        {
+          "path": "/Dataset/deepfake_detection/DF40_all/dataset_json_update/sadtalker_ff.json",
+          "sha256": "c99f1f339298603ca562f96edbf1c5471c1c5d55b72f381e3c5b12ccb419ea9e"
+        },
+        {
+          "path": "/Dataset/deepfake_detection/DF40_all/dataset_json_update/MRAA_ff.json",
+          "sha256": "23cda4d4126753d9188023ff347d7d5436d1aa9ea304ec23c107e04476463333"
+        },
+        {
+          "path": "/Dataset/deepfake_detection/DF40_all/dataset_json_update/pirender_ff.json",
+          "sha256": "4f32f8b2db265e21f41474ef39c687a772977def5d27a1b1c4fdb103aa2833c0"
+        },
+        {
+          "path": "/Dataset/deepfake_detection/DF40_all/dataset_json_update/tpsm_ff.json",
+          "sha256": "d28787b5a9688648929f874dd34deb71c2b13b8b812b7f6bd833a119154e4cdd"
+        },
+        {
+          "path": "/Dataset/deepfake_detection/DF40_all/dataset_json_update/lia_ff.json",
+          "sha256": "786b6d41cb71c48f34024d89a81e77e61552f38f396f5879907f92b84c1fa9ad"
+        }
+      ]
+    },
+    "cdf": {
+      "recommended_name_zh": "DF40 Celeb-DF来源域",
+      "index_domain": "cdf",
+      "split": "test",
+      "methods": [
+        {
+          "method": "simswap",
+          "family": "swap",
+          "fake_videos": 641,
+          "fake_frames": 20322
+        },
+        {
+          "method": "inswap",
+          "family": "swap",
+          "fake_videos": 424,
+          "fake_frames": 13433
+        },
+        {
+          "method": "blendface",
+          "family": "swap",
+          "fake_videos": 640,
+          "fake_frames": 20323
+        },
+        {
+          "method": "faceswap",
+          "family": "swap",
+          "fake_videos": 637,
+          "fake_frames": 20173
+        },
+        {
+          "method": "fsgan",
+          "family": "swap",
+          "fake_videos": 616,
+          "fake_frames": 19601
+        },
+        {
+          "method": "mobileswap",
+          "family": "swap",
+          "fake_videos": 637,
+          "fake_frames": 20243
+        },
+        {
+          "method": "e4s",
+          "family": "swap",
+          "fake_videos": 292,
+          "fake_frames": 9198
+        },
+        {
+          "method": "facedancer",
+          "family": "swap",
+          "fake_videos": 648,
+          "fake_frames": 20252
+        },
+        {
+          "method": "fomm",
+          "family": "reenact",
+          "fake_videos": 647,
+          "fake_frames": 20278
+        },
+        {
+          "method": "facevid2vid",
+          "family": "reenact",
+          "fake_videos": 637,
+          "fake_frames": 19890
+        },
+        {
+          "method": "wav2lip",
+          "family": "reenact",
+          "fake_videos": 666,
+          "fake_frames": 20814
+        },
+        {
+          "method": "sadtalker",
+          "family": "reenact",
+          "fake_videos": 660,
+          "fake_frames": 20986
+        },
+        {
+          "method": "MRAA",
+          "family": "reenact",
+          "fake_videos": 649,
+          "fake_frames": 20273
+        },
+        {
+          "method": "pirender",
+          "family": "reenact",
+          "fake_videos": 636,
+          "fake_frames": 20185
+        },
+        {
+          "method": "tpsm",
+          "family": "reenact",
+          "fake_videos": 647,
+          "fake_frames": 20587
+        },
+        {
+          "method": "lia",
+          "family": "reenact",
+          "fake_videos": 646,
+          "fake_frames": 19806
+        }
+      ],
+      "n_videos": 9901,
+      "n_real_videos": 178,
+      "n_fake_videos": 9723,
+      "n_unique_frames": 311984,
+      "n_real_frames": 5620,
+      "n_fake_frames": 306364,
+      "family_videos": {
+        "swap": 4535,
+        "reenact": 5188
+      },
+      "real_source_directories": {
+        "Celeb-DF-v2/YouTube-real": {
+          "videos": 70,
+          "frames": 2210
+        },
+        "Celeb-DF-v2/Celeb-real": {
+          "videos": 108,
+          "frames": 3410
+        }
+      },
+      "existing_example_frame_paths": {
+        "Celeb-DF-v2/YouTube-real": "/Dataset/deepfake_detection/DF40_all/Celeb-DF-v2/YouTube-real/frames/00011/000.png",
+        "Celeb-DF-v2/Celeb-real": "/Dataset/deepfake_detection/DF40_all/Celeb-DF-v2/Celeb-real/frames/id0_0001/000.png",
+        "DF40_fake": "/Dataset/deepfake_detection/DF40_all/DF40_test/simswap/cdf/frames/id0_id16_0003/000.png"
+      },
+      "raw_index_frame_rows_with_real_duplicates": 396284,
+      "real_populations_identical_across_16_indexes": true,
+      "cache_manifest": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/feature_cache/cdf/manifest.json",
+      "records_sha256_recomputed": "66d1a48a3745eed67ec4c80d0b683763be19c9739b0e1637675f6abdf9af357d",
+      "records_hash_matches_frozen_cache": true,
+      "counts_and_video_identities_match_predictions": [
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/baseline_h1/seed_42/cdf_video_predictions.csv",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/baseline_h1/seed_2048/cdf_video_predictions.csv",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/baseline_h1/seed_7/cdf_video_predictions.csv",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation/seed_42/fixed_h1/cdf_videos.csv",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation/seed_2048/fixed_h1/cdf_videos.csv",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation/seed_7/fixed_h1/cdf_videos.csv"
+      ],
+      "index_files": [
+        {
+          "path": "/Dataset/deepfake_detection/DF40_all/dataset_json_update/simswap_cdf.json",
+          "sha256": "40baa7db11d15298978328167a051c34b499597078cb387db2420fb940625d6b"
+        },
+        {
+          "path": "/Dataset/deepfake_detection/DF40_all/dataset_json_update/inswap_cdf.json",
+          "sha256": "7237eac8b8ed392bdb4224338d91539aea19d4aca252a5b7f7bd802ce96a9a23"
+        },
+        {
+          "path": "/Dataset/deepfake_detection/DF40_all/dataset_json_update/blendface_cdf.json",
+          "sha256": "b106a4e9260a338fe5769e37093ae9909c3b966bf25133de8e5557b4560a312f"
+        },
+        {
+          "path": "/Dataset/deepfake_detection/DF40_all/dataset_json_update/faceswap_cdf.json",
+          "sha256": "75bac529c8703e9b00299508cb3f588b69171075247aafa588545542dc17480c"
+        },
+        {
+          "path": "/Dataset/deepfake_detection/DF40_all/dataset_json_update/fsgan_cdf.json",
+          "sha256": "428f8675d7fa85539870f86012bd2a20c09ffdccaced3e4c9abe0522268aa2d3"
+        },
+        {
+          "path": "/Dataset/deepfake_detection/DF40_all/dataset_json_update/mobileswap_cdf.json",
+          "sha256": "a57963abe33a137979ede8a10d8fa33dc8c99bcf8f861ca138b7fbd9808bfc2f"
+        },
+        {
+          "path": "/Dataset/deepfake_detection/DF40_all/dataset_json_update/e4s_cdf.json",
+          "sha256": "57c85770f7ce275c977fb716202d5342942cbd908bf10e83f34da6389219159f"
+        },
+        {
+          "path": "/Dataset/deepfake_detection/DF40_all/dataset_json_update/facedancer_cdf.json",
+          "sha256": "02c4f410a4cd04393a9d395da6481fa8f49122823ab59d13fdce9999fc18ce30"
+        },
+        {
+          "path": "/Dataset/deepfake_detection/DF40_all/dataset_json_update/fomm_cdf.json",
+          "sha256": "699cd79b44ae9c5346ddca5ac9418c81079687290f23f9fb57bd926f1539daed"
+        },
+        {
+          "path": "/Dataset/deepfake_detection/DF40_all/dataset_json_update/facevid2vid_cdf.json",
+          "sha256": "36173cdee73b93107a4a0e5f99b50cf66ed21680433d2810f405253c89a2795a"
+        },
+        {
+          "path": "/Dataset/deepfake_detection/DF40_all/dataset_json_update/wav2lip_cdf.json",
+          "sha256": "d639c8c95516a535b8118d3e2b01cdd7487b4a5c54ebeee827be6e71c7c67753"
+        },
+        {
+          "path": "/Dataset/deepfake_detection/DF40_all/dataset_json_update/sadtalker_cdf.json",
+          "sha256": "105346dd1ee51e0f8c8843a6d827a1bf7e3fc7773b104d0c0e8f8e0bf7046ebb"
+        },
+        {
+          "path": "/Dataset/deepfake_detection/DF40_all/dataset_json_update/MRAA_cdf.json",
+          "sha256": "983d0425265c28b40c3283fe69a39db621277f219f64245e8f83d6aefe058ac0"
+        },
+        {
+          "path": "/Dataset/deepfake_detection/DF40_all/dataset_json_update/pirender_cdf.json",
+          "sha256": "9a27a07618be1d1f27dd11023eb9a18969394e68141a7dc7b856434afdf516c9"
+        },
+        {
+          "path": "/Dataset/deepfake_detection/DF40_all/dataset_json_update/tpsm_cdf.json",
+          "sha256": "cf1e267ab925c3b7b51fce725135291aef9475a3ab78461c5c9582e8f407198b"
+        },
+        {
+          "path": "/Dataset/deepfake_detection/DF40_all/dataset_json_update/lia_cdf.json",
+          "sha256": "23c9314405240c17358d45cd35bd0c9386ae00dce5f7c6b0866a853c9e1c63a3"
+        }
+      ]
+    }
+  },
+  "minimal_evidence": [
+    {
+      "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/configs/semantic_jev.yaml",
+      "line": 2,
+      "fact": "dataset.root=DF40_all且methods=[]"
+    },
+    {
+      "path": "/home/z/project/deepfake_detection/src/data/constants.py",
+      "line": 3,
+      "fact": "ALL_METHODS包含16种伪造方法"
+    },
+    {
+      "path": "/home/z/project/deepfake_detection/src/data/builders.py",
+      "line": 134,
+      "fact": "默认ALL_METHODS；ffpp映射ff，其他主域映射cdf，读取每方法test索引"
+    },
+    {
+      "path": "/home/z/project/deepfake_detection/src/data/index_ffpp.py",
+      "line": 43,
+      "fact": "dataset_json_update/{method}_{domain}.json"
+    },
+    {
+      "path": "/home/z/project/deepfake_detection/src/data/index_ffpp.py",
+      "line": 27,
+      "fact": "索引DF40/重映射为实际DF40_test/"
+    },
+    {
+      "path": "/home/z/project/deepfake_detection/src/evaluation/e2_feature_cache.py",
+      "line": 45,
+      "fact": "records_sha256绑定有序索引记录，shape绑定去重帧数"
+    }
+  ],
+  "recommended_report_wording": [
+    "本文FF++和CDF均指DF40中分别以FaceForensics++和Celeb-DF为来源域的16种伪造方法测试切分，不是官方原始FF++/Celeb-DF-v2 benchmark。",
+    "FF++来源域含140个真实视频和2909个DF40伪造视频；CDF来源域含178个真实视频和9723个DF40伪造视频。视频以method_id::video_id识别，重复帧先按sample_id去重。",
+    "CDF结果是相同16种伪造方法下的跨来源域结果，不能据此声称完成官方Celeb-DF-v2 benchmark或未见伪造方法测试。"
+  ],
+  "interpretation_limits": [
+    "类别与方法数量不平衡，总体指标受实际样本组成影响，不等于按方法宏平均。",
+    "16个方法索引重复列出同一Real集合，报告真实数量只计唯一视频/帧。",
+    "本次当前索引有序记录哈希与冻结特征缓存一致；没有读取全部图片像素或另行认证官方协议。"
+  ]
+}
