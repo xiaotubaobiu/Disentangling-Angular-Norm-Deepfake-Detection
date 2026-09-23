@@ -1,19 +1,23 @@
 """Gate tests use physical videos with repeated language variants."""
 import importlib.util
+import hashlib
 import json
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
 import pytest
+import torch
 import yaml
 from sklearn.metrics import balanced_accuracy_score, roc_auc_score
 
 from evaluation.e2_gates import (
     PRIMARY, SEEDS, evaluate_gates, paired_seed_video_bootstrap, _ClusterMetric,
 )
+from evaluation.e2_provenance import evaluation_source_bundle_sha256
 
 LOCKED_CONFIG = Path(__file__).resolve().parents[1] / "experiments/2026-09-22_semantic_visual_jev_e2/configs/semantic_jev.yaml"
+EVALUATOR_SOURCE = LOCKED_CONFIG.parents[1] / "scripts/evaluate_semantic.py"
 
 
 @pytest.fixture
@@ -65,9 +69,12 @@ def artifacts():
                 for task, metric in (("T2", "polarity_consistency"), ("T4", "true_family_ordering")):
                     if task == "T4" and not label:
                         continue
-                    controls.append(dict(base, condition="counterfactual", task_id=task,
-                                         metric=metric, value=1., count=1,
-                                         pairing_key=f"{seed}:{domain}:{task}:{i}"))
+                    row = dict(base, condition="counterfactual", task_id=task,
+                               metric=metric, value=1., count=1,
+                               pairing_key=f"{seed}:{domain}:{task}:{i}")
+                    if task == "T4":
+                        row.update(meaningful_score=.9, control_score=.1, drop=.8)
+                    controls.append(row)
                 for condition in ("meaningless_candidates", "meaningless_questions"):
                     for task in PRIMARY:
                         if condition == "meaningless_questions" and task not in ("T2", "T4"):
@@ -135,6 +142,18 @@ def test_seen_heldout_aggregate_tampering_rejected(artifacts, cfg, condition, ta
     rows = artifacts["metric_rows"]
     rows.loc[(rows.condition == condition) & (rows.task_id == task), field] = value
     with pytest.raises(ValueError, match="count|score|differs"):
+        evaluate_gates(**artifacts, cfg=cfg)
+
+
+@pytest.mark.parametrize("damage", ["wrong_ordering_value", "wrong_drop"])
+def test_t4_counterfactual_score_contradiction_rejected(artifacts, cfg, damage):
+    rows = artifacts["control_rows"]
+    selected = (rows.condition == "counterfactual") & (rows.task_id == "T4")
+    if damage == "wrong_ordering_value":
+        rows.loc[selected, ["meaningful_score", "control_score", "drop"]] = [.1, .9, -.8]
+    else:
+        rows.loc[selected, "drop"] = 0.
+    with pytest.raises(ValueError, match="ordering|drop"):
         evaluate_gates(**artifacts, cfg=cfg)
 
 
@@ -386,7 +405,48 @@ def _write_artifacts(root, artifacts):
                     artifacts["semantic_rows"].query("seed == @seed and domain == @domain and condition == @condition").to_csv(directory / f"{domain}_videos.csv", index=False)
 
 
-def test_root_loader_and_report_outputs(tmp_path, artifacts, cfg):
+def _sha256(path):
+    with Path(path).open("rb") as stream:
+        return hashlib.file_digest(stream, "sha256").hexdigest()
+
+
+def _write_final_provenance(root):
+    repo = LOCKED_CONFIG.parents[3]
+    config = yaml.safe_load(LOCKED_CONFIG.read_text())
+    cache_root = root / "feature_cache"
+    cache_hashes = {}
+    for domain in ("ffpp", "cdf", "dfd"):
+        manifest_path = cache_root / domain / "manifest.json"
+        manifest_path.parent.mkdir(parents=True, exist_ok=True)
+        manifest_path.write_text(json.dumps({"domain": domain, "fixture": True}))
+        cache_hashes[domain] = _sha256(manifest_path)
+    hashes = {
+        "config_sha256": _sha256(LOCKED_CONFIG),
+        "language_manifest_sha256": _sha256(repo / config["language"]["manifest"]),
+        "visual_checkpoint_sha256": _sha256(repo / config["train"]["init_visual_checkpoint"]),
+        "evaluator_source_sha256": _sha256(EVALUATOR_SOURCE),
+        "evaluation_source_bundle_sha256": evaluation_source_bundle_sha256(repo),
+    }
+    for seed in SEEDS:
+        checkpoint = root / "checkpoints" / f"seed_{seed}.pth"
+        checkpoint.parent.mkdir(parents=True, exist_ok=True)
+        torch.save(dict(seed=seed, **{k: hashes[k] for k in ("config_sha256", "language_manifest_sha256",
+                                                      "visual_checkpoint_sha256")},
+                        smoke=False, reportable=True,
+                        runtime_validated=True, world_size=4,
+                        visible_devices="0,1,2,3"), checkpoint)
+        manifest = dict(seed=seed, checkpoint_path=str(checkpoint.resolve()),
+                        checkpoint_sha256=_sha256(checkpoint), **hashes,
+                        feature_mode="cache", feature_cache_root=str(cache_root.resolve()),
+                        feature_cache_manifest_sha256=cache_hashes,
+                        smoke=False, reportable=True, diagnostic_override=False,
+                        runtime_validated=True, world_size=4,
+                        visible_devices="0,1,2,3")
+        path = root / "eval" / f"seed_{seed}" / "run_provenance.json"
+        path.write_text(json.dumps(manifest))
+
+
+def test_root_loader_and_report_outputs(tmp_path, artifacts, cfg, monkeypatch):
     _write_artifacts(tmp_path, artifacts)
     module = _script()
     report_path = tmp_path / "reports/e2_validation_result.md"
@@ -399,6 +459,8 @@ def test_root_loader_and_report_outputs(tmp_path, artifacts, cfg):
     assert "Calibration" in report_path.read_text()
     assert (tmp_path / "summary/seed_metrics.csv").is_file()
     assert len(pd.read_csv(tmp_path / "summary/bootstrap_intervals.csv")) == 16
+    _write_final_provenance(tmp_path)
+    monkeypatch.setattr(module, "LOCKED_FEATURE_CACHE_ROOT", tmp_path / "feature_cache", raising=False)
     assert module.main(["--config", str(LOCKED_CONFIG), "--evaluation-root", str(tmp_path / "eval"), "--baseline-root", str(tmp_path / "baseline"), "--output-root", str(tmp_path / "summary"), "--report", str(report_path)]) == 0
     final_status = json.loads((tmp_path / "summary/gate_status.json").read_text())
     assert final_status["final"] is True
@@ -417,6 +479,124 @@ def test_root_loader_and_report_outputs(tmp_path, artifacts, cfg):
     assert "missing" in failed["error"].lower()
     assert pd.read_csv(tmp_path / "summary/bootstrap_intervals.csv").empty
     assert pd.read_csv(tmp_path / "summary/seed_metrics.csv").empty
+
+
+def test_final_cli_rejects_missing_run_provenance(tmp_path, artifacts):
+    _write_artifacts(tmp_path, artifacts)
+    result = _script().main(["--config", str(LOCKED_CONFIG),
+                             "--evaluation-root", str(tmp_path / "eval"),
+                             "--baseline-root", str(tmp_path / "baseline"),
+                             "--output-root", str(tmp_path / "summary"),
+                             "--report", str(tmp_path / "report.md")])
+    assert result == 2
+    status = json.loads((tmp_path / "summary/gate_status.json").read_text())
+    assert status["adjudicated"] is False
+    assert "provenance" in status["error"]
+
+
+@pytest.mark.parametrize("damage", ["seed", "checkpoint_missing", "checkpoint_tamper",
+                                     "smoke", "nonreportable", "diagnostic", "config",
+                                     "language", "visual", "evaluator", "runtime", "world_size", "devices"])
+def test_final_run_provenance_rejects_invalid_seed_evidence(tmp_path, artifacts, damage, monkeypatch):
+    _write_artifacts(tmp_path, artifacts)
+    _write_final_provenance(tmp_path)
+    path = tmp_path / "eval/seed_7/run_provenance.json"
+    manifest = json.loads(path.read_text())
+    if damage == "seed":
+        manifest["seed"] = 42
+    elif damage == "checkpoint_missing":
+        Path(manifest["checkpoint_path"]).unlink()
+    elif damage == "checkpoint_tamper":
+        Path(manifest["checkpoint_path"]).write_bytes(b"different-checkpoint")
+    elif damage == "smoke":
+        manifest["smoke"] = True
+    elif damage == "nonreportable":
+        manifest["reportable"] = False
+    elif damage == "diagnostic":
+        manifest["diagnostic_override"] = True
+    elif damage == "config":
+        manifest["config_sha256"] = "wrong"
+    elif damage == "language":
+        manifest["language_manifest_sha256"] = "wrong"
+    elif damage == "visual":
+        manifest["visual_checkpoint_sha256"] = "wrong"
+    elif damage == "evaluator":
+        manifest["evaluator_source_sha256"] = "wrong"
+    elif damage == "runtime":
+        manifest["runtime_validated"] = False
+    elif damage == "world_size":
+        manifest["world_size"] = 1
+    else:
+        manifest["visible_devices"] = "4,5,6,7"
+    path.write_text(json.dumps(manifest))
+    module = _script()
+    monkeypatch.setattr(module, "LOCKED_FEATURE_CACHE_ROOT", tmp_path / "feature_cache", raising=False)
+    with pytest.raises(ValueError, match="provenance|checkpoint|reportable|diagnostic|config|language|visual|runtime|GPU"):
+        module.validate_final_provenance(tmp_path / "eval", LOCKED_CONFIG, yaml.safe_load(LOCKED_CONFIG.read_text()))
+
+
+@pytest.mark.parametrize("damage", ["missing", "tampered"])
+def test_final_provenance_requires_current_evaluation_source_bundle(tmp_path, artifacts, damage, monkeypatch):
+    _write_artifacts(tmp_path, artifacts)
+    _write_final_provenance(tmp_path)
+    path = tmp_path / "eval/seed_7/run_provenance.json"
+    manifest = json.loads(path.read_text())
+    if damage == "missing":
+        manifest.pop("evaluation_source_bundle_sha256")
+    else:
+        manifest["evaluation_source_bundle_sha256"] = "wrong"
+    path.write_text(json.dumps(manifest))
+    module = _script()
+    monkeypatch.setattr(module, "LOCKED_FEATURE_CACHE_ROOT", tmp_path / "feature_cache", raising=False)
+    with pytest.raises(ValueError, match="evaluation_source_bundle_sha256"):
+        module.validate_final_provenance(tmp_path / "eval", LOCKED_CONFIG, yaml.safe_load(LOCKED_CONFIG.read_text()))
+
+
+@pytest.mark.parametrize("damage", ["direct_mode", "mixed_seed_root", "missing_hashes",
+                                     "missing_domain", "tampered_hash", "tampered_file"])
+def test_final_provenance_requires_locked_feature_cache(tmp_path, artifacts, damage, monkeypatch):
+    _write_artifacts(tmp_path, artifacts)
+    _write_final_provenance(tmp_path)
+    path = tmp_path / "eval/seed_7/run_provenance.json"
+    manifest = json.loads(path.read_text())
+    if damage == "direct_mode":
+        manifest["feature_mode"] = "direct"
+    elif damage == "mixed_seed_root":
+        manifest["feature_cache_root"] = str((tmp_path / "another_cache").resolve())
+    elif damage == "missing_hashes":
+        manifest.pop("feature_cache_manifest_sha256")
+    elif damage == "missing_domain":
+        manifest["feature_cache_manifest_sha256"].pop("cdf")
+    elif damage == "tampered_hash":
+        manifest["feature_cache_manifest_sha256"]["cdf"] = "0" * 64
+    else:
+        cache_manifest = tmp_path / "feature_cache/cdf/manifest.json"
+        cache_manifest.write_text(json.dumps({"domain": "cdf", "fixture": "changed"}))
+    path.write_text(json.dumps(manifest))
+    module = _script()
+    monkeypatch.setattr(module, "LOCKED_FEATURE_CACHE_ROOT", tmp_path / "feature_cache", raising=False)
+    with pytest.raises(ValueError, match="feature.*cache|cache.*manifest"):
+        module.validate_final_provenance(tmp_path / "eval", LOCKED_CONFIG, yaml.safe_load(LOCKED_CONFIG.read_text()))
+
+
+@pytest.mark.parametrize("field,value", [("smoke", True), ("seed", 42),
+                                          ("config_sha256", "wrong"),
+                                          ("runtime_validated", False)])
+def test_final_provenance_rejects_checkpoint_metadata_disagreeing_with_manifest(tmp_path, artifacts, field, value, monkeypatch):
+    _write_artifacts(tmp_path, artifacts)
+    _write_final_provenance(tmp_path)
+    path = tmp_path / "eval/seed_7/run_provenance.json"
+    manifest = json.loads(path.read_text())
+    checkpoint = Path(manifest["checkpoint_path"])
+    payload = torch.load(checkpoint, map_location="cpu", weights_only=True)
+    payload[field] = value
+    torch.save(payload, checkpoint)
+    manifest["checkpoint_sha256"] = _sha256(checkpoint)
+    path.write_text(json.dumps(manifest))
+    module = _script()
+    monkeypatch.setattr(module, "LOCKED_FEATURE_CACHE_ROOT", tmp_path / "feature_cache", raising=False)
+    with pytest.raises(ValueError, match="checkpoint.*provenance|checkpoint.*metadata"):
+        module.validate_final_provenance(tmp_path / "eval", LOCKED_CONFIG, yaml.safe_load(LOCKED_CONFIG.read_text()))
 
 
 @pytest.mark.parametrize("section,key,value", [

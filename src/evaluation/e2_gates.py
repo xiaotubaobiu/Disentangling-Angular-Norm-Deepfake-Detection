@@ -465,6 +465,17 @@ def evaluate_gates(metric_rows, control_rows, permutation_rows, baseline_rows, c
             values = _finite(rows.value, "counterfactual values")
             if not np.isin(values, [0, 1]).all() or not rows["count"].eq(1).all():
                 raise ValueError("counterfactual evidence must be video-level binary outcomes")
+            if task == "T4":
+                _require(rows, ["meaningful_score", "control_score", "drop"], "T4 counterfactual scores")
+                scores = _probabilities(rows, ["meaningful_score", "control_score"])
+                expected_drop = scores[:, 0] - scores[:, 1]
+                if not np.allclose(_finite(rows["drop"], "T4 counterfactual drop"),
+                                   expected_drop, rtol=0, atol=1e-10):
+                    raise ValueError("T4 counterfactual drop differs from paired scores")
+                ordering = (expected_drop > 0).astype(float)
+                if not np.array_equal(values, ordering):
+                    raise ValueError("T4 true-family ordering differs from paired scores")
+                rows = rows.assign(value=ordering)
             per_seed = []
             for experiment_seed in SEEDS:
                 expected = base.loc[(base.seed == experiment_seed) & ((base.label == 1) if task == "T4" else True)]

@@ -3,11 +3,14 @@ from __future__ import annotations
 
 import argparse
 from dataclasses import asdict
+import hashlib
 import json
 from pathlib import Path
+import pickle
 import sys
 
 import pandas as pd
+import torch
 import yaml
 
 REPO_ROOT = Path(__file__).resolve().parents[3]
@@ -15,7 +18,87 @@ if str(REPO_ROOT / "src") not in sys.path:
     sys.path.insert(0, str(REPO_ROOT / "src"))
 
 from evaluation.e2_gates import CONDITIONS, DOMAINS, SEEDS, THRESHOLDS, evaluate_gates
+from evaluation.e2_provenance import evaluation_source_bundle_sha256
 from config_io import load_config
+
+
+LOCKED_CONFIG_SHA256 = "f192983448e3a848a32199272916a381b4317eba46b7715f8e126b4f7cf27957"
+LOCKED_FEATURE_CACHE_ROOT = REPO_ROOT / "experiments/2026-09-22_semantic_visual_jev_e2/results/feature_cache"
+
+
+def _sha256(path):
+    with Path(path).open("rb") as stream:
+        return hashlib.file_digest(stream, "sha256").hexdigest()
+
+
+def _repo_path(path):
+    path = Path(path)
+    return path if path.is_absolute() else REPO_ROOT / path
+
+
+def validate_final_provenance(evaluation_root, config_path, cfg):
+    """Require three reportable, physically present runs on locked inputs."""
+    if _sha256(config_path) != LOCKED_CONFIG_SHA256:
+        raise ValueError("final config SHA256 differs from the locked preregistration")
+    expected = {
+        "config_sha256": LOCKED_CONFIG_SHA256,
+        "language_manifest_sha256": _sha256(_repo_path(cfg["language"]["manifest"])),
+        "visual_checkpoint_sha256": _sha256(_repo_path(cfg["train"]["init_visual_checkpoint"])),
+        "evaluator_source_sha256": _sha256(Path(__file__).with_name("evaluate_semantic.py")),
+        "evaluation_source_bundle_sha256": evaluation_source_bundle_sha256(REPO_ROOT),
+    }
+    checkpoint_paths = set()
+    expected_cache_hashes = None
+    for seed in SEEDS:
+        path = Path(evaluation_root) / f"seed_{seed}" / "run_provenance.json"
+        if not path.is_file():
+            raise ValueError(f"missing required run provenance: {path}")
+        manifest = json.loads(path.read_text())
+        if not isinstance(manifest, dict) or manifest.get("seed") != seed:
+            raise ValueError(f"run provenance seed disagrees with directory: {path}")
+        for field, value in expected.items():
+            if manifest.get(field) != value:
+                raise ValueError(f"run provenance {field} differs from locked input: {path}")
+        cache_root = LOCKED_FEATURE_CACHE_ROOT.resolve()
+        if manifest.get("feature_mode") != "cache" or manifest.get("feature_cache_root") != str(cache_root):
+            raise ValueError(f"run provenance feature cache mode/root differs from locked cache: {path}")
+        if expected_cache_hashes is None:
+            expected_cache_hashes = {}
+            for domain in ("ffpp", "cdf", "dfd"):
+                cache_manifest = cache_root / domain / "manifest.json"
+                if not cache_manifest.is_file():
+                    raise ValueError(f"missing feature cache manifest: {cache_manifest}")
+                expected_cache_hashes[domain] = _sha256(cache_manifest)
+        if manifest.get("feature_cache_manifest_sha256") != expected_cache_hashes:
+            raise ValueError(f"run provenance feature cache manifest hashes differ from current files: {path}")
+        if (manifest.get("smoke") is not False or manifest.get("reportable") is not True
+                or manifest.get("diagnostic_override") is not False):
+            raise ValueError(f"non-reportable or diagnostic run provenance: {path}")
+        if (manifest.get("runtime_validated") is not True or manifest.get("world_size") != 4
+                or manifest.get("visible_devices") != "0,1,2,3"):
+            raise ValueError(f"run provenance lacks validated four-GPU execution: {path}")
+        checkpoint_path = manifest.get("checkpoint_path")
+        if not isinstance(checkpoint_path, str) or not Path(checkpoint_path).is_absolute():
+            raise ValueError(f"run provenance checkpoint path must be absolute: {path}")
+        checkpoint = Path(checkpoint_path).resolve()
+        if not checkpoint.is_file():
+            raise ValueError(f"run provenance checkpoint is missing: {checkpoint}")
+        if checkpoint in checkpoint_paths:
+            raise ValueError(f"run provenance reuses a checkpoint across seeds: {checkpoint}")
+        checkpoint_paths.add(checkpoint)
+        if manifest.get("checkpoint_sha256") != _sha256(checkpoint):
+            raise ValueError(f"run provenance checkpoint SHA256 differs from file: {checkpoint}")
+        try:
+            payload = torch.load(checkpoint, map_location="cpu", weights_only=True, mmap=True)
+        except (OSError, RuntimeError, EOFError, pickle.UnpicklingError) as exc:
+            raise ValueError(f"run provenance checkpoint metadata is unreadable: {checkpoint}") from exc
+        if not isinstance(payload, dict):
+            raise ValueError(f"run provenance checkpoint metadata must be a mapping: {checkpoint}")
+        for field in ("seed", "config_sha256", "language_manifest_sha256",
+                      "visual_checkpoint_sha256", "smoke", "reportable", "runtime_validated",
+                      "world_size", "visible_devices"):
+            if payload.get(field) != manifest.get(field):
+                raise ValueError(f"checkpoint metadata disagrees with run provenance: {field}: {checkpoint}")
 
 
 def _read(path, seed, domain, condition=None):
@@ -136,6 +219,7 @@ def main(argv=None):
         cfg = load_config(args.config)
         if not isinstance(cfg, dict) or cfg.get("final", True) is not True:
             raise ValueError("CLI config must describe final preregistered adjudication")
+        validate_final_provenance(args.evaluation_root, args.config, cfg)
         report = assess_run(args.evaluation_root, args.baseline_root, args.output_root, args.report, cfg=cfg)
     except (ValueError, OSError, KeyError, TypeError, yaml.YAMLError) as exc:
         # Fail closed, and replace any stale supported status at this output path.
