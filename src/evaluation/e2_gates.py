@@ -12,7 +12,8 @@ from collections.abc import Mapping
 import numpy as np
 import pandas as pd
 
-from evaluation.semantic_eval import GROUP_KEYS
+from evaluation.semantic_eval import GROUP_KEYS, _task_values
+from data.semantic_dataset import method_family
 
 SEEDS = (42, 7, 2048)
 DOMAINS = ("ffpp", "cdf")
@@ -245,22 +246,110 @@ def _configuration(cfg):
         raise ValueError("final adjudication requires exactly 10,000 resamples")
     if int(count) != count or count < 1:
         raise ValueError("n_resamples must be a positive integer")
-    if "primary_domains" in evaluation and set(evaluation["primary_domains"]) != set(DOMAINS):
-        raise ValueError("primary domains are immutable")
-    return int(count), int(cfg.get("seed", evaluation.get("bootstrap_seed", 20260922))), bool(final)
+    if "primary_domains" in evaluation:
+        domains = evaluation["primary_domains"]
+        if len(domains) != len(DOMAINS) or set(domains) != set(DOMAINS):
+            raise ValueError("primary domains are immutable")
+    bootstrap_seed = cfg.get("seed", evaluation.get("bootstrap_seed", 20260922))
+    if final:
+        if evaluation.get("bootstrap_samples", 10000) != 10000:
+            raise ValueError("final adjudication requires exactly 10,000 resamples")
+        if bootstrap_seed != 20260922 or evaluation.get("bootstrap_seed", 20260922) != 20260922:
+            raise ValueError("final bootstrap seed is locked to 20260922")
+    return int(count), int(bootstrap_seed), bool(final)
 
 
-def evaluate_gates(metric_rows, control_rows, permutation_rows, baseline_rows, candidate_rows, cfg=None):
+def _semantic_scores(rows, baseline, task):
+    """Verify complete canonical video renders and reuse Task 5 primary metrics.
+
+    The suite renders each physical frame once per task, except T4 which renders
+    both family questions. Variant groups partition those frames; their summed
+    counts must recover the fixed-H1 physical-video frame count. Variant names
+    and the number of populated groups need not agree across seeds/videos.
+    """
+    _require(rows, list(GROUP_KEYS) + ["num_frames"], f"{task} canonical videos")
+    if rows[list(GROUP_KEYS)].isna().any().any():
+        raise ValueError("canonical semantic videos have missing variant identities")
+    if rows.duplicated(list(GROUP_KEYS)).any():
+        raise ValueError("duplicate canonical semantic video/variant rows")
+    keys = _population(baseline, "baseline")
+    if _population(rows, f"{task} canonical videos") != keys:
+        raise ValueError("canonical semantic video-key sets differ from baseline")
+    truth = baseline.drop_duplicates("video_key").set_index("video_key").loc[keys, "label"]
+    if set(truth) != {0, 1}:
+        raise ValueError("primary semantic metrics require both physical labels")
+    actual = rows.drop_duplicates("video_key").set_index("video_key").loc[keys, "label"]
+    if not np.array_equal(truth, actual):
+        raise ValueError("canonical semantic video labels differ from baseline")
+    families = {key: method_family(key.split("::", 1)[0], label) for key, label in truth.items()}
+    expected_families = rows.video_key.map(families)
+    if expected_families.eq("unknown").any() or not rows.method_family.eq(expected_families).all():
+        raise ValueError("canonical semantic method families disagree with physical classes")
+    if rows.variant_id.eq("").any() or rows.question_id.eq("").any():
+        raise ValueError("canonical semantic videos require nonempty variant and question identities")
+    counts = _finite(rows.num_frames, "semantic frame counts")
+    if (counts <= 0).any() or (counts != np.floor(counts)).any():
+        raise ValueError("semantic frame counts must be positive integers")
+    physical_truth = np.where(rows.label.to_numpy() == 1, "fake", "real")
+    if task in ("T1", "T3"):
+        target = physical_truth
+        probability_columns = ["p_real", "p_fake"]
+        canonical = rows.p_fake if "p_fake" in rows else []
+    elif task in ("T2", "T4"):
+        polarities = ["real", "fake"] if task == "T2" else ["swap", "reenact"]
+        if not rows.question_yes_means.isin(polarities).all():
+            raise ValueError(f"{task} has invalid question classes")
+        target = np.where(rows.question_yes_means == (physical_truth if task == "T2" else rows.method_family), "yes", "no")
+        probability_columns = ["p_no", "p_yes"]
+        _require(rows, probability_columns, task)
+        canonical = np.where(rows.question_yes_means.eq("fake"), rows.p_yes, rows.p_no) if task == "T2" else None
+        if task == "T4":
+            if rows.question_pair_id.eq("").any():
+                raise ValueError("T4 requires complete family variant pairs")
+            pairs = rows.groupby(["seed", "video_key", "question_pair_id"]).agg(
+                size=("question_id", "size"), questions=("question_id", "nunique"),
+                polarities=("question_yes_means", "nunique"),
+                min_frames=("num_frames", "min"), max_frames=("num_frames", "max"))
+            if not (pairs["size"].eq(2) & pairs.questions.eq(2) & pairs.polarities.eq(2)
+                    & pairs.min_frames.eq(pairs.max_frames)).all():
+                raise ValueError("incomplete or mismatched T4 family variant pairs")
+    else:
+        target = rows.method_family
+        probability_columns = ["p_camera", "p_swap", "p_reenact"]
+        _require(rows, probability_columns, task)
+        canonical = 1 - rows.p_camera.to_numpy(dtype=float)
+    if not np.array_equal(rows.target_semantic, target):
+        raise ValueError(f"{task} target semantics disagree with physical/question classes")
+    probabilities = _probabilities(rows, probability_columns)
+    if not np.allclose(probabilities.sum(axis=1), 1, rtol=0, atol=1e-6):
+        raise ValueError("canonical semantic probabilities must sum to one")
+    fake_probabilities = _probabilities(rows, ["prob_fake"])[:, 0]
+    if canonical is not None and not np.allclose(fake_probabilities, _finite(canonical, "canonical probability"), rtol=0, atol=1e-6):
+        raise ValueError("canonical fake probability differs from semantic probabilities")
+    values = []
+    for seed in SEEDS:
+        selected = rows.loc[rows.seed == seed]
+        expected_counts = baseline.loc[baseline.seed == seed].set_index("video_key").loc[keys, "num_frames"]
+        actual_counts = selected.groupby("video_key").num_frames.sum().reindex(keys)
+        if not np.array_equal(actual_counts, expected_counts * (2 if task == "T4" else 1)):
+            raise ValueError(f"{task} variant frame counts differ from physical video coverage")
+        values.append(_task_values(task, selected)[PRIMARY[task]])
+    return _finite(values, f"{task} recomputed primary scores")
+
+
+def evaluate_gates(metric_rows, control_rows, permutation_rows, baseline_rows, candidate_rows, cfg=None, *, semantic_rows=None):
     """Adjudicate normalized artifacts; malformed/missing evidence raises ValueError.
 
     control_rows combines video-level counterfactual records and full paired
     meaningless-control video records (meaningful_ probability columns).
+    semantic_rows is required canonical seen/heldout video evidence for G2/G4/G5.
     Diagnostic mode can reduce resamples, and is explicitly marked nonfinal.
     """
     n_resamples, rng_seed, final = _configuration(cfg)
     metrics, controls, permutation, baseline, candidate = [pd.DataFrame(f).copy() for f in
         (metric_rows, control_rows, permutation_rows, baseline_rows, candidate_rows)]
-    for frame, name in ((metrics, "metrics"), (controls, "controls"), (permutation, "permutation"), (baseline, "baseline"), (candidate, "candidate")):
+    semantic = pd.DataFrame(semantic_rows).copy()
+    for frame, name in ((metrics, "metrics"), (controls, "controls"), (permutation, "permutation"), (baseline, "baseline"), (candidate, "candidate"), (semantic, "canonical semantic videos")):
         _require(frame, ["seed", "domain"], name)
         if set(frame.seed) != set(SEEDS):
             raise ValueError(f"{name}: exactly fixed seeds {SEEDS} required")
@@ -269,6 +358,9 @@ def evaluate_gates(metric_rows, control_rows, permutation_rows, baseline_rows, c
     _require(metrics, ["condition", "task_id", "metric", "value", "count", "method_id"], "metrics")
     _require(controls, ["condition", "task_id", "video_key", "pairing_key"], "controls")
     _require(permutation, ["condition", "task_id", "metric", "value", "count"], "permutation")
+    _require(semantic, ["condition", "task_id"], "canonical semantic videos")
+    if not semantic.condition.isin(["seen", "heldout"]).all() or not semantic.task_id.isin(PRIMARY).all():
+        raise ValueError("canonical semantic videos contain unexpected conditions/tasks")
     evidence = {f"G{i}": {} for i in range(1, 7)}
     points = {name: [] for name in evidence}
     cis = {"G1": [], "G6": []}
@@ -300,6 +392,19 @@ def evaluate_gates(metric_rows, control_rows, permutation_rows, baseline_rows, c
         if (counts <= 0).any() or (counts != np.floor(counts)).any():
             raise ValueError(f"{context}: counts must be positive integers")
         return _finite(selected.value, context)
+
+    def semantic_values(domain, condition, task, base):
+        stored_values = metric_values(domain, condition, task, PRIMARY[task])
+        stored = metrics.loc[(metrics.domain == domain) & (metrics.condition == condition)
+                             & (metrics.task_id == task) & (metrics.metric == PRIMARY[task])
+                             & (metrics.method_id == "__all__")].set_index("seed").loc[list(SEEDS)]
+        rows = semantic.loc[(semantic.domain == domain) & (semantic.condition == condition) & (semantic.task_id == task)]
+        values = _semantic_scores(rows, base, task)
+        if not np.array_equal(rows.groupby("seed").size().reindex(SEEDS), stored["count"]):
+            raise ValueError(f"{domain}/{condition}/{task}: stored counts differ from canonical video rows")
+        if not np.allclose(values, stored_values, rtol=0, atol=1e-10):
+            raise ValueError(f"{domain}/{condition}/{task}: stored primary score differs from canonical video probabilities")
+        return values
 
     def permutation_gate(domain):
         perm = permutation.loc[permutation.domain == domain]
@@ -340,7 +445,7 @@ def evaluate_gates(metric_rows, control_rows, permutation_rows, baseline_rows, c
         pending.append(("G1", domain, base, cand, "auroc", .05, -.01, fixed_scores))
         task_drops = []
         for task, metric in PRIMARY.items():
-            seen, heldout = metric_values(domain, "seen", task, metric), metric_values(domain, "heldout", task, metric)
+            seen, heldout = semantic_values(domain, "seen", task, base), semantic_values(domain, "heldout", task, base)
             if ((seen < 0) | (seen > 1) | (heldout < 0) | (heldout > 1)).any():
                 raise ValueError("primary scores must lie in [0, 1]")
             drop = seen - heldout
@@ -446,7 +551,7 @@ def evaluate_gates(metric_rows, control_rows, permutation_rows, baseline_rows, c
         gates[name] = GateResult(name, status, point, ci, evidence[name])
     verdict = "not_supported" if any(not g.point_passed for g in gates.values()) else (
         "insufficient_evidence" if any(g.ci_passed is False for g in gates.values()) else "supported")
-    sources = sorted({str(value) for frame in (metrics, controls, permutation, baseline, candidate)
+    sources = sorted({str(value) for frame in (metrics, controls, permutation, baseline, candidate, semantic)
                       if "source_file" in frame for value in frame.source_file.dropna().unique()})
     return GateReport(verdict, gates, dict(THRESHOLDS), n_resamples, final,
                       tuple(seed_metrics), tuple(intervals), tuple(sources))

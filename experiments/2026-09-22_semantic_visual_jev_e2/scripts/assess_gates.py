@@ -8,12 +8,14 @@ from pathlib import Path
 import sys
 
 import pandas as pd
+import yaml
 
 REPO_ROOT = Path(__file__).resolve().parents[3]
 if str(REPO_ROOT / "src") not in sys.path:
     sys.path.insert(0, str(REPO_ROOT / "src"))
 
 from evaluation.e2_gates import CONDITIONS, DOMAINS, SEEDS, THRESHOLDS, evaluate_gates
+from config_io import load_config
 
 
 def _read(path, seed, domain, condition=None):
@@ -50,7 +52,7 @@ def load_artifacts(evaluation_root, baseline_root):
         expected = {f"seed_{seed}" for seed in SEEDS}
         if found != expected:
             raise ValueError(f"{root}: exactly fixed seed directories {sorted(expected)} required; found {sorted(found)}")
-    output = {name: [] for name in ("metric_rows", "control_rows", "permutation_rows", "baseline_rows", "candidate_rows")}
+    output = {name: [] for name in ("metric_rows", "control_rows", "permutation_rows", "baseline_rows", "candidate_rows", "semantic_rows")}
     dfd_audited = any((roots[0] / f"seed_{seed}" / "permutation/dfd_metrics.json").exists() for seed in SEEDS)
     for seed in SEEDS:
         if dfd_audited:
@@ -63,6 +65,8 @@ def load_artifacts(evaluation_root, baseline_root):
                 output["permutation_rows" if condition == "permutation" else "metric_rows"].append(metrics)
                 if condition == "fixed_h1":
                     output["candidate_rows"].append(_read(directory / condition / f"{domain}_videos.csv", seed, domain, condition))
+                elif condition in ("seen", "heldout"):
+                    output["semantic_rows"].append(_read(directory / condition / f"{domain}_videos.csv", seed, domain, condition))
                 elif condition == "counterfactual" or condition.startswith("meaningless_"):
                     suffix = "controls" if condition == "counterfactual" else "paired_videos"
                     output["control_rows"].append(_read(directory / condition / f"{domain}_{suffix}.csv", seed, domain, condition))
@@ -122,14 +126,18 @@ def assess_run(evaluation_root, baseline_root, output_root, report_path, *, cfg=
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--config", required=True, type=Path)
     parser.add_argument("--evaluation-root", required=True, type=Path)
     parser.add_argument("--baseline-root", required=True, type=Path)
     parser.add_argument("--output-root", required=True, type=Path)
     parser.add_argument("--report", required=True, type=Path)
     args = parser.parse_args(argv)
     try:
-        report = assess_run(args.evaluation_root, args.baseline_root, args.output_root, args.report)
-    except (ValueError, OSError, KeyError) as exc:
+        cfg = load_config(args.config)
+        if not isinstance(cfg, dict) or cfg.get("final", True) is not True:
+            raise ValueError("CLI config must describe final preregistered adjudication")
+        report = assess_run(args.evaluation_root, args.baseline_root, args.output_root, args.report, cfg=cfg)
+    except (ValueError, OSError, KeyError, TypeError, yaml.YAMLError) as exc:
         # Fail closed, and replace any stale supported status at this output path.
         payload = dict(verdict="insufficient_evidence", adjudicated=False,
                        error=str(exc), gates={}, thresholds=THRESHOLDS,

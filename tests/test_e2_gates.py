@@ -6,16 +6,19 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 import pytest
+import yaml
 from sklearn.metrics import balanced_accuracy_score, roc_auc_score
 
 from evaluation.e2_gates import (
     PRIMARY, SEEDS, evaluate_gates, paired_seed_video_bootstrap, _ClusterMetric,
 )
 
+LOCKED_CONFIG = Path(__file__).resolve().parents[1] / "experiments/2026-09-22_semantic_visual_jev_e2/configs/semantic_jev.yaml"
+
 
 @pytest.fixture
 def artifacts():
-    metrics, controls, permutations, baseline, candidate = [], [], [], [], []
+    metrics, controls, permutations, baseline, candidate, semantic = [], [], [], [], [], []
     for seed in SEEDS:
         for domain in ("ffpp", "cdf"):
             for condition in ("seen", "heldout", "fixed_h1"):
@@ -30,12 +33,35 @@ def artifacts():
                                          task_id="__all__", metric=metric, value=value, count=24))
             for i in range(12):
                 family = ("camera", "swap", "reenact")[i % 3]
+                method = ("real", "simswap", "fomm")[i % 3]
                 label = int(family != "camera")
-                base = dict(seed=seed, domain=domain, video_id=str(i), method_id=family,
-                            video_key=f"{family}::{i}", label=label, method_family=family,
+                base = dict(seed=seed, domain=domain, video_id=str(i), method_id=method,
+                            video_key=f"{method}::{i}", label=label, method_family=family,
                             prob_fake=.9 if label else .1, num_frames=2)
                 baseline.append(base)
                 candidate.append(dict(base, condition="fixed_h1", task_id="T1"))
+                for condition in ("seen", "heldout"):
+                    for task in PRIMARY:
+                        for variant in (0, 1):
+                            question = f"{task}-q{variant}"
+                            polarity = (("fake", "real")[variant] if task == "T2" else
+                                        (("swap", "reenact")[variant] if task == "T4" else ""))
+                            truth = "fake" if label else "real"
+                            target = (truth if task in ("T1", "T3") else
+                                      (family if task == "T5" else
+                                       ("yes" if polarity == (family if task == "T4" else truth) else "no")))
+                            row = dict(base, condition=condition, task_id=task, question_id=question,
+                                       variant_id=f"{question}::answers", question_yes_means=polarity,
+                                       question_pair_id=f"T4::{condition}::answers" if task == "T4" else "",
+                                       target_semantic=target, num_frames=2 if task == "T4" else 1,
+                                       p_real=1-base["prob_fake"], p_fake=base["prob_fake"],
+                                       p_yes=.9 if target == "yes" else .1,
+                                       p_no=.1 if target == "yes" else .9)
+                            for name in ("camera", "swap", "reenact"):
+                                row[f"p_{name}"] = .9 if name == family else .05
+                            if task == "T5":
+                                row["prob_fake"] = 1-row["p_camera"]
+                            semantic.append(row)
                 for task, metric in (("T2", "polarity_consistency"), ("T4", "true_family_ordering")):
                     if task == "T4" and not label:
                         continue
@@ -71,7 +97,7 @@ def artifacts():
     return {name: pd.DataFrame(rows) for name, rows in
             (("metric_rows", metrics), ("control_rows", controls),
              ("permutation_rows", permutations), ("baseline_rows", baseline),
-             ("candidate_rows", candidate))}
+             ("candidate_rows", candidate), ("semantic_rows", semantic))}
 
 
 @pytest.fixture
@@ -88,10 +114,56 @@ def test_all_gates_pass(artifacts, cfg):
 
 def test_point_failure_takes_precedence(artifacts, cfg):
     rows = artifacts["metric_rows"]
-    rows.loc[(rows.task_id == "T5") & (rows.condition == "heldout"), "value"] = .55
+    rows.loc[(rows.task_id == "T5") & (rows.condition == "heldout"), "value"] = .5
+    videos = artifacts["semantic_rows"]
+    wrong = (videos.task_id == "T5") & (videos.condition == "heldout") & (videos.video_id.astype(int) >= 6)
+    videos.loc[wrong, ["p_camera", "p_swap", "p_reenact"]] = videos.loc[wrong, ["p_reenact", "p_camera", "p_swap"]].to_numpy()
+    videos.loc[wrong, "prob_fake"] = 1-videos.loc[wrong, "p_camera"]
     report = evaluate_gates(**artifacts, cfg=cfg)
     assert report.gates["G5"].status == "fail"
     assert report.verdict == "not_supported"
+
+
+@pytest.mark.parametrize("condition,task,field,value", [
+    ("heldout", "T5", "count", 1),
+    ("heldout", "T5", "value", .55),
+    ("seen", "T1", "count", 1),
+    ("heldout", "T2", "value", .5),
+    ("heldout", "T4", "value", .5),
+])
+def test_seen_heldout_aggregate_tampering_rejected(artifacts, cfg, condition, task, field, value):
+    rows = artifacts["metric_rows"]
+    rows.loc[(rows.condition == condition) & (rows.task_id == task), field] = value
+    with pytest.raises(ValueError, match="count|score|differs"):
+        evaluate_gates(**artifacts, cfg=cfg)
+
+
+@pytest.mark.parametrize("damage", ["one_row_t5", "variant", "duplicate", "label", "family", "target", "nan_probability", "t4_partner"])
+def test_canonical_semantic_video_integrity_rejected(artifacts, cfg, damage):
+    rows = artifacts["semantic_rows"]
+    task = "T4" if damage == "t4_partner" else "T5"
+    selected = (rows.condition == "heldout") & (rows.task_id == task) & (rows.domain == "cdf") & (rows.seed == 7)
+    indices = rows.loc[selected].index
+    if damage == "one_row_t5":
+        artifacts["semantic_rows"] = rows.drop(indices[1:])
+    elif damage in ("variant", "t4_partner"):
+        artifacts["semantic_rows"] = rows.drop(indices[0])
+    elif damage == "duplicate":
+        artifacts["semantic_rows"] = pd.concat([rows, rows.loc[indices[:1]]], ignore_index=True)
+    elif damage == "label":
+        rows.loc[indices[:1], "label"] = 1-rows.loc[indices[:1], "label"]
+    elif damage == "family":
+        rows.loc[indices[:1], "method_family"] = "unknown"
+    elif damage == "target":
+        rows.loc[indices[:1], "target_semantic"] = "swap"
+    else:
+        rows.loc[indices[:1], "p_camera"] = np.nan
+    # Even a matching aggregate count cannot legitimize incomplete video data.
+    metrics = artifacts["metric_rows"]
+    mask = (metrics.condition == "heldout") & (metrics.task_id == task) & (metrics.domain == "cdf") & (metrics.seed == 7)
+    metrics.loc[mask, "count"] = len(artifacts["semantic_rows"].query("condition == 'heldout' and task_id == @task and domain == 'cdf' and seed == 7"))
+    with pytest.raises(ValueError):
+        evaluate_gates(**artifacts, cfg=cfg)
 
 
 def test_ci_crossing_is_inconclusive(artifacts, cfg):
@@ -310,6 +382,8 @@ def _write_artifacts(root, artifacts):
                     selected.to_csv(directory / f"{domain}_{suffix}.csv", index=False)
                 if condition == "fixed_h1":
                     artifacts["candidate_rows"].query("seed == @seed and domain == @domain").to_csv(directory / f"{domain}_videos.csv", index=False)
+                if condition in ("seen", "heldout"):
+                    artifacts["semantic_rows"].query("seed == @seed and domain == @domain and condition == @condition").to_csv(directory / f"{domain}_videos.csv", index=False)
 
 
 def test_root_loader_and_report_outputs(tmp_path, artifacts, cfg):
@@ -320,12 +394,12 @@ def test_root_loader_and_report_outputs(tmp_path, artifacts, cfg):
     assert report.verdict == "supported"
     status = json.loads((tmp_path / "summary/gate_status.json").read_text())
     assert status["final"] is False
-    assert len(status["sources"]) == 72
+    assert len(status["sources"]) == 84
     assert "NONFINAL" in report_path.read_text()
     assert "Calibration" in report_path.read_text()
     assert (tmp_path / "summary/seed_metrics.csv").is_file()
     assert len(pd.read_csv(tmp_path / "summary/bootstrap_intervals.csv")) == 16
-    assert module.main(["--evaluation-root", str(tmp_path / "eval"), "--baseline-root", str(tmp_path / "baseline"), "--output-root", str(tmp_path / "summary"), "--report", str(report_path)]) == 0
+    assert module.main(["--config", str(LOCKED_CONFIG), "--evaluation-root", str(tmp_path / "eval"), "--baseline-root", str(tmp_path / "baseline"), "--output-root", str(tmp_path / "summary"), "--report", str(report_path)]) == 0
     final_status = json.loads((tmp_path / "summary/gate_status.json").read_text())
     assert final_status["final"] is True
     assert final_status["n_resamples"] == 10000
@@ -337,9 +411,31 @@ def test_root_loader_and_report_outputs(tmp_path, artifacts, cfg):
     optional.unlink()
     missing = tmp_path / "eval/seed_7/seen/cdf_metrics.json"
     missing.unlink()
-    assert module.main(["--evaluation-root", str(tmp_path / "eval"), "--baseline-root", str(tmp_path / "baseline"), "--output-root", str(tmp_path / "summary"), "--report", str(report_path)]) == 2
+    assert module.main(["--config", str(LOCKED_CONFIG), "--evaluation-root", str(tmp_path / "eval"), "--baseline-root", str(tmp_path / "baseline"), "--output-root", str(tmp_path / "summary"), "--report", str(report_path)]) == 2
     failed = json.loads((tmp_path / "summary/gate_status.json").read_text())
     assert failed["verdict"] == "insufficient_evidence"
     assert "missing" in failed["error"].lower()
     assert pd.read_csv(tmp_path / "summary/bootstrap_intervals.csv").empty
     assert pd.read_csv(tmp_path / "summary/seed_metrics.csv").empty
+
+
+@pytest.mark.parametrize("section,key,value", [
+    ("evaluation", "primary_domains", ["ffpp"]),
+    ("evaluation", "bootstrap_seed", 123),
+    ("evaluation", "bootstrap_samples", 100),
+    ("gates", "t5_macro_balanced_accuracy_min", .1),
+])
+def test_cli_rejects_disagreement_with_locked_config(tmp_path, artifacts, section, key, value):
+    _write_artifacts(tmp_path, artifacts)
+    config = yaml.safe_load(LOCKED_CONFIG.read_text())
+    config[section][key] = value
+    path = tmp_path / "config.yaml"
+    path.write_text(yaml.safe_dump(config))
+    result = _script().main(["--config", str(path), "--evaluation-root", str(tmp_path / "eval"),
+                             "--baseline-root", str(tmp_path / "baseline"),
+                             "--output-root", str(tmp_path / "summary"),
+                             "--report", str(tmp_path / "report.md")])
+    assert result == 2
+    status = json.loads((tmp_path / "summary/gate_status.json").read_text())
+    assert status["verdict"] == "insufficient_evidence"
+    assert status["adjudicated"] is False
