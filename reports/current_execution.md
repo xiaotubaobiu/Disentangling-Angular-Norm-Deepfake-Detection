@@ -1,4 +1,13 @@
 
+2026-10-07T22:30:27.568271+00:00：首批四个15epoch/final模型均已独立核验：CLIP seed7 success29305/skip5、DINO seed7 success29307/skip3、Efficient seed7 success29306/skip4、CLIP seed42 success29306/skip4；各draw3750000/attempt29310。全部final/state一致、模型及optimizer有限、AMP/Python/NumPy/CPU/CUDA RNG齐全，15轮采样序列精确重建。训练预算合规，但逐步AMP日志缺口仍明确；不补步、不重训、无新配置。训练模型4/15，完整cache run1/15，分析待全15完整run。原队列3984143继续，DINO seed42已首轮，GPU0–3与gateway未干预。证据reports/completed_model_state_receipts.json、formal_training_budget_counts.csv/receipts.json。
+
+
+2026-10-07T22:20:16.217732+00:00：22:16平台连接通知后的实际SSH成功；原supervisor3984143/四个当前worker身份、PPID、cwd/run.py和execution/queue两锁均正常。训练完成3/15、完整cache run1/15；CLIP seed7/42已15epoch，DINO seed7为14epoch、seed42为1epoch。缓存持续写入；无实验失败、实际访问/审批阻碍，未重启/重复启动/新建调度。逐模型预算与AMP聚合skip记录继续更新，缺少逐步AMP事件保持明确披露。
+
+
+2026-10-07T21:58:48.035979+00:00：CLIP ViT-B/16 seed7完成15epoch/final模型核验；draw3750000、attempt29310、success29305、AMP skip5。完整模型/optimizer有限，final与state一致，完整AMP/Python/NumPy/CPU/CUDA RNG及15轮实际序列精确重建通过。训练loss=0.028471196019172668，不作目标性能结果。逐次skip步号/scale未被冻结代码记录，按相同口径明确缺口；未补步/重训。模型训练完成2/15，完整cache run仍1/15；CLIP缓存提取继续。证据reports/completed_model_state_receipts.json与formal_training_budget_counts.csv。
+
+
 2026-10-07T21:22:35.415156+00:00：首个完整run efficientnet_b0_seed7（15epoch + train250000/FFtest59935/CDFtest368922/cal1120原始缓存，共679977行）独立hash/FP32有限值/1280维/全清单顺序/最终两类head核验通过；canonical verified_run=true。原worker3990786已退出0，完成事件 2026-10-07T21:18:18.404736+00:00；原supervisor3984143随后在GPU6自动启动DINOv2 seed42 PID144861，事件 2026-10-07T21:18:18.406325+00:00；新worker PPID/cwd/run.py和两锁验证一致。完整run为1/15，无最终科学结果。原LLM容器仍exited、restart unless-stopped，等待全GPU队列结束恢复。证据reports/first_complete_cache_receipt.json与first_complete_run_rotation_receipt.json。AMP逐步日志缺口继续披露，不补步。
 
 
