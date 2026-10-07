@@ -3,7 +3,7 @@
 
 ## 当前状态与证据
 官方修订目录62份JSON与本机索引逐字节和语义一致，原作者图片压缩包的来源尚未认证。完整审计1514777路径、0解码失败。已授权按已知FF来源隔离并保留原发布角色和逐条变更；未知音频驱动/EFS来源保持未知，不依据存储桶虚构来源独立性。
-报告看 reports/official_local_verification.md、reports/frozen_method_counts.csv；实时状态看 artifacts/execution_status.json、queue_status.json 与 docs/superpowers/plans/progress.md。启动/CPU测试不代表实验完成。
+报告看 reports/official_local_verification.md、reports/frozen_unit_counts.csv、reports/execution_receipt_20261007.md；实时状态看 artifacts/execution_status.json、queue_status.json 与 docs/superpowers/plans/progress.md。启动/CPU测试不代表实验完成。
 
 ## 目录
 configs/ 固定协议与保存的用户授权；src/deepfake_detector/ 管线；tests/ 回归；reports/ 结果/证据。
