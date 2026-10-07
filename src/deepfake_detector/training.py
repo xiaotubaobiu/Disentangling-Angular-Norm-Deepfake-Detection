@@ -8,6 +8,10 @@ from .manifest import digest,save_json
 
 
 def sampling_weights(df):
+    if 'sampling_mass' in df:
+        values=df.sampling_mass.to_numpy(dtype=float)
+        if not np.isfinite(values).all() or (values<0).any() or not np.isclose(values.sum(),1.) or not np.isclose(values[df.label.to_numpy()==0].sum(),.5):raise ValueError('Frozen canonical sampling mass invalid')
+        return values
     mass=np.zeros(len(df),dtype=float)
     fake=sorted(set(df.loc[df.label==1,'method_id']))
     if not fake or not (df.label==0).any():raise ValueError('Both training classes required')
@@ -72,6 +76,8 @@ def augmentation(backbone,seed):
 def train(config,backbone,seed,device,root):
     from .models import build_model
     from .orchestration import require_gpu_gates
+    from .qualification import apply_numeric_policy
+    apply_numeric_policy()
     root=Path(root);require_gpu_gates(root)
     manifest=root/'data/train.parquet';df=pd.read_parquet(manifest)
     identity=run_identity(config,backbone,seed,root);micro=identity['microbatch']
@@ -83,7 +89,7 @@ def train(config,backbone,seed,device,root):
         return old
     set_random(seed);model=build_model(backbone,config['backbones'][backbone]['weight_path']).to(device)
     optimizer=torch.optim.AdamW(model.parameters(),lr=config['backbones'][backbone]['learning_rate'],weight_decay=config['weight_decay'])
-    scaler=torch.amp.GradScaler('cuda');epoch=0;state=out/'state.pt'
+    scaler=torch.amp.GradScaler('cuda',init_scale=128);epoch=0;state=out/'state.pt'
     history=[]
     if state.exists():
         epoch=restore_checkpoint(state,model,optimizer,scaler,identity)
@@ -163,8 +169,8 @@ def extract(config,backbone,seed,device,root):
                 if array.dtype!=np.float32 or array.ndim!=2 or len(array)!=len(part) or not np.isfinite(array).all():raise ValueError('Invalid interrupted feature chunk')
                 pieces.append({k:saved[k] for k in ['start','rows','file','sha256']});continue
             with torch.inference_mode():
-                for j in range(0,len(part),64):
-                    rows=part.iloc[j:j+64];x=torch.stack([transform_image(path,backbone) for path in rows.image_path]).to(device)
+                for j in range(0,len(part),expected['microbatch']):
+                    rows=part.iloc[j:j+expected['microbatch']];x=torch.stack([transform_image(path,backbone) for path in rows.image_path]).to(device)
                     features.append(model.encoder(x).float().cpu().numpy())
             array=np.concatenate(features);assert np.isfinite(array).all()
             tmp=cache.with_name(cache.name+'.tmp')

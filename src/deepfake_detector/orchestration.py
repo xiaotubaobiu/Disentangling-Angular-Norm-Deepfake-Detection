@@ -1,9 +1,24 @@
 """Locks and physical-device/service lifecycle gates. Never touch Jev/gateway."""
 from contextlib import contextmanager
 from pathlib import Path
-import datetime,hashlib,json,os,subprocess,time,uuid
+import datetime,hashlib,json,os,subprocess,time,uuid,signal
 from .manifest import digest,save_json
 
+
+@contextmanager
+def termination_guard():
+    previous=signal.signal(signal.SIGTERM,lambda signum,frame:(_ for _ in ()).throw(KeyboardInterrupt('SIGTERM')))
+    try:yield
+    finally:signal.signal(signal.SIGTERM,previous)
+
+def owned_process(args,**kwargs):
+    child=subprocess.Popen(args,**kwargs)
+    try:child.wait();return child
+    finally:
+        if child.poll() is None:
+            child.terminate()
+            try:child.wait(timeout=15)
+            except subprocess.TimeoutExpired:child.kill();child.wait(timeout=15)
 
 def validate_devices(devices):
     devices=list(devices)
@@ -72,13 +87,19 @@ def gpu_inventory():
 
 
 def container_state():
-    template='{"id":{{json .Id}},"state":{{json .State}},"restart":{{json .HostConfig.RestartPolicy}},"runtime":{{json .HostConfig.Runtime}}}'
+    template='{"id":{{json .Id}},"state":{"Running":{{json .State.Running}},"Pid":{{json .State.Pid}},"Status":{{json .State.Status}}},"restart":{{json .HostConfig.RestartPolicy}},"runtime":{{json .HostConfig.Runtime}}}'
     q=subprocess.run(['docker','inspect','--format',template,'onecat-vllm'],check=True,capture_output=True,text=True)
     return json.loads(q.stdout)
 
 
 def pause_llm(artifact,devices):
     root=Path(artifact);require_gpu_gates(root);devices=validate_devices(devices)
+    journal=root/'service_state.json'
+    if journal.exists():
+        prior=json.loads(journal.read_text())
+        old_running=prior.get('original',{}).get('state',{}).get('Running',False)
+        if old_running and (prior.get('state') in ['PREPARED','STOPPED'] or (prior.get('state')=='RESTORED_CONTAINER_RUNNING_HEALTH_PENDING' and not container_state()['state']['Running'])):
+            raise ValueError('Unresolved original service restore intent; verify owned workers stopped then run restore before starting a new session')
     original=container_state();cards,apps=gpu_inventory();uuids={cards[i]['uuid'] for i in devices}
     for app in apps:
         group=(Path('/proc')/str(app['pid'])/'cgroup').read_text()
@@ -143,13 +164,26 @@ def llm_session(artifact,devices):
         if record is not None:restore_llm(root,record)
 
 
+def verify_selected_source_stats(artifact):
+    import pandas as pd
+    root=Path(artifact);frozen=validate_frozen_manifests(root);checked=0
+    for name in frozen['manifest_sha256']:
+        df=pd.read_parquet(root/'data'/name).drop_duplicates('image_path')
+        for row in df.itertuples():
+            stat=Path(row.image_path).stat()
+            if stat.st_size!=row.bytes or stat.st_mtime_ns!=row.mtime_ns:
+                raise ValueError('Source image changed since byte/RGB audit: '+row.image_path)
+            checked+=1
+    return {'selected_paths_stat_checked':checked,'stat_check_is_not_new_byte_hash_proof':True}
+
 def preflight(config,project):
     project=Path(project);artifact=Path(config['artifact_root']);frozen=artifact/'data/freeze_complete.json'
     if not frozen.exists():raise ValueError('Cannot pass full CPU preflight before data/policy freeze')
+    source_checks=verify_selected_source_stats(artifact)
     env=os.environ.copy();env.update(CUDA_VISIBLE_DEVICES='',PYTHONPATH=str(project/'src'),OMP_NUM_THREADS='2',OPENBLAS_NUM_THREADS='1',PYTHONDONTWRITEBYTECODE='1')
     p=subprocess.run([str(project/'.venv/bin/python'),'-B','-m','pytest','-q'],cwd=project,env=env,capture_output=True,text=True)
     (project/'reports/cpu_preflight_tests.txt').write_text(p.stdout+p.stderr)
     if p.returncode:raise ValueError('CPU suite failed; see reports/cpu_preflight_tests.txt')
     record={'status':'CPU_PREFLIGHT_PASS','project':str(project),'config_sha256':digest(project/'configs/v1.1.json'),
-      'code_sha256':code_hash(project),'freeze_sha256':digest(frozen),'test_output':p.stdout,'CUDA_visible':'','LLM_stopped':False}
+      'code_sha256':code_hash(project),'freeze_sha256':digest(frozen),'test_output':p.stdout,'CUDA_visible':'','LLM_stopped':False,'source_checks':source_checks}
     save_json(artifact/'cpu_preflight_complete.json',record);return record

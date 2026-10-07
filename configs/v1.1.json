@@ -50,9 +50,17 @@
     6,
     7
   ],
-  "data_policy": "AWAITING_SCIENTIFIC_RULING",
-  "source_calibration": "UNVERIFIED",
+  "data_policy": "APPROVED_OFFICIAL_ROLE_WITH_KNOWN_FF_SOURCE_ISOLATION_AND_LOCAL_CONTENT_DEDUP",
+  "source_calibration": "REAL_ONLY_FPR5_KNOWN_FF_SOURCE_CONTENT_SCOPE",
   "TPR95": "UNAVAILABLE_WITHOUT_FULL_INDEPENDENT_FAKE_CALIBRATION",
   "augmentation_defaults_sha256": "8b99281533a4447a8b39bc7ae5cc7d50d4ffd8964f8c42bca1fc80853e4d6e54",
-  "environment_versions_sha256": "4efde12b67fcb0748d533f77ed94fa9eba194d7dc22938018be1799e2a87e2b9"
+  "environment_versions_sha256": "4efde12b67fcb0748d533f77ed94fa9eba194d7dc22938018be1799e2a87e2b9",
+  "numeric_policy": {
+    "AMP": "float16",
+    "TF32": false,
+    "cudnn_benchmark": false,
+    "deterministic_algorithms": true,
+    "CUBLAS_WORKSPACE_CONFIG": ":4096:8",
+    "data_loader_workers": 0
+  }
 }

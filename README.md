@@ -1,43 +1,60 @@
 # DF40 v1.1
+31方法、3骨干、5种子。原始数据只读；仅物理GPU4–7；0–3/Jev与gateway不参与。本轮没有新方法更新或回放。
 
-31方法、三骨干、五个固定种子，研究聚合评分、源阈值迁移与稳定性。原始数据只读，GPU仅物理4–7，0–3/Jev不参与。科学协议未冻结；目前是准备、审计和部分管线实现，实验尚未完成。
+## 当前状态与证据
+官方修订目录62份JSON与本机索引逐字节和语义一致，原作者图片压缩包的来源尚未认证。完整审计1514777路径、0解码失败。已授权按已知FF来源隔离并保留原发布角色和逐条变更；未知音频驱动/EFS来源保持未知，不依据存储桶虚构来源独立性。
+报告看 reports/official_local_verification.md、reports/frozen_method_counts.csv；实时状态看 artifacts/execution_status.json、queue_status.json 与 docs/superpowers/plans/progress.md。启动/CPU测试不代表实验完成。
 
-## 目录与入口
+## 目录
+configs/ 固定协议与保存的用户授权；src/deepfake_detector/ 管线；tests/ 回归；reports/ 结果/证据。
+artifacts -> /home/z/workspace/deepfake_detector_v11_20261007，SSD衍生物。旧快照与失败工件保留，不改写原JSON/图片。
+.venv -> artifacts/environment_clean。requirements.full.lock.txt锁定完整环境，初始化权重与SHA在config和prepare_complete.json。
 
-- docs/superpowers/specs/：不变的协议原稿、设计、证据。
-- docs/superpowers/plans/progress.md：续接实施账本。
-- configs/v1.1.json：固定参数、公开权重哈希、未冻结门槛。
-- src/deepfake_detector/、tests/：实现及CPU回归。
-- artifacts：快捷方式，实际位于 /home/z/workspace/deepfake_detector_v11_20261007。
-- reports/：来源提案、容量、内容证据及日志。
-
-从任何目录执行，入口按sys.prefix使用项目环境：
-
+## 单一入口
+从任何目录使用：
 ```bash
 python /home/z/project/deepfake_detector/run.py status
-python /home/z/project/deepfake_detector/run.py prepare
-python /home/z/project/deepfake_detector/run.py propose
-python /home/z/project/deepfake_detector/run.py evidence
-python /home/z/project/deepfake_detector/run.py audit
+python /home/z/project/deepfake_detector/run.py dry-run
+python /home/z/project/deepfake_detector/run.py execute
 ```
+execute独占并顺序完成CPU预检、GPU微批资格、独立1epoch完整管线pilot、15正式15epoch模型与全部特征、30匹配头/A–D分析/五种子汇总。资格测试和pilot不作为正式科学结果。通过pilot后最多四个正式run并行。
+已存在作业先读status与PID/comm/cwd和锁，不重复启动execute。
 
-audit有独占锁，完整检查byte/RGB、解码和尺寸，SQLite支持续接。已有审计运行时先查status，不要重复启动。早期错误解析路径快照保留；现行证据只联结当前清单。训练前仍需核验源文件没有变化。
-
-propose/evidence只做计数和关系证据，不生成训练角色清单。content_evidence_summary.json区别部分快照和全量终态。conditional_candidate_counts.csv是未批准的计数方案；EFS数量带未知来源条件，不能称为来源独立的划分。
-
-## 环境与检查
-
-.venv指向artifacts/environment_clean，不继承系统包，不修改其他项目环境。全部依赖锁在requirements.full.lock.txt，核心依赖在requirements.lock.txt；CUDA包源为官方cu124。公开初始化、依赖版本、增强默认值及哈希在artifacts。
-
+手工分阶段复现：
 ```bash
 cd /home/z/project/deepfake_detector
+python run.py prepare
+python run.py audit
+python run.py freeze --approval configs/source_isolation_authorization.json
+python run.py preflight
+python run.py probe
+python run.py pilot
+python run.py run
+python run.py report
+```
+已有已审计/已冻结目录不能重新freeze覆盖；新复现需独立artifact_root，保留相同索引/权重/输入哈希。原TEST/CDF不会进入train/cal。audit有锁与SQLite续接；现有完整审计无需重复。
+
+## 数据与计分
+训练以唯一RGB内容作为输入，保留每个方法关联贡献后合并sampling_mass，因此共享SG2/SG3内容不会重复算epoch长度，也不会丢弃方法抽样贡献。训练、FFtest、CDFtest关联清单均31方法；真实数据跨方法只保留一池。
+21视频方法固定8不同RGB帧；EFS为独立图像，没有伪造视频AUC。完整关联先构建已知FF关系与RGB连接组，再选帧/去重，EFS存储组/CDF视频组只是披露的重采样代理。
+real-only FPR5校准使用140原FF-val视频的固定1120帧；独立性仅指已知FF来源及精确内容范围，不认证未知驱动/生成祖先。fake-cal不具完整覆盖，TPR95不可用。阈值不借FFtest/CDF生成。
+
+## 恢复与失败
+每完成epoch原子保存模型、optimizer、AMP、Python/NumPy/CPU/CUDA RNG、history、实际样本序列哈希；中途失败从上个完整epoch重做，未承诺batch中点恢复。final.pt只用第15轮。
+```bash
+python run.py resume
+```
+任一输入/配置/初始化/代码/资格哈希变化拒绝冒充原run恢复。完整checkpoint与每块特征缓存都校验；失败不以旧结果补齐。
+仅正常 docker stop --time 60 onecat-vllm / docker start onecat-vllm，不删除容器、不修改restart policy。SIGTERM先终止并join本次子进程再恢复服务。若owner崩溃留下原服务恢复意图，先确认该owner/worker均停止且目标GPU无占用，再：
+```bash
+python run.py restore
+```
+restore拒绝活owner或GPU碰撞；再resume。状态仅记录非秘密容器字段，不记录环境变量或凭据。
+
+## 复核与结果
+```bash
 CUDA_VISIBLE_DEVICES= OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=1 PYTHONPATH=src .venv/bin/python -B -m pytest tests -q
 ```
-
-CPU测试覆盖真实三骨干前向、8帧选择、共享真实权重、inclusive阈值并列、AdamW/RNG恢复、缓存损坏、无效bootstrap重复及模拟服务恢复。通过CPU测试不代表未执行的GPU训练通过。
-
-## 尚未冻结
-
-保留原发布/物理/已知源角色，所有experiment_role仍未分配。原TEST/CDF不回灌训练或校准。具体角色与副本规则须获用户科学确认后，才可冻结全15次运行共同清单。独立源校准未认证；fake校准0，TPR95不可用。
-
-GPU生命周期代码核验容器与UUID，常规停止并恢复原来运行的onecat-vllm；不更改gateway或重启策略，目前只做模拟测试。GPU探测、试跑、正式队列和完整A–D报告仍须实现并通过门槛；当前CLI不会启动它们。
+结果在artifacts/analysis/<backbone>_seed<seed>/与artifacts/report/：
+逐样本分数/预测、阈值、逐方法/逐seed/五seed均值SD范围、四流程配对差、尺度/长度/匹配头/3×3转移、分开校准与测试bootstrap（含无效次数）、FS/FR/EFS汇总和稳定性/相对源阈值图。report须从保存分数重算主指标并验证所有交付后才写完成状态。
+源图片状态预检比对全量byte/RGB审计时size/mtime；它是变化筛查，不等于新的逐byte证明。原数据与用户Obsidian v1.1协议保持不变。
