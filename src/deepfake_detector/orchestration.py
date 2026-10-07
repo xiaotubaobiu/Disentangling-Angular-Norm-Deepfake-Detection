@@ -181,7 +181,7 @@ def preflight(config,project):
     if not frozen.exists():raise ValueError('Cannot pass full CPU preflight before data/policy freeze')
     source_checks=verify_selected_source_stats(artifact)
     env=os.environ.copy();env.update(CUDA_VISIBLE_DEVICES='',PYTHONPATH=str(project/'src'),OMP_NUM_THREADS='2',OPENBLAS_NUM_THREADS='1',PYTHONDONTWRITEBYTECODE='1')
-    p=subprocess.run([str(project/'.venv/bin/python'),'-B','-m','pytest','-q'],cwd=project,env=env,capture_output=True,text=True)
+    p=subprocess.run([str(project/'.venv/bin/python'),'-B','-m','pytest','tests','-q'],cwd=project,env=env,capture_output=True,text=True)
     (project/'reports/cpu_preflight_tests.txt').write_text(p.stdout+p.stderr)
     if p.returncode:raise ValueError('CPU suite failed; see reports/cpu_preflight_tests.txt')
     record={'status':'CPU_PREFLIGHT_PASS','project':str(project),'config_sha256':digest(project/'configs/v1.1.json'),

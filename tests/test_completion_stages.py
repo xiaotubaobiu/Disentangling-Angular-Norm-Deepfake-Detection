@@ -114,3 +114,16 @@ def test_consolidated_report_keeps_controls_heads_pairs_and_bootstrap_scope():
     assert set(tables)>={'scale_controls','length_controls','matched_heads','pair_transitions','test_bootstrap','calibration_bootstrap'}
     assert not tables['matched_heads'].iloc[0].converged
     assert 'invalid' in tables['test_bootstrap'].columns
+
+def test_preflight_collects_only_this_project_suite(tmp_path,monkeypatch):
+    import subprocess
+    from deepfake_detector import orchestration as o
+    (tmp_path/'src').mkdir();(tmp_path/'configs').mkdir();(tmp_path/'reports').mkdir()
+    (tmp_path/'configs/v1.1.json').write_text('{}')
+    data=tmp_path/'artifacts/data';data.mkdir(parents=True);(data/'freeze_complete.json').write_text('{}')
+    monkeypatch.setattr(o,'verify_selected_source_stats',lambda *a:{'selected_paths_stat_checked':1})
+    def fake(args,**kwargs):
+        assert 'tests' in args, 'must not collect artifact/reference upstream generation scripts'
+        return subprocess.CompletedProcess(args,0,'1 passed','')
+    monkeypatch.setattr(o.subprocess,'run',fake)
+    o.preflight({'artifact_root':str(tmp_path/'artifacts')},tmp_path)
