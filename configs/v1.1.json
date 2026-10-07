@@ -1,0 +1,58 @@
+{
+  "protocol": "df40-v1.1-20261007",
+  "data_root": "/Dataset/deepfake_detection/DF40_all",
+  "artifact_root": "/home/z/project/deepfake_detector/artifacts",
+  "audit_workers": 4,
+  "seeds": [
+    7,
+    42,
+    123,
+    2026,
+    3407
+  ],
+  "backbones": {
+    "clip_vit_b16": {
+      "learning_rate": 1e-05,
+      "weight_path": "/home/z/.cache/clip/ViT-B-16.pt",
+      "weight_sha256": "5806e77cd80f8b59890b7e101eabd078d9fb84e6937f9e85e4ecb61988df416f"
+    },
+    "dinov2_vit_b14": {
+      "learning_rate": 5e-05,
+      "weight_path": "/home/z/project/deepfake_detector/artifacts/weights/dinov2_vitb14_pretrain.pth",
+      "weight_sha256": "0b8b82f85de91b424aded121c7e1dcc2b7bc6d0adeea651bf73a13307fad8c73"
+    },
+    "efficientnet_b0": {
+      "learning_rate": 0.0001,
+      "weight_path": "/home/z/project/deepfake_detector/artifacts/weights/efficientnet_b0.pth",
+      "weight_sha256": "7f5810bc96def8f7552d5b7e68d53c4786f81167d28291b21c0d90e1fca14934"
+    }
+  },
+  "epochs": 15,
+  "checkpoint_selection": "final_epoch_only",
+  "effective_batch": 128,
+  "weight_decay": 0.0005,
+  "resolution": 224,
+  "scales": [
+    0.25,
+    0.5,
+    1,
+    2,
+    4
+  ],
+  "source_FPR_budget": 0.05,
+  "test_bootstrap": 2000,
+  "calibration_bootstrap": 1000,
+  "matched_head_L2": 0.0001,
+  "matched_head_max_iter": 2000,
+  "physical_gpus": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "data_policy": "AWAITING_SCIENTIFIC_RULING",
+  "source_calibration": "UNVERIFIED",
+  "TPR95": "UNAVAILABLE_WITHOUT_FULL_INDEPENDENT_FAKE_CALIBRATION",
+  "augmentation_defaults_sha256": "8b99281533a4447a8b39bc7ae5cc7d50d4ffd8964f8c42bca1fc80853e4d6e54",
+  "environment_versions_sha256": "4efde12b67fcb0748d533f77ed94fa9eba194d7dc22938018be1799e2a87e2b9"
+}

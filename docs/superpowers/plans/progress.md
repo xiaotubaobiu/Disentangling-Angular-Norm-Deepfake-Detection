@@ -1,0 +1,29 @@
+# Execution ledger — plan: docs/superpowers/plans/2026-10-07-df40-execution.md
+
+2026-10-07: user explicitly approved start and requested storage shortcut. Existing feature branch codex/df40-redesign is the named project workspace; no duplicate checkout or branch reset.
+
+Storage complete: artifacts -> /home/z/workspace/deepfake_detector_v11_20261007 (ext4 SSD, approximately709GB available). No original data changed, no LLM pause yet.
+
+Data-role scientific ruling requested asynchronously; continue independent code/audit work while waiting. No policy has been silently applied.
+
+Tasks2/3 consume the exact role/key/weight definitions from Task1; no source-selected winner is a primary v1.1 step. Target calibration remains disabled until certified scope is established.
+
+2026-10-07T09:15Z: 12 CPU tests passed, including byte-exact AdamW/RNG resume, normalization and CDF per-method alias correction. Full audit resumed; snapshot erroneous mapping attempt, preserve valid hash cache. Data policy still awaiting scientific ruling; no LLM stop or GPU allocation.
+
+2026-10-07T10:00Z continuity recovery: verified existing branch codex/df40-redesign and audit PID3874774 still active; no rebuild/reset. Clean SSD environment installed with system_site_packages=false, pip check PASS; project .venv atomically points to artifacts/environment_clean. Correct launcher compares sys.prefix (not shared executable realpath); base Python and /usr/bin/python3 both re-executed the project environment successfully. Public initialization hashes and exact FF source split annotations refreshed.
+
+26 CPU tests initially passed in the clean environment, including three actual pretrained-backbone forwards. Content evidence regression tests observed RED then GREEN. Exception-safe LLM lifecycle mock tests observed RED then GREEN; no real Docker action performed. Whole CPU suite30passed at09:59Z before subsequent statistical test additions.
+
+Current committed audit snapshot09:56:29Z:1064929/1514777 paths examined,449848pending,0 invalid current-manifest paths;6131 unique byte hashes cross released train/test roles (RGB6131),18668 hashes cross method names. These are PARTIAL LOWER BOUNDS, not final31-method conflict totals. Stale invalid paths from the first resolver attempt are excluded by joining the current manifest.
+
+Source-only proposal remains unapplied. Exact full-token parser corrects SadTalker abnormal five-digit IDs:707known original-train and8unknown TRAIN videos; test138known original-test. EFS buckets remain storage groups, unknown conditioning ancestry; audio drivers unknown. simswap train includes135val+140test known sources; inswap101val+118test; uniface54val; mobileswap released-test includes718original-train sources. No published TEST/CDF-to-training/calibration permitted. Per-method counts:reports/proposed_role_counts.csv; proof counts:reports/content_evidence_counts.csv and reports/content_evidence_summary.json.
+
+140 original FF-val source directories /4477 candidate real frames all decoded. Partial byte/RGB overlap with audited released pools0 is not independent-calibration certification. Fake calibration0, TPR95 unavailable. User scientific role decision pending; no freeze marker, no training, no GPU allocation, no LLM stop. Keep CPU implementation/audit work proceeding.
+
+Capacity measured using actual CPU model parameter counts:15FP32feature upper bound35.54GiB; features+checkpoint/Adam states48.71GiB;100GiBstat/score/temp and200GiBworking reserve fit SSD. reports/capacity.json. Runtime not estimated before GPU pilot.
+
+2026-10-07T10:24Z full audit terminal:1514777/1514777unique paths,0invalid,elapsed3324.83seconds.38631byte/RGBhashes cross published train/test,79739rows;0cross-domain/label collisions.13methods have published role copies; global cross-method content hashes21022. FF StyleGAN2/StyleGAN3 content sets identical:train15586unique each,test3591each. Full31method proof/count/decision report:reports/full_audit_and_role_proposal.md; conditional_candidate_counts.csv is UNAPPROVED count scenario only. Exacttoken metadata revision saved separately as artifacts/data/audited_manifest_annotated.parquet; all experiment roles UNASSIGNED, include=False, original audit snapshot retained.
+
+Cleanfull dependency lock includes73packages and officialcu124extraindex.39CPU tests passed8.52seconds; independent requesting-code-review review fourimportant issues all fixed and re-reviewed:atomic epoch history; freezehash/mandatoryroles gate; finalcheckpoint identity/hash and extractionroles; stat-aware cached audit successes with explicit limitation that stat is not byte proof. Added cross-method evidence regression RED thenGREEN. GPUprobe/queue/fullA-D stillunimplemented; no experimental resultsclaimed. Originalonecat-vllm observedrunning, no freezefile or training invocation. Source-real140/4477zero byte/RGBoverlap to full released pools; source ancestry qualification stillpending.
+
+2026-10-07T10:26:24.822585+00:00: final CPU suite39passed, pipcheckPASS, all62originalJSONhashes match audit and originalObsidianprotocolSHA unchanged. Source-real140/140candidate sources each>=8distinctRGB. Fullaudit/report/sourceannotations preserved; separate Obsidian preparation execution record created. Scientificdecision remainspending; fullGPU/analysispipeline incomplete and no experiment run claimed.
