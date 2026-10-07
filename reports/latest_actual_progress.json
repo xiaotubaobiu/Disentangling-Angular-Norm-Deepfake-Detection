@@ -1,118 +1,78 @@
 {
-  "remote_UTC": "2026-10-07T12:48:06.486649+00:00",
+  "checked_UTC": "2026-10-07T21:23:29.847281+00:00",
   "supervisor_PID": 3984143,
   "supervisor_alive": true,
   "execution_status": "RUNNING",
-  "phase": "15_formal_runs_and_features",
-  "locks": {
-    "execution.lock": "held",
-    "queue.lock": "held"
-  },
-  "formal_training_complete": 0,
-  "formal_budget": 15,
+  "execution_phase": "15_formal_runs_and_features",
+  "queue_status": "RUNNING",
+  "queue_complete_runs": 1,
+  "planned_runs": 15,
   "runs": [
     {
+      "run_id": "clip_vit_b16_seed7",
       "physical_GPU": 4,
-      "run": "clip_vit_b16_seed7",
-      "pid": 3990784,
-      "pid_alive": true,
       "state": "RUNNING",
-      "completed_epochs": 1,
-      "last_complete_epoch": {
-        "epoch": 1,
-        "loss": 0.17441555716323853,
-        "sample_slots": 250000,
-        "sample_sequence_sha256": "ab18cef7d38df88d3433b4347754fc26ae81c561d3464f83e0e7084354c10d03",
-        "seconds": 2422.576394557953
-      },
-      "next_saved_sample_epoch": 2,
-      "checkpoint": "/home/z/project/deepfake_detector/artifacts/runs/clip_vit_b16_seed7/state.pt",
-      "checkpoint_bytes": 1034527500,
-      "checkpoint_modified_UTC": "2026-10-07T12:28:58.098388+00:00",
-      "GPU_snapshot": {
-        "memory_MiB": 12934,
-        "utilization_percent": 45
-      },
-      "last_log_line": "{\"run\": \"clip_vit_b16_seed7\", \"epoch\": 1, \"loss\": 0.17441555716323853, \"sample_slots\": 250000, \"sample_sequence_sha256\": \"ab18cef7d38df88d3433b4347754fc26ae81c561d3464f83e0e7084354c10d03\", \"seconds\": 2422.576394557953}"
+      "PID": 3990784,
+      "alive": true,
+      "last_epoch": 14,
+      "last_training_loss": 0.02838141356897354,
+      "training_complete": false,
+      "complete_cache_roles": []
     },
     {
+      "run_id": "dinov2_vit_b14_seed7",
       "physical_GPU": 5,
-      "run": "dinov2_vit_b14_seed7",
-      "pid": 3990785,
-      "pid_alive": true,
       "state": "RUNNING",
-      "completed_epochs": 1,
-      "last_complete_epoch": {
-        "epoch": 1,
-        "loss": 0.5258580240592956,
-        "sample_slots": 250000,
-        "sample_sequence_sha256": "ab18cef7d38df88d3433b4347754fc26ae81c561d3464f83e0e7084354c10d03",
-        "seconds": 2576.291172504425
-      },
-      "next_saved_sample_epoch": 2,
-      "checkpoint": "/home/z/project/deepfake_detector/artifacts/runs/dinov2_vit_b14_seed7/state.pt",
-      "checkpoint_bytes": 1039207924,
-      "checkpoint_modified_UTC": "2026-10-07T12:31:30.821453+00:00",
-      "GPU_snapshot": {
-        "memory_MiB": 14422,
-        "utilization_percent": 0
-      },
-      "last_log_line": "{\"run\": \"dinov2_vit_b14_seed7\", \"epoch\": 1, \"loss\": 0.5258580240592956, \"sample_slots\": 250000, \"sample_sequence_sha256\": \"ab18cef7d38df88d3433b4347754fc26ae81c561d3464f83e0e7084354c10d03\", \"seconds\": 2576.291172504425}"
+      "PID": 3990785,
+      "alive": true,
+      "last_epoch": 13,
+      "last_training_loss": 0.07348154939556122,
+      "training_complete": false,
+      "complete_cache_roles": []
     },
     {
+      "run_id": "efficientnet_b0_seed7",
       "physical_GPU": 6,
-      "run": "efficientnet_b0_seed7",
-      "pid": 3990786,
-      "pid_alive": true,
-      "state": "RUNNING",
-      "completed_epochs": 1,
-      "last_complete_epoch": {
-        "epoch": 1,
-        "loss": 0.2677361860332489,
-        "sample_slots": 250000,
-        "sample_sequence_sha256": "ab18cef7d38df88d3433b4347754fc26ae81c561d3464f83e0e7084354c10d03",
-        "seconds": 1929.6947157382965
-      },
-      "next_saved_sample_epoch": 2,
-      "checkpoint": "/home/z/project/deepfake_detector/artifacts/runs/efficientnet_b0_seed7/state.pt",
-      "checkpoint_bytes": 48619214,
-      "checkpoint_modified_UTC": "2026-10-07T12:20:40.770900+00:00",
-      "GPU_snapshot": {
-        "memory_MiB": 6704,
-        "utilization_percent": 0
-      },
-      "last_log_line": "{\"run\": \"efficientnet_b0_seed7\", \"epoch\": 1, \"loss\": 0.2677361860332489, \"sample_slots\": 250000, \"sample_sequence_sha256\": \"ab18cef7d38df88d3433b4347754fc26ae81c561d3464f83e0e7084354c10d03\", \"seconds\": 1929.6947157382965}"
+      "state": "COMPLETE",
+      "PID": null,
+      "alive": null,
+      "last_epoch": 15,
+      "last_training_loss": 0.03724643358850479,
+      "training_complete": true,
+      "complete_cache_roles": [
+        "train",
+        "ff_test",
+        "cdf_test",
+        "calibration"
+      ]
     },
     {
+      "run_id": "clip_vit_b16_seed42",
       "physical_GPU": 7,
-      "run": "clip_vit_b16_seed42",
-      "pid": 3990787,
-      "pid_alive": true,
       "state": "RUNNING",
-      "completed_epochs": 1,
-      "last_complete_epoch": {
-        "epoch": 1,
-        "loss": 0.1733428093585968,
-        "sample_slots": 250000,
-        "sample_sequence_sha256": "9995ec42dd2432385282f401f7ed6174b1c876106dc0b014759ae37f5ffd5f7e",
-        "seconds": 2466.0103805065155
-      },
-      "next_saved_sample_epoch": 2,
-      "checkpoint": "/home/z/project/deepfake_detector/artifacts/runs/clip_vit_b16_seed42/state.pt",
-      "checkpoint_bytes": 1034527564,
-      "checkpoint_modified_UTC": "2026-10-07T12:29:41.882106+00:00",
-      "GPU_snapshot": {
-        "memory_MiB": 12934,
-        "utilization_percent": 0
-      },
-      "last_log_line": "{\"run\": \"clip_vit_b16_seed42\", \"epoch\": 1, \"loss\": 0.1733428093585968, \"sample_slots\": 250000, \"sample_sequence_sha256\": \"9995ec42dd2432385282f401f7ed6174b1c876106dc0b014759ae37f5ffd5f7e\", \"seconds\": 2466.0103805065155}"
+      "PID": 3990787,
+      "alive": true,
+      "last_epoch": 14,
+      "last_training_loss": 0.029002418516635896,
+      "training_complete": false,
+      "complete_cache_roles": []
+    },
+    {
+      "run_id": "dinov2_vit_b14_seed42",
+      "physical_GPU": 6,
+      "state": "RUNNING",
+      "PID": 144861,
+      "alive": true,
+      "last_epoch": 0,
+      "last_training_loss": null,
+      "training_complete": false,
+      "complete_cache_roles": []
     }
   ],
-  "failed_run_states": [],
-  "failed_stage_states": [],
-  "current_access": "SSH and required ledgers readable; no new access or approval blocker",
-  "onecat_vllm_safe_state": "exited 137 false unless-stopped",
-  "source_code_sha256": "7d56c6e5803450369852b5865130a3ed815d87e3e6a91226d276f0fd092611b5",
-  "freeze_sha256": "c3044b9219a8ef18dd1c25f7f75de0d38dd93642bbe4cc0e19381218bf820b5d",
-  "remaining_stage": "finish existing fixed 15-epoch runs and raw feature extraction, restore original LLM after GPU queue, then complete matched-head/A-D analysis and final report"
+  "error": null,
+  "duplicate_jobs_started": false,
+  "new_schedules_created": false,
+  "scientific_result_status": "first full model/cache bundle verified; final all-model analysis/report pending",
+  "first_complete_run_receipt": "reports/first_complete_run_rotation_receipt.json",
+  "AMP_skip_detail_limitation": "reports/efficientnet_b0_seed7_AMP_skip_audit.json"
 }

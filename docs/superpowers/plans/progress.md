@@ -71,3 +71,9 @@ LLM停用补充：原Docker记录exit_code=137、OOMKilled=false；docker stop -
 
 此次检查无失败run/stage，SSH与账本可读，无新的访问或审批阻碍。LLM原容器exited（137，OOMKilled=false），restart仍unless-stopped，等待既有GPU队列完成后恢复；GPU0–3未干预。
 详细证据：reports/latest_actual_progress.json；四份首轮checkpoint完整状态核对见reports/first_epoch_checkpoint_receipts.json。
+
+2026-10-07T20:10:19.114091+00:00：首个完整15轮模型 efficientnet_b0_seed7 已于 2026-10-07T19:53:24.568631+00:00 核验；3,750,000槽位全部序列逐epoch重建匹配，final/state模型一致，optimizer及模型有限，AMP与全RNG齐全。实际optimizer成功29306/尝试29310，AMP跳过4次。最终训练loss=0.03724643358850479，不代表目标域性能。首模型四角色原始特征仍提取，未计完整run；原supervisor3984143/worker3990786继续，未重新启动。证据 reports/first_complete_model_receipt.json；完整state另存artifacts/continuations/20261007_exclusive_resume/first_complete_model。代码/配置/冻结数据保持原身份。
+
+2026-10-07T21:00:35.985449+00:00 AMP预算核验：efficientnet_b0/seed7，draw=3750000、attempt=29310、success=29306、AMP skip=4。v1.1原文第75行固定N_pool抽样/epoch，第67行15epoch/final，第69行无学习率调度；不是固定成功更新数。无补步/回放/超参更改。49个BN层相对初始化计数均增加29310，跳过optimizer的批仍经过前向；scheduler不存在，LR保持1e-4。AMP初始scale128、最终16384，回退因子0.5。但冻结代码仅保存epoch日志和终态scaler，四次skip具体步号及逐事件scale数值不可追溯；明确作为日志缺口，不称AMP逐步审计完全通过。所有15模型按draw/attempt/success/skip同口径累积记录，见reports/formal_training_budget_counts.csv与formal_training_budget_receipts.json；首模型详细证据efficientnet_b0_seed7_AMP_skip_audit.json。
+
+2026-10-07T21:22:35.415156+00:00：首个完整run efficientnet_b0_seed7（15epoch + train250000/FFtest59935/CDFtest368922/cal1120原始缓存，共679977行）独立hash/FP32有限值/1280维/全清单顺序/最终两类head核验通过；canonical verified_run=true。原worker3990786已退出0，完成事件 2026-10-07T21:18:18.404736+00:00；原supervisor3984143随后在GPU6自动启动DINOv2 seed42 PID144861，事件 2026-10-07T21:18:18.406325+00:00；新worker PPID/cwd/run.py和两锁验证一致。完整run为1/15，无最终科学结果。原LLM容器仍exited、restart unless-stopped，等待全GPU队列结束恢复。证据reports/first_complete_cache_receipt.json与first_complete_run_rotation_receipt.json。AMP逐步日志缺口继续披露，不补步。

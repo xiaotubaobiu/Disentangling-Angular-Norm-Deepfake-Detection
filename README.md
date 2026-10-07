@@ -41,6 +41,8 @@ real-only FPR5校准使用140原FF-val视频的固定1120帧；独立性仅指�
 
 ## 恢复与失败
 每完成epoch原子保存模型、optimizer、AMP、Python/NumPy/CPU/CUDA RNG、history、实际样本序列哈希；中途失败从上个完整epoch重做，未承诺batch中点恢复。final.pt只用第15轮。
+训练预算固定为每epoch抽取N_pool次、15epoch/final，而不是固定成功optimizer更新数。AMP遇非有限梯度时消费该批数据但跳过参数更新，不回放或补步；没有scheduler。所有模型的draw/attempt/success/AMP skip口径记录在reports/formal_training_budget_counts.csv和formal_training_budget_receipts.json。当前冻结代码未记录逐步AMP事件，无法还原各次skip的具体步号及scale数值；终态scaler和完整恢复状态仍保留，该日志缺口明确披露。
+
 ```bash
 python run.py resume
 ```

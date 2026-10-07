@@ -1,0 +1,58 @@
+{
+  "remote_UTC": "2026-10-07T19:34:32.217105+00:00",
+  "actual_SSH": "success",
+  "supervisor_PID": 3984143,
+  "supervisor_alive": true,
+  "execution_status": "RUNNING",
+  "phase": "15_formal_runs_and_features",
+  "runs": [
+    {
+      "GPU": 4,
+      "run": "clip_vit_b16_seed7",
+      "PID": 3990784,
+      "state": "RUNNING",
+      "completed_epochs": 11,
+      "checkpoint_UTC": "2026-10-07T19:09:55.686473+00:00",
+      "last_log": "{\"run\": \"clip_vit_b16_seed7\", \"epoch\": 11, \"loss\": 0.03420064285898208, \"sample_slots\": 250000, \"sample_sequence_sha256\": \"8e35468d35e67ae6973d3251a011a59fb40c8cc81fa220b3f665b2d6c5a1ae24\", \"seconds\": 2391.048383951187}",
+      "training_marker": false,
+      "cache_markers": []
+    },
+    {
+      "GPU": 5,
+      "run": "dinov2_vit_b14_seed7",
+      "PID": 3990785,
+      "state": "RUNNING",
+      "completed_epochs": 11,
+      "checkpoint_UTC": "2026-10-07T19:34:24.313290+00:00",
+      "last_log": "{\"run\": \"dinov2_vit_b14_seed7\", \"epoch\": 11, \"loss\": 0.08260489547300338, \"sample_slots\": 250000, \"sample_sequence_sha256\": \"8e35468d35e67ae6973d3251a011a59fb40c8cc81fa220b3f665b2d6c5a1ae24\", \"seconds\": 2524.111965417862}",
+      "training_marker": false,
+      "cache_markers": []
+    },
+    {
+      "GPU": 6,
+      "run": "efficientnet_b0_seed7",
+      "PID": 3990786,
+      "state": "RUNNING",
+      "completed_epochs": 14,
+      "checkpoint_UTC": "2026-10-07T19:15:42.598124+00:00",
+      "last_log": "{\"run\": \"efficientnet_b0_seed7\", \"epoch\": 14, \"loss\": 0.03931073368167877, \"sample_slots\": 250000, \"sample_sequence_sha256\": \"f78a26f7d8de4bb219bb2a42ffda733ff858eacfa8bbdbaa18ccbaef37b51226\", \"seconds\": 1912.145382642746}",
+      "training_marker": false,
+      "cache_markers": []
+    },
+    {
+      "GPU": 7,
+      "run": "clip_vit_b16_seed42",
+      "PID": 3990787,
+      "state": "RUNNING",
+      "completed_epochs": 11,
+      "checkpoint_UTC": "2026-10-07T19:18:22.241459+00:00",
+      "last_log": "{\"run\": \"clip_vit_b16_seed42\", \"epoch\": 11, \"loss\": 0.03502868138647079, \"sample_slots\": 250000, \"sample_sequence_sha256\": \"a638f7c45c6aa0ea7dc842e62c9beb615d28c4c67b64c8345435ac1bade1f1ac\", \"seconds\": 2446.309398174286}",
+      "training_marker": false,
+      "cache_markers": []
+    }
+  ],
+  "process_status": "    PID    PPID     ELAPSED %CPU STAT COMMAND\n3984143       1    07:54:04  0.3 Ssl  python\n3990784 3984143    07:46:12 92.5 Rl   python\n3990785 3984143    07:46:12 97.3 Sl   python\n3990786 3984143    07:46:12 91.9 Sl   python\n3990787 3984143    07:46:12 93.7 Rl   python\n",
+  "current_failures": [],
+  "current_access_blocker": null,
+  "error": null
+}
