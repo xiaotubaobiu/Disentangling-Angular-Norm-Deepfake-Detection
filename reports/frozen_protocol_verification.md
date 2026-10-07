@@ -1,0 +1,1 @@
+冻结协议验证：25万唯一RGB训练输入，原方法关联265527行。real抽样总质量1/2，31fake方法各1/62；共享内容保留方法贡献。selectedRGB跨角色交集0。完整eligible关联构建已知FF关系/RGB组件后选帧及去重，frozen_group_scope.csv报告其规模。EFS存储组/CDF视频组为代理，不认证隐藏祖先；real-onlyFPR5仅限定已知FF来源与exactcontent独立范围，TPR95不可用。无CDF调参或训练。原Obsidian协议SHA61e583963a4d661ccf83d02798600c83eb4aca2238d2984c5422bab1553ecc6b，官方62JSON逐byte一致，作者图片压缩包未认证。旧派生快照、逐条disposition全部保留。
