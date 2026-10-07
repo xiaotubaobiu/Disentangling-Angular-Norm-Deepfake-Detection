@@ -61,6 +61,8 @@
     "cudnn_benchmark": false,
     "deterministic_algorithms": true,
     "CUBLAS_WORKSPACE_CONFIG": ":4096:8",
-    "data_loader_workers": 0
+    "data_loader_workers": 0,
+    "AMP_initial_scale": 128,
+    "DINO_positional_resize": "FP32 bicubic antialias on CPU with autograd; original learned37x37 grid preserved; strict deterministic algorithms remain enabled"
   }
 }

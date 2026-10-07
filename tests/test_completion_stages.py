@@ -127,3 +127,16 @@ def test_preflight_collects_only_this_project_suite(tmp_path,monkeypatch):
         return subprocess.CompletedProcess(args,0,'1 passed','')
     monkeypatch.setattr(o.subprocess,'run',fake)
     o.preflight({'artifact_root':str(tmp_path/'artifacts')},tmp_path)
+
+def test_dino_cpu_position_interpolation_preserves_value_and_original_grid_gradient():
+    import torch
+    from timm.layers import resample_abs_pos_embed
+    from deepfake_detector.models import resample_dino_positions
+    x=torch.arange(1370*8,dtype=torch.float32).reshape(1,1370,8)/1000
+    x.requires_grad_()
+    expected=resample_abs_pos_embed(x,[16,16],[37,37],num_prefix_tokens=1)
+    actual=resample_dino_positions(x,[16,16],[37,37],1)
+    assert torch.equal(actual,expected)
+    actual.square().sum().backward()
+    assert x.grad.shape==(1,1370,8) and torch.isfinite(x.grad).all()
+    assert torch.count_nonzero(x.grad[:,1:])>1000
