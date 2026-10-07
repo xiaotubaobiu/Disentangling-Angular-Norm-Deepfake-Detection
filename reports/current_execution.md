@@ -1,3 +1,18 @@
+远端实际检查：2026-10-07T12:48:06.486649+00:00。当前等待原正式队列第2轮训练；phase=15_formal_runs_and_features，完整run为0/15。
+监督进程3984143在运行，execution.lock与queue.lock均held；未重启或重复启动，无周期调度。
+
+|物理GPU|作业|已完成epoch|最近state.pt UTC|
+|---:|---|---:|---|
+|4|clip_vit_b16_seed7|1/15|2026-10-07T12:28:58.098388+00:00|
+|5|dinov2_vit_b14_seed7|1/15|2026-10-07T12:31:30.821453+00:00|
+|6|efficientnet_b0_seed7|1/15|2026-10-07T12:20:40.770900+00:00|
+|7|clip_vit_b16_seed42|1/15|2026-10-07T12:29:41.882106+00:00|
+
+此次检查无失败run/stage，SSH与账本可读，无新的访问或审批阻碍。LLM原容器exited（137，OOMKilled=false），restart仍unless-stopped，等待既有GPU队列完成后恢复；GPU0–3未干预。
+详细证据：reports/latest_actual_progress.json；四份首轮checkpoint完整状态核对见reports/first_epoch_checkpoint_receipts.json。
+
+此前核对记录保留如下：
+
 最新核对：2026-10-07T12:38:19.984856+00:00。监督进程3984143及首批四个worker继续运行，均完成第1轮并进入第2轮，完整15轮run仍为0/15。
 
 |run|完整epoch|训练loss|本轮分钟|optimizer更新|

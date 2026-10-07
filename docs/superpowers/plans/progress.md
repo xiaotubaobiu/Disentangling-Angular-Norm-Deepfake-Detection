@@ -58,3 +58,16 @@ Whole-pipeline read-only independent review4material findings fixed in one pass,
 四份实际checkpoint均验证identity/history、有限模型及optimizer张量、完整Python/NumPy/CPU/CUDA RNG，首轮AMP无跳过更新；另存于artifacts/continuations/20261007_exclusive_resume/first_completed_epoch。训练loss不是测试性能。
 
 LLM停用补充：原Docker记录exit_code=137、OOMKilled=false；docker stop --time60已完成，未断言优雅退出。容器原ID、restart policy不变；GPU队列结束后现有监督流程负责恢复和health核对。
+
+远端实际检查：2026-10-07T12:48:06.486649+00:00。当前等待原正式队列第2轮训练；phase=15_formal_runs_and_features，完整run为0/15。
+监督进程3984143在运行，execution.lock与queue.lock均held；未重启或重复启动，无周期调度。
+
+|物理GPU|作业|已完成epoch|最近state.pt UTC|
+|---:|---|---:|---|
+|4|clip_vit_b16_seed7|1/15|2026-10-07T12:28:58.098388+00:00|
+|5|dinov2_vit_b14_seed7|1/15|2026-10-07T12:31:30.821453+00:00|
+|6|efficientnet_b0_seed7|1/15|2026-10-07T12:20:40.770900+00:00|
+|7|clip_vit_b16_seed42|1/15|2026-10-07T12:29:41.882106+00:00|
+
+此次检查无失败run/stage，SSH与账本可读，无新的访问或审批阻碍。LLM原容器exited（137，OOMKilled=false），restart仍unless-stopped，等待既有GPU队列完成后恢复；GPU0–3未干预。
+详细证据：reports/latest_actual_progress.json；四份首轮checkpoint完整状态核对见reports/first_epoch_checkpoint_receipts.json。
