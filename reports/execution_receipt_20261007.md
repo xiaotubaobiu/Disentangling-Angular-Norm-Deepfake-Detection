@@ -48,3 +48,5 @@ GPU队列结束后由现有监督流程docker start同一容器并核对本地he
 reports/llm_stop_receipt.json、reports/execution_configuration_receipt.json保存机器可读回执。
 artifacts/execution_status.json、artifacts/queue_status.json是实时状态；artifacts/runs/<run_id>/history.json记录完整epoch后才更新。
 报告和分析必须等待15份最终权重/特征、30头及完整A–D/五seed校验；当前无正式最终性能结果。
+
+补充核对：Docker退出码137、OOMKilled=false，正常stop命令完成，但未断言优雅退出。详细原状态见llm_stop_receipt.json。首批四个正式epoch1完成证据见first_epoch_checkpoint_receipts.json；完整run仍0/15。

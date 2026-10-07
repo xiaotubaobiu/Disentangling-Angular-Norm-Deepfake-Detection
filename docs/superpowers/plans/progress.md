@@ -43,3 +43,18 @@ Whole-pipeline read-only independent review4material findings fixed in one pass,
 2026-10-07T11:52:58.414060+00:00: actualthreebackbonesGPU qualificationPASSmicrobatch128; peaksCLIP12562712064/DINO13950931456/Efficient5891599872bytes; actualCUDAoptimizer/AMP/RNGresumeexact. Independent256input1epochCLIPpilot train/cache/fourflows/allroles/conditionalbootstrapPASS; formal15runqueue started11:48:19Z, fourworkersphysical4–7, supervisor3984143. Firstworkers: {"clip_vit_b16_seed7": {"state": "RUNNING", "physical_device": 4, "pid": 3990784}, "dinov2_vit_b14_seed7": {"state": "RUNNING", "physical_device": 5, "pid": 3990785}, "efficientnet_b0_seed7": {"state": "RUNNING", "physical_device": 6, "pid": 3990786}, "clip_vit_b16_seed42": {"state": "RUNNING", "physical_device": 7, "pid": 3990787}}. Formalresultsnotcomplete; serviceintentionallySTOPPEDduringownedGPUwork; automaticrestoreafterGPUwork. All15fullresolvedconfigs saved artifacts/resolved_configs.
 
 2026-10-07T12:14:14.154344+00:00: bounded continuation verified supervisor3984143 and fourownedworkers, heldexecution/queuelocks; no duplicatejob or scheduledautomation. Saved exactDockerFinishedAt11:48:19.050875106Z/currentoriginalcontainerexited/unmodifiedunless-stopped and fullfrozeninput/sampler receipts. Formalepoch1 stillinprogress; docs-onlychanges, code/config/manifestsunchanged. LLMrestorationpendingGPUqueuecompletion.
+
+2026-10-07T12:29:50.852213+00:00：正式训练首个完整 epoch 已完成：EfficientNet-B0 / seed7，第1轮，训练 loss 0.2677361860332489，250000个槽位，耗时1929.6947157382965秒。已另存48.6MB实际 checkpoint；213组 optimizer 状态均完成1954次更新，AMP scale=128、growth_tracker=1954，本轮无跳过更新。Python/NumPy/CPU/CUDA RNG 齐全，模型及 optimizer 张量有限，identity 与 history 已核对。四个 worker 继续运行，完整正式 run 为0/15，无最终测试性能。代码、配置和冻结输入未变。
+
+最新核对：2026-10-07T12:38:19.984856+00:00。监督进程3984143及首批四个worker继续运行，均完成第1轮并进入第2轮，完整15轮run仍为0/15。
+
+|run|完整epoch|训练loss|本轮分钟|optimizer更新|
+|---|---:|---:|---:|---:|
+|clip_vit_b16_seed7|1|0.174416|40.38|1954|
+|dinov2_vit_b14_seed7|1|0.525858|42.94|1954|
+|efficientnet_b0_seed7|1|0.267736|32.16|1954|
+|clip_vit_b16_seed42|1|0.173343|41.10|1954|
+
+四份实际checkpoint均验证identity/history、有限模型及optimizer张量、完整Python/NumPy/CPU/CUDA RNG，首轮AMP无跳过更新；另存于artifacts/continuations/20261007_exclusive_resume/first_completed_epoch。训练loss不是测试性能。
+
+LLM停用补充：原Docker记录exit_code=137、OOMKilled=false；docker stop --time60已完成，未断言优雅退出。容器原ID、restart policy不变；GPU队列结束后现有监督流程负责恢复和health核对。
