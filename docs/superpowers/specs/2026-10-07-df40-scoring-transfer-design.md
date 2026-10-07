@@ -1,12 +1,12 @@
 # DF40 计分机制与跨域阈值稳定性：实施设计
 
-日期：2026-10-07（Asia/Seoul）。阶段：用户已确认会话中的设计方向；本书面设计等待审阅。本文不是实验结果，也不是已经执行的实施计划。
+日期：2026-10-07（Asia/Seoul）。修订：按用户指出的数据理解问题重新核查机器上的DF40；本版数据章替代初版，等待审阅。科学范围已确认，具体数据清单/校准策略尚未批准。本文不是实验结果，也不是已经执行的实施计划。
 
 ## 1. 意图、范围与依据
 
 在新项目 `/home/z/project/deepfake_detector` 中执行 Obsidian v1.1：解释特征长度处理、帧级非线性、视频聚合的交互作用，评价独立源校准后的跨域冻结阈值，以及五种子的稳定性。用户明确两个 GitHub 项目只作代码参考，不额外增加它们原方法的对照训练。
 
-科学协议以同目录的 [v1.1 原稿快照](2026-10-07-df40-v1.1-source.md) 为准。原文件为 `/home/z/obsidian/paper/deepfake-detector/实验重设计_3backbone_5seed_v1.1.md`，SHA256 为 `61e583963a4d661ccf83d02798600c83eb4aca2238d2984c5422bab1553ecc6b`。快照逐字节保存，不改写 Obsidian 原稿。本文落实接口、审计、运行和故障处理，不扩大研究范围；若本文与科学协议冲突，先停止实施并解决冲突，不静默修改协议。
+科学协议以同目录的 [v1.1 原稿快照](2026-10-07-df40-v1.1-source.md) 为准。原文件为 `/home/z/obsidian/paper/deepfake-detector/实验重设计_3backbone_5seed_v1.1.md`，SHA256 为 `61e583963a4d661ccf83d02798600c83eb4aca2238d2984c5422bab1553ecc6b`。快照逐字节保存，不改写 Obsidian 原稿。本文落实接口、审计、运行和故障处理，不扩大研究范围。原稿中的数据假设以本机证据复核，事实与假设冲突处明确记录；不能仅因原稿写了某个角色便声称磁盘已有对应独立数据。涉及划分或校准策略变化先完成审阅，不静默修改协议。
 
 | 项目 | 固定约束 |
 | --- | --- |
@@ -17,7 +17,7 @@
 | 匹配头 | 每个冻结编码器拟合 raw/direction 两个线性头，共 30 个 |
 | 视频评价 | 21 FS/FR；一个域中一个方法的一个视频为一个单位，每视频固定 8 张不同有效帧 |
 | 图像评价 | 全部 31 方法；FS/FR 所选帧与 EFS 独立图片分开注明单位 |
-| 校准 | FF++ 官方 validation；主阈值 FPR5，TPR95 仅在完整独立伪造校准覆盖下执行 |
+| 校准 | 需要独立FF源校准池；原FF val真实视频是候选，隔离策略尚待确认；FPR5为主、TPR95须完整fake覆盖 |
 | 目标域 | CDF 只作评价，不训练、选模、拟合变换、选阈值或选流程 |
 | GPU | 仅物理 4–7；0–3 的其他实验继续运行 |
 
@@ -47,52 +47,55 @@
 
 上游的 16 方法列表、586/100 验证切片、EMA、warmup、cosine、early stopping、最佳 validation 检查点、旧种子和 8 卡 launcher 不适用于 v1.1。DF40 上游的父目录名聚合、评价异常时回退帧 AUC、抽帧和 test 选模逻辑也不继承。新管线的关键约束须由测试锁住。
 
-## 3. 数据层：官方角色恢复与审计
+## 3. 数据层：本机事实、发布角色与实验划分
 
-数据根为 `/Dataset/deepfake_detection/DF40_all`，只读使用；不移动、重命名或改写原数据和原 JSON。数据衍生物写入新项目 `artifacts/`，代码/配置/设计纳入 Git，特征、权重、逐帧分数与图像不纳入 Git。
+本节替代初版“官方角色恢复”的表述。机器核查记录和内容副本实例见 [本机 DF40 数据核查](2026-10-07-df40-local-data-audit.md)。数量、角色声明、源ID映射和文件哈希是不同证据层级。
 
-### 3.1 角色依据
+数据根为 `/Dataset/deepfake_detection/DF40_all`，只读使用；不移动、重命名或改写原数据和原JSON。数据衍生物写入新项目 `artifacts/`。机器上还有 `/Dataset/deepfake_detection/Celeb-DF-v2-raw` 的完整原版CDF视频（590 Celeb-real、300 YouTube-real、5,639原版fake）；它与本轮DF40各方法CDF域的伪造数据分开，不自动纳入主实验。
 
-官方 FF++ split 来源为：
+### 3.1 实际发布角色与原始来源角色
 
-- `https://raw.githubusercontent.com/ondyari/FaceForensics/master/dataset/splits/train.json`
-- `https://raw.githubusercontent.com/ondyari/FaceForensics/master/dataset/splits/val.json`
-- `https://raw.githubusercontent.com/ondyari/FaceForensics/master/dataset/splits/test.json`
-
-实施时保存官方文件、获取版本和内容哈希；它们分别包含 720、140、140 个视频 ID。目录与索引的原角色保留在 `original_role`，恢复后的角色另存为 `resolved_role`。本地真实帧目录现有 999 个视频组：train 719（缺 `281`）、val 140、test 140。真实 validation 有 4,477 张图片，全部 140 个组的帧数至少为 8；这只是文件及数量核查，尚未完成解码和内容审计。
-
-以下索引角色不能直接用于训练：
-
-| 原索引条目 | 按可解析官方来源 ID 得到的组成 |
+| 层级 | 本机实际情况 |
 | --- | --- |
-| SimSwap fake train 988 组 | train 713、val 135、test 140 |
-| InSwapper fake train 883 组 | train 664、val 101、test 118 |
-| UniFace fake train 372 组 | train 318、val 54 |
-| MobileSwap fake test 858 组 | train 718、test 140 |
+| 31个方法的FF JSON | 只有train/test，无声明val角色 |
+| 31个方法的CDF JSON | train为空，test非空 |
+| FSAll/FRAll/EFSAll | 各9/12/10方法索引并集，真实池随方法重复 |
+| DF40_all.json | 训练聚合，test为空，还含本轮排除方法 |
+| FF真实预处理帧 | 999组；原FF来源train719、val140、test140，缺281 |
+| CDF真实预处理帧 | Celeb-real588+YouTube-real300；方法评价索引共享178组 |
 
-所有可解析数字双 ID 组在只读核查中均匹配官方配对，两个 ID 属同一角色。按官方来源恢复角色属于修复本地映射，不是随机重划；记录每项角色更正及其依据，官方 val/test 来源不能留在训练池。不同位置的相同语义视频不是额外样本；选择本地可用副本并保留替代路径与内容哈希，内容不一致时报告冲突并暂停受影响数据的使用。
+原始FF++ split来源仍为 `https://raw.githubusercontent.com/ondyari/FaceForensics/master/dataset/splits/{train,val,test}.json`，实施时保存精确版本和内容哈希。它们用于标注可确认的原始视频来源；不能直接被称为DF40发布角色的官方修正器。分列 `released_role`（JSON声明）、`physical_role`（本地位置）、`upstream_source_role`（可验证来源）、`experiment_role`（本轮明确选定的用途）。记录来源不能静默改变样本的实验角色。
 
-对目标/来源/驱动信息，只使用可证实的关系：Wav2Lip、SadTalker 的测试驱动后缀也出现在训练路径中，但字符串重复尚不能证明相同驱动内容。实施审计须核对可得来源映射；若确认同一驱动来源跨角色，则按 v1.1 隔离受影响样本并记录，不改动官方划分。若无法解除其对主比较的影响，暂停受影响方法和完整 31 方法正式运行，不悄悄缩小主集合。SadTalker 的 8 个目标 ID 不可解析训练条目先隔离，不猜测 ID。
+本地SimSwap、InSwapper、UniFace的训练侧含部分原FF val/test来源，MobileSwap测试侧含部分原FF train来源。这些分布也存在于实际目录，不是仅JSON路径标错。UniFace没有同名train/test视频重叠，不能只因54个val来源就称索引错误。
 
-### 3.2 EFS 的单位和路径
+SimSwap/ InSwapper/ MobileSwap分别有140/118/718个完整同名视频组跨train/test。每方法8组×4帧的有界检查均32/32图片SHA256相同，证明部分实际副本重叠；不据此声称所有帧都已全量校验。内容副本修复与是否使用原FF来源划分定义新实验角色是两项不同操作，在实施计划中分别明确，不能仅改video_id来掩盖共享内容。
 
-EFS 分别登记生成域、生成器、可得生成批次和存储组；已知的存储分组不自动升级为真实来源视频关系。其独立图像不作为自然视频平均，不能用于 same-frame 位移。若需要根据官方 ID 修复 EFS 的存储角色，须记录官方索引/组织映射依据，不能仅凭类似视频的文件夹名推断生成因果来源。
+### 3.2 EFS单位、内容重复与路径
 
-9 个 EFS 的 CDF 索引路径含 `Celeb-real` / `YouTube-real`，实际目录名为 `Fake_from_Celeb-real` / `Fake_from_Youtube-real`；通过显式逐方法映射处理，不能简单全局替换，也不能将映射未处理报告成图像缺失。发现的 EFS validation 存储组不证明视频配对或完整伪造校准覆盖。
+EFS是生成图片。外层数字/视频形似目录是存储桶，不默认表示自然视频、真实帧配对、生成条件来源或独立批次。FF索引中每方法fake train为564桶/18,007路径，test为116桶/3,711路径；检查的物理训练目录为676桶，而非索引宣称的564桶。多出的112桶不能被直接称为独立官方fake validation。
 
-### 3.3 清单和隔离规则
+对StyleGAN2、DiT、sd2.1、VQGAN、RDDM做有界SHA256检查：跨train存储桶20/20图片对相同，JSON train/test跨角色20/20相同；每方法还有723个共同basename，尚未全部哈希。相同seed/文件名跨FF/CDF的16对却全部内容不同。依据内容进行重复核查，不能以文件名替代全量判断；存储桶级重新分组不能解决同一图片跨角色的问题。
 
-每条输入记录至少包含：`sample_id, domain, original_role, resolved_role, label, method_id, method_type, evaluation_unit, video_id, source_ids, driving_source_id, storage_group_id, generator_id, generation_batch_id, image_path, original_image_path, frame_number, content_sha256, include, exclusion_reason`。未知来源字段显式为空，不虚构配对。仅批次、驱动或来源 provenance 未知，不自动排除已有可靠官方角色的输入；无法确定官方角色、存在已证实跨角色冲突或不满足输入有效性规则的条目才隔离。未知元信息带来的解释边界写入审计报告。清单版本及哈希一旦冻结，15 个模型及所有流程共用。
+逐方法、发布角色和实际存在性映射路径。EFS fake train的旧JSON也写 `DF40/<method>/ff/...`，但本地对应训练图片位于 `DF40_train/<method>/...`；不能把所有 `DF40/` 一律映射到 `DF40_test/`。sd2.1 CDF使用 `Celeb-real/YouTube-real`，检查的其他四方法使用 `Fake_from_Celeb-real/Fake_from_Youtube-real`；不能全局替换。RDDM实际有大量空CDF桶，索引444桶/14,027图不能被提升为888个有效来源。图像计分与存储组织/来源信息分列，EFS不输出伪造视频AUC或same-frame位移。
 
-- 真实图片跨方法去重，真实视频的规范方法为 `real`。
-- 对路径与内容重复进行核查。跨角色相同内容或已知来源冲突必须解释/隔离，不能依赖模型分数筛除。
-- FS/FR 在数值帧序中确定性均匀选择 8 张不同有效帧。不足 8 帧的组不进入主视频表，不补重复帧。
-- 主训练与图像/帧评价使用同一冻结 8 帧池；不足 8 帧的 FS/FR 组不进入本轮主输入池，保留完整失败统计，不另行引入可变帧数补充主比较。
-- EFS 使用清单中的独立有效图片，按内容处理重复并保留存储组织元信息。
-- 图像必须可读取/解码；所有排除与计数在训练前完成并对所有 backbone/seed 一致。
-- 仅当 31 方法的三角色覆盖和主池审计通过时启动正式训练；缺少方法须报告阻断，不能以 30 或更少方法冒充原计划。
+### 3.3 元信息、真实去重与有效帧
 
-FF++ real validation 由官方 140 ID 恢复。FPR5 仅需独立真实校准数据；当前独立 FS/FR fake validation 不能覆盖全部 21 方法，因此 TPR95 标记 `unavailable_missing_official_fake_validation_coverage`。只有在正式运行前找到完整、独立并通过审计的官方覆盖，才允许按原协议启用相应评价层的 TPR95；不得使用 FF++ test、CDF 或临时 train 切片补齐。
+清单至少包含 `sample_id, domain, released_role, physical_role, upstream_source_role, experiment_role, label, method_id, method_type, evaluation_unit, video_id, source_ids, driving_source_id, storage_group_id, generator_id, generation_batch_id, image_path, original_image_path, frame_number, content_sha256, include, exclusion_reason`。角色变化需另附政策版本、变更原因和证据；所有模型共用批准后冻结的清单。
+
+- 真实图片/视频跨方法去重，真实方法ID规范为 `real`；共享真实池用于逐方法比较不增加独立样本数。
+- 视频身份仍是 `(domain, method_id, video_id)`。FS/FR的不同方法同名视频不混合抽帧或评价；跨角色相同视频/图片副本另作内容审计。
+- 主视频层数值排序后固定8张不同有效帧；不足8张不补重复帧，不进入主视频表。图像层覆盖依原稿预定规则单独登记，不能把视频层不足8帧规则直接扩为训练和单图全部排除，也不能用于EFS稀疏桶。
+- 所有输入做存在/解码核查，内容重复与跨角色证据记录；未知批次和驱动来源保留未知，不自动排除已有可靠发布角色的样本。
+- Wav2Lip/SadTalker完整train/test目录名不重叠；后缀重复尚不能证明相同音频/驱动，更不能当同一伪造视频。SadTalker异常及temp目录存在首帧副本证据，但尚无全帧证据；先登记候选重复，不因ID不能解析全部删除。
+- 主集合必须覆盖FF训练、FF测试、CDF测试三个输入池，并保持31方法。这里不要求每个FF JSON有validation；任何副本政策不得静默把某方法训练池清空后仍称31方法训练。
+
+### 3.4 源校准条件与进入实施的边界
+
+原FF来源val的140个真实组在磁盘存在，共4,477张图片，全部至少8帧；它们是候选数据，尚不能直接声明独立源校准池已经恢复。必须结合检测器实际训练清单、已确认来源关系和内容隔离确定独立性；EFS桶名不能替代此证据。部分FS和EFS在物理上有原FF val形似来源/桶，并不等于DF40提供了独立fake validation。
+
+科学目标仍为独立源FPR5阈值；在校准策略及其与训练的隔离定义获得批准之前，不执行冻结阈值实验。TPR95仍要求完整独立fake校准覆盖，目前不能声明具备。如果不能取得独立池，按v1.1保留排序实验与校准不可用记录；不擅自随机重划，不拿FF test/CDF作校准。
+
+实施前必须明确副本归属/去重政策和源校准策略；这属于修正数据理解后仍需完成的实验定义。本版撤回初版按来源ID自动迁移/隔离的规定，不执行任何新划分、样本删除或原始文件变更。
 
 ## 4. 新项目架构与接口
 
@@ -101,7 +104,7 @@ FF++ real validation 由官方 140 ID 恢复。FPR5 仅需独立真实校准数�
 | 模块 | 职责 | 输入 → 输出 |
 | --- | --- | --- |
 | `data/registry` | 固定方法与路径别名 | 注册配置 → 方法登记表 |
-| `data/manifest` | 官方角色恢复、去重、审计、8 帧固定池 | 原 JSON / 官方 ID / 文件 → 冻结清单与审计报告 |
+| `data/manifest` | 发布/来源角色分列、内容与路径审计、批准后的角色策略和8帧固定池 | 原JSON / 来源注释 / 文件 / 已批准策略 → 冻结清单与审计报告 |
 | `data/sampling` | 类、方法、视频/图片的分层抽样 | 训练清单与 RNG → 样本槽位序列 |
 | `models` | 三编码器及单线性头 | 解析配置/初始化权重 → raw 特征与分类 logit |
 | `training` | 固定训练、状态保存和恢复 | 配置/清单 → epoch 15 权重和完整日志 |
@@ -156,13 +159,13 @@ EFS 图片有独立 `sample_id`；图像层仅有 raw/direction 两个实质不�
 
 实验 A–D 的主指标和公式继承 v1.1：逐方法/宏平均与 pooled AUC 分开；视频/图像分表；固定尺度网格 `[0.25,0.5,1,2,4]`；源训练平衡权重下估计长度中位数 c，比较 h、h/c、u、c·u；b 不被错误地同步缩放；正仿射映射同步变换阈值的负对照；精确饱和、数值 ties 与非线性池化分开解释。
 
-30 个匹配头均在各自编码器完全冻结、eval 模式的官方训练特征上拟合。raw/direction 头均零初始化，L2=1e-4、不惩罚偏置、迭代上限 2000，记录收敛与固定权重；不更新骨干运行统计，不使用目标标签选正则或挑头。
+30 个匹配头均在各自编码器完全冻结、eval 模式的已批准源训练清单特征上拟合。raw/direction 头均零初始化，L2=1e-4、不惩罚偏置、迭代上限 2000，记录收敛与固定权重；不更新骨干运行统计，不使用目标标签选正则或挑头。
 
 pair 转移采用正确/并列/错误的 3×3 表，ties 按半分；重建的 DeltaAUC 与直接值在 1e-10 内一致。实现采用可核对的加权/分块算法，避免对大图像池构造无界 fake×real 矩阵。图像 real 和 FS/FR fake 按来源视频等权；31 方法宏平均中的方法权重固定，pair 转移和 bootstrap 复用同一权重定义。
 
 ## 7. 源校准、评价与统计
 
-每个 backbone/seed/flow/评价单位独立源校准。FPR5：取使源真实校准 FPR ≤0.05 的最小可行阈值；判 fake 当且仅当 `score >= threshold`。同分整体处理，保存源真实样本数、阈值规则与实际源 FPR。候选阈值固定为每个不同的 FP64 源真实分数及其朝正无穷的 `nextafter` 值，取满足约束的最小候选，不由测试分数生成候选；140 个等权真实视频最多允许 7 个 FP，分数并列必须整体排除或整体纳入。图像层按视频等权的帧权重计算 FPR，不能直接复用视频的整数 FP 预算。真实帧在图像层保持视频内总权重相同，视频层按视频等权。
+每个 backbone/seed/flow/评价单位独立源校准。FPR5：取使源真实校准 FPR ≤0.05 的最小可行阈值；判 fake 当且仅当 `score >= threshold`。同分整体处理，保存源真实样本数、阈值规则与实际源 FPR。候选阈值固定为每个不同的 FP64 源真实分数及其朝正无穷的 `nextafter` 值，取满足约束的最小候选，不由测试分数生成候选；若最终批准池包含140个等权真实视频，最多允许7个FP；其他数量按同一0.05约束计算，分数并列必须整体排除或整体纳入。图像层按视频等权的帧权重计算 FPR，不能直接复用视频的整数 FP 预算。真实帧在图像层保持视频内总权重相同，视频层按视频等权。
 
 冻结阈值原样用于 FF++ test 和 CDF test；视频阈值不挪用于 EFS 图片。报告源/目标 AUROC、FPR、逐方法 TPR、宏 TPR、宏 BA、逐类/类平衡 Brier。四流程概率视图定义固定：RL/DL 的 Brier 使用 sigmoid(video logit)，RP/DP 使用概率均值；在对应 logit/prob 分数空间执行阈值，不能用 Brier 概率重选阈值。
 
@@ -205,12 +208,12 @@ TPR95 当前只记录不可用原因，不输出冒充完整方法覆盖的结�
 | --- | --- |
 | 跨方法同 ID | 两个 fake 视频和一个 real 返回三个独立视频；分数不跨方法平均 |
 | 抽帧边界 | 两方法同 ID 各取 8 帧，共 16；数值帧序、少帧和重复帧规则可复核 |
-| 官方角色 | 数字双 ID 误标样本恢复正确角色；源 val/test 不进入 train；无法可靠确定官方角色的条目隔离，已证实跨角色来源冲突按审计门处理 |
+| 数据角色 | 发布/物理/原始来源/本轮实验角色分列；只按批准的数据策略改变实验角色；内容副本检查与来源分组分开，不能把EFS桶名当来源 |
 | 真实去重 | 跨方法相同真实输入只入池一次；逐方法比较保留共享真实集合 |
 | EFS 单位 | 独立图片不误聚合成视频，不凭存储 ID 构造真实帧配对 |
 | 特征一致性 | 缓存特征与模型直接输出的范数及 signed raw/direction logit 一致 |
 | 计分负对照 | logit 均值与概率均值的定义正确；单图严格单调排序的数值 ties 单独报告 |
-| 阈值与来源隔离 | 仅官方源校准拟合；同分及 >= 规则一致；仿射同步阈值预测不变 |
+| 阈值与来源隔离 | 仅批准并验证隔离的源校准池拟合；无合格校准池时不执行阈值实验；同分及 >= 规则一致；仿射同步阈值预测不变 |
 | 匹配头 | 骨干和运行统计冻结；两头共享容量、权重、预算及初始化 |
 | 配对统计 | 同 checkpoint、同输入、同 resample；pair 转移重建 AUC；共享 real 不当独立重复 |
 | 训练及恢复 | 15 epoch final，无 val 选模；有效 batch/epoch 槽位符合配置；恢复检查输入哈希 |
