@@ -1237,10 +1237,132 @@
         "_growth_tracker": 1954
       },
       "per_step_AMP_logging_gap_disclosed": true
+    },
+    "dinov2_vit_b14_seed2026": {
+      "verified_UTC": "2026-10-08T22:55:22.333129+00:00",
+      "run_id": "dinov2_vit_b14_seed2026",
+      "backbone": "dinov2_vit_b14",
+      "seed": 2026,
+      "epoch": 15,
+      "draws": 3750000,
+      "attempts": 29310,
+      "successes": 29303,
+      "AMP_skips": 7,
+      "final_model_sha256": "013af86b493e416b7e4ea0686abed76a1c3bf9adec7f73a133411c3119f2e97c",
+      "state_sha256": "1535cede3535a4a8a9e63323527060b25adde33c3e8d97ec6425c00e0a9185d8",
+      "source_code_sha256": "7d56c6e5803450369852b5865130a3ed815d87e3e6a91226d276f0fd092611b5",
+      "selection": "final_epoch_only",
+      "final_training_loss": 0.20728608561801912,
+      "epoch_training_seconds": 37918.55852770805,
+      "all_epoch_sequences_exactly_reconstructed": true,
+      "epoch_sequences": [
+        {
+          "epoch": 1,
+          "draws": 250000,
+          "sha256": "7cdf6ac1cbec16692e62853e894ea1b2ea5b65b53d182125645a1a80ae877af6",
+          "exact_regeneration_match": true
+        },
+        {
+          "epoch": 2,
+          "draws": 250000,
+          "sha256": "a10b2565644d06365afa89f70aa0ecce31e57bd6a93f320ca21d9af178eb5bac",
+          "exact_regeneration_match": true
+        },
+        {
+          "epoch": 3,
+          "draws": 250000,
+          "sha256": "3d13f8d415a453e346ed9a9efa1dd26ba59a8642727349b0971e8d3c5673088e",
+          "exact_regeneration_match": true
+        },
+        {
+          "epoch": 4,
+          "draws": 250000,
+          "sha256": "2ff4b6c0b6d6b6c99a7332581f6751d8bbf4e69be38ff7d657614d76177b56e3",
+          "exact_regeneration_match": true
+        },
+        {
+          "epoch": 5,
+          "draws": 250000,
+          "sha256": "b630f6c8640595c6407c302cfaf808bf61d587205c307c699676ddbee8d98086",
+          "exact_regeneration_match": true
+        },
+        {
+          "epoch": 6,
+          "draws": 250000,
+          "sha256": "b8be39d96f60879121acca74e06fd795bf608651dda88db4c01387e768abbbbf",
+          "exact_regeneration_match": true
+        },
+        {
+          "epoch": 7,
+          "draws": 250000,
+          "sha256": "4dea99f1f1d3fa68054aef65852f9ad66be7c70cb4ac9c54ab2241d616f6d613",
+          "exact_regeneration_match": true
+        },
+        {
+          "epoch": 8,
+          "draws": 250000,
+          "sha256": "e455c5aa1d63ca9dcc356b027bd91bd29bbdcc361edb6552252c4b8de64cd444",
+          "exact_regeneration_match": true
+        },
+        {
+          "epoch": 9,
+          "draws": 250000,
+          "sha256": "bdfa59248d18018708edcca726a308cd0b2d4db5b04e9e1f5635c90211506ea6",
+          "exact_regeneration_match": true
+        },
+        {
+          "epoch": 10,
+          "draws": 250000,
+          "sha256": "665110dc8aff6fbbbab4c0bae4c5cb13562c98778c0f2500c9783cca364344a8",
+          "exact_regeneration_match": true
+        },
+        {
+          "epoch": 11,
+          "draws": 250000,
+          "sha256": "e52af1830194e66a6b400d1f5b20cb51e8d4deb29aa9dd25793813f797c5af40",
+          "exact_regeneration_match": true
+        },
+        {
+          "epoch": 12,
+          "draws": 250000,
+          "sha256": "60e28f0f64b0e691f79a5a95d815ee00037ac2984d1f827f59a645dc74b356b3",
+          "exact_regeneration_match": true
+        },
+        {
+          "epoch": 13,
+          "draws": 250000,
+          "sha256": "3ee8e175012d8df3cf4140cbdfc2f7187bbe28fe6beafa93d2eaae61b0bc1600",
+          "exact_regeneration_match": true
+        },
+        {
+          "epoch": 14,
+          "draws": 250000,
+          "sha256": "e16b12f49df0e12d07b927774f75a888a78b589ca03f6aa8b8c2f49812f2ed45",
+          "exact_regeneration_match": true
+        },
+        {
+          "epoch": 15,
+          "draws": 250000,
+          "sha256": "c958d895d7a66bdcbc9a02937574b27cb50426e35284c324b527e2476a40a40d",
+          "exact_regeneration_match": true
+        }
+      ],
+      "final_model_matches_full_state": true,
+      "model_and_optimizer_finite": true,
+      "full_Python_NumPy_CPU_CUDA_RNG_present": true,
+      "CUDA_RNG_state_count": 1,
+      "AMP_final_state": {
+        "scale": 16384.0,
+        "growth_factor": 2.0,
+        "backoff_factor": 0.5,
+        "growth_interval": 2000,
+        "_growth_tracker": 436
+      },
+      "per_step_AMP_logging_gap_disclosed": true
     }
   },
-  "checked_UTC": "2026-10-08T21:23:01.294459+00:00",
-  "training_complete_models": 11,
+  "checked_UTC": "2026-10-08T22:55:22.333129+00:00",
+  "training_complete_models": 12,
   "planned_models": 15,
   "model_cache_analysis_status": "model-state verification only; cache/analysis completion tracked separately",
   "CUDA_initialized": false

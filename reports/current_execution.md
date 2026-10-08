@@ -1,4 +1,11 @@
 
+## 2026-10-08T22:57:55.085372+00:00 — 四个seed全部12个训练终态通过，完整run11个
+
+DINOv2 B14 seed2026完成15epoch/final并独立CPU核验：3750000 draws、29310 attempts、29303 successful optimizer updates、7 AMP skips、final scale16384；完整model/optimizer有限、full-state与final一致、Python/NumPy/CPU/CUDA RNG齐全、15份epoch抽样序列精确重建。逐step AMP日志缺口照实披露，冻结draw预算不补步、不回放。至此seed[7,42,123,2026]×3backbone全部12个训练终态通过。
+
+EfficientNet-B0 seed2026四角色缓存独立核验：679977条1280维FP32原始特征，块hash/有限值、冻结清单全列值与顺序、final分类头与canonical verified_run通过。原PID772379在2026-10-08 22:45:28.078063 UTC exit0；原supervisor PID3984143在GPU5自动接续EfficientNet seed3407 PID1105684，PPID/cwd/script/锁正确。累计12/15训练终态、11/15完整run；DINO2026继续抽取特征，三个seed3407模型已由原队列启动，未重复提交或变更科学设置。30匹配头、完整正式分析及服务实际恢复仍待完成，尚未交付科学结果。原Obsidian设计SHA不变。
+
+
 ## 2026-10-08T22:32:40.215743+00:00 — 第10个完整正式run独立核验
 
 CLIP ViT-B16 seed2026 完整训练及4-role raw cache通过独立CPU核验：train250000、FFtest59935、CDFtest368922、calibration1120，共679977条512维FP32原始特征。每块hash/维度/有限值、冻结输入全列值与顺序、final epoch15分类头、canonical verified_run均通过。校准清单是逻辑全值/顺序一致，不声称parquet序列化字节一致。
