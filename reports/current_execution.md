@@ -1,3 +1,10 @@
+## 2026-10-08T20:27:31.410738+00:00：第10个最终训练状态独立核验
+
+- CLIP ViT-B16 seed2026最终epoch15，3750000 draws / 29310 attempts / 29305 successful optimizer updates / 5 AMP skips，final AMP scale16384。15轮抽样数组SHA与history相符，并按冻结sampling_mass/seed精确重建；完整model/optimizer浮点张量有限、final.pt与完整state模型张量精确一致，Python/NumPy/CPU/CUDA RNG完整。CPU验证CUDA_initialized=false。
+- 固定15轮/每轮N_pool抽样合同满足，无补步/回放/超参数变化；逐step AMP跳步及scale事件日志缺口持续明确披露，不能从既有记录恢复具体跳步位置。
+- 累计最终训练状态完成并独立核验10/15组，完整四角色模型/cache run独立核验9/15组。原CLIP2026 worker657113继续提取cache，EfficientNet2026/DINO2026/CLIP3407原worker继续训练；20:25 UTC只读SSH监督成功，无访问或已记录执行/队列错误。
+- 回执completed_model_state_receipts.json、formal_training_budget_receipts.json、formal_training_budget_counts.csv已更新；剩余5组训练/6组完整cache、全部30匹配头/完整分析报告及LLM实际恢复/HTTP健康确认尚未完成。source/config/frozen data/科学预算及用户模型/加速设置未改变，源码SHA保持7d56c6e5803450369852b5865130a3ed815d87e3e6a91226d276f0fd092611b5。
+
 ## 2026-10-08T19:00:18.871330+00:00：前三个种子的9个完整run独立核验
 
 - EfficientNet-B0 seed123完整四角色cache共679977行、1280维FP32；train250000/ff_test59935/cdf_test368922/calibration1120。全部分块SHA、有限值/非零向量、连续行及完整清单列值/dtype/顺序对齐、两类head与final.pt精确一致均通过，canonical verified_run=true。校准parquet为逻辑等价，不声称与输入byte相同。

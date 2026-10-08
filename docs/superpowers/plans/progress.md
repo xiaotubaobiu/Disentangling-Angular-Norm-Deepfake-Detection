@@ -148,3 +148,10 @@ LLM停用补充：原Docker记录exit_code=137、OOMKilled=false；docker stop -
 - 原worker622111于2026-10-08T18:41:16.625344+00:00 COMPLETE/returncode0，已退出；原supervisor3984143于2026-10-08T18:41:16.626964+00:00自动轮转GPU4至CLIP3407/PID960076。新worker PPID/cwd/run.py/worker阶段匹配，execution.lock/queue.lock均持有；CPU验证CUDA_initialized=false，未启动重复队列。
 - seed7/42/123各三个骨干共9个最终训练状态和9个完整模型/cache run全部独立核验。余下seed2026/3407共6组继续原队列，当前CLIP3407(GPU4)、EfficientNet2026(GPU5)、CLIP2026(GPU6)、DINO2026(GPU7)运行，DINO3407/EfficientNet3407待调度。无访问或已记录执行/队列错误。
 - 最终30匹配头、全模型尺度/长度控制/配对bootstrap/源FPR5冻结阈值报告及原LLM实际恢复/HTTP健康确认未完成，不声称实验完成。completed_run_cache_receipts.json已扩展至9组；源码SHA7d56c6e5803450369852b5865130a3ed815d87e3e6a91226d276f0fd092611b5及原设计SHA61e583963a4d661ccf83d02798600c83eb4aca2238d2984c5422bab1553ecc6b保持不变，source/config/frozen data/科学预算/用户模型与加速设置未改变。
+
+## 2026-10-08T20:27:31.410738+00:00：第10个最终训练状态独立核验
+
+- CLIP ViT-B16 seed2026最终epoch15，3750000 draws / 29310 attempts / 29305 successful optimizer updates / 5 AMP skips，final AMP scale16384。15轮抽样数组SHA与history相符，并按冻结sampling_mass/seed精确重建；完整model/optimizer浮点张量有限、final.pt与完整state模型张量精确一致，Python/NumPy/CPU/CUDA RNG完整。CPU验证CUDA_initialized=false。
+- 固定15轮/每轮N_pool抽样合同满足，无补步/回放/超参数变化；逐step AMP跳步及scale事件日志缺口持续明确披露，不能从既有记录恢复具体跳步位置。
+- 累计最终训练状态完成并独立核验10/15组，完整四角色模型/cache run独立核验9/15组。原CLIP2026 worker657113继续提取cache，EfficientNet2026/DINO2026/CLIP3407原worker继续训练；20:25 UTC只读SSH监督成功，无访问或已记录执行/队列错误。
+- 回执completed_model_state_receipts.json、formal_training_budget_receipts.json、formal_training_budget_counts.csv已更新；剩余5组训练/6组完整cache、全部30匹配头/完整分析报告及LLM实际恢复/HTTP健康确认尚未完成。source/config/frozen data/科学预算及用户模型/加速设置未改变，源码SHA保持7d56c6e5803450369852b5865130a3ed815d87e3e6a91226d276f0fd092611b5。
