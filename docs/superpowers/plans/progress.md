@@ -141,3 +141,10 @@ LLM停用补充：原Docker记录exit_code=137、OOMKilled=false；docker stop -
 - 固定15轮/每轮N_pool抽样预算满足；不补步/回放/改超参数。逐step AMP跳步位置/scale事件日志缺口持续明确披露，无法从既有记录恢复具体位置，不声称完整逐step审计。
 - 累计最终训练状态完成并独立核验9/15组，完整四角色模型/cache run完成并独立核验8/15组。原EfficientNet123 worker622111继续提取cache，CLIP2026/DINO2026/EfficientNet2026继续原队列训练。17:16 UTC只读SSH检查成功，无访问或已记录执行/队列错误。
 - 回执completed_model_state_receipts.json、formal_training_budget_receipts.json、formal_training_budget_counts.csv更新；剩余6组训练/7组完整cache及全部30匹配头、完整分析报告、LLM实际恢复/HTTP健康确认未完成。source/config/frozen data/科学预算和用户模型/加速设置未改变；源码SHA仍7d56c6e5803450369852b5865130a3ed815d87e3e6a91226d276f0fd092611b5。
+
+## 2026-10-08T19:00:18.871330+00:00：前三个种子的9个完整run独立核验
+
+- EfficientNet-B0 seed123完整四角色cache共679977行、1280维FP32；train250000/ff_test59935/cdf_test368922/calibration1120。全部分块SHA、有限值/非零向量、连续行及完整清单列值/dtype/顺序对齐、两类head与final.pt精确一致均通过，canonical verified_run=true。校准parquet为逻辑等价，不声称与输入byte相同。
+- 原worker622111于2026-10-08T18:41:16.625344+00:00 COMPLETE/returncode0，已退出；原supervisor3984143于2026-10-08T18:41:16.626964+00:00自动轮转GPU4至CLIP3407/PID960076。新worker PPID/cwd/run.py/worker阶段匹配，execution.lock/queue.lock均持有；CPU验证CUDA_initialized=false，未启动重复队列。
+- seed7/42/123各三个骨干共9个最终训练状态和9个完整模型/cache run全部独立核验。余下seed2026/3407共6组继续原队列，当前CLIP3407(GPU4)、EfficientNet2026(GPU5)、CLIP2026(GPU6)、DINO2026(GPU7)运行，DINO3407/EfficientNet3407待调度。无访问或已记录执行/队列错误。
+- 最终30匹配头、全模型尺度/长度控制/配对bootstrap/源FPR5冻结阈值报告及原LLM实际恢复/HTTP健康确认未完成，不声称实验完成。completed_run_cache_receipts.json已扩展至9组；源码SHA7d56c6e5803450369852b5865130a3ed815d87e3e6a91226d276f0fd092611b5及原设计SHA61e583963a4d661ccf83d02798600c83eb4aca2238d2984c5422bab1553ecc6b保持不变，source/config/frozen data/科学预算/用户模型与加速设置未改变。

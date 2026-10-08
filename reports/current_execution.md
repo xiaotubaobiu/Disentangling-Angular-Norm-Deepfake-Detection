@@ -1,3 +1,10 @@
+## 2026-10-08T19:00:18.871330+00:00：前三个种子的9个完整run独立核验
+
+- EfficientNet-B0 seed123完整四角色cache共679977行、1280维FP32；train250000/ff_test59935/cdf_test368922/calibration1120。全部分块SHA、有限值/非零向量、连续行及完整清单列值/dtype/顺序对齐、两类head与final.pt精确一致均通过，canonical verified_run=true。校准parquet为逻辑等价，不声称与输入byte相同。
+- 原worker622111于2026-10-08T18:41:16.625344+00:00 COMPLETE/returncode0，已退出；原supervisor3984143于2026-10-08T18:41:16.626964+00:00自动轮转GPU4至CLIP3407/PID960076。新worker PPID/cwd/run.py/worker阶段匹配，execution.lock/queue.lock均持有；CPU验证CUDA_initialized=false，未启动重复队列。
+- seed7/42/123各三个骨干共9个最终训练状态和9个完整模型/cache run全部独立核验。余下seed2026/3407共6组继续原队列，当前CLIP3407(GPU4)、EfficientNet2026(GPU5)、CLIP2026(GPU6)、DINO2026(GPU7)运行，DINO3407/EfficientNet3407待调度。无访问或已记录执行/队列错误。
+- 最终30匹配头、全模型尺度/长度控制/配对bootstrap/源FPR5冻结阈值报告及原LLM实际恢复/HTTP健康确认未完成，不声称实验完成。completed_run_cache_receipts.json已扩展至9组；源码SHA7d56c6e5803450369852b5865130a3ed815d87e3e6a91226d276f0fd092611b5及原设计SHA61e583963a4d661ccf83d02798600c83eb4aca2238d2984c5422bab1553ecc6b保持不变，source/config/frozen data/科学预算/用户模型与加速设置未改变。
+
 ## 2026-10-08T17:18:57.399214+00:00：第9个最终训练状态独立核验
 
 - EfficientNet-B0 seed123最终epoch15：3750000 draws / 29310 attempts / 29305 successful optimizer updates / 5 AMP skips；final AMP scale32768。15轮抽样数组SHA与history对应并按冻结sampling_mass/seed逐轮精确重建；model/optimizer浮点张量有限、final.pt与完整state模型张量精确一致，Python/NumPy/CPU/CUDA RNG完整。49个BatchNorm层相对同一初始化forward计数均增加29310。CPU验证CUDA_initialized=false。
