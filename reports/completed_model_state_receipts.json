@@ -383,10 +383,254 @@
         "_growth_tracker": 1355
       },
       "per_step_AMP_logging_gap_disclosed": true
+    },
+    "dinov2_vit_b14_seed42": {
+      "verified_UTC": "2026-10-08T08:06:47.792265+00:00",
+      "run_id": "dinov2_vit_b14_seed42",
+      "backbone": "dinov2_vit_b14",
+      "seed": 42,
+      "epoch": 15,
+      "draws": 3750000,
+      "attempts": 29310,
+      "successes": 29305,
+      "AMP_skips": 5,
+      "final_model_sha256": "1721baadb044a292321e42829e867347e7cd05f3c7c14b08476bc9e424bf6098",
+      "state_sha256": "7943ec34181fc230dd24df9edd2b0bc93f9939c9c765c3ae8c4b66909cbfcc84",
+      "source_code_sha256": "7d56c6e5803450369852b5865130a3ed815d87e3e6a91226d276f0fd092611b5",
+      "selection": "final_epoch_only",
+      "final_training_loss": 0.15594363549900056,
+      "epoch_training_seconds": 38417.74025058746,
+      "all_epoch_sequences_exactly_reconstructed": true,
+      "epoch_sequences": [
+        {
+          "epoch": 1,
+          "draws": 250000,
+          "sha256": "9995ec42dd2432385282f401f7ed6174b1c876106dc0b014759ae37f5ffd5f7e",
+          "exact_regeneration_match": true
+        },
+        {
+          "epoch": 2,
+          "draws": 250000,
+          "sha256": "4c5c30f073cad098efbc68317b6b19c1e5bbea096554a6444835591ce711ae19",
+          "exact_regeneration_match": true
+        },
+        {
+          "epoch": 3,
+          "draws": 250000,
+          "sha256": "8375473ec6ce1524004500a83a7bc033d92f43483c60799473d6e063d01b3de2",
+          "exact_regeneration_match": true
+        },
+        {
+          "epoch": 4,
+          "draws": 250000,
+          "sha256": "c57264f4d1ba8471b1ce55c4683ede8544cae6a9a8162c5e0f1746294c81ff0a",
+          "exact_regeneration_match": true
+        },
+        {
+          "epoch": 5,
+          "draws": 250000,
+          "sha256": "cf1cd6f30086c1f3d96bce394244a8ee371f2906066cf35675e2ff928777872a",
+          "exact_regeneration_match": true
+        },
+        {
+          "epoch": 6,
+          "draws": 250000,
+          "sha256": "959da09984dcd0366aa39fb5f7f580ccbe303363fe365eb48b65a47adf696284",
+          "exact_regeneration_match": true
+        },
+        {
+          "epoch": 7,
+          "draws": 250000,
+          "sha256": "c2d2eb5f3e89430a25d9905d345e3acc48028ddd256baa79e1526e8b37e58e59",
+          "exact_regeneration_match": true
+        },
+        {
+          "epoch": 8,
+          "draws": 250000,
+          "sha256": "f41e04cebe8d77925eb90c16349c5e1590e77b155aebe4b5825df770951fa59a",
+          "exact_regeneration_match": true
+        },
+        {
+          "epoch": 9,
+          "draws": 250000,
+          "sha256": "6063aa54aa305759d7d49fa2f5dfb8b3dd20069cba8816d613c343f7fe1e4b6b",
+          "exact_regeneration_match": true
+        },
+        {
+          "epoch": 10,
+          "draws": 250000,
+          "sha256": "e654a64f244fab4d3ce980d5df684827295f17cfcf1c11cd480f2ea2a256d1db",
+          "exact_regeneration_match": true
+        },
+        {
+          "epoch": 11,
+          "draws": 250000,
+          "sha256": "a638f7c45c6aa0ea7dc842e62c9beb615d28c4c67b64c8345435ac1bade1f1ac",
+          "exact_regeneration_match": true
+        },
+        {
+          "epoch": 12,
+          "draws": 250000,
+          "sha256": "3bb46efc5ae3a7c846ae2571f4a5e8a438725fbb5b07b905af0737c39a723971",
+          "exact_regeneration_match": true
+        },
+        {
+          "epoch": 13,
+          "draws": 250000,
+          "sha256": "637bf48ff961054d6910684f49551b9afe2e717434cdf4dde41bdfbf0ba5eb84",
+          "exact_regeneration_match": true
+        },
+        {
+          "epoch": 14,
+          "draws": 250000,
+          "sha256": "b46ae6e80595074fe445b62a1c8a934b56fb74ce3e087c48c6acd1d309b436b2",
+          "exact_regeneration_match": true
+        },
+        {
+          "epoch": 15,
+          "draws": 250000,
+          "sha256": "d27652ec159d9d91ef89f036ee4e02bd820ea370bc53a41e9dc73848f31d3a3f",
+          "exact_regeneration_match": true
+        }
+      ],
+      "final_model_matches_full_state": true,
+      "model_and_optimizer_finite": true,
+      "full_Python_NumPy_CPU_CUDA_RNG_present": true,
+      "CUDA_RNG_state_count": 1,
+      "AMP_final_state": {
+        "scale": 32768.0,
+        "growth_factor": 2.0,
+        "backoff_factor": 0.5,
+        "growth_interval": 2000,
+        "_growth_tracker": 1258
+      },
+      "per_step_AMP_logging_gap_disclosed": true
+    },
+    "efficientnet_b0_seed42": {
+      "verified_UTC": "2026-10-08T08:06:47.792265+00:00",
+      "run_id": "efficientnet_b0_seed42",
+      "backbone": "efficientnet_b0",
+      "seed": 42,
+      "epoch": 15,
+      "draws": 3750000,
+      "attempts": 29310,
+      "successes": 29304,
+      "AMP_skips": 6,
+      "final_model_sha256": "9dfd330abe3405db2980f3fdf9e2c3ddbb64ff736fa5059855f1b877c7255124",
+      "state_sha256": "d7e01674e9b200f85bfa056f969371209a5edd2df68bc12b4a89d996148a5db4",
+      "source_code_sha256": "7d56c6e5803450369852b5865130a3ed815d87e3e6a91226d276f0fd092611b5",
+      "selection": "final_epoch_only",
+      "final_training_loss": 0.03727940065479279,
+      "epoch_training_seconds": 28786.60325241089,
+      "all_epoch_sequences_exactly_reconstructed": true,
+      "epoch_sequences": [
+        {
+          "epoch": 1,
+          "draws": 250000,
+          "sha256": "9995ec42dd2432385282f401f7ed6174b1c876106dc0b014759ae37f5ffd5f7e",
+          "exact_regeneration_match": true
+        },
+        {
+          "epoch": 2,
+          "draws": 250000,
+          "sha256": "4c5c30f073cad098efbc68317b6b19c1e5bbea096554a6444835591ce711ae19",
+          "exact_regeneration_match": true
+        },
+        {
+          "epoch": 3,
+          "draws": 250000,
+          "sha256": "8375473ec6ce1524004500a83a7bc033d92f43483c60799473d6e063d01b3de2",
+          "exact_regeneration_match": true
+        },
+        {
+          "epoch": 4,
+          "draws": 250000,
+          "sha256": "c57264f4d1ba8471b1ce55c4683ede8544cae6a9a8162c5e0f1746294c81ff0a",
+          "exact_regeneration_match": true
+        },
+        {
+          "epoch": 5,
+          "draws": 250000,
+          "sha256": "cf1cd6f30086c1f3d96bce394244a8ee371f2906066cf35675e2ff928777872a",
+          "exact_regeneration_match": true
+        },
+        {
+          "epoch": 6,
+          "draws": 250000,
+          "sha256": "959da09984dcd0366aa39fb5f7f580ccbe303363fe365eb48b65a47adf696284",
+          "exact_regeneration_match": true
+        },
+        {
+          "epoch": 7,
+          "draws": 250000,
+          "sha256": "c2d2eb5f3e89430a25d9905d345e3acc48028ddd256baa79e1526e8b37e58e59",
+          "exact_regeneration_match": true
+        },
+        {
+          "epoch": 8,
+          "draws": 250000,
+          "sha256": "f41e04cebe8d77925eb90c16349c5e1590e77b155aebe4b5825df770951fa59a",
+          "exact_regeneration_match": true
+        },
+        {
+          "epoch": 9,
+          "draws": 250000,
+          "sha256": "6063aa54aa305759d7d49fa2f5dfb8b3dd20069cba8816d613c343f7fe1e4b6b",
+          "exact_regeneration_match": true
+        },
+        {
+          "epoch": 10,
+          "draws": 250000,
+          "sha256": "e654a64f244fab4d3ce980d5df684827295f17cfcf1c11cd480f2ea2a256d1db",
+          "exact_regeneration_match": true
+        },
+        {
+          "epoch": 11,
+          "draws": 250000,
+          "sha256": "a638f7c45c6aa0ea7dc842e62c9beb615d28c4c67b64c8345435ac1bade1f1ac",
+          "exact_regeneration_match": true
+        },
+        {
+          "epoch": 12,
+          "draws": 250000,
+          "sha256": "3bb46efc5ae3a7c846ae2571f4a5e8a438725fbb5b07b905af0737c39a723971",
+          "exact_regeneration_match": true
+        },
+        {
+          "epoch": 13,
+          "draws": 250000,
+          "sha256": "637bf48ff961054d6910684f49551b9afe2e717434cdf4dde41bdfbf0ba5eb84",
+          "exact_regeneration_match": true
+        },
+        {
+          "epoch": 14,
+          "draws": 250000,
+          "sha256": "b46ae6e80595074fe445b62a1c8a934b56fb74ce3e087c48c6acd1d309b436b2",
+          "exact_regeneration_match": true
+        },
+        {
+          "epoch": 15,
+          "draws": 250000,
+          "sha256": "d27652ec159d9d91ef89f036ee4e02bd820ea370bc53a41e9dc73848f31d3a3f",
+          "exact_regeneration_match": true
+        }
+      ],
+      "final_model_matches_full_state": true,
+      "model_and_optimizer_finite": true,
+      "full_Python_NumPy_CPU_CUDA_RNG_present": true,
+      "CUDA_RNG_state_count": 1,
+      "AMP_final_state": {
+        "scale": 16384.0,
+        "growth_factor": 2.0,
+        "backoff_factor": 0.5,
+        "growth_interval": 2000,
+        "_growth_tracker": 1644
+      },
+      "per_step_AMP_logging_gap_disclosed": true
     }
   },
-  "checked_UTC": "2026-10-07T22:28:12.692032+00:00",
-  "training_complete_models": 4,
+  "checked_UTC": "2026-10-08T08:06:47.792265+00:00",
+  "training_complete_models": 6,
   "planned_models": 15,
   "model_cache_analysis_status": "model-state verification only; cache/analysis completion tracked separately",
   "CUDA_initialized": false
