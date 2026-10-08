@@ -97,3 +97,10 @@ LLM停用补充：原Docker记录exit_code=137、OOMKilled=false；docker stop -
 - 仅 CPU 独立核验，CUDA_initialized=false。固定15轮、每轮N_pool抽样预算满足；逐step AMP overflow/scaler事件未记录，具体跳步位置及逐次scale数值仍不可从既有记录恢复，回执逐条保留null及日志缺口说明。不补步、不回放、不改超参数。
 - DINO42和EfficientNet42原worker继续提取缓存；CLIP123/DINO123仍训练。既有四个完整cache各679977行已独立核验；新的完整cache和最终分析均待完成。
 - 回执：reports/completed_model_state_receipts.json、formal_training_budget_receipts.json、formal_training_budget_counts.csv；本地只读监督回执 latest_readonly_progress_receipt.json UTC08:05:52；SSD当时剩689266290688 bytes。未启动重复作业/调度器，未调整模型或加速配置。
+
+## 2026-10-08T09:33:06.950812+00:00：第5个完整模型/cache run独立核验
+
+- EfficientNet-B0 seed42四角色cache共679977行、1280维；train250000/ff_test59935/cdf_test368922/calibration1120。分块SHA256、FP32/有限值/非零向量、连续行对齐、完整输入清单列值与顺序、两类head与final.pt精确一致全部通过；canonical verified_run=true。校准parquet序列化SHA与输入不同，完整逻辑值/顺序/dtype相同，不声称两文件byte相同。
+- 原worker245444于2026-10-08T09:17:31.966558+00:00 COMPLETE，returncode0，已退出；原supervisor3984143于2026-10-08T09:17:31.968018+00:00自动轮转GPU4至EfficientNet123/PID622111。新worker PPID/cwd/run.py/worker阶段均核验匹配，execution.lock与queue.lock均持有；未启动第二个队列。
+- 15组中训练完成并独立核验6组，四角色完整run完成并独立核验5组。DINO42仍缓存提取，CLIP123/DINO123仍训练，其余待队列推进；最终30匹配头/全部分析报告/LLM恢复与健康检查仍未完成。
+- CPU独立核验 CUDA_initialized=false；训练源码SHA保持7d56c6e5803450369852b5865130a3ed815d87e3e6a91226d276f0fd092611b5。回执reports/completed_run_cache_receipts.json已扩展至5组；未调整source/config/data/科学预算/模型或加速设置。

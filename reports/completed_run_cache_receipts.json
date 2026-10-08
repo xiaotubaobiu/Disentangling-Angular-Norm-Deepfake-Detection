@@ -375,10 +375,110 @@
       "original_supervisor_PID": 3984143,
       "duplicate_queue_started": false,
       "target_performance_reported": false
+    },
+    "efficientnet_b0_seed42": {
+      "run_id": "efficientnet_b0_seed42",
+      "backbone": "efficientnet_b0",
+      "seed": 42,
+      "verified_UTC": "2026-10-08T09:32:17.013038+00:00",
+      "rows": 679977,
+      "dimension": 1280,
+      "roles": {
+        "train": {
+          "rows": 250000,
+          "chunks": 62,
+          "dimension": 1280,
+          "dtype": "float32",
+          "all_chunk_hashes_verified": true,
+          "all_features_finite": true,
+          "zero_vectors": 0,
+          "min_raw_L2_norm": 4.941546958762126,
+          "max_raw_L2_norm": 88.83587370770843,
+          "input_manifest_sha256": "1523f149a2f218919c14567c645cc6a07cd42892abd0824e4ff4fcba4d8e2b17",
+          "cached_manifest_sha256": "1523f149a2f218919c14567c645cc6a07cd42892abd0824e4ff4fcba4d8e2b17",
+          "full_manifest_columns_values_order_match_frozen_input": true,
+          "two_class_head_exactly_matches_final_model": true
+        },
+        "ff_test": {
+          "rows": 59935,
+          "chunks": 15,
+          "dimension": 1280,
+          "dtype": "float32",
+          "all_chunk_hashes_verified": true,
+          "all_features_finite": true,
+          "zero_vectors": 0,
+          "min_raw_L2_norm": 4.845545529914167,
+          "max_raw_L2_norm": 92.84571203583278,
+          "input_manifest_sha256": "3b73739fe62954eb389b49e3f6d46ee1ff326a71cc88b28dc1c43c825069d168",
+          "cached_manifest_sha256": "3b73739fe62954eb389b49e3f6d46ee1ff326a71cc88b28dc1c43c825069d168",
+          "full_manifest_columns_values_order_match_frozen_input": true,
+          "two_class_head_exactly_matches_final_model": true
+        },
+        "cdf_test": {
+          "rows": 368922,
+          "chunks": 91,
+          "dimension": 1280,
+          "dtype": "float32",
+          "all_chunk_hashes_verified": true,
+          "all_features_finite": true,
+          "zero_vectors": 0,
+          "min_raw_L2_norm": 5.1800716353327765,
+          "max_raw_L2_norm": 95.69967073689622,
+          "input_manifest_sha256": "1eeb4918687957494c8af29a7652f6db9b74768f214d0048bdd599d41645a351",
+          "cached_manifest_sha256": "1eeb4918687957494c8af29a7652f6db9b74768f214d0048bdd599d41645a351",
+          "full_manifest_columns_values_order_match_frozen_input": true,
+          "two_class_head_exactly_matches_final_model": true
+        },
+        "calibration": {
+          "rows": 1120,
+          "chunks": 1,
+          "dimension": 1280,
+          "dtype": "float32",
+          "all_chunk_hashes_verified": true,
+          "all_features_finite": true,
+          "zero_vectors": 0,
+          "min_raw_L2_norm": 5.51210068140833,
+          "max_raw_L2_norm": 54.96819949437683,
+          "input_manifest_sha256": "abfc2ba19c927f0dd11a2facbc45d152fa997217a6960579ff0caba42648dbdb",
+          "cached_manifest_sha256": "932a480c7af7ef15529b671f5be5cd1a1c5f83e3923060b3a7558fd0daf22e9e",
+          "full_manifest_columns_values_order_match_frozen_input": true,
+          "two_class_head_exactly_matches_final_model": true
+        }
+      },
+      "checkpoint_sha256": "9dfd330abe3405db2980f3fdf9e2c3ddbb64ff736fa5059855f1b877c7255124",
+      "source_code_sha256": "7d56c6e5803450369852b5865130a3ed815d87e3e6a91226d276f0fd092611b5",
+      "canonical_verified_run": true,
+      "complete_event": {
+        "run_id": "efficientnet_b0_seed42",
+        "state": "COMPLETE",
+        "utc": "2026-10-08T09:17:31.966558+00:00",
+        "physical_device": 4,
+        "returncode": 0
+      },
+      "old_worker_PID": 245444,
+      "old_worker_absent": true,
+      "next_event_same_GPU": {
+        "run_id": "efficientnet_b0_seed123",
+        "state": "RUNNING",
+        "utc": "2026-10-08T09:17:31.968018+00:00",
+        "physical_device": 4,
+        "pid": 622111
+      },
+      "next_worker": {
+        "PID": 622111,
+        "PPID": 3984143,
+        "start_ticks": 320096968,
+        "cwd": "/home/z/project/deepfake_detector",
+        "script": "/home/z/project/deepfake_detector/run.py",
+        "stage": "worker"
+      },
+      "original_supervisor_PID": 3984143,
+      "duplicate_queue_started": false,
+      "target_performance_reported": false
     }
   },
-  "checked_UTC": "2026-10-08T00:37:13.008287+00:00",
-  "verified_complete_runs": 4,
+  "checked_UTC": "2026-10-08T09:32:17.013467+00:00",
+  "verified_complete_runs": 5,
   "planned_runs": 15,
   "owner": {
     "PID": 3984143,

@@ -1,3 +1,10 @@
+## 2026-10-08T09:33:06.950812+00:00：第5个完整模型/cache run独立核验
+
+- EfficientNet-B0 seed42四角色cache共679977行、1280维；train250000/ff_test59935/cdf_test368922/calibration1120。分块SHA256、FP32/有限值/非零向量、连续行对齐、完整输入清单列值与顺序、两类head与final.pt精确一致全部通过；canonical verified_run=true。校准parquet序列化SHA与输入不同，完整逻辑值/顺序/dtype相同，不声称两文件byte相同。
+- 原worker245444于2026-10-08T09:17:31.966558+00:00 COMPLETE，returncode0，已退出；原supervisor3984143于2026-10-08T09:17:31.968018+00:00自动轮转GPU4至EfficientNet123/PID622111。新worker PPID/cwd/run.py/worker阶段均核验匹配，execution.lock与queue.lock均持有；未启动第二个队列。
+- 15组中训练完成并独立核验6组，四角色完整run完成并独立核验5组。DINO42仍缓存提取，CLIP123/DINO123仍训练，其余待队列推进；最终30匹配头/全部分析报告/LLM恢复与健康检查仍未完成。
+- CPU独立核验 CUDA_initialized=false；训练源码SHA保持7d56c6e5803450369852b5865130a3ed815d87e3e6a91226d276f0fd092611b5。回执reports/completed_run_cache_receipts.json已扩展至5组；未调整source/config/data/科学预算/模型或加速设置。
+
 ## 2026-10-08T08:08:24.139089+00:00：第二批两个最终检查点独立核验
 
 - 原 supervisor PID 3984143、execution/queue 两把锁和四个原 worker 身份核验正常。15 组中训练完成并独立核验 6 组，完整四角色缓存 run 完成并独立核验 4 组；不是最终实验完成。
