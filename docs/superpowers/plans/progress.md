@@ -134,3 +134,10 @@ LLM停用补充：原Docker记录exit_code=137、OOMKilled=false；docker stop -
 - 累计最终训练状态及完整四角色cache run均完成并独立核验8/15组。当前原队列继续训练EfficientNet123(GPU4/PID622111)、EfficientNet2026(GPU5/PID772379)、CLIP2026(GPU6/PID657113)、DINO2026(GPU7/PID729256)；余下三个seed3407 run待原队列调度。
 - 尚未完成：剩余7组训练/cache、全部30匹配头、完整尺度/长度控制/配对bootstrap/源FPR5冻结阈值分析与报告、原LLM实际恢复及HTTP健康确认。不是实验完成；无访问或已记录执行/队列错误。
 - completed_run_cache_receipts.json扩展至8组；原设计SHA61e583963a4d661ccf83d02798600c83eb4aca2238d2984c5422bab1553ecc6b及训练源码SHA7d56c6e5803450369852b5865130a3ed815d87e3e6a91226d276f0fd092611b5保持不变。source/config/frozen data/科学预算及用户模型/加速设置未调整。
+
+## 2026-10-08T17:18:57.399214+00:00：第9个最终训练状态独立核验
+
+- EfficientNet-B0 seed123最终epoch15：3750000 draws / 29310 attempts / 29305 successful optimizer updates / 5 AMP skips；final AMP scale32768。15轮抽样数组SHA与history对应并按冻结sampling_mass/seed逐轮精确重建；model/optimizer浮点张量有限、final.pt与完整state模型张量精确一致，Python/NumPy/CPU/CUDA RNG完整。49个BatchNorm层相对同一初始化forward计数均增加29310。CPU验证CUDA_initialized=false。
+- 固定15轮/每轮N_pool抽样预算满足；不补步/回放/改超参数。逐step AMP跳步位置/scale事件日志缺口持续明确披露，无法从既有记录恢复具体位置，不声称完整逐step审计。
+- 累计最终训练状态完成并独立核验9/15组，完整四角色模型/cache run完成并独立核验8/15组。原EfficientNet123 worker622111继续提取cache，CLIP2026/DINO2026/EfficientNet2026继续原队列训练。17:16 UTC只读SSH检查成功，无访问或已记录执行/队列错误。
+- 回执completed_model_state_receipts.json、formal_training_budget_receipts.json、formal_training_budget_counts.csv更新；剩余6组训练/7组完整cache及全部30匹配头、完整分析报告、LLM实际恢复/HTTP健康确认未完成。source/config/frozen data/科学预算和用户模型/加速设置未改变；源码SHA仍7d56c6e5803450369852b5865130a3ed815d87e3e6a91226d276f0fd092611b5。

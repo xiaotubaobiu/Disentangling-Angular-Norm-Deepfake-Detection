@@ -1,3 +1,10 @@
+## 2026-10-08T17:18:57.399214+00:00：第9个最终训练状态独立核验
+
+- EfficientNet-B0 seed123最终epoch15：3750000 draws / 29310 attempts / 29305 successful optimizer updates / 5 AMP skips；final AMP scale32768。15轮抽样数组SHA与history对应并按冻结sampling_mass/seed逐轮精确重建；model/optimizer浮点张量有限、final.pt与完整state模型张量精确一致，Python/NumPy/CPU/CUDA RNG完整。49个BatchNorm层相对同一初始化forward计数均增加29310。CPU验证CUDA_initialized=false。
+- 固定15轮/每轮N_pool抽样预算满足；不补步/回放/改超参数。逐step AMP跳步位置/scale事件日志缺口持续明确披露，无法从既有记录恢复具体位置，不声称完整逐step审计。
+- 累计最终训练状态完成并独立核验9/15组，完整四角色模型/cache run完成并独立核验8/15组。原EfficientNet123 worker622111继续提取cache，CLIP2026/DINO2026/EfficientNet2026继续原队列训练。17:16 UTC只读SSH检查成功，无访问或已记录执行/队列错误。
+- 回执completed_model_state_receipts.json、formal_training_budget_receipts.json、formal_training_budget_counts.csv更新；剩余6组训练/7组完整cache及全部30匹配头、完整分析报告、LLM实际恢复/HTTP健康确认未完成。source/config/frozen data/科学预算和用户模型/加速设置未改变；源码SHA仍7d56c6e5803450369852b5865130a3ed815d87e3e6a91226d276f0fd092611b5。
+
 ## 2026-10-08T13:27:26.264409+00:00：第8个完整训练/cache run独立核验
 
 - DINOv2-B14 seed123完整四角色cache共679977行、768维FP32；train250000/ff_test59935/cdf_test368922/calibration1120。全部分块SHA、有限值/非零向量、连续行与完整输入清单列值/dtype/顺序对齐、两类head与final.pt精确一致均通过，canonical verified_run=true。校准parquet逻辑等价，不声称与输入byte相同。
