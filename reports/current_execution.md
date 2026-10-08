@@ -1,3 +1,11 @@
+## 2026-10-08T10:21:56.926042+00:00：第7个最终训练状态与第6个完整run独立核验
+
+- CLIP ViT-B16 seed123：final epoch15，3750000 draws / 29310 attempts / 29305 successful optimizer updates / 5 AMP skips，final AMP scale16384。完整模型/优化器浮点状态有限，final.pt与完整state模型张量精确一致，Python/NumPy/CPU/CUDA RNG保留；15轮抽样数组hash与history一致并精确重建。固定抽样预算满足，不补步或回放；逐step AMP跳步位置及scale事件日志缺口继续披露。
+- DINOv2-B14 seed42：train250000/ff_test59935/cdf_test368922/calibration1120，共679977行768维FP32完整cache；分块SHA、有限值/非零向量、完整清单值/dtype/顺序对齐、两类head与最终权重精确一致均通过，canonical verified_run=true。校准parquet为逻辑等价而非与输入byte相同。
+- 原DINO42 worker144861于2026-10-08T10:10:39.780178+00:00 COMPLETE/returncode0，已退出；原supervisor3984143于2026-10-08T10:10:39.781614+00:00自动轮转GPU6至CLIP2026/PID657113。新worker PPID/cwd/script/stage匹配；execution/queue锁均持有。CPU核验CUDA_initialized=false，未启动重复队列。
+- 15组最终训练状态完成并独立核验7组，四角色完整模型/cache run完成并独立核验6组。CLIP123提取缓存；DINO123、EfficientNet123、CLIP2026按既定队列继续训练；全部30匹配头、全模型分析报告及LLM实际恢复/HTTP健康确认仍待完成，不声称实验结束。
+- 回执completed_model_state_receipts.json、formal_training_budget_receipts.json、formal_training_budget_counts.csv、completed_run_cache_receipts.json均已扩展。训练源码SHA仍为7d56c6e5803450369852b5865130a3ed815d87e3e6a91226d276f0fd092611b5；source/config/frozen data/科学预算及用户模型/加速设置未调整。
+
 ## 2026-10-08T09:33:06.950812+00:00：第5个完整模型/cache run独立核验
 
 - EfficientNet-B0 seed42四角色cache共679977行、1280维；train250000/ff_test59935/cdf_test368922/calibration1120。分块SHA256、FP32/有限值/非零向量、连续行对齐、完整输入清单列值与顺序、两类head与final.pt精确一致全部通过；canonical verified_run=true。校准parquet序列化SHA与输入不同，完整逻辑值/顺序/dtype相同，不声称两文件byte相同。
