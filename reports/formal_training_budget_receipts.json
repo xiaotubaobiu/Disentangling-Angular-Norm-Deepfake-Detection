@@ -772,9 +772,87 @@
       "final_model_sha256": "94a7f996e975d99c90d15a016c99d509156d14f29c9bc632fe33d268a773e910",
       "state_sha256": "ac464a3546b0ca237edf1fd0703f6ecc6382f4fbdf33460b75c903cea8ae539b",
       "source_code_sha256": "7d56c6e5803450369852b5865130a3ed815d87e3e6a91226d276f0fd092611b5"
+    },
+    "efficientnet_b0_seed2026": {
+      "verified_UTC": "2026-10-08T21:23:01.294459+00:00",
+      "run_id": "efficientnet_b0_seed2026",
+      "backbone": "efficientnet_b0",
+      "seed": 2026,
+      "epoch": 15,
+      "draws": 3750000,
+      "attempts": 29310,
+      "successes": 29306,
+      "AMP_skips": 4,
+      "count_evidence": "successes observed in every initialized optimizer parameter step; attempts reconstructed from verified history and frozen loop; skips are their difference",
+      "optimizer_parameter_states_checked": 213,
+      "learning_rate": 0.0001,
+      "scheduler": "none",
+      "AMP_initial_scale": 128,
+      "AMP_final_state": {
+        "scale": 16384.0,
+        "growth_factor": 2.0,
+        "backoff_factor": 0.5,
+        "growth_interval": 2000,
+        "_growth_tracker": 1954
+      },
+      "aggregate_growth_events_derived_from_scale_ratio_and_skip_count": 11,
+      "skip_step_trace_available": false,
+      "per_skip_details": [
+        {
+          "ordinal": 1,
+          "attempt_step": null,
+          "epoch": null,
+          "batch_slot_range": null,
+          "scale_before": null,
+          "scale_after": null,
+          "scale_relation": "after = before * 0.5 per pinned GradScaler implementation; event numeric values not recorded"
+        },
+        {
+          "ordinal": 2,
+          "attempt_step": null,
+          "epoch": null,
+          "batch_slot_range": null,
+          "scale_before": null,
+          "scale_after": null,
+          "scale_relation": "after = before * 0.5 per pinned GradScaler implementation; event numeric values not recorded"
+        },
+        {
+          "ordinal": 3,
+          "attempt_step": null,
+          "epoch": null,
+          "batch_slot_range": null,
+          "scale_before": null,
+          "scale_after": null,
+          "scale_relation": "after = before * 0.5 per pinned GradScaler implementation; event numeric values not recorded"
+        },
+        {
+          "ordinal": 4,
+          "attempt_step": null,
+          "epoch": null,
+          "batch_slot_range": null,
+          "scale_before": null,
+          "scale_after": null,
+          "scale_relation": "after = before * 0.5 per pinned GradScaler implementation; event numeric values not recorded"
+        }
+      ],
+      "logging_gap": "Frozen training worker records epoch-level history and end-of-epoch scaler state only; no per-step overflow/scale event log. Exact skip steps and individual scale values cannot be recovered from these records without prohibited training replay.",
+      "data_behavior": "All sampled batches are read, augmented, forwarded and backwarded before scaler.step; a nonfinite-gradient event skips optimizer.step only; the batch is not replayed; RNG and BatchNorm state continue; next attempt clears gradients. Exact skipped batches and their slot count are not recoverable.",
+      "budget_contract_assessment": "fixed-epoch draw budget satisfied; not a claim of complete per-step AMP audit",
+      "no_compensating_steps_or_hyperparameter_changes": true,
+      "final_model_sha256": "02e222df2f97f76552b86a6ffe2b62e9890a0d67c37005027c3dbc4f336c0841",
+      "state_sha256": "179405d4fe64702388daae944501e70274e5257d1a1cfa1c6a26bceccb2b555f",
+      "source_code_sha256": "7d56c6e5803450369852b5865130a3ed815d87e3e6a91226d276f0fd092611b5",
+      "BatchNorm_evidence": {
+        "layers": 49,
+        "initial_counter": 702120,
+        "final_counter_min": 731430,
+        "final_counter_max": 731430,
+        "per_layer_forward_counter_delta": 29310,
+        "all_attempted_forwards_counted_including_skips": true
+      }
     }
   },
-  "checked_UTC": "2026-10-08T20:26:26.322093+00:00",
+  "checked_UTC": "2026-10-08T21:23:01.294459+00:00",
   "contract": {
     "definition": "fixed 15 epochs and fixed N_pool draws per epoch; final epoch only; no fixed successful-update count",
     "design_sha256": "61e583963a4d661ccf83d02798600c83eb4aca2238d2984c5422bab1553ecc6b",
@@ -821,7 +899,7 @@
     }
   },
   "planned_models": 15,
-  "completed_models_count": 10,
+  "completed_models_count": 11,
   "audit_gap_disclosed": true,
   "CUDA_initialized": false
 }

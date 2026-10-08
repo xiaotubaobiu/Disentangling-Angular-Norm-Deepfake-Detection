@@ -1,11 +1,11 @@
 {
-  "checked_UTC": "2026-10-08T20:27:31.872856+00:00",
+  "checked_UTC": "2026-10-08T21:23:43.318979+00:00",
   "supervisor_PID": 3984143,
   "supervisor_alive": true,
   "status": "RUNNING",
   "phase": "15_formal_runs_and_features",
   "queue_status": "RUNNING",
-  "training_complete_models": 10,
+  "training_complete_models": 11,
   "full_runs_complete": 9,
   "independently_verified_full_runs": 9,
   "planned_runs": 15,
@@ -153,7 +153,10 @@
       "alive": true,
       "last_epoch": 15,
       "training_complete": true,
-      "cache_complete_roles": []
+      "cache_complete_roles": [
+        "train",
+        "ff_test"
+      ]
     },
     {
       "run_id": "dinov2_vit_b14_seed2026",
@@ -161,7 +164,7 @@
       "GPU": 7,
       "PID": 729256,
       "alive": true,
-      "last_epoch": 11,
+      "last_epoch": 13,
       "training_complete": false,
       "cache_complete_roles": []
     },
@@ -171,8 +174,8 @@
       "GPU": 5,
       "PID": 772379,
       "alive": true,
-      "last_epoch": 13,
-      "training_complete": false,
+      "last_epoch": 15,
+      "training_complete": true,
       "cache_complete_roles": []
     },
     {
@@ -181,7 +184,7 @@
       "GPU": 4,
       "PID": 960076,
       "alive": true,
-      "last_epoch": 2,
+      "last_epoch": 4,
       "training_complete": false,
       "cache_complete_roles": []
     }
