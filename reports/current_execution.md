@@ -1,3 +1,11 @@
+## 2026-10-08T13:27:26.264409+00:00：第8个完整训练/cache run独立核验
+
+- DINOv2-B14 seed123完整四角色cache共679977行、768维FP32；train250000/ff_test59935/cdf_test368922/calibration1120。全部分块SHA、有限值/非零向量、连续行与完整输入清单列值/dtype/顺序对齐、两类head与final.pt精确一致均通过，canonical verified_run=true。校准parquet逻辑等价，不声称与输入byte相同。
+- 原DINO123 worker273524于2026-10-08T13:18:40.008107+00:00 COMPLETE/returncode0，已退出；原supervisor3984143于2026-10-08T13:18:40.009325+00:00自动轮转GPU5至EfficientNet2026/PID772379。新worker PPID/cwd/run.py/worker阶段匹配；execution.lock/queue.lock均持有，CPU核验CUDA_initialized=false，无重复队列。
+- 累计最终训练状态及完整四角色cache run均完成并独立核验8/15组。当前原队列继续训练EfficientNet123(GPU4/PID622111)、EfficientNet2026(GPU5/PID772379)、CLIP2026(GPU6/PID657113)、DINO2026(GPU7/PID729256)；余下三个seed3407 run待原队列调度。
+- 尚未完成：剩余7组训练/cache、全部30匹配头、完整尺度/长度控制/配对bootstrap/源FPR5冻结阈值分析与报告、原LLM实际恢复及HTTP健康确认。不是实验完成；无访问或已记录执行/队列错误。
+- completed_run_cache_receipts.json扩展至8组；原设计SHA61e583963a4d661ccf83d02798600c83eb4aca2238d2984c5422bab1553ecc6b及训练源码SHA7d56c6e5803450369852b5865130a3ed815d87e3e6a91226d276f0fd092611b5保持不变。source/config/frozen data/科学预算及用户模型/加速设置未调整。
+
 ## 2026-10-08T12:14:13.476678+00:00：第7个完整模型/cache run独立核验
 
 - CLIP ViT-B16 seed123完整四角色cache共679977行、512维FP32；train250000/ff_test59935/cdf_test368922/calibration1120。全部分块SHA256、有限值/非零向量、连续行对齐、完整清单列值/dtype/顺序与冻结输入一致、两类head与final.pt精确一致均通过，canonical verified_run=true。校准parquet序列化byte不同但完整逻辑值一致，不声称byte相同。
