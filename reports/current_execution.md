@@ -1,4 +1,7 @@
 
+2026-10-08T00:41:23.953929+00:00：首批四个完整15epoch+四角色rawcache run全部独立核验。最后DINOv2 seed7为679977行/768维，完整块hash/FP32有限/非零向量/冻结输入顺序/最终head一致，canonical verified_run=true；原worker3990785于2026-10-08T00:31:06.016812+00:00退出0，原supervisor3984143在GPU5自动启动DINO seed123 PID273524，两锁/PPID/cwd/run.py正常。当前完整run4/15；GPU4 Efficient42 PID245444、GPU5 DINO123 PID273524、GPU6 DINO42 PID144861、GPU7 CLIP123 PID255008继续原队列。所有源设置/代码/预算未变，未新建队列或调度；15run全部缓存、30头分析及原LLM恢复与health核对仍待后续。原第一完成模型EfficientNet/seed7的AMP4次skip实际聚合/不可追溯逐事件缺口、无scheduler与已消费数据不回放说明均已保留，未补步。
+
+
 2026-10-08T00:09:25.341532+00:00：CLIP ViT-B/16 seed42完整四角色缓存独立核验通过，679977行/512维，全部hash/FP32有限/非零向量/冻结清单顺序/最终head一致，canonical verified_run=true。原worker3990787于2026-10-08T00:02:56.152649+00:00退出0；原supervisor3984143在GPU7自动启动CLIP seed123 PID255008，PPID/cwd/run.py及两锁核对一致。完整run3/15、训练模型4/15；DINO seed7缓存继续，DINO42/Efficient42/CLIP123训练继续。预算/代码/配置未变，无新队列/调度，无最终目标性能。证据reports/completed_run_cache_receipts.json。
 
 
