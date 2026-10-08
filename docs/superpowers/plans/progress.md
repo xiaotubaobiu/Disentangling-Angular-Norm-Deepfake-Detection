@@ -119,3 +119,10 @@ LLM停用补充：原Docker记录exit_code=137、OOMKilled=false；docker stop -
 - 固定15轮/每轮N_pool抽样合同满足，未补步/回放/改超参数；逐step AMP跳步与scale事件未记录的缺口持续明确披露。累计最终训练状态完成并独立核验8/15组，完整四角色模型/cache run独立核验6/15组。
 - 原supervisor3984143及锁正常；DINO123原worker273524继续提取缓存，CLIP123缓存继续推进，EfficientNet123与CLIP2026继续原队列训练。11:23 UTC只读SSH核验成功，无访问或已记录执行/队列错误；完整报告、30匹配头及LLM恢复/健康确认仍待完成。
 - 回执completed_model_state_receipts.json、formal_training_budget_receipts.json、formal_training_budget_counts.csv更新；训练代码SHA仍为7d56c6e5803450369852b5865130a3ed815d87e3e6a91226d276f0fd092611b5。未改source/config/frozen data/科学预算或用户模型/加速设置，未启动重复作业或调度器。
+
+## 2026-10-08T12:14:13.476678+00:00：第7个完整模型/cache run独立核验
+
+- CLIP ViT-B16 seed123完整四角色cache共679977行、512维FP32；train250000/ff_test59935/cdf_test368922/calibration1120。全部分块SHA256、有限值/非零向量、连续行对齐、完整清单列值/dtype/顺序与冻结输入一致、两类head与final.pt精确一致均通过，canonical verified_run=true。校准parquet序列化byte不同但完整逻辑值一致，不声称byte相同。
+- 原CLIP123 worker255008于2026-10-08T12:06:32.912518+00:00 COMPLETE/returncode0，已退出；原supervisor3984143于2026-10-08T12:06:32.914021+00:00自动轮转GPU7至DINO2026/PID729256。新worker PPID/cwd/run.py/worker阶段匹配，execution.lock和queue.lock均持有；CPU验证CUDA_initialized=false；无重复队列。
+- 最终训练状态完成并独立核验8/15组，完整四角色模型/cache run完成并独立核验7/15组。DINO123继续提取缓存；EfficientNet123、CLIP2026、DINO2026继续原队列训练。剩余训练/cache、全部30匹配头/全模型分析报告、LLM实际恢复及HTTP健康确认待完成。
+- 回执completed_run_cache_receipts.json扩展至7组，原设计SHA保持61e583963a4d661ccf83d02798600c83eb4aca2238d2984c5422bab1553ecc6b，训练源码SHA保持7d56c6e5803450369852b5865130a3ed815d87e3e6a91226d276f0fd092611b5；source/config/frozen data/科学预算及用户模型/加速设置未改。
