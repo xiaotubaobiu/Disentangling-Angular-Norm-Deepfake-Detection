@@ -1,4 +1,11 @@
 
+## 2026-10-08T22:32:40.215743+00:00 — 第10个完整正式run独立核验
+
+CLIP ViT-B16 seed2026 完整训练及4-role raw cache通过独立CPU核验：train250000、FFtest59935、CDFtest368922、calibration1120，共679977条512维FP32原始特征。每块hash/维度/有限值、冻结输入全列值与顺序、final epoch15分类头、canonical verified_run均通过。校准清单是逻辑全值/顺序一致，不声称parquet序列化字节一致。
+
+原worker在2026-10-08 22:20:55.576895 UTC exit0且PID657113已退出；原supervisor PID3984143自动在GPU6接续DINOv2 seed3407 PID1091670，PPID/cwd/script/锁验证正确。累计11/15训练终态、10/15完整run与缓存均独立核验；其余原队列继续，无重复作业，无科学设置变更。30匹配头、完整正式分析、最后服务实际恢复尚未完成。原Obsidian设计SHA不变。
+
+
 ## 2026-10-08T21:23:42.851337+00:00 — 第11个正式训练终态独立核验
 
 EfficientNet-B0 seed2026 完成15epoch/final：3750000 draws、29310 attempts、29306 successful optimizer updates、4 AMP skips、final AMP scale 16384。完整model/optimizer有限、final与full-state一致，Python/NumPy/CPU/CUDA RNG齐全；15份epoch抽样序列逐一精确重建，49个BN counter相对初始化均前进29310。冻结预算是draw/epoch，逐step AMP事件日志缺口继续明确披露，不补步、不回放、不改科学设置。
