@@ -749,10 +749,132 @@
         "_growth_tracker": 281
       },
       "per_step_AMP_logging_gap_disclosed": true
+    },
+    "dinov2_vit_b14_seed123": {
+      "verified_UTC": "2026-10-08T11:23:54.821526+00:00",
+      "run_id": "dinov2_vit_b14_seed123",
+      "backbone": "dinov2_vit_b14",
+      "seed": 123,
+      "epoch": 15,
+      "draws": 3750000,
+      "attempts": 29310,
+      "successes": 29307,
+      "AMP_skips": 3,
+      "final_model_sha256": "fddee126440cba9e87490acb202c94b46a6b358d10861d674acaf7812d3c892e",
+      "state_sha256": "7245c5cda9c4f56fbf2ec28c9c7e9226236ec66aaaedfa2b8e36aa60daa8f0c4",
+      "source_code_sha256": "7d56c6e5803450369852b5865130a3ed815d87e3e6a91226d276f0fd092611b5",
+      "selection": "final_epoch_only",
+      "final_training_loss": 0.11314977600479126,
+      "epoch_training_seconds": 38275.606322050095,
+      "all_epoch_sequences_exactly_reconstructed": true,
+      "epoch_sequences": [
+        {
+          "epoch": 1,
+          "draws": 250000,
+          "sha256": "5219b7c54e2ea63da240141cca18a1ab37e394e4e2e10c0d1c72b529908b55ff",
+          "exact_regeneration_match": true
+        },
+        {
+          "epoch": 2,
+          "draws": 250000,
+          "sha256": "d7132272d9f759392189ed7dc037be38586b126bc1a077f0661400ae477d8b1c",
+          "exact_regeneration_match": true
+        },
+        {
+          "epoch": 3,
+          "draws": 250000,
+          "sha256": "0d4ae125f6cd254832280ead57852382f3059965958e33ccc872f2533884addd",
+          "exact_regeneration_match": true
+        },
+        {
+          "epoch": 4,
+          "draws": 250000,
+          "sha256": "aa9c579e9d06b30c512b4e492e36a9564615f7df9de3026556d16225211a60b5",
+          "exact_regeneration_match": true
+        },
+        {
+          "epoch": 5,
+          "draws": 250000,
+          "sha256": "22b72bda3394d46445746d7da7d7ad90b9d9ada99e225038ec62e88e42cd64ca",
+          "exact_regeneration_match": true
+        },
+        {
+          "epoch": 6,
+          "draws": 250000,
+          "sha256": "7e53d937fcdeffab9ecabad046a11fb26fa94dc25b541a3346a517ffbe13c50c",
+          "exact_regeneration_match": true
+        },
+        {
+          "epoch": 7,
+          "draws": 250000,
+          "sha256": "1e59197bb5a1f6f2b601e262277f22897c0265eee850b642336dd3afafb7f010",
+          "exact_regeneration_match": true
+        },
+        {
+          "epoch": 8,
+          "draws": 250000,
+          "sha256": "4117d090acdabcea13fc6e493f128d1d160ce2ade17d10804571417f0be54885",
+          "exact_regeneration_match": true
+        },
+        {
+          "epoch": 9,
+          "draws": 250000,
+          "sha256": "8e49cab18801318b7d99007ad57b80bda34cd0f2fd4faba89457e4f475643b88",
+          "exact_regeneration_match": true
+        },
+        {
+          "epoch": 10,
+          "draws": 250000,
+          "sha256": "17029c1b22e0e5dc7ea7fd1925b85cd998c1daf9d0097be8ecea8e507a2551e1",
+          "exact_regeneration_match": true
+        },
+        {
+          "epoch": 11,
+          "draws": 250000,
+          "sha256": "76686f2f6bb12753868ec14c4dbd7d11af4e1194ea01e657b5ed6b041b9c14bd",
+          "exact_regeneration_match": true
+        },
+        {
+          "epoch": 12,
+          "draws": 250000,
+          "sha256": "a6ffa4f32bc4889a8641dca31b4c5c2d4dec646ce7205bd588a355240bba6f54",
+          "exact_regeneration_match": true
+        },
+        {
+          "epoch": 13,
+          "draws": 250000,
+          "sha256": "2d45f548ffd67110719f5873f7d0b4cc53495266b136491d947405a04c5c4889",
+          "exact_regeneration_match": true
+        },
+        {
+          "epoch": 14,
+          "draws": 250000,
+          "sha256": "be49dca727b6dbb20082d5f7d4d3e52d2e2b235318608ad7e4d707de463f38f2",
+          "exact_regeneration_match": true
+        },
+        {
+          "epoch": 15,
+          "draws": 250000,
+          "sha256": "25fc6886366cf89bdf313d0d8fd60b25b52b92660c286e644bcb2625baf8fe91",
+          "exact_regeneration_match": true
+        }
+      ],
+      "final_model_matches_full_state": true,
+      "model_and_optimizer_finite": true,
+      "full_Python_NumPy_CPU_CUDA_RNG_present": true,
+      "CUDA_RNG_state_count": 1,
+      "AMP_final_state": {
+        "scale": 131072.0,
+        "growth_factor": 2.0,
+        "backoff_factor": 0.5,
+        "growth_interval": 2000,
+        "_growth_tracker": 1693
+      },
+      "per_step_AMP_logging_gap_disclosed": true
     }
   },
-  "checked_UTC": "2026-10-08T10:19:25.624227+00:00",
-  "training_complete_models": 7,
+  "checked_UTC": "2026-10-08T11:23:54.821526+00:00",
+  "training_complete_models": 8,
   "planned_models": 15,
   "model_cache_analysis_status": "model-state verification only; cache/analysis completion tracked separately",
   "CUDA_initialized": false
