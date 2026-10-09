@@ -1,4 +1,11 @@
 
+## 2026-10-09T05:28:38.112779+00:00 — 第13个训练终态，CLIP全部5seed核验通过
+
+CLIP ViT-B16 seed3407完成15epoch/final并独立CPU核验：3750000 draws、29310 attempts、29305 successful optimizer updates、5 AMP skips、final scale16384；完整model/optimizer有限、full-state与final一致、Python/NumPy/CPU/CUDA RNG齐全、15份epoch抽样序列精确重建。至此CLIP五个规定种子全部训练终态通过。逐step AMP日志缺口仍披露，冻结draw预算不补步或回放。
+
+累计13/15训练终态、12/15完整四角色特征缓存已独立核验。CLIP3407原worker正在抽取特征，DINO3407/EfficientNet3407原worker继续训练；原supervisor PID3984143与锁正确，无错误/重复队列/设置变更。30匹配头、完整正式分析/五seed汇总、最后原LLM恢复和实际健康检查仍待完成，尚未交付科学结果。原Obsidian设计SHA不变。
+
+
 ## 2026-10-09T01:04:42.435201+00:00 — bootstrap声明分组支持的独立检查
 
 仅读取已冻结清单的group_id/标签/方法，不使用分数、不拟合/选择任何模型或阈值，按既定seed和2000次共同分组重采样独立核验方法支持。RDDM在FF图像池仅4个声明分组、CDF图像池仅2个声明分组；seed[7,42,123,2026,3407]的FF方法宏平均无效重复分别[39,39,39,34,37]，CDF分别[274,264,247,288,284]。所有视频21方法的2000次共同抽样均有完整支持。原始分组/未知祖先的独立性没有因此认证。
