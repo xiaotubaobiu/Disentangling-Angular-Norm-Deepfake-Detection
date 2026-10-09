@@ -1,4 +1,11 @@
 
+## 2026-10-09T01:01:06.712170+00:00 — 前四seed×三骨干12个完整run全部独立核验
+
+DINOv2 B14 seed2026的train250000、FFtest59935、CDFtest368922、calibration1120，共679977条768维FP32 raw cache通过独立CPU核验：块hash/有限值、冻结清单全列逻辑值与顺序、final epoch15分类头、canonical verified_run均通过。校准parquet逻辑一致，未声称序列化字节一致。原PID729256在2026-10-09 00:47:56.534755 UTC exit0，已退出且GPU7无后继本轮worker。
+
+至此seed[7,42,123,2026]×3backbone的12个训练终态与12组完整四角色缓存均独立核验。仅seed3407三模型原worker继续，原supervisor PID3984143与执行/队列锁保持；原LLM按授权持续停止，待全部GPU任务后由原supervisor恢复并核验健康，再做CPU正式分析。未新建队列/observer/计划，未调整模型或加速设置；科学源代码/配置/冻结数据及原Obsidian设计SHA不变。15模型/30匹配头/A–D汇总/服务终态尚未全部完成，当前不作为实验最终交付。
+
+
 ## 2026-10-08T22:57:55.085372+00:00 — 四个seed全部12个训练终态通过，完整run11个
 
 DINOv2 B14 seed2026完成15epoch/final并独立CPU核验：3750000 draws、29310 attempts、29303 successful optimizer updates、7 AMP skips、final scale16384；完整model/optimizer有限、full-state与final一致、Python/NumPy/CPU/CUDA RNG齐全、15份epoch抽样序列精确重建。逐step AMP日志缺口照实披露，冻结draw预算不补步、不回放。至此seed[7,42,123,2026]×3backbone全部12个训练终态通过。
