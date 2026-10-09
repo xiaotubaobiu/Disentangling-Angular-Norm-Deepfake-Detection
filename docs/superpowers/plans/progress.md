@@ -199,3 +199,9 @@ EfficientNet-B0 seed3407完成15epoch/final并独立CPU核验：3750000 draws、
 CLIP3407四角色cache合计679977条512维FP32原始特征的块hash/有限值、冻结清单全列逻辑值与順序、final分类头与canonical verified_run通过。原PID960076在2026-10-09 06:46:29.743247 UTC exit0且已退出，GPU4无后继本轮worker。CLIP五个完整run全通过，累计14/15训练终态和13/15完整缓存独立核验。
 
 DINO3407原worker继续训练、EfficientNet3407抽取特征；原supervisor PID3984143及执行/队列锁保持，无错误/重复作业/科学设置调整。用户连接/GT口径问题已另以只读输入和本地回执核对：Real=0、Fake=1，源码与冻结清单一致，没有改标签或重启健康任务。30匹配头/完整正式分析/原LLM实际恢复与健康检查仍待完成，未交付科学结果。原设计SHA不变。
+
+## 2026-10-09T08:32:09.950166+00:00 — 第14个完整run独立核验，CLIP/EfficientNet五seed全通过
+
+EfficientNet-B0 seed3407四角色cache合计679977条1280维FP32 raw特征，块hash/有限值、冻结清单全列逻辑值与顺序、final epoch15分类头及canonical verified_run通过独立CPU核验。原PID1105684在2026-10-09 08:09:28.218241 UTC exit0且已退出，GPU5没有后继本轮worker。至此CLIP与EfficientNet各5个完整训练+cache run全部通过，累计14/15完整run。校准清单逻辑一致，未声称parquet字节序列化一致。
+
+仅原DINOv2 seed3407 PID1091670/GPU6仍训练，第14轮已完成；原supervisor PID3984143与两个锁正确，无错误/重复队列/设置调整。最后模型训练/特征、30配对分类头及正式A–D/五seed报告仍待完成。原LLM保持授权停止，所有GPU任务结束后按既定机制恢复并核验健康；GPU0–3/Jev与gateway未干预。科学代码/配置/冻结输入和原Obsidian设计SHA不变，尚未交付完整实验。

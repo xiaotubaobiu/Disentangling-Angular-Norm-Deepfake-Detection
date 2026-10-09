@@ -1,13 +1,13 @@
 {
-  "checked_UTC": "2026-10-09T06:51:37.769380+00:00",
+  "checked_UTC": "2026-10-09T08:32:10.469918+00:00",
   "supervisor_PID": 3984143,
   "supervisor_alive": true,
   "status": "RUNNING",
   "phase": "15_formal_runs_and_features",
   "queue_status": "RUNNING",
   "training_complete_models": 14,
-  "full_runs_complete": 13,
-  "independently_verified_full_runs": 13,
+  "full_runs_complete": 14,
+  "independently_verified_full_runs": 14,
   "planned_runs": 15,
   "runs": [
     {
@@ -211,24 +211,29 @@
       "GPU": 6,
       "PID": 1091670,
       "alive": true,
-      "last_epoch": 11,
+      "last_epoch": 14,
       "training_complete": false,
       "cache_complete_roles": []
     },
     {
       "run_id": "efficientnet_b0_seed3407",
-      "state": "RUNNING",
+      "state": "COMPLETE",
       "GPU": 5,
-      "PID": 1105684,
-      "alive": true,
+      "PID": null,
+      "alive": null,
       "last_epoch": 15,
       "training_complete": true,
-      "cache_complete_roles": []
+      "cache_complete_roles": [
+        "train",
+        "ff_test",
+        "cdf_test",
+        "calibration"
+      ]
     }
   ],
   "failure": null,
   "duplicate_jobs_started": false,
   "new_schedules_created": false,
   "first_model_AMP_audit": "reports/efficientnet_b0_seed7_AMP_skip_audit.json",
-  "scientific_result_status": "independently verified model/cache bundles: 13; all-model analysis/report pending"
+  "scientific_result_status": "independently verified model/cache bundles: 14; all-model analysis/report pending"
 }
