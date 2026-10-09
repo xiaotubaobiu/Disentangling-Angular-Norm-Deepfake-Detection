@@ -1,0 +1,23 @@
+{
+  "status": "ANALYSIS_REPORT_COMPLETE",
+  "consolidated_A_B_C_D_evidence": true,
+  "stability_and_source_threshold_relative_figures": [
+    "clip_vit_b16_five_seed_stability.png",
+    "clip_vit_b16_real_scores_relative_to_source_threshold.png",
+    "dinov2_vit_b14_five_seed_stability.png",
+    "dinov2_vit_b14_real_scores_relative_to_source_threshold.png",
+    "efficientnet_b0_five_seed_stability.png",
+    "efficientnet_b0_real_scores_relative_to_source_threshold.png"
+  ],
+  "runs": 15,
+  "seeds": [
+    7,
+    42,
+    123,
+    2026,
+    3407
+  ],
+  "all_primary_metrics_reconstructed_from_saved_scores": true,
+  "TPR95": "UNAVAILABLE",
+  "target_selection_performed": false
+}

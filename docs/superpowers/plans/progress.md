@@ -221,3 +221,17 @@ EfficientNet-B0 seed3407四角色cache合计679977条1280维FP32 raw特征，块
 原onecat-vllm完整ID和unless-stopped restart policy保持一致，StartedAt=2026-10-09T11:08:29.565761924Z；2026-10-09T11:23:40.653121+00:00实测Running=true、health HTTP200。GPU0–3/Jev与onecat-gateway未干预。
 计算代码SHA=7d56c6e5803450369852b5865130a3ed815d87e3e6a91226d276f0fd092611b5、冻结输入和原Obsidian v1.1设计SHA保持不变。手动复现指南与固定输入SHA清单已保存于reports/manual_reproduction.md、reports/reproduction_input_assets.json；新复现需要独立checkout和artifact_root。
 这是GPU阶段完成证据，整体实验仍待30匹配头、A–D/五seed报告及独立最终验收。既定AMP逐步日志缺口、TPR95不可用和未知祖先/代理bootstrap分组限制继续披露。
+
+## 2026-10-09T13:34:18.564255+00:00 — 全部正式实验、独立验收和交付完成
+
+原supervisor PID3984143自然结束，execution/queue均COMPLETE，两锁释放；15个epoch15 final模型、15组完整四角色raw cache、30个收敛匹配头、完整A–D/五seed分析均完成。独立验收2026-10-09T13:12:44.428643+00:00 PASS：从raw cache重算主流程和源阈值/主指标，核对匹配头分数、bootstrap数组摘要/支持/配对代数、独立重建校准阈值及负对照。测试bootstrap并非所有2000项AUC均被另一路从分数重算；核验范围在保存的脚本与回执中明确。
+
+CDF视频RL五seed宏AUC均值：CLIP0.8847、DINO0.7435、EfficientNet0.8611；相应源FPR5阈值迁移的FPR为90.17%、10.28%、75.14%，宏TPR99.70%、41.65%、97.30%。较高AUC不能保证目标误报控制；DINO较低FPR伴随较低检出率。回顾性固定协议，不称前瞻盲测/未见方法泛化，也未按CDF择优或反转分数。
+
+全15训练预算56250000 draws/439650 attempts/439581 successful updates/69 AMP skips，225份epoch抽样数组精确重建。逐step AMP日志缺口、TPR95不可用、未知祖先和代理分组限制如实披露。679977个选中路径size/mtime与原审计基线一致，是变化筛查而非新byte证明。
+
+原onecat-vllm同完整ID、unless-stopped policy、Running=true，2026-10-09T13:34:18.564255+00:00实际health HTTP200；GPU0–3/Jev与gateway未干预。原stop退出137/OOM=false保留。没有重复启动、observer/schedule、设置调整或正式训练回放。
+
+交付：reports/final_results.md（结论/表/限制）、reports/final_report（原6图与补充6图PNG+PDF、完整CSV）、reports/manual_reproduction.md（独立checkout/artifact_root）、reports/resolved_formal_run_configs.json（15份终态解析实际配置）、reports/final_independent_acceptance.json及verification脚本。原数据、计算代码/config/冻结输入及原Obsidian设计SHA保持不变。大体积模型/Opt/AMP/RNG/raw cache/score/bootstrap数组保留于SSD artifacts快捷链接，无删除。无剩余执行阻碍。
+
+配置哈希口径澄清：configs/v1.1.json原字节SHA为86143f179b92a5d9c35b6f2d00d6232937e28b962b745cb34ed860c9b71caf25；实际run identity的config字段采用json.dumps(config,sort_keys=True)规范化SHA bbc329454aad0a1974db6384984a173a32904a93d02c4632d784f78b79613f9f。两者均与原Git配置/15运行identity一致，不能混称文件字节SHA。

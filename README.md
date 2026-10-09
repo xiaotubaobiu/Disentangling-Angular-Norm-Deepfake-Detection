@@ -2,6 +2,12 @@
 31方法、3骨干、5种子。原始数据只读；仅物理GPU4–7；0–3/Jev与gateway不参与。本轮没有新方法更新或回放。
 
 ## 当前状态与证据
+
+**最终状态：COMPLETE。** 15个15epoch final模型、15组完整缓存、30个匹配头、A–D/五seed报告与独立验收全部完成；原LLM相同ID/policy恢复且实测health HTTP200，执行/队列锁已释放。
+
+先看 [最终结论](reports/final_results.md)、[图表/完整CSV](reports/final_report/)、[独立验收](reports/final_independent_acceptance.json) 和 [手动复现指南](reports/manual_reproduction.md)。CDF视频RL的CLIP/DINO/EfficientNet宏AUC为0.8847/0.7435/0.8611，但源FPR5阈值迁移FPR为90.17%/10.28%/75.14%；排序与工作点须分开解释。
+
+新复现需要独立checkout及artifact_root；以下execute/prepare/freeze等是未来操作说明，已完成的本轮不用重启或重建。
 官方修订目录62份JSON与本机索引逐字节和语义一致，原作者图片压缩包的来源尚未认证。完整审计1514777路径、0解码失败。已授权按已知FF来源隔离并保留原发布角色和逐条变更；未知音频驱动/EFS来源保持未知，不依据存储桶虚构来源独立性。
 报告看 reports/official_local_verification.md、reports/frozen_unit_counts.csv、reports/execution_receipt_20261007.md；实时状态看 artifacts/execution_status.json、queue_status.json 与 docs/superpowers/plans/progress.md。启动/CPU测试不代表实验完成。
 

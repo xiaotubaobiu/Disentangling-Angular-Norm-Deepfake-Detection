@@ -1,6 +1,6 @@
 # DF40 v1.1 手动复现与验收
 
-本指南复现本轮 31 方法、3 backbone × 5 seed 的固定实验。复现源码基线为 `664fd62e22e3822d64e95db31a8fc56336c58f27`；计算代码 SHA256 为 `7d56c6e5803450369852b5865130a3ed815d87e3e6a91226d276f0fd092611b5`。本次交付的最终状态、科学结果和独立验收另见 `results.md`、`final_independent_acceptance.json`。这些文档不会改变计算代码 SHA。
+本指南复现本轮 31 方法、3 backbone × 5 seed 的固定实验。复现源码基线为 `664fd62e22e3822d64e95db31a8fc56336c58f27`；计算代码 SHA256 为 `7d56c6e5803450369852b5865130a3ed815d87e3e6a91226d276f0fd092611b5`。本次交付的最终状态、科学结果和独立验收另见 `final_results.md`、`final_independent_acceptance.json`。这些文档不会改变计算代码 SHA。
 
 原项目是 `/home/z/project/deepfake_detector`，原工件目录是 `/home/z/workspace/deepfake_detector_v11_20261007`。原项目的 `artifacts` 和 `.venv` 是快捷链接。原始数据只读，原始 Obsidian v1.1 设计保持不变，失败与旧快照全部保留。
 
