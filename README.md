@@ -59,4 +59,6 @@ CUDA_VISIBLE_DEVICES= OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=1 PYTHONPATH=src .v
 ```
 结果在artifacts/analysis/<backbone>_seed<seed>/与artifacts/report/：
 逐样本分数/预测、阈值、逐方法/逐seed/五seed均值SD范围、四流程配对差、尺度/长度/匹配头/3×3转移、分开校准与测试bootstrap（含无效次数）、FS/FR/EFS汇总和稳定性/相对源阈值图。report须从保存分数重算主指标并验证所有交付后才写完成状态。
+bootstrap缺少任一规定方法时整条宏平均重复无效，不缩减方法集合；区间只基于有效重复并披露无效次数。冻结分组支持的独立检查在reports/bootstrap_support_structure.json：RDDM图像池声明分组较少，FF/CDF图像存在缺方法重复；视频池的既定抽样方法支持完整。这仅检验声明group_id代理，不认证未知祖先独立性。
+
 源图片状态预检比对全量byte/RGB审计时size/mtime；它是变化筛查，不等于新的逐byte证明。原数据与用户Obsidian v1.1协议保持不变。
