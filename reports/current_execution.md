@@ -1,4 +1,13 @@
 
+## 2026-10-09T06:51:37.315615+00:00 — 14个训练终态，CLIP全部5个完整run通过
+
+EfficientNet-B0 seed3407完成15epoch/final并独立CPU核验：3750000 draws、29310 attempts、29306 successful optimizer updates、4 AMP skips、final scale32768；完整model/optimizer有限、full-state与final一致、Python/NumPy/CPU/CUDA RNG齐全、15份epoch抽样序列精确重建、49个BN counter相对初始化均前进29310。至此EfficientNet与CLIP的五个规定种子训练終态全通过；逐step AMP日志缺口照实保留，不补步或回放。
+
+CLIP3407四角色cache合计679977条512维FP32原始特征的块hash/有限值、冻结清单全列逻辑值与順序、final分类头与canonical verified_run通过。原PID960076在2026-10-09 06:46:29.743247 UTC exit0且已退出，GPU4无后继本轮worker。CLIP五个完整run全通过，累计14/15训练终态和13/15完整缓存独立核验。
+
+DINO3407原worker继续训练、EfficientNet3407抽取特征；原supervisor PID3984143及执行/队列锁保持，无错误/重复作业/科学设置调整。用户连接/GT口径问题已另以只读输入和本地回执核对：Real=0、Fake=1，源码与冻结清单一致，没有改标签或重启健康任务。30匹配头/完整正式分析/原LLM实际恢复与健康检查仍待完成，未交付科学结果。原设计SHA不变。
+
+
 ## 2026-10-09T05:28:38.112779+00:00 — 第13个训练终态，CLIP全部5seed核验通过
 
 CLIP ViT-B16 seed3407完成15epoch/final并独立CPU核验：3750000 draws、29310 attempts、29305 successful optimizer updates、5 AMP skips、final scale16384；完整model/optimizer有限、full-state与final一致、Python/NumPy/CPU/CUDA RNG齐全、15份epoch抽样序列精确重建。至此CLIP五个规定种子全部训练终态通过。逐step AMP日志缺口仍披露，冻结draw预算不补步或回放。
