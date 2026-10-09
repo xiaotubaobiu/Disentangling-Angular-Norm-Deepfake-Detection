@@ -213,3 +213,11 @@ EfficientNet-B0 seed3407四角色cache合计679977条1280维FP32 raw特征，块
 累计冻结预算/实际总数：56250000 draws、439650 attempts、439581 successful optimizer updates、69 AMP skips。预算按每epoch N_pool抽样、15epoch/final执行，不补成功更新数、不回放。逐step AMP事件未记录的缺口继续披露，未虚构skip位置或逐步scale。
 
 当前14/15完整四角色cache已核验；最后原DINO3407 PID1091670/GPU6正在抽取特征，原supervisor PID3984143与锁正确、无错误/重复作业。最后cache、30匹配头及正式A–D/五seed分析报告、原LLM实际恢复与健康检查仍待完成，15个训练终态通过不代表整轮实验完成。科学代码/配置/冻结输入和原Obsidian设计SHA不变。
+
+## 2026-10-09T11:25:59.249823+00:00: GPU阶段完成，原服务已恢复，正式CPU分析继续
+
+15/15正式模型均完成15epoch final；15/15完整run的四角色raw缓存已逐块独立核验，共每run679977行。最后DINO3407于2026-10-09T11:08:29.267563+00:00在GPU6退出0，全部正式worker退出0，无重复任务。
+原supervisor3984143继续持有execution锁；queue已COMPLETE，当前phase=30_matched_heads_A_B_C_D_and_report。没有重启队列或创建新观察作业。
+原onecat-vllm完整ID和unless-stopped restart policy保持一致，StartedAt=2026-10-09T11:08:29.565761924Z；2026-10-09T11:23:40.653121+00:00实测Running=true、health HTTP200。GPU0–3/Jev与onecat-gateway未干预。
+计算代码SHA=7d56c6e5803450369852b5865130a3ed815d87e3e6a91226d276f0fd092611b5、冻结输入和原Obsidian v1.1设计SHA保持不变。手动复现指南与固定输入SHA清单已保存于reports/manual_reproduction.md、reports/reproduction_input_assets.json；新复现需要独立checkout和artifact_root。
+这是GPU阶段完成证据，整体实验仍待30匹配头、A–D/五seed报告及独立最终验收。既定AMP逐步日志缺口、TPR95不可用和未知祖先/代理bootstrap分组限制继续披露。

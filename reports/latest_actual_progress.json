@@ -1,13 +1,13 @@
 {
-  "checked_UTC": "2026-10-09T09:22:10.425553+00:00",
+  "checked_UTC": "2026-10-09T11:24:24.743535+00:00",
   "supervisor_PID": 3984143,
   "supervisor_alive": true,
   "status": "RUNNING",
-  "phase": "15_formal_runs_and_features",
-  "queue_status": "RUNNING",
+  "phase": "30_matched_heads_A_B_C_D_and_report",
+  "queue_status": "COMPLETE",
   "training_complete_models": 15,
-  "full_runs_complete": 14,
-  "independently_verified_full_runs": 14,
+  "full_runs_complete": 15,
+  "independently_verified_full_runs": 15,
   "planned_runs": 15,
   "runs": [
     {
@@ -207,13 +207,18 @@
     },
     {
       "run_id": "dinov2_vit_b14_seed3407",
-      "state": "RUNNING",
+      "state": "COMPLETE",
       "GPU": 6,
-      "PID": 1091670,
-      "alive": true,
+      "PID": null,
+      "alive": null,
       "last_epoch": 15,
       "training_complete": true,
-      "cache_complete_roles": []
+      "cache_complete_roles": [
+        "train",
+        "ff_test",
+        "cdf_test",
+        "calibration"
+      ]
     },
     {
       "run_id": "efficientnet_b0_seed3407",
@@ -235,5 +240,5 @@
   "duplicate_jobs_started": false,
   "new_schedules_created": false,
   "first_model_AMP_audit": "reports/efficientnet_b0_seed7_AMP_skip_audit.json",
-  "scientific_result_status": "independently verified model/cache bundles: 14; all-model analysis/report pending"
+  "scientific_result_status": "independently verified model/cache bundles: 15; all-model analysis/report pending"
 }
