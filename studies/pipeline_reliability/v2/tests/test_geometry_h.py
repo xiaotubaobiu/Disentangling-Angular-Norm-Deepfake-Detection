@@ -247,3 +247,93 @@ def test_h_b_deployment_coverage_is_independent_of_ab_success():
     assert len(tables['B/TARGET_TEST']) == 8
     assert tables['common/B/TARGET_TEST'] == tables['common/AB/TARGET_TEST'] == []
 
+
+def test_unused_val_fake_rgb_bridge_quarantines_cal_train_closure_without_exposure():
+    train = h_result('TRAIN', 'Deepfakes', 'train', 'bridge')
+    unused = h_result('SOURCE_UNUSED', 'Face2Face', 'unused', 'bridge')
+    calibration = h_result('SOURCE_CAL', 'real', 'cal', 'calibration')
+    unused['video']['group_id'] = 'cal'  # official known val source pair
+    results = [train, unused, calibration]
+    report, blocked = g.h_content_audit(results)
+    assert blocked == {'cal', 'train'}
+    assert report['audit_schema'] == 'FULL_CANDIDATE_GRAPH_INCLUDING_SOURCE_UNUSED_V2'
+    assert list(report['source_group_role_conflicts'].values()) == [['SOURCE_CAL', 'TRAIN']]
+    assert all('SOURCE_UNUSED' not in roles for roles in report['source_group_role_conflicts'].values())
+    assert g.h_training_rows(results, 'TRAIN', blocked) == ([], [])
+    assert all(not rows for rows in g.h_evaluation_rows(results, blocked).values())
+    unquarantined_tables = g.h_evaluation_rows(results)
+    assert all(row['role'] != 'SOURCE_UNUSED' for rows in unquarantined_tables.values() for row in rows)
+
+
+def test_unused_role_only_adds_graph_edges_without_an_extra_active_role():
+    train = h_result('TRAIN', 'Deepfakes', 'train', 'bridge')
+    unused = h_result('SOURCE_UNUSED', 'Face2Face', 'unused', 'bridge')
+    report, blocked = g.h_content_audit([train, unused])
+    assert not blocked
+    assert not report['cross_role_rgb_conflicts']
+    assert not report['source_group_role_conflicts']
+    assert train['video']['group_id'] == unused['video']['group_id']
+
+
+def test_fresh_audit_rejects_incomplete_candidate_manifest_set(tmp_path):
+    artifact = tmp_path / 'data'
+    artifact.mkdir()
+    record = h_result('TRAIN', 'real', 'one')
+    record['protocol_sha256'] = g.protocol_hash()
+    g.write_json(artifact / 'H_candidates_all.json',
+                 [record['video'], {'video_uid': 'missing/candidate'}])
+    g.write_json(tmp_path / 'one.json', record)
+    g.write_json(artifact / 'H_processed_manifest_paths.json', [str(tmp_path / 'one.json')])
+    with pytest.raises(ValueError, match='complete candidate'):
+        g.audit_existing(artifact / 'H_processed_manifest_paths.json', artifact)
+    assert not (artifact / 'H_full_candidate_audit_receipt.json').exists()
+
+
+def cached_pixel_record(tmp_path):
+    video_path = tmp_path / 'source.mp4'
+    video_path.write_bytes(b'controlled-source-video-byte-identity')
+    image_root = tmp_path / 'images'
+    directory = image_root / 'FFPP/TRAIN/real/cached'
+    class Detector:
+        def detect(self, rgb):
+            return [faces()]
+    result = g.process_mothers(mothers(), Detector(), directory)
+    result['video'] = {'dataset': 'FFPP', 'role': 'TRAIN', 'method': 'real',
+                       'video_id': 'cached', 'video_uid': 'FFPP/source/real/cached',
+                       'path': str(video_path), 'group_id': 'source-pair',
+                       'label': 0, 'domain': 'source'}
+    result.update(protocol_sha256=g.protocol_hash(),
+                  video_byte_sha256=g.sha256_file(video_path), elapsed_seconds=.1)
+    g.write_json(directory / 'manifest.json', result)
+    return result, image_root, directory
+
+
+def test_resume_refuses_missing_successful_derived_png(tmp_path):
+    result, image_root, directory = cached_pixel_record(tmp_path)
+    Path(result['frames'][0]['B']['path']).unlink()
+    with pytest.raises(g.GeometryFailure, match='artifact_integrity'):
+        g._worker_record((result['video'], image_root, tmp_path / 'freeze.json'))
+
+
+@pytest.mark.parametrize('field', ['mother', 'crop', 'mask'])
+def test_artifact_integrity_rejects_changed_png_bytes(tmp_path, field):
+    result, _, _ = cached_pixel_record(tmp_path)
+    frame = result['frames'][0]
+    path = {'mother': frame['mother_path'], 'crop': frame['AB']['path'],
+            'mask': frame['AB']['mask_path']}[field]
+    with Path(path).open('ab') as file:
+        file.write(b'changed-byte-content')
+    with pytest.raises(g.GeometryFailure, match='artifact_integrity'):
+        g.verify_record_artifacts(result)
+
+
+def test_artifact_integrity_checks_rgb_hash_and_binds_table_byte_hash(tmp_path):
+    result, _, _ = cached_pixel_record(tmp_path)
+    summary = g.verify_record_artifacts(result)
+    assert summary['verified_files'] == 56  #8mothers+24crops+24masks
+    row = g.h_frame_rows(result, 'B')[0]
+    assert row['content_sha256'] == result['frames'][0]['B']['byte_sha256']
+    result['frames'][0]['B']['rgb_sha256'] = '0' * 64
+    with pytest.raises(g.GeometryFailure, match='artifact_integrity.*RGB'):
+        g.verify_record_artifacts(result)
+

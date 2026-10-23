@@ -671,7 +671,8 @@ def all_h_candidates(manifest, metadata_exclusions):
 def h_content_audit(results):
     """Close known groups over original and derived RGB before cohort freezing.
 
-    SOURCE_UNUSED is inventoried but cannot cause training/calibration exposure.
+    SOURCE_UNUSED contributes RGB edges, including bridges through known CAL
+    groups, while never counting as an active exposure role or output cohort.
     A conflicting connected group is quarantined in its entirety. DFD grouping
     remains conditional on explicitly unverified filename parent proxies.
     """
@@ -682,8 +683,6 @@ def h_content_audit(results):
         video['group_id'] = group
         groups.find(group)
         group_rows[group].append(video)
-        if video['role'] == 'SOURCE_UNUSED':
-            continue
         for frame in result['frames']:
             hashes = [('mother', frame['mother_rgb_sha256'])]
             hashes.extend((version, frame[version]['rgb_sha256']) for version in VERSIONS
@@ -697,7 +696,7 @@ def h_content_audit(results):
         for other in components[1:]:
             groups.union(components[0], other)
             rgb_edges += 1
-        if len({row['role'] for row in members}) > 1:
+        if len({row['role'] for row in members if row['role'] != 'SOURCE_UNUSED'}) > 1:
             cross_role.append({'rgb_sha256': digest, 'members': members})
         if len({row['label'] for row in members}) > 1:
             label_conflicts.append({'rgb_sha256': digest, 'members': members})
@@ -710,14 +709,15 @@ def h_content_audit(results):
     blocked = {group for group in group_rows if groups.find(group) in source_conflict_roots}
     for result in results:
         result['video']['group_id'] = groups.find(result['video']['group_id'])
-    report = {'unique_rgb_hashes': len(rgb), 'rgb_group_edges': rgb_edges,
+    report = {'audit_schema': 'FULL_CANDIDATE_GRAPH_INCLUDING_SOURCE_UNUSED_V2',
+              'unique_rgb_hashes': len(rgb), 'rgb_group_edges': rgb_edges,
               'source_group_components': len({groups.find(group) for group in group_rows}),
               'cross_role_rgb_conflicts': cross_role, 'label_rgb_conflicts': label_conflicts,
               'source_group_role_conflicts': {root: sorted(roles_by_root[root]) for root in sorted(source_conflict_roots)},
               'quarantined_original_groups': sorted(blocked),
               'quarantined_videos': sum(result['video']['group_id'] in source_conflict_roots for result in results),
               'DFD_group_scope': 'conservative filename candidate closure plus exact RGB; complete ancestry not certified',
-              'SOURCE_UNUSED_scope': 'inventoried, never included in training/tuning/calibration/test tables'}
+              'SOURCE_UNUSED_scope': 'RGB and known-source edges included in full graph; excluded from active role counts and all training/tuning/calibration/test tables'}
     return report, blocked | source_conflict_roots
 
 
@@ -740,6 +740,8 @@ def h_frame_rows(result, version):
                      'mother_timestamp_seconds': frame['mother_timestamp'],
                      'processing_version': version,
                      'source_graph_certified': video.get('source_graph_certified', False)})
+        if 'byte_sha256' in frame[version]:
+            rows[-1]['content_sha256'] = frame[version]['byte_sha256']
     return rows
 
 
@@ -833,12 +835,153 @@ def finalize_h(manifest_paths, artifacts):
                 and not audit['source_group_role_conflicts']
                 and all(np.isclose(row['sampling_mass'], 1) for row in training_audit.values()))
     report = {'status': 'AUDIT_COMPLETE_READY_FOR_H_DATA_FREEZE_REVIEW' if audit_ok else 'AUDIT_CONFLICTS_REVIEW_REQUIRED',
+              'audit_schema': audit['audit_schema'],
               'geometry_protocol_sha256': protocol_hash(), 'code_sha256': sha256_file(__file__),
               'candidate_videos': len(results), 'training': training_audit, 'tables': table_info,
               'data_frozen': False, 'target_performance_used': False,
               'quarantined_group_count': len(quarantined), 'coverage_report': str(artifacts / 'H_coverage_by_role_method.json')}
     write_json(artifacts / 'H_data_freeze_candidate.json', report)
     return report
+
+
+def verify_record_artifacts(result):
+    """Verify source bytes and every referenced mother/crop/mask before reuse.
+
+    Hashes bind PNG bytes and decoded RGB separately. Masks additionally bind
+    their binary support and reported padding. This never decodes a video or
+    instantiates a detector; only existing PNGs are decoded for integrity.
+    """
+    fingerprint = hashlib.sha256()
+    files, total_bytes, pngs_decoded = 0, 0, 0
+    def reject(reason):
+        raise GeometryFailure(f'artifact_integrity_failed: {reason}')
+    def check_png(path, byte_digest, pixel_digest=None, mask=False, shape=None):
+        nonlocal files, total_bytes, pngs_decoded
+        if not path or not byte_digest or not Path(path).is_file():
+            reject(f'missing PNG or byte hash: {path}')
+        actual_bytes = sha256_file(path)
+        if actual_bytes != byte_digest:
+            reject(f'PNG byte SHA256 mismatch: {path}')
+        if mask:
+            pixels = cv2.imread(str(path), cv2.IMREAD_UNCHANGED)
+            if pixels is None or pixels.dtype != np.uint8 or pixels.ndim != 2:
+                reject(f'invalid mask: {path}')
+            if not set(np.unique(pixels)).issubset({0, 255}):
+                reject(f'nonbinary mask: {path}')
+            actual_rgb = None
+        else:
+            pixels = read_rgb(path)
+            actual_rgb = rgb_hash(pixels)
+            if not pixel_digest or actual_rgb != pixel_digest:
+                reject(f'RGB SHA256 mismatch: {path}')
+        if shape is not None and tuple(pixels.shape[:2]) != tuple(shape):
+            reject(f'PNG shape mismatch: {path}')
+        fingerprint.update(json.dumps([str(path), actual_bytes, actual_rgb], separators=(',', ':')).encode() + b'\n')
+        files += 1
+        pngs_decoded += 1
+        total_bytes += Path(path).stat().st_size
+        return pixels
+    video = result['video']
+    if not Path(video['path']).is_file() or sha256_file(video['path']) != result.get('video_byte_sha256'):
+        reject(f'source video byte SHA256 mismatch: {video["path"]}')
+    fingerprint.update(json.dumps([video['path'], result['video_byte_sha256']]).encode() + b'\n')
+    frames = result['frames']
+    if frames and (len(frames) != 8 or len({frame['mother_rgb_sha256'] for frame in frames}) != 8):
+        reject('mother slots are not eight unique RGBs')
+    for frame in frames:
+        check_png(frame.get('mother_path'), frame.get('mother_byte_sha256'), frame['mother_rgb_sha256'])
+        for version in VERSIONS:
+            output = frame[version]
+            if not output['ok']:
+                continue
+            size = 256 if version == 'A' else 224
+            check_png(output.get('path'), output.get('byte_sha256'), output.get('rgb_sha256'), shape=(size, size))
+            mask = check_png(output.get('mask_path'), output.get('mask_byte_sha256'), mask=True, shape=(size, size))
+            padding = float(1 - np.count_nonzero(mask) / mask.size)
+            if not np.isclose(padding, output['padding_ratio'], rtol=0, atol=1e-12):
+                reject(f'mask padding mismatch: {output["mask_path"]}')
+    for version in VERSIONS:
+        if result['eligible'][version]:
+            hashes = [frame[version]['rgb_sha256'] for frame in frames if frame[version]['ok']]
+            if len(hashes) != 8 or len(set(hashes)) != 8:
+                reject(f'eligible {version} does not have eight verified unique RGBs')
+    return {'verified_files': files, 'verified_png_bytes': total_bytes,
+            'existing_pngs_decoded': pngs_decoded, 'source_video_bytes_verified': 1,
+            'artifact_fingerprint_sha256': fingerprint.hexdigest()}
+
+
+def audit_existing(manifest_paths_file, artifacts):
+    """One-shot re-finalization and PNG integrity after all candidates finish.
+
+    The already running pixel process retains its imported old finalizer. This
+    entry point starts with fresh code and creates the receipt required before
+    H data freezing. Existing PNGs are decoded for byte/RGB integrity; source
+    videos are hashed without decoding and no detector is instantiated.
+    """
+    artifacts, manifest_paths_file = Path(artifacts), Path(manifest_paths_file)
+    candidates_file = artifacts / 'H_candidates_all.json'
+    candidates = json.loads(candidates_file.read_text())
+    paths = json.loads(manifest_paths_file.read_text())
+    expected = {row['video_uid'] for row in candidates}
+    if len(paths) != len(candidates) or len(expected) != len(candidates):
+        raise ValueError('Fresh audit requires the complete candidate manifest set')
+    actual, metadata_digest = [], hashlib.sha256()
+    for path in paths:
+        result = json.loads(Path(path).read_text())
+        if result.get('protocol_sha256') != protocol_hash():
+            raise ValueError('Geometry protocol mismatch in candidate manifest')
+        actual.append(result['video']['video_uid'])
+        metadata_digest.update(json.dumps([str(path), sha256_file(path)]).encode() + b'\n')
+    if len(set(actual)) != len(actual) or set(actual) != expected:
+        raise ValueError('Fresh audit requires the complete candidate UID set')
+    started = time.monotonic()
+    pending = {'audit_schema': 'FULL_CANDIDATE_GRAPH_INCLUDING_SOURCE_UNUSED_V2',
+               'status': 'VALIDATING_ARTIFACTS', 'data_frozen': False}
+    write_json(artifacts / 'H_full_candidate_audit_receipt.json', pending)
+    inventory, verified_files, verified_bytes, decoded_pngs = hashlib.sha256(), 0, 0, 0
+    for i, path in enumerate(paths):
+        result = json.loads(Path(path).read_text())
+        try:
+            verified = verify_record_artifacts(result)
+        except (GeometryFailure, OSError, ValueError, KeyError) as exc:
+            failure = {**pending, 'status': 'ARTIFACT_INTEGRITY_FAILED',
+                       'failed_manifest': str(path), 'reason': str(exc),
+                       'verified_candidate_videos': i, 'candidate_videos': len(paths)}
+            write_json(artifacts / 'H_artifact_integrity_receipt.json', failure)
+            write_json(artifacts / 'H_full_candidate_audit_receipt.json', failure)
+            raise GeometryFailure(f'artifact_integrity_failed: {path}: {exc}') from exc
+        inventory.update(json.dumps([str(path), verified['artifact_fingerprint_sha256']]).encode() + b'\n')
+        verified_files += verified['verified_files']
+        verified_bytes += verified['verified_png_bytes']
+        decoded_pngs += verified['existing_pngs_decoded']
+        if (i + 1) % 100 == 0:
+            print(json.dumps({'stage': 'existing_PNG_integrity', 'verified_videos': i + 1,
+                              'total_videos': len(paths)}), flush=True)
+    integrity = {**pending, 'status': 'PASSED', 'candidate_videos': len(paths),
+                 'verified_files': verified_files, 'verified_png_bytes': verified_bytes,
+                 'existing_pngs_decoded': decoded_pngs, 'source_videos_decoded': 0,
+                 'source_video_byte_hashes_verified': len(paths),
+                 'artifact_inventory_sha256': inventory.hexdigest(),
+                 'metadata_manifest_inventory_sha256': metadata_digest.hexdigest(),
+                 'fresh_code_sha256': sha256_file(__file__)}
+    write_json(artifacts / 'H_artifact_integrity_receipt.json', integrity)
+    report = finalize_h(paths, artifacts)
+    receipt = {'audit_schema': report['audit_schema'], 'status': report['status'],
+               'fresh_code_sha256': sha256_file(__file__),
+               'geometry_protocol_sha256': protocol_hash(),
+               'candidate_videos': len(candidates), 'processed_manifest_count': len(paths),
+               'candidate_manifest_sha256': sha256_file(candidates_file),
+               'processed_paths_sha256': sha256_file(manifest_paths_file),
+               'content_source_audit_sha256': sha256_file(artifacts / 'H_content_source_audit.json'),
+               'freeze_candidate_sha256': sha256_file(artifacts / 'H_data_freeze_candidate.json'),
+               'artifact_integrity_receipt_sha256': sha256_file(artifacts / 'H_artifact_integrity_receipt.json'),
+               'artifact_integrity_status': 'PASSED',
+               'tables': report['tables'],
+               'elapsed_seconds': time.monotonic() - started,
+               'source_videos_decoded': 0, 'existing_pngs_decoded': decoded_pngs,
+               'detector_calls': 0, 'data_frozen': False}
+    write_json(artifacts / 'H_full_candidate_audit_receipt.json', receipt)
+    return receipt
 
 
 def _group_results(results):
@@ -864,8 +1007,8 @@ def _worker_record(task):
     if manifest.is_file():
         previous = json.loads(manifest.read_text())
         if (previous.get('protocol_sha256') == protocol_hash()
-                and previous.get('video_byte_sha256') == sha256_file(record['path'])
-                and all('mother_path' in frame and Path(frame['mother_path']).is_file() for frame in previous['frames'])):
+                and previous.get('video_byte_sha256') == sha256_file(record['path'])):
+            verify_record_artifacts(previous)
             return str(manifest), previous['eligible'], previous['elapsed_seconds'], True
     result = process_record(record, _H_DETECTOR, directory, freeze=freeze)
     return str(manifest), result['eligible'], result['elapsed_seconds'], False
@@ -950,6 +1093,9 @@ def main(argv=None):
     bulk.add_argument('--workers', type=int, default=4)
     bulk.add_argument('--threads', type=int, default=2)
     bulk.add_argument('--limit', type=int, default=0)
+    fresh_audit = sub.add_parser('audit-existing', help='Fresh full-candidate graph and existing-PNG integrity audit; no video decoding or detector calls')
+    fresh_audit.add_argument('--manifest-paths', type=Path, default=ARTIFACT_ROOT / 'data/H/H_processed_manifest_paths.json')
+    fresh_audit.add_argument('--artifacts', type=Path, default=ARTIFACT_ROOT / 'data/H')
     args = parser.parse_args(argv)
     cv2.setNumThreads(2)
     if args.command == 'audit':
@@ -964,6 +1110,8 @@ def main(argv=None):
         print(json.dumps(qualify_source(records, args.output, SCRFD5(threads=args.threads), args.per_cell), indent=2))
     elif args.command == 'preprocess-all':
         preprocess_all(args)
+    elif args.command == 'audit-existing':
+        print(json.dumps(audit_existing(args.manifest_paths, args.artifacts), indent=2))
     else:
         report = json.loads(args.report.read_text())
         if (report['status'] != 'SOURCE_QUALIFIED' or report['protocol_sha256'] != protocol_hash()
