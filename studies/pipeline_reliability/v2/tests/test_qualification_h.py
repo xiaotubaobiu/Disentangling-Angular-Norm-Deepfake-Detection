@@ -399,3 +399,20 @@ def test_next_attempt_deep_verifies_completed_receipt_without_launch(accepted_ro
     assert plan['status'] == 'COMPLETE' and plan['microbatch'] == 32
     assert plan['receipt_sha256'] == trainer.digest(out / 'receipt.json')
     assert len(calls) == 1 and calls[0]['precision'] == 'FP32'
+
+
+def test_acceptance_uses_frozen_data_bindings_but_full_GPU_proofs(tmp_path,monkeypatch):
+    calls=[]
+    def context(root,*,deep=False):
+        calls.append(('data',deep));assert deep is False,'accepted H data was fully scanned again'
+        return {},{},{}
+    monkeypatch.setattr(q,'_context',context)
+    monkeypatch.setattr(q,'_probe_receipt',lambda *a:{})
+    def proofs(*args,deep=True,**kwargs):
+        calls.append(('proofs',deep));assert deep is True
+        raise ValueError('missing genuine six GPU proofs')
+    monkeypatch.setattr(q,'_qualified_backbones',proofs)
+    with pytest.raises(ValueError,match='six GPU'):
+        q.accept_qualification(tmp_path)
+    assert calls==[('data',False),('proofs',True)]
+    assert not (tmp_path/'qualification/H_gate.json').exists()

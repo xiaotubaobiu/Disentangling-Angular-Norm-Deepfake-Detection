@@ -681,14 +681,14 @@ def accept_qualification(root):
     """Create H-only production gate after six complete two-history GPU proofs."""
     root = Path(root)
     with trainer.exclusive_file(root / 'qualification/H/accept.lock'):
-        freeze, config, binding = _context(root, deep=True)
+        freeze, config, binding = _context(root, deep=False)
         probe = _probe_receipt(root, binding)
         stats = {}
-        backbones = _qualified_backbones(root, binding, probe, config, stats_out=stats)
+        backbones = _qualified_backbones(root, binding, probe, config, deep=True, stats_out=stats)
         gate = dict(status='PASS', approved_routes=['H'], source_only=True, target_used=False, **binding,
             probe_receipt_sha256=trainer.digest(root / 'qualification/H/probes/receipt.json'), backbones=backbones,
             accepted_evidence_stats=stats,
-            acceptance_verification='fresh_cryptographic_full_evidence_and_deep_H_freeze')
+            acceptance_verification='fresh_cryptographic_full_GPU_evidence_and_accepted_H_freeze_metadata_bindings')
         path = root / 'qualification/H_gate.json'
         if path.exists():
             if _read(path) != gate: raise ValueError('existing H gate differs; refuse overwrite')
