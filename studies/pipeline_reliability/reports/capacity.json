@@ -1,0 +1,36 @@
+{
+  "CPU_models": {
+    "clip_vit_b16": {
+      "parameters": 86193666,
+      "FP32_model_bytes": 344774664,
+      "state_plus_final_upper_bytes": 1379098656,
+      "feature_dimension": 512
+    },
+    "dinov2_vit_b14": {
+      "parameters": 86581250,
+      "FP32_model_bytes": 346325000,
+      "state_plus_final_upper_bytes": 1385300000,
+      "feature_dimension": 768
+    },
+    "efficientnet_b0": {
+      "parameters": 4010110,
+      "FP32_model_bytes": 16040440,
+      "state_plus_final_upper_bytes": 64161760,
+      "feature_dimension": 1280
+    }
+  },
+  "capacity_upper_bound": {
+    "indexed_video_units": 32570,
+    "indexed_EFS_image_rows": 484773,
+    "maximum_selected_feature_rows": 745333,
+    "FP32_feature_bytes_all15models": 38161049600,
+    "FP32_feature_GiB": 35.54024696350098,
+    "available_bytes": 759624060928,
+    "checkpoints_scores_statistics_extra": "not included; measure model parameter counts before final bound",
+    "checkpoint_state_plus_final_bytes_all15models": 14142802080,
+    "feature_and_checkpoint_GiB": 48.71175780892372
+  },
+  "scores_statistics_and_temp_head_fit_reserve_GiB": 100,
+  "working_reserve_GiB": 200,
+  "CUDA_initialized": false
+}

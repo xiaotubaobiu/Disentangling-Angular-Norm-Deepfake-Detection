@@ -1,0 +1,52 @@
+# 2026-10-07 当前执行回执
+
+核对时间：2026-10-07T12:07:53.431147+00:00。监督进程3984143和首批四个worker仍运行，15次正式训练尚未完成。没有重复启动队列。资格测试及pilot属于准备验证，不作为科学实验结果。
+
+## 服务停用
+
+原onecat-vllm容器ID：0de7633bc4eb9b0d12b41dd2d05e3bb42961310e62bcb1b78f0f2ed0f54aad5c。
+停用前快照时间为2026-10-07T11:47:18.617785+00:00；实际Docker退出时间为2026-10-07T11:48:19.050875106Z。两者不得混同。
+执行正常命令：docker stop --time 60 onecat-vllm。当前同一容器exited，restart policy仍unless-stopped；gateway未改动，GPU0–3/Jev未干预。
+GPU队列结束后由现有监督流程docker start同一容器并核对本地health HTTP200；目前尚未恢复，不在worker运行期间手工恢复。
+
+## 首批运行映射
+
+|物理GPU|骨干|seed|PID|
+|---:|---|---:|---:|
+|4|clip_vit_b16|7|3990784|
+|5|dinov2_vit_b14|7|3990785|
+|6|efficientnet_b0|7|3990786|
+|7|clip_vit_b16|42|3990787|
+
+统一15epoch/final-only，有效batch128、实际microbatch128、AdamW WD5e-4，学习率CLIP1e-5、DINO5e-5、Efficient1e-4。正式预算3骨干×5seed=15次完整训练与30个匹配头，种子[7,42,123,2026,3407]。另有已完成的独立256输入/1epoch CLIP资格pilot，不计入正式结果。
+
+## 冻结输入口径
+
+|角色|唯一输入行|real|fake|
+|---|---:|---:|---:|
+|train|250,000|5,752|244,248|
+|calibration|1,120|1,120|0|
+|ff_test|59,935|1,120|58,815|
+|cdf_test|368,922|1,416|367,506|
+
+每个epoch从train清单有放回抽取N_pool=250000次；这是整次run的epoch槽位数，不是每方法或每GPU的独立额外预算，也不保证每个唯一输入恰好被看一次。真实总质量1/2、31个fake方法各1/62；视频内先等权抽视频再抽固定8帧，EFS按独立RGB图抽样。共享RGB输入在方法/视频关联权重计算后合并质量；265527条训练关联对应250000条唯一内容输入。canonical代表method_id只有30种，而method_memberships与质量保留完整31种，未删除SG3方法。
+
+校准140个原FF-val真实视频、1120帧，fake-cal0，所以TPR95不可用。隔离保证限定已知FF来源和精确RGB内容，未知EFS生成祖先/音频驱动保持未知。CDF测试178个声明real视频中1个不足8个不同RGB帧，实际保留177个/1416帧；这不是解码失败，原审计解码失败0。所有原角色、逐条处理与失败证据留存，不把EFS存储桶解释为自然视频。
+
+## 数值实现与科学范围
+
+严格确定性下实测CUDA不支持DINO bicubic-antialias插值反向：相同FP32插值迁至CPU，原37×37位置参数及可微GPU复制保留。CPU参考值和原网格梯度回归、实际CUDA训练资格通过；CPU/CUDA舍入及速度差异仍需如实披露。AMP float16 initial_scale128，TF32 off，各骨干micro128。此次不是更改结构、epoch、学习率、种子或引入目标域调参。
+
+官方修订62份JSON与本机输入索引逐字节/语义一致；本机跨角色像素证据与独立真实文件核对留存，原图片压缩包出处未认证，不将本机像素重复归咎官方。原Obsidian v1.1协议未改写。
+
+代码SHA256：7d56c6e5803450369852b5865130a3ed815d87e3e6a91226d276f0fd092611b5。
+冻结标记SHA256：c3044b9219a8ef18dd1c25f7f75de0d38dd93642bbe4cc0e19381218bf820b5d。
+正式队列配置SHA256：bbc329454aad0a1974db6384984a173a32904a93d02c4632d784f78b79613f9f。
+
+## 回执与实时证据
+
+reports/llm_stop_receipt.json、reports/execution_configuration_receipt.json保存机器可读回执。
+artifacts/execution_status.json、artifacts/queue_status.json是实时状态；artifacts/runs/<run_id>/history.json记录完整epoch后才更新。
+报告和分析必须等待15份最终权重/特征、30头及完整A–D/五seed校验；当前无正式最终性能结果。
+
+补充核对：Docker退出码137、OOMKilled=false，正常stop命令完成，但未断言优雅退出。详细原状态见llm_stop_receipt.json。首批四个正式epoch1完成证据见first_epoch_checkpoint_receipts.json；完整run仍0/15。
