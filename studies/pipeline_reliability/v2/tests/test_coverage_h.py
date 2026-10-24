@@ -235,7 +235,7 @@ def write(path, value):
 
 
 def wrapper_fixture(tmp_path, monkeypatch):
-    from reliability_v2 import data_h
+    from reliability_v2 import data_h, geometry_h
     c = [video(1)]
     m = [result(c[0])]
     out = tmp_path / 'data/H'
@@ -244,8 +244,7 @@ def wrapper_fixture(tmp_path, monkeypatch):
     identities = {
         'candidates': write(out / 'H_candidates_all.json', c),
         'processed_paths': write(out / 'H_processed_manifest_paths.json', paths),
-        'content_audit': write(out / 'H_content_source_audit.json', {'quarantined_original_groups': [],
-                            'source_group_role_conflicts': {}, 'quarantined_videos': 0})}
+        'content_audit': write(out / 'H_content_source_audit.json', geometry_h.h_content_audit(copy.deepcopy(m))[0])}
     tables = {}
     for key, rows in tables_for(c, m).items():
         path = out / f'{key}.parquet'

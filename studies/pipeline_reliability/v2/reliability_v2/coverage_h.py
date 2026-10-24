@@ -9,6 +9,7 @@ Padding is descriptive and never changes a candidate's frozen eligibility.
 from __future__ import annotations
 
 from collections import Counter, defaultdict
+import copy
 from collections.abc import Mapping
 import hashlib
 import json
@@ -402,12 +403,22 @@ def report_coverage(root):
         videos = int(table.video_uid.nunique()) if len(table) else 0
         _require(len(table) == identity['rows'] and videos == identity['videos'], f'Frozen table summary mismatch: {key}')
         tables[key] = table
-    groups = set(content['quarantined_original_groups']) | set(content['source_group_role_conflicts'])
-    quarantine = {r['video']['video_uid'] for r in manifests if r['video']['group_id'] in groups}
+    # Saved manifests retain original groups, whereas frozen active tables use
+    # the complete exact-RGB closure, including SOURCE_UNUSED bridges. Validate
+    # originals first, replay that same metadata graph on a private copy, and
+    # compare the entire audit before reconstructing any active table.
+    _validate(candidates, manifests)
+    closed_manifests = copy.deepcopy(manifests)
+    recomputed_content, groups = geometry_h.h_content_audit(closed_manifests)
+    _require(recomputed_content == content, 'Frozen content graph differs from complete metadata replay')
+    changed_source_groups = sum(a['video']['group_id'] != b['video']['group_id']
+                                for a, b in zip(manifests, closed_manifests))
+    quarantine = {r['video']['video_uid'] for r in closed_manifests if r['video']['group_id'] in groups}
     _require(len(quarantine) == content['quarantined_videos'], 'Frozen quarantine count differs from manifests')
+    closed_candidates = [row['video'] for row in closed_manifests]
     code = {name: {'path': str(Path(path).resolve()), 'sha256': _sha(path)}
             for name, path in {'coverage_h': __file__, 'data_h': data_h.__file__, 'geometry_h': geometry_h.__file__}.items()}
-    report = summarize_coverage(candidates, manifests, active_tables=tables, quarantined_video_uids=quarantine)
+    report = summarize_coverage(closed_candidates, closed_manifests, active_tables=tables, quarantined_video_uids=quarantine)
     report['independence_scope'] = receipt['independence_scope']
     report['provenance'] = {'freeze': freeze_identity, 'input_identities': identities,
         'independent_review': receipt['independent_review'], 'tables': receipt['tables'],
@@ -416,7 +427,10 @@ def report_coverage(root):
         'artifact_inventory_sha256': receipt['artifact_inventory_sha256'],
         'code_dependencies': code, 'validation_policy': receipt['validation_policy'],
         'fresh_validation_scope': 'SHALLOW_METADATA_BINDING_AND_EXACT_COHORT_RECONSTRUCTION',
-        'fresh_pixel_mask_or_source_video_audit': False}
+        'fresh_pixel_mask_or_source_video_audit': False,
+        'source_group_replay': {'complete_metadata_graph_equal_frozen_audit': True,
+                                'original_candidate_manifest_identity_checked': True,
+                                'changed_video_group_ids': changed_source_groups}}
     for identity in [freeze_identity, *identities.values(), *receipt['tables'].values(),
                      receipt['independent_review'], *code.values()]:
         _check(identity)
