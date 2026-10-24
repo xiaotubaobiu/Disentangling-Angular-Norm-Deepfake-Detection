@@ -76,7 +76,52 @@ output sizes and respect the 200-GiB working-set estimate plus 50-GiB reserve.
 The current CDF source scope is `PROXY_SCOPE_EMPIRICAL_ONLY`: no certified complete
 ancestry or strict population Neyman–Pearson guarantee is inferred.
 
-This entry point handles one formal model at a time. Final five-seed table
-assembly, H model orchestration/caches/analysis, figures, full-paper integration
-and final scientific review remain subsequent work. They must not be claimed as
-completed by passing these synthetic regression tests.
+This entry point handles one formal model at a time. The CPU five-seed assembly
+entry below consumes completed outputs; it does not launch the per-model work.
+Production statistics, figures, full-paper integration and final scientific
+review still require the complete real experiment and cache matrix.
+
+
+## Verified D five-seed assembly
+
+After the five registered analyses for one backbone are complete:
+
+```bash
+python -m reliability_v2.summary_d status --config /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/configs/execution.json --backbone clip_vit_b16
+python -m reliability_v2.summary_d run --config /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/configs/execution.json --backbone clip_vit_b16
+```
+
+Use the same CPU-only environment/thread limits as above. `status` is a marker
+inventory, creates no directories, and cannot certify provenance. `run` requires
+exactly seeds7/42/123/2026/3407 of the selected backbone, new frozen formal last
+checkpoints, all seven current caches and the exact independently recomputed
+analysis artifact inventory. It reuses completed `analysis_d` validation; absent
+or partial per-model analysis is rejected, never silently launched. Development,
+historical, stale, corrupt or substituted data cannot enter a completed summary.
+
+One canonical output is `analysis/D/<backbone>/five_seed_summary/`. The twelve
+CSV tables retain per-seed ranking metrics/effects, within-model CAL estimates
+and subset spread, same-seed target-minus-source comparisons, oracle metrics and
+numerical-status counts, with separate five-seed means and sampleSD(ddof1).
+The default/source point and each budget10/20/40/80 remain separate; n20 is the
+frozen primary budget. Missing numerical or CAL estimates produce explicit NA
+five-seed means/SD rather than silently averaging four models. Reversal counts
+and their valid-seed denominator remain distinct from mean reversal. Neither
+200CALsubsets nor2000TESTdraws become training replicates or significance tests.
+
+`supporting_artifacts.json` binds every original file by path/hash, preserving
+per-seed normal/closure/operating conditional intervals,3x3ledgers and detailed
+video/method diagnostics without duplicating large bootstrap files. CI endpoints
+are not averaged into a new interval. `limitations.json` keeps CDF-full ranking
+separate from the fixed RQ4 TEST, Raw/L2 and both aggregation flows separate, and
+states the fixed-head/proxy-ancestry interpretation. High-precision oracle
+thresholds remain serialized per seed; oracle never interpolates a ROC point.
+
+Summary lifetime locks prevent duplicate writers. Input identities/hashes are
+checked before use and again before commitment; completion is written last.
+Reuse validates original inputs plus the exact summary inventory and hashes.
+Partial identities or changed committed data/code are rejected and preserved.
+A50GiB free-space reserve is required. This command performs no image decoding,
+training, feature extraction, model/threshold selection, GPU scheduling or H
+admission. Passing synthetic tests proves implementation behavior only; real
+five-seed results remain unavailable until actual production caches/analyses pass.
