@@ -95,8 +95,9 @@ Use the same CPU-only environment/thread limits as above. `status` is a marker
 inventory, creates no directories, and cannot certify provenance. `run` requires
 exactly seeds7/42/123/2026/3407 of the selected backbone, new frozen formal last
 checkpoints, all seven current caches and the exact independently recomputed
-analysis artifact inventory. It reuses completed `analysis_d` validation; absent
-or partial per-model analysis is rejected, never silently launched. Development,
+analysis artifact inventory. It reuses read-only cache/context validators and
+checks the producer identity without calling the dual-purpose `analyze_run`;
+absent or partial per-model analysis is rejected, never silently launched. Development,
 historical, stale, corrupt or substituted data cannot enter a completed summary.
 
 One canonical output is `analysis/D/<backbone>/five_seed_summary/`. The twelve
@@ -125,3 +126,8 @@ A50GiB free-space reserve is required. This command performs no image decoding,
 training, feature extraction, model/threshold selection, GPU scheduling or H
 admission. Passing synthetic tests proves implementation behavior only; real
 five-seed results remain unavailable until actual production caches/analyses pass.
+
+All input/output markers, artifact files and lock paths reject symlinks (including
+dangling links) and nonregular files. The private lock uses a nofollow file
+descriptor; tables/JSON are atomically replaced from exclusive in-root scratch
+files. Receipt content and completion hash are one verified snapshot.

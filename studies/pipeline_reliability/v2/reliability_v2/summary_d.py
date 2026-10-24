@@ -7,6 +7,13 @@ caches, never development/historical artifacts or a silent valid-seed subset.
 from __future__ import annotations
 
 import argparse
+from contextlib import contextmanager
+import errno
+import fcntl
+import hashlib
+import os
+import stat
+import tempfile
 from datetime import datetime, timezone
 import json
 from pathlib import Path
@@ -18,7 +25,7 @@ import pandas as pd
 from . import analysis_d as io
 from . import scoring_d as score
 from . import stats_h
-from .trainer import digest, exclusive_file
+from .trainer import digest
 
 SEEDS=(7,42,123,2026,3407)
 BACKBONES=('clip_vit_b16','dinov2_vit_b14','efficientnet_b0')
@@ -105,6 +112,7 @@ def summary_status(config_path,backbone):
     root,config,runs=_registry(config_path,backbone);rows=[]
     for seed,run in runs.items():
         folder=root/'analysis/D'/run;marker=folder/'complete.json'
+        _safe_path(folder,root,directory=True,missing=True);_safe_path(marker,root,missing=True)
         present=marker.is_file() and json.loads(marker.read_text()).get('status') in ('ANALYSIS_COMPLETE','ANALYSIS_COMPLETE_WITH_NUMERIC_NA')
         rows.append(dict(seed=seed,run_id=run,analysis_marker_present=present))
     count=sum(x['analysis_marker_present'] for x in rows)
@@ -132,28 +140,101 @@ def _input_inventory():
     return names
 
 
+
+def _safe_path(path,root,*,directory=False,missing=False):
+    path=Path(path)
+    if not path.resolve().is_relative_to(root):raise ValueError('unsafe path outside registered root')
+    for current in (path,*path.parents):
+        if current==root:break
+        if current.is_symlink():raise ValueError('unsafe symlink in summary input/output/lock path')
+    if not path.exists():
+        if missing:return
+        raise ValueError('missing completion snapshot or artifact')
+    if not (path.is_dir() if directory else path.is_file()):raise ValueError('summary path must be regular file or directory')
+
+
+@contextmanager
+def exclusive_file(path):
+    """Private summary lock: nofollow open, regular single-link inode, then PID."""
+    path=Path(path);path.parent.mkdir(parents=True,exist_ok=True)
+    try:fd=os.open(path,os.O_CREAT|os.O_RDWR|os.O_NOFOLLOW,0o600)
+    except OSError as error:
+        if error.errno==errno.ELOOP:raise ValueError('unsafe summary lock symlink') from error
+        raise
+    try:
+        info=os.fstat(fd)
+        if not stat.S_ISREG(info.st_mode) or info.st_nlink!=1:raise ValueError('unsafe nonregular or aliased summary lock')
+        try:fcntl.flock(fd,fcntl.LOCK_EX|fcntl.LOCK_NB)
+        except BlockingIOError as error:raise RuntimeError('D summary lock is already held') from error
+        os.ftruncate(fd,0);os.write(fd,str(os.getpid()).encode());yield
+    finally:os.close(fd)
+
+
+def _entries(folder,root):
+    if not folder.exists():return set()
+    out=set()
+    for path in folder.rglob('*'):
+        _safe_path(path,root,directory=path.is_dir())
+        if path.is_file():out.add(str(path.relative_to(folder)))
+    return out
+
+
+def _atomic_write(path,root,writer):
+    """Create private temp in-root, then replace; never follow a destination link.
+
+    Interrupted private temps are retained outside the committed output inventory
+    in .summary_scratch; source artifacts are never removed or overwritten.
+    """
+    path=Path(path);_safe_path(path,root,missing=True)
+    scratch=root/'analysis/D/.summary_scratch';_safe_path(scratch,root,directory=True,missing=True)
+    scratch.mkdir(parents=True,exist_ok=True)
+    with tempfile.NamedTemporaryFile(mode='w',encoding='utf-8',dir=scratch,prefix=path.name+'.',suffix='.tmp',delete=False) as stream:
+        writer(stream);stream.flush();os.fsync(stream.fileno());temporary=Path(stream.name)
+    _safe_path(path,root,missing=True);temporary.replace(path)
+
+
+def _json(path,root,value):
+    def write(stream):
+        json.dump(io._jsonable(value),stream,ensure_ascii=False,indent=2,allow_nan=False);stream.write('\n')
+    _atomic_write(path,root,write)
+
+
 def _accept(config_path,root,run,backbone,seed):
-    """Reuse only the existing completed-analysis branch; never create analysis."""
+    """Explicitly read-only verification; cannot invoke scoring or create files."""
+    from . import cache_d,bootstrap_fast
     folder=root/'analysis/D'/run;marker=folder/'complete.json'
-    if not marker.is_file():raise ValueError('incomplete D analyses; all five registered seeds required')
-    if not folder.resolve().is_relative_to(root):raise ValueError('analysis outside registered artifact root')
-    receipt=json.loads(marker.read_text())
+    if not marker.exists() and not marker.is_symlink():raise ValueError('incomplete D analyses; all five registered seeds required')
+    _safe_path(folder,root,directory=True);_safe_path(marker,root)
+    raw=marker.read_bytes();snapshot=hashlib.sha256(raw).hexdigest();receipt=json.loads(raw)
     if (receipt.get('status') not in ('ANALYSIS_COMPLETE','ANALYSIS_COMPLETE_WITH_NUMERIC_NA')
         or receipt.get('independent_recompute')!='PASSED_FOR_ALL_REPORTABLE_CELLS'
         or receipt.get('run_id')!=run or receipt.get('seed')!=seed or receipt.get('backbone')!=backbone):
         raise ValueError('D completed analysis status/model identity changed')
-    inventory=_input_inventory();actual={str(p.relative_to(folder)) for p in folder.rglob('*') if p.is_file() and p!=marker}
-    if set(receipt.get('artifact_sha256',{}))!=inventory or actual!=inventory:
-        raise ValueError('D analysis artifact inventory is incomplete or changed')
-    if any((folder/name).is_symlink() or not (folder/name).resolve().is_relative_to(folder.resolve()) for name in inventory):
-        raise ValueError('unsafe D analysis artifact path')
-    if json.loads((folder/'identity.json').read_text())!=receipt.get('identity'):
-        raise ValueError('D saved analysis identity differs from completion')
-    # A present completion marker is mandatory above: this path verifies current
-    # TRAINING_COMPLETE last, source-only gate, all7manifests/caches and hashes.
-    verified=io.analyze_run(config_path,run)
-    if verified!=receipt:raise ValueError('D analysis changed during verification')
-    return folder,receipt
+    inventory=_input_inventory();actual=_entries(folder,root)-{'complete.json'}
+    if set(receipt.get('artifact_sha256',{}))!=inventory or actual!=inventory:raise ValueError('D analysis artifact inventory is incomplete or changed')
+    # Mirror the existing producer identity without calling its dual-purpose run
+    # function. Existing cache/context validators perform all live read-only checks.
+    base,config,task=cache_d._context(config_path,run)
+    if Path(base['artifact_root'])!=root or task['seed']!=seed or task['backbone']!=backbone:raise ValueError('D live context changed')
+    cache=root/'features/D'/run;cache_marker=cache/'complete.json';_safe_path(cache_marker,root)
+    cache_hash=digest(cache_marker)
+    if json.loads(cache_marker.read_text()).get('status')!='CACHE_COMPLETE':raise ValueError('all seven D cache roles must be complete')
+    freeze_path=root/'data/D/freeze.json';freeze=json.loads(freeze_path.read_text())
+    if freeze.get('status')!='FROZEN' or freeze.get('method_count')!=21:raise ValueError('frozen D registry required')
+    for role in cache_d.ROLES:
+        manifest=root/f'data/D/{role}.parquet'
+        if digest(manifest)!=freeze['manifest_sha256'].get(manifest.name):raise ValueError('D frozen manifest hash changed')
+    expected=dict(cache_context=base,cache_completion_sha256=cache_hash,D_freeze_sha256=digest(freeze_path),
+        analysis_code_sha256=digest(io.__file__),scoring_code_sha256=digest(score.__file__),bootstrap_code_sha256=digest(bootstrap_fast.__file__),
+        calibration_repeats=200,test_bootstrap_repeats=2000,resampling_seed=20261023)
+    if receipt.get('identity')!=expected or json.loads((folder/'identity.json').read_text())!=expected:raise ValueError('D analysis live identity/hash changed')
+    for role in cache_d.ROLES:cache_d.verify_cache(cache/role,identity=cache_d._role_identity(base,role,root/f'data/D/{role}.parquet'))
+    if any(digest(folder/name)!=value for name,value in receipt['artifact_sha256'].items()):raise ValueError('D committed analysis artifact hash changed')
+    current,_,_=cache_d._context(config_path,run)
+    if current!=base or digest(cache_marker)!=cache_hash:raise ValueError('D live cache/context changed during acceptance')
+    _safe_path(marker,root)
+    if digest(marker)!=snapshot:raise ValueError('D completion snapshot changed during acceptance')
+    return folder,receipt,snapshot
 
 
 def _code_ids():
@@ -183,7 +264,7 @@ def _collect(root,runs,backbone,accepted):
     freeze=json.loads((root/'data/D/freeze.json').read_text());methods=sorted(freeze['method_registry']['FS9']+freeze['method_registry']['FR12'])
     expected_cells={(g,r,a) for g in ('correct','collision') for r in REPRESENTATIONS for a in AGGREGATIONS}
     for seed,run in runs.items():
-        folder,receipt=accepted[seed];support[str(seed)]={'run_id':run,'analysis_complete_sha256':digest(folder/'complete.json'),
+        folder,receipt,snapshot=accepted[seed];support[str(seed)]={'run_id':run,'analysis_complete_sha256':snapshot,
             'artifacts':{name:{'path':str(folder/name),'sha256':value} for name,value in receipt['artifact_sha256'].items()}}
         for role in ROLES:
             base=folder/role;m=pd.read_csv(base/'metrics.csv',float_precision='round_trip')
@@ -202,7 +283,7 @@ def _collect(root,runs,backbone,accepted):
             for agg in AGGREGATIONS:
                 base=folder/'rq4'/f'{rep}_{agg}';q=pd.read_csv(base/'calibration.csv',float_precision='round_trip')
                 test=io.read_scores(base/'target_test_scores.csv');cal=io.read_scores(base/'target_cal_scores.csv')
-                test_hash=__import__('hashlib').sha256('\n'.join(sorted(test.video_uid)).encode()).hexdigest()
+                test_hash=hashlib.sha256('\n'.join(sorted(test.video_uid)).encode()).hexdigest()
                 if set(q.test_id_hash)!={test_hash}:raise ValueError('RQ4 calibration metrics must use one fixed TEST')
                 test_hashes.add(test_hash)
                 expected=score.calibration_subsets(cal.video_uid);target=q[q.calibration_kind.eq('target_real')]
@@ -252,8 +333,8 @@ def _tables(data):
 
 def _revalidate(config_path,root,runs,backbone,identity):
     for seed,run in runs.items():
-        folder,current=_accept(config_path,root,run,backbone,seed)
-        if digest(folder/'complete.json')!=identity['analysis_complete_sha256'][str(seed)]:
+        folder,current,snapshot=_accept(config_path,root,run,backbone,seed)
+        if snapshot!=identity['analysis_complete_sha256'][str(seed)]:
             raise ValueError('D inputs changed during summary')
     if _code_ids()!=identity['code_sha256'] or digest(config_path)!=identity['config_sha256']:
         raise ValueError('D code/config changed during summary')
@@ -267,14 +348,15 @@ def summarize_backbone(config_path,backbone):
     if not output.resolve().is_relative_to(root) or any(p.is_symlink() for p in guarded):
         raise ValueError('unsafe summary output symlink or path outside registered root')
     accepted={seed:_accept(config_path,root,run,backbone,seed) for seed,run in runs.items()}
-    markers={str(seed):digest(folder/'complete.json') for seed,(folder,_) in accepted.items()}
+    markers={str(seed):snapshot for seed,(_,_,snapshot) in accepted.items()}
     identity=dict(schema='D_FIVE_SEED_SUMMARY_IDENTITY_V1',backbone=backbone,seeds=list(SEEDS),
         config_sha256=digest(config_path),analysis_complete_sha256=markers,code_sha256=_code_ids())
     output=root/f'analysis/D/{backbone}/five_seed_summary';inventory={f'{name}.csv' for name in TABLES}|{'identity.json','supporting_artifacts.json','limitations.json'}
-    with exclusive_file(root/f'analysis/D/.locks/{backbone}_five_seed_summary.lock'):
-        complete=output/'complete.json'
+    lock=root/f'analysis/D/.locks/{backbone}_five_seed_summary.lock';_safe_path(lock,root,missing=True)
+    with exclusive_file(lock):
+        complete=output/'complete.json';_safe_path(complete,root,missing=True)
         if complete.exists():
-            record=json.loads(complete.read_text());actual={str(p.relative_to(output)) for p in output.rglob('*') if p.is_file() and p!=complete}
+            record=json.loads(complete.read_text());actual=_entries(output,root)-{'complete.json'}
             if record.get('schema')!='D_FIVE_SEED_SUMMARY_COMPLETE_V1' or record.get('status') not in ('SUMMARY_COMPLETE','SUMMARY_COMPLETE_WITH_NUMERIC_NA') or record.get('identity')!=identity:
                 raise ValueError('D summary identity/status changed')
             if record.get('training_seed_count')!=5 or record.get('backbone')!=backbone:raise ValueError('D summary model identity changed')
@@ -285,27 +367,27 @@ def summarize_backbone(config_path,backbone):
         if shutil.disk_usage(root).free<=50*1024**3:raise RuntimeError('D summary requires50GiB reserve; preserve existing artifacts')
         prior=output/'identity.json'
         if prior.exists() and json.loads(prior.read_text())!=identity:raise ValueError('D partial summary identity changed; preserve existing artifacts')
-        present={str(p.relative_to(output)) for p in output.rglob('*') if p.is_file()} if output.exists() else set()
+        present=_entries(output,root)
         if not present<=inventory or present and not prior.exists():raise ValueError('unrecognized D partial summary inventory')
-        output.mkdir(parents=True,exist_ok=True);io._save_json(prior,identity)
+        output.mkdir(parents=True,exist_ok=True);_json(prior,root,identity)
         data,support=_collect(root,runs,backbone,accepted);tables=_tables(data)
-        for name,table in tables.items():io._csv(output/f'{name}.csv',table)
-        io._save_json(output/'supporting_artifacts.json',dict(models=support,
+        for name,table in tables.items():_atomic_write(output/f'{name}.csv',root,lambda stream,q=table:io._csv(stream,q))
+        _json(output/'supporting_artifacts.json',root,dict(models=support,
             conditional_intervals='Retained per seed in original normal/closure/bootstrap files; never average CI endpoints.',
             mechanisms='Original per-video/method diagnostics, controls and3x3ledgers remain bound by path/hash.',calibration_repeats=200,test_bootstrap_repeats=2000))
-        io._save_json(output/'limitations.json',dict(backbone=backbone,training_seed_count=5,sample_sd_ddof=1,
+        _json(output/'limitations.json',root,dict(backbone=backbone,training_seed_count=5,sample_sd_ddof=1,
             inference='descriptive across five registered training seeds; no15-model IID or significance claim',
             missing='five-model mean/SD NA when any seed unavailable; same-seed reversal denominators explicit',
             calibration='200subsets reduced within model first; subset spread is distinct from training-seed SD',
             intervals='Pointwise per-seed conditional TEST intervals retained by bound reference, no new cross-seed CI',
             cohorts='source_test/target_full andRQ4target_test never pooled; oracle diagnostic uses actual vertices',
             independence='Frozen source/content/name-proxy scope only; no strict population NP guarantee',
-            numerical_NA={str(seed):r['status']=='ANALYSIS_COMPLETE_WITH_NUMERIC_NA' for seed,(_,r) in accepted.items()}))
+            numerical_NA={str(seed):r['status']=='ANALYSIS_COMPLETE_WITH_NUMERIC_NA' for seed,(_,r,_) in accepted.items()}))
         _revalidate(config_path,root,runs,backbone,identity)
         hashes={name:digest(output/name) for name in inventory}
-        result=dict(schema='D_FIVE_SEED_SUMMARY_COMPLETE_V1',status='SUMMARY_COMPLETE_WITH_NUMERIC_NA' if any(r['status']=='ANALYSIS_COMPLETE_WITH_NUMERIC_NA' for _,r in accepted.values()) else 'SUMMARY_COMPLETE',
+        result=dict(schema='D_FIVE_SEED_SUMMARY_COMPLETE_V1',status='SUMMARY_COMPLETE_WITH_NUMERIC_NA' if any(r['status']=='ANALYSIS_COMPLETE_WITH_NUMERIC_NA' for _,r,_ in accepted.values()) else 'SUMMARY_COMPLETE',
             utc=datetime.now(timezone.utc).isoformat(),identity=identity,artifact_sha256=hashes,backbone=backbone,training_seed_count=5)
-        io._save_json(complete,result);return result
+        _json(complete,root,result);return result
 
 
 def main():

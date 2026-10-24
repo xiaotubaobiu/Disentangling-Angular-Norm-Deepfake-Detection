@@ -27,19 +27,19 @@
 ### Task 1: CPU table assembly
 **Files:** Create reliability_v2/summary_d.py; create tests/test_summary_d.py.
 **Interfaces:** summarize_tables(per-seed collected tables, backbone) -> named pandas tables; uses scoring_d.summarize_seed_effects and stats_h.summarize_seed_comparisons. No raw-image/model inference.
-- [ ] Write failing tests for literal five-seed mean/sampleSD, within-seed interaction/reversal versus mean reversal, one NA, and separation of model/CAL layers.
-- [ ] Run focused tests; expect assertion that the missing entry/function is unavailable.
-- [ ] Implement minimal table collection/reduction for T4/T5, CAL point/spread and comparisons, oracle metrics, numeric statuses; preserve bound supporting-interval/diagnostic references.
-- [ ] Run focused tests and record RED→GREEN.
+- [x] Write failing tests for literal five-seed mean/sampleSD, within-seed interaction/reversal versus mean reversal, one NA, and separation of model/CAL layers.
+- [x] Run focused tests; expect assertion that the missing entry/function is unavailable.
+- [x] Implement minimal table collection/reduction for T4/T5, CAL point/spread and comparisons, oracle metrics, numeric statuses; preserve bound supporting-interval/diagnostic references.
+- [x] Run focused tests and record RED→GREEN.
 
 ### Task 2: Verified filesystem entry and CLI
 **Files:** Same module/tests; update docs/analysis_driver_usage.md.
 **Interfaces:** summarize_backbone(config_path, backbone) -> completion receipt; summary_status(config_path, backbone) -> read-only marker availability. CLI status/run --config --backbone.
-- [ ] Add failing synthetic integration tests with real filesystem/hash/locking and actual analysis outputs, mocking only the slow model/cache boundary where needed; cover all Review Focus cases.
-- [ ] Verify RED, then implement exact5 registration, all7cache/current-analysis verification, exact artifact inventory, atomic marker-last writes, output lock,50GiB reserve, reuse/partial identity guards and input revalidation before commit.
-- [ ] Verify GREEN, read actual status against production R: waiting, no target processing/output creation.
-- [ ] Run full CPU test suite and compare protected source/config/data hashes.
-- [ ] Request one independent whole-change review, fix material findings with regression tests, re-run applicable/full checks, commit only reviewed additive module/tests/doc/plan.
+- [x] Add failing synthetic integration tests with real filesystem/hash/locking and actual analysis outputs, mocking only the slow model/cache boundary where needed; cover all Review Focus cases.
+- [x] Verify RED, then implement exact5 registration, all7cache/current-analysis verification, exact artifact inventory, atomic marker-last writes, output lock,50GiB reserve, reuse/partial identity guards and input revalidation before commit.
+- [x] Verify GREEN, read actual status against production R: waiting, no target processing/output creation.
+- [x] Run full CPU test suite and compare protected source/config/data hashes.
+- [x] Request one independent whole-change review, fix material findings with regression tests, re-run applicable/full checks, commit only reviewed additive module/tests/doc/plan.
 
 ## Decisions and self-review
 

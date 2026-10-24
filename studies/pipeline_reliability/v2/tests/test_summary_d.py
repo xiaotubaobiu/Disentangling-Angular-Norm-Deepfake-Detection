@@ -240,3 +240,53 @@ def test_one_oracle_numeric_NA_does_not_erase_operating_counts(experiment):
     assert q.n_valid_seeds.iloc[0]==4 and np.isnan(q.estimate_mean.iloc[0])
     operating=pd.read_csv(folder/'per_seed_calibration.csv');q=operating.query('seed==3407 and representation=="raw" and aggregation=="mean_logit" and comparison=="source_real" and metric=="fpr"')
     assert q.estimate.notna().all()
+
+
+
+@pytest.mark.parametrize('kind',['partial_csv','dangling_csv','complete_csv','complete_marker','input_marker','dangling_lock'])
+def test_all_file_level_links_are_rejected_without_outside_write(experiment,tmp_path,kind):
+    import json
+    root,path,tasks=experiment;outside=tmp_path/'external';original=b'PRESERVE_OUTSIDE'
+    if kind in ('partial_csv','dangling_csv','complete_csv','complete_marker'):
+        module.summarize_backbone(path,'clip_vit_b16');out=root/'analysis/D/clip_vit_b16/five_seed_summary'
+        if kind in ('partial_csv','dangling_csv'):(out/'complete.json').unlink()
+        name='complete.json' if kind=='complete_marker' else 'per_seed_metrics.csv';target=out/name
+        if kind in ('complete_csv','complete_marker'):original=target.read_bytes()
+        target.unlink()
+        if kind!='dangling_csv':outside.write_bytes(original)
+        target.symlink_to(outside)
+    elif kind=='input_marker':
+        target=root/'analysis/D'/list(tasks)[0]/'complete.json';original=target.read_bytes();outside.write_bytes(original);target.unlink();target.symlink_to(outside)
+    else:
+        target=root/'analysis/D/.locks/clip_vit_b16_five_seed_summary.lock';target.parent.mkdir(parents=True,exist_ok=True);target.symlink_to(outside)
+    with pytest.raises(ValueError,match='unsafe|symlink|regular|outside'):module.summarize_backbone(path,'clip_vit_b16')
+    if kind in ('dangling_csv','dangling_lock'):assert not outside.exists()
+    else:assert outside.read_bytes()==original
+
+
+def test_receipt_and_hash_use_one_stable_snapshot(experiment,monkeypatch):
+    import json
+    root,path,tasks=experiment;original=module._accept;changed=[]
+    def update_previous_receipt(*args):
+        result=original(*args)
+        if args[-1]==42 and not changed:
+            marker=root/'analysis/D'/list(tasks)[0]/'complete.json';j=json.loads(marker.read_text());j['status']='ANALYSIS_COMPLETE_WITH_NUMERIC_NA';marker.write_text(json.dumps(j));changed.append(True)
+        return result
+    monkeypatch.setattr(module,'_accept',update_previous_receipt)
+    with pytest.raises(ValueError,match='changed|snapshot'):module.summarize_backbone(path,'clip_vit_b16')
+    assert not(root/'analysis/D/clip_vit_b16/five_seed_summary/complete.json').exists()
+
+
+def test_marker_disappearance_never_enters_per_model_scoring_or_writes(experiment,monkeypatch):
+    from reliability_v2 import cache_d
+    root,path,tasks=experiment;run=list(tasks)[0];out=root/'analysis/D'/run;original=cache_d._context;changed=[];scoring=[]
+    before={p.name:p.stat().st_mtime_ns for p in out.iterdir() if p.is_file() and p.name!='complete.json'}
+    def remove_after_initial_check(config,key):
+        result=original(config,key)
+        if key==run and not changed:(out/'complete.json').unlink();changed.append(True)
+        return result
+    def forbidden_load(*args,**kwargs):scoring.append(True);raise AssertionError('summary attempted per-model scoring')
+    monkeypatch.setattr(cache_d,'_context',remove_after_initial_check);monkeypatch.setattr(cache_d,'load_features',forbidden_load)
+    with pytest.raises(ValueError,match='changed|missing|snapshot|disappeared'):module.summarize_backbone(path,'clip_vit_b16')
+    assert not scoring
+    assert before=={p.name:p.stat().st_mtime_ns for p in out.iterdir() if p.is_file() and p.name!='complete.json'}
