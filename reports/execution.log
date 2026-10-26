@@ -1,0 +1,51 @@
+{"phase": "CPU_preflight", "state": "START", "utc": "2026-10-07T11:26:38.170675+00:00"}
+Traceback (most recent call last):
+  File "/home/z/project/deepfake_detector/run.py", line 12, in <module>
+    main(ROOT)
+  File "/home/z/project/deepfake_detector/src/deepfake_detector/cli.py", line 58, in main
+    result=execute(config,root,args.config.resolve())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/z/project/deepfake_detector/src/deepfake_detector/execution.py", line 23, in execute
+    stage('CPU_preflight',lambda:preflight(config,project))
+  File "/home/z/project/deepfake_detector/src/deepfake_detector/execution.py", line 15, in stage
+    result=call();record['stages'][name]={'status':'PASS','utc':datetime.datetime.now(datetime.timezone.utc).isoformat()}
+           ^^^^^^
+  File "/home/z/project/deepfake_detector/src/deepfake_detector/execution.py", line 23, in <lambda>
+    stage('CPU_preflight',lambda:preflight(config,project))
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/z/project/deepfake_detector/src/deepfake_detector/orchestration.py", line 186, in preflight
+    if p.returncode:raise ValueError('CPU suite failed; see reports/cpu_preflight_tests.txt')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: CPU suite failed; see reports/cpu_preflight_tests.txt
+{"phase": "CPU_preflight", "state": "START", "utc": "2026-10-07T11:32:44.644749+00:00"}
+{"phase": "CPU_preflight", "state": "PASS"}
+{"phase": "GPU_qualification", "state": "START", "utc": "2026-10-07T11:36:19.329317+00:00"}
+Traceback (most recent call last):
+  File "/home/z/project/deepfake_detector/run.py", line 12, in <module>
+    main(ROOT)
+  File "/home/z/project/deepfake_detector/src/deepfake_detector/cli.py", line 58, in main
+    result=execute(config,root,args.config.resolve())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/z/project/deepfake_detector/src/deepfake_detector/execution.py", line 24, in execute
+    stage('GPU_qualification',lambda:probe(config,project,config_path))
+  File "/home/z/project/deepfake_detector/src/deepfake_detector/execution.py", line 15, in stage
+    result=call();record['stages'][name]={'status':'PASS','utc':datetime.datetime.now(datetime.timezone.utc).isoformat()}
+           ^^^^^^
+  File "/home/z/project/deepfake_detector/src/deepfake_detector/execution.py", line 24, in <lambda>
+    stage('GPU_qualification',lambda:probe(config,project,config_path))
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/z/project/deepfake_detector/src/deepfake_detector/qualification.py", line 111, in probe
+    if 'out of memory' not in text.lower():raise RuntimeError(f'GPU qualification failed: {log}')
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: GPU qualification failed: /home/z/project/deepfake_detector/artifacts/qualification/dinov2_vit_b14_micro128.log
+{"phase": "CPU_preflight", "state": "START", "utc": "2026-10-07T11:40:29.905398+00:00"}
+{"phase": "CPU_preflight", "state": "PASS"}
+{"phase": "GPU_qualification", "state": "START", "utc": "2026-10-07T11:44:10.097189+00:00"}
+{"phase": "GPU_qualification", "state": "PASS"}
+{"phase": "end_to_end_pilot", "state": "START", "utc": "2026-10-07T11:45:49.529447+00:00"}
+{"phase": "end_to_end_pilot", "state": "PASS"}
+{"phase": "15_formal_runs_and_features", "state": "START", "utc": "2026-10-07T11:47:03.353508+00:00"}
+{"phase": "15_formal_runs_and_features", "state": "PASS"}
+{"phase": "30_matched_heads_A_B_C_D_and_report", "state": "START", "utc": "2026-10-09T11:08:30.567307+00:00"}
+{"phase": "30_matched_heads_A_B_C_D_and_report", "state": "PASS"}
+{"status": "COMPLETE", "owner_pid": 3984143, "started": "2026-10-07T11:40:28.528115+00:00", "code_sha256": "7d56c6e5803450369852b5865130a3ed815d87e3e6a91226d276f0fd092611b5", "freeze_sha256": "c3044b9219a8ef18dd1c25f7f75de0d38dd93642bbe4cc0e19381218bf820b5d", "stages": {"CPU_preflight": {"status": "PASS", "utc": "2026-10-07T11:44:10.096638+00:00"}, "GPU_qualification": {"status": "PASS", "utc": "2026-10-07T11:45:49.525800+00:00"}, "end_to_end_pilot": {"status": "PASS", "utc": "2026-10-07T11:47:03.351420+00:00"}, "15_formal_runs_and_features": {"status": "PASS", "utc": "2026-10-09T11:08:30.563392+00:00"}, "30_matched_heads_A_B_C_D_and_report": {"status": "PASS", "utc": "2026-10-09T12:42:49.655873+00:00"}}, "phase": "COMPLETE", "service_restoration": "original container running; local health HTTP200", "finished": "2026-10-09T12:42:49.680085+00:00"}

@@ -1,0 +1,27 @@
+{
+  "files": [],
+  "excluded_directories": [
+    {
+      "source": "/home/z/project/deepfake_detector/.git",
+      "reason": "environment/cache/git or separately captured engineering tree"
+    },
+    {
+      "source": "/home/z/project/deepfake_detector/.pytest_cache",
+      "reason": "environment/cache/git or separately captured engineering tree"
+    },
+    {
+      "source": "/home/z/project/deepfake_detector/src/deepfake_detector/__pycache__",
+      "reason": "environment/cache/git or separately captured engineering tree"
+    }
+  ],
+  "symlinks_recorded_not_followed": [
+    {
+      "source": "/home/z/project/deepfake_detector/.venv",
+      "target": "/home/z/workspace/deepfake_detector_v11_20261007/environment_clean"
+    },
+    {
+      "source": "/home/z/project/deepfake_detector/artifacts",
+      "target": "/home/z/workspace/deepfake_detector_v11_20261007"
+    }
+  ]
+}
