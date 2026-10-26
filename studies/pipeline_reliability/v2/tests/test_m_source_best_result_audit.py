@@ -382,3 +382,19 @@ def test_actual_context_binds_seed_through_canonical_run_identity(route,seed):
     with_seed=copy.deepcopy(contexts)
     for c in with_seed.values():c['seed']=seed
     assert audit.check_selection(job,with_seed,limitations)==disclosed
+
+
+@pytest.mark.parametrize('route,name',[('D','rq4/raw_mean_logit/source_cal_scores.csv'),('H','mean_logit/source_cal_B.csv')])
+def test_saved_score_CSV_preserves_lexical_video_identity(tmp_path,route,name):
+    ids=['004','010','000']
+    q=pd.DataFrame(dict(video_uid=['v/'+v for v in ids],video_id=ids,label=[0,0,0],group_id=['g/'+v for v in ids],score=[.25,.5,.75],rank_score_decimal=['0.2500000000000000001','.5','.75']))
+    values={n:({'synthetic':n} if kind=='json' else q) for n,kind in audit.expected_inventory(route).items()}
+    output=fixture_transport(tmp_path,route=route,values=values)
+    before={str(p):audit.sha(p) for p in output.rglob('*') if p.is_file()}
+    reader=audit.ReadOnlyArtifacts(output,audit.sha(output/'complete.json'),route=route)
+    actual=reader[name]
+    assert actual.video_id.tolist()==ids
+    assert all(type(v) is str for v in actual.video_id)
+    assert actual.label.tolist()==[0,0,0] and actual.score.tolist()==[.25,.5,.75]
+    assert actual.rank_score_decimal.tolist()==q.rank_score_decimal.tolist()
+    assert before=={str(p):audit.sha(p) for p in output.rglob('*') if p.is_file()}

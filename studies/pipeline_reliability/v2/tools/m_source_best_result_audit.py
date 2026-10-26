@@ -252,7 +252,7 @@ class ReadOnlyArtifacts(Mapping):
                 require(decoded<=self.limits['max_decoded_bytes'],'Parquet decoded allocation bound');value=pd.read_parquet(path)
             else:
                 self._table_bound(path)
-                value=pd.read_csv(path,float_precision='round_trip',dtype={'rank_score_decimal':str},keep_default_na=kind!='scores')
+                value=pd.read_csv(path,float_precision='round_trip',dtype={'rank_score_decimal':str,'video_id':str},keep_default_na=kind!='scores')
                 if kind=='scores':
                     for c in ('member_video_uids','member_group_ids','precision_history'):
                         if c in value:value[c]=value[c].map(lambda x:tuple(json.loads(x)))
