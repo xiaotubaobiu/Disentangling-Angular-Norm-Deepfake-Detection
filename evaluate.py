@@ -17,7 +17,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", required=True)
     parser.add_argument("--checkpoint", required=True)
-    parser.add_argument("--domain", default="both", choices=["ffpp", "cdf", "dfd", "both", "all"])
+    parser.add_argument("--domain", default="both", choices=["ffpp", "cdf", "both"])
     args = parser.parse_args()
 
     cfg = load_config(args.config)
@@ -30,23 +30,17 @@ def main():
 
     distributed = torch.distributed.is_initialized()
 
-    if args.domain in ("ffpp", "both", "all"):
+    if args.domain in ("ffpp", "both"):
         loader = build_eval_loader(cfg, domain="ffpp", distributed=distributed)
         metrics = run_eval_epoch(model, loader, device, cfg)
         if is_main_process():
             print(f"FF++: AUC={metrics['auc']:.4f} EER={metrics['eer']:.4f} ACC={metrics['acc']:.4f}")
 
-    if args.domain in ("cdf", "both", "all"):
+    if args.domain in ("cdf", "both"):
         loader = build_eval_loader(cfg, domain="cdf", distributed=distributed)
         metrics = run_eval_epoch(model, loader, device, cfg)
         if is_main_process():
             print(f"CDF: AUC={metrics['auc']:.4f} EER={metrics['eer']:.4f} ACC={metrics['acc']:.4f}")
-
-    if args.domain in ("dfd", "all"):
-        loader = build_eval_loader(cfg, domain="dfd", distributed=distributed)
-        metrics = run_eval_epoch(model, loader, device, cfg)
-        if is_main_process():
-            print(f"DFD: AUC={metrics['auc']:.4f} EER={metrics['eer']:.4f} ACC={metrics['acc']:.4f}")
 
 
 if __name__ == "__main__":
