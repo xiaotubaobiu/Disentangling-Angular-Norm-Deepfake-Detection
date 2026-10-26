@@ -3,16 +3,11 @@ from __future__ import annotations
 import argparse
 import csv
 import json
-import sys
+import os
 import time
 from datetime import datetime
-from pathlib import Path
 
 import torch
-
-ROOT = Path(__file__).resolve().parents[1]
-if str(ROOT) not in sys.path:
-    sys.path.insert(0, str(ROOT))
 
 from deepfake_detection.data.builders import build_eval_loader, build_external_eval_loader, build_val_loader
 from deepfake_detection.data.index_external import (
@@ -104,9 +99,6 @@ def collect_sample_score_rows(model, loader, device, weight, bias, scorers: dict
                 corrected = apply_mean_scale_norm(features, scorer["mean_scale"])
                 logits = corrected @ weight.t().to(features.device) + bias.to(features.device)
                 scores = torch.softmax(logits, dim=1)[:, 1]
-            elif scorer["mode"] == "feature_length":
-                scores = features.norm(dim=-1).float()
-                logits = torch.stack([-scores, scores], dim=1)
             else:
                 raise ValueError(f"Unknown scorer mode: {scorer['mode']}")
             rows_by_scorer[name].extend(build_sample_rows(batch, logits, scores, features.norm(dim=-1)))
@@ -180,14 +172,6 @@ def variant_name_for_partial_alpha(alpha: float) -> str:
     if alpha == 1:
         return "feature_norm"
     return "partial_norm"
-
-
-def variant_name(scorer_name: str) -> str:
-    if scorer_name == "feature_length":
-        return "feature_length"
-    if scorer_name.startswith("partial:"):
-        return variant_name_for_partial_alpha(float(scorer_name.split(":", 1)[1]))
-    return scorer_name
 
 
 def maybe_write_rows(args, rows: list[dict], split: str, scorer_name: str) -> None:
@@ -307,12 +291,12 @@ def main():
     parser.add_argument("--num-workers", type=int, default=16)
     parser.add_argument("--prefetch-factor", type=int, default=8)
     parser.add_argument("--log-every", type=int, default=200)
-    parser.add_argument("--output-dir", default="outputs/paper_eval")
+    parser.add_argument("--output-dir", default="experiments/outputs/exp3_norm_correction")
     parser.add_argument("--external-only", action="store_true")
     parser.add_argument("--external-datasets", default="dfd")
     parser.add_argument("--external-frames-per-video", type=int, default=32)
     parser.add_argument("--external-seed", type=int, default=42)
-    parser.add_argument("--external-index-cache-dir", default="outputs/external_index_cache")
+    parser.add_argument("--external-index-cache-dir", default="experiments/outputs/external_index_cache")
     parser.add_argument("--write-sample-rows", action="store_true")
     parser.add_argument("--splits", default="ffpp,cdf")
     parser.add_argument("--mode", default="raw,feature_norm,partial,mean_scale,fusion")
@@ -362,7 +346,6 @@ def main():
     val_scorers = {
         **{f"partial:{alpha}": {"mode": "partial", "alpha": alpha} for alpha in alphas},
         **({"mean_scale": {"mode": "mean_scale", "mean_scale": mean_scale}} if "mean_scale" in modes else {}),
-        **({"feature_length": {"mode": "feature_length"}} if "feature_length" in modes else {}),
         **({f"fusion:{beta}": {"mode": "fusion", "beta": beta} for beta in betas} if "fusion" in modes else {}),
     }
     val_rows_by_scorer = collect_sample_score_rows(model, build_val_loader(cfg, distributed=distributed), device, weight, bias, val_scorers, "val_scores", args.log_every)
@@ -389,16 +372,6 @@ def main():
             mean_scale_threshold = args.ffpp_val_threshold
             mean_scale_val_acc = compute_acc(labels, scores, mean_scale_threshold)
 
-    feature_length_threshold = None
-    feature_length_val_acc = None
-    if "feature_length" in modes:
-        labels, scores = val_predictions["feature_length"]
-        if args.ffpp_val_threshold is None:
-            feature_length_threshold, feature_length_val_acc = best_accuracy_threshold(torch.tensor(labels, dtype=torch.long), torch.tensor(scores, dtype=torch.float32))
-        else:
-            feature_length_threshold = args.ffpp_val_threshold
-            feature_length_val_acc = compute_acc(labels, scores, feature_length_threshold)
-
     fusion_thresholds = {}
     if "fusion" in modes:
         for beta in betas:
@@ -417,7 +390,6 @@ def main():
     split_scorers = {
         **{f"partial:{alpha}": {"mode": "partial", "alpha": alpha} for alpha in alphas},
         **({"mean_scale": {"mode": "mean_scale", "mean_scale": mean_scale}} if "mean_scale" in modes else {}),
-        **({"feature_length": {"mode": "feature_length"}} if "feature_length" in modes else {}),
         **({f"fusion:{beta}": {"mode": "fusion", "beta": beta} for beta in betas} if "fusion" in modes else {}),
     }
     for split in splits:
@@ -475,27 +447,6 @@ def main():
             }
             result_rows.append(row)
             maybe_write_rows(args, rows_by_scorer["mean_scale"], split, "mean_scale")
-            if split == "cdf" and (best_cdf is None or row["auc"] > best_cdf["auc"]):
-                best_cdf = row
-
-        if "feature_length" in modes:
-            labels, scores = predictions["feature_length"]
-            metrics_05, _, _ = video_metrics(labels, scores, threshold=0.5)
-            metrics_cal, _, _ = video_metrics(labels, scores, threshold=feature_length_threshold)
-            row = {
-                "variant": "feature_length",
-                "param": 0.0,
-                "split": split,
-                "auc": metrics_05["auc"],
-                "eer": metrics_05["eer"],
-                "acc_0.5": metrics_05["acc"],
-                "val_threshold": feature_length_threshold,
-                "val_acc_at_threshold": feature_length_val_acc,
-                "acc_val_threshold": metrics_cal["acc"],
-                **summarize_sample_rows(rows_by_scorer["feature_length"]),
-            }
-            result_rows.append(row)
-            maybe_write_rows(args, rows_by_scorer["feature_length"], split, "feature_length")
             if split == "cdf" and (best_cdf is None or row["auc"] > best_cdf["auc"]):
                 best_cdf = row
 
