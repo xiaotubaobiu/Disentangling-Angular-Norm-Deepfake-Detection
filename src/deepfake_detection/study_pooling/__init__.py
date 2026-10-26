@@ -1,1 +1,0 @@
-"""Pooling/saturation mechanism study."""

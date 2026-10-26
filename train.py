@@ -33,18 +33,14 @@ def _resolve_config_path(path, config_path=None):
     return path
 
 
-def load_config(path, _visited=None):
-    if _visited is None:
-        _visited = set()
-    resolved_path = os.path.realpath(path)
-    if resolved_path in _visited:
-        raise ValueError(f"Circular config inheritance: {path}")
-    _visited.add(resolved_path)
+def load_config(path):
+    resolved_path = _resolve_config_path(path)
     with open(resolved_path) as f:
         cfg = yaml.safe_load(f)
     if "_base_" in cfg:
         base_path = _resolve_config_path(cfg.pop("_base_"), resolved_path)
-        base = load_config(base_path, _visited)
+        with open(base_path) as f:
+            base = yaml.safe_load(f)
         merged = {**base, **cfg}
         for k in set(list(base.keys()) + list(cfg.keys())):
             if k in base and k in cfg and isinstance(base[k], dict) and isinstance(cfg[k], dict):
@@ -53,23 +49,14 @@ def load_config(path, _visited=None):
     return cfg
 
 
-def setup_experiment_log(exp_name, cfg, output_dir="experiments"):
+def setup_experiment_log(exp_name, cfg, output_dir="experiments/outputs"):
     ts = datetime.now().strftime("%Y%m%d_%H%M%S")
-    run_dir = os.path.join(output_dir, ts)
+    run_dir = os.path.join(output_dir, exp_name, ts)
     os.makedirs(run_dir, exist_ok=True)
-    config_dir = os.path.join(run_dir, "config")
-    logs_dir = os.path.join(run_dir, "logs")
-    output_path = os.path.join(run_dir, "output")
-    os.makedirs(config_dir, exist_ok=True)
-    os.makedirs(logs_dir, exist_ok=True)
-    os.makedirs(output_path, exist_ok=True)
-    log_path = os.path.join(logs_dir, "experiment.log")
-    config_path = os.path.join(config_dir, "config.yaml")
-    resolved_config_path = os.path.join(config_dir, "resolved_config.yaml")
-    meta_path = os.path.join(output_path, "meta.json")
+    log_path = os.path.join(run_dir, "experiment.log")
+    config_path = os.path.join(run_dir, "config.yaml")
+    meta_path = os.path.join(run_dir, "meta.json")
     with open(config_path, "w") as f:
-        yaml.dump(cfg, f, default_flow_style=False)
-    with open(resolved_config_path, "w") as f:
         yaml.dump(cfg, f, default_flow_style=False)
     meta = {
         "experiment_name": exp_name,
@@ -153,7 +140,7 @@ def main():
     patience = cfg["train"].get("patience", 5)
     warmup_epochs = cfg["train"].get("warmup_epochs", 0)
     ema_decay = cfg["train"].get("ema_decay", 0)
-    output_dir = cfg["train"].get("output_dir", "experiments")
+    output_dir = cfg["train"].get("output_dir", "experiments/outputs")
     seed = cfg["train"].get("seed", 42)
 
     local_rank = init_ddp()
@@ -169,7 +156,7 @@ def main():
     torch.backends.cudnn.benchmark = False
     torch.backends.cuda.matmul.allow_tf32 = False
     torch.backends.cudnn.allow_tf32 = False
-    torch.use_deterministic_algorithms(True, warn_only=True)
+    torch.use_deterministic_algorithms(True)
 
     logger = None
     run_dir = os.path.join(output_dir, exp_name)
@@ -196,9 +183,7 @@ def main():
             print(f"Missing keys: {len(missing)}, Unexpected keys: {len(unexpected)}")
     if torch.distributed.is_initialized():
         loss_name = cfg.get("loss", {}).get("name", "")
-        model_name = cfg.get("model", {}).get("name", "")
-        model = DDP(model, device_ids=[local_rank], find_unused_parameters=(
-            loss_name == "cross_entropy_plus_prompt" or "dinov2" in model_name))
+        model = DDP(model, device_ids=[local_rank], find_unused_parameters=loss_name == "cross_entropy_plus_prompt")
 
     optimizer = AdamW(model.parameters(), lr=lr, weight_decay=weight_decay)
     scheduler = build_scheduler(optimizer, epochs, warmup_epochs)
@@ -254,7 +239,7 @@ def main():
                 state = model.module.state_dict() if hasattr(model, "module") else model.state_dict()
                 torch.save({"epoch": epoch, "model_state_dict": state, "auc": best_auc,
                             "eer": val_metrics["eer"], "acc": val_metrics["acc"]},
-                           os.path.join(save_dir, "output", "best_model.pth"))
+                           os.path.join(save_dir, "best_model.pth"))
                 if ema is not None:
                     ema.restore(model)
                 logger.log(f"  -> Best model saved (val AUC={best_auc:.4f})")
@@ -272,7 +257,7 @@ def main():
         barrier()
 
     barrier()
-    ckpt_path = os.path.join(save_dir, "output", "best_model.pth")
+    ckpt_path = os.path.join(save_dir, "best_model.pth")
     ckpt = torch.load(ckpt_path, map_location=device)
     raw_model = model.module if hasattr(model, "module") else model
     raw_model.load_state_dict(ckpt["model_state_dict"])
@@ -294,7 +279,7 @@ def main():
         logger.log(f"Best epoch: {best_epoch}, Best val AUC: {best_auc:.4f}")
 
         end_ts = datetime.now().strftime("%Y%m%d_%H%M%S")
-        meta_path = os.path.join(save_dir, "output", "meta.json")
+        meta_path = os.path.join(os.path.dirname(logger.log_path), "meta.json")
         with open(meta_path) as f:
             meta = json.load(f)
         meta["end_time"] = end_ts
@@ -316,7 +301,7 @@ def main():
             json.dump(meta, f, indent=2)
         logger.log(f"Meta saved to {meta_path}")
 
-        results_path = os.path.join(save_dir, "output", "results_summary.txt")
+        results_path = os.path.join(save_dir, "results_summary.txt")
         with open(results_path, "w") as f:
             f.write(f"Exp: {exp_name}\n")
             f.write(f"Model: {cfg.get('model', {}).get('name', 'N/A')}\n")
