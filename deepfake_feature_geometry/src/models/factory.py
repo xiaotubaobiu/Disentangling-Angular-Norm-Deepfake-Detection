@@ -1,0 +1,48 @@
+from __future__ import annotations
+
+from models.efficientnet import EfficientNetBinaryClassifier
+from models.dinov2 import DINOv2BinaryClassifier
+from models.xception import XceptionBinaryClassifier
+from models.clip_classifier import CLIPFineTuneBinaryClassifier
+from models.clip_prompt import CLIPPromptBinaryClassifier
+from models.clip_bgcontrast import CLIPBgFaceContrastModel
+
+
+def build_model(model_cfg: dict):
+    name = model_cfg["name"]
+    clip_name = model_cfg.get("clip_model_name", "ViT-B/16")
+    if name == "efficientnet_b0":
+        return EfficientNetBinaryClassifier(
+            normalize_features=model_cfg.get("normalize_features", False),
+        )
+    if name == "dinov2_vitb14":
+        return DINOv2BinaryClassifier(
+            normalize_features=model_cfg.get("normalize_features", False),
+        )
+    if name == "xception":
+        return XceptionBinaryClassifier(
+            normalize_features=model_cfg.get("normalize_features", False),
+        )
+    if name == "clip_finetune":
+        return CLIPFineTuneBinaryClassifier(
+            clip_name,
+            model_cfg.get("normalize_features", False),
+        )
+    if name == "clip_prompt":
+        tau = model_cfg.get("tau", 0.07)
+        freeze_visual = model_cfg.get("freeze_visual", "none")
+        freeze_visual_layers = model_cfg.get("freeze_visual_layers", 9)
+        projection_dim = model_cfg.get("projection_dim", 512)
+        classifier_normalize_features = model_cfg.get("classifier_normalize_features", True)
+        return CLIPPromptBinaryClassifier(
+            clip_name,
+            tau,
+            freeze_visual,
+            freeze_visual_layers,
+            projection_dim,
+            classifier_normalize_features,
+        )
+    if name == "clip_prompt_bgcontrast":
+        proj_dim = model_cfg.get("projection_dim", 256)
+        return CLIPBgFaceContrastModel(clip_name, proj_dim)
+    raise ValueError(f"Unknown model name: {name}")

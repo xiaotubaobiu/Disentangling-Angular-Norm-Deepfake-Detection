@@ -1,0 +1,91 @@
+{
+  "upstream_commit": "e261aa6ee4c398f63a36c08b7ebad3455dc1428e",
+  "vicuna_revision": "236eeeab96f0dc2e463f2bebb7bb49809279c6d6",
+  "bert_revision": "86b5e0934494bd15c9632b12f734a8a67f723594",
+  "files": [
+    {
+      "url": "https://huggingface.co/lmsys/vicuna-7b-v1.3/resolve/236eeeab96f0dc2e463f2bebb7bb49809279c6d6/config.json",
+      "path": "vicuna-7b-v1.3/config.json",
+      "bytes": 566,
+      "sha256": "3e2ce4e3a78d24ad4bbdddd6a7f1a8ee622f7135772f4cc6695f832fbafdcd8d"
+    },
+    {
+      "url": "https://huggingface.co/lmsys/vicuna-7b-v1.3/resolve/236eeeab96f0dc2e463f2bebb7bb49809279c6d6/generation_config.json",
+      "path": "vicuna-7b-v1.3/generation_config.json",
+      "bytes": 132,
+      "sha256": "062a37a6d986c38231880f5cce4fa9a0145aeefcf8be9ab23ddf7d600c037aea"
+    },
+    {
+      "url": "https://huggingface.co/lmsys/vicuna-7b-v1.3/resolve/236eeeab96f0dc2e463f2bebb7bb49809279c6d6/pytorch_model-00001-of-00002.bin",
+      "path": "vicuna-7b-v1.3/pytorch_model-00001-of-00002.bin",
+      "bytes": 9976634558,
+      "sha256": "886e7beead6fbcd1b6c891ff2541d9f88e01518acc13ee3a9552eea8ae3fab3e"
+    },
+    {
+      "url": "https://huggingface.co/lmsys/vicuna-7b-v1.3/resolve/236eeeab96f0dc2e463f2bebb7bb49809279c6d6/pytorch_model-00002-of-00002.bin",
+      "path": "vicuna-7b-v1.3/pytorch_model-00002-of-00002.bin",
+      "bytes": 3500315539,
+      "sha256": "1d5685431e9196b13ec60c51e071e2b29385ce4a44442947de81dc7fb46da642"
+    },
+    {
+      "url": "https://huggingface.co/lmsys/vicuna-7b-v1.3/resolve/236eeeab96f0dc2e463f2bebb7bb49809279c6d6/pytorch_model.bin.index.json",
+      "path": "vicuna-7b-v1.3/pytorch_model.bin.index.json",
+      "bytes": 26788,
+      "sha256": "aca3c1facc89d12311a667c32e85ac86e625990992ea8a189e3b036ba371b931"
+    },
+    {
+      "url": "https://huggingface.co/lmsys/vicuna-7b-v1.3/resolve/236eeeab96f0dc2e463f2bebb7bb49809279c6d6/special_tokens_map.json",
+      "path": "vicuna-7b-v1.3/special_tokens_map.json",
+      "bytes": 435,
+      "sha256": "2ea88203b955648951a454e73a73967ff77ba4e79ae8ceb4400d4ab2cb040777"
+    },
+    {
+      "url": "https://huggingface.co/lmsys/vicuna-7b-v1.3/resolve/236eeeab96f0dc2e463f2bebb7bb49809279c6d6/tokenizer.model",
+      "path": "vicuna-7b-v1.3/tokenizer.model",
+      "bytes": 499723,
+      "sha256": "9e556afd44213b6bd1be2b850ebbbd98f5481437a8021afaf58ee7fb1818d347"
+    },
+    {
+      "url": "https://huggingface.co/lmsys/vicuna-7b-v1.3/resolve/236eeeab96f0dc2e463f2bebb7bb49809279c6d6/tokenizer_config.json",
+      "path": "vicuna-7b-v1.3/tokenizer_config.json",
+      "bytes": 727,
+      "sha256": "bd87e244d21d45c358e5d822aeb2efd4e4d60127e43b648ed3efe7823fd35060"
+    },
+    {
+      "url": "https://storage.googleapis.com/sfr-vision-language-research/LAVIS/models/InstructBLIP/instruct_blip_vicuna7b_trimmed.pth",
+      "path": "instruct_blip_vicuna7b_trimmed.pth",
+      "bytes": 2266496277,
+      "sha256": "6b9553383527466c1382259a3fc97b6d643f72b1ecaa37bf7c4711de0059b8ea"
+    },
+    {
+      "url": "https://storage.googleapis.com/sfr-vision-language-research/LAVIS/models/BLIP2/eva_vit_g.pth",
+      "path": "eva_vit_g.pth",
+      "bytes": 2025249237,
+      "sha256": "99d2bb36c6b52c94fe6e2e12373afb27de57ae81378c3d8c53bf0e83b0f4275f"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1EUnVG4OZZPXeOyWaa5P590yCKGH-nunQ",
+      "path": "COCO_150k_SD3_SD2IP.pth",
+      "bytes": 175170,
+      "sha256": "d326c83888b4658b6e1278aa2749c3e4daa063b1cbcda1543abb046a1b6dd274"
+    },
+    {
+      "url": "https://huggingface.co/google-bert/bert-base-uncased/resolve/86b5e0934494bd15c9632b12f734a8a67f723594/config.json",
+      "path": "bert-base-uncased/config.json",
+      "bytes": 570,
+      "sha256": "7160e1553ad2ca51d8c1cb066be533db31826e12d173824c1bb0cb1a4f187d20"
+    },
+    {
+      "url": "https://huggingface.co/google-bert/bert-base-uncased/resolve/86b5e0934494bd15c9632b12f734a8a67f723594/vocab.txt",
+      "path": "bert-base-uncased/vocab.txt",
+      "bytes": 231508,
+      "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3"
+    },
+    {
+      "url": "https://huggingface.co/google-bert/bert-base-uncased/resolve/86b5e0934494bd15c9632b12f734a8a67f723594/tokenizer_config.json",
+      "path": "bert-base-uncased/tokenizer_config.json",
+      "bytes": 48,
+      "sha256": "a025160ef0431f1a392f6f050c1310f4c5d9fb6f275932dbccba73c4d214bf10"
+    }
+  ]
+}

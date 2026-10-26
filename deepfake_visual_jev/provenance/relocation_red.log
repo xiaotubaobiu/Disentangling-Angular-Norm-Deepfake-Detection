@@ -1,0 +1,40 @@
+F..                                                                      [100%]
+=================================== FAILURES ===================================
+______________ test_relocation_is_idempotent_inside_original_root ______________
+
+project = (<module 'project_relocation' from '/home/z/project/deepfake_detection/projects/visual_jev/scripts/relocate_artifacts....relocation_is_idempotent_0/workspace/projects/visual_jev'), PosixPath('experiments/2026-09-22_semantic_visual_jev_e2'))
+
+    def test_relocation_is_idempotent_inside_original_root(project):
+        module, root, _ = project
+        module.relocate()
+        before = {p.relative_to(root): p.read_bytes() for p in root.rglob("*.json")}
+>       module.relocate()
+
+tests/test_project_relocation.py:58: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+scripts/relocate_artifacts.py:47: in relocate
+    if not path.is_relative_to(ROOT) or sha(path) != checkpoint["sha256"]:
+scripts/relocate_artifacts.py:19: in sha
+    with path.open("rb") as stream:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/tmp/pytest-of-z/pytest-111/test_relocation_is_idempotent_0/workspace/projects/visual_jev/projects/visual_jev/experiments/h1/best_model.pth')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+E       FileNotFoundError: [Errno 2] No such file or directory: '/tmp/pytest-of-z/pytest-111/test_relocation_is_idempotent_0/workspace/projects/visual_jev/projects/visual_jev/experiments/h1/best_model.pth'
+
+/home/z/anaconda3/lib/python3.11/pathlib.py:1044: FileNotFoundError
+----------------------------- Captured stdout call -----------------------------
+{"relocated_metadata_files": 8, "project_root": "/tmp/pytest-of-z/pytest-111/test_relocation_is_idempotent_0/workspace/projects/visual_jev"}
+=========================== short test summary info ============================
+FAILED tests/test_project_relocation.py::test_relocation_is_idempotent_inside_original_root
+1 failed, 2 passed in 0.06s

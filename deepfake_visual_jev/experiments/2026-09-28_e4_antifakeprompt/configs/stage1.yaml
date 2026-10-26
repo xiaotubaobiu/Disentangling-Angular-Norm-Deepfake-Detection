@@ -1,0 +1,41 @@
+seed: 42
+domains: [ffpp, cdf]
+dataset:
+  root: /Dataset/deepfake_detection/DF40_all
+  methods: []
+  train_videos_per_method: 586
+  val_videos_per_method: 100
+  frames_per_video: 2
+model:
+  name: antifakeprompt
+train:
+  seed: 42
+  epochs: 3
+  examples_per_epoch: 4096
+  effective_batch: 24
+  microbatch: 2
+  prompt_lr: 1.0e-5
+  head_lr: 1.0e-4
+  weight_decay: 0.05
+  num_workers: 4
+  gradient_checkpointing: true
+preprocess:
+  image_size: 224
+  mean: [0.4874, 0.4694, 0.4305]
+  std: [0.2854, 0.2802, 0.3005]
+  source: official_checkpoint.config.datasets.textinv.vis_processor.eval
+  augmentation: none
+validation:
+  fake_videos_per_method: 8
+  real_videos: 32
+  frames: 1
+evaluation:
+  frames: 4
+  semantic_fake_videos_per_method: 32
+  semantic_real_videos: null
+  microbatch: 4
+  bootstrap_samples: 10000
+  bootstrap_seed: 20260928
+  conditions: [official_binary, fixed_h1, seen, heldout, counterfactual, meaningless_candidates, meaningless_questions, negation, composition, meaningless_matched_candidates, meaningless_matched_questions, permutation]
+  lm_score: summed_answer_log_likelihood_without_eos
+  probability: softmax_over_valid_candidates

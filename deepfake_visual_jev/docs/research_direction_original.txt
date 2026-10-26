@@ -1,0 +1,986 @@
+Visual-Jev 深度伪造检测研究：假设、验证方法与当前结论总览
+一、研究总目标
+
+这项研究的核心判断是：
+
+深度伪造检测本质上是一个受限的概率决策问题，而不是开放式语言生成问题。
+
+生成式 VLM 通常学习：
+
+$$ P(t_1,t_2,\ldots,t_n\mid I,Q) $$
+
+即根据图像和问题逐 token 生成文字答案。
+
+我们希望构建的 Visual-Jev 学习：
+
+$$ P(c_i\mid I,Q,C) $$
+
+其中：
+
+\(I\)：图像；
+\(Q\)：自然语言问题；
+\(C=\{c_1,\ldots,c_K\}\)：动态候选答案；
+输出：各候选的直接概率。
+
+目标是在保留以下能力的同时：
+
+强视觉特征提取；
+问题语义理解；
+候选语义理解；
+图像—语言联合决策；
+结构化概率输出；
+
+删除以下对深伪检测未必必要的部分：
+
+大型自回归语言生成器；
+LM Head；
+长文本生成；
+token-by-token 解码；
+大量与受限取证决策无关的语言容量。
+
+理想最终模型是：
+
+$$ \boxed{ \text{Vision Encoder} + \text{Compact Text Encoder} + \text{Small Decision Transformer} + \text{Shared Candidate Scorer} } $$
+
+而不是完整的生成式 VLM。
+
+二、完整研究假设体系
+假设	核心问题	当前状态
+H1：候选决策可行性	固定二分类头能否换成 Jev-style 候选共享评分器而不损失真假检测能力？	已获得支持
+E2/H2-A：领域语义决策	加入问题、动态候选和多维取证语义后，模型是否仍能保持检测性能，并真正利用语言语义？	当前预注册组合方案不受支持
+H2-B：生成能力冗余性	是否可以抛弃开放式语言生成器，仅用紧凑语义决策网络达到相近检测性能，并显著更小、更快？	尚未正式验证
+H2-C：语言侧压缩	CLIP Text 等文本模块能否进一步压缩成 Tiny Text Encoder，同时保持语义与检测能力？	尚未验证
+H3：RL 决策优化	在视觉能力固定后，RL 能否提高跨域、退化样本和概率决策的鲁棒性？	尚未开始，细节暂留空
+三、背景经验：为什么转向 Decision Modeling
+
+此前已经尝试过：
+
+图像—图像对比学习；
+图像—文本对比学习；
+背景区域与伪造区域之间的不一致性建模。
+
+这些路线没有带来预期提升。
+
+目前较合理的经验总结是：
+
+不同伪造方法的取证痕迹高度异质，很难要求所有伪造样本形成一个统一、紧凑的全局特征簇，也很难从背景和伪造区域中提取始终一致的局部差异模式。
+
+这并不表示共享伪造特征不存在，而是说明：
+
+$$ \text{简单全局对比对齐} $$
+
+可能对多模态、多方法的伪造分布约束过强。
+
+因此当前研究重点从：
+
+$$ \text{强行重塑特征空间} $$
+
+转向：
+
+$$ \boxed{ \text{在已有强视觉表示上学习更合适的概率决策函数} } $$
+
+即：
+
+$$ z_i=f(I,Q,C_i) $$
+
+而不是强制：
+
+$$ E_v(I)\approx E_t(C_i) $$
+四、H1：候选式共享评分器能否替代固定二分类头
+4.1 H1 假设
+$$ \boxed{ \text{Jev-style candidate-conditioned scorer 可以替换固定二分类头，且 FF++ 视频 AUROC 下降不超过 1 个百分点} } $$
+
+H1 只验证最弱、最基础的问题：
+
+候选条件决策这种参数化形式能否承担深伪二分类。
+
+它不证明：
+
+文本具有开放语义；
+模型能理解任意问题；
+Visual-Jev 比 VLM 更小；
+概率更可靠；
+RL 有效。
+4.2 H1 两个模型
+H1-Base：传统固定二分类器
+Image
+  ↓
+CLIP ViT-B/16 Visual Encoder
+  ↓
+Linear(d, 2)
+  ↓
+real / fake
+
+数学形式：
+
+$$ v=E_v(I) $$ $$ [z_{\rm real},z_{\rm fake}]=Wv+b $$
+
+类别含义固定在两个输出槽位中。
+
+H1-Jev：最小候选条件评分器
+Image → frozen CLIP Vision → v
+
+Candidate "real" → frozen CLIP Text → t_real
+Candidate "fake" → frozen CLIP Text → t_fake
+
+[v; t; v*t; |v-t|]
+          ↓
+shared MLP scorer
+          ↓
+score(candidate)
+
+评分函数：
+
+$$ u_i=[v;t_i;v\odot t_i;|v-t_i|] $$ $$ z_i=f_\theta(u_i) $$
+
+其中：
+
+$$ f_\theta:2048\rightarrow512\rightarrow128\rightarrow1 $$
+
+所有候选共用同一个 \(f_\theta\)。
+
+最终：
+
+$$ P(c_i)=\operatorname{softmax}(z_i) $$
+
+训练损失和普通二分类器一样，都是交叉熵：
+
+$$ \mathcal L_{\rm H1} = -\log P(c_y) $$
+
+区别不在 Loss，而在模型学习的函数：
+
+传统分类：
+
+$$ P(y\mid I) $$
+
+候选式决策：
+
+$$ P(c_i\mid I,C) $$
+4.3 H1 正式结果
+数据域	H1-Base 视频 AUROC	H1-Jev 视频 AUROC	差值
+FF++	0.998490	0.998551	+0.000061
+CDF	0.901446	0.913479	+0.012033
+
+FF++ 配对视频 bootstrap 95% 区间：
+
+$$ [-0.000155,+0.000314] $$
+
+预注册非劣界限：
+
+$$ -0.01 $$
+
+三种子 H1-Jev FF++ 视频 AUROC：
+
+$$ 0.998531\pm0.000026 $$
+
+候选顺序交换误差：
+
+$$ 0.0 $$
+
+完整测试：
+
+$$ 110\ passed $$
+4.4 H1 结论
+$$ \boxed{\text{H1 获得支持}} $$
+
+可以得出的结论是：
+
+在固定 CLIP 视觉表示下，固定二分类头可以被候选条件共享评分器替代，而不损失 FF++ 同域排序性能；在这次 CDF 跨来源域测试中还观察到了正向 AUROC 差异。
+
+不能得出的结论是：
+
+文本候选已经被模型当作自然语言语义理解。
+
+因为 H1 从头到尾只使用两个固定文本向量。它们完全可能只是两个条件代码或 class ID。
+
+4.5 H1 概率校准限制
+
+H1-Jev 的 Brier Score 明显差于 H1-Base。
+
+例如：
+
+数据域	H1-Base Brier ↓	H1-Jev Brier ↓
+FF++	0.020334	0.041170
+CDF	0.016596	0.041010
+
+因此目前只能说：
+
+排序能力没有下降。
+
+不能说：
+
+概率更可靠或校准更好。
+
+这也是后续阶段需要持续报告 Brier、ECE 和 NLL 的原因。
+
+五、E2：多维语义 Visual-Jev
+5.1 E2 要证明的更强假设
+
+H1 只证明固定文本候选可以充当条件代码。
+
+E2 要进一步证明：
+
+$$ \boxed{ \text{模型能够结合图像、问题和动态候选语义完成多维取证决策， 并且不破坏原有真假检测及跨域能力} } $$
+
+也就是从：
+
+$$ P(c_i\mid I,C) $$
+
+升级为：
+
+$$ P(c_i\mid I,Q,C) $$
+
+E2 同时要求两类能力成立：
+
+检测能力保持
+$$ \text{固定真假任务不明显退化} $$
+语义能力成立
+$$ \text{问题和候选的含义真正控制答案} $$
+5.2 E2 的五类语义任务
+
+E2 不只做真假问题的正反表达，而是使用多维取证任务。
+
+T1：基础真实性描述选择
+Question:
+Which description best matches this image?
+
+Candidates:
+authentic
+manipulated
+
+验证基础真假语义。
+
+T2：问题极性
+Is this image authentic?
+yes / no
+
+以及：
+
+Is this image manipulated?
+yes / no
+
+同一个 yes/no 候选，在两类问题下标签相反。
+
+这迫使模型读取 question，不能只看候选。
+
+T3：同义候选表达
+
+例如：
+
+real / fake
+authentic / manipulated
+genuine / synthetic
+unaltered / forged
+
+验证候选是否具有可迁移语义，而不是固定字符串。
+
+T4：伪造方法问题
+
+例如：
+
+Is this image face-swapped?
+yes / no
+Is this image reenacted?
+yes / no
+
+同一张 fake 图像面对不同方法问题，答案可能不同。
+
+因此不能只根据“图像是 fake”统一回答 yes。
+
+T5：来源类别判断
+
+例如：
+
+camera-captured
+identity-swapped
+expression/action-driven
+
+验证更高层级的来源与伪造家族语义。
+
+六、E2 预注册评估矩阵
+
+每个 seed 在相同物理视频上运行七种条件。
+
+6.1 Fixed-H1
+
+使用 H1 原始固定问题和真假候选。
+
+目的：
+
+检查 E2 新结构是否破坏 H1 已有的真假跨域边界。
+
+6.2 Seen-language
+
+使用训练语言池中的 T1–T5 模板。
+
+目的：
+
+测试模型能否学习已见语义任务。
+
+6.3 Held-out-language
+
+使用完全不参与训练、验证和选模的等价表达。
+
+目的：
+
+区分真正的语言语义泛化和模板记忆。
+
+6.4 Candidate permutation
+
+二候选测试所有 2 种排列，T5 测试所有 6 种排列。
+
+所有概率映射回规范语义后比较。
+
+目的：
+
+排除候选位置依赖。
+
+6.5 Question counterfactual
+
+包括：
+
+Is it authentic?
+Is it manipulated?
+Is it face-swapped?
+Is it reenacted?
+
+目的：
+
+检查问题内容是否真实控制答案。
+
+6.6 Meaningless candidates
+
+使用长度和分布尽量匹配的伪词替换候选，并均衡随机改变伪词与真值的对应。
+
+目的：
+
+如果有意义候选和无意义候选性能相同，说明文本只是 class ID。
+
+6.7 Meaningless question
+
+保留 yes/no 候选，但把 T2/T4 问题替换成无意义文本。
+
+目的：
+
+如果性能不明显下降，说明模型可能根本没有读取问题。
+
+七、E2 预注册 Gate
+Gate	需要证明什么	预注册要求
+G1 二分类非劣	新语义结构没有破坏 H1 固定真假能力	FF++、CDF 三种子平均视频 AUROC 差值及单侧 95% 下界均不得低于 -0.01
+G2 未见语言泛化	不是记忆训练模板	T1–T5 macro seen→held-out 下降不超过 0.02，任一单任务下降不超过 0.05
+G3 候选换序	不是固定输出位置	映射回语义后最大概率误差 ≤ \(10^{-6}\)，预测一致率 100%
+G4 Question 语义	模型确实理解问题极性	T2 held-out balanced accuracy ≥ 0.80，极性逻辑一致率 ≥ 0.95
+G5 方法与来源语义	模型能进行多维取证语义判断	T4 held-out BA ≥ 0.65；匹配方法得分高于反事实问题的比例 ≥ 0.80；T5 held-out macro BA ≥ 0.60
+G6 无意义文本退化	排除文本 class-ID shortcut	无意义候选和无意义问题相对 meaningful 至少下降 0.10，且 bootstrap 区间支持该下降
+
+最终判定：
+
+支持 E2：G1–G6 全部通过；
+不支持 E2：至少一个 Gate 明确失败；
+证据不足：点估计通过，但置信区间无法支持结论。
+八、E2 当前正式结果
+8.1 数据范围说明
+
+当前报告中的 FF++ 和 CDF：
+
+来自 DF40 中对应来源域的测试划分；
+两个域均含相同的 16 种伪造方法；
+CDF 是跨来源域，不是未见伪造方法测试；
+不能直接解释成官方原始 FF++ / Celeb-DF-v2 benchmark 成绩。
+
+每个 seed：
+
+FF++：3049 个视频，140 real / 2909 fake；
+CDF：9901 个视频，178 real / 9723 fake。
+
+视频键使用：
+
+$$ method\_id::video\_id $$
+
+避免不同伪造方法中同名视频被错误合并。
+
+8.2 G1 正式结果
+数据域	种子	H1-Jev	E2-Semantic	E2−H1
+FF++	42	99.8551	99.8394	-0.0157 pp
+FF++	7	99.8539	99.8487	-0.0052 pp
+FF++	2048	99.8502	99.8581	+0.0079 pp
+FF++	三种子平均	99.8531	99.8487	-0.0043 pp
+CDF	42	91.3479	76.4587	-14.8892 pp
+CDF	7	90.9243	83.3891	-7.5352 pp
+CDF	2048	91.1080	86.8063	-4.3016 pp
+CDF	三种子平均	91.1267	82.2181	-8.9087 pp
+
+10,000 次配对 bootstrap：
+
+数据域	平均差值	单侧 95% 下界	G1
+FF++	-0.0043 pp	-0.0274 pp	通过
+CDF	-8.9087 pp	-10.2672 pp	失败
+8.3 E2 当前正式结论
+$$ \boxed{ \text{当前 E2-Semantic 组合方案不受预注册验证支持} } $$
+
+原因非常明确：
+
+它在 FF++ 来源域几乎完全保持 H1 性能，但在 CDF 跨来源域平均下降约 8.91 个百分点，远超预设的 1 个百分点非劣界限。
+
+因为 E2 需要 G1–G6 全部通过，所以即使其余 Gate 后续通过，也不能推翻本轮 E2 失败。
+
+九、E2 当前语义诊断
+
+目前正式跨种子的 G2–G6 仍在运行，但 seed 42 已给出很有价值的诊断。
+
+9.1 Seen-language
+任务	Seed 42 FF++
+基础真假 AUROC	约 99.85%
+T2 正反问题 balanced accuracy	95.17%
+T4 方法判断	85.54%
+T5 三类来源判断	89.10%
+
+说明：
+
+模型在熟悉措辞下确实可以学习多种任务，不是完全无法利用语言和图像关系。
+
+9.2 Held-out-language
+任务	Seen	Held-out
+T2 正反问题 BA	95.17%	67.15%
+T4 方法判断 BA	85.54%	62.98%
+T5 来源 macro BA	89.10%	63.94%
+
+T1/T3 真假排序 AUROC 仍约 99.8%，但不能用真假 AUROC代表所有语义任务。
+
+T5 held-out 中：
+
+表情/动作驱动类仅识别正确 2 / 1118；
+其中 1115 个被预测为身份换脸类。
+
+T4 中，一个不看图、只根据问题固定回答的事后 baseline 都可以达到：
+
+$$ 61.06\% $$
+
+而 E2 为：
+
+$$ 62.98\% $$
+
+说明 T4 当前存在严重 question prior。
+
+9.3 当前语义层面的合理判断
+
+现有结果更像：
+
+$$ \boxed{ \text{模型在训练措辞下学会了任务，但没有形成稳定的未见语言泛化} } $$
+
+因此目前不能声称：
+
+E2 已经获得稳健的领域问答能力。
+
+十、为什么 E2 会失败
+
+当前证据不能唯一确定内部原因，但可以把原因按可能性排序。
+
+10.1 多任务负迁移破坏 H1 的跨域边界
+
+H1 只优化：
+
+$$ real/fake $$
+
+E2 同时优化：
+
+$$ T1+T2+T3+T4+T5 $$
+
+这些任务可能要求不同的视觉方向。
+
+真实性需要：
+
+$$ g_{\rm auth}(v) $$
+
+方法识别需要：
+
+$$ g_{\rm method}(v) $$
+
+来源分类需要：
+
+$$ g_{\rm source}(v) $$
+
+共享决策模块可能为了适应 FF++ 中的方法和来源结构，牺牲了 H1 已有的跨域真实性方向。
+
+一个关键证据是：
+
+E2 即使在 fixed-H1 问题下，CDF 仍然下降到 82.22%。
+
+如果问题只在新问题措辞，fixed-H1 不应下降这么多。
+
+10.2 当前融合模块只在 FF++ 上学习，容易学到域捷径
+
+CLIP Vision 和 CLIP Text 已经预训练过，但中间新的 decision function \(f\) 只在当前训练域中学习。
+
+它可能学习的是：
+
+$$ f(\text{FF++ shortcut},\text{text template}) $$
+
+而不是：
+
+$$ f(\text{domain-invariant evidence},\text{semantic proposition}) $$
+
+三个 seed 的 FF++ 几乎完全相同，但 CDF 从 76.46% 到 86.81% 相差约 10 个百分点，也支持：
+
+训练目标允许多个同域表现相同、跨域性质截然不同的 shortcut solution。
+
+这不像单纯稳定欠拟合。
+
+10.3 CLIP Text Encoder偏描述性，不是强问题推理模型
+
+CLIP Text Encoder天然擅长：
+
+a manipulated face
+an authentic portrait
+
+这种描述性语义。
+
+但 E2 要求它理解：
+
+Is this authentic? + yes
+Is this manipulated? + no
+
+这里包含：
+
+问题极性；
+yes/no 与问题的组合；
+反事实关系；
+指令式语义。
+
+CLIP Text 并不是为 instruction following 或复杂逻辑组合训练的。
+
+Seen 高、held-out 大幅下降，符合：
+
+模型学会了训练措辞模式，但没有形成稳定的组合逻辑泛化。
+
+10.4 当前表示可能过早池化
+
+如果当前 E2 主要使用：
+
+pooled image vector；
+pooled question vector；
+pooled candidate vector；
+
+那么信息在真正跨模态交互前已经被压缩。
+
+对于真假问题可能足够，但对于：
+
+face-swapped?
+reenacted?
+source family?
+
+模型可能需要局部视觉 patch 和完整语言 token 之间的条件交互。
+
+真正需要建模的是：
+
+$$ f(I,Q,C) $$
+
+而不是简单：
+
+$$ f(\operatorname{pool}(I), \operatorname{pool}(Q), \operatorname{pool}(C)) $$
+10.5 T4/T5 的类别和问题先验
+
+T4、T5 当前存在：
+
+方法数量不平衡；
+问题 yes/no 分布不平衡；
+来源类别分布不平衡；
+特定问法对应固定答案比例较高。
+
+因此模型可能优先学习：
+
+$$ P(answer\mid question) $$
+
+而不是：
+
+$$ P(answer\mid image,question) $$
+
+T4 的 question-only baseline 几乎追平模型，是很强的警告。
+
+10.6 不宜简单归因为“\(f\) 太小”
+
+当前结果不太像单纯容量不足。
+
+如果只是模型太小，通常预期所有 seed 稳定欠拟合。
+
+而当前模式是：
+
+FF++ 三 seed 几乎完全一致；
+CDF 三 seed 差异巨大。
+
+更符合：
+
+$$ \boxed{ \text{\(f\) 的结构归纳偏置或训练目标允许学习不同的域捷径} } $$
+
+问题不一定是“小”，而可能是：
+
+融合方式不对；
+任务组合不对；
+缺少真实性能力保护；
+文本命题构造不对；
+视觉信息过度压缩。
+十一、当前 E2 失败是否否定总假设
+
+没有。
+
+现在可以否定的是：
+
+$$ \boxed{ \text{当前 pooled / two-layer decoder + T1–T5 联合训练方案} } $$
+
+不能否定：
+
+$$ \boxed{ \text{非生成式紧凑视觉语言决策架构能够完成深伪语义决策} } $$
+
+理由是：
+
+H1 已经证明候选式决策不损失基本检测能力；
+E2 在 FF++ 上没有破坏真假检测；
+Seen-language 的 T2/T4/T5 明显高于随机；
+失败集中在跨域与未见措辞；
+这更像融合结构和训练目标问题，而不是图像、语言之间完全没有可利用关系。
+
+目前更准确的判断是：
+
+总体假设仍然具有可行性，但当前 E2 架构没有同时保持跨域真实性边界和语言泛化。
+
+十二、下一轮最关键的诊断实验
+D1：保持 E2 架构，只训练 T1 + T3
+
+训练任务仅保留：
+
+基础真假描述；
+候选同义表达。
+
+去掉：
+
+T2 极性问题；
+T4 方法判断；
+T5 来源分类。
+
+目的：
+
+判断问题来自 E2 架构本身，还是 T2/T4/T5 多任务负迁移。
+
+判定
+
+如果 CDF 从 82% 恢复到接近 91%：
+
+$$ \boxed{\text{多任务负迁移是主因}} $$
+
+如果仍约 82%：
+
+$$ \boxed{\text{融合架构本身是主因}} $$
+
+这是当前优先级最高的实验。
+
+D2：逐个加入语义任务
+
+依次训练：
+
+$$ T1+T3 $$ $$ T1+T3+T2 $$ $$ T1+T3+T2+T4 $$ $$ T1+T3+T2+T4+T5 $$
+
+每一步都记录：
+
+FF++ fixed-H1 AUROC；
+CDF fixed-H1 AUROC；
+各语义任务 seen/held-out；
+Brier/ECE。
+
+目的：
+
+精确定位是哪一种语义任务开始破坏跨域真实性边界。
+
+D3：加入 H1 能力保持约束
+
+使用冻结 H1-Jev 作为 teacher。
+
+训练：
+
+$$ \mathcal L = \mathcal L_{\rm semantic} + \lambda\mathcal L_{\rm H1-preserve} $$
+
+其中：
+
+$$ \mathcal L_{\rm H1-preserve} = KL\left( P_{\rm H1}(real/fake\mid I) \parallel P_{\rm E2}(real/fake\mid I,Q_{\rm fixed}) \right) $$
+
+目标是：
+
+在增加语义任务能力时，不允许 E2 破坏 H1 原本的真实性决策边界。
+
+这一步可能形成很有价值的方法贡献：
+
+$$ \boxed{ \text{Semantic capability expansion without forensic capability forgetting} } $$
+D4：把 Question + Candidate 编码成完整命题
+
+不要分开编码：
+
+Question embedding
+Candidate embedding
+
+而是将每个候选组合成完整 proposition。
+
+例如：
+
+Question: Is this image manipulated?
+Candidate answer: yes.
+Proposition: This image is manipulated.
+
+以及：
+
+Question: Is this image manipulated?
+Candidate answer: no.
+Proposition: This image is not manipulated.
+
+然后：
+
+$$ t_i=E_t(\text{proposition}_i) $$ $$ z_i=f(I,t_i) $$
+
+这降低了 \(f\) 自己学习 question + yes/no 逻辑组合的难度。
+
+D5：从 pooled feature 升级为 token-level interaction
+
+更合理的最终候选架构是：
+
+CLIP Visual Patch Tokens
+            ↑
+     Cross-Attention
+            ↑
+Question+Candidate Proposition Tokens
+            ↓
+Shared Candidate Scorer
+
+数学形式：
+
+$$ X=E_v(I)_{\rm patch} $$ $$ T_i=E_t(Q\oplus C_i)_{\rm tokens} $$ $$ H_i= \operatorname{CrossAttn}(Q=T_i,K=X,V=X) $$ $$ z_i=w^\top\operatorname{Pool}(H_i) $$
+
+这比单纯扩大 MLP 更有针对性。
+
+十三、H2-B：去掉生成能力并把模型做小
+
+这部分是总体论文的第二层目标，但必须在语义架构稳定后再正式验证。
+
+假设
+$$ \boxed{ \text{深伪检测需要视觉语言语义，但不需要大型开放式生成能力} } $$
+
+希望达到：
+
+$$ AUC_{\rm Compact\ Visual-Jev} \approx AUC_{\rm Generative\ VLM} $$
+
+同时：
+
+$$ Params_{\rm Visual-Jev} \ll Params_{\rm VLM} $$ $$ Latency_{\rm Visual-Jev} \ll Latency_{\rm VLM} $$ $$ VRAM_{\rm Visual-Jev} \ll VRAM_{\rm VLM} $$
+预期结构
+Image
+  ↓
+CLIP ViT-B/16 Vision Encoder
+  ↓
+Patch Tokens
+
+Question + Candidates
+  ↓
+Compact Text Encoder
+  ↓
+Semantic Tokens
+
+Patch/Text Cross-Attention
+  ↓
+Small Decision Transformer
+  ↓
+Shared Scorer
+  ↓
+Candidate Probabilities
+
+不保留：
+
+自回归语言 decoder；
+LM vocab head；
+文本生成循环；
+开放式回答。
+H2-B 验证方法
+
+需要比较：
+
+CLIP Binary；
+H1-Jev；
+最终 Semantic Visual-Jev；
+小型生成式 VLM；
+尽可能相同视觉 backbone 的生成式 / 决策式控制实验。
+
+主指标：
+
+FF++ / CDF / DFDC / DFDCP 视频 AUROC；
+Total parameters；
+Active parameters；
+Peak VRAM；
+batch=1 latency；
+throughput；
+checkpoint size；
+cached-text latency。
+
+这部分尚未正式执行。
+
+十四、H2-C：压缩文本编码器
+
+如果完整 CLIP Text + Decision Transformer 能工作，再将文本侧逐步压缩：
+
+$$ CLIP\ Text \rightarrow 6L\ TinyText \rightarrow 4L\ TinyText \rightarrow 2L\ TinyText $$
+
+目标是寻找：
+
+$$ \min Params_{\rm text} $$
+
+使：
+
+$$ AUC\ge AUC_{\rm reference}-\epsilon $$
+
+且：
+
+$$ SemanticGeneralization $$
+
+不明显下降。
+
+训练可以采用：
+
+$$ \mathcal L = \mathcal L_{\rm decision} + \lambda\mathcal L_{\rm text-distill} $$
+
+这里只做：
+
+$$ TinyText\rightarrow CLIPText $$
+
+的文本语义蒸馏，不重新做图像—文本对比学习。
+
+这部分尚未执行。
+
+十五、H3：RL 决策优化
+假设
+$$ \boxed{ \text{当视觉表征与语义决策结构稳定后， RL 可能不显著提高同域 AUROC， 但可以提高跨域、退化样本和概率决策鲁棒性} } $$
+
+预期关注：
+
+跨来源域；
+未见伪造方法；
+JPEG；
+blur；
+resize；
+hard samples；
+Brier / ECE；
+risk-coverage；
+overconfidence。
+
+但 H3 的：
+
+网络结构；
+reward；
+RL 算法；
+数据；
+对照方法；
+
+当前全部留空。
+
+只有 H2 架构稳定后才启动。
+
+十六、当前研究状态总结
+已经成立的结论
+结论 1
+$$ \boxed{ \text{固定二分类头可以被候选条件共享评分器替代， 而不损失基本真假检测能力} } $$
+
+H1 已正式获得支持。
+
+结论 2
+$$ \boxed{ \text{当前 E2 模型能够在训练措辞下学习多维语义任务} } $$
+
+Seen-language T2/T4/T5 结果明显高于随机。
+
+结论 3
+$$ \boxed{ \text{当前 E2 联合语义方案不能保持 CDF 跨来源域性能} } $$
+
+CDF 视频 AUROC：
+
+$$ 91.1267\%\rightarrow82.2181\% $$
+
+G1 正式失败。
+
+结论 4
+$$ \boxed{ \text{当前模型的 held-out language generalization 明显不足} } $$
+
+Seed 42 中 T2/T4/T5 均大幅下降，且方法/来源任务出现明显类别和问题先验。
+
+结论 5
+$$ \boxed{ \text{当前失败不能简单解释为语言无效，也不能简单解释为 \(f\) 太小} } $$
+
+更可能涉及：
+
+多任务负迁移；
+FF++ domain shortcut；
+描述型 CLIP Text 不擅长问题逻辑；
+pooled 表示过早压缩；
+question/candidate proposition 建模不足；
+T4/T5 类别与问题先验；
+缺少 H1 能力保持约束。
+十七、现在可以与不可以写出的论文主张
+目前可以写
+
+候选条件共享评分器可以替代固定深伪二分类头，而不损失同域检测能力。
+
+在多语义训练条件下，模型可以学习已见问题、方法和来源判断。
+
+直接联合训练多维语义任务可能严重损害跨来源域真实性泛化。
+
+在为轻量取证模型增加语言语义能力时，需要显式防止原有 forensic decision boundary 遗忘。
+
+目前不能写
+
+E2 已经成功。
+
+Visual-Jev 已经具备稳健的自然语言问答能力。
+
+模型在未见措辞下保持了语义能力。
+
+Visual-Jev 比生成式 VLM 更小且性能相同。
+
+当前概率输出比分类器更可靠。
+
+RL 能够提高鲁棒性。
+
+十八、下一步推荐执行顺序
+$$ \boxed{ \text{第一步：D1，只训练 T1+T3} } $$
+
+判断架构问题还是多任务负迁移。
+
+然后：
+
+$$ \boxed{ \text{第二步：D2，逐个加入 T2/T4/T5} } $$
+
+定位造成 CDF 崩溃的任务。
+
+接着：
+
+$$ \boxed{ \text{第三步：D3，加入 H1-preserve loss} } $$
+
+防止真实性能力遗忘。
+
+再根据结果决定：
+
+$$ \boxed{ \text{D4 proposition encoding} } $$
+
+和：
+
+$$ \boxed{ \text{D5 patch/token-level cross-attention} } $$
+
+只有当以下三件事同时实现：
+
+$$ \text{FF++ fixed task 保持} $$ $$ \text{CDF fixed task 恢复} $$ $$ \text{held-out language 稳定} $$
+
+才进入：
+
+$$ \text{Tiny Text 压缩} \rightarrow \text{生成式 VLM 对比} \rightarrow \text{RL 鲁棒性优化} $$
+最终一句话
+
+当前研究已经证明了：
+
+Jev-style 候选决策形式可以承担深伪检测。
+
+当前尚未解决的是：
+
+如何在不破坏跨域取证能力的前提下，为该模型增加真正可泛化的语言语义能力。
+
+这正是下一阶段最核心、也最有研究价值的问题。

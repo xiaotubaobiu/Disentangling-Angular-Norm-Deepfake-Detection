@@ -1,0 +1,50 @@
+version: 1
+selection: all_ffpp_and_cdf_test_frames_with_original_video_aggregation
+training_use: forbidden
+negation:
+  task: T2
+  answer_set: answer_train_short
+  # "Is it true that" avoids conversational ambiguity about answering a negative question.
+  questions:
+    - {id: zzz_neg_auth_positive, yes_means: real, pair: authentic, negated: false, text: "Is it true that this facial image is authentic?"}
+    - {id: zzz_neg_auth_negative, yes_means: fake, pair: authentic, negated: true, text: "Is it true that this facial image is not authentic?"}
+    - {id: zzz_neg_fake_positive, yes_means: fake, pair: manipulated, negated: false, text: "Is it true that this facial image is manipulated?"}
+    - {id: zzz_neg_fake_negative, yes_means: real, pair: manipulated, negated: true, text: "Is it true that this facial image is not manipulated?"}
+  requirements:
+    negative_question_balanced_accuracy_min: 0.80
+    positive_negative_hard_answer_complement_consistency_min: 0.95
+  descriptive_metrics: [mean_absolute_probability_complement_error, positive_question_balanced_accuracy]
+composition:
+  T1:
+    question: "Which description gives the authenticity of this face?"
+    candidates:
+      - {semantic: real, text: "This face is authentic and has not been manipulated."}
+      - {semantic: fake, text: "This face is manipulated and is not authentic."}
+  T5:
+    question: "Which combined description correctly identifies the origin of this face?"
+    candidates:
+      - {semantic: camera, text: "An authentic camera image, with neither identity replacement nor facial reenactment."}
+      - {semantic: swap, text: "An identity replacement, not an authentic camera image and not facial reenactment."}
+      - {semantic: reenact, text: "Facial reenactment, not an authentic camera image and not an identity replacement."}
+  requirements:
+    T1_balanced_accuracy_min: 0.80
+    T5_macro_balanced_accuracy_min: 0.60
+    per_task_drop_from_original_heldout_max: 0.05
+length_matched_controls:
+  seed: 20260923
+  conditions: [candidates, questions]
+  meaningful_split: heldout
+  question_control_tasks: [T2, T4]
+  candidate_control_tasks: [T1, T2, T3, T4, T5]
+  neutral_vocabulary: [cedar, pebble, window, velvet, meadow, basket, orbit, copper, ribbon, pencil, harbor, candle, tunnel, marble, garden, kettle]
+  matching: exact_token_count_of_the_full_official_image_question_candidate_prompt
+  allocation: deterministic_sample_and_render_key_hash_without_label_or_semantic_id
+  semantic_mapping: retain_hidden_evaluation_target_and_permutation_only
+  reuse: no_fixed_control_phrase_to_class_mapping
+  paired_comparison: same_image_question_candidate_order_and_target_except_replaced_text
+  requirements:
+    meaningful_minus_control_balanced_accuracy_min: 0.10
+    paired_video_bootstrap_one_sided_95_lower_bound_min_exclusive: 0.0
+decision:
+  stage_1_success: all_original_G1_to_G6_and_all_added_requirements_in_both_domains
+  caveat: whole_model_replacement_does_not_isolate_the_cause_of_E2_failure
