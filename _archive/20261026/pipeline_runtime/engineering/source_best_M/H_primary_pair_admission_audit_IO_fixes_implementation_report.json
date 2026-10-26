@@ -1,0 +1,127 @@
+{
+  "schema": "H_PRIMARY_PAIR_ADMISSION_AUDIT_IO_FIX_IMPLEMENTATION_V1",
+  "utc": "2026-10-25T22:35:17.576249+00:00",
+  "status": "TWO_IO_FINDINGS_FIXED_TARGETED_GREEN_AWAIT_INDEPENDENT_FIX_CONFIRMATION",
+  "source": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/h_primary_pair_admission_audit.py",
+    "sha256": "1ecafa4324d7131c3e86441daafc026b06480dcfea55b506b0ec70d89d62610f"
+  },
+  "tests": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests/test_h_primary_pair_admission_audit.py",
+    "sha256": "e0d26cd5779b526ebb947805b95ed592b7eb475f348c27a7f82d2e0c5f926401"
+  },
+  "original_snapshot": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/review_snapshots/H_primary_pair_14c3_before_IO_fix",
+    "source_sha256": "14c3e92025726ff8be02e87c63d24e8ef554b2bff9cada3019eebaf77e83a299",
+    "tests_sha256": "6820e957f43c4006822f652949cb59c33be1ee53aab40f3598470c116c0623b5"
+  },
+  "independent_review": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_h_primary_pair_admission_audit_review.json",
+    "sha256": "8bf6712985f24e56b490a00186d9e7a66cc31bc485b7975fa45588ca72fb74e6",
+    "preserved": true
+  },
+  "independent_original_repro": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_h_primary_pair_admission_probes.py",
+    "sha256": "5058a9011011773ebad1ad31f0ab89b65e978457636bd1d5243612e297e142cb",
+    "preserved": true
+  },
+  "fixes": [
+    {
+      "id": "HPA001",
+      "regression": "test_snapshot_replacement_inside_fake_slot_preserves_early_digest",
+      "RED": "DID_NOT_RAISE: slot __enter__ replaced originally validated snapshot with unexecuted2a80 bytes; old main published false self SHA.",
+      "resolution": "main captures and returns require_snapshot digest before slot, passes it as mandatory source_sha to audit_owned; audit_owned requires same source bytes/namespace and pins that early digest, not a newly observed SHA. Source path/digest is carried in output and checked through final_check, including both publication checks."
+    },
+    {
+      "id": "HPA002",
+      "regression": "test_last_footer_earlier_manifest_rewrite_cannot_publish_old_metadata",
+      "RED": "DID_NOT_RAISE: at28th footer returning, earlier synthetic manifest80rows rewritten81; old main published old footer.",
+      "resolution": "First7footer reads bracket canonical regular-file dev/inode/size/mtime_ns/ctime_ns. Persist exact7 fingerprint inventory; recheck all7 after every footer sweep, after final source/Q/pins checks, and during prepublication final_check after fsynced partial. No payload/PNG/full Parquet scan added."
+    }
+  ],
+  "extra_regression": {
+    "name": "test_manifest_metadata_fingerprint_detects_same_size_inode_replacement",
+    "RED": "new helper absent",
+    "GREEN": "same-size/same-mtime replacement detected by inode/fingerprint"
+  },
+  "verification": {
+    "new_tests": 114,
+    "preserved_metadata_tests": 94,
+    "combined_result": "208passed7.82s",
+    "independent_unmodified_bb299e_A_chain_positive": "2passed0.77s; legacyDINO7 and generatedDINO123",
+    "environment": {
+      "CUDA_VISIBLE_DEVICES": "",
+      "OMP_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTHONDONTWRITEBYTECODE": "1"
+    },
+    "all_public_slots_explicit_non_acquiring_counters": true,
+    "real_or_synthetic_flock_IO": false,
+    "full_scientific_suite_run": false
+  },
+  "AST_comparison": {
+    "changed_functions": [
+      "final_check",
+      "audit_owned",
+      "require_snapshot",
+      "main"
+    ],
+    "added_functions": [
+      "manifest_fingerprint",
+      "check_manifest_fingerprints"
+    ],
+    "unchanged_functions": [
+      "check_pins",
+      "generated_wrapper_code",
+      "launch_layout",
+      "load_binding",
+      "merge_pins",
+      "publish",
+      "read",
+      "require",
+      "sha",
+      "validate_launch",
+      "validate_mode",
+      "validate_qualification",
+      "validate_qualification_body"
+    ],
+    "Q_mode_launch_template_and_science_helpers_unchanged": true
+  },
+  "logs": {
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/H_primary_pair_admission_audit_IO_fixes_RED.log": "f13604eeb11b6938f63ccebb795074261903f48cd61c9e579753d373f2de3eb2",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/H_primary_pair_admission_audit_IO_fixes_GREEN.log": "0b05f71253f811333f7b8aa9d51571af7fabd7f2ac3298ae0800d0b60252f7e2",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/H_primary_pair_admission_audit_IO_bb299e_positive_GREEN.log": "1173c62bead79a6ee6fdc1eaec5da9cdf94c23351fe859e95b35dcaa00e6eae8"
+  },
+  "protected_sha256_unchanged": {
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/h_parallel_matrix_admission_audit.py": "a65b198602e66662de005c6162563f7286041808c9cafd3b4630b1755c0e3196",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/qualification_snapshots/H_matrix_admission_a65b198602e66662de005c6162563f7286041808c9cafd3b4630b1755c0e3196/entry.py": "a65b198602e66662de005c6162563f7286041808c9cafd3b4630b1755c0e3196",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/h_last_matrix_result_audit.py": "bb299e512e355fa0a8c9b25f901b1788cee6a2b445a4eb1ddb67b30cb4c3a0e2",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/h_parallel_pair_admission_audit.py": "318a248fc2baf3aa3e3e0e697dd9d04ae4190eaeb7f6061eae79f9a34123bb75",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/H_parallel_pair_admission_audit_context.json": "6af5420a066cd80e5946f450d8fc71bdfb580b10fd5f9b2939ddf4df7ede1e63",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_parallel_fresh_validation/parallel_source.py": "a6133c824913ab3bf361095b415eefc9ef75be39ab32fb49ab62e2656dc2624a",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_parallel_fresh_validation/cpu_ledger_adapter.py": "c6b98535e5a28123baae595ab1f4b208f1feab43ff4018e740be94366d044287",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_parallel_fresh_validation/cpu_ledger_admission.py": "bd202e85a4990f9246b96a7081815d07cf364041e5d3498f49bfe41d8779b213",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_parallel_fresh_validation/cpu_primary_analysis.py": "c081c6ffeb14dc6bb0219851fd3fd11df25b28d2eed26ac4b7e06ef1e6e4c6ce",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_parallel_CPU_actual_qualification_clip_vit_b16_20261025T0830.json": "0ae309b3366de860cbd77f539c24a05aae3ec1180dbbd84bbbff95ed3111d7f7",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_parallel_CPU_actual_qualification_dinov2_vit_b14.json": "ab853480f704f24d4b080e04f0bcefb81fd31c4426e74aa36a351d7e8925bebe"
+  },
+  "prior_implementation_report_preserved": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/H_primary_pair_admission_audit_implementation_report.json",
+    "sha256": "99d97290b4531630ada1eecf0b51029d928cf3b57d738e5057918810dccb8115"
+  },
+  "boundaries": {
+    "metadata_only": true,
+    "actual_metadata_run": false,
+    "models_weights_PNG_or_chunks_read": false,
+    "pending_EFF_candidate_used": false,
+    "production_CPU_slots_acquired": false,
+    "F_M_or_owners_modified": false,
+    "production_snapshot_created": false,
+    "qualification_issued": false,
+    "statistics_or_GPU_started": false,
+    "commit_created": false,
+    "tracked_diff_empty": true
+  },
+  "remaining_gate": "Root-appointed IO reviewer independently confirms fixes. No production execution, snapshot sealing, qualification or scientific/data admission follows from these tests alone."
+}

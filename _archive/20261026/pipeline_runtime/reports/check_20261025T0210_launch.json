@@ -1,0 +1,26 @@
+{
+  "utc": "2026-10-25T02:11:10.602595+00:00",
+  "status": "READONLY_HEALTH_AND_RUNTIME_STARTED_ONCE",
+  "health_wrapper_pid": 2383441,
+  "runtime_pid": 2383442,
+  "health_command": [
+    "/usr/bin/time",
+    "-v",
+    "-o",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_formal_checkpoint_health_time_v_20261025T0210.log",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+    "-B",
+    "-u",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_formal_checkpoint_health_20261025T0210.command.py"
+  ],
+  "health_caller_sha256": "657ca33116a9d48448f500002a14062dc8cb4001813a60820c27ce7f14c76690",
+  "runtime_command": [
+    "python3",
+    "-B",
+    "-u",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_runtime_observation_20261025T0210.py"
+  ],
+  "runtime_script_sha256": "456548a97da9831d49a65426c0b831bbaf281876fb682bbcb9c2b5826100c4d8",
+  "production_mutation": false,
+  "GPU_work_started": false
+}

@@ -1,0 +1,61 @@
+{
+  "utc": "2026-10-24T11:14:14.686138+00:00",
+  "status": "PASS_FOUR_FINAL_D_RECOVERY_ALL81_NOW_COMMITTED_AND_EXISTING_CACHE_HANDOFF_PREPARED",
+  "D_formal_complete_active_pending": [
+    11,
+    4,
+    0
+  ],
+  "whole_formal_training_complete_total": [
+    11,
+    45
+  ],
+  "fresh_CPU_epochs_DINO3407_Eff123_Eff2026_Eff3407": [
+    24,
+    24,
+    25,
+    3
+  ],
+  "full_CPU_proofs": 25,
+  "pinned_counts": {
+    "attempts": 564094,
+    "successful_updates": 564013,
+    "AMP_skips": 81
+  },
+  "AMP_development_formal_total": [
+    32,
+    49,
+    81
+  ],
+  "new_since_previous_final_live": 0,
+  "raw_monitor_new_since_previous_initial": 1,
+  "already_reported_event_attempt18415": true,
+  "new_terminal_count": 0,
+  "capacity_GiB": {
+    "workspace_free_GiB": 393.1511917114258,
+    "Dataset_free_GiB": 2601.9718742370605
+  },
+  "GPUmean0to3": [
+    47.875,
+    46.0,
+    48.5,
+    90.625
+  ],
+  "cache_contract": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/D_cache_transition_contract_current.json",
+  "cache_contract_sha256": "27f973d62f440bca7d91f28fdcdeb5d226b606833a985ea5eb0f4ee584058fac",
+  "expected_D_model_role_caches": 105,
+  "raw_FP32_feature_payload_floor_GiB": 13.567399978637695,
+  "HEAD": "5ef6d06bf7aeda02a5a11113e4c35a2c9909f215",
+  "protected13_inputs_unchanged": true,
+  "H_GPU_pending": true,
+  "real_D_cache_analysis_markers": [
+    0,
+    0
+  ],
+  "HANDOFF_sha256": "c1189ada4847ff147dfd70faed5d67271c5aead18ecdec9835ee31c02bc192ff",
+  "status_sha256": "33989779f749173a36d1d77ad867050c82161314617d71063fb39819425bf8b0",
+  "obsidian_timeline_sha256": "bc91420c5659efc20127fd0a6034d279f66995540e00e48a64380ac0b75cec4b",
+  "next_check_utc": "2026-10-24T11:20:00Z",
+  "full_study_and_journal_papers_complete": false,
+  "new_runtime_faults": []
+}

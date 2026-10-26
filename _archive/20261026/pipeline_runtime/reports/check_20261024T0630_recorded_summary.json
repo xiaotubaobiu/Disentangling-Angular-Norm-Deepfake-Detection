@@ -1,0 +1,71 @@
+{
+  "utc": "2026-10-24T06:52:37.650572+00:00",
+  "status": "PASS_ACTUAL_THREE_DINO_TERMINALS_AUTOQUEUE_ALL_SUCCESSOR_RECOVERIES_AND_FINAL_READBACK",
+  "D_formal_complete_active_pending": [
+    8,
+    4,
+    3
+  ],
+  "whole_formal_complete_total": [
+    8,
+    45
+  ],
+  "actual_DINO_7_42_123_terminal_utc": [
+    "2026-10-24T06:34:34.872569+00:00",
+    "2026-10-24T06:35:07.204544+00:00",
+    "2026-10-24T06:35:14.088539+00:00"
+  ],
+  "original_auto_successors": [
+    {
+      "run_id": "D_formal_dinov2_vit_b14_seed3407",
+      "pid": 745561,
+      "gpu": 3
+    },
+    {
+      "run_id": "D_formal_efficientnet_b0_seed7",
+      "pid": 746133,
+      "gpu": 1
+    },
+    {
+      "run_id": "D_formal_efficientnet_b0_seed42",
+      "pid": 746134,
+      "gpu": 2
+    }
+  ],
+  "fresh_four_CPU_epochs": {
+    "D_formal_dinov2_vit_b14_seed2026": 7,
+    "D_formal_dinov2_vit_b14_seed3407": 1,
+    "D_formal_efficientnet_b0_seed7": 2,
+    "D_formal_efficientnet_b0_seed42": 2
+  },
+  "all22_full_CPU_pass": true,
+  "AMP_dev_formal_total": [
+    32,
+    32,
+    64
+  ],
+  "new_since0600": 5,
+  "new_since0646": 0,
+  "new_independent_source_DEV_metric_checks": 2070,
+  "latest_GPUmean0to3_percent": [
+    81.75,
+    59.75,
+    59.625,
+    79.875
+  ],
+  "GPU3_zero_window_resolved_no_restart": true,
+  "fresh_capacity_GiB": {
+    "workspace_free_GiB": 397.9226417541504,
+    "Dataset_free_GiB": 2740.961799621582
+  },
+  "HANDOFF": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/HANDOFF.md",
+  "HANDOFF_sha256": "e421ba8d25228d4e61b71f5e71cca227fdb1f5d6fa25998ca20e6552f468a22a",
+  "status_sha256": "ee50cd4cbc400a3fd10e015fd936e9bee9f420237f72051dd543eb16b8afa942",
+  "final_readback": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/check_20261024T0630_final_readback.json",
+  "final_readback_sha256": "fe5aa183884bcdbf424e02c976539eec2a6bf2c061182ef713d09ba0540e6009",
+  "terminal_manifest": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/D_formal_terminal_manifest_20261024T0630.json",
+  "paper_index": "/home/z/obsidian/paper/deepfake-detector/新实验设计/20261023/论文方法与设置准备_v2/最新稿索引_20261024.md",
+  "next_check_utc": "2026-10-24T07:30:00Z",
+  "new_blockers": [],
+  "full_study_and_journal_papers_complete": false
+}

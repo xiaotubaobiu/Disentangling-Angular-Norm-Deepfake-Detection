@@ -1,0 +1,98 @@
+{
+  "schema": "DETECTOR_V2_CHECK_20261026T1150_CLOSURE_V1",
+  "observed_utc": "2026-10-26T12:06:11.583665+00:00",
+  "live_snapshot": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/check_20261026T1150_final_live_snapshot_20261026T1206.json",
+    "sha256": "7b5f06a22eb3ca1795a8313701f357407dfbc81998ee393ac1608aae1261184b"
+  },
+  "prior_stage_report": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/check_20261026T1150_D_terminal_numeric_consumer_compatibility_pending.json",
+    "sha256": "a32ae06e6e1c73257e5648b4b1a50f3891a180122ce8ff98553d60cbdb3f0c9c"
+  },
+  "D_producer_terminal_resource_evidence": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_D_actual_producer_terminal_resource_evidence_20261026T1200.json",
+    "sha256": "2b9586d1246768cf9bb98f356f6bffd2771d19219be33a1e364ff59f9776dabb"
+  },
+  "consumer_compatibility_engineering_acceptance": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_saved_result_consumer_native_context_fix_engineering_acceptance_20261026T1205.json",
+    "sha256": "4827cc67226f9dde752aaad5c86f110710795672fe26252dccff4b927002882f"
+  },
+  "independent_compatibility_review": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_M_consumer_actual_context_seed_binding_fix_review_20261026.json",
+    "sha256": "5ad3a07d0edc65e780514de95a170a38a5dbb31c4f16c04397fcb2bc9613fed1"
+  },
+  "actual_numeric_audit_retry": {
+    "launch": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/M_D_clip_seed7_R1_actual_selected_core_numeric_audit_native_context_R1_20261026T1205_launch.json",
+      "sha256": "209aae000b4f554978d2f8eb0dc63ddef8519f43573d18765de993a569cdb4e9"
+    },
+    "observer_pid": 3827147,
+    "wrapper_pid": 3827152,
+    "python_child_pid": 3827153,
+    "started_utc": "2026-10-26T12:05:27.838964+00:00",
+    "current_status": "RUNNING_NO_STDERR_AT_SNAPSHOT_NOT_YET_ACCEPTED",
+    "CPU_slot": 0,
+    "AS_soft_hard_bytes": 34359738368,
+    "actual_environment": {
+      "CUDA_VISIBLE_DEVICES": "",
+      "OMP_NUM_THREADS": "2",
+      "MKL_NUM_THREADS": "2",
+      "OPENBLAS_NUM_THREADS": "2",
+      "PYTHONDONTWRITEBYTECODE": "1"
+    },
+    "producer_rerun": false,
+    "same_D60_complete_sha256": "b503feed80f9a7ef80b6e29cba20c45ce6244e205a48bd48eec077b4aaec5e60",
+    "first_actual_audit_failed_and_preserved": true,
+    "full30_permission": false,
+    "H_canary_started": false
+  },
+  "M_owner": {
+    "original_pid": 825619,
+    "completed26": true,
+    "active_draining": 4,
+    "pending_stopped": 15,
+    "raw_roles": 128,
+    "phase_lease_still_held": true,
+    "historical_failure_cause": "UNKNOWN",
+    "recovery_executed": false,
+    "new_owner_started": false,
+    "recovery_recipe": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_owner_natural_drain_recovery_recipe_20261026T1130.json",
+      "sha256": "76b12be6555466d51d12a251edcc58b1eec55a4256c4889f1acef0b71f51ba6f"
+    },
+    "read_only_recovery_review": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_M_owner_phase_guard_drain_recovery_review_20261026.json",
+      "sha256": "d1537076eab682aaf83eee9ff810af9e6cf03c6cb8f76ebb224e61ed4913d8f2"
+    }
+  },
+  "H": {
+    "original_cache_roles_complete": 210,
+    "independent_statistic_pairs_accepted": 6,
+    "total": 15,
+    "Eff7_PID": 1747331,
+    "source_ledger_checks_started": 33,
+    "total_source_checks": 42,
+    "Eff7_terminal": false,
+    "CLIP_original_LAST_five_seed_summary_accepted": true
+  },
+  "capacity": {
+    "free_GiB": 139.51277923583984,
+    "full_remaining_write_peak_reserve_bytes": 148068010153,
+    "full_margin_GiB": 1.6136988019570708,
+    "partial_feature_credit_bytes": 0,
+    "cold_SSD_release_bytes": 0
+  },
+  "code": {
+    "C_commit": "1bf7b85234e0c58623be3602f0052ea8df80d4cc",
+    "original_V_commit": "5ef6d06bf7aeda02a5a11113e4c35a2c9909f215",
+    "M33_unchanged": true,
+    "consumer_suite_passed": 52,
+    "M_summary_suite_passed": 87
+  },
+  "scientific_results_complete": false,
+  "journal_manuscripts_complete": false,
+  "only_detector_continued": true,
+  "JEV_still_paused": true,
+  "GPUs4_7_untouched": true,
+  "next_check_UTC": "2026-10-26T12:30:00+00:00"
+}

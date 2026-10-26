@@ -1,0 +1,20 @@
+{
+  "utc": "2026-10-23T20:22:53.108899+00:00",
+  "status": "BLOCKED_SAFE_PARALLEL_ADMISSION_REQUIRES_D_COORDINATION",
+  "action": "Run six H source-only microqualification workers using GPU2/3",
+  "action_state": "NOT_ATTEMPTED_NO_GPU_POLICY_CREATED",
+  "reason": "Existing live D dispatch uses check/release then Popen; H-only post-lock witness rejects too late to guarantee non-interference on the rejected branch. A Dchild can fail its lock while H subsequently rejects. Independent deterministic CPU flock counterexample reproduced this.",
+  "independent_review": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_resource_admission_design_review_2020.json",
+  "independent_review_sha256": "507dd5db210e8a9eb76a06386c386752034c46131a75102a099ed8338ff2487c",
+  "current_D_has_common_atomic_admission_handshake": false,
+  "current_D_queue_lock": "Lifetime exclusive owner3942476; not a shared dispatch mutex",
+  "possible_resolution": "Cooperative atomic admission in Ddispatcher before use, or wait for natural terminal Dformal/cache stage; no hotpatch/stop/kill under current constraints.",
+  "D_source_config_process_mutated": false,
+  "candidate_runtime_override_removed": true,
+  "draft_preserved": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/proposals/H_admission_2020_rejected",
+  "independent_safe_work": "Narrow Hacceptance fix: accepted frozen-data shallow binding + still full6GPUproof verification, current tests/review pending.",
+  "H_frozen_data_changed": false,
+  "H_full_audit_repeated": false,
+  "automatic_tool_approval_denial": false,
+  "parent_coordination_needed": true
+}

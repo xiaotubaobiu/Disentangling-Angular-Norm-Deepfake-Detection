@@ -1,0 +1,29 @@
+{
+  "apis": {
+    "bootstrap_d_fast": {
+      "signature": "(frame_scores, *, repeats=2000, seed=20261023, fixed_methods=None, known_edges=(), min_groups=20, max_group_fraction=0.5)",
+      "doc": "Common closure bootstrap matching scoring_d's exact draw multiplicities.\n\nConstruct all eight video cells once. Source+same-ID+RGB closure must map\nevery correct/collision video to ONE component. No per-draw frame grouping,\npandas metrics, sorting, or float64 conversion of mpmath rankings occurs.\nReturn point estimates, pointwise conditional intervals, draw table, closure\nmetadata, rank metadata, and actual preparation/bootstrap timing."
+    },
+    "bootstrap_video_metrics_fast": {
+      "signature": "(videos, *, threshold=None, repeats=2000, seed=20261023, fixed_methods=None, min_groups=20, max_group_fraction=0.5)",
+      "doc": "Known-source-group bootstrap of correct video metrics, without row copies.\n\nInteger multiplicities reproduce bootstrap_video_metrics' materialized rows\nincluding repeated FP counts and fixed-method invalidation. Rank/tie groups\nare prepared once using original FP64/mpmath score objects."
+    },
+    "bootstrap_operating_comparison": {
+      "signature": "(fixed_test, source_threshold, target_thresholds, *, repeats=2000, seed=20261023, min_groups=20, max_group_fraction=0.5, calibration_budget=20)",
+      "doc": "RQ4 target-real mean operating effect versus source on one fixed TEST.\n\ntarget_thresholds is the recorded common set of 200 n20 calibration\nthresholds (other recorded counts/budgets are allowed and labeled). For\nvideo i, acceptance_i = #(threshold_j<=score_i)/J. This exact linear mean\nmakes each TEST-group bootstrap equivalent to averaging all J explicitly\nevaluated thresholds on that SAME draw. Decision ties use >= throughout.\n\nOperates deliberately in the frozen FP64 deployment 'score' space, as\nscoring_d.calibration_experiment does. No AUC/ranking calculation occurs.\nCAL subset spread is returned separately; percentile intervals concern TEST\nresampling conditional on the fixed model/CAL pool/recorded thresholds."
+    }
+  },
+  "operating_estimator": "Mean across the recorded CAL subsets at the fixed TEST pool; CAL subset spread is returned separately.",
+  "conditional_scope": "Fixed model, full frozen CAL pool, recorded common subsets, known/proxy TEST group graph.",
+  "pre_target_rule": "Numerical optimization only; no target/cache/model evaluated or inspected. Same seed, sorted IDs, multiplicities, fixed method list, min20/max0.5 gates and pointwise percentile estimator as baseline.",
+  "unresolved_ranking": "Affected AUC/effects are NaN and CI valid_repeats=0; unrelated comparisons remain available.",
+  "multiplicity_export": "draws closure_draw_counts/group_draw_counts are sparse Mapping objects. Use dict(mapping) only when JSON export is needed.",
+  "limitations": [
+    "No complete ancestry certification or NP population guarantee.",
+    "CAL-pool/Test relation exclusions remain caller manifest responsibility.",
+    "One fixed model per call; calibration subsets are never independent models.",
+    "Training-seed SD is separate from TEST bootstrap and CAL subset spread.",
+    "RQ4 uses frozen FP64 deployment score space, while AUC rank bins preserve original mpmath precision.",
+    "min20/max0.5 gates inherited unchanged; they do not establish asymptotic adequacy."
+  ]
+}

@@ -1,0 +1,9 @@
+n_real,n_fake,real_mass,fake_mass,pooled_auc,ranking_usable,analysis_status,macro_auc,macro_valid,macro_tpr,macro_ba,missing_methods,grouping,representation,aggregation
+2,2,2.0,2.0,0.75,True,ok,0.75,True,,,(),correct,raw,mean_logit
+2,2,2.0,2.0,0.75,True,ok,0.75,True,,,(),correct,raw,mean_probability
+2,2,2.0,2.0,0.75,True,ok,0.75,True,,,(),correct,l2,mean_logit
+2,2,2.0,2.0,0.75,True,ok,0.75,True,,,(),correct,l2,mean_probability
+2,1,2.0,1.0,0.75,True,ok,,False,,,"('m1', 'm2')",collision,raw,mean_logit
+2,1,2.0,1.0,0.5,True,ok,,False,,,"('m1', 'm2')",collision,raw,mean_probability
+2,1,2.0,1.0,0.5,True,ok,,False,,,"('m1', 'm2')",collision,l2,mean_logit
+2,1,2.0,1.0,0.5,True,ok,,False,,,"('m1', 'm2')",collision,l2,mean_probability

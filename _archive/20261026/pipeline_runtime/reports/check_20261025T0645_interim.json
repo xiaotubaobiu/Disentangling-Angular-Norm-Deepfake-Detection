@@ -1,0 +1,125 @@
+{
+  "utc": "2026-10-25T07:14:13.861347+00:00",
+  "status": "EXISTING_SINGLE_CACHE_OWNER_HEALTHY_SOURCE_FILE_VALIDATOR_REVIEW_FIX_PENDING_ACTUAL_STAGING",
+  "primary_cache_owner_pid": 3219035,
+  "active": [
+    {
+      "pid": 3219063,
+      "run_id": "H_formal_clip_vit_b16_B_seed7",
+      "gpu": 0,
+      "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e",
+      "backbone": "clip_vit_b16",
+      "alive": true,
+      "matching_cache_worker": true,
+      "rchar": 430903035361
+    },
+    {
+      "pid": 3219064,
+      "run_id": "H_formal_clip_vit_b16_AB_seed7",
+      "gpu": 1,
+      "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+      "backbone": "clip_vit_b16",
+      "alive": true,
+      "matching_cache_worker": true,
+      "rchar": 430464111695
+    },
+    {
+      "pid": 3219065,
+      "run_id": "H_formal_clip_vit_b16_B_seed42",
+      "gpu": 2,
+      "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+      "backbone": "clip_vit_b16",
+      "alive": true,
+      "matching_cache_worker": true,
+      "rchar": 429956760814
+    },
+    {
+      "pid": 3219066,
+      "run_id": "H_formal_clip_vit_b16_AB_seed42",
+      "gpu": 3,
+      "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646",
+      "backbone": "clip_vit_b16",
+      "alive": true,
+      "matching_cache_worker": true,
+      "rchar": 430657992042
+    }
+  ],
+  "pending": 26,
+  "operational_completed_models": 0,
+  "raw_role_markers": 12,
+  "expected_role_markers": 210,
+  "raw_role_records": [
+    {
+      "relative": "features/H/H_formal_clip_vit_b16_AB_seed42/B/SOURCE_CAL/complete.json",
+      "rows": 1120,
+      "role": "B/SOURCE_CAL"
+    },
+    {
+      "relative": "features/H/H_formal_clip_vit_b16_AB_seed42/B/SOURCE_TEST/complete.json",
+      "rows": 5600,
+      "role": "B/SOURCE_TEST"
+    },
+    {
+      "relative": "features/H/H_formal_clip_vit_b16_AB_seed42/B/TARGET_TEST/complete.json",
+      "rows": 26560,
+      "role": "B/TARGET_TEST"
+    },
+    {
+      "relative": "features/H/H_formal_clip_vit_b16_B_seed42/B/SOURCE_CAL/complete.json",
+      "rows": 1120,
+      "role": "B/SOURCE_CAL"
+    },
+    {
+      "relative": "features/H/H_formal_clip_vit_b16_B_seed42/B/SOURCE_TEST/complete.json",
+      "rows": 5600,
+      "role": "B/SOURCE_TEST"
+    },
+    {
+      "relative": "features/H/H_formal_clip_vit_b16_B_seed42/B/TARGET_TEST/complete.json",
+      "rows": 26560,
+      "role": "B/TARGET_TEST"
+    },
+    {
+      "relative": "features/H/H_formal_clip_vit_b16_AB_seed7/B/SOURCE_CAL/complete.json",
+      "rows": 1120,
+      "role": "B/SOURCE_CAL"
+    },
+    {
+      "relative": "features/H/H_formal_clip_vit_b16_AB_seed7/B/SOURCE_TEST/complete.json",
+      "rows": 5600,
+      "role": "B/SOURCE_TEST"
+    },
+    {
+      "relative": "features/H/H_formal_clip_vit_b16_AB_seed7/B/TARGET_TEST/complete.json",
+      "rows": 26560,
+      "role": "B/TARGET_TEST"
+    },
+    {
+      "relative": "features/H/H_formal_clip_vit_b16_B_seed7/B/SOURCE_CAL/complete.json",
+      "rows": 1120,
+      "role": "B/SOURCE_CAL"
+    },
+    {
+      "relative": "features/H/H_formal_clip_vit_b16_B_seed7/B/SOURCE_TEST/complete.json",
+      "rows": 5600,
+      "role": "B/SOURCE_TEST"
+    },
+    {
+      "relative": "features/H/H_formal_clip_vit_b16_B_seed7/B/TARGET_TEST/complete.json",
+      "rows": 26560,
+      "role": "B/TARGET_TEST"
+    }
+  ],
+  "raw_model_markers": 0,
+  "independently_accepted_model_count": 0,
+  "CPU_bottleneck": "Repeated full source-model/all5 ledger plus fresh PNG byte/RGB and cache checks observed; no failure/restart or proven single low-level cause",
+  "M_metadata_policy_full_tests": 449,
+  "M_actual_file_tensor_validator_temporary_file_tests": 37,
+  "M_file_validator_review": "SBF1/2 fixed4RED→37GREEN; independentfixconfirmation pending; no actual45 source checkpoints loaded yet",
+  "M_real45_staging_complete": false,
+  "M_cache_extraction_statistics_driver_complete": false,
+  "M_production_admitted": false,
+  "cold_SSD_release_bytes": 0,
+  "free_GiB": 165.0767822265625,
+  "next_check_utc": "2026-10-25T07:30:00Z"
+}

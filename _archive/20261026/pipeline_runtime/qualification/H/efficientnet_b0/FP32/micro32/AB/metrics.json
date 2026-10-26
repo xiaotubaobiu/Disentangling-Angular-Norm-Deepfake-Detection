@@ -1,0 +1,21 @@
+{
+  "dev": {
+    "macro_auc": 0.125,
+    "pooled_auc": 0.125,
+    "method_auc": {
+      "Deepfakes": 0.0,
+      "Face2Face": 0.0,
+      "FaceSwap": 0.0,
+      "NeuralTextures": 0.5
+    }
+  },
+  "source_cal": {
+    "threshold": 0.2475688615743746,
+    "alpha": 0.05,
+    "videos": 8,
+    "false_positives": 0,
+    "empirical_fpr": 0.0,
+    "rule": "score>=threshold",
+    "auc_called": false
+  }
+}

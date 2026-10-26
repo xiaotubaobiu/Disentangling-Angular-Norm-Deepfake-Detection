@@ -1,0 +1,71 @@
+{
+  "utc": "2026-10-24T16:25:54.973700+00:00",
+  "status": "FIRST_REAL_FIVE_SEED_SUMMARY_LAUNCHED_ORIGINAL_ENTRY_POINT_FULL_INPUT_ACCEPTANCE_PENDING",
+  "backbone": "clip_vit_b16",
+  "training_seed_count": 5,
+  "registered_seeds": [
+    7,
+    42,
+    123,
+    2026,
+    3407
+  ],
+  "slot": 1,
+  "flock_pid": 2026880,
+  "command": [
+    "/usr/bin/flock",
+    "--nonblock",
+    "--conflict-exit-code",
+    "75",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/D/production_cpu_slot1.lock",
+    "/usr/bin/time",
+    "-v",
+    "-o",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/D_CLIP_five_seed_summary_time_v_20261024T1600.log",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+    "-u",
+    "-m",
+    "reliability_v2.summary_d",
+    "run",
+    "--config",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/configs/execution.json",
+    "--backbone",
+    "clip_vit_b16"
+  ],
+  "summary_code_sha256": "489330049b8b95c74db9bb3d191a38f7e7190107788144ff6c07aaec9946db93",
+  "independent_model_acceptance": {
+    "7": {
+      "run_id": "D_formal_clip_vit_b16_seed7",
+      "independent_acceptance_sha256": "4a1f34967b5a3bb5bdfcffb3fb0af24e5823d51d12fac4e8334a1c09e8d63185",
+      "analysis_complete_sha256": "9aa7620cb6a65fed4e2bfd08db6ff0bbab649f794e9850d853bf17529ad1b6c6"
+    },
+    "42": {
+      "run_id": "D_formal_clip_vit_b16_seed42",
+      "independent_acceptance_sha256": "7c445cbc59ad349c9fabb5328d78e3feb7b4d6ee8c84373653e64efcb8f395b1",
+      "analysis_complete_sha256": "ffcb4bcabc1e89b566b59549438e023c8dc6038ba06b9b8763b81b4f1b73dbd1"
+    },
+    "123": {
+      "run_id": "D_formal_clip_vit_b16_seed123",
+      "independent_acceptance_sha256": "b9a0ff2d019eb2c3ecbc639c8618ed18b82b6878d814907aa94fdb09125eb523",
+      "analysis_complete_sha256": "7531138be3c2ef7a78aaa189f7722977d368829bf213e9ee0aba3b0c3a7e4fc8"
+    },
+    "2026": {
+      "run_id": "D_formal_clip_vit_b16_seed2026",
+      "independent_acceptance_sha256": "52f0f677a44b38f497e135155c100be453953dc2079d2bef6665592acf5e4a3e",
+      "analysis_complete_sha256": "4206b74040f0f3a7d43f2fad0ee70ffd05997db0b180ff1ef9be424d50c79c4f"
+    },
+    "3407": {
+      "run_id": "D_formal_clip_vit_b16_seed3407",
+      "independent_acceptance_sha256": "dc5189b48b7b1f55d873c79e5b723fe7ac0d15e2b9c1c84ad153123db7571c78",
+      "analysis_complete_sha256": "70ac2f9d3ad3638cfc7ed3a83709ae97cdc3643fde93b22e760c83c7451459b3"
+    }
+  },
+  "normal_remaining_budget_sha256": "11dbeb0f190e5e5a4bdac9db51526f07ba3c17bf4688117faa0c55ac285173ca",
+  "calibration_repeats": 200,
+  "test_bootstrap_repeats": 2000,
+  "frozen_protocol_changed": false,
+  "input_gate": "Existing summary_d verifies all five live seven-role caches and65 artifact hashes before collecting and again before commit. Marker existence alone is not accepted.",
+  "resource_profile": "First real summary under time-v; two fixed CPU slots total. No bootstrap JSON arrays loaded for aggregation; their hashes and original references retained. Measure actual peak/elapsed before acceptance.",
+  "output_expected": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/D/clip_vit_b16/five_seed_summary",
+  "next_after_terminal": "Independent real five-seed summary audit and release slot1 for DINO42 analysis; do not claim summary accepted from launch."
+}

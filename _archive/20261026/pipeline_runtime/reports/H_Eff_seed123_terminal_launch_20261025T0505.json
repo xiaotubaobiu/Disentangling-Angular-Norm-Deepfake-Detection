@@ -1,0 +1,26 @@
+{
+  "utc": "2026-10-25T05:04:02.132657+00:00",
+  "status": "SEALED_PAIR_READONLY_CPU_TERMINAL_AUDIT_STARTED_ONCE",
+  "pid": 3093634,
+  "command": [
+    "/usr/bin/time",
+    "-v",
+    "-o",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_Eff_seed123_terminal_time_v_20261025T0505.log",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+    "-B",
+    "-u",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/audit_H_formal_terminal.py",
+    "--run-id",
+    "H_formal_efficientnet_b0_B_seed123",
+    "--run-id",
+    "H_formal_efficientnet_b0_AB_seed123",
+    "--report",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_Eff_seed123_terminal_acceptance_20261025T0505.json"
+  ],
+  "run_ids": [
+    "H_formal_efficientnet_b0_B_seed123",
+    "H_formal_efficientnet_b0_AB_seed123"
+  ],
+  "no_training_restarted": true
+}

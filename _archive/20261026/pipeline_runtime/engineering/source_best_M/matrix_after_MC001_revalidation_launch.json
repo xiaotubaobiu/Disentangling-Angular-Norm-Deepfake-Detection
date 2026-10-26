@@ -1,0 +1,18 @@
+{
+  "utc": "2026-10-25T04:51:15.566722+00:00",
+  "status": "FIXED_MATRIX_READER_ALL29_EXISTING_D_BYTES_REVALIDATION_STARTED_ONCE",
+  "pid": 3061948,
+  "command": [
+    "/usr/bin/time",
+    "-v",
+    "-o",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/matrix_after_MC001_real_time_v.log",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+    "-B",
+    "-u",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/revalidate_existing_D_matrix_after_MC001.py"
+  ],
+  "script_sha256": "3d3295d8e0a8cd64244a290e3177677a0f790a166e0b1cc60984feb30a4cd3e1",
+  "source_originals_mutated": false,
+  "M_production_admitted": false
+}

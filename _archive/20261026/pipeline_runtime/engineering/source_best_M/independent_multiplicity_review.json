@@ -1,0 +1,165 @@
+{
+  "review_kind": "Senior Reviewer independent read-only review of pure multiplicity component",
+  "created_utc": "2026-10-25T04:39:37.761701+00:00",
+  "scope": "Only untracked multiplicity_codec.py and ignored/untracked test_multiplicity_codec.py; no endpoint, statistics, file transport, resource admission, or production qualification.",
+  "BASE": "5ef6d06bf7aeda02a5a11113e4c35a2c9909f215",
+  "HEAD": "0db2fb726988ce9d3cf88731f5c93698a3aee7d3",
+  "reviewed_changes_base": "0db2fb726988ce9d3cf88731f5c93698a3aee7d3",
+  "identity_explanation": "BASE is the production/original-code ancestor; HEAD adds the prior committed transport component. The two multiplicity files are changes on HEAD and have the exact hashes below.",
+  "worktree": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code",
+  "source_and_test_sha256": {
+    "reliability_v2/multiplicity_codec.py": "4bcff54b39fbcefce3ead76fc05e812b76cde00c12f631728bfdbb826018147b",
+    "tests/test_multiplicity_codec.py": "234f5839588453b81873d0778a3cab2370937bef25872a85220bb9a5de2472ae"
+  },
+  "specifications_read": [
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/SPEC.md",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/PLAN.md"
+  ],
+  "instructions_checked": "No AGENTS.md found at the explicit ancestor and component/test paths checked.",
+  "production_read_only_snapshot": {
+    "path": "/home/z/workspace/deepfake_detector_publish_20261023",
+    "HEAD": "5ef6d06bf7aeda02a5a11113e4c35a2c9909f215",
+    "git_status_short": "",
+    "production_admitted": false
+  },
+  "strengths": [
+    "Independent CPU-only run of the entire authorized new test file passed all 23 cases in 0.43 s, exit 0. Existing RED/GREEN logs were read and show 23 missing-module failures followed by 53 passing combined cases; those historical runs were not rerun.",
+    "The encoder retains original JSON residual data and declared group lists. Per-table union labels plus a separate int32 order matrix retain present-zero versus absent keys and each original map order; nested normal/closure and 2000-repeat cases are covered.",
+    "Counts must be exact Python integers in uint32 range; booleans, floats, negatives, overflow and invalid group identities are rejected before narrowing.",
+    "Summed logical cells are checked before each table matrix allocation; the decoder checks table/array identities, dtypes/shapes, paths, duplicate row/group/order metadata, padding and nonzero values in absent columns.",
+    "The component writes no files and invokes no statistics. The source traversal and decoder deepcopy/read-only array access do not mutate inputs in the ordinary JSON/ndarray domain; encode non-mutation is explicitly tested."
+  ],
+  "findings": {
+    "Critical": [],
+    "Important": [
+      {
+        "id": "MC-001",
+        "file": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/multiplicity_codec.py",
+        "lines": "75-100 (especially final return at 100)",
+        "title": "Decoder accepts incomplete table coverage and silently replaces scientific counts with None",
+        "problem": "Residual count placeholders are validated only when a table mentions them. No final traversal verifies that every recognized count placeholder has been restored. A self-consistent deletion of a table and its arrays, or row_indices and matching array rows, passes the current structural validation.",
+        "impact": "decode_counts can successfully return group_draw_counts:null instead of an exact count map. This is decoded scientific-data loss, independent of future bundle I/O or resource qualification, and violates fail-closed lossless decoding.",
+        "reproduction": "Encode literal {draws:[{group_draw_counts:{a:2}},{group_draw_counts:{b:3}}]} with max_cells=4. In one clone set tables=[] and arrays={}; in another leave row_indices=[0] and slice both arrays to the first row. Both clones were accepted, equal_original=False, with unresolved null count fields. Exact executable command and stdout are preserved in reviewer_multiplicity_repro.log and embedded below.",
+        "recommendation": "In a single TDD fix pass, reject bundles whose metadata does not cover every encoder-recognized residual placeholder exactly once. Validate coverage across root/nested lists and both field names, including omitted whole tables, partial row lists, and zero-column empty mappings. Retain legitimate missing fields and unrelated null metadata.",
+        "test_gap_file": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests/test_multiplicity_codec.py",
+        "test_gap_lines": "54-76",
+        "test_gap": "Current malformed-bundle cases check referenced rows and arrays but never omitted table/row coverage."
+      }
+    ],
+    "Minor": []
+  },
+  "commands_and_results": [
+    {
+      "log": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_multiplicity_tests.log",
+      "sha256": "dc2c015ef65bbd59c8449f75a313e42d073d79064b0ae092e018ecdc5fe73e0c",
+      "contents": "UTC 2026-10-25T04:36:41.806586+00:00\nCOMMAND ['/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python', '-m', 'pytest', '-q', '-p', 'no:cacheprovider', '/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests/test_multiplicity_codec.py']\nENV CUDA_VISIBLE_DEVICES= OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2\n.......................                                                  [100%]\n23 passed in 0.43s\n\nEXIT_CODE 0\n"
+    },
+    {
+      "log": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_multiplicity_repro.log",
+      "sha256": "0a442313f596cdb584bed33a3613274be6b4e0a4d3bf50b2ae4e3ffe2952156e",
+      "contents": "UTC 2026-10-25T04:37:57.106916+00:00\nCOMMAND ['/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python', '-c', \"import copy,json\\nfrom reliability_v2.multiplicity_codec import encode_counts,decode_counts\\nvalue={'draws':[{'group_draw_counts':{'a':2}},{'group_draw_counts':{'b':3}}]}\\noriginal=encode_counts(value,max_cells=4)\\nprint('original='+json.dumps(value,separators=(',',':')))\\nfor mode in ('remove_table_and_arrays','truncate_matching_rows'):\\n bundle=copy.deepcopy(original)\\n if mode=='remove_table_and_arrays':\\n  bundle['tables']=[];bundle['arrays']={}\\n else:\\n  bundle['tables'][0]['row_indices']=[0]\\n  for key in bundle['arrays']:bundle['arrays'][key]=bundle['arrays'][key][:1].copy()\\n try:\\n  decoded=decode_counts(bundle,max_cells=4)\\n  print(mode+': ACCEPTED decoded='+json.dumps(decoded,separators=(',',':'))+' equal_original='+str(decoded==value))\\n except ValueError as error:print(mode+': REJECTED '+str(error))\\n\"]\nENV CUDA_VISIBLE_DEVICES= OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2\noriginal={\"draws\":[{\"group_draw_counts\":{\"a\":2}},{\"group_draw_counts\":{\"b\":3}}]}\nremove_table_and_arrays: ACCEPTED decoded={\"draws\":[{\"group_draw_counts\":null},{\"group_draw_counts\":null}]} equal_original=False\ntruncate_matching_rows: ACCEPTED decoded={\"draws\":[{\"group_draw_counts\":{\"a\":2}},{\"group_draw_counts\":null}]} equal_original=False\n\nEXIT_CODE 0\n"
+    }
+  ],
+  "read_only_checks": [
+    "Read SPEC.md and PLAN.md including Task1b; numbered source and test; checked exact SHA256 values at initial read and immediately before report creation.",
+    "Read git HEAD, HEAD^, show --stat and worktree status; read production HEAD/status without mutation. New codec is untracked, and test file is ignored under existing tests/ rule; ensure explicit test inclusion during eventual integration.",
+    "Read only stats_h.analyze_cohort group_draw_counts context and prior multiplicity_RED/GREEN log tails. No real H payload was profiled.",
+    "Only one 23-test run and the subsequently parent-authorized tiny literal-fixture reproduction were executed. No broad suite, real-D profile, GPU/scientific job, or further test was run."
+  ],
+  "behaviors_considered_but_set_aside_before_verdict": [
+    {
+      "behavior": "Pure roundtrip of nested JSON lists, heterogeneous rows, missing count fields, empty lists/maps, present-zero and original key order",
+      "reason": "Covered by source inspection and the passing targeted tests; no additional defect identified in valid encoder output."
+    },
+    {
+      "behavior": "Preservation of original declared group lists, row metadata, draw count, repeat number, precision strings, booleans and null/NA",
+      "reason": "Residual traversal preserves these values and list/dict insertion order. The codec is a representation and performs no recomputation; no finding apart from unresolved placeholders."
+    },
+    {
+      "behavior": "Independent matrices for separate cohort/list paths and for normal versus closure fields",
+      "reason": "Each encountered list/field creates fresh arrays and metadata; no cross-table sharing/deduplication found. Full actual-H schema/data validation remains separate."
+    },
+    {
+      "behavior": "Scalar multiplicity bounds and group-key validation",
+      "reason": "Strict count type/range and nonempty string-key checks are implemented and covered. NumPy scalar/custom-object inputs are outside the JSON integer contract and need not be silently coerced."
+    },
+    {
+      "behavior": "Malformed bundle schema, array identity, shape/dtype, wrong path, duplicate identities, invalid/padded order, nonzero absent columns",
+      "reason": "Explicit validation exists; selected cases pass targeted tests. Complete table/row coverage is retained as MC-001, not set aside."
+    },
+    {
+      "behavior": "Alternative valid label ordering, row-index ordering, noncontiguous/read-only native ndarray views",
+      "reason": "The metadata is explicit, so canonical sorting/contiguity is unnecessary for exact decoding. No extra requirement or finding is imposed."
+    },
+    {
+      "behavior": "Exact dtype endianness and pickling",
+      "reason": "Decoder requires native uint32/int32, and targeted pickle-free NPZ roundtrip passes. This is a representation exercise only; it does not implement or qualify bundle publication or readers."
+    },
+    {
+      "behavior": "Input mutation and aliased JSON subobjects",
+      "reason": "Source inspection shows no writes to caller data or arrays; encoder non-mutation is tested. JSON has no object-identity/alias semantics, so alias identity preservation is outside scope."
+    },
+    {
+      "behavior": "Cell-budget preallocation and aggregate limits",
+      "reason": "Cumulative logical rows*columns are checked before each matrix allocation, and both count/order matrices are bounded by that logical total. Temporary residual copies, two physical arrays per logical cell, reconstruction dictionaries, metadata and process RSS are not covered by max_cells and receive no resource credit."
+    },
+    {
+      "behavior": "Zero-column tables or very large empty metadata using little logical cell budget",
+      "reason": "Empty count maps must remain representable; max_cells alone is not a full memory/adversarial-input cap. Reader/metadata/decoded-object RSS limits are explicitly unimplemented/unqualified."
+    },
+    {
+      "behavior": "Non-JSON leaves, nonfinite residual values, custom Mapping/ndarray subclasses or cyclic objects",
+      "reason": "The pure API consumes JSON value data with native ndarray representations, rather than serving as a general object deserializer. External reader/JSON validation remains separate; arbitrary Python-object acceptance has not been qualified."
+    },
+    {
+      "behavior": "Coordinated edits that replace all scientific metadata and arrays with another structurally valid bundle",
+      "reason": "A pure representation cannot authenticate unknown original values. Content hashes and atomic publication belong to the separate transport/bundle layer. This does not excuse the detectable unresolved-placeholders defect."
+    },
+    {
+      "behavior": "Ignored test file in worktree status",
+      "reason": "This review explicitly targets the supplied untracked/ignored test hash. Pending staging is an integration step; recommendation recorded, no missing-committed-test finding before a commit exists."
+    },
+    {
+      "behavior": "All29 existing-D real-schema profile and the full409 suite",
+      "reason": "Root owns already-running immutable jobs; neither duplicated, modified, stopped nor used as fresh reviewer-executed evidence."
+    },
+    {
+      "behavior": "Actual H payloads, M source-best endpoints/provenance, four fixed comparisons, D15/H30, 3 backbones/5 seeds, 200 CAL/2000 TEST, frozen metrics/NA and unequal H best epochs",
+      "reason": "Scientific implementation and endpoint qualification are outside this pure component. No new training, F expansion, development substitution, or equal-update claim was made."
+    },
+    {
+      "behavior": "Bundle file/NPZ publication, readers, interrupted writes, hashes/resume, real byte compression and parsed-object memory",
+      "reason": "Not implemented or qualified by this pure module; prior JSON transport tests/profile do not confer these qualifications."
+    },
+    {
+      "behavior": "Drive/capacity admission, full remaining primary+M+temporary+50 GiB budget, old169 GiB estimate, cold migration/deletion, GPU scheduling and JEV work",
+      "reason": "Explicitly outside scope; old169 GiB does not fit and this codec grants zero validated resource/admission credit. Production and GPU/JEV work were untouched."
+    }
+  ],
+  "recommendations": [
+    "Address MC-001 with observed failing coverage regressions before claiming the pure component complete.",
+    "After the single fix pass, rerun the authorized targeted cases and root-owned required whole suite against the changed source; bind all new evidence to exact hashes.",
+    "Preserve all production, actual-D/H profile, file I/O/reader/RSS and combined capacity gates. Force-include the ignored test file when integrating the new component."
+  ],
+  "declined_scope": [
+    "Code edits in either checkout",
+    "Scientific/GPU jobs or agent spawning",
+    "Duplicate/modify/stop root full suite or real-D profile",
+    "Actual H profile",
+    "M endpoint/scoring implementation",
+    "Bundle I/O/publication and reader validation",
+    "RSS/drive/capacity/production admission",
+    "Original artifact edits/deletion or production/GPU/JEV changes"
+  ],
+  "verdict": {
+    "pure_component": "request_changes",
+    "reason": "MC-001 is reproduced scientific-data loss on structurally incomplete metadata despite 23 passing targeted cases. No Critical or additional Minor findings.",
+    "approval_gate": "Require fail-closed complete placeholder coverage and fresh verification before pure-component approval."
+  },
+  "production_admitted": false,
+  "remaining_blockers": [
+    "MC-001 unresolved; root owns subsequent single TDD fix pass.",
+    "Broader scientific, actual-H, bundle I/O, reader/RSS, capacity and production admission remain unimplemented or unqualified by this review."
+  ],
+  "action_status": "Review completed; no denied, pending, or uncertain tool action. Defect remediation is pending with root."
+}

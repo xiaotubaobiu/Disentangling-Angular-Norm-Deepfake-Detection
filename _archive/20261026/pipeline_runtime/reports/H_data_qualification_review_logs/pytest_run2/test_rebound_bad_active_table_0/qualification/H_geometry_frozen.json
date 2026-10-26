@@ -1,0 +1,69 @@
+{
+  "code_sha256": "161ac4e837463ff16e7916ca42eeb5d13acc44aab9bcc1c397025b9426ad9532",
+  "protocol": {
+    "AB_input": "disk-decoded A PNG; independent detector call and same B algorithm",
+    "A_margin": 1.2,
+    "A_size": 256,
+    "A_template112": [
+      [
+        38.2946,
+        51.6963
+      ],
+      [
+        73.5318,
+        51.5014
+      ],
+      [
+        56.0252,
+        71.7366
+      ],
+      [
+        41.5493,
+        92.3655
+      ],
+      [
+        70.7299,
+        92.2041
+      ]
+    ],
+    "A_template256_formula": "128+(template112*(256/112)-128)/1.2",
+    "A_transform": "least-squares orientation-preserving2D similarity; no RANSAC",
+    "B_side": "1.5*max(bbox_width,bbox_height)",
+    "B_size": 224,
+    "B_transform": "unrotated pixel-centre affine; bbox centre maps to111.5",
+    "DFD_selector_scope": "largest detected face; manipulated face not certified",
+    "detector": "SCRFD5 local detection only",
+    "detector_input": [
+      640,
+      640
+    ],
+    "detector_letterbox": "no upscale min(1,640/width,640/height); top-left640 zero; int floor new dimensions; exact x/y inverse scales",
+    "detector_nms_boxes": "inclusive pixel areas +1; stable score/coordinate order",
+    "detector_nms_iou": 0.4,
+    "detector_normalization": "RGB (pixel-127.5)/128",
+    "detector_resize": "OpenCV INTER_LINEAR",
+    "detector_score_threshold": 0.5,
+    "face_selector": "max bbox area, max confidence, lexicographic bbox then landmarks",
+    "failures": "any selected frame failure excludes version; <8unique final RGB excludes version; no replacement",
+    "interpolation": "OpenCV INTER_CUBIC",
+    "mask": "binary valid pixel-centre mapping INTER_NEAREST; AB inherits A mask",
+    "mother_count": 8,
+    "mother_selection": "32 uniform-time decoded candidates; dedup RGB then rounded linspace8; full chronological fallback if <8",
+    "opencv_version": "4.11.0",
+    "padding": "BORDER_CONSTANT zero",
+    "padding_exclusion_threshold": null,
+    "rgb_hash_definition": "sha256(str(shape).encode()+NUL+contiguous_uint8_RGB)",
+    "schema": "H_geometry_v2.1",
+    "source_qualification_roles": [
+      "TRAIN",
+      "DEV"
+    ],
+    "target_tuning_allowed": false,
+    "weight_path": "/home/z/.insightface/models/buffalo_l/det_10g.onnx",
+    "weight_sha256": "5838f7fe053675b1c7a08b633df49e7af5495cee0493c7dcf6697200b85b5b91"
+  },
+  "protocol_sha256": "85a865f0e3343ecaf5b8c0174c8a3f602ec873deeccb03bd1826d617f2a7ae03",
+  "source_report": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_logs/pytest_run2/test_rebound_bad_active_table_0/qualification/source_report.json",
+  "source_report_sha256": "3e424f400c10fc829518f34cdaa4187fdb7fc189ba0507f94a13a4e2ba9f16a9",
+  "status": "FROZEN_BEFORE_TARGET_PREPROCESSING"
+}

@@ -1,0 +1,41 @@
+{
+  "utc": "2026-10-25T14:10:52Z",
+  "status": "PASS_ORIGINAL_PRIMARY_SAVED_RESULT_NUMERICS_FOR_TWO_SEED_PAIRS_ONLY",
+  "accepted_pairs": [
+    {
+      "seed": 42,
+      "original_LAST": true,
+      "audit": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/H_LAST_clip_seed42_independent_audit.json",
+      "audit_sha256": "7daea9b17a4e9e8aea32cd6e5d500cba564d66d33fdd15ce6dbb9cbc97c31e1e",
+      "terminal_sha256": "02d7f66612d2e683ba6b52fbfc7379a74cefa1d180b89b9549f7299ea583d831",
+      "saved_metrics_and_2000_draws_independently_accepted": true,
+      "upstream_cache_and_source_admission_rebound": true,
+      "scope_limits": [
+        "Independent frame-to-video/feature-dot-product reconstruction is outside this saved-score audit; immutable accepted cache admission is reused.",
+        "coverage.json is inventoried/SHA-bound; fresh independent geometry/coverage reconstruction is not performed by this saved-score audit.",
+        "Single seed-pair result only; five-seed summary remains pending.",
+        "Existing snapshot promotion requires separate review/acceptance; no encoding or resampling performed."
+      ]
+    },
+    {
+      "seed": 7,
+      "original_LAST": true,
+      "audit": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/H_LAST_clip_seed7_independent_audit.json",
+      "audit_sha256": "aebb55beb1b3411125b7b27ce2fad62808f572843c57585738e719c3d40482df",
+      "terminal_sha256": "26c5d3774e06b118803619e4a93f3c83d382874a6db90726ff6c171a9411f7a1",
+      "saved_metrics_and_2000_draws_independently_accepted": true,
+      "upstream_cache_and_source_admission_rebound": true,
+      "scope_limits": [
+        "Independent frame-to-video/feature-dot-product reconstruction is outside this saved-score audit; immutable accepted cache admission is reused.",
+        "coverage.json is inventoried/SHA-bound; fresh independent geometry/coverage reconstruction is not performed by this saved-score audit.",
+        "Single seed-pair result only; five-seed summary remains pending.",
+        "Existing snapshot promotion requires separate review/acceptance; no encoding or resampling performed."
+      ]
+    }
+  ],
+  "all_five_seed_conclusion_available": false,
+  "full_H_study_complete": false,
+  "M_source_best_used": false,
+  "transport_snapshot_pending_in_upstream_audit_was_resolved_separately_by": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/final_actual_H_transport_acceptance_20261025T1350.json",
+  "geometry_or_features_independent_reconstruction_not_repeated": true
+}

@@ -1,0 +1,18 @@
+{
+  "utc": "2026-10-23T20:27:28.148544+00:00",
+  "reason": "Qualification acceptance code version changed; preserve old probe binding and rebuild identical selected source rows under final reviewed Hbundle.",
+  "old_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H/probes",
+  "archive_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/backups/H_source_probes_before_acceptance_fix_20261023T2030Z",
+  "files_sha256": {
+    "receipt.json": "993314938dc58372265257a1e602bf444bd8e11ddebeb81d049aac571643cf42",
+    "AB_dev.parquet": "aa9a6e5d096be2f0afdf179d85039284a169779342c94fdc7e0ffd78b7f08d24",
+    "B_dev.parquet": "665764bf030cdaff17185218cb9c4ca57111605646e0a4aa641b47891da033ee",
+    "AB_train.parquet": "e0a1ecc4746445775e2649164ded7c0840a69ab8354e8bf640d195b9131cb31c",
+    "B_SOURCE_CAL.parquet": "48837f5285332c90fec5becfcea2a7167eb4b714261b1614d92de1ba0535f665",
+    "bootstrap_gate.json": "d9b4dba7cabd70ec761b34a55714e1e9ba14ce14e0fe6b5c727cc3914687399b",
+    "B_train.parquet": "afdc012305bdd12282e62d19f4d6d8e516c4e91d19b184d18de27c8c4042e700"
+  },
+  "old_bundle_sha256": "5b5b101bcaabd73f4818bd9de03425d5c3898c21fcf0181fb28f39f6e5e4f295",
+  "frozen_H_data_unchanged": true,
+  "GPU_started": false
+}

@@ -1,0 +1,33 @@
+{
+  "utc": "2026-10-25T12:50:57Z",
+  "status": "WAIT_ACTUAL_PRIMARY_PAIR_TERMINAL_AND_SCIENTIFIC_AUDIT_NO_REENCODING_REQUIRED",
+  "existing_snapshot_profile": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/actual_H_live_producer_snapshot_profile.json",
+    "sha256": "7ac23a68b2464f42e110bce2b3c531c3303a488791b89b5718f963691c03e726"
+  },
+  "independent_transport_audit": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_actual_H_live_snapshot_transport_audit.json",
+    "sha256": "a6931518424cc6d98c646fe7d13eb5ca874ab5222d2427bd86a572a678af4a13"
+  },
+  "source_identity": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed42/identity.json",
+    "sha256": "b0200cf4495865f7fd716ce4f0b7666a4afe6690b8dcc9e85335ba5d8b34fb1f"
+  },
+  "four_artifact_sha256": {
+    "mean_logit/SOURCE_TEST/all_B/conditional_bootstrap.json": "ddc4b28fbc134c6fe03a6220699c86f21b3c98f3dc5855203ad9d2028ce27be5",
+    "mean_logit/TARGET_TEST/all_B/conditional_bootstrap.json": "90295899175f91bf1e6a779a26574f1ffcc3009d4521fc04b7d33e65fefd1f79",
+    "mean_probability/SOURCE_TEST/all_B/conditional_bootstrap.json": "2884b9c456888ea4f5306022ac0e9619c36890f8dfd67d3902ab022a5d9b0c9d",
+    "mean_probability/TARGET_TEST/all_B/conditional_bootstrap.json": "f1e1a0e5b39d59c3ad7e8e139494a1b5d8d434f2952f8aa2cc4cf1adc820797c"
+  },
+  "pending_actual_terminal": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed42/complete.json",
+  "promotion_steps": [
+    "Require actual H_PAIR_ANALYSIS_COMPLETE_V1 terminal, complete original expected artifact inventory and independently accepted saved metrics/bootstrap/source-threshold audits",
+    "Bind terminal.identity to exact unchanged producer identity file and match all four terminal artifact SHA to existing snapshot raw SHA",
+    "Independently verify existing authenticated bundles/reader code pins and prior ordered-JSON audit; do not resample or re-encode the four files",
+    "Write a separate final-H-transport acceptance referencing preserved snapshot and both audits, measured bytes/RSS; then recompute full remaining primary+M+temporary+50GiB budget",
+    "Do not run the earlier prepared final profile encoder over these same four files; reuse this measured snapshot after proven terminal binding"
+  ],
+  "current_compression_capacity_credit_bytes": 0,
+  "promotion_alone_grants_M_production": false,
+  "primary_pair_terminal_accepted": false
+}

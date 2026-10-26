@@ -1,0 +1,25 @@
+{
+  "utc": "2026-10-24T11:56:46.139433+00:00",
+  "status": "PASS_SELF_REVIEW_FUTURE_REQUIREMENTS_ONLY_NOT_IMPLEMENTATION_OR_INDEPENDENT_REVIEW",
+  "requirements_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/proposals/next_owner_safe_handoff_requirements_20261024.md",
+  "requirements_sha256": "9ab508f292d0bc59465b72aabaed8048c964be3ee469a92b3d112ce8ddb2f9f0",
+  "capability_receipt_sha256": "ed8e38b4ec47498174a2c8971de24dd43a086af92dc7a60c7be88e4615a573a1",
+  "checks": {
+    "current_owner_not_to_be_patched": true,
+    "no_competing_dispatcher": true,
+    "atomic_FD_parent_child_confirm": true,
+    "no_silent_bundle_rebind": true,
+    "fixed416_and_six_real_GPU_proofs": true,
+    "GPU0_3_max4_protect4_7": true,
+    "total_capacity_not_payload_floor": true,
+    "failure_crash_duplicate_inode_PID_cases": true,
+    "frozen_scientific_clocks": true
+  },
+  "production_source_changed": false,
+  "source_HEAD": "5ef6d06bf7aeda02a5a11113e4c35a2c9909f215",
+  "future_CPU_tests_executed": false,
+  "future_GPU_qualification_executed": false,
+  "capability_receipt_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/D_owner_interim_handoff_requirements_amendment_20261024T1156.json",
+  "original_capability_snapshot_preserved": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/D_owner_interim_handoff_capability_20261024T1150.json",
+  "original_requirements_snapshot": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/backups/20261024T1155Z/next_owner_safe_handoff_requirements_20261024.md"
+}

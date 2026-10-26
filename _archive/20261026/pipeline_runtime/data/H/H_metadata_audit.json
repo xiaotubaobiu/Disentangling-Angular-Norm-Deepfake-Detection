@@ -1,0 +1,39 @@
+{
+  "counts": {
+    "DEV/Deepfakes": 108,
+    "DEV/Face2Face": 108,
+    "DEV/FaceSwap": 108,
+    "DEV/NeuralTextures": 108,
+    "DEV/real": 108,
+    "SOURCE_CAL/real": 140,
+    "SOURCE_TEST/Deepfakes": 140,
+    "SOURCE_TEST/Face2Face": 140,
+    "SOURCE_TEST/FaceSwap": 140,
+    "SOURCE_TEST/NeuralTextures": 140,
+    "SOURCE_TEST/real": 140,
+    "TARGET_TEST/DeepFakeDetection": 3068,
+    "TARGET_TEST/real": 363,
+    "TRAIN/Deepfakes": 612,
+    "TRAIN/Face2Face": 612,
+    "TRAIN/FaceSwap": 612,
+    "TRAIN/NeuralTextures": 612,
+    "TRAIN/real": 612
+  },
+  "dfd_ancestor_certification": false,
+  "dfd_fake_candidate_parent_counts": {
+    "1": 269,
+    "2": 2799
+  },
+  "exclusion_reasons": {
+    "official_val_fake_not_used": 560
+  },
+  "pair_partition_algorithm": "sorted normalized official pairs; default_rng(20261023).permutation; first306TRAIN",
+  "source_id_conflicts": [],
+  "split_hashes": {
+    "test": "886f5a0da623c25820692e0d8dc33d197ddb1db527a7f1cfcb9bcbca60fe4f40",
+    "train": "e59386911255e6fb0a79a7808ec2210536b8c0474268342694c4bca766d1b347",
+    "val": "b48cc511f66938e05356aaa9c67e150b1e3638c355db3d745225b0022884b36e"
+  },
+  "target_videos_decoded_or_detected": 0,
+  "total_manifest_videos": 7871
+}

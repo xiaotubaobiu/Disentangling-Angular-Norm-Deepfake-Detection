@@ -1,0 +1,104 @@
+{
+  "schema": "DETECTOR_M_HASH_REUSE_READONLY_ASSESSMENT_V1",
+  "utc": "2026-10-26T02:58:29.754579+00:00",
+  "status": "NO_SAFE_DIRECT_REUSE_IN_CURRENT_RUN_KEEP_HEALTHY_QUEUE_UNCHANGED",
+  "scope": "Detector only. Existing report/source/metadata reading; no validation function, test, model, PNG/weight/payload scan, new experiment, process injection/restart or running code change.",
+  "current_run": {
+    "owner_pid": 825619,
+    "owner_code_sha256": "2c68dfb05aa0cd28808e7ae14f317225513202b7190151962e184ddf6bf4db5b",
+    "plan_sha256": "7d86ce010bdd427defbb5b959558ae32ccfbc0fc81b8a6bd36fdc71d733f8303",
+    "phase_nonce": "c1b83bab4bd34df784afc18bda94777a",
+    "decision": "Continue unchanged. Latest02:54 progress100/180roles was supplied by parent supervision, not independently sampled here."
+  },
+  "findings": [
+    {
+      "point": "No safe successor hook inside the running owner",
+      "source": [
+        "tools/source_best_owner.py:119-147",
+        "tools/source_best_owner.py:121-123",
+        "tools/source_best_owner.py:130-135"
+      ],
+      "conclusion": "Resume references are read at process startup; launches use the same fixed tool and SHA-bound plan. There is no adapter reload or successor-worker hook. Editing/injecting/restarting would breach current restrictions and code/plan guards."
+    },
+    {
+      "point": "F4 is fresh scheduling, not receipt reuse",
+      "source": [
+        "F/parallel_source.py:10-18",
+        "F/cpu_ledger_adapter.py:16-53"
+      ],
+      "conclusion": "Every invocation still calls the original verifier for all10runs and re-executes the original ledger. It can change wall scheduling but cannot remove unrelated-model logical reads. No M-workload speedup has been measured."
+    },
+    {
+      "point": "Existing ownQ does not directly admit M",
+      "artifacts": [
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_parallel_CPU_actual_qualification_clip_vit_b16_20261025T0830.json",
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_parallel_CPU_actual_qualification_dinov2_vit_b14.json",
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_parallel_CPU_actual_qualification_efficientnet_b0.json"
+      ],
+      "conclusion": "Allowed uses are H independent_role_admission/primary_pair_analysis; GPU production is false. DINO/EFF explicitly state M_authorized=false. These are reusable prior engineering evidence, not current M authorization."
+    },
+    {
+      "point": "Private namespace and hash coupling matter",
+      "source": [
+        "source_best_files.py:73-112",
+        "source_best_cache.py:102-108",
+        "source_best_cache.py:133-138",
+        "source_best_analysis.py:22-29",
+        "source_best_analysis.py:88-96"
+      ],
+      "conclusion": "M resolves the canonical private H namespace. Patching ordinary reliability_v2.queue_h would miss that call chain. Adding/changing M package files changes M36/implementation identity and admission/permit references. An external future CPU-only wrapper could technically leave file hashes unchanged, but is not a qualified drop-in extension and is not proposed for implementation now."
+    },
+    {
+      "point": "Historical expected digests do not establish current payload immutability",
+      "evidence": [
+        "H_completion_seal.json binds expected artifact SHA values.",
+        "F/real_source_equivalence_20261025T0120.json records1590stat checks but does not persist the complete tuple map.",
+        "The actual ownQ audits bind107small/source/proof paths; these do not cover fresh fingerprints of every training payload.",
+        "EFF role_manifest_fingerprint_metadata contains7parquet manifests, not all model/state/30epoch payloads.",
+        "The input source-file admission explicitly says current bytes/tensors/head validation is still required."
+      ],
+      "conclusion": "The examined artifacts do not provide a transferable cross-process generation with complete payload fingerprints and continuous immutable/held-view proof. Phase/native locks exclude cooperating launches; they do not themselves establish immutable bytes of every training file. Old SHA, timestamp or unchanged seal alone cannot justify skipping fresh scans."
+    }
+  ],
+  "content_binding_chain": {
+    "input_capsule_sha256": "8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a",
+    "source_file_admission_sha256": "75bea6831981b70fec53a84254f85d307d8d9fbf6a221d74c8da4abf805a8e85",
+    "cache_code_sha256": "4c5494d06f133b962fd22872ac88d22ad9155fcca102e29f0e300cc06a4ff0c7",
+    "cache_permit_sha256": "d4b735fda1c4aa5a4932b051fc01cf98770d5abe4c2c3d253a5f0a2820f42714",
+    "GPU_code_sha256": "f3cac34e1493cd109e336b77f94b087527e97d722f02253880371a7c2caebed5",
+    "meaning": "References were read from the current bound plan/capsule/permit; no payload revalidation or new permit acceptance was performed."
+  },
+  "necessary_vs_duplicate": {
+    "necessary": "Current config/freeze/registry/gates/effective identity, exact five-pair successful-update equality, source-best tensor/head selection and current source/role byte integrity remain mandatory. Existing scientific qualification results may be referenced; current byte freshness must still be proved.",
+    "mechanical_duplicates": [
+      "Original worker_h.py:150-153 hashes final/source_best, then213-232 seal verification hashes them again.",
+      "source_best_cache.py:133-138 repeats the same parent context for each full check.",
+      "source_best_gpu.py:42,48,67 and source_best_cache.py:285,300-320 multiply full-family checks across contexts/roles/workers."
+    ],
+    "boundary": "These are repeated qualification/freshness work, not new scientific experiments. Eliminating them while retaining current strict freshness requires an explicitly qualified protected-byte/generation boundary that is not supplied by the examined existing evidence."
+  },
+  "minimal_recommendation": [
+    "Keep the healthy current owner/workers, M36, input capsule, permit and frozen original sources unchanged.",
+    "Do not reuse old all-five receipts as current payload proof or silently replace original fresh validators.",
+    "Future Mstats/metadata may separately assess the already-known F4 fresh2 scheduling boundary in a new gated CPU process, only when exact cache admissions/CPU slots/resources permit. This still scans10runs, is not M-authorized today, has no measured M gain and does not justify expanding engineering now."
+  ],
+  "references": [
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/check_20261026T0220_M_CPU_hash_bottleneck.json",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/diagnostics/M_H_preflight_proc_io_20261026T0220.json",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/plans/M_detector_resume_finite_owner_plan_20261026T0140_candidate.json"
+  ],
+  "actions": {
+    "only_existing_reports_static_sources_and_metadata_read": true,
+    "owner_cmdline_read_once_to_locate_bound_plan": true,
+    "validation_tests_models_or_new_experiments_started": false,
+    "payload_weights_or_PNG_scanned": false,
+    "owner_worker_code_or_plan_permit_modified": false,
+    "process_signal_restart_or_injection": false,
+    "GPU4_7_controlled": false,
+    "non_Detector_pair_investigation_started": false
+  },
+  "direct_reuse_approved": false,
+  "current_queue_change_approved": false,
+  "M_wrapper_implemented": false,
+  "new_qualification_or_production_permission_issued": false
+}

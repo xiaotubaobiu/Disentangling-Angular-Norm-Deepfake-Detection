@@ -1,0 +1,10 @@
+{
+  "utc": "2026-10-24T16:35:16.415103+00:00",
+  "phase": "GREEN_ALL_STANDALONE_AUDIT_TESTS",
+  "returncode": 0,
+  "stdout": "",
+  "stderr": "test_CAL_reduces_two_hundred_subsets_with_sample_SD (test_audit.IndependentSummaryTests) ... ok\ntest_duplicate_registered_seed_rejected (test_audit.IndependentSummaryTests) ... ok\ntest_missing_numeric_estimate_does_not_silently_drop_seed (test_audit.IndependentSummaryTests) ... ok\ntest_missing_registered_seed_rejected (test_audit.IndependentSummaryTests) ... ok\ntest_row_checker_accepts_equivalent_CSV_numbers_and_booleans (test_audit.IndependentSummaryTests) ... ok\ntest_row_checker_detects_wrong_SD_even_when_mean_matches (test_audit.IndependentSummaryTests) ... ok\ntest_row_checker_rejects_duplicate_stratum (test_audit.IndependentSummaryTests) ... ok\ntest_sample_SD_uses_five_training_seeds_ddof_one (test_audit.IndependentSummaryTests) ... ok\ntest_sign_tolerance_does_not_count_tiny_noise_as_effect (test_audit.IndependentSummaryTests) ... ok\ntest_source_operating_point_has_no_subset_spread (test_audit.IndependentSummaryTests) ... ok\ntest_unavailable_CAL_subset_keeps_whole_point_unavailable (test_audit.IndependentSummaryTests) ... ok\n\n----------------------------------------------------------------------\nRan 11 tests in 0.001s\n\nOK\n",
+  "audit_sha256": "7323e939ff4fe47c9a0b77411317fc1c6b95a30be614f04d003ded5282051e22",
+  "test_sha256": "9d35f3908842174f6f193648504180be80425defff0bfa54da7ca033b639fc84",
+  "production_modules_changed": false
+}

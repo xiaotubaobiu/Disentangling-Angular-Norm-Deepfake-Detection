@@ -1,0 +1,30 @@
+{
+  "status": "CURRENT_ORIGINAL_LLM_RESTORATION_HEALTH_VERIFIED",
+  "checked_UTC": "2026-10-09T11:23:40.653121+00:00",
+  "actual": {
+    "ID": "0de7633bc4eb9b0d12b41dd2d05e3bb42961310e62bcb1b78f0f2ed0f54aad5c",
+    "Running": true,
+    "StartedAt": "2026-10-09T11:08:29.565761924Z",
+    "RestartPolicy": {
+      "MaximumRetryCount": 0,
+      "Name": "unless-stopped"
+    }
+  },
+  "health_HTTP": 200,
+  "original_identity_and_restart_policy_preserved": true,
+  "original_supervisor_PID": 3984143,
+  "execution_status": "RUNNING",
+  "execution_phase": "30_matched_heads_A_B_C_D_and_report",
+  "formal_queue_status": "COMPLETE",
+  "all_15_workers_exited_zero": true,
+  "last_run": {
+    "state": "COMPLETE",
+    "physical_device": 6,
+    "returncode": 0
+  },
+  "completed_analysis_stages": [
+    "clip_vit_b16_seed42",
+    "clip_vit_b16_seed7"
+  ],
+  "no_jobs_restarted": true
+}

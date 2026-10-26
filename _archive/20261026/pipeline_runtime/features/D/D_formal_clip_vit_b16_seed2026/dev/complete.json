@@ -1,0 +1,101 @@
+{
+  "schema": "pipeline-reliability-v2-D-fp32-cache-1",
+  "status": "CACHE_COMPLETE",
+  "identity": {
+    "schema": "pipeline-reliability-v2-D-fp32-cache-1",
+    "config_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/configs/execution.json",
+    "config_sha256": "deae26fadc19a09c35ec2eba443e4b1c0ce3abd8ff304b85aa6cc1cb98fca750",
+    "artifact_root": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023",
+    "run_id": "D_formal_clip_vit_b16_seed2026",
+    "backbone": "clip_vit_b16",
+    "dimension": 512,
+    "epochs": 30,
+    "training_identity": {
+      "config": "e011622e1e2d16303e5b01fc2a35a7824acd877d08cac367fd414b537f4f0d0f",
+      "train_manifest": "9d85e421d803f20481eb7720854cdb4369349b97dd5e04f5763dbe851077f496",
+      "dev_manifest": "2c157ce3f30504479e50023ff43c76bdd0a2df8cd7e31a938356a6306b7550bd",
+      "initialization": "5806e77cd80f8b59890b7e101eabd078d9fb84e6937f9e85e4ecb61988df416f",
+      "environment": "d3e6f2a2fc50770a2c3c8ab5b913dfa9049111a398c9de72d85baf618b139ebb",
+      "code": "336f3097434edf903a5ff402162e29afeca2442ca50f9c7d9883ca60136b8335",
+      "qualification": "c2a9a09d208d2671b7a123df7ee29e83b8abedcac08d9221d5ad26f3948700aa"
+    },
+    "checkpoint_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_clip_vit_b16_seed2026/final.pt",
+    "checkpoint_sha256": "421593e4817e03d797d8bdf037bcefe294544d6ec80675b352ea3a84592e4044",
+    "training_complete_sha256": "fcc2fdc90dcc973b9097a826935692c0d9df2eef51c0ac90361f482a8e64dac4",
+    "cache_code_sha256": "8f5814646194c772dcf00f6751a35c2f792dd5f11008e0834fdba4eb5e329761",
+    "role": "dev",
+    "source_manifest_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/data/D/dev.parquet",
+    "source_manifest_sha256": "2c157ce3f30504479e50023ff43c76bdd0a2df8cd7e31a938356a6306b7550bd"
+  },
+  "rows": 18264,
+  "dimension": 512,
+  "precision": "FP32",
+  "autocast": false,
+  "epsilon": 1e-12,
+  "zero_norm_count": 0,
+  "chunk_rows": 4096,
+  "cached_manifest_sha256": "2c157ce3f30504479e50023ff43c76bdd0a2df8cd7e31a938356a6306b7550bd",
+  "head": {
+    "weight_file": "head_weight.npy",
+    "weight_sha256": "aa81d90319edd1cbf7583d3f4860952c0b7c9b719dc5396352b477e44e1bbbe7",
+    "bias_file": "head_bias.npy",
+    "bias_sha256": "37d7ddf078dba05d9cc53d8c1d01757586971bfb01fea2f96a65c5ed9919bdd1"
+  },
+  "chunks": [
+    {
+      "file": "chunk_000000.npy",
+      "start": 0,
+      "rows": 4096,
+      "dimension": 512,
+      "dtype": "float32",
+      "identity_sha256": "e46d709e1c79754659677cb0b828dee6b4a363e5565357e96d7ac58b7b8c5fcc",
+      "row_sha256": "875e7a5d69fc460ac6268dccc52f0a01e671da0eef464db16e1087b03499e602",
+      "zero_norm_count": 0,
+      "sha256": "fdf631ecc048726ad34d0f1d8b1966e4317157648adebc7007cebcfaeb568af0"
+    },
+    {
+      "file": "chunk_000001.npy",
+      "start": 4096,
+      "rows": 4096,
+      "dimension": 512,
+      "dtype": "float32",
+      "identity_sha256": "e46d709e1c79754659677cb0b828dee6b4a363e5565357e96d7ac58b7b8c5fcc",
+      "row_sha256": "5d1c51a92c4e8c967fd767b56515d4ac4bf305bf3032adae309a449b2fbdc3fe",
+      "zero_norm_count": 0,
+      "sha256": "c6707fd4eb4749af2144bf514d157dfba0c601c25e1fd6a08c7c3ba18139dfaf"
+    },
+    {
+      "file": "chunk_000002.npy",
+      "start": 8192,
+      "rows": 4096,
+      "dimension": 512,
+      "dtype": "float32",
+      "identity_sha256": "e46d709e1c79754659677cb0b828dee6b4a363e5565357e96d7ac58b7b8c5fcc",
+      "row_sha256": "4c09a724bb0930e46b889b6259bf9e4772130d8404f53155e37508b487542205",
+      "zero_norm_count": 0,
+      "sha256": "9cf70d78331841c0c8bdadd87d3ccfab81376cd5daa6c12cb2bba3864e09b787"
+    },
+    {
+      "file": "chunk_000003.npy",
+      "start": 12288,
+      "rows": 4096,
+      "dimension": 512,
+      "dtype": "float32",
+      "identity_sha256": "e46d709e1c79754659677cb0b828dee6b4a363e5565357e96d7ac58b7b8c5fcc",
+      "row_sha256": "e326d2dc03a2f4ed950570a875f157dac861658af40b98945ad2ec5123cbfbff",
+      "zero_norm_count": 0,
+      "sha256": "fb3f0abd34646543f8b745798569766c24915e4848b8fe3a3539a7fa4cd03f00"
+    },
+    {
+      "file": "chunk_000004.npy",
+      "start": 16384,
+      "rows": 1880,
+      "dimension": 512,
+      "dtype": "float32",
+      "identity_sha256": "e46d709e1c79754659677cb0b828dee6b4a363e5565357e96d7ac58b7b8c5fcc",
+      "row_sha256": "08ef3670a6d436bfbbb199abfe84d4ba60ddc3daf631b44d683149d11615129e",
+      "zero_norm_count": 0,
+      "sha256": "fea9291014f44a8e460591c5193b1e538d3ec08e08584dc416024d336046d269"
+    }
+  ]
+}

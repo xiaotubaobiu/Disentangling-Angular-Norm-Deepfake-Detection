@@ -1,0 +1,30 @@
+{
+  "schema": "M_STATISTIC_PRODUCER_EXIT_V1",
+  "utc": "2026-10-26T11:49:14.539651+00:00",
+  "job": {
+    "job_id": "D_clip_vit_b16_seed7",
+    "route": "D",
+    "backbone": "clip_vit_b16",
+    "seed": 7,
+    "runs": {
+      "D": "D_formal_clip_vit_b16_seed7"
+    }
+  },
+  "launch_sha256": "7daa0f6255f091a5e84e53bb90cb8e2f4d73e170e780b303aa35624fbd19442a",
+  "exit_code": 0,
+  "returncode_observed_by_wait": true,
+  "wrapper_and_child_true_exit_observed": true,
+  "launch": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_D_clip_seed7_actual_statistic_canary_D_decode_R1_20261026T1015_launch.json",
+    "sha256": "7daa0f6255f091a5e84e53bb90cb8e2f4d73e170e780b303aa35624fbd19442a"
+  },
+  "stdout": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_D_clip_seed7_actual_statistic_canary_D_decode_R1_20261026T1015.log",
+    "sha256": "a321d56ec48dc89db314be5322c4b9772fd4e871240325ae1814417418e1802f"
+  },
+  "time_v": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_D_clip_seed7_actual_statistic_canary_D_decode_R1_20261026T1015_time_v.log",
+    "sha256": "ab93716a98b4a1a21a6841ddf6f6e615f2cb7fb7338d18f2e0de9954d20b5e34"
+  },
+  "actual_resource_and_independent_numeric_acceptance": false
+}

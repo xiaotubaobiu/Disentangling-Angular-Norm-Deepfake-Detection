@@ -1,0 +1,150 @@
+{
+  "schema": "INDEPENDENT_M_BOUNDED_TWO_CANARY_RESOURCE_PLAN_REVIEW_V1",
+  "utc": "2026-10-26T04:30:05.571007+00:00",
+  "status": "PASS_BOUNDED_PLAN_ONLY_WITH_MANDATORY_PRESTART_GATES",
+  "candidate_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_statistic_resource_and_format_acceptance_candidate_20261026.json",
+  "candidate_sha256": "553cdd89a0598fe86edaa0fe4389624cdcccc1287bd246e5c9dc174d0f884766",
+  "candidate_retained_immutable": true,
+  "decision": "The static limits/resource plan is sufficient to support admission of exactly the two original bounded canaries with actual_entry_resource_qualified=False, after every independent data/slot/live-budget/permit condition below. It is not a launch permit, real resource qualification or full30-job acceptance.",
+  "fixed_canaries": [
+    "D_clip_vit_b16_seed7",
+    "H_clip_vit_b16_seed7"
+  ],
+  "sequential_only": true,
+  "science_contract": {
+    "checkpoint_selection": "source_best",
+    "CAL_repeats": 200,
+    "TEST_repeats": 2000,
+    "resampling_seed": 20261023,
+    "four_core_comparisons_only": true,
+    "all_five_seeds_required": true,
+    "all30_statistic_caps_remain_budgeted": true,
+    "update_matched_primary_claim": false
+  },
+  "API_review": {
+    "source": "source_best_analysis.py:73-79,88-97,100-145; source_best_sink.py:101-106",
+    "canary_API_requires_exact_two_jobs": true,
+    "canary_API_requires_actual_entry_resource_qualified_false": true,
+    "canary_API_requires_bounded_plan_independent_acceptance_true": true,
+    "candidate_current_status_CANDIDATE_and_bounded_flag_false_intentionally_not_executable": true,
+    "nine_sink_limit_keys_exact_typed_positive": true,
+    "sequential_order_and_RLIMIT_AS_must_be_applied_by_external_launcher": true
+  },
+  "code_binding": {
+    "current_statistics_package_sources_exactly_match": 33,
+    "M36_is_a_separate_protection_set_not_misreported_as_statistics_package_count": true,
+    "analysis_code_sha256": "0ec974eec85a0a5204b8804707d627fa908a80eb1a4e76cfa81729ce0a875a32",
+    "protected_sidefile_sha256": {
+      "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/h_last_matrix_result_audit.py": "bb299e512e355fa0a8c9b25f901b1788cee6a2b445a4eb1ddb67b30cb4c3a0e2",
+      "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/h_primary_pair_admission_audit.py": "845bd8adab8dd95e47cae44543b0cffe2f57bcc99657a623e09529d8e76d7544"
+    },
+    "source_files_modified": false
+  },
+  "conditional_metadata_identities": {
+    "D_clip_vit_b16_seed7": {
+      "identity_sha256": "f2245c70bde16847e0f0a13d8b6d93e15cdd1356772e69ba2302e26ff0fcc8aa",
+      "six_current_header_complete_SHA_bindings_match": true,
+      "pure_original_identity_function_rederived_exactly": true,
+      "output": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/source_best_M/f2245c70bde16847e0f0a13d8b6d93e15cdd1356772e69ba2302e26ff0fcc8aa/D_clip_vit_b16_seed7",
+      "output_absent_and_not_symlink_at_20261026T042556Z": true,
+      "raw_FP32_features_from_metadata_bytes": 545310720
+    },
+    "H_clip_vit_b16_seed7": {
+      "identity_sha256": "1d0b846f8f229e012c0ff17276b5ffddeb10467f1f351a19fb63047463757f53",
+      "six_current_header_complete_SHA_bindings_match": true,
+      "pure_original_identity_function_rederived_exactly": true,
+      "output": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/source_best_M/1d0b846f8f229e012c0ff17276b5ffddeb10467f1f351a19fb63047463757f53/H_clip_vit_b16_seed7",
+      "output_absent_and_not_symlink_at_20261026T042556Z": true,
+      "raw_FP32_features_from_metadata_bytes": 136314880
+    },
+    "method": "Independently read only12role identity/complete metadata pairs, checked SHA and typed equality, removed exactly the5role-only fields, and evaluated only unchanged original analysis.job/implementations/identity plus sink.typed AST with stdlib. No prepare_context, model, feature payload or eligibility validation.",
+    "meaning": "Conditional namespace derivation only. A future real independent6-role admission must match these complete source_contexts and marker maps with exact types; mismatch invalidates this candidate output."
+  },
+  "accepted_static_limits": {
+    "D": {
+      "max_total_bytes": 1073741824,
+      "max_temporary_bytes": 4294967296,
+      "max_artifact_bytes": 1073741824,
+      "max_json_bytes": 2147483648,
+      "max_json_array_bytes": 536870912,
+      "max_json_cells": 67108864,
+      "max_bundle_members": 64,
+      "max_table_rows": 1000000,
+      "max_decoded_bytes": 536870912
+    },
+    "H": {
+      "max_total_bytes": 268435456,
+      "max_temporary_bytes": 2147483648,
+      "max_artifact_bytes": 268435456,
+      "max_json_bytes": 268435456,
+      "max_json_array_bytes": 134217728,
+      "max_json_cells": 16777216,
+      "max_bundle_members": 64,
+      "max_table_rows": 1000000,
+      "max_decoded_bytes": 268435456
+    }
+  },
+  "limit_rationale_review": [
+    "D persistent1GiB/staging4GiB and H persistent256MiB/staging2GiB are bounded attempt caps, retaining all original declared D60/H37 output contracts. They do not prove all outputs will fit.",
+    "D logical JSON2GiB covers the existing approximately1.289GB representative;512MiB arrays/decoded and64Mi cells, H256MiB logical JSON/128MiB arrays/16Mi cells/256MiB decoded are explicit positive bounds.1M table rows exceed metadata maxima104424D/26560H.",
+    "max_artifact is a physical artifact bound and max_json is a logical representation bound, so D1GiB physical versus2GiB logical is not an API conflict or a compression guarantee.",
+    "The2temporary caps sum to6GiB, preserving the shared global pool. Actual sink/global allocator limits remain mandatory."
+  ],
+  "full_no_credit_capacity_check": {
+    "base_plan_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/plans/M_detector_resume_remaining_write_plan_20261026T0140_candidate.json",
+    "base_plan_sha256": "38b3fe99340bc42d18798f36e7b1cff9fe4a4e8a8e6e692cdd5b19fbf5075254",
+    "all_budget_scalars_feature_inventory_and30_caps_preserved": true,
+    "base_future_and_reserve_bytes": 111669149696,
+    "full45_feature_bound_bytes": 18413684905,
+    "feature_credit_bytes": 0,
+    "all30_statistic_caps_bytes": 20132659200,
+    "primary_reserve_bytes": 53687091200,
+    "primary_temporary_bytes": 17179869184,
+    "M_global_temporary_bytes": 6442450944,
+    "M_extra_metadata_bytes": 5368709120,
+    "remaining_required_no_credit_upper_bytes": 150215493801,
+    "statistic_home_absent_at_observation": true,
+    "observation_utc": "2026-10-26T04:25:56.153796+00:00",
+    "live_free_bytes_at_observation": 151744139264,
+    "margin_bytes_at_observation": 1528645463,
+    "covers_full_upper_at_observation": true,
+    "prestart_live_recheck_required": true
+  },
+  "memory_envelope_check": {
+    "observation_utc": "2026-10-26T04:25:56.153796+00:00",
+    "MemTotal_bytes": 405106864128,
+    "MemAvailable_bytes": 387017363456,
+    "SwapFree_bytes": 5307486208,
+    "proposed_RLIMIT_AS_bytes": 34359738368,
+    "available_minus_one_AS_envelope_bytes": 352657625088,
+    "current_host_RAM_capacity_conflict_observed": false,
+    "AS_is_not_RSS_qualification": true,
+    "no_real_canary_memory_profile_performed": true
+  },
+  "mandatory_conditions_before_launch": [
+    "Retain553c candidate and publish any accepted qualification/plan successor separately; no in-place flag edits. This review provides bounded-plan acceptance only and issues no permit.",
+    "Root must bind its independently checked real D transport b7e/H final35588+7daea/entry098525+24ec evidence and unchanged input8d8e/cache-only d4/M33+separateM36/protected sidefiles.",
+    "Wait for an actually free original CPU slot0/1 and true release of the current H jobs; no slot preemption. Obtain each real original independent6-role admission before its canary, including live source/head/payload checks.",
+    "Require typed complete source_contexts and6marker maps to equal the conditional identity exactly. Any drift invalidates this candidate output; metadata is not data admission.",
+    "Freshly recheck full remaining capacity before acceptance/start. The observed margin is only approximately1.53GB and concurrent writers can change it. Preserve full45feature bound and all30caps, with no unclosed-feature savings.",
+    "Use a separate exact-two-job M_BOUNDED_STATISTIC_CANARY_ADMISSION_V1 permit, empty CUDA,2thread settings, sequential jobs and externally applied/recorded32GiB RLIMIT_AS. The original entry does not itself enforce the external AS proposal.",
+    "Keep actual_entry_resource_qualified=False for these first two canaries. Record GNUtime, actual process limits, true exit, peakRSS/time and complete declared saved results for independent audit.",
+    "Any quota/memory failure stops and preserves partial staging/evidence. No sample reduction, deletion/overwrite, fresh-namespace retry or inferred scientific/compression credit. Full30 qualification requires subsequent real accepted canary resource/saved-result evidence."
+  ],
+  "findings": [],
+  "bounded_canary_resource_plan_independently_accepted": true,
+  "current_launch_ready": false,
+  "actual_entry_resource_qualified": false,
+  "all_D60_H37_successful_fit_claimed": false,
+  "full30_statistics_resource_qualified": false,
+  "scientific_results_accepted": false,
+  "separate_permit_issued": false,
+  "review_actions": {
+    "models_or_tests_run": false,
+    "source_or_payload_eligibility_validation_run": false,
+    "CPU_slot_acquired": false,
+    "weights_feature_payloads_or_PNG_read": false,
+    "source_code_modified": false,
+    "only_small_metadata_code_hashes_pure_identity_and_host_capacity_read": true
+  }
+}

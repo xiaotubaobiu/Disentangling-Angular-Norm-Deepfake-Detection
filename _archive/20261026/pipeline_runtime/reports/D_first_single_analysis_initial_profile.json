@@ -1,0 +1,15 @@
+{
+  "utc": "2026-10-24T14:01:17.651045+00:00",
+  "status": "FULL_SEVEN_ROLE_ADMISSION_RUNNING",
+  "pid": 1949600,
+  "process": {
+    "status": "Name:\tpython\nState:\tS (sleeping)\nPPid:\t1949599\nVmHWM:\t  816288 kB\nVmRSS:\t  589952 kB\nThreads:\t8",
+    "io": "rchar: 2890931751\nwchar: 8007\nsyscr: 6459\nsyscw: 12\nread_bytes: 4210688\nwrite_bytes: 24576\ncancelled_write_bytes: 4096\n",
+    "stat": "1949600 (python) S 1949599 1949598 1949598 0 -1 4194304 373876 0 74 0 1293 619 0 0 20 0 8 0 460035171 5213487104 147488 18446744073709551615 4321280 6627138 140735437947296 0 0 0 0 16781312 2 0 0 0 17 40 0 0 0 0 0 7803536 9051136 21696512 140735437949989 140735437950184 140735437950184 140735437950885 0\n",
+    "wchan": "request_wait_answer",
+    "cmdline": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -u /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/D_first_single_analysis_command.py "
+  },
+  "duplicate_lock_probe_exit": 75,
+  "free_bytes": 416596738048,
+  "analysis_output_exists": false
+}

@@ -1,0 +1,36 @@
+{
+  "epoch": 1,
+  "attempts_after": 1,
+  "events": [
+    {
+      "attempt": 0,
+      "lr": 0.0001,
+      "loss": 0.661000519990921,
+      "gradient_norm": 1.8147389960356546,
+      "gradient_finite": true,
+      "scale_before": 1.0,
+      "scale_after": 1.0,
+      "success": true,
+      "skip": false
+    }
+  ],
+  "batch_hashes": [
+    {
+      "inputs": "4ed8f8d3b6966de817d63292883c239abf526a8c96e7e2d7818705678bbff8f8",
+      "labels": "b26f61924df1646833c275784bbd402a6719cb1e464b42bea58aa34370b03407"
+    }
+  ],
+  "samples_sha256": "caf7a6cec28fcf1dd35065e775ea3862917b79bb48968d71a2020cf8c155a509",
+  "methods_sha256": "741d8fbe16bd5159cc39f9925378ff3f59fb7f0b355114c30869848e7b93f2c8",
+  "augmentations_sha256": "bc43917c1ab6eee9a5f79c7198cb3df30052b6103bd6d2a129da8f3d4907317d",
+  "dev": {
+    "macro_auc": 0.25,
+    "pooled_auc": 0.25,
+    "method_auc": {
+      "Deepfakes": 0.0,
+      "Face2Face": 0.5,
+      "FaceSwap": 0.0,
+      "NeuralTextures": 0.5
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "schema": "M_H6_ORIGINAL_PROCESS_HEALTH_V1",
+  "samples": [
+    {
+      "utc": "2026-10-26T07:45:58.353884+00:00",
+      "alive": true,
+      "state": "S",
+      "CPU_ticks": 147910,
+      "io": {
+        "rchar": 285436119803,
+        "wchar": 0,
+        "syscr": 5161169,
+        "syscw": 0,
+        "read_bytes": 5132288,
+        "write_bytes": 0,
+        "cancelled_write_bytes": 0
+      },
+      "open_project_files": [
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_actual_H_clip_seed7_six_role_admission_20261026T070258Z.log",
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_actual_H_clip_seed7_six_role_admission_20261026T070258Z.log",
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_actual_H_clip_seed7_six_role_admission_20261026T070258Z_time_v.log",
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/.cpu_slots/slot0.lock"
+      ]
+    },
+    {
+      "utc": "2026-10-26T07:46:00.356454+00:00",
+      "alive": true,
+      "state": "S",
+      "CPU_ticks": 147979,
+      "io": {
+        "rchar": 285480671868,
+        "wchar": 0,
+        "syscr": 5164202,
+        "syscw": 0,
+        "read_bytes": 5132288,
+        "write_bytes": 0,
+        "cancelled_write_bytes": 0
+      },
+      "open_project_files": [
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_actual_H_clip_seed7_six_role_admission_20261026T070258Z.log",
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_actual_H_clip_seed7_six_role_admission_20261026T070258Z.log",
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_actual_H_clip_seed7_six_role_admission_20261026T070258Z_time_v.log",
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/.cpu_slots/slot0.lock"
+      ]
+    }
+  ],
+  "no_process_or_source_mutation": true
+}

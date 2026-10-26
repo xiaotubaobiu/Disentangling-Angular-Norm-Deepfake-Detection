@@ -1,0 +1,57 @@
+{
+  "utc": "2026-10-24T02:27:58.788099+00:00",
+  "status": "0220_CHECK_COMPLETED_RECORDED_VERIFIED",
+  "D_formal_complete_active_pending": [
+    4,
+    4,
+    7
+  ],
+  "formal_checkpoint_epochs": [
+    8,
+    6,
+    6,
+    6
+  ],
+  "phase_AMP": [
+    32,
+    19,
+    0
+  ],
+  "new_live_skips": 0,
+  "GPU0to3_mean_util_percent": [
+    95.5,
+    81.125,
+    81.375,
+    81.625
+  ],
+  "fresh_capacity_GiB": {
+    "workspace_free_GiB": 405.62087631225586,
+    "Dataset_free_GiB": 2783.6395378112793
+  },
+  "next_check_utc": "2026-10-24T03:20:00Z",
+  "HANDOFF": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/HANDOFF.md",
+  "HANDOFF_sha256": "d52fa992afd7952baa8faa860f698ccf738c3ca5d61a7d25c4ddfa51651e98ea",
+  "status_sha256": "5d278ae004e0a82ba86cd964cbe2fd39dc5226758e8f5e9c03dd99d6a2227a66",
+  "obsidian_status": "/home/z/obsidian/paper/deepfake-detector/新实验设计/20261023/执行状态_20261023_v2.md",
+  "obsidian_status_sha256": "96ebb1fbdde4559d95f5df8752835cf310eee69c78f4fcb41e8d505a9a77b605",
+  "final_readback": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/check_20261024T0220_final_readback.json",
+  "final_readback_sha256": "37421d3e1a905ac84a3cc32bd4fbd7a3c967175b16b5d32d3cdeae546f1fc5e9",
+  "evidence_sha256": {
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/checkpoint_health_20261024T0220.json": "38e92b7d5eb25db4360f83a0a63b19f26142d0d07b84be1ba00dbb4a5f23cf7c",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/checkpoint_health_20261024T0220_process.json": "7c1d877af378dc952a01c679d899fbaabf3226e62e22d6f0a91d279da08ca84e",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/D_completed_artifact_audit_20261024T0220.json": "98b3574dc7b8d70d8563bff81f8764e8349edd4c10ba4b48dfa51cef8e275a70",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/completion_audit_20261024T0220_process.json": "e6d3869d8d65831062b19bd4a228f38843c94434e9f57ae9c74bfb392ce5095d",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/check_20261024T0220Z.json": "c08b72528803436ad1e5556c9fbec724f827ed46a3f53c47d7c2b79583ef73e1",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/runtime_monitor_20261024T0220_process.json": "a176d546e8a1361beae270c2ec7ace66e891cb4693d04975abe03e5d273fbb98",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/AMP_numeric_acceptance_20261024T0220.json": "76c3d5a43dfacbe57e5500e0236982636e09d488718de95768e555dc1d2f177a",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/immutable_inputs_20261024T0220.json": "c47fface5f598647dc8f762e4f03471e7be14e1941241beaa879dd975605ff72",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/analysis_readiness_20261024T0220.json": "2a0e408d2ec1058ff7c624f1f86874cfaa8888177ba29d6d8b1224c89d2f5ced",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/manuscript_discussion_preparation_20261024T0220.json": "beb42ecd0197f1179667c8f04de5dc7be19b55da53da73056e411f71458eb5c8",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/manuscript_discussion_readback_20261024T0220.json": "e64ea81dab328d7595a4eea737cd9d1ac34f07383c3c928bdc7236c087ac9029",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/stage_progress_and_remaining_20261024T0220.json": "9c855777f26fb9ef6f9c9f3567082e2e76a72de9289fcdc25cdf79ef87989d6f",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/check_20261024T0320_preparation.json": "175f0f2083cbfbc876d2e4087e1e385a9095f2f667daf3b917c3fb678c27517b"
+  },
+  "new_blocker": null,
+  "remaining_resource_dependency": "HqualificationpendingoriginalDtraining+cacheterminalsafehandoff;noearlyclaimretry",
+  "full_study_or_journal_manuscripts_complete": false
+}

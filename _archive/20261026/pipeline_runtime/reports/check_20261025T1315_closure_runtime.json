@@ -1,0 +1,291 @@
+{
+  "utc": "2026-10-25T14:12:46Z",
+  "formal_training_accepted": 45,
+  "D_statistics_accepted": 15,
+  "H_role_markers": 134,
+  "H_operational_cache_models": 16,
+  "H_independent_cache_models": 4,
+  "H_independent_cache_pairs": 2,
+  "H_primary_statistic_terminals": 2,
+  "H_saved_score_metric_bootstrap_independently_audited_pairs": 2,
+  "H_remaining_pairs_to_execute": 13,
+  "H_remaining_pairs_to_independently_audit": 13,
+  "H_owner_pid": 3219035,
+  "H_owner_alive": true,
+  "active_H_workers": [
+    {
+      "pid": 523493,
+      "run_id": "H_formal_dinov2_vit_b14_B_seed2026",
+      "gpu": 1,
+      "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+      "backbone": "dinov2_vit_b14",
+      "alive": true,
+      "state": "State:\tR (running)"
+    },
+    {
+      "pid": 529195,
+      "run_id": "H_formal_dinov2_vit_b14_AB_seed2026",
+      "gpu": 0,
+      "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e",
+      "backbone": "dinov2_vit_b14",
+      "alive": true,
+      "state": "State:\tS (sleeping)"
+    },
+    {
+      "pid": 534781,
+      "run_id": "H_formal_dinov2_vit_b14_B_seed3407",
+      "gpu": 3,
+      "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646",
+      "backbone": "dinov2_vit_b14",
+      "alive": true,
+      "state": "State:\tR (running)"
+    },
+    {
+      "pid": 542324,
+      "run_id": "H_formal_dinov2_vit_b14_AB_seed3407",
+      "gpu": 2,
+      "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+      "backbone": "dinov2_vit_b14",
+      "alive": true,
+      "state": "State:\tS (sleeping)"
+    }
+  ],
+  "H_pending_GPU_models": 10,
+  "CPU_admissions": [
+    {
+      "seed": 123,
+      "slot": 1,
+      "wrapper_pid": 853047,
+      "pid": 853048,
+      "alive": true,
+      "log": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_primary_admit_clip_seed123_slot1_20261025T1355.log",
+      "latest_lines": [
+        "BEGIN_FRESH_ORIGINAL_LEDGER 3 clip_vit_b16 AMP models10_no_receipt_reuse",
+        "BEGIN_FRESH_ORIGINAL_LEDGER 4 clip_vit_b16 AMP models10_no_receipt_reuse"
+      ]
+    },
+    {
+      "seed": 2026,
+      "slot": 0,
+      "wrapper_pid": 1001088,
+      "pid": 1001089,
+      "alive": true,
+      "log": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_primary_admit_clip_seed2026_slot0_20261025T1410_time_v.log",
+      "latest_lines": []
+    }
+  ],
+  "GPU_samples": [
+    {
+      "utc": "2026-10-25T14:12:30Z",
+      "GPUs": [
+        [
+          0,
+          0,
+          1238
+        ],
+        [
+          1,
+          0,
+          1238
+        ],
+        [
+          2,
+          0,
+          1238
+        ],
+        [
+          3,
+          0,
+          1238
+        ],
+        [
+          4,
+          0,
+          28156
+        ],
+        [
+          5,
+          0,
+          28156
+        ],
+        [
+          6,
+          0,
+          28156
+        ],
+        [
+          7,
+          0,
+          28156
+        ]
+      ]
+    },
+    {
+      "utc": "2026-10-25T14:12:35Z",
+      "GPUs": [
+        [
+          0,
+          0,
+          1238
+        ],
+        [
+          1,
+          0,
+          1238
+        ],
+        [
+          2,
+          0,
+          1238
+        ],
+        [
+          3,
+          0,
+          1238
+        ],
+        [
+          4,
+          0,
+          28156
+        ],
+        [
+          5,
+          0,
+          28156
+        ],
+        [
+          6,
+          0,
+          28156
+        ],
+        [
+          7,
+          0,
+          28156
+        ]
+      ]
+    },
+    {
+      "utc": "2026-10-25T14:12:41Z",
+      "GPUs": [
+        [
+          0,
+          0,
+          1238
+        ],
+        [
+          1,
+          0,
+          1238
+        ],
+        [
+          2,
+          0,
+          1238
+        ],
+        [
+          3,
+          0,
+          1238
+        ],
+        [
+          4,
+          0,
+          28156
+        ],
+        [
+          5,
+          0,
+          28156
+        ],
+        [
+          6,
+          0,
+          28156
+        ],
+        [
+          7,
+          0,
+          28156
+        ]
+      ]
+    },
+    {
+      "utc": "2026-10-25T14:12:46Z",
+      "GPUs": [
+        [
+          0,
+          0,
+          1238
+        ],
+        [
+          1,
+          0,
+          1238
+        ],
+        [
+          2,
+          0,
+          1238
+        ],
+        [
+          3,
+          0,
+          1238
+        ],
+        [
+          4,
+          0,
+          28156
+        ],
+        [
+          5,
+          0,
+          28156
+        ],
+        [
+          6,
+          0,
+          28156
+        ],
+        [
+          7,
+          0,
+          28156
+        ]
+      ]
+    }
+  ],
+  "free_bytes": 172355153920,
+  "free_GiB": 160.51824569702148,
+  "primary_conservative_remaining_GiB": 106.9508056640625,
+  "M_fixed_cap_candidate_joint_GiB": 153.8498860979625,
+  "M_sink_commit": "58e006881e58386dab708f8b65f608ae6225a290",
+  "M_sink_full_suite_passed": 698,
+  "M_sink_unit_skips": 17,
+  "M_sink_accepted_engineering_only": true,
+  "M_production_admitted": false,
+  "cold_release_bytes": 0,
+  "compression_capacity_credit_bytes": 0,
+  "next_check_utc": "2026-10-25T14:45:00Z",
+  "GPU_window_mean_util_percent": {
+    "0": 0.0,
+    "1": 0.0,
+    "2": 0.0,
+    "3": 0.0,
+    "4": 0.0,
+    "5": 0.0,
+    "6": 0.0,
+    "7": 0.0
+  },
+  "GPU_window_peak_util_percent": {
+    "0": 0,
+    "1": 0,
+    "2": 0,
+    "3": 0,
+    "4": 0,
+    "5": 0,
+    "6": 0,
+    "7": 0
+  }
+}

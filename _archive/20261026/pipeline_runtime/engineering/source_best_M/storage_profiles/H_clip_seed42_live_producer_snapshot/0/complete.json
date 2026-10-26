@@ -1,0 +1,46 @@
+{
+  "schema": "M_EXACT_MULTIPLICITY_BUNDLE_V1",
+  "identity": {
+    "independent_cache_admission_sha256": "3e6c6366089ac131804e26d260e40f7af7c0bac92c87ee2b763d8a507c8c48f7",
+    "producer_identity_sha256": "b0200cf4495865f7fd716ce4f0b7666a4afe6690b8dcc9e85335ba5d8b34fb1f",
+    "scope": "ENGINEERING_LIVE_PRIMARY_H_NATIVE_PAYLOAD_SNAPSHOT_NOT_FINAL_SCIENCE",
+    "source_best_results": false,
+    "source_relative": "mean_logit/SOURCE_TEST/all_B/conditional_bootstrap.json",
+    "source_sha256": "ddc4b28fbc134c6fe03a6220699c86f21b3c98f3dc5855203ad9d2028ce27be5"
+  },
+  "raw_json_sha256": "ddc4b28fbc134c6fe03a6220699c86f21b3c98f3dc5855203ad9d2028ce27be5",
+  "raw_json_bytes": 9662637,
+  "implementation_sha256": {
+    "multiplicity_codec.py": "1931371915dcbf542b78b79ca433f202e6c6cdf194400985020f105eff92fa73",
+    "sensitivity_io.py": "d311923c3e35b8e9ba2fc42dc5ee7e6e46b66ce3c9f2d3a923ea8ccb949be9ce",
+    "multiplicity_bundle.py": "3aa5debf7d98bd976bc21fa5be2135d34cdfa8e0b91873f356cc8f57e24360c3"
+  },
+  "metadata": {
+    "compressed_sha256": "154d7539e1bb254498aae7429fb2c130fbe942bbc96b8d42b264449ac0ce5b08",
+    "uncompressed_sha256": "fbee6cabf0ac07e0c224827dffbe2c997ecdd175d8db8e2a5964fac4a4ffcd43",
+    "compressed_bytes": 820593,
+    "uncompressed_bytes": 7109567
+  },
+  "npz": {
+    "sha256": "0446c57267c46f4b8af12ddb3ea6a96dfee8fc80c69c64e0ed0244c27aa5bc33",
+    "bytes": 107170
+  },
+  "array_specs": {
+    "counts_0": {
+      "dtype": "<u4",
+      "shape": [
+        2000,
+        70
+      ],
+      "bytes": 560000
+    },
+    "order_0": {
+      "dtype": "<i4",
+      "shape": [
+        2000,
+        70
+      ],
+      "bytes": 560000
+    }
+  }
+}

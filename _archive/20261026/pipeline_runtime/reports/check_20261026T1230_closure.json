@@ -1,0 +1,125 @@
+{
+  "schema": "DETECTOR_V2_CHECK_20261026T1230_CLOSURE_V1",
+  "observed_utc": "2026-10-26T12:51:09.983372+00:00",
+  "live_snapshot": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/check_20261026T1230_final_live_snapshot_20261026T1252.json",
+    "sha256": "89701fa3eaa97a0066a33b223787a31f9bb92070763aa399283480edff687417"
+  },
+  "D_selected_M_single_job_actual_independent_acceptance": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_D_clip_seed7_selected_core_actual_canary_independent_acceptance_20261026T1250.json",
+    "sha256": "0f807561f12d4df1480d260f1552541b1e3e8796d392c7a816bfdf3ea4cf1872"
+  },
+  "D_actual_canary_accepted": true,
+  "D_selected_job": "D_clip_vit_b16_seed7",
+  "D_numeric_counts": {
+    "draws_recomputed": 28000,
+    "calibration_rows_recomputed": 3208,
+    "scalar_checks": 2374407,
+    "maximum_absolute_error": 3.552713678800501e-15
+  },
+  "consumer_CSV_lexical_identity_fix": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_saved_result_consumer_CSV_lexical_identity_fix_engineering_acceptance_20261026T1240.json",
+    "sha256": "7e06c8c8c643f098762936b0e0f875ae1a1c1decc3502e35d39d34377ca4cc4a"
+  },
+  "H_source_best_canary": {
+    "actual_launch": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_H_clip_seed7_actual_statistic_canary_20261026T1250_launch.json",
+      "sha256": "0193a739bbb65d599f7e9897e0267e85505abf1980fac5da162d6f865a51c5b4"
+    },
+    "observer_PID": 4064145,
+    "wrapper_PID": 4064146,
+    "python_PID": 4064147,
+    "CPU_slot": 0,
+    "actual_CPU_slot_fd": [
+      {
+        "fd": "4",
+        "target": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/.cpu_slots/slot0.lock",
+        "inode": 52325275
+      }
+    ],
+    "AS_soft_hard_bytes": 34359738368,
+    "phase": "RUNNING_SOURCE_PREFLIGHT_NO_TERMINAL_OR_NUMERIC_ACCEPTANCE",
+    "selected_prefix": {
+      "AB": {
+        "AMP_skips": 0,
+        "attempts": 4393,
+        "draws": 562304,
+        "epoch": 23,
+        "source_macro_auc": 0.9981657786706264,
+        "successful_updates": 4393
+      },
+      "B": {
+        "AMP_skips": 0,
+        "attempts": 3247,
+        "draws": 415616,
+        "epoch": 17,
+        "source_macro_auc": 0.999497772731243,
+        "successful_updates": 3247
+      }
+    },
+    "full30_permission": false
+  },
+  "M_cache": {
+    "operational_model_returns_completed": 27,
+    "total_model_endpoints": 45,
+    "active_original_workers_draining": 3,
+    "pending_stopped": 15,
+    "raw_role_markers": 131,
+    "total_role_markers": 180,
+    "phase_owner_PID": 825619,
+    "phase_lock": [
+      "63: FLOCK  ADVISORY  WRITE 825619 fd:01:51809676 0 EOF"
+    ],
+    "failure": {
+      "__owner__": "exclusive original phase lease required"
+    },
+    "historical_failure_cause": "UNKNOWN",
+    "newly_drained_operational_worker": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_drained_H_dinov2_AB_seed7_operational_return_readback_20261026T1252.json",
+      "sha256": "4298df88a3fb17f79b2a7d7862f23b5ea5d6939d211b7c5733a6e4097cecabe0"
+    },
+    "new_owner_started": false,
+    "recovery_executed": false,
+    "recovery_pending": "3 existing workers then owner natural exit, real terminal/exception and all inherited phase/GPU leases released; use reviewed final union original45 plan and fresh gates",
+    "recovery_recipe": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_owner_natural_drain_recovery_recipe_20261026T1130.json",
+      "sha256": "76b12be6555466d51d12a251edcc58b1eec55a4256c4889f1acef0b71f51ba6f"
+    }
+  },
+  "H_primary": {
+    "independently_accepted_statistic_pairs": 6,
+    "total_pairs": 15,
+    "original_cache_roles_complete": 210,
+    "independent_cache_models": 14,
+    "total_cache_models": 30,
+    "Eff7_original_PID": 1747331,
+    "source_ledger_checks_started": 36,
+    "total_source_checks": 42,
+    "terminal": false,
+    "CLIP_original_LAST_five_seed_summary_accepted": true
+  },
+  "capacity": {
+    "free_bytes": 149783228416,
+    "full_future_write_temporary_peak_reserve_bytes": 148068010153,
+    "full_margin_bytes": 1715218263,
+    "partial_feature_credit_bytes": 0,
+    "cold_SSD_release_bytes": 0
+  },
+  "code": {
+    "C_commit": "4cfbee389b9105223edeb90883fa37d4ac01f0e5",
+    "M33_original_source_unchanged": true,
+    "tests141_pass": true,
+    "git_clean": true
+  },
+  "M_statistic_jobs_independently_accepted": 1,
+  "M_statistic_jobs_running": 1,
+  "M_statistic_jobs_not_started": 28,
+  "M_all_DH_entry_resource_qualified": false,
+  "M_full30_permission": false,
+  "scientific_results_complete": false,
+  "journal_manuscripts_complete": false,
+  "only_detector_active": true,
+  "JEV_annotation_still_paused": true,
+  "protected_GPUs_4_7_not_controlled": true,
+  "next_recommended_check_utc": "2026-10-26T13:15:00+00:00"
+}

@@ -1,0 +1,44 @@
+{
+  "utc": "2026-10-23T18:06:51.953349+00:00",
+  "status": "PASS_H_FULL_DEEP_AND_INDEPENDENT_TERMINAL_REVIEW_FREEZE_REVALIDATION_RUNNING",
+  "deep_terminal": {
+    "utc": "2026-10-23T16:30:34.712639+00:00",
+    "status": "READY_FOR_INDEPENDENT_REVIEW",
+    "pid": 200931,
+    "CPU_only": true,
+    "operation": "data_h.inspect_h_data full8431source/PNGintegrity+cohortreconstruction",
+    "fresh_full_audit_sha256": "8a1036f077a42756690a643f0eda3ff543dca27c06ad4a011d9759f5dadf2d04",
+    "data_gate_code_sha256": "ad81f65c27d53159e6902bf8a20b0910cd129f75eb0105e5a5a053bcc2d2f45e",
+    "does_not_freeze_or_train": true,
+    "ended_utc": "2026-10-23T17:56:13.541752+00:00",
+    "inspection_report_sha256": "c319ee7a6a6ab332b85f5ecd4a0b56bebeedd073228e6d8227ad187a09806b2d",
+    "blockers": []
+  },
+  "deep_report": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_production_data_inspection.json",
+    "sha256": "c319ee7a6a6ab332b85f5ecd4a0b56bebeedd073228e6d8227ad187a09806b2d"
+  },
+  "independent_review": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_production_data_independent_review_1450.json",
+    "sha256": "760a1411084a5ed747710cc1c58f2ead2c69e0df6775345f76346b8db48bf748",
+    "status": "PASS",
+    "blockers": [],
+    "reviewer": {
+      "identity": "Codex independent subagent /root/h_pipeline_review",
+      "independent": true
+    }
+  },
+  "native_prior_deep_exit_code": "Not retained by old helper; querying retired session95551 reports Unknown process id. Semantic completion is established by saved terminal READY report, exact current bindings and exited PID. Do not infer OSrc0.",
+  "freeze_validation_health": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_freeze_validation_health_1800.json",
+    "sha256": "312a8f19a79f2838012de6a0bc4abc4de243818e4ad7acf7406e9e9a9c69b7b7"
+  },
+  "freeze_helper": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_production_data_freeze_1800.py",
+    "sha256": "e8302ebd3c769d5b25bd9bde8e4f9fcc622821e28b9b05a937ea6b15ba514074"
+  },
+  "freeze_created": false,
+  "H_real_GPU_qualification_or_training_started": false,
+  "scope": "Data full audit/deep/independent acceptance only; existing freeze_h_data is executing its mandatory fresh scan and has not yet created immutable freeze. DFD complete ancestry/manipulated-face identity not certified. All failure/old evidence retained.",
+  "next_manual_check_utc": "2026-10-23T18:45:00Z"
+}

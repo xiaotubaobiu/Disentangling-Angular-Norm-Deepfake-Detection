@@ -1,0 +1,310 @@
+{
+  "utc": "2026-10-25T04:13:14.619101+00:00",
+  "scheduled_check_utc": "2026-10-25T04:05:00Z",
+  "status": "PASS_ALL10_DINO_TERMINALS_SOURCE_ALLFIVE_AUDIT_RUNNING_M_TARGETED_FIXES_PASS_FULL_SUITE_PENDING",
+  "D_formal_independently_accepted": 15,
+  "H_formal_independently_accepted": 20,
+  "whole_formal_terminal_accepted": 35,
+  "whole_formal_total": 45,
+  "new_terminal_acceptances_this_check": 2,
+  "count_scope": "15D+20H AMP independently accepted terminals; original queue markers and waiting independent terminals are separate. Source-best M remains sensitivity without new training.",
+  "H_formal_running": 4,
+  "H_formal_pending": 6,
+  "H_terminal_accepted_ids": [
+    "H_formal_clip_vit_b16_B_seed7",
+    "H_formal_clip_vit_b16_AB_seed42",
+    "H_formal_clip_vit_b16_AB_seed7",
+    "H_formal_clip_vit_b16_B_seed42",
+    "H_formal_clip_vit_b16_B_seed123",
+    "H_formal_clip_vit_b16_AB_seed123",
+    "H_formal_clip_vit_b16_AB_seed2026",
+    "H_formal_clip_vit_b16_B_seed2026",
+    "H_formal_clip_vit_b16_B_seed3407",
+    "H_formal_clip_vit_b16_AB_seed3407",
+    "H_formal_dinov2_vit_b14_B_seed7",
+    "H_formal_dinov2_vit_b14_AB_seed7",
+    "H_formal_dinov2_vit_b14_B_seed42",
+    "H_formal_dinov2_vit_b14_AB_seed42",
+    "H_formal_dinov2_vit_b14_B_seed123",
+    "H_formal_dinov2_vit_b14_AB_seed123",
+    "H_formal_dinov2_vit_b14_B_seed2026",
+    "H_formal_dinov2_vit_b14_AB_seed2026",
+    "H_formal_dinov2_vit_b14_B_seed3407",
+    "H_formal_dinov2_vit_b14_AB_seed3407"
+  ],
+  "new_terminal_totals": {
+    "models": 2,
+    "attempts": 11460,
+    "successful_updates": 11460,
+    "AMP_skips": 0
+  },
+  "new_terminal_source_DEV_metric_checks": 360,
+  "new_terminal_source_DEV_max_abs_error": 1.1102230246251565e-16,
+  "new_terminal_resources": {
+    "Elapsed (wall clock) time": "1:35.67",
+    "Maximum resident set size": "2626256",
+    "Swaps": "0",
+    "Exit status": "0"
+  },
+  "H_accepted_formal_totals": {
+    "models": 20,
+    "attempts": 114600,
+    "successful_updates": 114600,
+    "AMP_skips": 0
+  },
+  "H_standard_development_totals": {
+    "models": 20,
+    "attempts": 114600,
+    "successful_updates": 114600,
+    "AMP_skips": 0
+  },
+  "D_AMP_skips_by_stage": {
+    "development": 32,
+    "formal": 57
+  },
+  "original_owner_pid": 2222605,
+  "queue_snapshot_utc": "2026-10-25T04:13:14.578701+00:00",
+  "actual_active": [
+    {
+      "pid": 2430766,
+      "run_id": "H_formal_efficientnet_b0_B_seed7",
+      "gpu": 0,
+      "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e",
+      "backbone": "efficientnet_b0"
+    },
+    {
+      "pid": 2446718,
+      "run_id": "H_formal_efficientnet_b0_AB_seed7",
+      "gpu": 3,
+      "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646",
+      "backbone": "efficientnet_b0"
+    },
+    {
+      "pid": 2745535,
+      "run_id": "H_formal_efficientnet_b0_B_seed42",
+      "gpu": 1,
+      "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+      "backbone": "efficientnet_b0"
+    },
+    {
+      "pid": 2745536,
+      "run_id": "H_formal_efficientnet_b0_AB_seed42",
+      "gpu": 2,
+      "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+      "backbone": "efficientnet_b0"
+    }
+  ],
+  "complete_checkpoint_cut_utc": "2026-10-25T04:08:37.594909+00:00",
+  "complete_checkpoint_epochs": {
+    "H_formal_efficientnet_b0_B_seed7": 24,
+    "H_formal_efficientnet_b0_AB_seed7": 22,
+    "H_formal_efficientnet_b0_B_seed42": 4,
+    "H_formal_efficientnet_b0_AB_seed42": 4
+  },
+  "complete_checkpoint_totals": {
+    "unique_models": 4,
+    "attempts": 10314,
+    "successful_updates": 10314,
+    "AMP_skips": 0,
+    "scope": "only selected unique committed formal checkpoints at separate times; not all30 or terminal totals"
+  },
+  "paired_common_epochs": [
+    {
+      "seed": 7,
+      "common_snapshot_epochs_checked": 22,
+      "same_successful_update_stream_in_common_snapshot": true
+    },
+    {
+      "seed": 42,
+      "common_snapshot_epochs_checked": 4,
+      "same_successful_update_stream_in_common_snapshot": true
+    }
+  ],
+  "checkpoint_resources": {
+    "Elapsed (wall clock) time": "0:06.42",
+    "Maximum resident set size": "639996",
+    "Swaps": "0",
+    "Exit status": "0"
+  },
+  "checkpoint_scope": "Atomic open-inode snapshots; paths can advance during audit. Only checkpoint-committed epochs are read. Local CPU generators are restored; CUDA RNG is only verified/hashed without GPU restore. Paired checks cover each observed seed at common committed epochs. Early0 skips do not imply whole-training0. All5 terminal paired ledgers and any uniformFP32 capacity admission remain future root-owned gates.",
+  "later_metadata_live_cut_utc": "2026-10-25T04:09:03.640217+00:00",
+  "later_active_observation": [
+    {
+      "pid": 2430766,
+      "run_id": "H_formal_efficientnet_b0_B_seed7",
+      "gpu": 0,
+      "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e",
+      "backbone": "efficientnet_b0",
+      "history_epochs": 25,
+      "history_attempts": 4775,
+      "history_success": 4775,
+      "history_skips": 0,
+      "live_complete_update_events": 4849,
+      "live_skip_events": 0,
+      "partial_inflight_json_lines": 0,
+      "recent5_draw_equivalent_per_second": 380.119480958218,
+      "actual_cmdline": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -u -m reliability_v2.worker_h --config /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/configs/H_execution.json --run-id H_formal_efficientnet_b0_B_seed7 "
+    },
+    {
+      "pid": 2446718,
+      "run_id": "H_formal_efficientnet_b0_AB_seed7",
+      "gpu": 3,
+      "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646",
+      "backbone": "efficientnet_b0",
+      "history_epochs": 22,
+      "history_attempts": 4202,
+      "history_success": 4202,
+      "history_skips": 0,
+      "live_complete_update_events": 4306,
+      "live_skip_events": 0,
+      "partial_inflight_json_lines": 0,
+      "recent5_draw_equivalent_per_second": 382.77216365433094,
+      "actual_cmdline": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -u -m reliability_v2.worker_h --config /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/configs/H_execution.json --run-id H_formal_efficientnet_b0_AB_seed7 "
+    },
+    {
+      "pid": 2745535,
+      "run_id": "H_formal_efficientnet_b0_B_seed42",
+      "gpu": 1,
+      "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+      "backbone": "efficientnet_b0",
+      "history_epochs": 4,
+      "history_attempts": 764,
+      "history_success": 764,
+      "history_skips": 0,
+      "live_complete_update_events": 912,
+      "live_skip_events": 0,
+      "partial_inflight_json_lines": 0,
+      "recent5_draw_equivalent_per_second": 366.67530146401833,
+      "actual_cmdline": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -u -m reliability_v2.worker_h --config /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/configs/H_execution.json --run-id H_formal_efficientnet_b0_B_seed42 "
+    },
+    {
+      "pid": 2745536,
+      "run_id": "H_formal_efficientnet_b0_AB_seed42",
+      "gpu": 2,
+      "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+      "backbone": "efficientnet_b0",
+      "history_epochs": 4,
+      "history_attempts": 764,
+      "history_success": 764,
+      "history_skips": 0,
+      "live_complete_update_events": 889,
+      "live_skip_events": 0,
+      "partial_inflight_json_lines": 0,
+      "recent5_draw_equivalent_per_second": 356.4565547124065,
+      "actual_cmdline": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -u -m reliability_v2.worker_h --config /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/configs/H_execution.json --run-id H_formal_efficientnet_b0_AB_seed42 "
+    }
+  ],
+  "new_H_AMP_skip_events_in_observed_logs": 0,
+  "GPU_window_start": "2026-10-25T04:06:56.024341+00:00",
+  "GPU_window_end": "2026-10-25T04:09:03.640217+00:00",
+  "GPU0_3_mean_util_percent": [
+    48.80327868852459,
+    45.57377049180328,
+    44.24590163934426,
+    49.50819672131148
+  ],
+  "runtime_window_scope": "61 samples separated by2 seconds, about130 seconds including nvidia-smi calls, slightly shorter than a DINO training epoch. Phase window only. epoch.seconds includes training/sourceDEV/logging, excludes subsequent checkpoint save. No GPU intervention.",
+  "E30_last_update_estimates_only": [],
+  "full_remaining_budget": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/full_capacity_check_close_20261025T0405.json",
+  "capacity_free_GiB": 167.95053482055664,
+  "capacity_required_including_16temp_50reserve_GiB": 112.54620647665375,
+  "capacity_margin_GiB": 55.40432834390289,
+  "conditional_FP32": "Not triggered/started by partial DINO evidence. Fresh full remaining budget required before any frozen all5-triggered uniform branch.",
+  "CLIP_allfive_source_ledger": "Prior original five-pair MATCHED retained; no repeat.",
+  "DINO_allfive_source_ledger": "All10 independent terminal acceptances complete. Existing original default fresh allfive audit is running; read its launch/log/result, do not duplicate. It writes no target gate or registry.",
+  "target_export_state": "PENDING_NOT_ATTEMPTED: final all-three-backbone effective registry incomplete.",
+  "target_export_allowed": false,
+  "parallel_source_candidate": "Isolated30-test/reviewed operational candidate remains out of production; no new benchmark/integration in this check.",
+  "source_best_status": "M_SELECTED_ENGINEERING_ONLY_TARGETED_REVIEW_FIXES30PASS_WHOLE386_PENDING_PRODUCTION_NOT_ADMITTED",
+  "cold_SSD_release_bytes": 0,
+  "protected_GPU4_to7_untouched": true,
+  "production_processes_restarted": false,
+  "training_protocol_changed": false,
+  "manuscript_working_drafts_unchanged": [
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/manuscript_preparation/20261024_覆盖整合版/期刊论文整合稿_中文.md",
+      "mirror": "/home/z/obsidian/paper/deepfake-detector/新实验设计/20261023/论文方法与设置准备_v2/20261024_覆盖整合版/期刊论文整合稿_中文.md",
+      "sha256": "16eb42c79a1c63849b7535596a75bdf265e0be5710adbcf1caeb91f022d2d84d",
+      "language": "cn",
+      "accepted_D_data_rows_exact": 30,
+      "figure_links_and_source_hashes": 8,
+      "existing_citation_keys_resolved": 16,
+      "canonical_body_fragments_unchanged": 5,
+      "pending_blocks": [
+        "ABSTRACT",
+        "H_RESULTS",
+        "CONCLUSIONS"
+      ],
+      "markdown_table_blocks": 9,
+      "all_local_links_exist": true,
+      "math_and_code_delimiters_balanced": true
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/manuscript_preparation/20261024_覆盖整合版/journal_manuscript_integrated_en.md",
+      "mirror": "/home/z/obsidian/paper/deepfake-detector/新实验设计/20261023/论文方法与设置准备_v2/20261024_覆盖整合版/journal_manuscript_integrated_en.md",
+      "sha256": "719184ca6464459467b56f76640ed7d266127a0d3927c82759d4b465c11726b7",
+      "language": "en",
+      "accepted_D_data_rows_exact": 30,
+      "figure_links_and_source_hashes": 8,
+      "existing_citation_keys_resolved": 16,
+      "canonical_body_fragments_unchanged": 5,
+      "pending_blocks": [
+        "ABSTRACT",
+        "H_RESULTS",
+        "CONCLUSIONS"
+      ],
+      "markdown_table_blocks": 9,
+      "all_local_links_exist": true,
+      "math_and_code_delimiters_balanced": true
+    }
+  ],
+  "manuscript_pending_blocks": [
+    "ABSTRACT",
+    "H_RESULTS",
+    "CONCLUSIONS"
+  ],
+  "scientific_results_complete": false,
+  "journal_manuscripts_complete": false,
+  "remaining_plan": [
+    "H12 formal primary terminals, allfive DINO/Eff, any frozen uniformFP32, final three-backbone effective registry",
+    "PrimaryH210role caches,15pair+3summaries/real figures/independent results",
+    "Selected M only: isolated endpoint/transport/statistics implementation, tests/review, real D/H lossless profiles and combined capacity admission, then descriptive four-core comparisons",
+    "Complete bilingual H results, abstract/conclusions and final number/claim/citation/layout acceptance"
+  ],
+  "next_check_utc": "2026-10-25T04:20:00Z",
+  "next_action": "04:20 read existing DINOallfive source audit and386-suite outcomes, independently inspect Eff7 actual terminal and original successors; no duplicate launches. Preserve all main gates and source-best M resource/code admission.",
+  "evidence_sha256": {
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_DINO_seed3407_terminal_acceptance_20261025T0405.json": "908303d0ddf40c1635b5b5db6ee5c3c56648659033e58f81cf78c173861381ed",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_formal_checkpoint_health_20261025T0405.json": "0c5727158f6f7c48f8aea1d22f436c4c5523298be1220e55b8f40ee120bd0136",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/runtime_health_20261025T0405.json": "fb5f5715abb6e733b38b4b4a3d7b0b975dec23ae620358e9a7796c46724a25c9",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/full_capacity_check_close_20261025T0405.json": "102978002938983d62c1dc7ed42b57c8891606b3a9a637e53be7c073ad1c919b",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/check_20261025T0405_launch.json": "e54bdc27991f0bfd84e43d602ce13d436233af6d9e258d968be1880f0e0d9ec5",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_DINO_seed3407_terminal_time_v_20261025T0405.log": "5c0badb05a31c55f4c85b21a778ad337db929e9b274ae568126a342449e153ee",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_formal_checkpoint_health_time_v_20261025T0405.log": "2c56bf338444374f6730a4daeca3e5a9c1182e94b05d12f89bd7cd5cdd97e27b",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_DINO_allfive_readonly_launch_20261025T0405.json": "2b8017ce6b21b6adaa4aac5930735d6b86bcefc7a105a1458df28e32d7af9bd2",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/source_best_M_selection_and_resource_gate_20261025T0340.json": "c8efb10fe982554902c53e18d43af64e8eddf26b1c517513657a806e40008f88",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_io_review.json": "43c055eefd0e2027b1031b26e626ab5c22f00c9b59f65e1d0c5e9a0a0471933c",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/io_review_fixes_RED.log": "24410a2243ca41080a6bfa0d619b686260ef3a500b005dd058c0b284d9ba464c",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/io_review_fixes_GREEN30.log": "f8ceb4127c4a1b31c3b383b210c1178eb8e9c2917dd2ce81a1c11d263d7147fc",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/io_review_fix_acceptance_pending_whole_suite.json": "2c5b3a5d12dc47c2bc6c46e379f7f43aac28aabf0d36484de5fd3968c30def7e",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/existing_D_json_lossless_profile.json": "922ef2605eb95b0f1454312022ab248060654b996b94b580e3088e63e02eaa64",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/existing_D_json_profile_readback_before_review_fix.json": "36b1c55c139c7c1c926155b19e974360d4cba8a5aa99e722dddd65b0a5314390"
+  },
+  "source_best_M_selection": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/source_best_M_selection_and_resource_gate_20261025T0340.json",
+  "source_best_M_selection_sha256": "c8efb10fe982554902c53e18d43af64e8eddf26b1c517513657a806e40008f88",
+  "source_best_M_old_verbose_additional_GiB": 169,
+  "source_best_M_old_verbose_projected_shortfall_GiB": 113.59567165609711,
+  "source_best_M_compact_unvalidated_credit_bytes": 0,
+  "source_best_M_target_exports_started": false,
+  "source_best_M_plan": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/PLAN.md",
+  "H_sealed_waiting_independent_acceptance_ids": [],
+  "source_best_M_review_fix_acceptance": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/io_review_fix_acceptance_pending_whole_suite.json",
+  "source_best_M_transport_stage": "Baseline356 and pre-review376 whole suites passed; independent review3Important findings reproduced10RED and fixed30GREEN. Fresh386 full suite PID2769851 pending.",
+  "source_best_M_real_D_storage": "29 existing LAST JSON files7,107,748,669B to3,558,242,496B; exact raw byte/SHA readback, ratio1.9975; no source-best values or H schema/production budget qualification.",
+  "source_best_M_remaining_implementation": [
+    "Full386 verification and evidence capture; explicitly git-add ignored tests only after verification",
+    "Lossless integer draw multiplicity/key-presence representation across normal/closure/RQ4 and realH, with whole-data equivalence and decodeRSS/resource profiles",
+    "Formal source-best endpoint/cache/provenance and M-only core-statistics drivers, owner/phase/precision gates, tests and independent review",
+    "Fresh combined primary+M+temporary+reserve budget before any M GPU/inference/statistical launch"
+  ]
+}

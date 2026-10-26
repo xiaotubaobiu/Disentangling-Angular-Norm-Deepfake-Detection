@@ -1,0 +1,25 @@
+{
+  "utc": "2026-10-25T22:45:45.807676+00:00",
+  "status": "REAL_EXISTING_DINO_PROTOTYPE_BINDING_COLLIDES_WITH_NEW_QUALIFIED_BINDING_NAMESPACE",
+  "source_sha256": "1ecafa4324d7131c3e86441daafc026b06480dcfea55b506b0ec70d89d62610f",
+  "launch": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_primary_DINO_CPU_qualification_candidate_seed7_slot0_20261025T2030_launch.json",
+  "returned_binding_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/H_dinov2_vit_b14_seed7_matrix_admission_bindings.json",
+  "existing_ref_count": 5,
+  "prototype_audit_sha256": "52d1c4bf8a48daf14000b24f05feaf70e835ebdaa7927ea88e59228610083545",
+  "prototype_audit_binds_current_five_ref_file_sha256": "d47351498b66010c22ae215c94736549dea70e4b4c02a1865704a27f1e160626",
+  "qualified_mode_requires_refs": [
+    "CPU_qualification",
+    "candidate",
+    "launch",
+    "process_witness",
+    "stdout",
+    "time_v"
+  ],
+  "qualified_load_error": "exact5/6 external proof inventory",
+  "layout_takes_no_mode_parameter": true,
+  "reusing_same_path_with_six_refs_would_invalidate_old_prototype_proof": true,
+  "readonly_diagnostic": true,
+  "slot_taken": false,
+  "files_changed": false,
+  "production_audit_started": false
+}

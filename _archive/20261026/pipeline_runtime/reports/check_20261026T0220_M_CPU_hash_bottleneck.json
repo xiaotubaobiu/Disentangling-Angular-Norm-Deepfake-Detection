@@ -1,0 +1,449 @@
+{
+  "schema": "DETECTOR_V2_0220_PREFLIGHT_BOTTLENECK_CHECK_V1",
+  "observed_utc": "2026-10-26T02:29:19.736457+00:00",
+  "M": {
+    "owner": {
+      "pid": 825619,
+      "alive": true,
+      "state": "S",
+      "ppid": 825618,
+      "CPUticks": 8401,
+      "birth_ticks": 472924282,
+      "read_IO": {
+        "rchar": 5482524390,
+        "wchar": 12816904,
+        "syscr": 954723,
+        "syscw": 93916,
+        "read_bytes": 0,
+        "write_bytes": 15564800,
+        "cancelled_write_bytes": 0
+      },
+      "elapsed_seconds": 2434.839999999851
+    },
+    "status_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_finite_owner/cache/7d86ce010bdd427defbb5b959558ae32ccfbc0fc81b8a6bd36fdc71d733f8303/c1b83bab4bd34df784afc18bda94777a/status.json",
+    "status_snapshot": {
+      "active": {
+        "H_formal_clip_vit_b16_AB_seed42": {
+          "index": 3,
+          "pid": 825634,
+          "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646"
+        },
+        "H_formal_clip_vit_b16_AB_seed7": {
+          "index": 1,
+          "pid": 825630,
+          "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c"
+        },
+        "H_formal_clip_vit_b16_B_seed42": {
+          "index": 2,
+          "pid": 825633,
+          "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45"
+        },
+        "H_formal_clip_vit_b16_B_seed7": {
+          "index": 0,
+          "pid": 825629,
+          "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e"
+        }
+      },
+      "artifact_root": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023",
+      "completed": {
+        "D_formal_clip_vit_b16_seed123": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/66074608f8814b518c6ecda7da6a7cdb/D_formal_clip_vit_b16_seed123.json",
+          "sha256": "07652f13bf8c98b885bfd3eb5678f756af1ec2131aa288c52b6f9886538739e3"
+        },
+        "D_formal_clip_vit_b16_seed2026": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/66074608f8814b518c6ecda7da6a7cdb/D_formal_clip_vit_b16_seed2026.json",
+          "sha256": "21bba254f22ce109b82d7dd8fd56acbf100acee33c9ead03ee3a362c32325107"
+        },
+        "D_formal_clip_vit_b16_seed3407": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/66074608f8814b518c6ecda7da6a7cdb/D_formal_clip_vit_b16_seed3407.json",
+          "sha256": "4877f87e11096d6c91b19d28d4e38061bf87786b2b5072f68249f69ed23d8fdc"
+        },
+        "D_formal_clip_vit_b16_seed42": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/66074608f8814b518c6ecda7da6a7cdb/D_formal_clip_vit_b16_seed42.json",
+          "sha256": "9d428aef3d0819cfac5686cfdbd134c8b4a8932047e4d6378b066c754156fdf4"
+        },
+        "D_formal_clip_vit_b16_seed7": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/66074608f8814b518c6ecda7da6a7cdb/D_formal_clip_vit_b16_seed7.json",
+          "sha256": "636fe93a76438f10c27e00a2b883f5615b151d6f446e0f5590e5f9a138b0b10d"
+        },
+        "D_formal_dinov2_vit_b14_seed123": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/66074608f8814b518c6ecda7da6a7cdb/D_formal_dinov2_vit_b14_seed123.json",
+          "sha256": "2391602f1431ab8b90eab840112a1b0e7ee95a2b438a1a0ef63e43776f4db8d8"
+        },
+        "D_formal_dinov2_vit_b14_seed2026": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/66074608f8814b518c6ecda7da6a7cdb/D_formal_dinov2_vit_b14_seed2026.json",
+          "sha256": "2c48fae7c8c7be1c53a499320277c7ff8450eb7dcaefbbfba29b5740daa407c1"
+        },
+        "D_formal_dinov2_vit_b14_seed3407": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/66074608f8814b518c6ecda7da6a7cdb/D_formal_dinov2_vit_b14_seed3407.json",
+          "sha256": "30c89f8265cc4d1ecacd90fcb424757c1f0a792283d5fb6fdf781845f5e90eef"
+        },
+        "D_formal_dinov2_vit_b14_seed42": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/66074608f8814b518c6ecda7da6a7cdb/D_formal_dinov2_vit_b14_seed42.json",
+          "sha256": "272c72437be64961f829ef83f9b9fbc733d96867fdd60473e667e15386ae7c03"
+        },
+        "D_formal_dinov2_vit_b14_seed7": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/66074608f8814b518c6ecda7da6a7cdb/D_formal_dinov2_vit_b14_seed7.json",
+          "sha256": "30e086eb7122f7106b00fa4bbf93683d5a198d52a71dcdc9692bfb1491f92c18"
+        },
+        "D_formal_efficientnet_b0_seed123": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/66074608f8814b518c6ecda7da6a7cdb/D_formal_efficientnet_b0_seed123.json",
+          "sha256": "84c4cce1442970db18bb7177f79d76977d9f03084ae8ca2fee8d3501a8876d6b"
+        },
+        "D_formal_efficientnet_b0_seed2026": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/66074608f8814b518c6ecda7da6a7cdb/D_formal_efficientnet_b0_seed2026.json",
+          "sha256": "89ebd17e0765a0514d4d491914264464f580f4180837c7989a68b5ee56348cc4"
+        },
+        "D_formal_efficientnet_b0_seed3407": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/66074608f8814b518c6ecda7da6a7cdb/D_formal_efficientnet_b0_seed3407.json",
+          "sha256": "543316a99865af8e35c7705c73057229b55c9f3e37e0570b430d9473a1d3f2dd"
+        },
+        "D_formal_efficientnet_b0_seed42": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/66074608f8814b518c6ecda7da6a7cdb/D_formal_efficientnet_b0_seed42.json",
+          "sha256": "d64ff2c554b74edbd8876894bc248239d2ecf8c57344f53810b2ec2614267202"
+        },
+        "D_formal_efficientnet_b0_seed7": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/66074608f8814b518c6ecda7da6a7cdb/D_formal_efficientnet_b0_seed7.json",
+          "sha256": "af3cf004f0ceea055c3bff1e0aa6f9f3aa2a6af40c02417cb80b1c065f927558"
+        }
+      },
+      "failures": {},
+      "mode": "cache",
+      "owner_pid": 825619,
+      "owner_plan_sha256": "7d86ce010bdd427defbb5b959558ae32ccfbc0fc81b8a6bd36fdc71d733f8303",
+      "owner_start_ticks": 472924282,
+      "pending": [
+        "H_formal_clip_vit_b16_B_seed123",
+        "H_formal_clip_vit_b16_AB_seed123",
+        "H_formal_clip_vit_b16_B_seed2026",
+        "H_formal_clip_vit_b16_AB_seed2026",
+        "H_formal_clip_vit_b16_B_seed3407",
+        "H_formal_clip_vit_b16_AB_seed3407",
+        "H_formal_dinov2_vit_b14_B_seed7",
+        "H_formal_dinov2_vit_b14_AB_seed7",
+        "H_formal_dinov2_vit_b14_B_seed42",
+        "H_formal_dinov2_vit_b14_AB_seed42",
+        "H_formal_dinov2_vit_b14_B_seed123",
+        "H_formal_dinov2_vit_b14_AB_seed123",
+        "H_formal_dinov2_vit_b14_B_seed2026",
+        "H_formal_dinov2_vit_b14_AB_seed2026",
+        "H_formal_dinov2_vit_b14_B_seed3407",
+        "H_formal_dinov2_vit_b14_AB_seed3407",
+        "H_formal_efficientnet_b0_B_seed7",
+        "H_formal_efficientnet_b0_AB_seed7",
+        "H_formal_efficientnet_b0_B_seed42",
+        "H_formal_efficientnet_b0_AB_seed42",
+        "H_formal_efficientnet_b0_B_seed123",
+        "H_formal_efficientnet_b0_AB_seed123",
+        "H_formal_efficientnet_b0_B_seed2026",
+        "H_formal_efficientnet_b0_AB_seed2026",
+        "H_formal_efficientnet_b0_B_seed3407",
+        "H_formal_efficientnet_b0_AB_seed3407"
+      ],
+      "phase_nonce": "c1b83bab4bd34df784afc18bda94777a",
+      "primary_cache_stage_sha256": "90bfad1afbdfb8096c41625625e109ea9cf06ceb4f5246e435cc48241646a3ce",
+      "schema": "M_FINITE_OWNER_PROGRESS_V1",
+      "scientific_admission": false,
+      "seconds": 2432.608953836374
+    },
+    "status_sha256_at_observation": "1877c79fa96e73cc0c21f517189dd73998485f0c5b83a0bf296ecf8cfe24fa40",
+    "operational_models_complete": 15,
+    "running": 4,
+    "pending": 26,
+    "canonical_roles_written": 96,
+    "total_roles": 180,
+    "workers": {
+      "H_formal_clip_vit_b16_AB_seed42": {
+        "process": {
+          "pid": 825634,
+          "alive": true,
+          "state": "R",
+          "ppid": 825619,
+          "CPUticks": 149106,
+          "birth_ticks": 472924496,
+          "read_IO": {
+            "rchar": 298917119951,
+            "wchar": 3569,
+            "syscr": 5289463,
+            "syscw": 102,
+            "read_bytes": 53248,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 4096
+          },
+          "elapsed_seconds": 2432.4900000002235
+        },
+        "GPU_index": 3,
+        "stderr_bytes": 0,
+        "current_NPY_files": []
+      },
+      "H_formal_clip_vit_b16_AB_seed7": {
+        "process": {
+          "pid": 825630,
+          "alive": true,
+          "state": "R",
+          "ppid": 825619,
+          "CPUticks": 149451,
+          "birth_ticks": 472924487,
+          "read_IO": {
+            "rchar": 304075381567,
+            "wchar": 1053,
+            "syscr": 5408405,
+            "syscw": 82,
+            "read_bytes": 0,
+            "write_bytes": 0,
+            "cancelled_write_bytes": 0
+          },
+          "elapsed_seconds": 2432.5800000000745
+        },
+        "GPU_index": 1,
+        "stderr_bytes": 0,
+        "current_NPY_files": [
+          {
+            "relative": "B/SOURCE_CAL/chunk_000000.npy",
+            "bytes": 2293888,
+            "mtime_ns": 1792958332159193856
+          },
+          {
+            "relative": "B/SOURCE_CAL/head_bias.npy",
+            "bytes": 136,
+            "mtime_ns": 1792958332127193808
+          },
+          {
+            "relative": "B/SOURCE_CAL/head_weight.npy",
+            "bytes": 4224,
+            "mtime_ns": 1792958332127193808
+          }
+        ]
+      },
+      "H_formal_clip_vit_b16_B_seed42": {
+        "process": {
+          "pid": 825633,
+          "alive": true,
+          "state": "S",
+          "ppid": 825619,
+          "CPUticks": 149674,
+          "birth_ticks": 472924493,
+          "read_IO": {
+            "rchar": 303924865587,
+            "wchar": 3569,
+            "syscr": 5355391,
+            "syscw": 102,
+            "read_bytes": 323584,
+            "write_bytes": 8192,
+            "cancelled_write_bytes": 4096
+          },
+          "elapsed_seconds": 2432.5200000004843
+        },
+        "GPU_index": 2,
+        "stderr_bytes": 0,
+        "current_NPY_files": []
+      },
+      "H_formal_clip_vit_b16_B_seed7": {
+        "process": {
+          "pid": 825629,
+          "alive": true,
+          "state": "S",
+          "ppid": 825619,
+          "CPUticks": 148598,
+          "birth_ticks": 472924483,
+          "read_IO": {
+            "rchar": 302570122926,
+            "wchar": 1053,
+            "syscr": 5356768,
+            "syscw": 82,
+            "read_bytes": 12288,
+            "write_bytes": 0,
+            "cancelled_write_bytes": 0
+          },
+          "elapsed_seconds": 2432.6200000001118
+        },
+        "GPU_index": 0,
+        "stderr_bytes": 0,
+        "current_NPY_files": [
+          {
+            "relative": "B/SOURCE_CAL/chunk_000000.npy",
+            "bytes": 2293888,
+            "mtime_ns": 1792958299011144488
+          },
+          {
+            "relative": "B/SOURCE_CAL/head_bias.npy",
+            "bytes": 136,
+            "mtime_ns": 1792958298987144453
+          },
+          {
+            "relative": "B/SOURCE_CAL/head_weight.npy",
+            "bytes": 4224,
+            "mtime_ns": 1792958298983144447
+          }
+        ]
+      }
+    },
+    "current_CUDA_contexts_seen_on_GPU2_3": true,
+    "new_encoded_chunk_or_throughput_not_confirmed": true,
+    "independent_six_role_statistics_admissions": 0,
+    "statistics_canary_passed": false,
+    "full_statistics_permit": false
+  },
+  "bottleneck": {
+    "evidence": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/diagnostics/M_H_preflight_proc_io_20261026T0220.json",
+      "sha256": "e4a0c50399802345972553c0b608edecb6520ef1bb3d7aa74981de6dc891b65d"
+    },
+    "method": "Non-invasive six-second proc fd/stat/io sampling plus exact static call graph. No ptrace/signal/worker modification, validation/model/PNG run, installation or test repetition.",
+    "observations": [
+      "02:21 each worker elapsed~1978s; main CPU thread active; >230GB logical rchar reads per process",
+      "Six-second per-process logical throughput142.7-249.7MB/s with physical read_bytes delta0; host IO PSI avg10/60/300 all0",
+      "Open files include other seeds final.pt/source_best.pt/state.pt and epoch methods arrays, matching the full five-pair ledger check",
+      "02:27GPU2/3 now752MiB contexts; model initialization advanced, no new fullrole marker and no proof of new encoded committed chunks"
+    ],
+    "call_chain": [
+      {
+        "file": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_cache.py",
+        "lines": "133-138",
+        "behavior": "BoundContext.check(full=True) rehashes current context pins then calls _primary H cache._context again"
+      },
+      {
+        "file": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/cache_h.py",
+        "lines": "151-186,84-133",
+        "behavior": "Each context validates own completed run/head and _target_authorization->fresh audit_paired_ledgers of all5pairs/10runs"
+      },
+      {
+        "file": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/queue_h.py",
+        "lines": "171-247",
+        "behavior": "Fresh10run verification, all30epochs numerical ledgers, sample/augmentation/method arrays and pair equality"
+      },
+      {
+        "file": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/worker_h.py",
+        "lines": "140-176,213-232",
+        "behavior": "Completion hashes final.pt/source_best.pt; subsequent completion-seal loop hashes these same two plus state and all30epoch artifacts again"
+      },
+      {
+        "file": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_gpu.py",
+        "lines": "42,48,67",
+        "behavior": "Full context repeated before extraction, before every role and at final closure; cache.write_role also checks fullcontext before/afterwrite"
+      }
+    ],
+    "necessary_obligations": [
+      "Current canonical config/freeze/registry/gates and exactB/ABfive-pair successful-update stream equality",
+      "Current byte identity of sealed artifacts, source-best head/context and role manifests before authorized export",
+      "No accepting test-based model or threshold changes; no weakening source freshness or scientificprotocol"
+    ],
+    "implementation_duplication": [
+      "Same immutable final/source checkpoint hashed for both completion receipt and seal within a verification",
+      "Same five-pair source family revalidated by separate fullcontexts/roles and four independent workers",
+      "These repeated accepted-artifact freshness checks are not new training or experiment results"
+    ],
+    "interpretation": "Evidence supports CPU/hash/array-ledger validation as current bottleneck, with most observed reads served from memory/pagecache, not physical storage saturation or deadlock. Exact in-function wall time/callcount not measured without injected profiling.",
+    "action": "Keep healthy originalowner/workers and gates unchanged. Any future deduplication/parallel audit adapter needs isolated equivalence tests, source/code qualification and independentreview before a safe-stage deployment; no hot patch in this run.",
+    "source_SHA256": {
+      "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_cache.py": "4c5494d06f133b962fd22872ac88d22ad9155fcca102e29f0e300cc06a4ff0c7",
+      "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_gpu.py": "f3cac34e1493cd109e336b77f94b087527e97d722f02253880371a7c2caebed5",
+      "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/cache_h.py": "9119200359f8d696f1366e6c0137bca533c63089c32e505971e69f84ebaf40fb",
+      "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/queue_h.py": "a2792361443e64622391fb6ae766ee5e6f887789d662afdfb6d809f9a5ea8176",
+      "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/worker_h.py": "d0219aa52ebb1b6602602d5b09eb5fdfbbb9dc3aeb7b55dbfc0251ced66136f4"
+    }
+  },
+  "H": {
+    "original_cache_roles_complete": 210,
+    "independent_cache_models": 12,
+    "scientific_stat_pairs_independently_accepted": 4,
+    "total_stat_pairs": 15,
+    "current": {
+      "clip_vit_b16_seed3407": {
+        "process": {
+          "pid": 806374,
+          "alive": true,
+          "state": "S",
+          "ppid": 806373,
+          "CPUticks": 301515,
+          "birth_ticks": 472852151,
+          "read_IO": {
+            "rchar": 623123209344,
+            "wchar": 461,
+            "syscr": 10290515,
+            "syscw": 80,
+            "read_bytes": 159744,
+            "write_bytes": 40960,
+            "cancelled_write_bytes": 0
+          },
+          "elapsed_seconds": 3155.94000000041
+        },
+        "stdout": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_primary_analysis_clip_vit_b16_seed3407_resume_20261026T013643Z.log",
+          "sha256": "ce24ca70a8646e1e6712155e0df39374b0969af66d7c484e8e05073d538bb7f7"
+        },
+        "ledger_starts": 10,
+        "expected_initial_ledger_calls": 42,
+        "time_v_terminal": null
+      },
+      "dinov2_vit_b14_seed7": {
+        "process": {
+          "pid": 806376,
+          "alive": true,
+          "state": "S",
+          "ppid": 806375,
+          "CPUticks": 299776,
+          "birth_ticks": 472852152,
+          "read_IO": {
+            "rchar": 614046121955,
+            "wchar": 481,
+            "syscr": 10152469,
+            "syscw": 80,
+            "read_bytes": 209002496,
+            "write_bytes": 40960,
+            "cancelled_write_bytes": 0
+          },
+          "elapsed_seconds": 3155.9300000006333
+        },
+        "stdout": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_primary_analysis_dinov2_vit_b14_seed7_resume_20261026T013643Z.log",
+          "sha256": "ea3015510f13a28bbb58c79633c862c2026f1c6201c12396d1b49b0f9e563971"
+        },
+        "ledger_starts": 10,
+        "expected_initial_ledger_calls": 42,
+        "time_v_terminal": null
+      }
+    }
+  },
+  "capacity": {
+    "free_bytes": 152060882944,
+    "runtime_reserve_bytes": 53687091200,
+    "resume_initial_full_remaining_budget_bytes": 150215493801,
+    "initial_gate_passed": true,
+    "M_partial_feature_credit": 0,
+    "cold_release_bytes": 0
+  },
+  "GPU": [
+    "0, 0, 0",
+    "1, 0, 0",
+    "2, 0, 752",
+    "3, 0, 752",
+    "4, 0, 28156",
+    "5, 0, 28156",
+    "6, 0, 28156",
+    "7, 0, 28156"
+  ],
+  "GPU_compute_apps": [
+    "GPU-5df5602a-848e-d944-26cd-aec11b964b45, 825633, /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+    "GPU-626ec32f-1401-c959-74b0-db04ed63c646, 825634, /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+    "GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 1532179, VLLM::Worker_TP0",
+    "GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 1532180, VLLM::Worker_TP1",
+    "GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 1532181, VLLM::Worker_TP2",
+    "GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 1532182, VLLM::Worker_TP3"
+  ],
+  "Eff": {
+    "engineering_entry": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/qualification_snapshots/H_primary_pair_admission_845bd8adab8dd95e47cae44543b0cffe2f57bcc99657a623e09529d8e76d7544/entry.py",
+      "sha256": "845bd8adab8dd95e47cae44543b0cffe2f57bcc99657a623e09529d8e76d7544"
+    },
+    "engineering_commit": "7b59a41358288c0bd8679d3c60ccacc1f07d1815",
+    "own_functional_Q_accepted": true,
+    "actual_formal_metadata_admission_main": false,
+    "reason": "Both H CPU slots remain held; no slot stealing or prototype repeat"
+  },
+  "non_detector_labeling_JEV_GLM_MMTT_pair_investigation_still_paused": true,
+  "GPU4_7_not_controlled": true,
+  "no_restart_no_hotpatch_no_validation_gate_skip": true,
+  "whole_experiment_statistics_figures_CN_EN_papers_still_pending": true,
+  "next_check_UTC": "2026-10-26T02:45:00Z"
+}

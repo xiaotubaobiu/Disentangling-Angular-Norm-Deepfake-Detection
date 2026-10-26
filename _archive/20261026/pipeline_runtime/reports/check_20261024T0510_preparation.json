@@ -1,0 +1,27 @@
+{
+  "utc": "2026-10-24T04:30:38.721111+00:00",
+  "status": "PASS_READ_ONLY_HELPERS_PREPARED_NOT_STARTED",
+  "next_check_utc": "2026-10-24T05:10:00Z",
+  "scripts": [
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/checkpoint_health_20261024T0510.py",
+      "sha256": "a5a957df22178a87edcfd01384adf82b197b8f66273f9b0ee59f42cd0538b0a6",
+      "syntax": "PASS",
+      "executed": false
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/completion_audit_20261024T0510.py",
+      "sha256": "bcca261a9588acda57b34f56e9092d9021969a33df1fa585c6565100d3d0aeb3",
+      "syntax": "PASS",
+      "executed": false
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/runtime_monitor_20261024T0510.py",
+      "sha256": "2b339b42e1a7dbcd7f7fa9a053917b560d087b9d67e9a2237689b216f1ca09f2",
+      "syntax": "PASS",
+      "executed": false
+    }
+  ],
+  "next_short_check_if_near_terminal": "2026-10-24T05:25:00Z",
+  "runtime_baseline": "0420monitor04:27total53;no duplicate counting of CLIPevent14554"
+}

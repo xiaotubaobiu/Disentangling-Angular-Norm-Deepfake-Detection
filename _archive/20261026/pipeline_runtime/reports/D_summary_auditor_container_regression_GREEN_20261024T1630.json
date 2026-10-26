@@ -1,0 +1,8 @@
+{
+  "utc": "2026-10-24T16:50:13.214274+00:00",
+  "returncode": 0,
+  "stdout": "",
+  "stderr": "test_CAL_reduces_two_hundred_subsets_with_sample_SD (test_audit.IndependentSummaryTests) ... ok\ntest_duplicate_registered_seed_rejected (test_audit.IndependentSummaryTests) ... ok\ntest_missing_numeric_estimate_does_not_silently_drop_seed (test_audit.IndependentSummaryTests) ... ok\ntest_missing_registered_seed_rejected (test_audit.IndependentSummaryTests) ... ok\ntest_oracle_list_comparison_rejects_changed_method_identity (test_audit.IndependentSummaryTests) ... ok\ntest_oracle_list_field_survives_CSV_serialization (test_audit.IndependentSummaryTests) ... ok\ntest_row_checker_accepts_equivalent_CSV_numbers_and_booleans (test_audit.IndependentSummaryTests) ... ok\ntest_row_checker_detects_wrong_SD_even_when_mean_matches (test_audit.IndependentSummaryTests) ... ok\ntest_row_checker_rejects_duplicate_stratum (test_audit.IndependentSummaryTests) ... ok\ntest_sample_SD_uses_five_training_seeds_ddof_one (test_audit.IndependentSummaryTests) ... ok\ntest_sign_tolerance_does_not_count_tiny_noise_as_effect (test_audit.IndependentSummaryTests) ... ok\ntest_source_operating_point_has_no_subset_spread (test_audit.IndependentSummaryTests) ... ok\ntest_unavailable_CAL_subset_keeps_whole_point_unavailable (test_audit.IndependentSummaryTests) ... ok\n\n----------------------------------------------------------------------\nRan 13 tests in 0.001s\n\nOK\n",
+  "script_sha256": "0690a7694beac7a7ab977cb16d7b62c21e6b0e04ba8accb1f6f803c4c45bd8ee",
+  "production_outputs_modified": false
+}

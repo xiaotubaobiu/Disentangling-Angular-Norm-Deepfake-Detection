@@ -1,0 +1,211 @@
+{
+  "schema": "DETECTOR_V2_USER_PAUSED_VERIFIED_V1",
+  "observed_utc": "2026-10-25T23:57:12.666840+00:00",
+  "user_instruction_utc": "2026-10-25T23:51:00Z",
+  "state": "PAUSED_BY_USER_NO_AUTOMATIC_RESUME",
+  "dispatch_allowed": false,
+  "automatic_recovery_allowed": false,
+  "resume_requires_new_explicit_user_authorization": true,
+  "next_supervision_or_experiment_check": null,
+  "live_task_work_PIDs": [],
+  "in_flight_workers": 0,
+  "known_task_PIDs_absent": [
+    3968944,
+    3968943,
+    574248,
+    575378,
+    584946,
+    654413,
+    3921350,
+    3921349,
+    730797,
+    730796
+  ],
+  "project_root_process_cmdline_matches": [],
+  "task_locks_released": {
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/H_pipeline.lock": [],
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/.cpu_slots/slot0.lock": [],
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/.cpu_slots/slot1.lock": []
+  },
+  "method": {
+    "owner_SIGSTOP_before_worker_interrupt": true,
+    "CPU_and_four_M_workers_SIGINT": true,
+    "owner_SIGTERM_after_all_worker_exit": true,
+    "no_protocol_or_running_code_changes": true,
+    "no_SIGKILL_used": true
+  },
+  "retained_progress": {
+    "formal_training_sealed": 45,
+    "formal_training_total": 45,
+    "D_primary_individual_statistics_accepted": 15,
+    "D_primary_five_seed_summaries_accepted": 3,
+    "H_original_cache_roles_complete": 210,
+    "H_original_models_operational_complete": 30,
+    "H_independent_cache_models_accepted": 12,
+    "H_primary_statistics_pairs_independently_accepted": 4,
+    "H_primary_total_pairs": 15,
+    "M_source_best_models_operational_complete": 15,
+    "M_roles_committed": 90,
+    "M_role_total": 180,
+    "M_interrupted_H_workers": {
+      "H_formal_clip_vit_b16_AB_seed42": {
+        "directory": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/H_formal_clip_vit_b16_AB_seed42",
+        "exists": true,
+        "files": 1,
+        "bytes": 0,
+        "all_retained": true
+      },
+      "H_formal_clip_vit_b16_AB_seed7": {
+        "directory": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/H_formal_clip_vit_b16_AB_seed7",
+        "exists": true,
+        "files": 9,
+        "bytes": 2728758,
+        "all_retained": true
+      },
+      "H_formal_clip_vit_b16_B_seed42": {
+        "directory": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/H_formal_clip_vit_b16_B_seed42",
+        "exists": true,
+        "files": 1,
+        "bytes": 0,
+        "all_retained": true
+      },
+      "H_formal_clip_vit_b16_B_seed7": {
+        "directory": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/H_formal_clip_vit_b16_B_seed7",
+        "exists": true,
+        "files": 9,
+        "bytes": 2728744,
+        "all_retained": true
+      }
+    },
+    "M_pending_not_launched": [
+      "H_formal_clip_vit_b16_B_seed123",
+      "H_formal_clip_vit_b16_AB_seed123",
+      "H_formal_clip_vit_b16_B_seed2026",
+      "H_formal_clip_vit_b16_AB_seed2026",
+      "H_formal_clip_vit_b16_B_seed3407",
+      "H_formal_clip_vit_b16_AB_seed3407",
+      "H_formal_dinov2_vit_b14_B_seed7",
+      "H_formal_dinov2_vit_b14_AB_seed7",
+      "H_formal_dinov2_vit_b14_B_seed42",
+      "H_formal_dinov2_vit_b14_AB_seed42",
+      "H_formal_dinov2_vit_b14_B_seed123",
+      "H_formal_dinov2_vit_b14_AB_seed123",
+      "H_formal_dinov2_vit_b14_B_seed2026",
+      "H_formal_dinov2_vit_b14_AB_seed2026",
+      "H_formal_dinov2_vit_b14_B_seed3407",
+      "H_formal_dinov2_vit_b14_AB_seed3407",
+      "H_formal_efficientnet_b0_B_seed7",
+      "H_formal_efficientnet_b0_AB_seed7",
+      "H_formal_efficientnet_b0_B_seed42",
+      "H_formal_efficientnet_b0_AB_seed42",
+      "H_formal_efficientnet_b0_B_seed123",
+      "H_formal_efficientnet_b0_AB_seed123",
+      "H_formal_efficientnet_b0_B_seed2026",
+      "H_formal_efficientnet_b0_AB_seed2026",
+      "H_formal_efficientnet_b0_B_seed3407",
+      "H_formal_efficientnet_b0_AB_seed3407"
+    ],
+    "H_CPU_statistical_partial_outputs": {
+      "clip_vit_b16/seed3407": {
+        "directory": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed3407",
+        "exists": true,
+        "files": 1,
+        "bytes": 3433,
+        "complete_exists": false,
+        "no_files_removed": true
+      },
+      "dinov2_vit_b14/seed7": {
+        "directory": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/dinov2_vit_b14/seed7",
+        "exists": false,
+        "files": 0,
+        "bytes": 0,
+        "complete_exists": false,
+        "no_files_removed": true
+      }
+    },
+    "M_independent_six_role_statistics_admissions": 0,
+    "M_statistics_canary_passed": false,
+    "M_full_statistics_permit": false,
+    "M_scientific_statistics_completed": false
+  },
+  "terminal_eff_prototype": {
+    "candidate": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_efficientnet_b0_seed7_independent_7role_parallel_candidate_20261025T0645.json",
+      "sha256": "1c54480fe43637e8711feb563f4f327479e4f36b45c5dd12b593eff1193dae2e"
+    },
+    "prototype_metadata_A": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/H_EFF_seed7_actual_CPU_qualification_metadata_audit.json",
+      "sha256": "50d2d741e2f0dabfd4cabd3b0f7ce99298c153402d061c4aa9d15ccf1a530b00"
+    },
+    "own_Eff_Q_published": false,
+    "own_Eff_Aq_published": false,
+    "independent_review_stopped": true
+  },
+  "CPU_interrupt_logs": {
+    "CLIP3407": {
+      "stdout": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_primary_analysis_clip_vit_b16_seed3407_20261025T2125.log",
+        "sha256": "62b0aa2a94d9b298540c0d28f4ee6da73b4ab213d17c4cbc1302b25c1dec12dd"
+      },
+      "time_v": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_primary_analysis_clip_vit_b16_seed3407_20261025T2125_time_v.log",
+        "sha256": "1e9475226eec689ec23347f73b89d2a2f0639eec754c96f54e15f736a6223f28"
+      },
+      "ledger_starts_before_user_interrupt": 19,
+      "retained_partial_only": true,
+      "interrupted_by_user_pause": true,
+      "scientifically_accepted": false
+    },
+    "DINO7": {
+      "stdout": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_primary_analysis_dinov2_vit_b14_seed7_20261025T235215Z.log",
+        "sha256": "411b04d9940b0ce3eb9edbf8f9cf337abd4202f16dca50189ada01ee5a5b52ea"
+      },
+      "time_v": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_primary_analysis_dinov2_vit_b14_seed7_20261025T235215Z_time_v.log",
+        "sha256": "b0757025d3ce4c76e05e2228fe31a78e7cf41980027a2f4ad4f7a138ae470c23"
+      },
+      "ledger_starts_before_user_interrupt": 1,
+      "retained_partial_only": true,
+      "interrupted_by_user_pause": true,
+      "scientifically_accepted": false
+    }
+  },
+  "owner_previous_status": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/user_pause_20261025T2351/M_owner_status_at_pause.json",
+    "sha256": "c2fe590200319b44dce4d7e75bb0ec9dc876f0b0fc2be38b6273f377abce5314"
+  },
+  "signal_record": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/user_pause_20261025T2351/pause_signal_actions.json",
+    "sha256": "959881d74a409431f2dfe49f5580aaabc3f7037e7d2db147cba84bed001c4084"
+  },
+  "original_owner_status_note": "Preserved original status may still list four active PIDs; all are now absent. This pause verification is the current liveness authority; the old operational snapshot is not current running evidence.",
+  "GPU_snapshot": [
+    "0, 0, 0",
+    "1, 0, 0",
+    "2, 0, 0",
+    "3, 0, 0",
+    "4, 0, 28156",
+    "5, 0, 28156",
+    "6, 0, 28156",
+    "7, 0, 28156"
+  ],
+  "GPU_compute_apps_after_pause": [
+    "GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 1532179, VLLM::Worker_TP0",
+    "GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 1532180, VLLM::Worker_TP1",
+    "GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 1532181, VLLM::Worker_TP2",
+    "GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 1532182, VLLM::Worker_TP3"
+  ],
+  "GPU4_to7_control_actions": false,
+  "files_permanently_deleted": 0,
+  "data_weights_logs_ledgers_and_manuscripts_retained": true,
+  "cold_migration_released_bytes": 0,
+  "this_thread_recurrent_scheduler_created": false,
+  "matching_local_Codex_automation_toml_files": [],
+  "parent_supervision_must_not_resume_until_user_replans": true,
+  "remaining_deliverables_deferred": [
+    "H remaining independent cache/statistic acceptances and five-seed summaries",
+    "M remaining H source-best cache, independent capacity/admissions, statistical/resource canaries, permit and four-core five-seed comparisons",
+    "final figures and full CN/EN journal manuscripts/readback"
+  ]
+}

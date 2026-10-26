@@ -1,0 +1,41 @@
+{
+  "evidence_type": "SYNTHETIC_ONLY_NOT_SCIENTIFIC_EXPERIMENT_RESULTS",
+  "unit_summary": "8 passed in 65.13s",
+  "full_suite_summary": "113 passed in 78.95s",
+  "unit_log": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/logs/bootstrap_fast_tdd_green.log",
+  "full_suite_log": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/logs/bootstrap_fast_full_suite.log",
+  "tdd_red_log": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/logs/bootstrap_fast_tdd_red.log",
+  "profile_log": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/logs/bootstrap_fast_profile.log",
+  "module_sha256": "4b7c5e88946ea5feb799e2184c84c8c25051a7e0fa2db1713be1baa0d2f2e45c",
+  "test_sha256": "2d3b67e14b570aecec133b57afc0e535a766834629f0da9973d0fe3b20e6643b",
+  "protected_code_unchanged": true,
+  "independent_recomputation": {
+    "explicit_frame_resample_closure_draws": 12,
+    "explicit_video_row_multiplicity_draws": 2000,
+    "all_effects_and_pointwise_CIs_tolerance": 1e-10,
+    "synthetic_large_profile_matched_draws": 50,
+    "synthetic_large_profile_max_effect_and_CI_error": 0.0,
+    "normal_materialized_metrics_max_error": 0.0,
+    "RQ4_explicit_thresholds_per_draw": 200,
+    "RQ4_explicit_group_draws": 20
+  },
+  "statistical_conditions": {
+    "estimator": "Exact integer-multiplicity equivalent of baseline/materialized original video scores.",
+    "pointwise_interval": "2.5/97.5 percentile conditional TEST-group bootstrap.",
+    "gates": "Inherited min20 source/closure groups; largest natural-video component <=0.5.",
+    "independence": "Known/proxy graph only; no unknown CDF/DFD ancestry certification.",
+    "RQ4": "Conditions on fixed model, full frozen CAL pool and recorded common 200 n20 sets; source threshold fixed; CAL subset spread separate.",
+    "missing_method": "Any missing fixed fake method invalidates macro draw; reported invalid counts.",
+    "unresolved_precision": "Affected AUC/effects/intervals unavailable; no float64 rerank.",
+    "empty_n20": "Caller gates unavailable n20 before invoking RQ4; empty thresholds raise ValueError.",
+    "input": "Original unweighted natural-video/frame pools; internal integer group multiplicities only."
+  },
+  "real_model_or_target_evaluations": 0,
+  "gpu_allocations": 0,
+  "modifications": [
+    "reliability_v2/bootstrap_fast.py",
+    "tests/test_bootstrap_fast.py"
+  ],
+  "blockers": [],
+  "remaining_review": "Parent independent review requested after full-suite/profile GREEN."
+}

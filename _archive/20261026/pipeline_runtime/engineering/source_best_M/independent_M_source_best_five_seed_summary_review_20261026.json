@@ -1,0 +1,219 @@
+{
+  "actual_M_statistics_executed": false,
+  "actual_jobs_or_payloads_read": false,
+  "actual_shared_CPU_slots_acquired": 0,
+  "actual_summary_executed": false,
+  "author_logs_observed_without_rerun": [
+    {
+      "author_reported_tests": "72 passed in2.71s",
+      "observed_exit_code": 0,
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_source_best_five_seed_summary_GREEN.log",
+      "sha256": "5901e84f22d32409867a487513455d32caad94bc02a71b158cc99c6bb406ee1f"
+    },
+    {
+      "observed_exit_code": 0,
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_source_best_five_seed_summary_PREPARE_ONLY.log",
+      "sha256": "af4249589bdf0695fcbacd7a8fa9784b612ae888763cfb359908a91b6fd04c5e"
+    }
+  ],
+  "author_source_or_tests_modified": false,
+  "findings": [
+    {
+      "actual_unreviewed_code_executed": false,
+      "evidence": {
+        "actual_producer_imported": false,
+        "dependency_expected_refreshed_to_private_mock": true,
+        "fake_import_entered": true,
+        "fake_remaining_required_called": true,
+        "initial_accepted_source_sha256": "0ec974eec85a0a5204b8804707d627fa908a80eb1a4e76cfa81729ce0a875a32",
+        "private_observed_sha256": "518f2167a20583785e8dfd07bf1f10ec6c1d8e80891c25c7b3f07280900bf5b5",
+        "returned": 123
+      },
+      "id": "M5SUM-001",
+      "impact": "A changed source_best_analysis implementation can become its own expected RESOURCE_CODES/dependencies value and enter import/remaining_required before original independently accepted producer-package pins are checked in load_accepted_item.",
+      "lines": [
+        26,
+        37,
+        304,
+        305,
+        306,
+        307,
+        371,
+        372,
+        375,
+        376
+      ],
+      "private_fake_only": true,
+      "recommended_fix": "Use the fixed independently reviewed source_best_analysis.py SHA 0ec974eec85a0a5204b8804707d627fa908a80eb1a4e76cfa81729ce0a875a32 and source_best_runtime.py SHA 69b3d590d95fd3004c7c64617fbad642526b02862a97f61546d3cd375fc18742; never derive expected values from current observed files. Check the same fixed hashes before resource/slot imports and after use; add private digest/fake-import regressions proving changed code never executes.",
+      "severity": "Important",
+      "status": "OPEN",
+      "title": "Resource implementation expected hashes are refreshed from observed files and capacity code is imported before accepted-source checks"
+    },
+    {
+      "evidence": {
+        "sign_or_reversal_count_fields": [],
+        "summary_fields": [
+          "aggregation",
+          "backbone",
+          "cohort",
+          "comparison",
+          "core",
+          "ddof",
+          "domain",
+          "finite_n",
+          "grouping",
+          "layer",
+          "mean",
+          "metric",
+          "registered_n",
+          "representation",
+          "sample_sd",
+          "status",
+          "threshold_kind",
+          "unavailable_seeds"
+        ]
+      },
+      "id": "M5SUM-002",
+      "impact": "Per-seed RQ3 sign/reversal values remain available, but five-seed_core.csv does not itself give positive/negative/zero or reversal counts. If root's valid/signcounts requirement includes aggregate counts, they remain missing.",
+      "lines": [
+        172,
+        180,
+        385
+      ],
+      "recommended_action": "Root should classify this scope requirement; any added counts must remain descriptive with tolerance1e-10 and explicit valid denominator, without significance claims.",
+      "severity": "Minor",
+      "status": "PENDING_ROOT_SCOPE_DECISION",
+      "title": "Five-seed summary emits finite/NA counts but no sign or reversal count fields"
+    }
+  ],
+  "frozen_dependencies_rechecked": {
+    "m_source_best_d_numeric.py": "a7b079965fd34acbf2e974480aa197ded476cbc21f1447aeac523e1c4aab1dd0",
+    "m_source_best_result_audit.py": "72f28181f6aef259a9686d35d2848cfb5f9f041f9184389c48e67f21ed24e419",
+    "source_best_runtime.py": "69b3d590d95fd3004c7c64617fbad642526b02862a97f61546d3cd375fc18742"
+  },
+  "independent_probe_result": {
+    "actual_jobs_or_payloads_read": false,
+    "actual_slots": 0,
+    "actual_source_byte_writes": 0,
+    "important_resource_dynamic_digest": {
+      "actual_producer_imported": false,
+      "dependency_expected_refreshed_to_private_mock": true,
+      "fake_import_entered": true,
+      "fake_remaining_required_called": true,
+      "initial_accepted_source_sha256": "0ec974eec85a0a5204b8804707d627fa908a80eb1a4e76cfa81729ce0a875a32",
+      "private_observed_sha256": "518f2167a20583785e8dfd07bf1f10ec6c1d8e80891c25c7b3f07280900bf5b5",
+      "returned": 123
+    },
+    "independent_probes": {
+      "RQ2_interpolation": {
+        "lower": -0.38,
+        "upper": 0.38,
+        "valid_repeats": 2000
+      },
+      "endpoint_rows": 355,
+      "five_seed_closed_form": {
+        "ddof": 1,
+        "finite_n": 5,
+        "mean": -0.3,
+        "registered_n": 5,
+        "sample_sd": 0.15811388300841897,
+        "status": "AVAILABLE",
+        "unavailable_seeds": []
+      },
+      "summary_rows": 71
+    },
+    "sign_count_observation": {
+      "sign_or_reversal_count_fields": [],
+      "summary_fields": [
+        "aggregation",
+        "backbone",
+        "cohort",
+        "comparison",
+        "core",
+        "ddof",
+        "domain",
+        "finite_n",
+        "grouping",
+        "layer",
+        "mean",
+        "metric",
+        "registered_n",
+        "representation",
+        "sample_sd",
+        "status",
+        "threshold_kind",
+        "unavailable_seeds"
+      ]
+    },
+    "source_sha256": "b84e12327928bab3755e0a2b35dcc08b9535c46d2c5a32a88a0690ce00045357",
+    "test_sha256": "ee338a66d2143e55d0e8c269b3b8327fd710a54167acc6af33a79fa6d81b9101"
+  },
+  "independently_checked": [
+    {
+      "check": "Five finite registered seeds, negative effects and ddof1 closed-form arithmetic",
+      "result": {
+        "ddof": 1,
+        "finite_n": 5,
+        "mean": -0.3,
+        "registered_n": 5,
+        "sample_sd": 0.15811388300841897,
+        "status": "AVAILABLE",
+        "unavailable_seeds": []
+      }
+    },
+    {
+      "check": "Aligned 2000 frozen-normal draw arithmetic, linear pointwise 2.5/97.5 percentiles",
+      "result": {
+        "lower": -0.38,
+        "upper": 0.38,
+        "valid_repeats": 2000
+      }
+    },
+    {
+      "check": "Ordered multiplicity mismatch preserves explicit unavailable status",
+      "result": "PASS on private altered aligned-draw fixture"
+    },
+    {
+      "check": "One backbone exact selected-core endpoint inventory",
+      "per_seed_rows": 355,
+      "result": "355 per-seed rows / 71 endpoints; exact H56+D15 contract",
+      "summary_rows": 71
+    },
+    {
+      "check": "Read-through of all417 source lines and441 test lines",
+      "result": "Complete; ten-job D5/H5 admission, fixed seeds/backbone, source-best prefixes, prior accepted result/role digests and fresh/historical separation inspected"
+    },
+    {
+      "check": "Budget/output hash DAG and append-only completion-last design",
+      "result": "External budget binds exact audit identities; INCLUDED accounting adds no duplicate summary cap; AS/RSS/reserve/slot gates exist. Resource implementation hash flaw is M5SUM-001."
+    }
+  ],
+  "notifications": {
+    "root_and_author_notified_before_receipt": true
+  },
+  "original_suites_or_qualifications_rerun": false,
+  "original_weights_or_PNGs_read": false,
+  "production_admitted": false,
+  "remaining_blockers": [
+    "M5SUM-001 Important fix and independent regression confirmation",
+    "Root decision on aggregate sign/reversal counts",
+    "Ten real independently accepted D5/H5 source-best jobs per backbone are not yet available",
+    "Later fresh external resource request and production permission; no actual summary run is admitted by this engineering review"
+  ],
+  "reviewed_source": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/m_source_best_five_seed_summary.py",
+    "sha256": "b84e12327928bab3755e0a2b35dcc08b9535c46d2c5a32a88a0690ce00045357"
+  },
+  "reviewed_source_observed_at_receipt_sha256": "b84e12327928bab3755e0a2b35dcc08b9535c46d2c5a32a88a0690ce00045357",
+  "reviewed_tests": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests/test_m_source_best_five_seed_summary.py",
+    "sha256": "ee338a66d2143e55d0e8c269b3b8327fd710a54167acc6af33a79fa6d81b9101"
+  },
+  "reviewed_tests_observed_at_receipt_sha256": "ee338a66d2143e55d0e8c269b3b8327fd710a54167acc6af33a79fa6d81b9101",
+  "schema": "INDEPENDENT_M_SOURCE_BEST_FIVE_SEED_SUMMARY_REVIEW_V1",
+  "scientific_final_acceptance": false,
+  "scope": "Read-only independent review of the selected-four-core five-training-seed summary candidate; small private probes only",
+  "source_byte_mutations": 0,
+  "status": "ENGINEERING_REVIEW_REQUIRES_IMPORTANT_FIX",
+  "timestamp_UTC": "2026-10-26T07:50:29.218133+00:00"
+}

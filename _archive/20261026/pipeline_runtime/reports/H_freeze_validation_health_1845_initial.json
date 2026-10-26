@@ -1,0 +1,119 @@
+{
+  "utc": "2026-10-23T18:52:53.654304+00:00",
+  "status": "PASS_EXISTING_FREEZE_VALIDATION_AND_ALL4_CURRENT_WORKERS_ADVANCING",
+  "freeze_worker_pid": 246169,
+  "freeze_supervisor_pid": 246168,
+  "native_session_id": 7052,
+  "freeze_launch_snapshot": {
+    "utc": "2026-10-23T18:04:20.145754+00:00",
+    "status": "RUNNING",
+    "operation": "data_h.freeze_h_data mandatory full integrity revalidation then exclusive freeze",
+    "pid": 246169,
+    "supervisor_pid": 246168,
+    "CPU_only": true,
+    "OMP_MKL_OPENBLAS_threads": 2,
+    "deep_report_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_production_data_inspection.json",
+    "deep_report_sha256": "c319ee7a6a6ab332b85f5ecd4a0b56bebeedd073228e6d8227ad187a09806b2d",
+    "independent_review": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_production_data_independent_review_1450.json",
+      "sha256": "760a1411084a5ed747710cc1c58f2ead2c69e0df6775345f76346b8db48bf748",
+      "reviewer": {
+        "identity": "Codex independent subagent /root/h_pipeline_review",
+        "independent": true
+      }
+    },
+    "data_gate_code_sha256": "ad81f65c27d53159e6902bf8a20b0910cd129f75eb0105e5a5a053bcc2d2f45e",
+    "does_not_train_or_use_GPU": true,
+    "freeze_created": false
+  },
+  "freeze_CPU_cores": 0.7910120181092566,
+  "freeze_IO_delta": {
+    "rchar": 522324005,
+    "wchar": 0,
+    "syscr": 70510,
+    "syscw": 0,
+    "read_bytes": 0,
+    "write_bytes": 0,
+    "cancelled_write_bytes": 0
+  },
+  "GPU_samples": [
+    {
+      "utc": "2026-10-23T18:52:38.607857+00:00",
+      "csv": "0, 55, 2438\n1, 63, 2438\n2, 83, 5414\n3, 83, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-23T18:52:40.736944+00:00",
+      "csv": "0, 63, 2438\n1, 57, 2438\n2, 82, 5414\n3, 79, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-23T18:52:42.872414+00:00",
+      "csv": "0, 58, 2438\n1, 60, 2438\n2, 70, 5414\n3, 81, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-23T18:52:45.002806+00:00",
+      "csv": "0, 52, 2438\n1, 48, 2438\n2, 85, 5414\n3, 77, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-23T18:52:47.134154+00:00",
+      "csv": "0, 43, 2438\n1, 51, 2438\n2, 80, 5414\n3, 74, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-23T18:52:49.247103+00:00",
+      "csv": "0, 42, 2438\n1, 49, 2438\n2, 77, 5414\n3, 84, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-23T18:52:51.352932+00:00",
+      "csv": "0, 64, 2438\n1, 58, 2438\n2, 80, 5414\n3, 84, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-23T18:52:53.480609+00:00",
+      "csv": "0, 59, 2438\n1, 56, 2438\n2, 79, 5414\n3, 82, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n"
+    }
+  ],
+  "GPU_mean_util_percent": [
+    54.5,
+    55.25,
+    79.5,
+    80.5
+  ],
+  "worker_events": [
+    {
+      "pid": 124606,
+      "run_id": "D_dev_dinov2_vit_b14_lr5e-05_seed1007_e30",
+      "gpu": 2,
+      "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+      "latest_epoch": 26,
+      "latest_attempt_zero_based": 20092
+    },
+    {
+      "pid": 125862,
+      "run_id": "D_dev_dinov2_vit_b14_lr5e-05_seed1042_e30",
+      "gpu": 3,
+      "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646",
+      "latest_epoch": 26,
+      "latest_attempt_zero_based": 20433
+    },
+    {
+      "pid": 259837,
+      "run_id": "D_dev_efficientnet_b0_lr1e-04_seed1007_e30",
+      "gpu": 0,
+      "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e",
+      "latest_epoch": 4,
+      "latest_attempt_zero_based": 3066
+    },
+    {
+      "pid": 264019,
+      "run_id": "D_dev_efficientnet_b0_lr1e-04_seed1042_e30",
+      "gpu": 1,
+      "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+      "latest_epoch": 2,
+      "latest_attempt_zero_based": 1357
+    }
+  ],
+  "GPU1_main_window_mean_percent": 18.5,
+  "GPU1_followup_reason": "Main window crossed first EfficientNet commit/sourceDEV and next-epoch preparation; followup actualepoch2updates verified, no restart.",
+  "freeze_created": false,
+  "OS_exit_receipt_exists": false,
+  "H_GPU_qualification_or_training_started": false,
+  "next_manual_check_utc": "2026-10-23T19:30:00Z"
+}

@@ -1,0 +1,116 @@
+{
+  "utc": "2026-10-23T19:36:11.216819+00:00",
+  "status": "PASS",
+  "rows": [
+    {
+      "run_id": "D_dev_clip_vit_b16_lr1e-05_seed1007_e30",
+      "status": "PASS_UNCHANGED_TERMINAL_BINDINGS",
+      "epochs": 30,
+      "attempts": 23970,
+      "success": 23966,
+      "skip": 4,
+      "selection": "frozen_last",
+      "target_used": false,
+      "files_sha256": {
+        "identity.json": "42946730df8d14b56d390595cd9ac0df74a5a9abf339c9065156195ce586dce5",
+        "resolved_config.json": "646952bce4a009e72b2710d92579218441b7539fabd0070f6d43fb7ab4b2dbe3",
+        "history.json": "be3775dc0be98d0b2a168086843b56807a8c52c4324a6aa3a44330d63c609591",
+        "final.pt": "c8ab51e54078b153c4d2298889eed6bdfcb077b1cc5ea0ae05b7f810efd90f26",
+        "source_best.pt": "e1042c176b6a2bbdf045d4cd6fdd65b2a81a23edebac5dcdfd8e3f34212cb32b",
+        "complete.json": "6e6ee14268ad9752e026c0e366b807fddc898dd18116f00e7e22b64fad52976a"
+      }
+    },
+    {
+      "run_id": "D_dev_clip_vit_b16_lr1e-05_seed1042_e30",
+      "status": "PASS_UNCHANGED_TERMINAL_BINDINGS",
+      "epochs": 30,
+      "attempts": 23970,
+      "success": 23966,
+      "skip": 4,
+      "selection": "frozen_last",
+      "target_used": false,
+      "files_sha256": {
+        "identity.json": "08f090ed23b9a9a10dfedcd0d3720424a97ad897a761fb0a3078ebc2180e9491",
+        "resolved_config.json": "ce45f935b866d0e8c5f56703ba86564ea401ed9a0804cb82c0ec4058e6d48ac3",
+        "history.json": "6ebc9bd05f59d9f014d800e75df4cbc55cff975944d5132f821c60735500ff82",
+        "final.pt": "649d0817ca11d7537d09237aa0a9111c6c94c3db52305dd5b512fea6beac43a9",
+        "source_best.pt": "9313be6e7fd71f917a1398d09bd06c51676b6abd6c8d724c35a5242a9bd13b44",
+        "complete.json": "a3af5fc833b0955632b45b07cf299b86e1ae644f041bd974eb8d66713a637c19"
+      }
+    },
+    {
+      "run_id": "D_dev_dinov2_vit_b14_lr1e-05_seed1007_e30",
+      "status": "PASS_UNCHANGED_TERMINAL_BINDINGS",
+      "epochs": 30,
+      "attempts": 23970,
+      "success": 23968,
+      "skip": 2,
+      "selection": "frozen_last",
+      "target_used": false,
+      "files_sha256": {
+        "identity.json": "006a0b9a35fa767ea06b8c033a437a9574df4ae8be93f16533a33fb13dfff213",
+        "resolved_config.json": "352b14dd3f759d77fe305dd095e530c40d2e797ccb8dab042088b99a6b5f0094",
+        "history.json": "8c1a53696beef81f4f32d5e49f5ec335a53dadd024a0ad6c2eb44457f9392278",
+        "final.pt": "9351d197e050be8c0dd79da93260887125b1525a8c40bd4e35fd770e851e6bb5",
+        "source_best.pt": "ff4171d617f6c4dbd6d0a40e3e81c0b71c8957e383d20714435b4810f600f061",
+        "complete.json": "0ca69289502a63feae56808547ea1f065751450ef154dfadc92b48944624badf"
+      }
+    },
+    {
+      "run_id": "D_dev_dinov2_vit_b14_lr1e-05_seed1042_e30",
+      "status": "PASS_UNCHANGED_TERMINAL_BINDINGS",
+      "epochs": 30,
+      "attempts": 23970,
+      "success": 23967,
+      "skip": 3,
+      "selection": "frozen_last",
+      "target_used": false,
+      "files_sha256": {
+        "identity.json": "3f76114009ad8bae0538ea0c3d3a87b330c21da19b94fef863a655324e3c5977",
+        "resolved_config.json": "723b6be141082f13e21169e69424d9b69faca5d52996731b4918391e9f3a5181",
+        "history.json": "4a6170eeba6aa1359d381a37fbbc1f9daa639a7fd13741965673f5e54875114b",
+        "final.pt": "0ce574b04fa5a97f474d4032b0538f210b0d4776a980db5bd78fe89d27881b04",
+        "source_best.pt": "3229b1dcbcc22559fb6587f1d5c74bee7be506054e88784abbfe62b8e2034584",
+        "complete.json": "bc578668a5c4c36c5616c6f5194420d25d2aa125348b069c9ad3a6129935ab4f"
+      }
+    },
+    {
+      "run_id": "D_dev_dinov2_vit_b14_lr3e-05_seed1007_e30",
+      "status": "PASS_UNCHANGED_TERMINAL_BINDINGS",
+      "epochs": 30,
+      "attempts": 23970,
+      "success": 23967,
+      "skip": 3,
+      "selection": "frozen_last",
+      "target_used": false,
+      "files_sha256": {
+        "identity.json": "735f0f0f31958df9d9ed28cb46030547dec3179e34aec8bfab15cd28d3379084",
+        "resolved_config.json": "a30865d933148d41e374ac466b268f8c7a8fda1aa189cd96dd922e44e5ce8e89",
+        "history.json": "ba7fbf8aea94be2b8b00f5c20f8eb9eb1473db8a46ef3b76a1838af94b5134b3",
+        "final.pt": "c39295e699f8d98aed72b8d12ea3e2588f6a01419e6f2cd90f7867fef50da824",
+        "source_best.pt": "2daa3c7470aca5ba1ca6f0b82848e09f139c781f4eb2597602bbb6043f254264",
+        "complete.json": "5944c805586a792774a4de8408b61de0547eb8b9092efddc1820b6c0816a3ad0"
+      }
+    },
+    {
+      "run_id": "D_dev_dinov2_vit_b14_lr3e-05_seed1042_e30",
+      "status": "PASS_UNCHANGED_TERMINAL_BINDINGS",
+      "epochs": 30,
+      "attempts": 23970,
+      "success": 23967,
+      "skip": 3,
+      "selection": "frozen_last",
+      "target_used": false,
+      "files_sha256": {
+        "identity.json": "f7c30457ea23fc672214a46ec5ef3277aeb8b4b8e90fa426008d5f92470c1ccb",
+        "resolved_config.json": "84fd62216fe0505549e8faba5d39aadd52953f945bc59cb6dba6b41724e58ef7",
+        "history.json": "cd2699f395650685aeecccc072e8c800f420a514c0ab20b5cc1d70b838631af8",
+        "final.pt": "c89033b629c74659ecac58f2b06e0f7e987d3c345f1df3c066c5b1906ae8c66d",
+        "source_best.pt": "92c45a12f0772da9bddc3e39f3ee0002815a5c0e29301bbf923f78c1fc176065",
+        "complete.json": "6c29d791b3821385fdbab5cfa02afc1b0105017cdd0f13b25e90832352f9f3d8"
+      }
+    }
+  ],
+  "completed_artifact_audit_sha256": "cff980522525768663e4a8e94f9e8fb7193a17a8848667aab445eed0588ff3bd",
+  "scope": "Six completed final/source-best/core revalidation; no new completed model at cutoff; previous independent180DEVtable evidence retained."
+}

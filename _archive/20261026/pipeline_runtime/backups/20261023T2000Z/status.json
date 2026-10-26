@@ -1,0 +1,1178 @@
+{
+  "started_utc": "2026-10-23T08:19:23.283003+00:00",
+  "plan_sha256": "b018b01915a62c645fc3718134970cd49dc0651ecfd02792220f3a0086c6594d",
+  "artifact_root": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023",
+  "code_root": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2",
+  "allowed_gpus": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "protected_gpus": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "formal_models": 45,
+  "standard_development_models": 30,
+  "maximum_extra_dino_development_models": 12,
+  "training_status": "D_QUEUE_LAUNCHED",
+  "legacy_artifacts_read_only": true,
+  "stage": "P2_D_DEVELOPMENT_RUNNING_H_DATA_FROZEN_WAITING_GPU_RESOURCE_AND_QUALIFICATION",
+  "D_queue_pid": 3942476,
+  "H_preprocessing_pid": 3915880,
+  "scientific_results_complete": false,
+  "journal_manuscripts_complete": false,
+  "last_verified_utc": "2026-10-23T19:33:23.699583+00:00",
+  "first_D_epoch_all4_pass": true,
+  "D_first_epoch_attempts_per_run": 799,
+  "D_first_epoch_skips_per_run": 0,
+  "hourly_continuation_automation": "FAILED_UNSUPPORTED_CLOUD_THREAD_NOT_CREATED_AFTER_SINGLE_AUTHORIZED_RETRY",
+  "H_data_freeze": "FROZEN_ACCEPTED_CURRENT_BINDINGS_INDEPENDENTLY_VERIFIED",
+  "latest_code_commit": "a612f24194a0a89f42f0e3bf6dde73a6287ee76d",
+  "latest_CPU_tests": 318,
+  "H_audit_fixes": "COMPLETED_FRESH_FULL_AUDIT_DEEP_INDEPENDENT_REVIEW_AND_MANDATORY_NATIVE_FREEZE",
+  "D_standard_development_total": 10,
+  "D_registered_development_total": 10,
+  "D_development_completed": 6,
+  "D_active_count": 4,
+  "D_automatic_next_stages": [
+    "source-only conditional DINO fresh45/60",
+    "freeze15Dformal",
+    "train15Dformal",
+    "export7roleFP32caches",
+    "STOP_ANALYSIS_PENDING"
+  ],
+  "D_analysis_driver": "IMPLEMENTED_REVIEWED_SYNTHETIC_TESTS_PASS_WAITING_FORMAL_CACHES",
+  "D_formal_caches_complete": 0,
+  "H_preprocessing_completed": 8431,
+  "H_preprocessing_total": 8431,
+  "hourly_continuation_authorization": "EXPLICITLY_GRANTED_BY_USER",
+  "hourly_schedule_id": null,
+  "continuation_owner": "parent thread manual supervision; no duplicate schedule retry",
+  "next_recommended_check_utc": "2026-10-23T20:00:00Z",
+  "manuscript_methods_preparation": "/home/z/obsidian/paper/deepfake-detector/新实验设计/20261023/论文方法与设置准备_v2",
+  "active_run_evidence": [
+    {
+      "pid": 124606,
+      "run_id": "D_dev_dinov2_vit_b14_lr5e-05_seed1007_e30",
+      "gpu": 2,
+      "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+      "parent_pid": 3942476,
+      "CUDA_VISIBLE_DEVICES": "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+      "CPU_ticks_at_end": 2415507,
+      "CPU_ticks_at_start": 2413622,
+      "current_observation": {
+        "run_id": "D_dev_dinov2_vit_b14_lr5e-05_seed1007_e30",
+        "status": "RUNNING",
+        "observed_utc": "2026-10-23T19:33:23.471723+00:00",
+        "gpu": 2,
+        "live_records": 23171,
+        "live_successful_update_records": 23169,
+        "live_skips": 2,
+        "skip_positions": [
+          18026,
+          21105
+        ],
+        "skip_evidence": [
+          {
+            "event": {
+              "attempt": 18026,
+              "lr": 9.802382525359668e-06,
+              "loss": 0.003148939460515976,
+              "gradient_norm": null,
+              "gradient_finite": false,
+              "scale_before": 65536.0,
+              "scale_after": 32768.0,
+              "success": false,
+              "skip": true,
+              "epoch": 23
+            },
+            "next_success": {
+              "attempt": 18027,
+              "lr": 9.80005963871102e-06,
+              "loss": 4.0201470255851746e-05,
+              "gradient_norm": 0.02072220885665459,
+              "gradient_finite": true,
+              "scale_before": 32768.0,
+              "scale_after": 32768.0,
+              "success": true,
+              "skip": false,
+              "epoch": 23
+            },
+            "next_event_status": "SUCCESS"
+          },
+          {
+            "event": {
+              "attempt": 21105,
+              "lr": 4.268328354361899e-06,
+              "loss": 0.008753801696002483,
+              "gradient_norm": null,
+              "gradient_finite": false,
+              "scale_before": 65536.0,
+              "scale_after": 32768.0,
+              "success": false,
+              "skip": true,
+              "epoch": 27
+            },
+            "next_success": {
+              "attempt": 21106,
+              "lr": 4.26710924727562e-06,
+              "loss": 9.043142199516296e-07,
+              "gradient_norm": 0.0001256230376346685,
+              "gradient_finite": true,
+              "scale_before": 32768.0,
+              "scale_after": 32768.0,
+              "success": true,
+              "skip": false,
+              "epoch": 27
+            },
+            "next_event_status": "SUCCESS"
+          }
+        ],
+        "max_consecutive_skips": 1,
+        "previous_live_skips": 1,
+        "new_live_skips_since_previous_cutoff": 1,
+        "baseline_scope": "Prior1845live numeric receipt",
+        "pinned_checkpoint_inspection_status": "PASS",
+        "pinned_checkpoint_epoch": 28,
+        "pinned_checkpoint_attempts": 22372,
+        "pinned_checkpoint_success": 22370,
+        "pinned_checkpoint_skips": 2,
+        "current_history_epoch_metadata_only": 28,
+        "latest_live_event": {
+          "attempt": 23170,
+          "lr": 2.6392355236543243e-06,
+          "loss": 1.4239922165870667e-06,
+          "gradient_norm": 0.00022648332657994503,
+          "gradient_finite": true,
+          "scale_before": 65536.0,
+          "scale_after": 65536.0,
+          "success": true,
+          "skip": false,
+          "epoch": 29
+        },
+        "logfiles": [
+          {
+            "name": "epoch_01_updates.jsonl",
+            "observed_bytes": 180047,
+            "records": 799
+          },
+          {
+            "name": "epoch_02_updates.jsonl",
+            "observed_bytes": 180896,
+            "records": 799
+          },
+          {
+            "name": "epoch_03_updates.jsonl",
+            "observed_bytes": 181190,
+            "records": 799
+          },
+          {
+            "name": "epoch_04_updates.jsonl",
+            "observed_bytes": 181220,
+            "records": 799
+          },
+          {
+            "name": "epoch_05_updates.jsonl",
+            "observed_bytes": 181242,
+            "records": 799
+          },
+          {
+            "name": "epoch_06_updates.jsonl",
+            "observed_bytes": 181337,
+            "records": 799
+          },
+          {
+            "name": "epoch_07_updates.jsonl",
+            "observed_bytes": 181377,
+            "records": 799
+          },
+          {
+            "name": "epoch_08_updates.jsonl",
+            "observed_bytes": 182322,
+            "records": 799
+          },
+          {
+            "name": "epoch_09_updates.jsonl",
+            "observed_bytes": 183085,
+            "records": 799
+          },
+          {
+            "name": "epoch_10_updates.jsonl",
+            "observed_bytes": 183997,
+            "records": 799
+          },
+          {
+            "name": "epoch_11_updates.jsonl",
+            "observed_bytes": 184232,
+            "records": 799
+          },
+          {
+            "name": "epoch_12_updates.jsonl",
+            "observed_bytes": 184485,
+            "records": 799
+          },
+          {
+            "name": "epoch_13_updates.jsonl",
+            "observed_bytes": 184854,
+            "records": 799
+          },
+          {
+            "name": "epoch_14_updates.jsonl",
+            "observed_bytes": 185466,
+            "records": 799
+          },
+          {
+            "name": "epoch_15_updates.jsonl",
+            "observed_bytes": 186060,
+            "records": 799
+          },
+          {
+            "name": "epoch_16_updates.jsonl",
+            "observed_bytes": 186341,
+            "records": 799
+          },
+          {
+            "name": "epoch_17_updates.jsonl",
+            "observed_bytes": 186591,
+            "records": 799
+          },
+          {
+            "name": "epoch_18_updates.jsonl",
+            "observed_bytes": 187748,
+            "records": 799
+          },
+          {
+            "name": "epoch_19_updates.jsonl",
+            "observed_bytes": 188632,
+            "records": 799
+          },
+          {
+            "name": "epoch_20_updates.jsonl",
+            "observed_bytes": 189145,
+            "records": 799
+          },
+          {
+            "name": "epoch_21_updates.jsonl",
+            "observed_bytes": 189236,
+            "records": 799
+          },
+          {
+            "name": "epoch_22_updates.jsonl",
+            "observed_bytes": 189596,
+            "records": 799
+          },
+          {
+            "name": "epoch_23_updates.jsonl",
+            "observed_bytes": 189284,
+            "records": 799
+          },
+          {
+            "name": "epoch_24_updates.jsonl",
+            "observed_bytes": 189234,
+            "records": 799
+          },
+          {
+            "name": "epoch_25_updates.jsonl",
+            "observed_bytes": 189583,
+            "records": 799
+          },
+          {
+            "name": "epoch_26_updates.jsonl",
+            "observed_bytes": 189785,
+            "records": 799
+          },
+          {
+            "name": "epoch_27_updates.jsonl",
+            "observed_bytes": 190163,
+            "records": 799
+          },
+          {
+            "name": "epoch_28_updates.jsonl",
+            "observed_bytes": 190657,
+            "records": 799
+          },
+          {
+            "name": "epoch_29_updates.jsonl",
+            "observed_bytes": 190681,
+            "records": 799
+          }
+        ],
+        "trailing_partial_lines_ignored": 0,
+        "recent3epoch_mean_seconds": 634.6633791128794,
+        "current_committed_history_attempts": 22372,
+        "current_committed_history_success": 22370,
+        "current_committed_history_skips": 2,
+        "latest_two_committed_array_hashes": [
+          {
+            "epoch": 27,
+            "kind": "samples",
+            "sha256": "290f1f34060c82b580e37a81ba802059704cbb49bf2906d1bec93045d5f085b8"
+          },
+          {
+            "epoch": 27,
+            "kind": "augmentations",
+            "sha256": "b876f51bbc66f3d27a3f7b89cfcc625106df5f29befbbac9ef3759abe4a62dfe"
+          },
+          {
+            "epoch": 28,
+            "kind": "samples",
+            "sha256": "d5fb49dc34e8f684a61febb9ab11e418aa2d3d8ef8971c2fd5b496f643fa7b46"
+          },
+          {
+            "epoch": 28,
+            "kind": "augmentations",
+            "sha256": "541447ba49a93996dbcf0805ca609e34c1e6e4e77f1ff8e0b6a561149f5127fb"
+          }
+        ],
+        "draw_normalized_inputs_per_second": 161.1436918622182
+      }
+    },
+    {
+      "pid": 125862,
+      "run_id": "D_dev_dinov2_vit_b14_lr5e-05_seed1042_e30",
+      "gpu": 3,
+      "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646",
+      "parent_pid": 3942476,
+      "CUDA_VISIBLE_DEVICES": "GPU-626ec32f-1401-c959-74b0-db04ed63c646",
+      "CPU_ticks_at_end": 2398423,
+      "CPU_ticks_at_start": 2396401,
+      "current_observation": {
+        "run_id": "D_dev_dinov2_vit_b14_lr5e-05_seed1042_e30",
+        "status": "RUNNING",
+        "observed_utc": "2026-10-23T19:33:23.595914+00:00",
+        "gpu": 3,
+        "live_records": 23431,
+        "live_successful_update_records": 23430,
+        "live_skips": 1,
+        "skip_positions": [
+          21447
+        ],
+        "skip_evidence": [
+          {
+            "event": {
+              "attempt": 21447,
+              "lr": 3.875103461827301e-06,
+              "loss": 0.010368847288191319,
+              "gradient_norm": null,
+              "gradient_finite": false,
+              "scale_before": 131072.0,
+              "scale_after": 65536.0,
+              "success": false,
+              "skip": true,
+              "epoch": 27
+            },
+            "next_success": {
+              "attempt": 21448,
+              "lr": 3.874023827956026e-06,
+              "loss": 1.730397343635559e-06,
+              "gradient_norm": 0.00018018100450831485,
+              "gradient_finite": true,
+              "scale_before": 65536.0,
+              "scale_after": 65536.0,
+              "success": true,
+              "skip": false,
+              "epoch": 27
+            },
+            "next_event_status": "SUCCESS"
+          }
+        ],
+        "max_consecutive_skips": 1,
+        "previous_live_skips": 0,
+        "new_live_skips_since_previous_cutoff": 1,
+        "baseline_scope": "Prior1845live numeric receipt",
+        "pinned_checkpoint_inspection_status": "PASS",
+        "pinned_checkpoint_epoch": 29,
+        "pinned_checkpoint_attempts": 23171,
+        "pinned_checkpoint_success": 23170,
+        "pinned_checkpoint_skips": 1,
+        "current_history_epoch_metadata_only": 29,
+        "latest_live_event": {
+          "attempt": 23430,
+          "lr": 2.5633965346686447e-06,
+          "loss": 9.821727871894836e-06,
+          "gradient_norm": 0.003378755815943525,
+          "gradient_finite": true,
+          "scale_before": 65536.0,
+          "scale_after": 65536.0,
+          "success": true,
+          "skip": false,
+          "epoch": 30
+        },
+        "logfiles": [
+          {
+            "name": "epoch_01_updates.jsonl",
+            "observed_bytes": 180072,
+            "records": 799
+          },
+          {
+            "name": "epoch_02_updates.jsonl",
+            "observed_bytes": 180829,
+            "records": 799
+          },
+          {
+            "name": "epoch_03_updates.jsonl",
+            "observed_bytes": 181192,
+            "records": 799
+          },
+          {
+            "name": "epoch_04_updates.jsonl",
+            "observed_bytes": 181247,
+            "records": 799
+          },
+          {
+            "name": "epoch_05_updates.jsonl",
+            "observed_bytes": 181266,
+            "records": 799
+          },
+          {
+            "name": "epoch_06_updates.jsonl",
+            "observed_bytes": 181300,
+            "records": 799
+          },
+          {
+            "name": "epoch_07_updates.jsonl",
+            "observed_bytes": 181396,
+            "records": 799
+          },
+          {
+            "name": "epoch_08_updates.jsonl",
+            "observed_bytes": 182312,
+            "records": 799
+          },
+          {
+            "name": "epoch_09_updates.jsonl",
+            "observed_bytes": 183135,
+            "records": 799
+          },
+          {
+            "name": "epoch_10_updates.jsonl",
+            "observed_bytes": 184034,
+            "records": 799
+          },
+          {
+            "name": "epoch_11_updates.jsonl",
+            "observed_bytes": 184210,
+            "records": 799
+          },
+          {
+            "name": "epoch_12_updates.jsonl",
+            "observed_bytes": 184341,
+            "records": 799
+          },
+          {
+            "name": "epoch_13_updates.jsonl",
+            "observed_bytes": 184943,
+            "records": 799
+          },
+          {
+            "name": "epoch_14_updates.jsonl",
+            "observed_bytes": 185561,
+            "records": 799
+          },
+          {
+            "name": "epoch_15_updates.jsonl",
+            "observed_bytes": 186112,
+            "records": 799
+          },
+          {
+            "name": "epoch_16_updates.jsonl",
+            "observed_bytes": 186281,
+            "records": 799
+          },
+          {
+            "name": "epoch_17_updates.jsonl",
+            "observed_bytes": 186499,
+            "records": 799
+          },
+          {
+            "name": "epoch_18_updates.jsonl",
+            "observed_bytes": 187601,
+            "records": 799
+          },
+          {
+            "name": "epoch_19_updates.jsonl",
+            "observed_bytes": 188702,
+            "records": 799
+          },
+          {
+            "name": "epoch_20_updates.jsonl",
+            "observed_bytes": 189101,
+            "records": 799
+          },
+          {
+            "name": "epoch_21_updates.jsonl",
+            "observed_bytes": 189520,
+            "records": 799
+          },
+          {
+            "name": "epoch_22_updates.jsonl",
+            "observed_bytes": 189506,
+            "records": 799
+          },
+          {
+            "name": "epoch_23_updates.jsonl",
+            "observed_bytes": 189539,
+            "records": 799
+          },
+          {
+            "name": "epoch_24_updates.jsonl",
+            "observed_bytes": 189185,
+            "records": 799
+          },
+          {
+            "name": "epoch_25_updates.jsonl",
+            "observed_bytes": 189612,
+            "records": 799
+          },
+          {
+            "name": "epoch_26_updates.jsonl",
+            "observed_bytes": 191301,
+            "records": 799
+          },
+          {
+            "name": "epoch_27_updates.jsonl",
+            "observed_bytes": 191587,
+            "records": 799
+          },
+          {
+            "name": "epoch_28_updates.jsonl",
+            "observed_bytes": 190830,
+            "records": 799
+          },
+          {
+            "name": "epoch_29_updates.jsonl",
+            "observed_bytes": 190629,
+            "records": 799
+          },
+          {
+            "name": "epoch_30_updates.jsonl",
+            "observed_bytes": 61946,
+            "records": 260
+          }
+        ],
+        "trailing_partial_lines_ignored": 0,
+        "recent3epoch_mean_seconds": 634.4363202253977,
+        "current_committed_history_attempts": 23171,
+        "current_committed_history_success": 23170,
+        "current_committed_history_skips": 1,
+        "latest_two_committed_array_hashes": [
+          {
+            "epoch": 28,
+            "kind": "samples",
+            "sha256": "ecad648fa848216baa920cd6a905250a961ebad3641a04c9cf6655ea65d90a1e"
+          },
+          {
+            "epoch": 28,
+            "kind": "augmentations",
+            "sha256": "6487582e14c7288376369956c288b33828c3208959387f3a7f2c0b8bf8105e94"
+          },
+          {
+            "epoch": 29,
+            "kind": "samples",
+            "sha256": "993abbb6719e3a38687ceb9f9b0c983140551457f3089f290c646fe3315d64f7"
+          },
+          {
+            "epoch": 29,
+            "kind": "augmentations",
+            "sha256": "b0d8cbf3e94ff4c9cdbea8ae24deb889013fd9f7e4d205863cb13171e2a69906"
+          }
+        ],
+        "draw_normalized_inputs_per_second": 161.20136369819681
+      }
+    },
+    {
+      "pid": 259837,
+      "run_id": "D_dev_efficientnet_b0_lr1e-04_seed1007_e30",
+      "gpu": 0,
+      "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e",
+      "parent_pid": 3942476,
+      "CUDA_VISIBLE_DEVICES": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e",
+      "CPU_ticks_at_end": 397966,
+      "CPU_ticks_at_start": 396161,
+      "current_observation": {
+        "run_id": "D_dev_efficientnet_b0_lr1e-04_seed1007_e30",
+        "status": "RUNNING",
+        "observed_utc": "2026-10-23T19:33:23.654745+00:00",
+        "gpu": 0,
+        "live_records": 10139,
+        "live_successful_update_records": 10139,
+        "live_skips": 0,
+        "skip_positions": [],
+        "skip_evidence": [],
+        "max_consecutive_skips": 0,
+        "previous_live_skips": 0,
+        "new_live_skips_since_previous_cutoff": 0,
+        "baseline_scope": "Prior1845live numeric receipt",
+        "pinned_checkpoint_inspection_status": "PASS",
+        "pinned_checkpoint_epoch": 12,
+        "pinned_checkpoint_attempts": 9588,
+        "pinned_checkpoint_success": 9588,
+        "pinned_checkpoint_skips": 0,
+        "current_history_epoch_metadata_only": 12,
+        "latest_live_event": {
+          "attempt": 10138,
+          "lr": 6.674274109145755e-05,
+          "loss": 0.000194682739675045,
+          "gradient_norm": 0.02672173182665668,
+          "gradient_finite": true,
+          "scale_before": 4096.0,
+          "scale_after": 4096.0,
+          "success": true,
+          "skip": false,
+          "epoch": 13
+        },
+        "logfiles": [
+          {
+            "name": "epoch_01_updates.jsonl",
+            "observed_bytes": 179950,
+            "records": 799
+          },
+          {
+            "name": "epoch_02_updates.jsonl",
+            "observed_bytes": 180995,
+            "records": 799
+          },
+          {
+            "name": "epoch_03_updates.jsonl",
+            "observed_bytes": 181743,
+            "records": 799
+          },
+          {
+            "name": "epoch_04_updates.jsonl",
+            "observed_bytes": 182041,
+            "records": 799
+          },
+          {
+            "name": "epoch_05_updates.jsonl",
+            "observed_bytes": 182261,
+            "records": 799
+          },
+          {
+            "name": "epoch_06_updates.jsonl",
+            "observed_bytes": 182472,
+            "records": 799
+          },
+          {
+            "name": "epoch_07_updates.jsonl",
+            "observed_bytes": 182729,
+            "records": 799
+          },
+          {
+            "name": "epoch_08_updates.jsonl",
+            "observed_bytes": 183650,
+            "records": 799
+          },
+          {
+            "name": "epoch_09_updates.jsonl",
+            "observed_bytes": 184642,
+            "records": 799
+          },
+          {
+            "name": "epoch_10_updates.jsonl",
+            "observed_bytes": 185528,
+            "records": 799
+          },
+          {
+            "name": "epoch_11_updates.jsonl",
+            "observed_bytes": 185761,
+            "records": 799
+          },
+          {
+            "name": "epoch_12_updates.jsonl",
+            "observed_bytes": 185716,
+            "records": 799
+          },
+          {
+            "name": "epoch_13_updates.jsonl",
+            "observed_bytes": 128340,
+            "records": 551
+          }
+        ],
+        "trailing_partial_lines_ignored": 0,
+        "recent3epoch_mean_seconds": 273.63033135732013,
+        "current_committed_history_attempts": 9588,
+        "current_committed_history_success": 9588,
+        "current_committed_history_skips": 0,
+        "latest_two_committed_array_hashes": [
+          {
+            "epoch": 11,
+            "kind": "samples",
+            "sha256": "04ff663f5c7388a44d6cf6d536a29e466a5225c9680df6e2f7b9d37445700dd1"
+          },
+          {
+            "epoch": 11,
+            "kind": "augmentations",
+            "sha256": "7d6f83576a790ea7f81b517dd7d48e5caa718ce8ceafcc14778f85ad12b4df97"
+          },
+          {
+            "epoch": 12,
+            "kind": "samples",
+            "sha256": "9146d3b5183900440fd4a5bf40ebfd23843330d6be6538bffe78c3cfddb007dd"
+          },
+          {
+            "epoch": 12,
+            "kind": "augmentations",
+            "sha256": "86536fbafc97a710c3142a8e248e69aa6e42efd21d2cab0da4cec2da299e5042"
+          }
+        ],
+        "draw_normalized_inputs_per_second": 373.75973450270806
+      }
+    },
+    {
+      "pid": 264019,
+      "run_id": "D_dev_efficientnet_b0_lr1e-04_seed1042_e30",
+      "gpu": 1,
+      "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+      "parent_pid": 3942476,
+      "CUDA_VISIBLE_DEVICES": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+      "CPU_ticks_at_end": 328824,
+      "CPU_ticks_at_start": 327063,
+      "current_observation": {
+        "run_id": "D_dev_efficientnet_b0_lr1e-04_seed1042_e30",
+        "status": "RUNNING",
+        "observed_utc": "2026-10-23T19:33:23.698680+00:00",
+        "gpu": 1,
+        "live_records": 8200,
+        "live_successful_update_records": 8200,
+        "live_skips": 0,
+        "skip_positions": [],
+        "skip_evidence": [],
+        "max_consecutive_skips": 0,
+        "previous_live_skips": 0,
+        "new_live_skips_since_previous_cutoff": 0,
+        "baseline_scope": "Prior1845live numeric receipt",
+        "pinned_checkpoint_inspection_status": "PASS",
+        "pinned_checkpoint_epoch": 10,
+        "pinned_checkpoint_attempts": 7990,
+        "pinned_checkpoint_success": 7990,
+        "pinned_checkpoint_skips": 0,
+        "current_history_epoch_metadata_only": 10,
+        "latest_live_event": {
+          "attempt": 8199,
+          "lr": 7.803002948700036e-05,
+          "loss": 0.001677357591688633,
+          "gradient_norm": 0.16598547764135324,
+          "gradient_finite": true,
+          "scale_before": 2048.0,
+          "scale_after": 2048.0,
+          "success": true,
+          "skip": false,
+          "epoch": 11
+        },
+        "logfiles": [
+          {
+            "name": "epoch_01_updates.jsonl",
+            "observed_bytes": 179955,
+            "records": 799
+          },
+          {
+            "name": "epoch_02_updates.jsonl",
+            "observed_bytes": 181016,
+            "records": 799
+          },
+          {
+            "name": "epoch_03_updates.jsonl",
+            "observed_bytes": 181681,
+            "records": 799
+          },
+          {
+            "name": "epoch_04_updates.jsonl",
+            "observed_bytes": 182031,
+            "records": 799
+          },
+          {
+            "name": "epoch_05_updates.jsonl",
+            "observed_bytes": 182246,
+            "records": 799
+          },
+          {
+            "name": "epoch_06_updates.jsonl",
+            "observed_bytes": 182503,
+            "records": 799
+          },
+          {
+            "name": "epoch_07_updates.jsonl",
+            "observed_bytes": 182514,
+            "records": 799
+          },
+          {
+            "name": "epoch_08_updates.jsonl",
+            "observed_bytes": 183621,
+            "records": 799
+          },
+          {
+            "name": "epoch_09_updates.jsonl",
+            "observed_bytes": 184513,
+            "records": 799
+          },
+          {
+            "name": "epoch_10_updates.jsonl",
+            "observed_bytes": 185515,
+            "records": 799
+          },
+          {
+            "name": "epoch_11_updates.jsonl",
+            "observed_bytes": 48777,
+            "records": 210
+          }
+        ],
+        "trailing_partial_lines_ignored": 0,
+        "recent3epoch_mean_seconds": 282.3826678593953,
+        "current_committed_history_attempts": 7990,
+        "current_committed_history_success": 7990,
+        "current_committed_history_skips": 0,
+        "latest_two_committed_array_hashes": [
+          {
+            "epoch": 9,
+            "kind": "samples",
+            "sha256": "40e78eba685b640ff1b6b423bcb93d0520ca79d1cb8991a494bccd6905a38cc2"
+          },
+          {
+            "epoch": 9,
+            "kind": "augmentations",
+            "sha256": "9fc0ae93624927501408d9dd8b984563bbafe440162a98f86fd50cddf9eb5532"
+          },
+          {
+            "epoch": 10,
+            "kind": "samples",
+            "sha256": "ef4c3b3f6756f942a420c6c9b6d5dc2755b8550eeab1028e86f8d3aebfb0a7ea"
+          },
+          {
+            "epoch": 10,
+            "kind": "augmentations",
+            "sha256": "78cf8f058047adba15d10758e44f40ec0349d5bec5ae0eb090ae25a5f4f1a641"
+          }
+        ],
+        "draw_normalized_inputs_per_second": 362.1752028028984
+      }
+    }
+  ],
+  "capacity": {
+    "working_set_estimate_GiB": 200,
+    "reserve_GiB": 50,
+    "workspace_free_GiB": 425.5494041442871,
+    "Dataset_free_GiB": 2827.9958114624023,
+    "apparent_bytes": {
+      "artifact_root": 39200759163,
+      "H_derived": 77174680054
+    },
+    "last_check_utc": "2026-10-23T19:37:53.505510+00:00",
+    "budget_pass": true,
+    "apparent_bytes_scope": "Historical last explicit size inventory retained; current free-space and budget check above are fresh."
+  },
+  "D_queue_stage": "P2_D_STANDARD_DEVELOPMENT",
+  "D_pending_count": 0,
+  "latest_health_check": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/check_20261023T1930Z.json",
+  "checkpoint_health": "PASS_ALL10_FULL_CPU_PINNED_RECOVERIES",
+  "verified_checkpoint_epochs": [
+    30,
+    30,
+    30,
+    30,
+    30,
+    30,
+    28,
+    29,
+    12,
+    10
+  ],
+  "committed_update_records_checked": 206941,
+  "verified_AMP_skips": 22,
+  "latest_GPU_mean_util_percent": [
+    60.75,
+    54.0,
+    93.25,
+    81.625
+  ],
+  "latest_CPU_busy_percent": 16.23540538097258,
+  "latest_CPU_iowait_percent": 0.009040145198639805,
+  "H_fresh_audit_status": "COMPLETE_PASSED_RETURN_CODE_0",
+  "H_implementation": "IMPLEMENTED_REVIEWED_CPU_PASS_RUNTIME_PENDING",
+  "H_bundle_sha256": "5b5b101bcaabd73f4818bd9de03425d5c3898c21fcf0181fb28f39f6e5e4f295",
+  "H_implementation_acceptance": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_implementation_acceptance.json",
+  "H_standard_development_total": 20,
+  "H_formal_total": 30,
+  "H_queue_launched": false,
+  "H_source_GPU_qualification_started": false,
+  "H_resource_policy": "D_PRIORITY_UNTIL_D_GPU_CACHE_STAGE_COMPLETE",
+  "last_code_verified_utc": "2026-10-23T19:36:11.218705+00:00",
+  "later_live_AMP_skips": {
+    "D_dev_clip_vit_b16_lr1e-05_seed1007_e30": 4,
+    "D_dev_clip_vit_b16_lr1e-05_seed1042_e30": 4,
+    "D_dev_dinov2_vit_b14_lr1e-05_seed1007_e30": 2,
+    "D_dev_dinov2_vit_b14_lr1e-05_seed1042_e30": 3,
+    "D_dev_dinov2_vit_b14_lr3e-05_seed1007_e30": 3,
+    "D_dev_dinov2_vit_b14_lr3e-05_seed1042_e30": 3,
+    "D_dev_dinov2_vit_b14_lr5e-05_seed1007_e30": 2,
+    "D_dev_dinov2_vit_b14_lr5e-05_seed1042_e30": 1,
+    "D_dev_efficientnet_b0_lr1e-04_seed1007_e30": 0,
+    "D_dev_efficientnet_b0_lr1e-04_seed1042_e30": 0
+  },
+  "H_cache_analysis_implementation": "IMPLEMENTED_REVIEWED_318_CPU_TESTS_PASS_WAITING_EFFECTIVE_FORMAL_CACHES",
+  "last_liveness_verified_utc": "2026-10-23T19:34:04.248424+00:00",
+  "H_posttraining_implementation_acceptance": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_posttraining_implementation_acceptance.json",
+  "H_complete_formal_cache_pairs": 0,
+  "H_posttraining_automatic": false,
+  "H_posttraining_usage": "docs/h_cache_analysis_usage.md",
+  "current_capacity_liveness": {
+    "workspace_free_GiB": 428.9585838317871,
+    "Dataset_free_GiB": 2827.9958114624023
+  },
+  "next_check_prepared_scripts": [
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_production_data_inspection.py"
+  ],
+  "next_check_preparation": "Next16:30notexecuted;existing152000auditcompletionmaypermitprepareddeepinspectiononce,thenindependenth_pipeline_reviewfinalcomparisonandonlythenfreeze.NoHGPUdispatchuntilDpriorityallows.",
+  "committed_successful_updates_verified": 134219,
+  "verified_AMP_skips_per_run": {
+    "D_dev_clip_vit_b16_lr1e-05_seed1007_e30": 4,
+    "D_dev_clip_vit_b16_lr1e-05_seed1042_e30": 4,
+    "D_dev_dinov2_vit_b14_lr1e-05_seed1007_e30": 2,
+    "D_dev_dinov2_vit_b14_lr1e-05_seed1042_e30": 3,
+    "D_dev_dinov2_vit_b14_lr3e-05_seed1007_e30": 0,
+    "D_dev_dinov2_vit_b14_lr3e-05_seed1042_e30": 0,
+    "D_dev_dinov2_vit_b14_lr5e-05_seed1007_e30": 0,
+    "D_dev_dinov2_vit_b14_lr5e-05_seed1042_e30": 0
+  },
+  "later_live_AMP_skips_cutoff_utc": "2026-10-23T19:33:23.699583+00:00",
+  "new_live_AMP_skips_since_previous_live": {
+    "D_dev_clip_vit_b16_lr1e-05_seed1007_e30": 0,
+    "D_dev_clip_vit_b16_lr1e-05_seed1042_e30": 0,
+    "D_dev_dinov2_vit_b14_lr1e-05_seed1007_e30": 0,
+    "D_dev_dinov2_vit_b14_lr1e-05_seed1042_e30": 0,
+    "D_dev_dinov2_vit_b14_lr3e-05_seed1007_e30": 0,
+    "D_dev_dinov2_vit_b14_lr3e-05_seed1042_e30": 0,
+    "D_dev_dinov2_vit_b14_lr5e-05_seed1007_e30": 1,
+    "D_dev_dinov2_vit_b14_lr5e-05_seed1042_e30": 1,
+    "D_dev_efficientnet_b0_lr1e-04_seed1007_e30": 0,
+    "D_dev_efficientnet_b0_lr1e-04_seed1042_e30": 0
+  },
+  "AMP_numeric_ledger": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/check_20261023T1930Z.json",
+  "latest_GPU_util_window": [
+    "2026-10-23T19:33:07.587211+00:00",
+    "2026-10-23T19:33:22.473432+00:00"
+  ],
+  "H_preprocessing_cutoff_utc": "2026-10-23T14:56:25.584316+00:00",
+  "H_rolling_remaining_hours": 0,
+  "D_completed_run_evidence": [
+    {
+      "run_id": "D_dev_clip_vit_b16_lr1e-05_seed1007_e30",
+      "status": "PASS_COMPLETED_FROZEN_LAST_MODEL",
+      "epochs": 30,
+      "attempts": 23970,
+      "successful_updates": 23966,
+      "AMP_skips": 4,
+      "final_sha256": "c8ab51e54078b153c4d2298889eed6bdfcb077b1cc5ea0ae05b7f810efd90f26",
+      "source_best_sha256": "e1042c176b6a2bbdf045d4cd6fdd65b2a81a23edebac5dcdfd8e3f34212cb32b",
+      "final_equal_terminal_state_model": true,
+      "source_best_equal_saved_state_model": true,
+      "independent_DEV_recomputation_max_abs_error": 0.0,
+      "selection": "frozen_last",
+      "target_used": false
+    },
+    {
+      "run_id": "D_dev_clip_vit_b16_lr1e-05_seed1042_e30",
+      "status": "PASS_COMPLETED_FROZEN_LAST_MODEL",
+      "epochs": 30,
+      "attempts": 23970,
+      "successful_updates": 23966,
+      "AMP_skips": 4,
+      "final_sha256": "649d0817ca11d7537d09237aa0a9111c6c94c3db52305dd5b512fea6beac43a9",
+      "source_best_sha256": "9313be6e7fd71f917a1398d09bd06c51676b6abd6c8d724c35a5242a9bd13b44",
+      "final_equal_terminal_state_model": true,
+      "source_best_equal_saved_state_model": true,
+      "independent_DEV_recomputation_max_abs_error": 0.0,
+      "selection": "frozen_last",
+      "target_used": false
+    },
+    {
+      "run_id": "D_dev_dinov2_vit_b14_lr1e-05_seed1007_e30",
+      "status": "PASS_COMPLETED_FROZEN_LAST_MODEL",
+      "epochs": 30,
+      "attempts": 23970,
+      "successful_updates": 23968,
+      "AMP_skips": 2,
+      "final_sha256": "9351d197e050be8c0dd79da93260887125b1525a8c40bd4e35fd770e851e6bb5",
+      "source_best_sha256": "ff4171d617f6c4dbd6d0a40e3e81c0b71c8957e383d20714435b4810f600f061",
+      "final_equal_terminal_state_model": true,
+      "source_best_equal_saved_state_model": true,
+      "independent_DEV_recomputation_max_abs_error": 0.0,
+      "selection": "frozen_last",
+      "target_used": false
+    },
+    {
+      "run_id": "D_dev_dinov2_vit_b14_lr1e-05_seed1042_e30",
+      "status": "PASS_COMPLETED_FROZEN_LAST_MODEL",
+      "epochs": 30,
+      "attempts": 23970,
+      "successful_updates": 23967,
+      "AMP_skips": 3,
+      "final_sha256": "0ce574b04fa5a97f474d4032b0538f210b0d4776a980db5bd78fe89d27881b04",
+      "source_best_sha256": "3229b1dcbcc22559fb6587f1d5c74bee7be506054e88784abbfe62b8e2034584",
+      "final_equal_terminal_state_model": true,
+      "source_best_equal_saved_state_model": true,
+      "independent_DEV_recomputation_max_abs_error": 0.0,
+      "selection": "frozen_last",
+      "target_used": false
+    },
+    {
+      "run_id": "D_dev_dinov2_vit_b14_lr3e-05_seed1007_e30",
+      "status": "PASS_COMPLETED_FROZEN_LAST_MODEL",
+      "epochs": 30,
+      "attempts": 23970,
+      "successful_updates": 23967,
+      "AMP_skips": 3,
+      "final_sha256": "c39295e699f8d98aed72b8d12ea3e2588f6a01419e6f2cd90f7867fef50da824",
+      "source_best_sha256": "2daa3c7470aca5ba1ca6f0b82848e09f139c781f4eb2597602bbb6043f254264",
+      "final_equal_terminal_state_model": true,
+      "source_best_equal_saved_state_model": true,
+      "independent_DEV_recomputation_max_abs_error": 0.0,
+      "selection": "frozen_last",
+      "target_used": false
+    },
+    {
+      "run_id": "D_dev_dinov2_vit_b14_lr3e-05_seed1042_e30",
+      "status": "PASS_COMPLETED_FROZEN_LAST_MODEL",
+      "epochs": 30,
+      "attempts": 23970,
+      "successful_updates": 23967,
+      "AMP_skips": 3,
+      "final_sha256": "c89033b629c74659ecac58f2b06e0f7e987d3c345f1df3c066c5b1906ae8c66d",
+      "source_best_sha256": "92c45a12f0772da9bddc3e39f3ee0002815a5c0e29301bbf923f78c1fc176065",
+      "final_equal_terminal_state_model": true,
+      "source_best_equal_saved_state_model": true,
+      "independent_DEV_recomputation_max_abs_error": 0.0,
+      "selection": "frozen_last",
+      "target_used": false
+    }
+  ],
+  "verified_checkpoint_epochs_by_run": {
+    "D_dev_clip_vit_b16_lr1e-05_seed1007_e30": 30,
+    "D_dev_clip_vit_b16_lr1e-05_seed1042_e30": 30,
+    "D_dev_dinov2_vit_b14_lr1e-05_seed1007_e30": 30,
+    "D_dev_dinov2_vit_b14_lr1e-05_seed1042_e30": 30,
+    "D_dev_dinov2_vit_b14_lr3e-05_seed1007_e30": 30,
+    "D_dev_dinov2_vit_b14_lr3e-05_seed1042_e30": 30,
+    "D_dev_dinov2_vit_b14_lr5e-05_seed1007_e30": 28,
+    "D_dev_dinov2_vit_b14_lr5e-05_seed1042_e30": 29,
+    "D_dev_efficientnet_b0_lr1e-04_seed1007_e30": 12,
+    "D_dev_efficientnet_b0_lr1e-04_seed1042_e30": 10
+  },
+  "later_live_AMP_skips_total": 22,
+  "new_live_AMP_skips_total": 2,
+  "latest_GPU_post_handoff_util_percent": null,
+  "H_full_audit_preflight": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_full_audit_preflight_1415.json",
+  "H_preprocessing_status": "PIXELS_COMPLETE_OLD_OWNER_EXITED",
+  "H_fresh_audit_pid": 152000,
+  "H_fresh_audit_launcher_pid": 151882,
+  "H_fresh_audit_launch_receipt": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_fresh_full_audit_launch_1450.json",
+  "H_production_independent_review": "PASS_GENUINE_H_DATA_INDEPENDENT_REVIEW_V1_ALL_CURRENT_DEEP_TABLE_CODE_INVENTORY_BINDINGS",
+  "latest_checkpoint_receipt": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/checkpoint_health_1930.json",
+  "H_preprocessing_pid_retired": true,
+  "H_fresh_audit_native_session_id": 93045,
+  "H_independent_preliminary_report": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_production_data_independent_preliminary_1450.json",
+  "H_full_audit_verified_snapshot": 8431,
+  "H_full_audit_snapshot_utc": "2026-10-23T16:19:06.955422+00:00",
+  "H_full_audit_remaining_hours": 0,
+  "H_deep_inspection_preparation": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_production_data_inspection_preparation.json",
+  "current_committed_history_epochs_by_run": {
+    "D_dev_clip_vit_b16_lr1e-05_seed1007_e30": 30,
+    "D_dev_clip_vit_b16_lr1e-05_seed1042_e30": 30,
+    "D_dev_dinov2_vit_b14_lr1e-05_seed1007_e30": 30,
+    "D_dev_dinov2_vit_b14_lr1e-05_seed1042_e30": 30,
+    "D_dev_dinov2_vit_b14_lr3e-05_seed1007_e30": 30,
+    "D_dev_dinov2_vit_b14_lr3e-05_seed1042_e30": 30,
+    "D_dev_dinov2_vit_b14_lr5e-05_seed1007_e30": 28,
+    "D_dev_dinov2_vit_b14_lr5e-05_seed1042_e30": 29,
+    "D_dev_efficientnet_b0_lr1e-04_seed1007_e30": 12,
+    "D_dev_efficientnet_b0_lr1e-04_seed1042_e30": 10
+  },
+  "current_committed_history_attempts": 206941,
+  "current_committed_history_success": 206919,
+  "current_committed_history_skips": 22,
+  "committed_record_scope": "Fresh1930pinned10checkpoints and current committed histories both206941attempts206919success22skips at recorded cutoffs; active DINO5e-5epochs28/29,EfficientNet12/10. Live logs can advance further.",
+  "H_full_audit_rolling_videos_per_minute": null,
+  "H_full_audit_rolling_remaining_seconds": 0,
+  "latest_GPU_post_handoff_evidence": null,
+  "H_fresh_audit_pid_retired": true,
+  "H_fresh_audit_launcher_pid_retired": true,
+  "H_fresh_audit_returncode": 0,
+  "H_fresh_audit_completed_utc": "2026-10-23T16:19:06.955422+00:00",
+  "H_fresh_audit_acceptance": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_fresh_full_audit_acceptance_1630.json",
+  "H_fresh_full_receipt_sha256": "8a1036f077a42756690a643f0eda3ff543dca27c06ad4a011d9759f5dadf2d04",
+  "H_full_audit_scope": "Fresh audit complete; these zero remaining fields do not mean subsequent deep/review/freeze or experiments complete.",
+  "H_final_tables_independent_report": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_production_data_final_tables_review_1630.json",
+  "H_deep_inspection": {
+    "status": "COMPLETED_READY_FOR_INDEPENDENT_REVIEW",
+    "pid_retired": 200931,
+    "native_session_id_retired": 95551,
+    "launch": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_production_data_inspection_launch.json",
+    "target_report": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_production_data_inspection.json",
+    "report_sha256": "c319ee7a6a6ab332b85f5ecd4a0b56bebeedd073228e6d8227ad187a09806b2d",
+    "ended_utc": "2026-10-23T17:56:13.541752+00:00",
+    "elapsed_seconds": 5138.829113,
+    "blockers": [],
+    "OS_returncode": "Not retained by old helper; do not infer rc0. Terminal report/current bindings and exited PID confirm semantic completion."
+  },
+  "D_terminal_revalidation": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/D_terminal_revalidation_1930.json",
+  "AMP_numeric_acceptance": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/AMP_numeric_acceptance_1930.json",
+  "H_independent_final_review": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_production_data_independent_review_1450.json",
+    "sha256": "760a1411084a5ed747710cc1c58f2ead2c69e0df6775345f76346b8db48bf748",
+    "status": "PASS",
+    "blockers": [],
+    "reviewer": {
+      "identity": "Codex independent subagent /root/h_pipeline_review",
+      "independent": true
+    }
+  },
+  "H_data_terminal_acceptance": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_terminal_acceptance_1800.json",
+  "H_freeze_validation": {
+    "status": "COMPLETED_FROZEN_RETURN_CODE_0",
+    "worker_pid": 246169,
+    "supervisor_pid": 246168,
+    "native_session_id": 7052,
+    "launch_receipt": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_production_data_freeze_launch.json",
+    "OS_exit_receipt": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_production_data_freeze_exit.json",
+    "log": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/logs/H_production_data_freeze.log",
+    "health_receipt": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_freeze_validation_health_1845.json",
+    "started_utc": "2026-10-23T18:04:20.145754+00:00",
+    "CPU_cores_over_sample": 1.1654694606635705,
+    "progress_percentage": null,
+    "notes": "Completed native mandatory full validation; immutablefreeze then independently checked by SHALLOW_METADATA_BINDING, no new PNG/source scan. No GPU qualification asserted.",
+    "last_verified_utc": "2026-10-23T19:34:04.248424+00:00",
+    "elapsed_seconds_at_runtime_cutoff": 2766.854308,
+    "CPU_cores_main_sample": 1.1750221335516469,
+    "CPU_cores_followup_sample": 0.7910120181092566,
+    "OS_exit_receipt_exists": true,
+    "freeze_created": true,
+    "worker_pid_retired": true,
+    "supervisor_pid_retired": true,
+    "native_session_id_retired": true,
+    "ended_utc": "2026-10-23T19:28:19.511064+00:00",
+    "elapsed_seconds": 5039.36531,
+    "OS_returncode": 0,
+    "freeze_sha256": "11ac3398b8bd2b347da24efbe45fb74e890681d2d063933b01a65d5fdba0675d"
+  },
+  "D_completed_artifact_audit": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/D_completed_artifact_audit_1930.json",
+  "D_first_epoch_pending_resolved": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/checkpoint_eff1042_followup_1845.json",
+  "D_all10_standard_development_entered": true,
+  "latest_runtime_monitor": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/runtime_monitor_1930.py",
+  "latest_runtime_monitor_repair": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/monitor_precommit_fix_verification_1845.json",
+  "D_standard_remaining_estimate": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/D_standard_development_remaining_estimate_1930.json",
+  "H_data_frozen": true,
+  "H_frozen_data": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/data/H/freeze.json",
+    "sha256": "11ac3398b8bd2b347da24efbe45fb74e890681d2d063933b01a65d5fdba0675d",
+    "utc": "2026-10-23T19:28:05.485814+00:00"
+  },
+  "H_data_freeze_acceptance": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_freeze_acceptance_1930.json",
+  "H_frozen_independent_verification": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_frozen_independent_verification_1930.json",
+    "sha256": "13e32dff0419b3b33457339f0e14c7fb2e716e32740df0b742ebfc3d230c7443",
+    "status": "PASS"
+  }
+}

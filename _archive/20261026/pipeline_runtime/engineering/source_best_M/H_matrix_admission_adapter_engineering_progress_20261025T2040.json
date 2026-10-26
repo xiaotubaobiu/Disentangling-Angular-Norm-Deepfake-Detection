@@ -1,0 +1,18 @@
+{
+  "utc": "2026-10-25T20:39:00Z",
+  "status": "ENGINEERING_36_TESTS_PASSED_INDEPENDENT_REVIEW_PENDING_NOT_PRODUCTION_ADMITTED",
+  "entry": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/h_parallel_matrix_admission_audit.py",
+  "entry_sha256": "3642a04a300ca09cef94558b63ef821bd9ae82534b127484b825246ff562d039",
+  "tests": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests/test_h_parallel_matrix_admission_audit.py",
+  "tests_sha256": "ca77d77e59f429126d13c2d815316e51d44aa841679c7ce3f9df61dad9147412",
+  "red_phase": "test first failed because entry did not exist",
+  "green": "36 passed in0.69s exit0",
+  "actual_model_or_payload_validation_rerun": false,
+  "production_or_F_changed": false,
+  "M_active_implementation_changed": false,
+  "original_auditor_sha256": "318a248fc2baf3aa3e3e0e697dd9d04ae4190eaeb7f6061eae79f9a34123bb75",
+  "old_context_sha256": "6af5420a066cd80e5946f450d8fc71bdfb580b10fd5f9b2939ddf4df7ede1e63",
+  "actual_candidate_admission": false,
+  "actual_CPU_qualification_issued": false,
+  "scope": "Only actual CLIP3407 and DINO7 finite harnesses; generalized seal-bound107 pin/identity/FP32role metadata primitives tested with3backbones; live candidate modes cannot run audit before exited time/log/witness evidence"
+}

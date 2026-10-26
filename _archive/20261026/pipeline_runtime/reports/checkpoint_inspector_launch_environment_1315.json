@@ -1,0 +1,9 @@
+{
+  "utc": "2026-10-23T13:18:52.826983+00:00",
+  "initial_failure": "Inspector ModuleNotFoundError before main; no training or artifacts inspected/modified",
+  "root_cause": "Absolute inspector path sets sys.path[0] to qualification directory; launcher omitted required explicit PYTHONPATH used in prior working invocation",
+  "single_fix": "Set PYTHONPATH to frozen v2 code root for inspector launch only",
+  "minimal_import_probe_stdout": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/trainer.py",
+  "minimal_import_probe_returncode": 0,
+  "training_process_restarted": false
+}

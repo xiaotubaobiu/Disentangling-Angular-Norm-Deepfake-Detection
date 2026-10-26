@@ -1,0 +1,161 @@
+grouping,representation,aggregation,scale,precision_history,stable,ranking_usable,triggered,reason,negative_control_order_preserved,auc_high_precision,seed,backbone,domain
+correct,raw,scaled_mean_logit,0.10000000000000001,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,True,,7,dinov2_vit_b14,source_test
+correct,raw,scaled_mean_logit,1,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,True,,7,dinov2_vit_b14,source_test
+correct,raw,mean_probability,,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,,0.999536853576382,7,dinov2_vit_b14,source_test
+correct,raw,sigmoid_mean_logit,,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,True,0.99970527045769764,7,dinov2_vit_b14,source_test
+correct,l2,scaled_mean_logit,0.10000000000000001,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,True,,7,dinov2_vit_b14,source_test
+correct,l2,scaled_mean_logit,1,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,True,,7,dinov2_vit_b14,source_test
+correct,l2,mean_probability,,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,,0.99969784030116904,7,dinov2_vit_b14,source_test
+correct,l2,sigmoid_mean_logit,,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,True,0.99969784030116904,7,dinov2_vit_b14,source_test
+collision,raw,scaled_mean_logit,0.10000000000000001,[],True,True,False,no_numeric_trigger,True,,7,dinov2_vit_b14,source_test
+collision,raw,scaled_mean_logit,1,[],True,True,False,no_numeric_trigger,True,,7,dinov2_vit_b14,source_test
+collision,raw,mean_probability,,[],True,True,False,no_numeric_trigger,,0.99823979591836731,7,dinov2_vit_b14,source_test
+collision,raw,sigmoid_mean_logit,,[],True,True,False,no_numeric_trigger,True,1,7,dinov2_vit_b14,source_test
+collision,l2,scaled_mean_logit,0.10000000000000001,[],True,True,False,no_numeric_trigger,True,,7,dinov2_vit_b14,source_test
+collision,l2,scaled_mean_logit,1,[],True,True,False,no_numeric_trigger,True,,7,dinov2_vit_b14,source_test
+collision,l2,mean_probability,,[],True,True,False,no_numeric_trigger,,1,7,dinov2_vit_b14,source_test
+collision,l2,sigmoid_mean_logit,,[],True,True,False,no_numeric_trigger,True,1,7,dinov2_vit_b14,source_test
+correct,raw,scaled_mean_logit,0.10000000000000001,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,True,,7,dinov2_vit_b14,target_full
+correct,raw,scaled_mean_logit,1,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,True,,7,dinov2_vit_b14,target_full
+correct,raw,mean_probability,,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,,0.78327831045539986,7,dinov2_vit_b14,target_full
+correct,raw,sigmoid_mean_logit,,"[80, 160]",True,True,True,negative_control_failure,True,0.77872290759491225,7,dinov2_vit_b14,target_full
+correct,l2,scaled_mean_logit,0.10000000000000001,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,True,,7,dinov2_vit_b14,target_full
+correct,l2,scaled_mean_logit,1,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,True,,7,dinov2_vit_b14,target_full
+correct,l2,mean_probability,,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,,0.77230971474104149,7,dinov2_vit_b14,target_full
+correct,l2,sigmoid_mean_logit,,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,True,0.77229391869952946,7,dinov2_vit_b14,target_full
+collision,raw,scaled_mean_logit,0.10000000000000001,[],True,True,False,no_numeric_trigger,True,,7,dinov2_vit_b14,target_full
+collision,raw,scaled_mean_logit,1,[],True,True,False,no_numeric_trigger,True,,7,dinov2_vit_b14,target_full
+collision,raw,mean_probability,,[],True,True,False,no_numeric_trigger,,0.697725685727971,7,dinov2_vit_b14,target_full
+collision,raw,sigmoid_mean_logit,,[],True,True,False,no_numeric_trigger,True,0.71778535690171574,7,dinov2_vit_b14,target_full
+collision,l2,scaled_mean_logit,0.10000000000000001,[],True,True,False,no_numeric_trigger,True,,7,dinov2_vit_b14,target_full
+collision,l2,scaled_mean_logit,1,[],True,True,False,no_numeric_trigger,True,,7,dinov2_vit_b14,target_full
+collision,l2,mean_probability,,[],True,True,False,no_numeric_trigger,,0.70939445877552909,7,dinov2_vit_b14,target_full
+collision,l2,sigmoid_mean_logit,,[],True,True,False,no_numeric_trigger,True,0.70943196966811517,7,dinov2_vit_b14,target_full
+correct,raw,scaled_mean_logit,0.10000000000000001,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,True,,42,dinov2_vit_b14,source_test
+correct,raw,scaled_mean_logit,1,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,True,,42,dinov2_vit_b14,source_test
+correct,raw,mean_probability,,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,,0.99951208638795319,42,dinov2_vit_b14,source_test
+correct,raw,sigmoid_mean_logit,,"[80, 160]",True,True,True,negative_control_failure,True,0.99965821279968303,42,dinov2_vit_b14,source_test
+correct,l2,scaled_mean_logit,0.10000000000000001,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,True,,42,dinov2_vit_b14,source_test
+correct,l2,scaled_mean_logit,1,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,True,,42,dinov2_vit_b14,source_test
+correct,l2,mean_probability,,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,,0.99965821279968303,42,dinov2_vit_b14,source_test
+correct,l2,sigmoid_mean_logit,,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,True,0.99965821279968303,42,dinov2_vit_b14,source_test
+collision,raw,scaled_mean_logit,0.10000000000000001,[],True,True,False,no_numeric_trigger,True,,42,dinov2_vit_b14,source_test
+collision,raw,scaled_mean_logit,1,[],True,True,False,no_numeric_trigger,True,,42,dinov2_vit_b14,source_test
+collision,raw,mean_probability,,[],True,True,False,no_numeric_trigger,,1,42,dinov2_vit_b14,source_test
+collision,raw,sigmoid_mean_logit,,[],True,True,False,no_numeric_trigger,True,1,42,dinov2_vit_b14,source_test
+collision,l2,scaled_mean_logit,0.10000000000000001,[],True,True,False,no_numeric_trigger,True,,42,dinov2_vit_b14,source_test
+collision,l2,scaled_mean_logit,1,[],True,True,False,no_numeric_trigger,True,,42,dinov2_vit_b14,source_test
+collision,l2,mean_probability,,[],True,True,False,no_numeric_trigger,,1,42,dinov2_vit_b14,source_test
+collision,l2,sigmoid_mean_logit,,[],True,True,False,no_numeric_trigger,True,1,42,dinov2_vit_b14,source_test
+correct,raw,scaled_mean_logit,0.10000000000000001,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,True,,42,dinov2_vit_b14,target_full
+correct,raw,scaled_mean_logit,1,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,True,,42,dinov2_vit_b14,target_full
+correct,raw,mean_probability,,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,,0.66960253649324364,42,dinov2_vit_b14,target_full
+correct,raw,sigmoid_mean_logit,,"[80, 160]",True,True,True,negative_control_failure,True,0.64494930348232515,42,dinov2_vit_b14,target_full
+correct,l2,scaled_mean_logit,0.10000000000000001,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,True,,42,dinov2_vit_b14,target_full
+correct,l2,scaled_mean_logit,1,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,True,,42,dinov2_vit_b14,target_full
+correct,l2,mean_probability,,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,,0.71432244635050013,42,dinov2_vit_b14,target_full
+correct,l2,sigmoid_mean_logit,,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,True,0.71425882340552127,42,dinov2_vit_b14,target_full
+collision,raw,scaled_mean_logit,0.10000000000000001,[],True,True,False,no_numeric_trigger,True,,42,dinov2_vit_b14,target_full
+collision,raw,scaled_mean_logit,1,[],True,True,False,no_numeric_trigger,True,,42,dinov2_vit_b14,target_full
+collision,raw,mean_probability,,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,,0.64081300531500496,42,dinov2_vit_b14,target_full
+collision,raw,sigmoid_mean_logit,,"[80, 160]",True,True,True,negative_control_failure,True,0.66599147060011654,42,dinov2_vit_b14,target_full
+collision,l2,scaled_mean_logit,0.10000000000000001,[],True,True,False,no_numeric_trigger,True,,42,dinov2_vit_b14,target_full
+collision,l2,scaled_mean_logit,1,[],True,True,False,no_numeric_trigger,True,,42,dinov2_vit_b14,target_full
+collision,l2,mean_probability,,[],True,True,False,no_numeric_trigger,,0.70066019170951566,42,dinov2_vit_b14,target_full
+collision,l2,sigmoid_mean_logit,,[],True,True,False,no_numeric_trigger,True,0.7007640680274464,42,dinov2_vit_b14,target_full
+correct,raw,scaled_mean_logit,0.10000000000000001,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,True,,123,dinov2_vit_b14,source_test
+correct,raw,scaled_mean_logit,1,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,True,,123,dinov2_vit_b14,source_test
+correct,raw,mean_probability,,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,,0.9995096096691104,123,dinov2_vit_b14,source_test
+correct,raw,sigmoid_mean_logit,,"[80, 160]",True,True,True,negative_control_failure,True,0.99947988904299578,123,dinov2_vit_b14,source_test
+correct,l2,scaled_mean_logit,0.10000000000000001,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,True,,123,dinov2_vit_b14,source_test
+correct,l2,scaled_mean_logit,1,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,True,,123,dinov2_vit_b14,source_test
+correct,l2,mean_probability,,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,,0.99949722607489599,123,dinov2_vit_b14,source_test
+correct,l2,sigmoid_mean_logit,,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,True,0.9994897959183674,123,dinov2_vit_b14,source_test
+collision,raw,scaled_mean_logit,0.10000000000000001,[],True,True,False,no_numeric_trigger,True,,123,dinov2_vit_b14,source_test
+collision,raw,scaled_mean_logit,1,[],True,True,False,no_numeric_trigger,True,,123,dinov2_vit_b14,source_test
+collision,raw,mean_probability,,[],True,True,False,no_numeric_trigger,,1,123,dinov2_vit_b14,source_test
+collision,raw,sigmoid_mean_logit,,[],True,True,False,no_numeric_trigger,True,1,123,dinov2_vit_b14,source_test
+collision,l2,scaled_mean_logit,0.10000000000000001,[],True,True,False,no_numeric_trigger,True,,123,dinov2_vit_b14,source_test
+collision,l2,scaled_mean_logit,1,[],True,True,False,no_numeric_trigger,True,,123,dinov2_vit_b14,source_test
+collision,l2,mean_probability,,[],True,True,False,no_numeric_trigger,,1,123,dinov2_vit_b14,source_test
+collision,l2,sigmoid_mean_logit,,[],True,True,False,no_numeric_trigger,True,1,123,dinov2_vit_b14,source_test
+correct,raw,scaled_mean_logit,0.10000000000000001,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,True,,123,dinov2_vit_b14,target_full
+correct,raw,scaled_mean_logit,1,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,True,,123,dinov2_vit_b14,target_full
+correct,raw,mean_probability,,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,,0.64892595693297039,123,dinov2_vit_b14,target_full
+correct,raw,sigmoid_mean_logit,,"[80, 160]",True,True,True,negative_control_failure,True,0.64987020919224314,123,dinov2_vit_b14,target_full
+correct,l2,scaled_mean_logit,0.10000000000000001,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,True,,123,dinov2_vit_b14,target_full
+correct,l2,scaled_mean_logit,1,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,True,,123,dinov2_vit_b14,target_full
+correct,l2,mean_probability,,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,,0.71367393109064647,123,dinov2_vit_b14,target_full
+correct,l2,sigmoid_mean_logit,,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,True,0.71371561508908088,123,dinov2_vit_b14,target_full
+collision,raw,scaled_mean_logit,0.10000000000000001,[],True,True,False,no_numeric_trigger,True,,123,dinov2_vit_b14,target_full
+collision,raw,scaled_mean_logit,1,[],True,True,False,no_numeric_trigger,True,,123,dinov2_vit_b14,target_full
+collision,raw,mean_probability,,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,,0.54026361501128217,123,dinov2_vit_b14,target_full
+collision,raw,sigmoid_mean_logit,,[],True,True,False,no_numeric_trigger,True,0.55571233185021029,123,dinov2_vit_b14,target_full
+collision,l2,scaled_mean_logit,0.10000000000000001,[],True,True,False,no_numeric_trigger,True,,123,dinov2_vit_b14,target_full
+collision,l2,scaled_mean_logit,1,[],True,True,False,no_numeric_trigger,True,,123,dinov2_vit_b14,target_full
+collision,l2,mean_probability,,[],True,True,False,no_numeric_trigger,,0.6059509588361236,123,dinov2_vit_b14,target_full
+collision,l2,sigmoid_mean_logit,,[],True,True,False,no_numeric_trigger,True,0.60606349151388195,123,dinov2_vit_b14,target_full
+correct,raw,scaled_mean_logit,0.10000000000000001,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,True,,2026,dinov2_vit_b14,source_test
+correct,raw,scaled_mean_logit,1,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,True,,2026,dinov2_vit_b14,source_test
+correct,raw,mean_probability,,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,,0.99970279373885473,2026,dinov2_vit_b14,source_test
+correct,raw,sigmoid_mean_logit,,"[80, 160]",True,True,True,negative_control_failure,True,0.99971517733306914,2026,dinov2_vit_b14,source_test
+correct,l2,scaled_mean_logit,0.10000000000000001,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,True,,2026,dinov2_vit_b14,source_test
+correct,l2,scaled_mean_logit,1,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,True,,2026,dinov2_vit_b14,source_test
+correct,l2,mean_probability,,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,,0.99971517733306914,2026,dinov2_vit_b14,source_test
+correct,l2,sigmoid_mean_logit,,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,True,0.99971765405191204,2026,dinov2_vit_b14,source_test
+collision,raw,scaled_mean_logit,0.10000000000000001,[],True,True,False,no_numeric_trigger,True,,2026,dinov2_vit_b14,source_test
+collision,raw,scaled_mean_logit,1,[],True,True,False,no_numeric_trigger,True,,2026,dinov2_vit_b14,source_test
+collision,raw,mean_probability,,[],True,True,False,no_numeric_trigger,,1,2026,dinov2_vit_b14,source_test
+collision,raw,sigmoid_mean_logit,,[],True,True,False,no_numeric_trigger,True,1,2026,dinov2_vit_b14,source_test
+collision,l2,scaled_mean_logit,0.10000000000000001,[],True,True,False,no_numeric_trigger,True,,2026,dinov2_vit_b14,source_test
+collision,l2,scaled_mean_logit,1,[],True,True,False,no_numeric_trigger,True,,2026,dinov2_vit_b14,source_test
+collision,l2,mean_probability,,[],True,True,False,no_numeric_trigger,,1,2026,dinov2_vit_b14,source_test
+collision,l2,sigmoid_mean_logit,,[],True,True,False,no_numeric_trigger,True,1,2026,dinov2_vit_b14,source_test
+correct,raw,scaled_mean_logit,0.10000000000000001,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,True,,2026,dinov2_vit_b14,target_full
+correct,raw,scaled_mean_logit,1,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,True,,2026,dinov2_vit_b14,target_full
+correct,raw,mean_probability,,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,,0.81868294360988692,2026,dinov2_vit_b14,target_full
+correct,raw,sigmoid_mean_logit,,"[80, 160]",True,True,True,negative_control_failure,True,0.82325063228043938,2026,dinov2_vit_b14,target_full
+correct,l2,scaled_mean_logit,0.10000000000000001,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,True,,2026,dinov2_vit_b14,target_full
+correct,l2,scaled_mean_logit,1,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,True,,2026,dinov2_vit_b14,target_full
+correct,l2,mean_probability,,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,,0.79829727448079291,2026,dinov2_vit_b14,target_full
+correct,l2,sigmoid_mean_logit,,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,True,0.79832667266916246,2026,dinov2_vit_b14,target_full
+collision,raw,scaled_mean_logit,0.10000000000000001,[],True,True,False,no_numeric_trigger,True,,2026,dinov2_vit_b14,target_full
+collision,raw,scaled_mean_logit,1,[],True,True,False,no_numeric_trigger,True,,2026,dinov2_vit_b14,target_full
+collision,raw,mean_probability,,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,,0.74800470905974614,2026,dinov2_vit_b14,target_full
+collision,raw,sigmoid_mean_logit,,[],True,True,False,no_numeric_trigger,True,0.80255708869306275,2026,dinov2_vit_b14,target_full
+collision,l2,scaled_mean_logit,0.10000000000000001,[],True,True,False,no_numeric_trigger,True,,2026,dinov2_vit_b14,target_full
+collision,l2,scaled_mean_logit,1,[],True,True,False,no_numeric_trigger,True,,2026,dinov2_vit_b14,target_full
+collision,l2,mean_probability,,[],True,True,False,no_numeric_trigger,,0.76611092836573702,2026,dinov2_vit_b14,target_full
+collision,l2,sigmoid_mean_logit,,[],True,True,False,no_numeric_trigger,True,0.76615421016487484,2026,dinov2_vit_b14,target_full
+correct,raw,scaled_mean_logit,0.10000000000000001,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,True,,3407,dinov2_vit_b14,source_test
+correct,raw,scaled_mean_logit,1,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,True,,3407,dinov2_vit_b14,source_test
+correct,raw,mean_probability,,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,,0.99967307311274023,3407,dinov2_vit_b14,source_test
+correct,raw,sigmoid_mean_logit,,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,True,0.99969041014464033,3407,dinov2_vit_b14,source_test
+correct,l2,scaled_mean_logit,0.10000000000000001,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,True,,3407,dinov2_vit_b14,source_test
+correct,l2,scaled_mean_logit,1,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,True,,3407,dinov2_vit_b14,source_test
+correct,l2,mean_probability,,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,,0.99967802655042604,3407,dinov2_vit_b14,source_test
+correct,l2,sigmoid_mean_logit,,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,True,0.99967802655042604,3407,dinov2_vit_b14,source_test
+collision,raw,scaled_mean_logit,0.10000000000000001,[],True,True,False,no_numeric_trigger,True,,3407,dinov2_vit_b14,source_test
+collision,raw,scaled_mean_logit,1,[],True,True,False,no_numeric_trigger,True,,3407,dinov2_vit_b14,source_test
+collision,raw,mean_probability,,[],True,True,False,no_numeric_trigger,,1,3407,dinov2_vit_b14,source_test
+collision,raw,sigmoid_mean_logit,,[],True,True,False,no_numeric_trigger,True,1,3407,dinov2_vit_b14,source_test
+collision,l2,scaled_mean_logit,0.10000000000000001,[],True,True,False,no_numeric_trigger,True,,3407,dinov2_vit_b14,source_test
+collision,l2,scaled_mean_logit,1,[],True,True,False,no_numeric_trigger,True,,3407,dinov2_vit_b14,source_test
+collision,l2,mean_probability,,[],True,True,False,no_numeric_trigger,,1,3407,dinov2_vit_b14,source_test
+collision,l2,sigmoid_mean_logit,,[],True,True,False,no_numeric_trigger,True,1,3407,dinov2_vit_b14,source_test
+correct,raw,scaled_mean_logit,0.10000000000000001,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,True,,3407,dinov2_vit_b14,target_full
+correct,raw,scaled_mean_logit,1,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,True,,3407,dinov2_vit_b14,target_full
+correct,raw,mean_probability,,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,,0.66025917793889743,3407,dinov2_vit_b14,target_full
+correct,raw,sigmoid_mean_logit,,"[80, 160]",True,True,True,negative_control_failure,True,0.65287672242669326,3407,dinov2_vit_b14,target_full
+correct,l2,scaled_mean_logit,0.10000000000000001,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,True,,3407,dinov2_vit_b14,target_full
+correct,l2,scaled_mean_logit,1,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,True,,3407,dinov2_vit_b14,target_full
+correct,l2,mean_probability,,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,,0.72850465895468819,3407,dinov2_vit_b14,target_full
+correct,l2,sigmoid_mean_logit,,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,True,0.72847920977669667,3407,dinov2_vit_b14,target_full
+collision,raw,scaled_mean_logit,0.10000000000000001,[],True,True,False,no_numeric_trigger,True,,3407,dinov2_vit_b14,target_full
+collision,raw,scaled_mean_logit,1,[],True,True,False,no_numeric_trigger,True,,3407,dinov2_vit_b14,target_full
+collision,raw,mean_probability,,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,,0.56593837825984084,3407,dinov2_vit_b14,target_full
+collision,raw,sigmoid_mean_logit,,[],True,True,False,no_numeric_trigger,True,0.58396957578065933,3407,dinov2_vit_b14,target_full
+collision,l2,scaled_mean_logit,0.10000000000000001,[],True,True,False,no_numeric_trigger,True,,3407,dinov2_vit_b14,target_full
+collision,l2,scaled_mean_logit,1,[],True,True,False,no_numeric_trigger,True,,3407,dinov2_vit_b14,target_full
+collision,l2,mean_probability,,[],True,True,False,no_numeric_trigger,,0.66631175591373648,3407,dinov2_vit_b14,target_full
+collision,l2,sigmoid_mean_logit,,[],True,True,False,no_numeric_trigger,True,0.66631464136701235,3407,dinov2_vit_b14,target_full

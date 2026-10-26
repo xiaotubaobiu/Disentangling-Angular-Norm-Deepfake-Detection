@@ -1,0 +1,301 @@
+{
+  "utc": "2026-10-25T00:05:11.319876+00:00",
+  "status": "PASS_SECOND4_H_TERMINALS_AND_ORIGINAL_MIXED_CLIP_DINO_SUCCESSORS",
+  "H_formal_independently_accepted": 8,
+  "H_formal_running": 4,
+  "H_formal_pending": 18,
+  "D_formal_accepted": 15,
+  "whole_formal_terminal_accepted": 23,
+  "whole_formal_total": 45,
+  "accepted_scope": "D15+H8 AMP terminal artifacts; final allfive-pair effective-precision and H target export gates are pending",
+  "new_terminal_totals": {
+    "models": 4,
+    "attempts": 22920,
+    "successful_updates": 22920,
+    "AMP_skips": 0
+  },
+  "all8_H_terminal_totals": {
+    "models": 8,
+    "attempts": 45840,
+    "successful_updates": 45840,
+    "AMP_skips": 0
+  },
+  "H_formal_terminal_accepted_ids": [
+    "H_formal_clip_vit_b16_B_seed7",
+    "H_formal_clip_vit_b16_AB_seed7",
+    "H_formal_clip_vit_b16_B_seed42",
+    "H_formal_clip_vit_b16_AB_seed42",
+    "H_formal_clip_vit_b16_B_seed123",
+    "H_formal_clip_vit_b16_AB_seed123",
+    "H_formal_clip_vit_b16_B_seed2026",
+    "H_formal_clip_vit_b16_AB_seed2026"
+  ],
+  "new_terminal_resource": {
+    "elapsed": "3:05.23",
+    "peak_RSS_KiB": 2644932,
+    "swaps": 0,
+    "exit_status": 0
+  },
+  "new_terminal_sourceDEV_checks": 720,
+  "new_terminal_sourceDEV_max_error": 1.1102230246251565e-16,
+  "new_terminal_paired_streams": [
+    {
+      "seed": 123,
+      "epochs": 30,
+      "same_successful_update_stream": true
+    },
+    {
+      "seed": 2026,
+      "epochs": 30,
+      "same_successful_update_stream": true
+    }
+  ],
+  "before_terminal_complete_snapshots": [
+    {
+      "run_id": "H_formal_clip_vit_b16_B_seed123",
+      "snapshot_epoch": 28,
+      "snapshot_attempts": 5348,
+      "snapshot_successful_updates": 5348,
+      "snapshot_AMP_skips": 0
+    },
+    {
+      "run_id": "H_formal_clip_vit_b16_AB_seed123",
+      "snapshot_epoch": 28,
+      "snapshot_attempts": 5348,
+      "snapshot_successful_updates": 5348,
+      "snapshot_AMP_skips": 0
+    },
+    {
+      "run_id": "H_formal_clip_vit_b16_B_seed2026",
+      "snapshot_epoch": 27,
+      "snapshot_attempts": 5157,
+      "snapshot_successful_updates": 5157,
+      "snapshot_AMP_skips": 0
+    },
+    {
+      "run_id": "H_formal_clip_vit_b16_AB_seed2026",
+      "snapshot_epoch": 28,
+      "snapshot_attempts": 5348,
+      "snapshot_successful_updates": 5348,
+      "snapshot_AMP_skips": 0
+    }
+  ],
+  "current_mixed_complete_snapshots": [
+    {
+      "run_id": "H_formal_clip_vit_b16_B_seed3407",
+      "backbone_dimension": 512,
+      "snapshot_epoch": 3,
+      "snapshot_attempts": 573,
+      "snapshot_successful_updates": 573,
+      "snapshot_AMP_skips": 0
+    },
+    {
+      "run_id": "H_formal_clip_vit_b16_AB_seed3407",
+      "backbone_dimension": 512,
+      "snapshot_epoch": 2,
+      "snapshot_attempts": 382,
+      "snapshot_successful_updates": 382,
+      "snapshot_AMP_skips": 0
+    },
+    {
+      "run_id": "H_formal_dinov2_vit_b14_B_seed7",
+      "backbone_dimension": 768,
+      "snapshot_epoch": 1,
+      "snapshot_attempts": 191,
+      "snapshot_successful_updates": 191,
+      "snapshot_AMP_skips": 0
+    },
+    {
+      "run_id": "H_formal_dinov2_vit_b14_AB_seed7",
+      "backbone_dimension": 768,
+      "snapshot_epoch": 1,
+      "snapshot_attempts": 191,
+      "snapshot_successful_updates": 191,
+      "snapshot_AMP_skips": 0
+    }
+  ],
+  "current_mixed_resource": {
+    "elapsed": "0:21.38",
+    "peak_RSS_KiB": 1956556,
+    "swaps": 0,
+    "exit_status": 0
+  },
+  "current_paired_common_epochs": [
+    {
+      "seed": 3407,
+      "epochs": 2
+    },
+    {
+      "seed": 7,
+      "epochs": 1
+    }
+  ],
+  "later_current_observation": [
+    {
+      "pid": 2306754,
+      "run_id": "H_formal_clip_vit_b16_B_seed3407",
+      "gpu": 0,
+      "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e",
+      "backbone": "clip_vit_b16",
+      "committed_epochs": 4,
+      "committed_attempts": 764,
+      "committed_success": 764,
+      "committed_AMP_skips": 0,
+      "live_complete_records": 764,
+      "live_AMP_skips": 0,
+      "skip_recovery": [],
+      "recent_draw_equivalent_per_second": 203.74002459567103
+    },
+    {
+      "pid": 2307917,
+      "run_id": "H_formal_clip_vit_b16_AB_seed3407",
+      "gpu": 3,
+      "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646",
+      "backbone": "clip_vit_b16",
+      "committed_epochs": 3,
+      "committed_attempts": 573,
+      "committed_success": 573,
+      "committed_AMP_skips": 0,
+      "live_complete_records": 718,
+      "live_AMP_skips": 0,
+      "skip_recovery": [],
+      "recent_draw_equivalent_per_second": 203.1131838062634
+    },
+    {
+      "pid": 2308162,
+      "run_id": "H_formal_dinov2_vit_b14_B_seed7",
+      "gpu": 2,
+      "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+      "backbone": "dinov2_vit_b14",
+      "committed_epochs": 2,
+      "committed_attempts": 382,
+      "committed_success": 382,
+      "committed_AMP_skips": 0,
+      "live_complete_records": 500,
+      "live_AMP_skips": 0,
+      "skip_recovery": [],
+      "recent_draw_equivalent_per_second": 158.30443839766568
+    },
+    {
+      "pid": 2308384,
+      "run_id": "H_formal_dinov2_vit_b14_AB_seed7",
+      "gpu": 1,
+      "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+      "backbone": "dinov2_vit_b14",
+      "committed_epochs": 2,
+      "committed_attempts": 382,
+      "committed_success": 382,
+      "committed_AMP_skips": 0,
+      "live_complete_records": 431,
+      "live_AMP_skips": 0,
+      "skip_recovery": [],
+      "recent_draw_equivalent_per_second": 159.13620142993054
+    }
+  ],
+  "old_batch_GPU130s_mean": {
+    "0": 86.14754098360656,
+    "1": 84.04918032786885,
+    "2": 81.24590163934427,
+    "3": 85.90163934426229
+  },
+  "mixed_successor_GPU_short_window_mean": {
+    "0": 56.0,
+    "1": 82.3125,
+    "2": 87.625,
+    "3": 96.875
+  },
+  "mixed_successor_GPU_short_window_scope": "16 points about34seconds posthandoff, initialization/phase limited; not wholeepochmean",
+  "capacity": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/full_capacity_check_close_20261024T2350.json",
+    "free_GiB": 191.1785888671875,
+    "remaining_including16temp50reserve_GiB": 132.41817052245403,
+    "margin_GiB": 58.760418344733466,
+    "conditional_FP32_requires_fresh_full_remaining_budget": true
+  },
+  "H_dev_final": {
+    "attempts": 114600,
+    "successful_updates": 114600,
+    "AMP_skips": 0
+  },
+  "D_dev_AMP_skips": 32,
+  "D_formal_AMP_skips": 57,
+  "source_best_HOLD": true,
+  "cold_SSD_release_bytes": 0,
+  "GPU4_7_unchanged": true,
+  "protected13_unchanged": true,
+  "no_training_restart": true,
+  "no_duplicate_dispatch": true,
+  "no_makeup_or_protocol_change": true,
+  "registry_effective_runs_empty": true,
+  "target_export_allowed": false,
+  "H_real_cache_pairs": 0,
+  "H_existing_cache_CLI_available": true,
+  "H_cache_CLI_initial_inference_corrected_without_changes": true,
+  "manuscript_drafts_unchanged": [
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/manuscript_preparation/20261024_覆盖整合版/期刊论文整合稿_中文.md",
+      "mirror": "/home/z/obsidian/paper/deepfake-detector/新实验设计/20261023/论文方法与设置准备_v2/20261024_覆盖整合版/期刊论文整合稿_中文.md",
+      "sha256": "16eb42c79a1c63849b7535596a75bdf265e0be5710adbcf1caeb91f022d2d84d",
+      "language": "cn",
+      "accepted_D_data_rows_exact": 30,
+      "figure_links_and_source_hashes": 8,
+      "existing_citation_keys_resolved": 16,
+      "canonical_body_fragments_unchanged": 5,
+      "pending_blocks": [
+        "ABSTRACT",
+        "H_RESULTS",
+        "CONCLUSIONS"
+      ],
+      "markdown_table_blocks": 9,
+      "all_local_links_exist": true,
+      "math_and_code_delimiters_balanced": true
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/manuscript_preparation/20261024_覆盖整合版/journal_manuscript_integrated_en.md",
+      "mirror": "/home/z/obsidian/paper/deepfake-detector/新实验设计/20261023/论文方法与设置准备_v2/20261024_覆盖整合版/journal_manuscript_integrated_en.md",
+      "sha256": "719184ca6464459467b56f76640ed7d266127a0d3927c82759d4b465c11726b7",
+      "language": "en",
+      "accepted_D_data_rows_exact": 30,
+      "figure_links_and_source_hashes": 8,
+      "existing_citation_keys_resolved": 16,
+      "canonical_body_fragments_unchanged": 5,
+      "pending_blocks": [
+        "ABSTRACT",
+        "H_RESULTS",
+        "CONCLUSIONS"
+      ],
+      "markdown_table_blocks": 9,
+      "all_local_links_exist": true,
+      "math_and_code_delimiters_balanced": true
+    }
+  ],
+  "manuscript_pending_blocks": [
+    "ABSTRACT",
+    "H_RESULTS",
+    "CONCLUSIONS"
+  ],
+  "scientific_results_complete": false,
+  "journal_manuscripts_complete": false,
+  "evidence_sha256": {
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_CLIP_first4_terminal_acceptance_20261024T2245.json": "40234accf5d04f5703363b9d1cbba96131f9621d13dd3d6e2cc5b13a3ee357e5",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_CLIP_second4_terminal_acceptance_20261024T2350.json": "57fad0f86e36e70004d7f07b4404520e36900e4c58be19be0c5b4ffe42274257",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_CLIP_second4_terminal_audit_time_v_20261024T2350.log": "cacbee4f17546ac5261686787429c441065c2266805def74d20e21de01792c6c",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_formal_checkpoint_health_20261024T2350.json": "3c36f3265d406979d49c250f9936e6868047f50197e1c4a05adf3065293bebf5",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_formal_checkpoint_health_mixed_successors_20261024T2350.json": "e39ce1dcfd59186d38890db3d874dc7a1b2b0e8184624dc1868b45fd9a20939e",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_formal_checkpoint_health_mixed_successors_time_v_20261024T2350.log": "61542b75d3bbb08eecac18c8c7645780efc89545702c62122f097f8e141855dc",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/runtime_health_20261024T2350.json": "6eda9486409240badc57156137e9e4729e8975ad5ee49b5aab17fbb1b2fd1516",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/runtime_handoff_followup_20261024T2350.json": "0d50bbf42c15087be959bb407167da5897de487df2cf79f38f7048c9f58069ba",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/full_capacity_check_close_20261024T2350.json": "b6b151f88fd802bb31579ee345ff12026bd66a9637eadb85900e749841fb2bdf",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_posttraining_readonly_readiness_20261024T2350.json": "44de1ac5263f01a827ed6961064045a06c342627b6a9f6f49e9aab363c6cf265",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_cache_existing_CLI_readonly_probe_20261024T2350.json": "92e10a279fe7e2f320333def2c1e3e65765bf95ee00534c3cf05b65f888eae9a",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/journal_working_drafts_readback_acceptance_20261024T2320.json": "d02d70c52c1d86fab27e38b4c9ca4334fdb47e72010e838d6403ffd271748cbf"
+  },
+  "next_check_UTC": "2026-10-25T00:25:00+00:00",
+  "next_check": "Keep original owner. Check mixed CLIP3407/DINO7 complete recovery, successful update streams/AMP recovery/throughput and full remaining capacity. Allfive qualification is still pending; do not export H targets, repeat closed terminal audits, or start source-best.",
+  "remaining": [
+    "H22 formal terminals",
+    "allfive paired numerical ledgers, conditional uniform whole-backboneFP32 only if required, effective registry",
+    "210role H caches,15pair analyses,3five-seed summaries and Hfigures",
+    "complete abstract/Hresults/conclusions and finalCNENjournal/figure/citation checks"
+  ]
+}

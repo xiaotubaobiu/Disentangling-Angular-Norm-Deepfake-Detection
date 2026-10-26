@@ -1,0 +1,45 @@
+{
+  "utc": "2026-10-24T17:00:44.909156+00:00",
+  "status": "SLOT0_NEXT_FINITE_D_ANALYSIS_LAUNCHED_ADMISSION_FIRST",
+  "run_id": "D_formal_dinov2_vit_b14_seed123",
+  "slot": 0,
+  "flock_pid": 2047550,
+  "command": [
+    "/usr/bin/flock",
+    "--nonblock",
+    "--conflict-exit-code",
+    "75",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/D/production_cpu.lock",
+    "/usr/bin/time",
+    "-v",
+    "-o",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/D_formal_dinov2_vit_b14_seed123_analysis_time_v.log",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+    "-u",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/analysis_execution_records/D_formal_dinov2_vit_b14_seed123.command.py"
+  ],
+  "command_source_sha256": "fa816a2854dd6d76f57361344d52cd3ed3edfb826821f32efcc1974c488da26d",
+  "source_template_sha256": "f04ad896cda267f25e1d18dee940688823264bfe8650fb223e094d8818c8e357",
+  "literal_run_record_substitutions": [
+    [
+      "RUN='D_formal_clip_vit_b16_seed7'",
+      "RUN='D_formal_dinov2_vit_b14_seed123'"
+    ],
+    [
+      "D_first_single_analysis_progress.json",
+      "D_formal_dinov2_vit_b14_seed123_analysis_progress.json"
+    ],
+    [
+      "D_first_single_analysis_admission.json",
+      "D_formal_dinov2_vit_b14_seed123_analysis_admission.json"
+    ]
+  ],
+  "stdout_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/D_formal_dinov2_vit_b14_seed123_analysis.stdout.log",
+  "time_v_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/D_formal_dinov2_vit_b14_seed123_analysis_time_v.log",
+  "preceding_model_acceptance_sha256": "8764a1ec9d8493cf22ae82673bf3ffb98201672303489dee87b6f706d4c81baa",
+  "capacity_snapshot_sha256": "cae7c95056cd9a60e2042f12936a745947bcde33f680a5f224a069f0c0aca614",
+  "fresh_free_bytes": 317565489152,
+  "scientific_code_changed": false,
+  "calibration_repeats": 200,
+  "test_bootstrap_repeats": 2000
+}

@@ -1,0 +1,162 @@
+{
+  "schema": "H_DATA_INDEPENDENT_REVIEW_V1",
+  "status": "PASS",
+  "reviewer": {
+    "identity": "Codex independent subagent /root/h_pipeline_review",
+    "independent": true
+  },
+  "reviewed_utc": "2026-10-23T18:02:52.946903+00:00",
+  "blockers": [],
+  "candidate_sha256": "6b8990a36c5c8dc3e9837a0866d0a92e646ec14964d309ad04342ac2d6790512",
+  "full_audit_sha256": "8a1036f077a42756690a643f0eda3ff543dca27c06ad4a011d9759f5dadf2d04",
+  "tables_sha256": {
+    "B/train": "24c26b34fdeb30457a0dd9589292b0c4c990dcefe2ffb1ac68823744b006d29c",
+    "AB/train": "65053ccbd5cd2c4a3a11fe027a187400f032341fd58fda4c9488afe6f64d57cd",
+    "B/dev": "b2123f15ddfa445599f93e31cc56c7a8f52818d58a6c934ddce1f79d228a77dc",
+    "AB/dev": "dce5270caa914f81666212664367a275674ee7329009934a559a603942064810",
+    "B/SOURCE_CAL": "ec5b6b09eb23b954d2f03a2f3655566ef40934edb38177d135d3fa2bbbbb7fcf",
+    "B/SOURCE_TEST": "d578629220661cf274b442f8dd3a062ead67821f184d8e7a8c3dcd8ef8ee9326",
+    "B/TARGET_TEST": "1c0308e13b774097187bdf771b28e5ad6d84aa21ca6b25e97bf857a7b27fe836",
+    "common/B/SOURCE_CAL": "ec5b6b09eb23b954d2f03a2f3655566ef40934edb38177d135d3fa2bbbbb7fcf",
+    "common/B/SOURCE_TEST": "ed896ebbdff0b01aa9fbfd818d8aaee74597fbbcb3d6eb6a81fcb66afca06dee",
+    "common/B/TARGET_TEST": "75831dbf196cef20c43ba7cb76a985b8eafbaaf3f998a7438afbabc8200c7a2a",
+    "common/AB/SOURCE_CAL": "d0264bfeabde5e3ae993e5f3563a8d47142bf00eb4e7f6aeb5833de05a524006",
+    "common/AB/SOURCE_TEST": "2c770c2a43bda519c78442bd3b384a11e4debc3119e6d6563a244dbb133bae5e",
+    "common/AB/TARGET_TEST": "509407b56f7f5ad09b96c0398bc7814bca677f8710576714835c20e8e6502caa"
+  },
+  "geometry_code_sha256": "161ac4e837463ff16e7916ca42eeb5d13acc44aab9bcc1c397025b9426ad9532",
+  "data_gate_code_sha256": "ad81f65c27d53159e6902bf8a20b0910cd129f75eb0105e5a5a053bcc2d2f45e",
+  "geometry_protocol_sha256": "85a865f0e3343ecaf5b8c0174c8a3f602ec873deeccb03bd1826d617f2a7ae03",
+  "target_performance_used": false,
+  "scope": "Production H data/role/cohort integrity acceptance only; no model/GPU qualification or training acceptance.",
+  "candidate_videos": 8431,
+  "source_unused_candidate_videos": 560,
+  "full_graph_includes_SOURCE_UNUSED": true,
+  "historical_conflicts": false,
+  "quarantined_videos": 0,
+  "quarantine_disposition": "NO_HISTORICAL_CONFLICTS_QUARANTINE_EMPTY",
+  "verification_evidence": {
+    "preliminary_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_production_data_independent_preliminary_1450.json",
+    "reconstruction_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_production_data_independent_reconstruction_evidence_1450.json",
+    "reconstruction_sha256": "1ad612c5c77006e6d54cd30a3dd0891224030f8697fb377a3ab3fd864c517f72",
+    "reconstruction_method_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_production_data_independent_reconstruction_method_1450.json",
+    "reconstruction_method_sha256": "cfc11c72e71f615efde682d1efbaf35451c242bea497e4841dd30d351417be67",
+    "final_tables_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_production_data_final_tables_review_1630.json",
+    "final_tables_sha256": "a85cc529ac53bba1ad44ff510d5594d4c060c12fc5b139c88a61aac0eb4cf1d0",
+    "final_comparison_method_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_production_data_final_tables_method_1630.json",
+    "final_comparison_method_sha256": "6f3656442876292fb0c54b0aae65547a366cd94be5cd04d08bee4dafa2e5aa44",
+    "actual_deep_inspection_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_production_data_inspection.json",
+    "actual_deep_inspection_sha256": "c319ee7a6a6ab332b85f5ecd4a0b56bebeedd073228e6d8227ad187a09806b2d",
+    "deep_launch_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_production_data_inspection_launch.json",
+    "deep_launch_sha256": "7ee5ed3ce0cc4df04dc7603bdbf06e29a481ab5b37e21109816185854ec3d11b",
+    "fresh_launch_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_fresh_full_audit_launch_1450.json",
+    "fresh_launch_sha256": "cc58b715b017350228c8a8d392104f1dbda2267d84bf665f9a0ae1ff2d536780",
+    "final_signoff_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_production_data_final_signoff_verification_1800.json",
+    "final_signoff_sha256": "0aea3d0b53db7fed2dc0c5ced3473fd2f442f61dccbfde7a540b09e37f00cf9c"
+  },
+  "metadata_manifest_inventory_sha256": "fd718820a53dc91fb43c60cab9d76866dd9b8668b3b33efb24f9e1f6ca4a5718",
+  "artifact_inventory_sha256": "0cb552c93ed7ad763dea709ca41b7db8582a00c0fcbcfe9af986d7e23f671c2a",
+  "official_split_sha256": {
+    "train": "e59386911255e6fb0a79a7808ec2210536b8c0474268342694c4bca766d1b347",
+    "val": "b48cc511f66938e05356aaa9c67e150b1e3638c355db3d745225b0022884b36e",
+    "test": "886f5a0da623c25820692e0d8dc33d197ddb1db527a7f1cfcb9bcbca60fe4f40"
+  },
+  "table_counts": {
+    "B/train": {
+      "rows": 24424,
+      "videos": 3053
+    },
+    "AB/train": {
+      "rows": 24424,
+      "videos": 3053
+    },
+    "B/dev": {
+      "rows": 4280,
+      "videos": 535
+    },
+    "AB/dev": {
+      "rows": 4280,
+      "videos": 535
+    },
+    "B/SOURCE_CAL": {
+      "rows": 1120,
+      "videos": 140
+    },
+    "B/SOURCE_TEST": {
+      "rows": 5600,
+      "videos": 700
+    },
+    "B/TARGET_TEST": {
+      "rows": 26560,
+      "videos": 3320
+    },
+    "common/B/SOURCE_CAL": {
+      "rows": 1120,
+      "videos": 140
+    },
+    "common/B/SOURCE_TEST": {
+      "rows": 5568,
+      "videos": 696
+    },
+    "common/B/TARGET_TEST": {
+      "rows": 24720,
+      "videos": 3090
+    },
+    "common/AB/SOURCE_CAL": {
+      "rows": 1120,
+      "videos": 140
+    },
+    "common/AB/SOURCE_TEST": {
+      "rows": 5568,
+      "videos": 696
+    },
+    "common/AB/TARGET_TEST": {
+      "rows": 24720,
+      "videos": 3090
+    }
+  },
+  "independently_rechecked_final_rows": 153504,
+  "active_unique_videos": 7748,
+  "graph_summary": {
+    "unique_RGB_hashes": 268393,
+    "RGB_group_edges": 4,
+    "source_group_components": 549,
+    "cross_role_RGB_conflicts": 0,
+    "label_RGB_conflicts": 0,
+    "source_group_role_conflicts": 0,
+    "quarantined_videos": 0,
+    "quarantined_groups": 0
+  },
+  "source_unused_repair_effect": {
+    "new_RGB_bridges": 0,
+    "new_quarantined_active_videos": 0,
+    "active_UID_cohorts_changed": false,
+    "old_shared_column_values_changed": false,
+    "final_tables_added_columns": [
+      "content_sha256"
+    ]
+  },
+  "paired_B_AB_mothers_and_training_weights_verified": true,
+  "training_draw_count": 24448,
+  "source_only_calibration_verified": true,
+  "active_cross_role_or_label_leaks": 0,
+  "current_manifest_table_code_hashes_stable": true,
+  "limitations": [
+    "Reviewer independently reconstructed official roles, full source/RGB graph, all13ordered tables, mothers/weights and coverage from8431manifests; final row fingerprints and all current bytes/metadata bindings were rechecked.",
+    "Full source-video/PNG byte/RGB/mask I/O was performed by the completed fresh audit and actual root deep inspector. Reviewer verified their exact reports/code/inventories without duplicating that heavy scan.",
+    "Source videos were byte-hashed, not re-decoded during these audits. Existing selected-mother PNGs were decoded and verified by the full audit/deep inspector.",
+    "DFD complete ancestry and manipulated-face identity remain uncertified; filename parent proxies plus exact RGB closure and largest-face selection define the conditional scope.",
+    "Coverage differs by label/history; all-B deployment and common2x2 cohorts must remain separate. No model target performance was accessed.",
+    "This review does not create freeze.json or an H GPU/source-training qualification gate. Native data freeze must still revalidate its bound evidence."
+  ],
+  "reviewer_operations": {
+    "CPU_only": true,
+    "bounded_threads": 2,
+    "source_or_PNG_scan_repeated": false,
+    "production_tables_or_code_modified": false,
+    "freeze_created": false,
+    "training_started": false,
+    "GPU_or_scheduler_touched": false,
+    "target_model_scores_accessed": false
+  }
+}

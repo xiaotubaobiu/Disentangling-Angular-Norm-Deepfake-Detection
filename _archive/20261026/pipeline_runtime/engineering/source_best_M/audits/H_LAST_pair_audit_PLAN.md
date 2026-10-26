@@ -1,0 +1,12 @@
+# Original H LAST CLIP seed42 independent result audit preparation
+
+Authorized scope: prepare only; no actual audit, background wait, CPU-slot acquisition, model/weight loading, image scanning, target inference, production edits or M implementation. All new files live here. Existing D summary auditors do not implement H shared-group per-draw inference; no reusable H scientific auditor was found in the searched qualification/engineering trees. Existing audited H snapshot transport is retained unchanged.
+
+1. Read the SHA-frozen original analysis_h/stats_h/scoring_d/bootstrap_fast serialization and independent14-role admission schema.
+2. Establish synthetic RED then implement a separate saved-score auditor without importing original analysis kernels or _PreparedCell.
+3. Cover exact FP64 operating boundaries, original-precision rank ties, integer weighted AUC/counts, fixed-method NA, signed effects, all RNG multiplicities and percentile intervals, terminal inventory and lifetime nonblocking CPU slots with tiny temporary fixtures.
+4. Prepare a CLI that requires explicit --execute plus externally observed terminal SHA, fixed accepted admission/launch/identity pins, empty CUDA and <=2 threads. Acquire one existing shared slot0.lock or slot1.lock for the entire actual audit; do not wait/retry if busy. Preparation never invokes that path.
+5. Actual audit later: all72 artifacts plus complete.json before/after hashes; exact identity/code/input/admission/14 marker headers; natural-video identities against accepted role Parquet metadata only; CAL/default point metrics and all applicable2000 saved shared-group draws, validity, effects and intervals. No feature dot-products or pixel/source-context revalidation. Any scientifically unconfirmed claim is explicitly pending, never silently accepted.
+6. After separate scientific acceptance only, match existing snapshot identity and four bootstrap artifact SHA values. Record eligibility; never re-encode/re-sample or alter existing bundle. Actual promotion is separate.
+
+Models are original LAST final.pt throughout, never M source_best. All output goes under E/audits. Prepared runtime estimate pending synthetic timing: one CPU slot, one CPU thread, no GPU, bounded one cohort JSON in memory at a time; target <=2GiB address space and <=30min CPU time. Exact real runtime remains unmeasured until a terminal-authorized run. No current real result is accepted by preparation.

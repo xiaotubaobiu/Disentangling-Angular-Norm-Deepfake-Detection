@@ -1,0 +1,19 @@
+{
+  "utc": "2026-10-25T04:34:22.251517+00:00",
+  "status": "PURE_MATRIX_CODEC23_AND_TRANSPORT30_TARGETED_PASS_WHOLE409_STARTED",
+  "pid": 2985369,
+  "command": [
+    "/usr/bin/time",
+    "-v",
+    "-o",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/full_suite_multiplicity_time_v.log",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+    "-B",
+    "-m",
+    "pytest",
+    "-q"
+  ],
+  "source_sha256": "4bcff54b39fbcefce3ead76fc05e812b76cde00c12f631728bfdbb826018147b",
+  "test_sha256": "234f5839588453b81873d0778a3cab2370937bef25872a85220bb9a5de2472ae",
+  "M_production_admitted": false
+}

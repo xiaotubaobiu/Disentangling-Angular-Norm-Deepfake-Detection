@@ -1,0 +1,38 @@
+{
+  "schema": "H_FRESH_PARALLEL_CPU_VALIDATION_ACCEPTANCE_V1",
+  "utc": "2026-10-25T21:56:17.897663+00:00",
+  "status": "PASS_ACTUAL_ORIGINAL14ROLE_FRESH140SOURCE_EXACT_LEDGER_EQUIVALENCE",
+  "allowed_backbones": [
+    "dinov2_vit_b14"
+  ],
+  "allowed_use": [
+    "independent_role_admission",
+    "primary_pair_analysis"
+  ],
+  "original_role_checks": 14,
+  "fresh_default_source_checks": 140,
+  "all_original_ledger_checks_exact_except_utc": true,
+  "independent_review_pass": true,
+  "production_GPU_allowed": false,
+  "candidate_report": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_dinov2_vit_b14_seed7_independent_7role_parallel_candidate_20261025T0645.json",
+  "candidate_report_sha256": "ff866b5a2504fa56d0c447b4ae2b23dba20af297a272331978dd13ee0ba050c8",
+  "independent_actual_audit": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_parallel_fresh_validation/independent_actual_CPU_parallel_pair_admission_audit_dinov2_vit_b14.json",
+  "independent_actual_audit_sha256": "0b5b9c1011fa2159066112f0ac5d530b866f168882df76a1ab874b1deb3baa85",
+  "implementation_sha256": {
+    "parallel_source.py": "a6133c824913ab3bf361095b415eefc9ef75be39ab32fb49ab62e2656dc2624a",
+    "cpu_ledger_adapter.py": "c6b98535e5a28123baae595ab1f4b208f1feab43ff4018e740be94366d044287",
+    "cpu_ledger_admission.py": "bd202e85a4990f9246b96a7081815d07cf364041e5d3498f49bfe41d8779b213",
+    "cpu_primary_analysis.py": "c081c6ffeb14dc6bb0219851fd3fd11df25b28d2eed26ac4b7e06ef1e6e4c6ce"
+  },
+  "original_source_manifest_sha256": "977431237b901d5ac88172f98bc2591d3cd7992c35be50546cda34ad2276a747",
+  "primary_entry_review": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_parallel_fresh_validation/independent_cpu_primary_analysis_entry_fix_confirmation.json",
+  "primary_entry_review_sha256": "67c9588c6960b9c5f29e513ae22bb8ba57d10b8e201b4bf1d190f93a74d8fc23",
+  "timing_scope": "One DINOseed7 original14role admission4813.12s; GNUtime4815s/maxRSS1003092KiB. No same-pair serial speedup or full-primary resource claim.",
+  "scientific_analysis_results_not_yet_generated": true,
+  "actual_prototype_metadata_audit": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/H_DINO_seed7_actual_CPU_qualification_metadata_audit.json",
+  "actual_prototype_metadata_audit_sha256": "52d1c4bf8a48daf14000b24f05feaf70e835ebdaa7927ea88e59228610083545",
+  "M_authorized": false,
+  "same_pair_performance_speedup_accepted": false,
+  "full_primary_resource_admission_accepted": false,
+  "production_cache_owner_integration_accepted": false
+}

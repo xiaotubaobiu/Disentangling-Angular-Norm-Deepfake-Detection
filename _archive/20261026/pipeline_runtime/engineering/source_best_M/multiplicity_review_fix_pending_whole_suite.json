@@ -1,0 +1,20 @@
+{
+  "utc": "2026-10-25T04:48:57.659773+00:00",
+  "status": "MC001_RED3_GREEN56_NEW_WHOLE412_STARTED",
+  "pid": 3054484,
+  "command": [
+    "/usr/bin/time",
+    "-v",
+    "-o",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/full_suite_multiplicity_after_review_time_v.log",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+    "-B",
+    "-m",
+    "pytest",
+    "-q"
+  ],
+  "source_sha256": "1931371915dcbf542b78b79ca433f202e6c6cdf194400985020f105eff92fa73",
+  "fix_tests_sha256": "6d04659d1f42b92055bd080282685c3f44d41d2d04b4bdf71329860f649b5375",
+  "independent_review_sha256": "35615f4154f35ab7fc514a2dd83883c7cecf42017183c745cc5f06df1b14fac6",
+  "M_production_admitted": false
+}

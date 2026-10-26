@@ -1,0 +1,1408 @@
+{
+  "status": "PASS",
+  "approved_routes": [
+    "H"
+  ],
+  "source_only": true,
+  "target_used": false,
+  "schema": "H_SOURCE_QUALIFICATION_V1",
+  "training_code_sha256": "336f3097434edf903a5ff402162e29afeca2442ca50f9c7d9883ca60136b8335",
+  "qualification_code_sha256": "5c70e9fb2a39bd974b0db278d519a8b7103f9553c3bfee32c7accb311edf0ec0",
+  "h_code_bundle_sha256": "639d09df6ae68a36875d376c9176d8d69a1b070ae054d0eb04b2f221c1080ff3",
+  "H_data_freeze_sha256": "11ac3398b8bd2b347da24efbe45fb74e890681d2d063933b01a65d5fdba0675d",
+  "architecture_gate_sha256": "e3073c7d08e81f8e7cb173bdb1e5c526d78d8ca05a30e26980fc1beb3901fe85",
+  "base_config_sha256": "c3cfc87050677d23f2c8446e2bfdbedd5c0af8f5f15b34b41f3040889a6ba91c",
+  "environment_sha256": "d3e6f2a2fc50770a2c3c8ab5b913dfa9049111a398c9de72d85baf618b139ebb",
+  "probe_receipt_sha256": "523221bb94af988618b5415d2894ef9650d47918d8f026d8567e0fbec4e27ce7",
+  "backbones": {
+    "clip_vit_b16": {
+      "microbatch": 32,
+      "fp32_microbatch": 32,
+      "precisions": {
+        "AMP": {
+          "microbatch": 32,
+          "receipt": "qualification/H/clip_vit_b16/AMP/micro32/receipt.json",
+          "receipt_sha256": "704f19c4b8d01794eacfac0260dc6a247f4f79cf8b2fab69a2907a86ba847bd9",
+          "oom_failures": []
+        },
+        "FP32": {
+          "microbatch": 32,
+          "receipt": "qualification/H/clip_vit_b16/FP32/micro32/receipt.json",
+          "receipt_sha256": "8e78ac440dbbd71408d064ed1516b18a53ca3e8b687d18df642193798151730a",
+          "oom_failures": []
+        }
+      }
+    },
+    "dinov2_vit_b14": {
+      "microbatch": 32,
+      "fp32_microbatch": 32,
+      "precisions": {
+        "AMP": {
+          "microbatch": 32,
+          "receipt": "qualification/H/dinov2_vit_b14/AMP/micro32/receipt.json",
+          "receipt_sha256": "7ad72f5ff40440466b00dec881de139994b704ba9264480a05bce97a71bf6b32",
+          "oom_failures": []
+        },
+        "FP32": {
+          "microbatch": 32,
+          "receipt": "qualification/H/dinov2_vit_b14/FP32/micro32/receipt.json",
+          "receipt_sha256": "b7ef0aef23e76b45228b97f35000c58d980f26f062fa01140e285312ed701c6f",
+          "oom_failures": []
+        }
+      }
+    },
+    "efficientnet_b0": {
+      "microbatch": 32,
+      "fp32_microbatch": 32,
+      "precisions": {
+        "AMP": {
+          "microbatch": 32,
+          "receipt": "qualification/H/efficientnet_b0/AMP/micro32/receipt.json",
+          "receipt_sha256": "bc19b931ecd3a05806e4ccb5bac7ffb6584c2195e33b65c699811adaad02d208",
+          "oom_failures": []
+        },
+        "FP32": {
+          "microbatch": 32,
+          "receipt": "qualification/H/efficientnet_b0/FP32/micro32/receipt.json",
+          "receipt_sha256": "feff2142925cbc5fc219a28172d82f8ff7e60a03c7578c15f12c064975c38170",
+          "oom_failures": []
+        }
+      }
+    }
+  },
+  "accepted_evidence_stats": {
+    "qualification/H/clip_vit_b16/AMP/micro32/receipt.json": {
+      "AB/cal_features_fp32.npy": {
+        "size": 131200,
+        "mtime_ns": 1792855105387609775
+      },
+      "AB/continuous_state.pt": {
+        "size": 1034536646,
+        "mtime_ns": 1792855086779186472
+      },
+      "AB/dev_features_fp32.npy": {
+        "size": 98432,
+        "mtime_ns": 1792855104639592927
+      },
+      "AB/epoch_01_augmentations.npy": {
+        "size": 3200,
+        "mtime_ns": 1792855079211011784
+      },
+      "AB/epoch_01_methods.npy": {
+        "size": 32896,
+        "mtime_ns": 1792855079211011784
+      },
+      "AB/epoch_01_record.json": {
+        "size": 981,
+        "mtime_ns": 1792855081927074649
+      },
+      "AB/epoch_01_samples.npy": {
+        "size": 1152,
+        "mtime_ns": 1792855079211011784
+      },
+      "AB/epoch_01_source_dev.parquet": {
+        "size": 3088,
+        "mtime_ns": 1792855081923074556
+      },
+      "AB/epoch_01_state.pt": {
+        "size": 1034534698,
+        "mtime_ns": 1792855083183103653
+      },
+      "AB/epoch_02_continuous_augmentations.npy": {
+        "size": 3200,
+        "mtime_ns": 1792855083219104483
+      },
+      "AB/epoch_02_continuous_methods.npy": {
+        "size": 32896,
+        "mtime_ns": 1792855083219104483
+      },
+      "AB/epoch_02_continuous_record.json": {
+        "size": 972,
+        "mtime_ns": 1792855085579158871
+      },
+      "AB/epoch_02_continuous_samples.npy": {
+        "size": 1152,
+        "mtime_ns": 1792855083219104483
+      },
+      "AB/epoch_02_continuous_source_dev.parquet": {
+        "size": 3088,
+        "mtime_ns": 1792855085579158871
+      },
+      "AB/epoch_02_resumed_augmentations.npy": {
+        "size": 3200,
+        "mtime_ns": 1792855091383292022
+      },
+      "AB/epoch_02_resumed_methods.npy": {
+        "size": 32896,
+        "mtime_ns": 1792855091383292022
+      },
+      "AB/epoch_02_resumed_record.json": {
+        "size": 972,
+        "mtime_ns": 1792855093951350663
+      },
+      "AB/epoch_02_resumed_samples.npy": {
+        "size": 1152,
+        "mtime_ns": 1792855091383292022
+      },
+      "AB/epoch_02_resumed_source_dev.parquet": {
+        "size": 3088,
+        "mtime_ns": 1792855093951350663
+      },
+      "AB/features_continuous.npy": {
+        "size": 262272,
+        "mtime_ns": 1792855088255220370
+      },
+      "AB/features_resumed.npy": {
+        "size": 262272,
+        "mtime_ns": 1792855101207515446
+      },
+      "AB/head_fp32.npz": {
+        "size": 4610,
+        "mtime_ns": 1792855103939577149
+      },
+      "AB/metrics.json": {
+        "size": 396,
+        "mtime_ns": 1792855105419610496
+      },
+      "AB/result.json": {
+        "size": 3360,
+        "mtime_ns": 1792855105419610496
+      },
+      "AB/resumed_state.pt": {
+        "size": 1034534780,
+        "mtime_ns": 1792855095215379462
+      },
+      "AB/source_cal.parquet": {
+        "size": 2980,
+        "mtime_ns": 1792855105391609865
+      },
+      "AB/source_dev.parquet": {
+        "size": 3088,
+        "mtime_ns": 1792855104643593017
+      },
+      "B/cal_features_fp32.npy": {
+        "size": 131200,
+        "mtime_ns": 1792855074686906647
+      },
+      "B/continuous_state.pt": {
+        "size": 1034536646,
+        "mtime_ns": 1792855053370403938
+      },
+      "B/dev_features_fp32.npy": {
+        "size": 98432,
+        "mtime_ns": 1792855073954889587
+      },
+      "B/epoch_01_augmentations.npy": {
+        "size": 3200,
+        "mtime_ns": 1792855045998227209
+      },
+      "B/epoch_01_methods.npy": {
+        "size": 32896,
+        "mtime_ns": 1792855045998227209
+      },
+      "B/epoch_01_record.json": {
+        "size": 978,
+        "mtime_ns": 1792855048982298927
+      },
+      "B/epoch_01_samples.npy": {
+        "size": 1152,
+        "mtime_ns": 1792855045998227209
+      },
+      "B/epoch_01_source_dev.parquet": {
+        "size": 3088,
+        "mtime_ns": 1792855048982298927
+      },
+      "B/epoch_01_state.pt": {
+        "size": 1034534698,
+        "mtime_ns": 1792855050162327218
+      },
+      "B/epoch_02_continuous_augmentations.npy": {
+        "size": 3200,
+        "mtime_ns": 1792855050198328080
+      },
+      "B/epoch_02_continuous_methods.npy": {
+        "size": 32896,
+        "mtime_ns": 1792855050198328080
+      },
+      "B/epoch_02_continuous_record.json": {
+        "size": 982,
+        "mtime_ns": 1792855052182375561
+      },
+      "B/epoch_02_continuous_samples.npy": {
+        "size": 1152,
+        "mtime_ns": 1792855050198328080
+      },
+      "B/epoch_02_continuous_source_dev.parquet": {
+        "size": 3088,
+        "mtime_ns": 1792855052182375561
+      },
+      "B/epoch_02_resumed_augmentations.npy": {
+        "size": 3200,
+        "mtime_ns": 1792855058238519825
+      },
+      "B/epoch_02_resumed_methods.npy": {
+        "size": 32896,
+        "mtime_ns": 1792855058238519825
+      },
+      "B/epoch_02_resumed_record.json": {
+        "size": 982,
+        "mtime_ns": 1792855060522573973
+      },
+      "B/epoch_02_resumed_samples.npy": {
+        "size": 1152,
+        "mtime_ns": 1792855058238519825
+      },
+      "B/epoch_02_resumed_source_dev.parquet": {
+        "size": 3088,
+        "mtime_ns": 1792855060518573878
+      },
+      "B/features_continuous.npy": {
+        "size": 262272,
+        "mtime_ns": 1792855054642434282
+      },
+      "B/features_resumed.npy": {
+        "size": 262272,
+        "mtime_ns": 1792855067862747039
+      },
+      "B/head_fp32.npz": {
+        "size": 4610,
+        "mtime_ns": 1792855073302874376
+      },
+      "B/metrics.json": {
+        "size": 399,
+        "mtime_ns": 1792855074726907580
+      },
+      "B/result.json": {
+        "size": 3362,
+        "mtime_ns": 1792855074726907580
+      },
+      "B/resumed_state.pt": {
+        "size": 1034534780,
+        "mtime_ns": 1792855061806604353
+      },
+      "B/source_cal.parquet": {
+        "size": 2980,
+        "mtime_ns": 1792855074694906834
+      },
+      "B/source_dev.parquet": {
+        "size": 3088,
+        "mtime_ns": 1792855073962889773
+      },
+      "receipt.json": {
+        "size": 14442,
+        "mtime_ns": 1792855139180356761
+      }
+    },
+    "qualification/H/clip_vit_b16/FP32/micro32/receipt.json": {
+      "AB/cal_features_fp32.npy": {
+        "size": 131200,
+        "mtime_ns": 1792855112859777320
+      },
+      "AB/continuous_state.pt": {
+        "size": 1034536454,
+        "mtime_ns": 1792855093315336154
+      },
+      "AB/dev_features_fp32.npy": {
+        "size": 98432,
+        "mtime_ns": 1792855111995758019
+      },
+      "AB/epoch_01_augmentations.npy": {
+        "size": 3200,
+        "mtime_ns": 1792855084059123860
+      },
+      "AB/epoch_01_methods.npy": {
+        "size": 32896,
+        "mtime_ns": 1792855084059123860
+      },
+      "AB/epoch_01_record.json": {
+        "size": 977,
+        "mtime_ns": 1792855087367199983
+      },
+      "AB/epoch_01_samples.npy": {
+        "size": 1152,
+        "mtime_ns": 1792855084059123860
+      },
+      "AB/epoch_01_source_dev.parquet": {
+        "size": 3088,
+        "mtime_ns": 1792855087367199983
+      },
+      "AB/epoch_01_state.pt": {
+        "size": 1034534570,
+        "mtime_ns": 1792855088687230280
+      },
+      "AB/epoch_02_continuous_augmentations.npy": {
+        "size": 3200,
+        "mtime_ns": 1792855088723231106
+      },
+      "AB/epoch_02_continuous_methods.npy": {
+        "size": 32896,
+        "mtime_ns": 1792855088723231106
+      },
+      "AB/epoch_02_continuous_record.json": {
+        "size": 973,
+        "mtime_ns": 1792855092075307842
+      },
+      "AB/epoch_02_continuous_samples.npy": {
+        "size": 1152,
+        "mtime_ns": 1792855088723231106
+      },
+      "AB/epoch_02_continuous_source_dev.parquet": {
+        "size": 3088,
+        "mtime_ns": 1792855092075307842
+      },
+      "AB/epoch_02_resumed_augmentations.npy": {
+        "size": 3200,
+        "mtime_ns": 1792855097807438397
+      },
+      "AB/epoch_02_resumed_methods.npy": {
+        "size": 32896,
+        "mtime_ns": 1792855097807438397
+      },
+      "AB/epoch_02_resumed_record.json": {
+        "size": 973,
+        "mtime_ns": 1792855101147514090
+      },
+      "AB/epoch_02_resumed_samples.npy": {
+        "size": 1152,
+        "mtime_ns": 1792855097807438397
+      },
+      "AB/epoch_02_resumed_source_dev.parquet": {
+        "size": 3088,
+        "mtime_ns": 1792855101143513999
+      },
+      "AB/features_continuous.npy": {
+        "size": 262272,
+        "mtime_ns": 1792855094819370444
+      },
+      "AB/features_resumed.npy": {
+        "size": 262272,
+        "mtime_ns": 1792855108763685646
+      },
+      "AB/head_fp32.npz": {
+        "size": 4610,
+        "mtime_ns": 1792855111227740843
+      },
+      "AB/metrics.json": {
+        "size": 396,
+        "mtime_ns": 1792855112875777678
+      },
+      "AB/result.json": {
+        "size": 3362,
+        "mtime_ns": 1792855112875777678
+      },
+      "AB/resumed_state.pt": {
+        "size": 1034534588,
+        "mtime_ns": 1792855102435543202
+      },
+      "AB/source_cal.parquet": {
+        "size": 2980,
+        "mtime_ns": 1792855112863777410
+      },
+      "AB/source_dev.parquet": {
+        "size": 3088,
+        "mtime_ns": 1792855112055759359
+      },
+      "B/cal_features_fp32.npy": {
+        "size": 131200,
+        "mtime_ns": 1792855079591020590
+      },
+      "B/continuous_state.pt": {
+        "size": 1034536454,
+        "mtime_ns": 1792855056006466774
+      },
+      "B/dev_features_fp32.npy": {
+        "size": 98432,
+        "mtime_ns": 1792855078795002140
+      },
+      "B/epoch_01_augmentations.npy": {
+        "size": 3200,
+        "mtime_ns": 1792855046686243763
+      },
+      "B/epoch_01_methods.npy": {
+        "size": 32896,
+        "mtime_ns": 1792855046682243667
+      },
+      "B/epoch_01_record.json": {
+        "size": 974,
+        "mtime_ns": 1792855050490335074
+      },
+      "B/epoch_01_samples.npy": {
+        "size": 1152,
+        "mtime_ns": 1792855046682243667
+      },
+      "B/epoch_01_source_dev.parquet": {
+        "size": 3088,
+        "mtime_ns": 1792855050490335074
+      },
+      "B/epoch_01_state.pt": {
+        "size": 1034534570,
+        "mtime_ns": 1792855051690363795
+      },
+      "B/epoch_02_continuous_augmentations.npy": {
+        "size": 3200,
+        "mtime_ns": 1792855051726364656
+      },
+      "B/epoch_02_continuous_methods.npy": {
+        "size": 32896,
+        "mtime_ns": 1792855051726364656
+      },
+      "B/epoch_02_continuous_record.json": {
+        "size": 977,
+        "mtime_ns": 1792855054734436475
+      },
+      "B/epoch_02_continuous_samples.npy": {
+        "size": 1152,
+        "mtime_ns": 1792855051726364656
+      },
+      "B/epoch_02_continuous_source_dev.parquet": {
+        "size": 3088,
+        "mtime_ns": 1792855054726436285
+      },
+      "B/epoch_02_resumed_augmentations.npy": {
+        "size": 3200,
+        "mtime_ns": 1792855061058586663
+      },
+      "B/epoch_02_resumed_methods.npy": {
+        "size": 32896,
+        "mtime_ns": 1792855061058586663
+      },
+      "B/epoch_02_resumed_record.json": {
+        "size": 977,
+        "mtime_ns": 1792855064458666957
+      },
+      "B/epoch_02_resumed_samples.npy": {
+        "size": 1152,
+        "mtime_ns": 1792855061058586663
+      },
+      "B/epoch_02_resumed_source_dev.parquet": {
+        "size": 3088,
+        "mtime_ns": 1792855064458666957
+      },
+      "B/features_continuous.npy": {
+        "size": 262272,
+        "mtime_ns": 1792855057430500633
+      },
+      "B/features_resumed.npy": {
+        "size": 262272,
+        "mtime_ns": 1792855071966843179
+      },
+      "B/head_fp32.npz": {
+        "size": 4610,
+        "mtime_ns": 1792855078066985251
+      },
+      "B/metrics.json": {
+        "size": 399,
+        "mtime_ns": 1792855079607020961
+      },
+      "B/result.json": {
+        "size": 3364,
+        "mtime_ns": 1792855079607020961
+      },
+      "B/resumed_state.pt": {
+        "size": 1034534588,
+        "mtime_ns": 1792855065794698425
+      },
+      "B/source_cal.parquet": {
+        "size": 2980,
+        "mtime_ns": 1792855079595020683
+      },
+      "B/source_dev.parquet": {
+        "size": 3088,
+        "mtime_ns": 1792855078803002324
+      },
+      "receipt.json": {
+        "size": 14448,
+        "mtime_ns": 1792855143444449097
+      }
+    },
+    "qualification/H/dinov2_vit_b14/AMP/micro32/receipt.json": {
+      "AB/cal_features_fp32.npy": {
+        "size": 196736,
+        "mtime_ns": 1792855103419565418
+      },
+      "AB/continuous_state.pt": {
+        "size": 1039217974,
+        "mtime_ns": 1792855085031146258
+      },
+      "AB/dev_features_fp32.npy": {
+        "size": 147584,
+        "mtime_ns": 1792855102519545099
+      },
+      "AB/epoch_01_augmentations.npy": {
+        "size": 3200,
+        "mtime_ns": 1792855077042961470
+      },
+      "AB/epoch_01_methods.npy": {
+        "size": 32896,
+        "mtime_ns": 1792855077042961470
+      },
+      "AB/epoch_01_record.json": {
+        "size": 981,
+        "mtime_ns": 1792855079755024390
+      },
+      "AB/epoch_01_samples.npy": {
+        "size": 1152,
+        "mtime_ns": 1792855077042961470
+      },
+      "AB/epoch_01_source_dev.parquet": {
+        "size": 3088,
+        "mtime_ns": 1792855079755024390
+      },
+      "AB/epoch_01_state.pt": {
+        "size": 1039215914,
+        "mtime_ns": 1792855081067054765
+      },
+      "AB/epoch_02_continuous_augmentations.npy": {
+        "size": 3200,
+        "mtime_ns": 1792855081103055597
+      },
+      "AB/epoch_02_continuous_methods.npy": {
+        "size": 32896,
+        "mtime_ns": 1792855081103055597
+      },
+      "AB/epoch_02_continuous_record.json": {
+        "size": 977,
+        "mtime_ns": 1792855083695115465
+      },
+      "AB/epoch_02_continuous_samples.npy": {
+        "size": 1152,
+        "mtime_ns": 1792855081103055597
+      },
+      "AB/epoch_02_continuous_source_dev.parquet": {
+        "size": 3088,
+        "mtime_ns": 1792855083695115465
+      },
+      "AB/epoch_02_resumed_augmentations.npy": {
+        "size": 3200,
+        "mtime_ns": 1792855088883234777
+      },
+      "AB/epoch_02_resumed_methods.npy": {
+        "size": 32896,
+        "mtime_ns": 1792855088883234777
+      },
+      "AB/epoch_02_resumed_record.json": {
+        "size": 977,
+        "mtime_ns": 1792855091483294308
+      },
+      "AB/epoch_02_resumed_samples.npy": {
+        "size": 1152,
+        "mtime_ns": 1792855088883234777
+      },
+      "AB/epoch_02_resumed_source_dev.parquet": {
+        "size": 3088,
+        "mtime_ns": 1792855091483294308
+      },
+      "AB/features_continuous.npy": {
+        "size": 393344,
+        "mtime_ns": 1792855086575181783
+      },
+      "AB/features_resumed.npy": {
+        "size": 393344,
+        "mtime_ns": 1792855098999465444
+      },
+      "AB/head_fp32.npz": {
+        "size": 6658,
+        "mtime_ns": 1792855101771528199
+      },
+      "AB/metrics.json": {
+        "size": 393,
+        "mtime_ns": 1792855103439565869
+      },
+      "AB/result.json": {
+        "size": 3359,
+        "mtime_ns": 1792855103439565869
+      },
+      "AB/resumed_state.pt": {
+        "size": 1039215844,
+        "mtime_ns": 1792855092755323372
+      },
+      "AB/source_cal.parquet": {
+        "size": 2980,
+        "mtime_ns": 1792855103423565508
+      },
+      "AB/source_dev.parquet": {
+        "size": 3088,
+        "mtime_ns": 1792855102527545280
+      },
+      "B/cal_features_fp32.npy": {
+        "size": 196736,
+        "mtime_ns": 1792855073150870829
+      },
+      "B/continuous_state.pt": {
+        "size": 1039217974,
+        "mtime_ns": 1792855053066396683
+      },
+      "B/dev_features_fp32.npy": {
+        "size": 147584,
+        "mtime_ns": 1792855072102846355
+      },
+      "B/epoch_01_augmentations.npy": {
+        "size": 3200,
+        "mtime_ns": 1792855045154206877
+      },
+      "B/epoch_01_methods.npy": {
+        "size": 32896,
+        "mtime_ns": 1792855045154206877
+      },
+      "B/epoch_01_record.json": {
+        "size": 981,
+        "mtime_ns": 1792855048202280202
+      },
+      "B/epoch_01_samples.npy": {
+        "size": 1152,
+        "mtime_ns": 1792855045154206877
+      },
+      "B/epoch_01_source_dev.parquet": {
+        "size": 3088,
+        "mtime_ns": 1792855048202280202
+      },
+      "B/epoch_01_state.pt": {
+        "size": 1039215914,
+        "mtime_ns": 1792855049462310437
+      },
+      "B/epoch_02_continuous_augmentations.npy": {
+        "size": 3200,
+        "mtime_ns": 1792855049498311300
+      },
+      "B/epoch_02_continuous_methods.npy": {
+        "size": 32896,
+        "mtime_ns": 1792855049498311300
+      },
+      "B/epoch_02_continuous_record.json": {
+        "size": 979,
+        "mtime_ns": 1792855051702364082
+      },
+      "B/epoch_02_continuous_samples.npy": {
+        "size": 1152,
+        "mtime_ns": 1792855049498311300
+      },
+      "B/epoch_02_continuous_source_dev.parquet": {
+        "size": 3088,
+        "mtime_ns": 1792855051702364082
+      },
+      "B/epoch_02_resumed_augmentations.npy": {
+        "size": 3200,
+        "mtime_ns": 1792855057198495121
+      },
+      "B/epoch_02_resumed_methods.npy": {
+        "size": 32896,
+        "mtime_ns": 1792855057198495121
+      },
+      "B/epoch_02_resumed_record.json": {
+        "size": 979,
+        "mtime_ns": 1792855059690554264
+      },
+      "B/epoch_02_resumed_samples.npy": {
+        "size": 1152,
+        "mtime_ns": 1792855057198495121
+      },
+      "B/epoch_02_resumed_source_dev.parquet": {
+        "size": 3088,
+        "mtime_ns": 1792855059686554170
+      },
+      "B/features_continuous.npy": {
+        "size": 393344,
+        "mtime_ns": 1792855054562432375
+      },
+      "B/features_resumed.npy": {
+        "size": 393344,
+        "mtime_ns": 1792855067306733979
+      },
+      "B/head_fp32.npz": {
+        "size": 6658,
+        "mtime_ns": 1792855071238826155
+      },
+      "B/metrics.json": {
+        "size": 397,
+        "mtime_ns": 1792855073246873069
+      },
+      "B/result.json": {
+        "size": 3362,
+        "mtime_ns": 1792855073246873069
+      },
+      "B/resumed_state.pt": {
+        "size": 1039215844,
+        "mtime_ns": 1792855060986584959
+      },
+      "B/source_cal.parquet": {
+        "size": 2980,
+        "mtime_ns": 1792855073222872509
+      },
+      "B/source_dev.parquet": {
+        "size": 3088,
+        "mtime_ns": 1792855072110846542
+      },
+      "receipt.json": {
+        "size": 14445,
+        "mtime_ns": 1792855138744347295
+      }
+    },
+    "qualification/H/dinov2_vit_b14/FP32/micro32/receipt.json": {
+      "AB/cal_features_fp32.npy": {
+        "size": 196736,
+        "mtime_ns": 1792855114343810432
+      },
+      "AB/continuous_state.pt": {
+        "size": 1039217846,
+        "mtime_ns": 1792855094119354493
+      },
+      "AB/dev_features_fp32.npy": {
+        "size": 147584,
+        "mtime_ns": 1792855113463790802
+      },
+      "AB/epoch_01_augmentations.npy": {
+        "size": 3200,
+        "mtime_ns": 1792855083411108913
+      },
+      "AB/epoch_01_methods.npy": {
+        "size": 32896,
+        "mtime_ns": 1792855083411108913
+      },
+      "AB/epoch_01_record.json": {
+        "size": 977,
+        "mtime_ns": 1792855087375200166
+      },
+      "AB/epoch_01_samples.npy": {
+        "size": 1152,
+        "mtime_ns": 1792855083411108913
+      },
+      "AB/epoch_01_source_dev.parquet": {
+        "size": 3088,
+        "mtime_ns": 1792855087375200166
+      },
+      "AB/epoch_01_state.pt": {
+        "size": 1039215722,
+        "mtime_ns": 1792855088711230831
+      },
+      "AB/epoch_02_continuous_augmentations.npy": {
+        "size": 3200,
+        "mtime_ns": 1792855088747231657
+      },
+      "AB/epoch_02_continuous_methods.npy": {
+        "size": 32896,
+        "mtime_ns": 1792855088747231657
+      },
+      "AB/epoch_02_continuous_record.json": {
+        "size": 973,
+        "mtime_ns": 1792855092779323920
+      },
+      "AB/epoch_02_continuous_samples.npy": {
+        "size": 1152,
+        "mtime_ns": 1792855088747231657
+      },
+      "AB/epoch_02_continuous_source_dev.parquet": {
+        "size": 3088,
+        "mtime_ns": 1792855092779323920
+      },
+      "AB/epoch_02_resumed_augmentations.npy": {
+        "size": 3200,
+        "mtime_ns": 1792855098083444663
+      },
+      "AB/epoch_02_resumed_methods.npy": {
+        "size": 32896,
+        "mtime_ns": 1792855098083444663
+      },
+      "AB/epoch_02_resumed_record.json": {
+        "size": 973,
+        "mtime_ns": 1792855102495544558
+      },
+      "AB/epoch_02_resumed_samples.npy": {
+        "size": 1152,
+        "mtime_ns": 1792855098083444663
+      },
+      "AB/epoch_02_resumed_source_dev.parquet": {
+        "size": 3088,
+        "mtime_ns": 1792855102471544016
+      },
+      "AB/features_continuous.npy": {
+        "size": 393344,
+        "mtime_ns": 1792855095735391299
+      },
+      "AB/features_resumed.npy": {
+        "size": 393344,
+        "mtime_ns": 1792855110143716579
+      },
+      "AB/head_fp32.npz": {
+        "size": 6658,
+        "mtime_ns": 1792855112655772763
+      },
+      "AB/metrics.json": {
+        "size": 394,
+        "mtime_ns": 1792855114371811056
+      },
+      "AB/result.json": {
+        "size": 3362,
+        "mtime_ns": 1792855114371811056
+      },
+      "AB/resumed_state.pt": {
+        "size": 1039215716,
+        "mtime_ns": 1792855103859575344
+      },
+      "AB/source_cal.parquet": {
+        "size": 2980,
+        "mtime_ns": 1792855114347810521
+      },
+      "AB/source_dev.parquet": {
+        "size": 3088,
+        "mtime_ns": 1792855113467790892
+      },
+      "B/cal_features_fp32.npy": {
+        "size": 196736,
+        "mtime_ns": 1792855079803025503
+      },
+      "B/continuous_state.pt": {
+        "size": 1039217846,
+        "mtime_ns": 1792855056286473434
+      },
+      "B/dev_features_fp32.npy": {
+        "size": 147584,
+        "mtime_ns": 1792855078967006129
+      },
+      "B/epoch_01_augmentations.npy": {
+        "size": 3200,
+        "mtime_ns": 1792855046066228845
+      },
+      "B/epoch_01_methods.npy": {
+        "size": 32896,
+        "mtime_ns": 1792855046066228845
+      },
+      "B/epoch_01_record.json": {
+        "size": 976,
+        "mtime_ns": 1792855050214328463
+      },
+      "B/epoch_01_samples.npy": {
+        "size": 1152,
+        "mtime_ns": 1792855046066228845
+      },
+      "B/epoch_01_source_dev.parquet": {
+        "size": 3088,
+        "mtime_ns": 1792855050214328463
+      },
+      "B/epoch_01_state.pt": {
+        "size": 1039215722,
+        "mtime_ns": 1792855051430357575
+      },
+      "B/epoch_02_continuous_augmentations.npy": {
+        "size": 3200,
+        "mtime_ns": 1792855051466358437
+      },
+      "B/epoch_02_continuous_methods.npy": {
+        "size": 32896,
+        "mtime_ns": 1792855051466358437
+      },
+      "B/epoch_02_continuous_record.json": {
+        "size": 973,
+        "mtime_ns": 1792855054906440576
+      },
+      "B/epoch_02_continuous_samples.npy": {
+        "size": 1152,
+        "mtime_ns": 1792855051466358437
+      },
+      "B/epoch_02_continuous_source_dev.parquet": {
+        "size": 3088,
+        "mtime_ns": 1792855054902440480
+      },
+      "B/epoch_02_resumed_augmentations.npy": {
+        "size": 3200,
+        "mtime_ns": 1792855060458572457
+      },
+      "B/epoch_02_resumed_methods.npy": {
+        "size": 32896,
+        "mtime_ns": 1792855060458572457
+      },
+      "B/epoch_02_resumed_record.json": {
+        "size": 973,
+        "mtime_ns": 1792855064274662620
+      },
+      "B/epoch_02_resumed_samples.npy": {
+        "size": 1152,
+        "mtime_ns": 1792855060458572457
+      },
+      "B/epoch_02_resumed_source_dev.parquet": {
+        "size": 3088,
+        "mtime_ns": 1792855064274662620
+      },
+      "B/features_continuous.npy": {
+        "size": 393344,
+        "mtime_ns": 1792855057882511373
+      },
+      "B/features_resumed.npy": {
+        "size": 393344,
+        "mtime_ns": 1792855071870840933
+      },
+      "B/head_fp32.npz": {
+        "size": 6658,
+        "mtime_ns": 1792855078134986828
+      },
+      "B/metrics.json": {
+        "size": 395,
+        "mtime_ns": 1792855079819025874
+      },
+      "B/result.json": {
+        "size": 3362,
+        "mtime_ns": 1792855079819025874
+      },
+      "B/resumed_state.pt": {
+        "size": 1039215716,
+        "mtime_ns": 1792855065498691457
+      },
+      "B/source_cal.parquet": {
+        "size": 2980,
+        "mtime_ns": 1792855079807025596
+      },
+      "B/source_dev.parquet": {
+        "size": 3088,
+        "mtime_ns": 1792855078975006315
+      },
+      "receipt.json": {
+        "size": 14449,
+        "mtime_ns": 1792855146700519326
+      }
+    },
+    "qualification/H/efficientnet_b0/AMP/micro32/receipt.json": {
+      "AB/cal_features_fp32.npy": {
+        "size": 327808,
+        "mtime_ns": 1792855840459785081
+      },
+      "AB/continuous_state.pt": {
+        "size": 48632509,
+        "mtime_ns": 1792855836263731105
+      },
+      "AB/dev_features_fp32.npy": {
+        "size": 245888,
+        "mtime_ns": 1792855840115780660
+      },
+      "AB/epoch_01_augmentations.npy": {
+        "size": 3200,
+        "mtime_ns": 1792855832491682495
+      },
+      "AB/epoch_01_methods.npy": {
+        "size": 32896,
+        "mtime_ns": 1792855832491682495
+      },
+      "AB/epoch_01_record.json": {
+        "size": 978,
+        "mtime_ns": 1792855834163704053
+      },
+      "AB/epoch_01_samples.npy": {
+        "size": 1152,
+        "mtime_ns": 1792855832491682495
+      },
+      "AB/epoch_01_source_dev.parquet": {
+        "size": 3088,
+        "mtime_ns": 1792855834163704053
+      },
+      "AB/epoch_01_state.pt": {
+        "size": 48629859,
+        "mtime_ns": 1792855834311705961
+      },
+      "AB/epoch_02_continuous_augmentations.npy": {
+        "size": 3200,
+        "mtime_ns": 1792855834359706579
+      },
+      "AB/epoch_02_continuous_methods.npy": {
+        "size": 32896,
+        "mtime_ns": 1792855834359706579
+      },
+      "AB/epoch_02_continuous_record.json": {
+        "size": 983,
+        "mtime_ns": 1792855836127729355
+      },
+      "AB/epoch_02_continuous_samples.npy": {
+        "size": 1152,
+        "mtime_ns": 1792855834359706579
+      },
+      "AB/epoch_02_continuous_source_dev.parquet": {
+        "size": 3088,
+        "mtime_ns": 1792855836127729355
+      },
+      "AB/epoch_02_resumed_augmentations.npy": {
+        "size": 3200,
+        "mtime_ns": 1792855837159742640
+      },
+      "AB/epoch_02_resumed_methods.npy": {
+        "size": 32896,
+        "mtime_ns": 1792855837159742640
+      },
+      "AB/epoch_02_resumed_record.json": {
+        "size": 983,
+        "mtime_ns": 1792855838759763226
+      },
+      "AB/epoch_02_resumed_samples.npy": {
+        "size": 1152,
+        "mtime_ns": 1792855837159742640
+      },
+      "AB/epoch_02_resumed_source_dev.parquet": {
+        "size": 3088,
+        "mtime_ns": 1792855838759763226
+      },
+      "AB/features_continuous.npy": {
+        "size": 655488,
+        "mtime_ns": 1792855836719736976
+      },
+      "AB/features_resumed.npy": {
+        "size": 655488,
+        "mtime_ns": 1792855839515772947
+      },
+      "AB/head_fp32.npz": {
+        "size": 10754,
+        "mtime_ns": 1792855839787776444
+      },
+      "AB/metrics.json": {
+        "size": 398,
+        "mtime_ns": 1792855840483785389
+      },
+      "AB/result.json": {
+        "size": 3366,
+        "mtime_ns": 1792855840483785389
+      },
+      "AB/resumed_state.pt": {
+        "size": 48629494,
+        "mtime_ns": 1792855838899765026
+      },
+      "AB/source_cal.parquet": {
+        "size": 2980,
+        "mtime_ns": 1792855840467785183
+      },
+      "AB/source_dev.parquet": {
+        "size": 3088,
+        "mtime_ns": 1792855840119780711
+      },
+      "B/cal_features_fp32.npy": {
+        "size": 327808,
+        "mtime_ns": 1792855830935662418
+      },
+      "B/continuous_state.pt": {
+        "size": 48632509,
+        "mtime_ns": 1792855826623606704
+      },
+      "B/dev_features_fp32.npy": {
+        "size": 245888,
+        "mtime_ns": 1792855830575657770
+      },
+      "B/epoch_01_augmentations.npy": {
+        "size": 3200,
+        "mtime_ns": 1792855821919545798
+      },
+      "B/epoch_01_methods.npy": {
+        "size": 32896,
+        "mtime_ns": 1792855821919545798
+      },
+      "B/epoch_01_record.json": {
+        "size": 981,
+        "mtime_ns": 1792855824755582534
+      },
+      "B/epoch_01_samples.npy": {
+        "size": 1152,
+        "mtime_ns": 1792855821919545798
+      },
+      "B/epoch_01_source_dev.parquet": {
+        "size": 3088,
+        "mtime_ns": 1792855824755582534
+      },
+      "B/epoch_01_state.pt": {
+        "size": 48629859,
+        "mtime_ns": 1792855824875584087
+      },
+      "B/epoch_02_continuous_augmentations.npy": {
+        "size": 3200,
+        "mtime_ns": 1792855824915584606
+      },
+      "B/epoch_02_continuous_methods.npy": {
+        "size": 32896,
+        "mtime_ns": 1792855824915584606
+      },
+      "B/epoch_02_continuous_record.json": {
+        "size": 981,
+        "mtime_ns": 1792855826503605152
+      },
+      "B/epoch_02_continuous_samples.npy": {
+        "size": 1152,
+        "mtime_ns": 1792855824915584606
+      },
+      "B/epoch_02_continuous_source_dev.parquet": {
+        "size": 3088,
+        "mtime_ns": 1792855826503605152
+      },
+      "B/epoch_02_resumed_augmentations.npy": {
+        "size": 3200,
+        "mtime_ns": 1792855827595619273
+      },
+      "B/epoch_02_resumed_methods.npy": {
+        "size": 32896,
+        "mtime_ns": 1792855827595619273
+      },
+      "B/epoch_02_resumed_record.json": {
+        "size": 981,
+        "mtime_ns": 1792855829243640570
+      },
+      "B/epoch_02_resumed_samples.npy": {
+        "size": 1152,
+        "mtime_ns": 1792855827595619273
+      },
+      "B/epoch_02_resumed_source_dev.parquet": {
+        "size": 3088,
+        "mtime_ns": 1792855829243640570
+      },
+      "B/features_continuous.npy": {
+        "size": 655488,
+        "mtime_ns": 1792855827119613119
+      },
+      "B/features_resumed.npy": {
+        "size": 655488,
+        "mtime_ns": 1792855830019650593
+      },
+      "B/head_fp32.npz": {
+        "size": 10754,
+        "mtime_ns": 1792855830235653381
+      },
+      "B/metrics.json": {
+        "size": 396,
+        "mtime_ns": 1792855830967662832
+      },
+      "B/result.json": {
+        "size": 3363,
+        "mtime_ns": 1792855830967662832
+      },
+      "B/resumed_state.pt": {
+        "size": 48629494,
+        "mtime_ns": 1792855829395642533
+      },
+      "B/source_cal.parquet": {
+        "size": 2980,
+        "mtime_ns": 1792855830943662522
+      },
+      "B/source_dev.parquet": {
+        "size": 3088,
+        "mtime_ns": 1792855830583657874
+      },
+      "receipt.json": {
+        "size": 14456,
+        "mtime_ns": 1792855855687980101
+      }
+    },
+    "qualification/H/efficientnet_b0/FP32/micro32/receipt.json": {
+      "AB/cal_features_fp32.npy": {
+        "size": 327808,
+        "mtime_ns": 1792855840167781328
+      },
+      "AB/continuous_state.pt": {
+        "size": 48632381,
+        "mtime_ns": 1792855835915726624
+      },
+      "AB/dev_features_fp32.npy": {
+        "size": 245888,
+        "mtime_ns": 1792855839795776546
+      },
+      "AB/epoch_01_augmentations.npy": {
+        "size": 3200,
+        "mtime_ns": 1792855832319680276
+      },
+      "AB/epoch_01_methods.npy": {
+        "size": 32896,
+        "mtime_ns": 1792855832319680276
+      },
+      "AB/epoch_01_record.json": {
+        "size": 978,
+        "mtime_ns": 1792855833979701682
+      },
+      "AB/epoch_01_samples.npy": {
+        "size": 1152,
+        "mtime_ns": 1792855832319680276
+      },
+      "AB/epoch_01_source_dev.parquet": {
+        "size": 3088,
+        "mtime_ns": 1792855833979701682
+      },
+      "AB/epoch_01_state.pt": {
+        "size": 48629731,
+        "mtime_ns": 1792855834115703434
+      },
+      "AB/epoch_02_continuous_augmentations.npy": {
+        "size": 3200,
+        "mtime_ns": 1792855834151703898
+      },
+      "AB/epoch_02_continuous_methods.npy": {
+        "size": 32896,
+        "mtime_ns": 1792855834151703898
+      },
+      "AB/epoch_02_continuous_record.json": {
+        "size": 979,
+        "mtime_ns": 1792855835783724924
+      },
+      "AB/epoch_02_continuous_samples.npy": {
+        "size": 1152,
+        "mtime_ns": 1792855834151703898
+      },
+      "AB/epoch_02_continuous_source_dev.parquet": {
+        "size": 3088,
+        "mtime_ns": 1792855835779724873
+      },
+      "AB/epoch_02_resumed_augmentations.npy": {
+        "size": 3200,
+        "mtime_ns": 1792855836827738366
+      },
+      "AB/epoch_02_resumed_methods.npy": {
+        "size": 32896,
+        "mtime_ns": 1792855836827738366
+      },
+      "AB/epoch_02_resumed_record.json": {
+        "size": 979,
+        "mtime_ns": 1792855838479759624
+      },
+      "AB/epoch_02_resumed_samples.npy": {
+        "size": 1152,
+        "mtime_ns": 1792855836827738366
+      },
+      "AB/epoch_02_resumed_source_dev.parquet": {
+        "size": 3088,
+        "mtime_ns": 1792855838479759624
+      },
+      "AB/features_continuous.npy": {
+        "size": 655488,
+        "mtime_ns": 1792855836371732496
+      },
+      "AB/features_resumed.npy": {
+        "size": 655488,
+        "mtime_ns": 1792855839215769090
+      },
+      "AB/head_fp32.npz": {
+        "size": 10754,
+        "mtime_ns": 1792855839447772072
+      },
+      "AB/metrics.json": {
+        "size": 397,
+        "mtime_ns": 1792855840195781688
+      },
+      "AB/result.json": {
+        "size": 3367,
+        "mtime_ns": 1792855840195781688
+      },
+      "AB/resumed_state.pt": {
+        "size": 48629366,
+        "mtime_ns": 1792855838611761322
+      },
+      "AB/source_cal.parquet": {
+        "size": 2980,
+        "mtime_ns": 1792855840175781431
+      },
+      "AB/source_dev.parquet": {
+        "size": 3088,
+        "mtime_ns": 1792855839803776649
+      },
+      "B/cal_features_fp32.npy": {
+        "size": 327808,
+        "mtime_ns": 1792855830891661850
+      },
+      "B/continuous_state.pt": {
+        "size": 48632381,
+        "mtime_ns": 1792855826535605566
+      },
+      "B/dev_features_fp32.npy": {
+        "size": 245888,
+        "mtime_ns": 1792855830563657616
+      },
+      "B/epoch_01_augmentations.npy": {
+        "size": 3200,
+        "mtime_ns": 1792855821927545901
+      },
+      "B/epoch_01_methods.npy": {
+        "size": 32896,
+        "mtime_ns": 1792855821927545901
+      },
+      "B/epoch_01_record.json": {
+        "size": 976,
+        "mtime_ns": 1792855824579580255
+      },
+      "B/epoch_01_samples.npy": {
+        "size": 1152,
+        "mtime_ns": 1792855821927545901
+      },
+      "B/epoch_01_source_dev.parquet": {
+        "size": 3088,
+        "mtime_ns": 1792855824579580255
+      },
+      "B/epoch_01_state.pt": {
+        "size": 48629731,
+        "mtime_ns": 1792855824699581809
+      },
+      "B/epoch_02_continuous_augmentations.npy": {
+        "size": 3200,
+        "mtime_ns": 1792855824739582326
+      },
+      "B/epoch_02_continuous_methods.npy": {
+        "size": 32896,
+        "mtime_ns": 1792855824739582326
+      },
+      "B/epoch_02_continuous_record.json": {
+        "size": 977,
+        "mtime_ns": 1792855826395603755
+      },
+      "B/epoch_02_continuous_samples.npy": {
+        "size": 1152,
+        "mtime_ns": 1792855824739582326
+      },
+      "B/epoch_02_continuous_source_dev.parquet": {
+        "size": 3088,
+        "mtime_ns": 1792855826395603755
+      },
+      "B/epoch_02_resumed_augmentations.npy": {
+        "size": 3200,
+        "mtime_ns": 1792855827471617670
+      },
+      "B/epoch_02_resumed_methods.npy": {
+        "size": 32896,
+        "mtime_ns": 1792855827471617670
+      },
+      "B/epoch_02_resumed_record.json": {
+        "size": 977,
+        "mtime_ns": 1792855829219640260
+      },
+      "B/epoch_02_resumed_samples.npy": {
+        "size": 1152,
+        "mtime_ns": 1792855827467617618
+      },
+      "B/epoch_02_resumed_source_dev.parquet": {
+        "size": 3088,
+        "mtime_ns": 1792855829219640260
+      },
+      "B/features_continuous.npy": {
+        "size": 655488,
+        "mtime_ns": 1792855827027611930
+      },
+      "B/features_resumed.npy": {
+        "size": 655488,
+        "mtime_ns": 1792855830047650954
+      },
+      "B/head_fp32.npz": {
+        "size": 10754,
+        "mtime_ns": 1792855830259653691
+      },
+      "B/metrics.json": {
+        "size": 396,
+        "mtime_ns": 1792855830911662108
+      },
+      "B/result.json": {
+        "size": 3365,
+        "mtime_ns": 1792855830911662108
+      },
+      "B/resumed_state.pt": {
+        "size": 48629366,
+        "mtime_ns": 1792855829399642585
+      },
+      "B/source_cal.parquet": {
+        "size": 2980,
+        "mtime_ns": 1792855830895661902
+      },
+      "B/source_dev.parquet": {
+        "size": 3088,
+        "mtime_ns": 1792855830571657719
+      },
+      "receipt.json": {
+        "size": 14460,
+        "mtime_ns": 1792855855711980407
+      }
+    }
+  },
+  "acceptance_verification": "fresh_cryptographic_full_GPU_evidence_and_accepted_H_freeze_metadata_bindings"
+}

@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "tests": 6,
+  "red_before_implementation": "ModuleNotFoundError: reliability_v2.data_d; unittest exit1",
+  "green_after_implementation": "Ran6 tests in0.033s; OK; unittest exit0",
+  "command": "cd /home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2 && CUDA_VISIBLE_DEVICES='' OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 /home/z/project/deepfake_detector/.venv/bin/python -m unittest discover -s tests -p test_data_d.py -v",
+  "code_sha256": "7d37fda956a5b5d0d9a4281a24b5967507ce28b892dd3a01486ec05280277cd1",
+  "tests_sha256": "7be34bbfd9a77a81ebb61f16f6a6cfc25aced49f2f8b137c45bc88ad3ce24112",
+  "utc": "2026-10-23T08:27:34.280357+00:00"
+}

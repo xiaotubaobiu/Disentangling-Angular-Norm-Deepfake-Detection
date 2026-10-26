@@ -1,0 +1,21 @@
+{
+  "status": "D_QUEUE_LAUNCHED",
+  "owner_pid": 3942476,
+  "utc": "2026-10-23T08:53:30.479309+00:00",
+  "code_commit": "8c4651b313fe384e20043351bd39da3c0c279758",
+  "training_code_sha256": "336f3097434edf903a5ff402162e29afeca2442ca50f9c7d9883ca60136b8335",
+  "immutable_D_gate_sha256": "c2a9a09d208d2671b7a123df7ee29e83b8abedcac08d9221d5ad26f3948700aa",
+  "allowed_gpus": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "prelaunch_gpu_memory": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 0\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 0\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 0\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 0\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 28156\n",
+  "prelaunch_compute_apps": "GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 1532179\nGPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 1532180\nGPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 1532181\nGPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 1532182\n",
+  "standard_D_development_models": 10,
+  "D_formal_models_after_source_recipe_freeze": 15,
+  "formal_models_total_project": 45,
+  "target_selection": false,
+  "log": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/logs/D_queue_supervisor.log"
+}

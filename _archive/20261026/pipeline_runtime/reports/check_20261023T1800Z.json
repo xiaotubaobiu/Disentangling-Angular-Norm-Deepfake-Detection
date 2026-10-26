@@ -1,0 +1,2570 @@
+{
+  "utc": "2026-10-23T18:02:33.222438+00:00",
+  "started_utc": "2026-10-23T18:02:16.843445+00:00",
+  "status": "PASS_D_RUNTIME_H_DEEP_INSPECTION_COMPLETED_INDEPENDENT_TERMINAL_REVIEW_PENDING",
+  "queue_start": {
+    "owner_pid": 3942476,
+    "stage": "P2_D_STANDARD_DEVELOPMENT",
+    "utc": "2026-10-23T18:02:08.715694+00:00",
+    "active": [
+      {
+        "pid": 57156,
+        "run_id": "D_dev_dinov2_vit_b14_lr3e-05_seed1007_e30",
+        "gpu": 0,
+        "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e"
+      },
+      {
+        "pid": 64175,
+        "run_id": "D_dev_dinov2_vit_b14_lr3e-05_seed1042_e30",
+        "gpu": 1,
+        "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c"
+      },
+      {
+        "pid": 124606,
+        "run_id": "D_dev_dinov2_vit_b14_lr5e-05_seed1007_e30",
+        "gpu": 2,
+        "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45"
+      },
+      {
+        "pid": 125862,
+        "run_id": "D_dev_dinov2_vit_b14_lr5e-05_seed1042_e30",
+        "gpu": 3,
+        "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646"
+      }
+    ],
+    "completed_this_session": [
+      "D_dev_clip_vit_b16_lr1e-05_seed1007_e30",
+      "D_dev_clip_vit_b16_lr1e-05_seed1042_e30",
+      "D_dev_dinov2_vit_b14_lr1e-05_seed1007_e30",
+      "D_dev_dinov2_vit_b14_lr1e-05_seed1042_e30"
+    ],
+    "detail": {
+      "pending": [
+        "D_dev_efficientnet_b0_lr1e-04_seed1007_e30",
+        "D_dev_efficientnet_b0_lr1e-04_seed1042_e30"
+      ]
+    }
+  },
+  "queue_end": {
+    "owner_pid": 3942476,
+    "stage": "P2_D_STANDARD_DEVELOPMENT",
+    "utc": "2026-10-23T18:02:23.957534+00:00",
+    "active": [
+      {
+        "pid": 57156,
+        "run_id": "D_dev_dinov2_vit_b14_lr3e-05_seed1007_e30",
+        "gpu": 0,
+        "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e"
+      },
+      {
+        "pid": 64175,
+        "run_id": "D_dev_dinov2_vit_b14_lr3e-05_seed1042_e30",
+        "gpu": 1,
+        "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c"
+      },
+      {
+        "pid": 124606,
+        "run_id": "D_dev_dinov2_vit_b14_lr5e-05_seed1007_e30",
+        "gpu": 2,
+        "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45"
+      },
+      {
+        "pid": 125862,
+        "run_id": "D_dev_dinov2_vit_b14_lr5e-05_seed1042_e30",
+        "gpu": 3,
+        "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646"
+      }
+    ],
+    "completed_this_session": [
+      "D_dev_clip_vit_b16_lr1e-05_seed1007_e30",
+      "D_dev_clip_vit_b16_lr1e-05_seed1042_e30",
+      "D_dev_dinov2_vit_b14_lr1e-05_seed1007_e30",
+      "D_dev_dinov2_vit_b14_lr1e-05_seed1042_e30"
+    ],
+    "detail": {
+      "pending": [
+        "D_dev_efficientnet_b0_lr1e-04_seed1007_e30",
+        "D_dev_efficientnet_b0_lr1e-04_seed1042_e30"
+      ]
+    }
+  },
+  "completed_run_ids": [
+    "D_dev_clip_vit_b16_lr1e-05_seed1007_e30",
+    "D_dev_clip_vit_b16_lr1e-05_seed1042_e30",
+    "D_dev_dinov2_vit_b14_lr1e-05_seed1007_e30",
+    "D_dev_dinov2_vit_b14_lr1e-05_seed1042_e30"
+  ],
+  "pending_run_ids": [
+    "D_dev_efficientnet_b0_lr1e-04_seed1007_e30",
+    "D_dev_efficientnet_b0_lr1e-04_seed1042_e30"
+  ],
+  "trainer_root_ownership": [
+    {
+      "pid": 57156,
+      "run_id": "D_dev_dinov2_vit_b14_lr3e-05_seed1007_e30",
+      "gpu": 0,
+      "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e",
+      "parent_pid": 3942476,
+      "CUDA_VISIBLE_DEVICES": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e",
+      "CPU_ticks_at_end": 2246348,
+      "CPU_ticks_at_start": 2244398
+    },
+    {
+      "pid": 64175,
+      "run_id": "D_dev_dinov2_vit_b14_lr3e-05_seed1042_e30",
+      "gpu": 1,
+      "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+      "parent_pid": 3942476,
+      "CUDA_VISIBLE_DEVICES": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+      "CPU_ticks_at_end": 2186752,
+      "CPU_ticks_at_start": 2184857
+    },
+    {
+      "pid": 124606,
+      "run_id": "D_dev_dinov2_vit_b14_lr5e-05_seed1007_e30",
+      "gpu": 2,
+      "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+      "parent_pid": 3942476,
+      "CUDA_VISIBLE_DEVICES": "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+      "CPU_ticks_at_end": 1712918,
+      "CPU_ticks_at_start": 1711002
+    },
+    {
+      "pid": 125862,
+      "run_id": "D_dev_dinov2_vit_b14_lr5e-05_seed1042_e30",
+      "gpu": 3,
+      "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646",
+      "parent_pid": 3942476,
+      "CUDA_VISIBLE_DEVICES": "GPU-626ec32f-1401-c959-74b0-db04ed63c646",
+      "CPU_ticks_at_end": 1697885,
+      "CPU_ticks_at_start": 1695874
+    }
+  ],
+  "dataloader_child_processes": [
+    {
+      "pid": 239969,
+      "parent_pid": 125862
+    },
+    {
+      "pid": 239970,
+      "parent_pid": 125862
+    },
+    {
+      "pid": 239971,
+      "parent_pid": 125862
+    },
+    {
+      "pid": 239972,
+      "parent_pid": 125862
+    },
+    {
+      "pid": 241978,
+      "parent_pid": 124606
+    },
+    {
+      "pid": 241979,
+      "parent_pid": 124606
+    },
+    {
+      "pid": 241980,
+      "parent_pid": 124606
+    },
+    {
+      "pid": 241981,
+      "parent_pid": 124606
+    },
+    {
+      "pid": 244842,
+      "parent_pid": 57156
+    },
+    {
+      "pid": 244843,
+      "parent_pid": 57156
+    },
+    {
+      "pid": 244844,
+      "parent_pid": 57156
+    },
+    {
+      "pid": 244845,
+      "parent_pid": 57156
+    },
+    {
+      "pid": 245217,
+      "parent_pid": 64175
+    },
+    {
+      "pid": 245218,
+      "parent_pid": 64175
+    },
+    {
+      "pid": 245219,
+      "parent_pid": 64175
+    },
+    {
+      "pid": 245220,
+      "parent_pid": 64175
+    }
+  ],
+  "kernel_lock_proofs": [
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/queue.lock",
+      "expected_pid": 3942476,
+      "kernel_lock": "3: FLOCK  ADVISORY  WRITE 3942476 fd:01:51773448 0 EOF"
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_dev_dinov2_vit_b14_lr3e-05_seed1007_e30/run.lock",
+      "expected_pid": 57156,
+      "kernel_lock": "2: FLOCK  ADVISORY  WRITE 57156 fd:01:52306119 0 EOF"
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/gpu_locks/GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e.lock",
+      "expected_pid": 57156,
+      "kernel_lock": "1: FLOCK  ADVISORY  WRITE 57156 fd:01:51909974 0 EOF"
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_dev_dinov2_vit_b14_lr3e-05_seed1042_e30/run.lock",
+      "expected_pid": 64175,
+      "kernel_lock": "15: FLOCK  ADVISORY  WRITE 64175 fd:01:52306127 0 EOF"
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/gpu_locks/GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c.lock",
+      "expected_pid": 64175,
+      "kernel_lock": "14: FLOCK  ADVISORY  WRITE 64175 fd:01:51909973 0 EOF"
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_dev_dinov2_vit_b14_lr5e-05_seed1007_e30/run.lock",
+      "expected_pid": 124606,
+      "kernel_lock": "13: FLOCK  ADVISORY  WRITE 124606 fd:01:52306201 0 EOF"
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/gpu_locks/GPU-5df5602a-848e-d944-26cd-aec11b964b45.lock",
+      "expected_pid": 124606,
+      "kernel_lock": "12: FLOCK  ADVISORY  WRITE 124606 fd:01:51909972 0 EOF"
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_dev_dinov2_vit_b14_lr5e-05_seed1042_e30/run.lock",
+      "expected_pid": 125862,
+      "kernel_lock": "40: FLOCK  ADVISORY  WRITE 125862 fd:01:52306207 0 EOF"
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/gpu_locks/GPU-626ec32f-1401-c959-74b0-db04ed63c646.lock",
+      "expected_pid": 125862,
+      "kernel_lock": "39: FLOCK  ADVISORY  WRITE 125862 fd:01:51909991 0 EOF"
+    }
+  ],
+  "protected_processes": [
+    {
+      "pid": 1532179,
+      "alive": true
+    },
+    {
+      "pid": 1532180,
+      "alive": true
+    },
+    {
+      "pid": 1532181,
+      "alive": true
+    },
+    {
+      "pid": 1532182,
+      "alive": true
+    }
+  ],
+  "rows": [
+    {
+      "run_id": "D_dev_clip_vit_b16_lr1e-05_seed1007_e30",
+      "status": "COMPLETE",
+      "observed_utc": "2026-10-23T18:02:32.368090+00:00",
+      "gpu": null,
+      "live_records": 23970,
+      "live_successful_update_records": 23966,
+      "live_skips": 4,
+      "skip_positions": [
+        12024,
+        14061,
+        18187,
+        19456
+      ],
+      "skip_evidence": [
+        {
+          "event": {
+            "attempt": 12024,
+            "lr": 5.4817647999124515e-06,
+            "loss": 0.01023512240499258,
+            "gradient_norm": null,
+            "gradient_finite": false,
+            "scale_before": 8192.0,
+            "scale_after": 4096.0,
+            "success": false,
+            "skip": true,
+            "epoch": 16
+          },
+          "next_success": {
+            "attempt": 12025,
+            "lr": 5.4811215180550845e-06,
+            "loss": 1.8472783267498016e-05,
+            "gradient_norm": 0.03820866385897365,
+            "gradient_finite": true,
+            "scale_before": 4096.0,
+            "scale_after": 4096.0,
+            "success": true,
+            "skip": false,
+            "epoch": 16
+          },
+          "next_event_status": "SUCCESS"
+        },
+        {
+          "event": {
+            "attempt": 14061,
+            "lr": 4.179216503537553e-06,
+            "loss": 0.014836768619716167,
+            "gradient_norm": null,
+            "gradient_finite": false,
+            "scale_before": 8192.0,
+            "scale_after": 4096.0,
+            "success": false,
+            "skip": true,
+            "epoch": 18
+          },
+          "next_success": {
+            "attempt": 14062,
+            "lr": 4.1785890444403595e-06,
+            "loss": 0.0002718046307563782,
+            "gradient_norm": 0.9091435882258913,
+            "gradient_finite": true,
+            "scale_before": 4096.0,
+            "scale_after": 4096.0,
+            "success": true,
+            "skip": false,
+            "epoch": 18
+          },
+          "next_event_status": "SUCCESS"
+        },
+        {
+          "event": {
+            "attempt": 18187,
+            "lr": 1.8864643910972546e-06,
+            "loss": 0.02290614042431116,
+            "gradient_norm": null,
+            "gradient_finite": false,
+            "scale_before": 16384.0,
+            "scale_after": 8192.0,
+            "success": false,
+            "skip": true,
+            "epoch": 23
+          },
+          "next_success": {
+            "attempt": 18188,
+            "lr": 1.886009660954664e-06,
+            "loss": 0.02667431253939867,
+            "gradient_norm": 103.11505357153965,
+            "gradient_finite": true,
+            "scale_before": 8192.0,
+            "scale_after": 8192.0,
+            "success": true,
+            "skip": false,
+            "epoch": 23
+          },
+          "next_event_status": "SUCCESS"
+        },
+        {
+          "event": {
+            "attempt": 19456,
+            "lr": 1.3618825887386038e-06,
+            "loss": 0.012680674903094769,
+            "gradient_norm": null,
+            "gradient_finite": false,
+            "scale_before": 8192.0,
+            "scale_after": 4096.0,
+            "success": false,
+            "skip": true,
+            "epoch": 25
+          },
+          "next_success": {
+            "attempt": 19457,
+            "lr": 1.3615126622027026e-06,
+            "loss": 6.147660315036774e-06,
+            "gradient_norm": 0.016933632831582175,
+            "gradient_finite": true,
+            "scale_before": 4096.0,
+            "scale_after": 4096.0,
+            "success": true,
+            "skip": false,
+            "epoch": 25
+          },
+          "next_event_status": "SUCCESS"
+        }
+      ],
+      "max_consecutive_skips": 1,
+      "previous_live_skips": 4,
+      "new_live_skips_since_previous_cutoff": 0,
+      "baseline_scope": "Prior1715live numeric receipt",
+      "pinned_checkpoint_inspection_status": "PASS",
+      "pinned_checkpoint_epoch": 30,
+      "pinned_checkpoint_attempts": 23970,
+      "pinned_checkpoint_success": 23966,
+      "pinned_checkpoint_skips": 4,
+      "current_history_epoch_metadata_only": 30,
+      "latest_live_event": {
+        "attempt": 23969,
+        "lr": 5.000000000000001e-07,
+        "loss": 2.1141022443771362e-07,
+        "gradient_norm": 9.29773334486801e-06,
+        "gradient_finite": true,
+        "scale_before": 16384.0,
+        "scale_after": 16384.0,
+        "success": true,
+        "skip": false,
+        "epoch": 30
+      },
+      "logfiles": [
+        {
+          "name": "epoch_01_updates.jsonl",
+          "observed_bytes": 180026,
+          "records": 799
+        },
+        {
+          "name": "epoch_02_updates.jsonl",
+          "observed_bytes": 181038,
+          "records": 799
+        },
+        {
+          "name": "epoch_03_updates.jsonl",
+          "observed_bytes": 181739,
+          "records": 799
+        },
+        {
+          "name": "epoch_04_updates.jsonl",
+          "observed_bytes": 182124,
+          "records": 799
+        },
+        {
+          "name": "epoch_05_updates.jsonl",
+          "observed_bytes": 182224,
+          "records": 799
+        },
+        {
+          "name": "epoch_06_updates.jsonl",
+          "observed_bytes": 182586,
+          "records": 799
+        },
+        {
+          "name": "epoch_07_updates.jsonl",
+          "observed_bytes": 182939,
+          "records": 799
+        },
+        {
+          "name": "epoch_08_updates.jsonl",
+          "observed_bytes": 183648,
+          "records": 799
+        },
+        {
+          "name": "epoch_09_updates.jsonl",
+          "observed_bytes": 184681,
+          "records": 799
+        },
+        {
+          "name": "epoch_10_updates.jsonl",
+          "observed_bytes": 185546,
+          "records": 799
+        },
+        {
+          "name": "epoch_11_updates.jsonl",
+          "observed_bytes": 186000,
+          "records": 799
+        },
+        {
+          "name": "epoch_12_updates.jsonl",
+          "observed_bytes": 186000,
+          "records": 799
+        },
+        {
+          "name": "epoch_13_updates.jsonl",
+          "observed_bytes": 186828,
+          "records": 799
+        },
+        {
+          "name": "epoch_14_updates.jsonl",
+          "observed_bytes": 187469,
+          "records": 799
+        },
+        {
+          "name": "epoch_15_updates.jsonl",
+          "observed_bytes": 187293,
+          "records": 799
+        },
+        {
+          "name": "epoch_16_updates.jsonl",
+          "observed_bytes": 187803,
+          "records": 799
+        },
+        {
+          "name": "epoch_17_updates.jsonl",
+          "observed_bytes": 187690,
+          "records": 799
+        },
+        {
+          "name": "epoch_18_updates.jsonl",
+          "observed_bytes": 188035,
+          "records": 799
+        },
+        {
+          "name": "epoch_19_updates.jsonl",
+          "observed_bytes": 188442,
+          "records": 799
+        },
+        {
+          "name": "epoch_20_updates.jsonl",
+          "observed_bytes": 188678,
+          "records": 799
+        },
+        {
+          "name": "epoch_21_updates.jsonl",
+          "observed_bytes": 189125,
+          "records": 799
+        },
+        {
+          "name": "epoch_22_updates.jsonl",
+          "observed_bytes": 189128,
+          "records": 799
+        },
+        {
+          "name": "epoch_23_updates.jsonl",
+          "observed_bytes": 189543,
+          "records": 799
+        },
+        {
+          "name": "epoch_24_updates.jsonl",
+          "observed_bytes": 189218,
+          "records": 799
+        },
+        {
+          "name": "epoch_25_updates.jsonl",
+          "observed_bytes": 189229,
+          "records": 799
+        },
+        {
+          "name": "epoch_26_updates.jsonl",
+          "observed_bytes": 189221,
+          "records": 799
+        },
+        {
+          "name": "epoch_27_updates.jsonl",
+          "observed_bytes": 189070,
+          "records": 799
+        },
+        {
+          "name": "epoch_28_updates.jsonl",
+          "observed_bytes": 189150,
+          "records": 799
+        },
+        {
+          "name": "epoch_29_updates.jsonl",
+          "observed_bytes": 189031,
+          "records": 799
+        },
+        {
+          "name": "epoch_30_updates.jsonl",
+          "observed_bytes": 190096,
+          "records": 799
+        }
+      ],
+      "trailing_partial_lines_ignored": 0,
+      "recent3epoch_mean_seconds": 508.7096628348033,
+      "current_committed_history_attempts": 23970,
+      "current_committed_history_success": 23966,
+      "current_committed_history_skips": 4,
+      "latest_two_committed_array_hashes": [
+        {
+          "epoch": 29,
+          "kind": "samples",
+          "sha256": "426a16d6039516774e7dc4dbbad1c4a86dd7bd8aa5711712d6b450aba8dfce4e"
+        },
+        {
+          "epoch": 29,
+          "kind": "augmentations",
+          "sha256": "be7503201b95a5389bbb0fa442e93496f3c86dd1b1b3761a0f71494823cfe35f"
+        },
+        {
+          "epoch": 30,
+          "kind": "samples",
+          "sha256": "2cb080142ca0e71553b5835a5557286ade668029eff75d634e32e9d52363c1c3"
+        },
+        {
+          "epoch": 30,
+          "kind": "augmentations",
+          "sha256": "2300aa4e3ec924bad08dcacfca2774625e627648b63d95eff6375725f66c7e56"
+        }
+      ],
+      "draw_normalized_inputs_per_second": 201.04198420388857
+    },
+    {
+      "run_id": "D_dev_clip_vit_b16_lr1e-05_seed1042_e30",
+      "status": "COMPLETE",
+      "observed_utc": "2026-10-23T18:02:32.565268+00:00",
+      "gpu": null,
+      "live_records": 23970,
+      "live_successful_update_records": 23966,
+      "live_skips": 4,
+      "skip_positions": [
+        10860,
+        15251,
+        19357,
+        21601
+      ],
+      "skip_evidence": [
+        {
+          "event": {
+            "attempt": 10860,
+            "lr": 6.224557231925628e-06,
+            "loss": 0.008036842569708824,
+            "gradient_norm": null,
+            "gradient_finite": false,
+            "scale_before": 4096.0,
+            "scale_after": 2048.0,
+            "success": false,
+            "skip": true,
+            "epoch": 14
+          },
+          "next_success": {
+            "attempt": 10861,
+            "lr": 6.223926877355279e-06,
+            "loss": 0.002392565831542015,
+            "gradient_norm": 44.15621551511275,
+            "gradient_finite": true,
+            "scale_before": 2048.0,
+            "scale_after": 2048.0,
+            "success": true,
+            "skip": false,
+            "epoch": 14
+          },
+          "next_event_status": "SUCCESS"
+        },
+        {
+          "event": {
+            "attempt": 15251,
+            "lr": 3.44967233055741e-06,
+            "loss": 0.013607763685286045,
+            "gradient_norm": null,
+            "gradient_finite": false,
+            "scale_before": 8192.0,
+            "scale_after": 4096.0,
+            "success": false,
+            "skip": true,
+            "epoch": 20
+          },
+          "next_success": {
+            "attempt": 15252,
+            "lr": 3.4490763526262694e-06,
+            "loss": 3.4812837839126587e-06,
+            "gradient_norm": 0.00018459398204205262,
+            "gradient_finite": true,
+            "scale_before": 4096.0,
+            "scale_after": 4096.0,
+            "success": true,
+            "skip": false,
+            "epoch": 20
+          },
+          "next_event_status": "SUCCESS"
+        },
+        {
+          "event": {
+            "attempt": 19357,
+            "lr": 1.3988580387803347e-06,
+            "loss": 0.026445060037076473,
+            "gradient_norm": null,
+            "gradient_finite": false,
+            "scale_before": 16384.0,
+            "scale_after": 8192.0,
+            "success": false,
+            "skip": true,
+            "epoch": 25
+          },
+          "next_success": {
+            "attempt": 19358,
+            "lr": 1.3984810688865485e-06,
+            "loss": 5.8105215430259705e-06,
+            "gradient_norm": 0.009803166093739771,
+            "gradient_finite": true,
+            "scale_before": 8192.0,
+            "scale_after": 8192.0,
+            "success": true,
+            "skip": false,
+            "epoch": 25
+          },
+          "next_event_status": "SUCCESS"
+        },
+        {
+          "event": {
+            "attempt": 21601,
+            "lr": 7.427395670184163e-07,
+            "loss": 0.0040909238159656525,
+            "gradient_norm": null,
+            "gradient_finite": false,
+            "scale_before": 16384.0,
+            "scale_after": 8192.0,
+            "success": false,
+            "skip": true,
+            "epoch": 28
+          },
+          "next_success": {
+            "attempt": 21602,
+            "lr": 7.425363561984654e-07,
+            "loss": 1.9883736968040466e-06,
+            "gradient_norm": 0.0021587447397970996,
+            "gradient_finite": true,
+            "scale_before": 8192.0,
+            "scale_after": 8192.0,
+            "success": true,
+            "skip": false,
+            "epoch": 28
+          },
+          "next_event_status": "SUCCESS"
+        }
+      ],
+      "max_consecutive_skips": 1,
+      "previous_live_skips": 4,
+      "new_live_skips_since_previous_cutoff": 0,
+      "baseline_scope": "Prior1715live numeric receipt",
+      "pinned_checkpoint_inspection_status": "PASS",
+      "pinned_checkpoint_epoch": 30,
+      "pinned_checkpoint_attempts": 23970,
+      "pinned_checkpoint_success": 23966,
+      "pinned_checkpoint_skips": 4,
+      "current_history_epoch_metadata_only": 30,
+      "latest_live_event": {
+        "attempt": 23969,
+        "lr": 5.000000000000001e-07,
+        "loss": 4.5355409383773804e-07,
+        "gradient_norm": 4.401187603761735e-05,
+        "gradient_finite": true,
+        "scale_before": 16384.0,
+        "scale_after": 16384.0,
+        "success": true,
+        "skip": false,
+        "epoch": 30
+      },
+      "logfiles": [
+        {
+          "name": "epoch_01_updates.jsonl",
+          "observed_bytes": 180006,
+          "records": 799
+        },
+        {
+          "name": "epoch_02_updates.jsonl",
+          "observed_bytes": 181023,
+          "records": 799
+        },
+        {
+          "name": "epoch_03_updates.jsonl",
+          "observed_bytes": 181796,
+          "records": 799
+        },
+        {
+          "name": "epoch_04_updates.jsonl",
+          "observed_bytes": 182118,
+          "records": 799
+        },
+        {
+          "name": "epoch_05_updates.jsonl",
+          "observed_bytes": 182472,
+          "records": 799
+        },
+        {
+          "name": "epoch_06_updates.jsonl",
+          "observed_bytes": 182523,
+          "records": 799
+        },
+        {
+          "name": "epoch_07_updates.jsonl",
+          "observed_bytes": 182762,
+          "records": 799
+        },
+        {
+          "name": "epoch_08_updates.jsonl",
+          "observed_bytes": 183755,
+          "records": 799
+        },
+        {
+          "name": "epoch_09_updates.jsonl",
+          "observed_bytes": 184818,
+          "records": 799
+        },
+        {
+          "name": "epoch_10_updates.jsonl",
+          "observed_bytes": 185663,
+          "records": 799
+        },
+        {
+          "name": "epoch_11_updates.jsonl",
+          "observed_bytes": 186001,
+          "records": 799
+        },
+        {
+          "name": "epoch_12_updates.jsonl",
+          "observed_bytes": 186147,
+          "records": 799
+        },
+        {
+          "name": "epoch_13_updates.jsonl",
+          "observed_bytes": 186724,
+          "records": 799
+        },
+        {
+          "name": "epoch_14_updates.jsonl",
+          "observed_bytes": 187411,
+          "records": 799
+        },
+        {
+          "name": "epoch_15_updates.jsonl",
+          "observed_bytes": 187393,
+          "records": 799
+        },
+        {
+          "name": "epoch_16_updates.jsonl",
+          "observed_bytes": 187516,
+          "records": 799
+        },
+        {
+          "name": "epoch_17_updates.jsonl",
+          "observed_bytes": 187686,
+          "records": 799
+        },
+        {
+          "name": "epoch_18_updates.jsonl",
+          "observed_bytes": 187942,
+          "records": 799
+        },
+        {
+          "name": "epoch_19_updates.jsonl",
+          "observed_bytes": 188285,
+          "records": 799
+        },
+        {
+          "name": "epoch_20_updates.jsonl",
+          "observed_bytes": 188512,
+          "records": 799
+        },
+        {
+          "name": "epoch_21_updates.jsonl",
+          "observed_bytes": 188723,
+          "records": 799
+        },
+        {
+          "name": "epoch_22_updates.jsonl",
+          "observed_bytes": 188722,
+          "records": 799
+        },
+        {
+          "name": "epoch_23_updates.jsonl",
+          "observed_bytes": 189223,
+          "records": 799
+        },
+        {
+          "name": "epoch_24_updates.jsonl",
+          "observed_bytes": 189248,
+          "records": 799
+        },
+        {
+          "name": "epoch_25_updates.jsonl",
+          "observed_bytes": 189688,
+          "records": 799
+        },
+        {
+          "name": "epoch_26_updates.jsonl",
+          "observed_bytes": 189297,
+          "records": 799
+        },
+        {
+          "name": "epoch_27_updates.jsonl",
+          "observed_bytes": 189117,
+          "records": 799
+        },
+        {
+          "name": "epoch_28_updates.jsonl",
+          "observed_bytes": 188697,
+          "records": 799
+        },
+        {
+          "name": "epoch_29_updates.jsonl",
+          "observed_bytes": 188685,
+          "records": 799
+        },
+        {
+          "name": "epoch_30_updates.jsonl",
+          "observed_bytes": 189685,
+          "records": 799
+        }
+      ],
+      "trailing_partial_lines_ignored": 0,
+      "recent3epoch_mean_seconds": 520.4621373017629,
+      "current_committed_history_attempts": 23970,
+      "current_committed_history_success": 23966,
+      "current_committed_history_skips": 4,
+      "latest_two_committed_array_hashes": [
+        {
+          "epoch": 29,
+          "kind": "samples",
+          "sha256": "993abbb6719e3a38687ceb9f9b0c983140551457f3089f290c646fe3315d64f7"
+        },
+        {
+          "epoch": 29,
+          "kind": "augmentations",
+          "sha256": "b0d8cbf3e94ff4c9cdbea8ae24deb889013fd9f7e4d205863cb13171e2a69906"
+        },
+        {
+          "epoch": 30,
+          "kind": "samples",
+          "sha256": "66a37411d0430234f7ac46f8d572c64555ef44e03d9ec2903536acaef4812715"
+        },
+        {
+          "epoch": 30,
+          "kind": "augmentations",
+          "sha256": "8be0e4c0b34e3c1d137eb70cc18c304a9cb58f0d4e41fa726e83ceca3449606f"
+        }
+      ],
+      "draw_normalized_inputs_per_second": 196.5022864683486
+    },
+    {
+      "run_id": "D_dev_dinov2_vit_b14_lr1e-05_seed1007_e30",
+      "status": "COMPLETE",
+      "observed_utc": "2026-10-23T18:02:32.690488+00:00",
+      "gpu": null,
+      "live_records": 23970,
+      "live_successful_update_records": 23968,
+      "live_skips": 2,
+      "skip_positions": [
+        17450,
+        19979
+      ],
+      "skip_evidence": [
+        {
+          "event": {
+            "attempt": 17450,
+            "lr": 2.237845586174999e-06,
+            "loss": 0.013825180940330029,
+            "gradient_norm": null,
+            "gradient_finite": false,
+            "scale_before": 32768.0,
+            "scale_after": 16384.0,
+            "success": false,
+            "skip": true,
+            "epoch": 22
+          },
+          "next_success": {
+            "attempt": 17451,
+            "lr": 2.2373476239236786e-06,
+            "loss": 1.003313809633255e-05,
+            "gradient_norm": 0.010570053514689402,
+            "gradient_finite": true,
+            "scale_before": 16384.0,
+            "scale_after": 16384.0,
+            "success": true,
+            "skip": false,
+            "epoch": 22
+          },
+          "next_event_status": "SUCCESS"
+        },
+        {
+          "event": {
+            "attempt": 19979,
+            "lr": 1.1783263295204748e-06,
+            "loss": 0.015839753672480583,
+            "gradient_norm": null,
+            "gradient_finite": false,
+            "scale_before": 32768.0,
+            "scale_after": 16384.0,
+            "success": false,
+            "skip": true,
+            "epoch": 26
+          },
+          "next_success": {
+            "attempt": 19980,
+            "lr": 1.177994687418118e-06,
+            "loss": 6.034970283508301e-07,
+            "gradient_norm": 0.00025119989565253415,
+            "gradient_finite": true,
+            "scale_before": 16384.0,
+            "scale_after": 16384.0,
+            "success": true,
+            "skip": false,
+            "epoch": 26
+          },
+          "next_event_status": "SUCCESS"
+        }
+      ],
+      "max_consecutive_skips": 1,
+      "previous_live_skips": 2,
+      "new_live_skips_since_previous_cutoff": 0,
+      "baseline_scope": "Prior1715live numeric receipt",
+      "pinned_checkpoint_inspection_status": "PASS",
+      "pinned_checkpoint_epoch": 30,
+      "pinned_checkpoint_attempts": 23970,
+      "pinned_checkpoint_success": 23968,
+      "pinned_checkpoint_skips": 2,
+      "current_history_epoch_metadata_only": 30,
+      "latest_live_event": {
+        "attempt": 23969,
+        "lr": 5.000000000000001e-07,
+        "loss": 6.407499313354492e-07,
+        "gradient_norm": 0.00026529216122864164,
+        "gradient_finite": true,
+        "scale_before": 32768.0,
+        "scale_after": 32768.0,
+        "success": true,
+        "skip": false,
+        "epoch": 30
+      },
+      "logfiles": [
+        {
+          "name": "epoch_01_updates.jsonl",
+          "observed_bytes": 179882,
+          "records": 799
+        },
+        {
+          "name": "epoch_02_updates.jsonl",
+          "observed_bytes": 180917,
+          "records": 799
+        },
+        {
+          "name": "epoch_03_updates.jsonl",
+          "observed_bytes": 181623,
+          "records": 799
+        },
+        {
+          "name": "epoch_04_updates.jsonl",
+          "observed_bytes": 181756,
+          "records": 799
+        },
+        {
+          "name": "epoch_05_updates.jsonl",
+          "observed_bytes": 181946,
+          "records": 799
+        },
+        {
+          "name": "epoch_06_updates.jsonl",
+          "observed_bytes": 182394,
+          "records": 799
+        },
+        {
+          "name": "epoch_07_updates.jsonl",
+          "observed_bytes": 182409,
+          "records": 799
+        },
+        {
+          "name": "epoch_08_updates.jsonl",
+          "observed_bytes": 183426,
+          "records": 799
+        },
+        {
+          "name": "epoch_09_updates.jsonl",
+          "observed_bytes": 184478,
+          "records": 799
+        },
+        {
+          "name": "epoch_10_updates.jsonl",
+          "observed_bytes": 185359,
+          "records": 799
+        },
+        {
+          "name": "epoch_11_updates.jsonl",
+          "observed_bytes": 185796,
+          "records": 799
+        },
+        {
+          "name": "epoch_12_updates.jsonl",
+          "observed_bytes": 185818,
+          "records": 799
+        },
+        {
+          "name": "epoch_13_updates.jsonl",
+          "observed_bytes": 186645,
+          "records": 799
+        },
+        {
+          "name": "epoch_14_updates.jsonl",
+          "observed_bytes": 187116,
+          "records": 799
+        },
+        {
+          "name": "epoch_15_updates.jsonl",
+          "observed_bytes": 187063,
+          "records": 799
+        },
+        {
+          "name": "epoch_16_updates.jsonl",
+          "observed_bytes": 187532,
+          "records": 799
+        },
+        {
+          "name": "epoch_17_updates.jsonl",
+          "observed_bytes": 187441,
+          "records": 799
+        },
+        {
+          "name": "epoch_18_updates.jsonl",
+          "observed_bytes": 188519,
+          "records": 799
+        },
+        {
+          "name": "epoch_19_updates.jsonl",
+          "observed_bytes": 189796,
+          "records": 799
+        },
+        {
+          "name": "epoch_20_updates.jsonl",
+          "observed_bytes": 190156,
+          "records": 799
+        },
+        {
+          "name": "epoch_21_updates.jsonl",
+          "observed_bytes": 190294,
+          "records": 799
+        },
+        {
+          "name": "epoch_22_updates.jsonl",
+          "observed_bytes": 190209,
+          "records": 799
+        },
+        {
+          "name": "epoch_23_updates.jsonl",
+          "observed_bytes": 190620,
+          "records": 799
+        },
+        {
+          "name": "epoch_24_updates.jsonl",
+          "observed_bytes": 190906,
+          "records": 799
+        },
+        {
+          "name": "epoch_25_updates.jsonl",
+          "observed_bytes": 190987,
+          "records": 799
+        },
+        {
+          "name": "epoch_26_updates.jsonl",
+          "observed_bytes": 190866,
+          "records": 799
+        },
+        {
+          "name": "epoch_27_updates.jsonl",
+          "observed_bytes": 190382,
+          "records": 799
+        },
+        {
+          "name": "epoch_28_updates.jsonl",
+          "observed_bytes": 190382,
+          "records": 799
+        },
+        {
+          "name": "epoch_29_updates.jsonl",
+          "observed_bytes": 190548,
+          "records": 799
+        },
+        {
+          "name": "epoch_30_updates.jsonl",
+          "observed_bytes": 190500,
+          "records": 799
+        }
+      ],
+      "trailing_partial_lines_ignored": 0,
+      "recent3epoch_mean_seconds": 657.3463926315308,
+      "current_committed_history_attempts": 23970,
+      "current_committed_history_success": 23968,
+      "current_committed_history_skips": 2,
+      "latest_two_committed_array_hashes": [
+        {
+          "epoch": 29,
+          "kind": "samples",
+          "sha256": "426a16d6039516774e7dc4dbbad1c4a86dd7bd8aa5711712d6b450aba8dfce4e"
+        },
+        {
+          "epoch": 29,
+          "kind": "augmentations",
+          "sha256": "be7503201b95a5389bbb0fa442e93496f3c86dd1b1b3761a0f71494823cfe35f"
+        },
+        {
+          "epoch": 30,
+          "kind": "samples",
+          "sha256": "2cb080142ca0e71553b5835a5557286ade668029eff75d634e32e9d52363c1c3"
+        },
+        {
+          "epoch": 30,
+          "kind": "augmentations",
+          "sha256": "2300aa4e3ec924bad08dcacfca2774625e627648b63d95eff6375725f66c7e56"
+        }
+      ],
+      "draw_normalized_inputs_per_second": 155.5831159133288
+    },
+    {
+      "run_id": "D_dev_dinov2_vit_b14_lr1e-05_seed1042_e30",
+      "status": "COMPLETE",
+      "observed_utc": "2026-10-23T18:02:32.819238+00:00",
+      "gpu": null,
+      "live_records": 23970,
+      "live_successful_update_records": 23967,
+      "live_skips": 3,
+      "skip_positions": [
+        16851,
+        19231,
+        21371
+      ],
+      "skip_evidence": [
+        {
+          "event": {
+            "attempt": 16851,
+            "lr": 2.545742825140501e-06,
+            "loss": 0.0724395839497447,
+            "gradient_norm": null,
+            "gradient_finite": false,
+            "scale_before": 32768.0,
+            "scale_after": 16384.0,
+            "success": false,
+            "skip": true,
+            "epoch": 22
+          },
+          "next_success": {
+            "attempt": 16852,
+            "lr": 2.545213367582388e-06,
+            "loss": 4.60352748632431e-05,
+            "gradient_norm": 0.058131604457757585,
+            "gradient_finite": true,
+            "scale_before": 16384.0,
+            "scale_after": 16384.0,
+            "success": true,
+            "skip": false,
+            "epoch": 22
+          },
+          "next_event_status": "SUCCESS"
+        },
+        {
+          "event": {
+            "attempt": 19231,
+            "lr": 1.4469203970933346e-06,
+            "loss": 0.008499630726873875,
+            "gradient_norm": null,
+            "gradient_finite": false,
+            "scale_before": 32768.0,
+            "scale_after": 16384.0,
+            "success": false,
+            "skip": true,
+            "epoch": 25
+          },
+          "next_success": {
+            "attempt": 19232,
+            "lr": 1.4465345613274728e-06,
+            "loss": 8.363276720046997e-07,
+            "gradient_norm": 0.0004470852048697607,
+            "gradient_finite": true,
+            "scale_before": 16384.0,
+            "scale_after": 16384.0,
+            "success": true,
+            "skip": false,
+            "epoch": 25
+          },
+          "next_event_status": "SUCCESS"
+        },
+        {
+          "event": {
+            "attempt": 21371,
+            "lr": 7.916715551459978e-07,
+            "loss": 0.009910852648317814,
+            "gradient_norm": null,
+            "gradient_finite": false,
+            "scale_before": 32768.0,
+            "scale_after": 16384.0,
+            "success": false,
+            "skip": true,
+            "epoch": 27
+          },
+          "next_success": {
+            "attempt": 21372,
+            "lr": 7.914493873159836e-07,
+            "loss": 4.890374839305878e-06,
+            "gradient_norm": 0.009409291019854889,
+            "gradient_finite": true,
+            "scale_before": 16384.0,
+            "scale_after": 16384.0,
+            "success": true,
+            "skip": false,
+            "epoch": 27
+          },
+          "next_event_status": "SUCCESS"
+        }
+      ],
+      "max_consecutive_skips": 1,
+      "previous_live_skips": 3,
+      "new_live_skips_since_previous_cutoff": 0,
+      "baseline_scope": "Prior1715live numeric receipt",
+      "pinned_checkpoint_inspection_status": "PASS",
+      "pinned_checkpoint_epoch": 30,
+      "pinned_checkpoint_attempts": 23970,
+      "pinned_checkpoint_success": 23967,
+      "pinned_checkpoint_skips": 3,
+      "current_history_epoch_metadata_only": 30,
+      "latest_live_event": {
+        "attempt": 23969,
+        "lr": 5.000000000000001e-07,
+        "loss": 1.1641532182693481e-07,
+        "gradient_norm": 0.00011319688655304862,
+        "gradient_finite": true,
+        "scale_before": 32768.0,
+        "scale_after": 32768.0,
+        "success": true,
+        "skip": false,
+        "epoch": 30
+      },
+      "logfiles": [
+        {
+          "name": "epoch_01_updates.jsonl",
+          "observed_bytes": 179954,
+          "records": 799
+        },
+        {
+          "name": "epoch_02_updates.jsonl",
+          "observed_bytes": 180924,
+          "records": 799
+        },
+        {
+          "name": "epoch_03_updates.jsonl",
+          "observed_bytes": 181516,
+          "records": 799
+        },
+        {
+          "name": "epoch_04_updates.jsonl",
+          "observed_bytes": 181818,
+          "records": 799
+        },
+        {
+          "name": "epoch_05_updates.jsonl",
+          "observed_bytes": 182106,
+          "records": 799
+        },
+        {
+          "name": "epoch_06_updates.jsonl",
+          "observed_bytes": 182261,
+          "records": 799
+        },
+        {
+          "name": "epoch_07_updates.jsonl",
+          "observed_bytes": 182602,
+          "records": 799
+        },
+        {
+          "name": "epoch_08_updates.jsonl",
+          "observed_bytes": 183520,
+          "records": 799
+        },
+        {
+          "name": "epoch_09_updates.jsonl",
+          "observed_bytes": 184307,
+          "records": 799
+        },
+        {
+          "name": "epoch_10_updates.jsonl",
+          "observed_bytes": 185388,
+          "records": 799
+        },
+        {
+          "name": "epoch_11_updates.jsonl",
+          "observed_bytes": 185603,
+          "records": 799
+        },
+        {
+          "name": "epoch_12_updates.jsonl",
+          "observed_bytes": 185964,
+          "records": 799
+        },
+        {
+          "name": "epoch_13_updates.jsonl",
+          "observed_bytes": 186506,
+          "records": 799
+        },
+        {
+          "name": "epoch_14_updates.jsonl",
+          "observed_bytes": 187241,
+          "records": 799
+        },
+        {
+          "name": "epoch_15_updates.jsonl",
+          "observed_bytes": 187237,
+          "records": 799
+        },
+        {
+          "name": "epoch_16_updates.jsonl",
+          "observed_bytes": 187492,
+          "records": 799
+        },
+        {
+          "name": "epoch_17_updates.jsonl",
+          "observed_bytes": 187631,
+          "records": 799
+        },
+        {
+          "name": "epoch_18_updates.jsonl",
+          "observed_bytes": 188531,
+          "records": 799
+        },
+        {
+          "name": "epoch_19_updates.jsonl",
+          "observed_bytes": 189952,
+          "records": 799
+        },
+        {
+          "name": "epoch_20_updates.jsonl",
+          "observed_bytes": 189874,
+          "records": 799
+        },
+        {
+          "name": "epoch_21_updates.jsonl",
+          "observed_bytes": 190275,
+          "records": 799
+        },
+        {
+          "name": "epoch_22_updates.jsonl",
+          "observed_bytes": 190600,
+          "records": 799
+        },
+        {
+          "name": "epoch_23_updates.jsonl",
+          "observed_bytes": 190628,
+          "records": 799
+        },
+        {
+          "name": "epoch_24_updates.jsonl",
+          "observed_bytes": 190912,
+          "records": 799
+        },
+        {
+          "name": "epoch_25_updates.jsonl",
+          "observed_bytes": 190981,
+          "records": 799
+        },
+        {
+          "name": "epoch_26_updates.jsonl",
+          "observed_bytes": 190946,
+          "records": 799
+        },
+        {
+          "name": "epoch_27_updates.jsonl",
+          "observed_bytes": 190312,
+          "records": 799
+        },
+        {
+          "name": "epoch_28_updates.jsonl",
+          "observed_bytes": 190618,
+          "records": 799
+        },
+        {
+          "name": "epoch_29_updates.jsonl",
+          "observed_bytes": 190680,
+          "records": 799
+        },
+        {
+          "name": "epoch_30_updates.jsonl",
+          "observed_bytes": 190660,
+          "records": 799
+        }
+      ],
+      "trailing_partial_lines_ignored": 0,
+      "recent3epoch_mean_seconds": 639.8720679283142,
+      "current_committed_history_attempts": 23970,
+      "current_committed_history_success": 23967,
+      "current_committed_history_skips": 3,
+      "latest_two_committed_array_hashes": [
+        {
+          "epoch": 29,
+          "kind": "samples",
+          "sha256": "993abbb6719e3a38687ceb9f9b0c983140551457f3089f290c646fe3315d64f7"
+        },
+        {
+          "epoch": 29,
+          "kind": "augmentations",
+          "sha256": "b0d8cbf3e94ff4c9cdbea8ae24deb889013fd9f7e4d205863cb13171e2a69906"
+        },
+        {
+          "epoch": 30,
+          "kind": "samples",
+          "sha256": "66a37411d0430234f7ac46f8d572c64555ef44e03d9ec2903536acaef4812715"
+        },
+        {
+          "epoch": 30,
+          "kind": "augmentations",
+          "sha256": "8be0e4c0b34e3c1d137eb70cc18c304a9cb58f0d4e41fa726e83ceca3449606f"
+        }
+      ],
+      "draw_normalized_inputs_per_second": 159.83194942564313
+    },
+    {
+      "run_id": "D_dev_dinov2_vit_b14_lr3e-05_seed1007_e30",
+      "status": "RUNNING",
+      "observed_utc": "2026-10-23T18:02:32.932472+00:00",
+      "gpu": 0,
+      "live_records": 21573,
+      "live_successful_update_records": 21571,
+      "live_skips": 2,
+      "skip_positions": [
+        16375,
+        20685
+      ],
+      "skip_evidence": [
+        {
+          "event": {
+            "attempt": 16375,
+            "lr": 8.409695355272345e-06,
+            "loss": 0.019073070026934147,
+            "gradient_norm": null,
+            "gradient_finite": false,
+            "scale_before": 32768.0,
+            "scale_after": 16384.0,
+            "success": false,
+            "skip": true,
+            "epoch": 21
+          },
+          "next_success": {
+            "attempt": 16376,
+            "lr": 8.408039337558018e-06,
+            "loss": 0.00011260993778705597,
+            "gradient_norm": 0.12062888864751012,
+            "gradient_finite": true,
+            "scale_before": 16384.0,
+            "scale_after": 16384.0,
+            "success": true,
+            "skip": false,
+            "epoch": 21
+          },
+          "next_event_status": "SUCCESS"
+        },
+        {
+          "event": {
+            "attempt": 20685,
+            "lr": 2.889477023609522e-06,
+            "loss": 0.01831190288066864,
+            "gradient_norm": null,
+            "gradient_finite": false,
+            "scale_before": 65536.0,
+            "scale_after": 32768.0,
+            "success": false,
+            "skip": true,
+            "epoch": 26
+          },
+          "next_success": {
+            "attempt": 20686,
+            "lr": 2.888644959533685e-06,
+            "loss": 0.00022074393928050995,
+            "gradient_norm": 0.2983368234693485,
+            "gradient_finite": true,
+            "scale_before": 32768.0,
+            "scale_after": 32768.0,
+            "success": true,
+            "skip": false,
+            "epoch": 26
+          },
+          "next_event_status": "SUCCESS"
+        }
+      ],
+      "max_consecutive_skips": 1,
+      "previous_live_skips": 1,
+      "new_live_skips_since_previous_cutoff": 1,
+      "baseline_scope": "Prior1715live numeric receipt",
+      "pinned_checkpoint_inspection_status": "PASS",
+      "pinned_checkpoint_epoch": 26,
+      "pinned_checkpoint_attempts": 20774,
+      "pinned_checkpoint_success": 20772,
+      "pinned_checkpoint_skips": 2,
+      "current_history_epoch_metadata_only": 26,
+      "latest_live_event": {
+        "attempt": 21572,
+        "lr": 2.246006132878679e-06,
+        "loss": 2.6775524020195007e-06,
+        "gradient_norm": 0.00047687670412702166,
+        "gradient_finite": true,
+        "scale_before": 32768.0,
+        "scale_after": 32768.0,
+        "success": true,
+        "skip": false,
+        "epoch": 27
+      },
+      "logfiles": [
+        {
+          "name": "epoch_01_updates.jsonl",
+          "observed_bytes": 180186,
+          "records": 799
+        },
+        {
+          "name": "epoch_02_updates.jsonl",
+          "observed_bytes": 181317,
+          "records": 799
+        },
+        {
+          "name": "epoch_03_updates.jsonl",
+          "observed_bytes": 181702,
+          "records": 799
+        },
+        {
+          "name": "epoch_04_updates.jsonl",
+          "observed_bytes": 181740,
+          "records": 799
+        },
+        {
+          "name": "epoch_05_updates.jsonl",
+          "observed_bytes": 181871,
+          "records": 799
+        },
+        {
+          "name": "epoch_06_updates.jsonl",
+          "observed_bytes": 182015,
+          "records": 799
+        },
+        {
+          "name": "epoch_07_updates.jsonl",
+          "observed_bytes": 182076,
+          "records": 799
+        },
+        {
+          "name": "epoch_08_updates.jsonl",
+          "observed_bytes": 182996,
+          "records": 799
+        },
+        {
+          "name": "epoch_09_updates.jsonl",
+          "observed_bytes": 183892,
+          "records": 799
+        },
+        {
+          "name": "epoch_10_updates.jsonl",
+          "observed_bytes": 184942,
+          "records": 799
+        },
+        {
+          "name": "epoch_11_updates.jsonl",
+          "observed_bytes": 185144,
+          "records": 799
+        },
+        {
+          "name": "epoch_12_updates.jsonl",
+          "observed_bytes": 185449,
+          "records": 799
+        },
+        {
+          "name": "epoch_13_updates.jsonl",
+          "observed_bytes": 185847,
+          "records": 799
+        },
+        {
+          "name": "epoch_14_updates.jsonl",
+          "observed_bytes": 186558,
+          "records": 799
+        },
+        {
+          "name": "epoch_15_updates.jsonl",
+          "observed_bytes": 186565,
+          "records": 799
+        },
+        {
+          "name": "epoch_16_updates.jsonl",
+          "observed_bytes": 187001,
+          "records": 799
+        },
+        {
+          "name": "epoch_17_updates.jsonl",
+          "observed_bytes": 187328,
+          "records": 799
+        },
+        {
+          "name": "epoch_18_updates.jsonl",
+          "observed_bytes": 188368,
+          "records": 799
+        },
+        {
+          "name": "epoch_19_updates.jsonl",
+          "observed_bytes": 189373,
+          "records": 799
+        },
+        {
+          "name": "epoch_20_updates.jsonl",
+          "observed_bytes": 189169,
+          "records": 799
+        },
+        {
+          "name": "epoch_21_updates.jsonl",
+          "observed_bytes": 188894,
+          "records": 799
+        },
+        {
+          "name": "epoch_22_updates.jsonl",
+          "observed_bytes": 189395,
+          "records": 799
+        },
+        {
+          "name": "epoch_23_updates.jsonl",
+          "observed_bytes": 189551,
+          "records": 799
+        },
+        {
+          "name": "epoch_24_updates.jsonl",
+          "observed_bytes": 189794,
+          "records": 799
+        },
+        {
+          "name": "epoch_25_updates.jsonl",
+          "observed_bytes": 190204,
+          "records": 799
+        },
+        {
+          "name": "epoch_26_updates.jsonl",
+          "observed_bytes": 190481,
+          "records": 799
+        },
+        {
+          "name": "epoch_27_updates.jsonl",
+          "observed_bytes": 190754,
+          "records": 799
+        }
+      ],
+      "trailing_partial_lines_ignored": 0,
+      "recent3epoch_mean_seconds": 633.0803529421488,
+      "current_committed_history_attempts": 20774,
+      "current_committed_history_success": 20772,
+      "current_committed_history_skips": 2,
+      "latest_two_committed_array_hashes": [
+        {
+          "epoch": 25,
+          "kind": "samples",
+          "sha256": "b30f790d7b96756d09e8cc07111ebe6188dffd7dae14aa9b52f5c5b3b3298327"
+        },
+        {
+          "epoch": 25,
+          "kind": "augmentations",
+          "sha256": "38f7123caf2636b90a1c098d1eb9387ab30bcacb426dfba1ef25306fa3628689"
+        },
+        {
+          "epoch": 26,
+          "kind": "samples",
+          "sha256": "ec70c5e5a053198d3258044c48781749ff72a3676ce52cc9488de59b61e5f72d"
+        },
+        {
+          "epoch": 26,
+          "kind": "augmentations",
+          "sha256": "b0b628a86bee50a22d13a057b4518e35288d91f2004799aa7c6a3e71ceb054c7"
+        }
+      ],
+      "draw_normalized_inputs_per_second": 161.54663389047815
+    },
+    {
+      "run_id": "D_dev_dinov2_vit_b14_lr3e-05_seed1042_e30",
+      "status": "RUNNING",
+      "observed_utc": "2026-10-23T18:02:33.044014+00:00",
+      "gpu": 1,
+      "live_records": 20794,
+      "live_successful_update_records": 20792,
+      "live_skips": 2,
+      "skip_positions": [
+        16549,
+        19435
+      ],
+      "skip_evidence": [
+        {
+          "event": {
+            "attempt": 16549,
+            "lr": 8.123605988731417e-06,
+            "loss": 0.06833925098180771,
+            "gradient_norm": null,
+            "gradient_finite": false,
+            "scale_before": 32768.0,
+            "scale_after": 16384.0,
+            "success": false,
+            "skip": true,
+            "epoch": 21
+          },
+          "next_success": {
+            "attempt": 16550,
+            "lr": 8.121973913037335e-06,
+            "loss": 1.1819414794445038e-05,
+            "gradient_norm": 0.0013386366016358063,
+            "gradient_finite": true,
+            "scale_before": 16384.0,
+            "scale_after": 16384.0,
+            "success": true,
+            "skip": false,
+            "epoch": 21
+          },
+          "next_event_status": "SUCCESS"
+        },
+        {
+          "event": {
+            "attempt": 19435,
+            "lr": 4.109002642448444e-06,
+            "loss": 0.005778301507234573,
+            "gradient_norm": null,
+            "gradient_finite": false,
+            "scale_before": 32768.0,
+            "scale_after": 16384.0,
+            "success": false,
+            "skip": true,
+            "epoch": 25
+          },
+          "next_success": {
+            "attempt": 19436,
+            "lr": 4.107888363865376e-06,
+            "loss": 4.306808114051819e-05,
+            "gradient_norm": 0.05268233406582462,
+            "gradient_finite": true,
+            "scale_before": 16384.0,
+            "scale_after": 16384.0,
+            "success": true,
+            "skip": false,
+            "epoch": 25
+          },
+          "next_event_status": "SUCCESS"
+        }
+      ],
+      "max_consecutive_skips": 1,
+      "previous_live_skips": 1,
+      "new_live_skips_since_previous_cutoff": 1,
+      "baseline_scope": "Prior1715live numeric receipt",
+      "pinned_checkpoint_inspection_status": "PASS",
+      "pinned_checkpoint_epoch": 25,
+      "pinned_checkpoint_attempts": 19975,
+      "pinned_checkpoint_success": 19973,
+      "pinned_checkpoint_skips": 2,
+      "current_history_epoch_metadata_only": 26,
+      "latest_live_event": {
+        "attempt": 20793,
+        "lr": 2.800983394806016e-06,
+        "loss": 2.964399755001068e-06,
+        "gradient_norm": 0.0017767165668683875,
+        "gradient_finite": true,
+        "scale_before": 16384.0,
+        "scale_after": 16384.0,
+        "success": true,
+        "skip": false,
+        "epoch": 27
+      },
+      "logfiles": [
+        {
+          "name": "epoch_01_updates.jsonl",
+          "observed_bytes": 180187,
+          "records": 799
+        },
+        {
+          "name": "epoch_02_updates.jsonl",
+          "observed_bytes": 181303,
+          "records": 799
+        },
+        {
+          "name": "epoch_03_updates.jsonl",
+          "observed_bytes": 181674,
+          "records": 799
+        },
+        {
+          "name": "epoch_04_updates.jsonl",
+          "observed_bytes": 181792,
+          "records": 799
+        },
+        {
+          "name": "epoch_05_updates.jsonl",
+          "observed_bytes": 181880,
+          "records": 799
+        },
+        {
+          "name": "epoch_06_updates.jsonl",
+          "observed_bytes": 181971,
+          "records": 799
+        },
+        {
+          "name": "epoch_07_updates.jsonl",
+          "observed_bytes": 182050,
+          "records": 799
+        },
+        {
+          "name": "epoch_08_updates.jsonl",
+          "observed_bytes": 183079,
+          "records": 799
+        },
+        {
+          "name": "epoch_09_updates.jsonl",
+          "observed_bytes": 183939,
+          "records": 799
+        },
+        {
+          "name": "epoch_10_updates.jsonl",
+          "observed_bytes": 185001,
+          "records": 799
+        },
+        {
+          "name": "epoch_11_updates.jsonl",
+          "observed_bytes": 185098,
+          "records": 799
+        },
+        {
+          "name": "epoch_12_updates.jsonl",
+          "observed_bytes": 185274,
+          "records": 799
+        },
+        {
+          "name": "epoch_13_updates.jsonl",
+          "observed_bytes": 185961,
+          "records": 799
+        },
+        {
+          "name": "epoch_14_updates.jsonl",
+          "observed_bytes": 186526,
+          "records": 799
+        },
+        {
+          "name": "epoch_15_updates.jsonl",
+          "observed_bytes": 186741,
+          "records": 799
+        },
+        {
+          "name": "epoch_16_updates.jsonl",
+          "observed_bytes": 186966,
+          "records": 799
+        },
+        {
+          "name": "epoch_17_updates.jsonl",
+          "observed_bytes": 187451,
+          "records": 799
+        },
+        {
+          "name": "epoch_18_updates.jsonl",
+          "observed_bytes": 188402,
+          "records": 799
+        },
+        {
+          "name": "epoch_19_updates.jsonl",
+          "observed_bytes": 189383,
+          "records": 799
+        },
+        {
+          "name": "epoch_20_updates.jsonl",
+          "observed_bytes": 188844,
+          "records": 799
+        },
+        {
+          "name": "epoch_21_updates.jsonl",
+          "observed_bytes": 189038,
+          "records": 799
+        },
+        {
+          "name": "epoch_22_updates.jsonl",
+          "observed_bytes": 189487,
+          "records": 799
+        },
+        {
+          "name": "epoch_23_updates.jsonl",
+          "observed_bytes": 189495,
+          "records": 799
+        },
+        {
+          "name": "epoch_24_updates.jsonl",
+          "observed_bytes": 189609,
+          "records": 799
+        },
+        {
+          "name": "epoch_25_updates.jsonl",
+          "observed_bytes": 190252,
+          "records": 799
+        },
+        {
+          "name": "epoch_26_updates.jsonl",
+          "observed_bytes": 190642,
+          "records": 799
+        },
+        {
+          "name": "epoch_27_updates.jsonl",
+          "observed_bytes": 4774,
+          "records": 20
+        }
+      ],
+      "trailing_partial_lines_ignored": 0,
+      "recent3epoch_mean_seconds": 636.7076961199442,
+      "current_committed_history_attempts": 20774,
+      "current_committed_history_success": 20772,
+      "current_committed_history_skips": 2,
+      "latest_two_committed_array_hashes": [
+        {
+          "epoch": 25,
+          "kind": "samples",
+          "sha256": "ca5d4839d535c4b7171369e6efbce2a808c6d7c805e6048a489b39ad881263b0"
+        },
+        {
+          "epoch": 25,
+          "kind": "augmentations",
+          "sha256": "e6dd1817cab50b6d66081fcf5d32571e7bac12c6c8dcbe7b2c4b86b5a6d4f0be"
+        },
+        {
+          "epoch": 26,
+          "kind": "samples",
+          "sha256": "6352193edbb4f9403197f7b45e5743ed866d9b1e255249deb1289f534aee472a"
+        },
+        {
+          "epoch": 26,
+          "kind": "augmentations",
+          "sha256": "1550a766582f8a5e96d52b6e63632c787967729543b6e8cc2d10b51ce2746c3b"
+        }
+      ],
+      "draw_normalized_inputs_per_second": 160.626297786628
+    },
+    {
+      "run_id": "D_dev_dinov2_vit_b14_lr5e-05_seed1007_e30",
+      "status": "RUNNING",
+      "observed_utc": "2026-10-23T18:02:33.131871+00:00",
+      "gpu": 2,
+      "live_records": 16408,
+      "live_successful_update_records": 16408,
+      "live_skips": 0,
+      "skip_positions": [],
+      "skip_evidence": [],
+      "max_consecutive_skips": 0,
+      "previous_live_skips": 0,
+      "new_live_skips_since_previous_cutoff": 0,
+      "baseline_scope": "Prior1715live numeric receipt",
+      "pinned_checkpoint_inspection_status": "PASS",
+      "pinned_checkpoint_epoch": 20,
+      "pinned_checkpoint_attempts": 15980,
+      "pinned_checkpoint_success": 15980,
+      "pinned_checkpoint_skips": 0,
+      "current_history_epoch_metadata_only": 20,
+      "latest_live_event": {
+        "attempt": 16407,
+        "lr": 1.3927949813173047e-05,
+        "loss": 0.00018510501831769943,
+        "gradient_norm": 0.2667508983293783,
+        "gradient_finite": true,
+        "scale_before": 32768.0,
+        "scale_after": 32768.0,
+        "success": true,
+        "skip": false,
+        "epoch": 21
+      },
+      "logfiles": [
+        {
+          "name": "epoch_01_updates.jsonl",
+          "observed_bytes": 180047,
+          "records": 799
+        },
+        {
+          "name": "epoch_02_updates.jsonl",
+          "observed_bytes": 180896,
+          "records": 799
+        },
+        {
+          "name": "epoch_03_updates.jsonl",
+          "observed_bytes": 181190,
+          "records": 799
+        },
+        {
+          "name": "epoch_04_updates.jsonl",
+          "observed_bytes": 181220,
+          "records": 799
+        },
+        {
+          "name": "epoch_05_updates.jsonl",
+          "observed_bytes": 181242,
+          "records": 799
+        },
+        {
+          "name": "epoch_06_updates.jsonl",
+          "observed_bytes": 181337,
+          "records": 799
+        },
+        {
+          "name": "epoch_07_updates.jsonl",
+          "observed_bytes": 181377,
+          "records": 799
+        },
+        {
+          "name": "epoch_08_updates.jsonl",
+          "observed_bytes": 182322,
+          "records": 799
+        },
+        {
+          "name": "epoch_09_updates.jsonl",
+          "observed_bytes": 183085,
+          "records": 799
+        },
+        {
+          "name": "epoch_10_updates.jsonl",
+          "observed_bytes": 183997,
+          "records": 799
+        },
+        {
+          "name": "epoch_11_updates.jsonl",
+          "observed_bytes": 184232,
+          "records": 799
+        },
+        {
+          "name": "epoch_12_updates.jsonl",
+          "observed_bytes": 184485,
+          "records": 799
+        },
+        {
+          "name": "epoch_13_updates.jsonl",
+          "observed_bytes": 184854,
+          "records": 799
+        },
+        {
+          "name": "epoch_14_updates.jsonl",
+          "observed_bytes": 185466,
+          "records": 799
+        },
+        {
+          "name": "epoch_15_updates.jsonl",
+          "observed_bytes": 186060,
+          "records": 799
+        },
+        {
+          "name": "epoch_16_updates.jsonl",
+          "observed_bytes": 186341,
+          "records": 799
+        },
+        {
+          "name": "epoch_17_updates.jsonl",
+          "observed_bytes": 186591,
+          "records": 799
+        },
+        {
+          "name": "epoch_18_updates.jsonl",
+          "observed_bytes": 187748,
+          "records": 799
+        },
+        {
+          "name": "epoch_19_updates.jsonl",
+          "observed_bytes": 188632,
+          "records": 799
+        },
+        {
+          "name": "epoch_20_updates.jsonl",
+          "observed_bytes": 189145,
+          "records": 799
+        },
+        {
+          "name": "epoch_21_updates.jsonl",
+          "observed_bytes": 101326,
+          "records": 428
+        }
+      ],
+      "trailing_partial_lines_ignored": 0,
+      "recent3epoch_mean_seconds": 641.9639875094095,
+      "current_committed_history_attempts": 15980,
+      "current_committed_history_success": 15980,
+      "current_committed_history_skips": 0,
+      "latest_two_committed_array_hashes": [
+        {
+          "epoch": 19,
+          "kind": "samples",
+          "sha256": "6c8626841bf9319aeb67062e9f6beeb547397048f1f2302d9b69551644abaf94"
+        },
+        {
+          "epoch": 19,
+          "kind": "augmentations",
+          "sha256": "441841a5b97c7d477e9810c7a1eb74cd473f48637b902af9a3b8d45deb198d5c"
+        },
+        {
+          "epoch": 20,
+          "kind": "samples",
+          "sha256": "d4d9b5af66183c15df70d7e3ccb697432f20594907273245a930f07a2381e292"
+        },
+        {
+          "epoch": 20,
+          "kind": "augmentations",
+          "sha256": "6936427bbedb8b299fdccfccddd8763d3a7b4f33c0185925f5b76413d2042472"
+        }
+      ],
+      "draw_normalized_inputs_per_second": 159.31111711854547
+    },
+    {
+      "run_id": "D_dev_dinov2_vit_b14_lr5e-05_seed1042_e30",
+      "status": "RUNNING",
+      "observed_utc": "2026-10-23T18:02:33.220587+00:00",
+      "gpu": 3,
+      "live_records": 16703,
+      "live_successful_update_records": 16703,
+      "live_skips": 0,
+      "skip_positions": [],
+      "skip_evidence": [],
+      "max_consecutive_skips": 0,
+      "previous_live_skips": 0,
+      "new_live_skips_since_previous_cutoff": 0,
+      "baseline_scope": "Prior1715live numeric receipt",
+      "pinned_checkpoint_inspection_status": "PASS",
+      "pinned_checkpoint_epoch": 20,
+      "pinned_checkpoint_attempts": 15980,
+      "pinned_checkpoint_success": 15980,
+      "pinned_checkpoint_skips": 0,
+      "current_history_epoch_metadata_only": 20,
+      "latest_live_event": {
+        "attempt": 16702,
+        "lr": 1.3125910959166023e-05,
+        "loss": 3.777630627155304e-05,
+        "gradient_norm": 0.02011499728799714,
+        "gradient_finite": true,
+        "scale_before": 32768.0,
+        "scale_after": 32768.0,
+        "success": true,
+        "skip": false,
+        "epoch": 21
+      },
+      "logfiles": [
+        {
+          "name": "epoch_01_updates.jsonl",
+          "observed_bytes": 180072,
+          "records": 799
+        },
+        {
+          "name": "epoch_02_updates.jsonl",
+          "observed_bytes": 180829,
+          "records": 799
+        },
+        {
+          "name": "epoch_03_updates.jsonl",
+          "observed_bytes": 181192,
+          "records": 799
+        },
+        {
+          "name": "epoch_04_updates.jsonl",
+          "observed_bytes": 181247,
+          "records": 799
+        },
+        {
+          "name": "epoch_05_updates.jsonl",
+          "observed_bytes": 181266,
+          "records": 799
+        },
+        {
+          "name": "epoch_06_updates.jsonl",
+          "observed_bytes": 181300,
+          "records": 799
+        },
+        {
+          "name": "epoch_07_updates.jsonl",
+          "observed_bytes": 181396,
+          "records": 799
+        },
+        {
+          "name": "epoch_08_updates.jsonl",
+          "observed_bytes": 182312,
+          "records": 799
+        },
+        {
+          "name": "epoch_09_updates.jsonl",
+          "observed_bytes": 183135,
+          "records": 799
+        },
+        {
+          "name": "epoch_10_updates.jsonl",
+          "observed_bytes": 184034,
+          "records": 799
+        },
+        {
+          "name": "epoch_11_updates.jsonl",
+          "observed_bytes": 184210,
+          "records": 799
+        },
+        {
+          "name": "epoch_12_updates.jsonl",
+          "observed_bytes": 184341,
+          "records": 799
+        },
+        {
+          "name": "epoch_13_updates.jsonl",
+          "observed_bytes": 184943,
+          "records": 799
+        },
+        {
+          "name": "epoch_14_updates.jsonl",
+          "observed_bytes": 185561,
+          "records": 799
+        },
+        {
+          "name": "epoch_15_updates.jsonl",
+          "observed_bytes": 186112,
+          "records": 799
+        },
+        {
+          "name": "epoch_16_updates.jsonl",
+          "observed_bytes": 186281,
+          "records": 799
+        },
+        {
+          "name": "epoch_17_updates.jsonl",
+          "observed_bytes": 186499,
+          "records": 799
+        },
+        {
+          "name": "epoch_18_updates.jsonl",
+          "observed_bytes": 187601,
+          "records": 799
+        },
+        {
+          "name": "epoch_19_updates.jsonl",
+          "observed_bytes": 188702,
+          "records": 799
+        },
+        {
+          "name": "epoch_20_updates.jsonl",
+          "observed_bytes": 189101,
+          "records": 799
+        },
+        {
+          "name": "epoch_21_updates.jsonl",
+          "observed_bytes": 171526,
+          "records": 723
+        }
+      ],
+      "trailing_partial_lines_ignored": 0,
+      "recent3epoch_mean_seconds": 629.900341351827,
+      "current_committed_history_attempts": 15980,
+      "current_committed_history_success": 15980,
+      "current_committed_history_skips": 0,
+      "latest_two_committed_array_hashes": [
+        {
+          "epoch": 19,
+          "kind": "samples",
+          "sha256": "c99db124f2d5a108af5c12722d92a0717432f1ed7a358b75b23c9f1090704d42"
+        },
+        {
+          "epoch": 19,
+          "kind": "augmentations",
+          "sha256": "fd294d5a8cdcb8d849074506ff5ac7eb92ad4653e0ca1b2193494b9540782b8e"
+        },
+        {
+          "epoch": 20,
+          "kind": "samples",
+          "sha256": "5fbfd0e1ed7fa05156cee06f4ff30386b03656425c09189b104230a6d4ecb767"
+        },
+        {
+          "epoch": 20,
+          "kind": "augmentations",
+          "sha256": "bf2869388ecd0e5688f04dbc03558f42372ec9a17954fc387b69bf6f8c2d7b57"
+        }
+      ],
+      "draw_normalized_inputs_per_second": 162.36219174054486
+    },
+    {
+      "run_id": "D_dev_efficientnet_b0_lr1e-04_seed1007_e30",
+      "status": "NOT_STARTED",
+      "live_records": null,
+      "live_skips": null
+    },
+    {
+      "run_id": "D_dev_efficientnet_b0_lr1e-04_seed1042_e30",
+      "status": "NOT_STARTED",
+      "live_records": null,
+      "live_skips": null
+    }
+  ],
+  "live_total_skips": 17,
+  "new_live_skips_since1715cutoff": 2,
+  "GPU_samples": [
+    {
+      "utc": "2026-10-23T18:02:16.990563+00:00",
+      "csv": "0, 93, 5414\n1, 0, 5414\n2, 89, 5414\n3, 82, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-23T18:02:19.117860+00:00",
+      "csv": "0, 93, 5414\n1, 0, 5414\n2, 85, 5414\n3, 83, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-23T18:02:21.264417+00:00",
+      "csv": "0, 89, 5414\n1, 88, 5414\n2, 90, 5414\n3, 75, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-23T18:02:23.411517+00:00",
+      "csv": "0, 94, 5414\n1, 79, 5414\n2, 90, 5414\n3, 82, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-23T18:02:25.528786+00:00",
+      "csv": "0, 93, 5414\n1, 83, 5414\n2, 84, 5414\n3, 83, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-23T18:02:27.660302+00:00",
+      "csv": "0, 91, 5414\n1, 83, 5414\n2, 90, 5414\n3, 79, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-23T18:02:29.815277+00:00",
+      "csv": "0, 93, 5414\n1, 74, 5414\n2, 85, 5414\n3, 81, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-23T18:02:31.947317+00:00",
+      "csv": "0, 93, 5414\n1, 70, 5414\n2, 84, 5414\n3, 84, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n"
+    }
+  ],
+  "H_progress": {
+    "GPU_used": false,
+    "ORT_threads_each": 2,
+    "completed_videos": 8431,
+    "data_frozen": false,
+    "elapsed_seconds": 22146.816841508262,
+    "eta_seconds": 0.0,
+    "geometry_freeze": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_geometry_frozen.json",
+    "geometry_protocol_sha256": "85a865f0e3343ecaf5b8c0174c8a3f602ec873deeccb03bd1826d617f2a7ae03",
+    "image_root": "/Dataset/deepfake_detection/derived/pipeline_reliability_v2_20261023/H",
+    "pid": 3915880,
+    "status": "AUDIT_COMPLETE_READY_FOR_H_DATA_FREEZE_REVIEW",
+    "total_videos": 8431,
+    "version_ineligible_video_counts": {
+      "A": 114,
+      "AB": 360,
+      "B": 114
+    },
+    "workers": 4
+  },
+  "capacity": {
+    "workspace_free_GiB": 427.73080825805664,
+    "Dataset_free_GiB": 2827.9958114624023
+  },
+  "protocol": "Keep fixed23970attempts per30epoch run; allisolatedskips retained; no补步/retrain or configurationchanges",
+  "H_freeze_created": false,
+  "experiment_process_restarted": false,
+  "automation_retried": false,
+  "nominal_window": "2026-10-23T18:00:00Z",
+  "CPU_busy_percent": 12.435795513463066,
+  "CPU_iowait_percent": 0.016591199751132005,
+  "retired_deep_process_CPU_cores_over_sample": null,
+  "retired_deep_process_IO_delta": null,
+  "D_complete": 4,
+  "D_active": 4,
+  "D_pending": 2,
+  "current_committed_history_attempts": 169388,
+  "current_committed_history_success": 169371,
+  "current_committed_history_skips": 17,
+  "current_full_tensor_inspection_performed": true,
+  "current_full_tensor_receipt": "reports/checkpoint_health_1800.json",
+  "H_fresh_audit_complete": true,
+  "H_fresh_audit_passed": true,
+  "H_fresh_audit": {
+    "artifact_integrity_receipt_sha256": "d5c8db8002a6a2d7cb1fda8130dcd2cd31e4a296601eda0590a1738e50b261ff",
+    "artifact_integrity_status": "PASSED",
+    "audit_schema": "FULL_CANDIDATE_GRAPH_INCLUDING_SOURCE_UNUSED_V2",
+    "candidate_manifest_sha256": "cb3e5af0b5a415cfdd62d2987519d19f6cc78e48ea79016d43fdaca5b9f96951",
+    "candidate_videos": 8431,
+    "content_source_audit_sha256": "78179fd35c457635f14767b1521422143a2920010a7fdc9c7ce61b8b8364a5e2",
+    "data_frozen": false,
+    "detector_calls": 0,
+    "elapsed_seconds": 5187.800972697325,
+    "existing_pngs_decoded": 469882,
+    "freeze_candidate_sha256": "6b8990a36c5c8dc3e9837a0866d0a92e646ec14964d309ad04342ac2d6790512",
+    "fresh_code_sha256": "161ac4e837463ff16e7916ca42eeb5d13acc44aab9bcc1c397025b9426ad9532",
+    "geometry_protocol_sha256": "85a865f0e3343ecaf5b8c0174c8a3f602ec873deeccb03bd1826d617f2a7ae03",
+    "processed_manifest_count": 8431,
+    "processed_paths_sha256": "4273508fcdcd84dbd0621ea80800688dd18bced85913593bfcb0df363f93c358",
+    "source_videos_decoded": 0,
+    "status": "AUDIT_COMPLETE_READY_FOR_H_DATA_FREEZE_REVIEW",
+    "tables": {
+      "AB/dev": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/data/H/AB/dev.parquet",
+        "rows": 4280,
+        "sha256": "dce5270caa914f81666212664367a275674ee7329009934a559a603942064810",
+        "videos": 535
+      },
+      "AB/train": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/data/H/AB/train.parquet",
+        "rows": 24424,
+        "sha256": "65053ccbd5cd2c4a3a11fe027a187400f032341fd58fda4c9488afe6f64d57cd",
+        "videos": 3053
+      },
+      "B/SOURCE_CAL": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/data/H/B/SOURCE_CAL.parquet",
+        "rows": 1120,
+        "sha256": "ec5b6b09eb23b954d2f03a2f3655566ef40934edb38177d135d3fa2bbbbb7fcf",
+        "videos": 140
+      },
+      "B/SOURCE_TEST": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/data/H/B/SOURCE_TEST.parquet",
+        "rows": 5600,
+        "sha256": "d578629220661cf274b442f8dd3a062ead67821f184d8e7a8c3dcd8ef8ee9326",
+        "videos": 700
+      },
+      "B/TARGET_TEST": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/data/H/B/TARGET_TEST.parquet",
+        "rows": 26560,
+        "sha256": "1c0308e13b774097187bdf771b28e5ad6d84aa21ca6b25e97bf857a7b27fe836",
+        "videos": 3320
+      },
+      "B/dev": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/data/H/B/dev.parquet",
+        "rows": 4280,
+        "sha256": "b2123f15ddfa445599f93e31cc56c7a8f52818d58a6c934ddce1f79d228a77dc",
+        "videos": 535
+      },
+      "B/train": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/data/H/B/train.parquet",
+        "rows": 24424,
+        "sha256": "24c26b34fdeb30457a0dd9589292b0c4c990dcefe2ffb1ac68823744b006d29c",
+        "videos": 3053
+      },
+      "common/AB/SOURCE_CAL": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/data/H/common/AB/SOURCE_CAL.parquet",
+        "rows": 1120,
+        "sha256": "d0264bfeabde5e3ae993e5f3563a8d47142bf00eb4e7f6aeb5833de05a524006",
+        "videos": 140
+      },
+      "common/AB/SOURCE_TEST": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/data/H/common/AB/SOURCE_TEST.parquet",
+        "rows": 5568,
+        "sha256": "2c770c2a43bda519c78442bd3b384a11e4debc3119e6d6563a244dbb133bae5e",
+        "videos": 696
+      },
+      "common/AB/TARGET_TEST": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/data/H/common/AB/TARGET_TEST.parquet",
+        "rows": 24720,
+        "sha256": "509407b56f7f5ad09b96c0398bc7814bca677f8710576714835c20e8e6502caa",
+        "videos": 3090
+      },
+      "common/B/SOURCE_CAL": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/data/H/common/B/SOURCE_CAL.parquet",
+        "rows": 1120,
+        "sha256": "ec5b6b09eb23b954d2f03a2f3655566ef40934edb38177d135d3fa2bbbbb7fcf",
+        "videos": 140
+      },
+      "common/B/SOURCE_TEST": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/data/H/common/B/SOURCE_TEST.parquet",
+        "rows": 5568,
+        "sha256": "ed896ebbdff0b01aa9fbfd818d8aaee74597fbbcb3d6eb6a81fcb66afca06dee",
+        "videos": 696
+      },
+      "common/B/TARGET_TEST": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/data/H/common/B/TARGET_TEST.parquet",
+        "rows": 24720,
+        "sha256": "75831dbf196cef20c43ba7cb76a985b8eafbaaf3f998a7438afbabc8200c7a2a",
+        "videos": 3090
+      }
+    }
+  },
+  "H_artifact_integrity": {
+    "artifact_inventory_sha256": "0cb552c93ed7ad763dea709ca41b7db8582a00c0fcbcfe9af986d7e23f671c2a",
+    "audit_schema": "FULL_CANDIDATE_GRAPH_INCLUDING_SOURCE_UNUSED_V2",
+    "candidate_videos": 8431,
+    "data_frozen": false,
+    "existing_pngs_decoded": 469882,
+    "fresh_code_sha256": "161ac4e837463ff16e7916ca42eeb5d13acc44aab9bcc1c397025b9426ad9532",
+    "metadata_manifest_inventory_sha256": "fd718820a53dc91fb43c60cab9d76866dd9b8668b3b33efb24f9e1f6ca4a5718",
+    "source_video_byte_hashes_verified": 8431,
+    "source_videos_decoded": 0,
+    "status": "PASSED",
+    "verified_files": 469882,
+    "verified_png_bytes": 76483825411
+  },
+  "H_fresh_audit_completion_utc": "2026-10-23T16:19:06.955422+00:00",
+  "H_fresh_audit_returncode": 0,
+  "H_deep_inspection": {
+    "pid": 200931,
+    "launch_utc": "2026-10-23T16:30:34.712639+00:00",
+    "status": "READY_FOR_INDEPENDENT_REVIEW",
+    "native_session_id_retired": 95551,
+    "ended_utc": "2026-10-23T17:56:13.541752+00:00",
+    "elapsed_seconds": 5138.829113,
+    "progress_percentage": null,
+    "progress_scope": "Deep inspection completed and current report/table/code bindings verified. Independent terminal review and freeze are separate subsequent stages.",
+    "does_not_freeze_or_train": true
+  },
+  "H_data_frozen": false,
+  "H_GPU_qualification_or_training_started": false,
+  "next_recommended_check_utc": "2026-10-23T18:45:00Z",
+  "scientific_results_complete": false,
+  "journal_manuscripts_complete": false
+}

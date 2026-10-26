@@ -1,0 +1,85 @@
+{
+  "schema": "H_LAST_PAIR_INDEPENDENT_AUDIT_FAILED_ATTEMPT_V1",
+  "utc": "2026-10-25T13:45:06.579045+00:00",
+  "status": "FAILED_CLOSED_AT_AUDITOR_ADMISSION_FIELD_SCHEMA_CHECK_NO_NUMERIC_ACCEPTANCE",
+  "attempt_count": 1,
+  "automatic_retries": 0,
+  "prepared_source_sha256": "f75bccc7db5554b3fef9f05353ab6f228906a926e76bdd7d5315c35675bf9738",
+  "launch": {
+    "status": "SINGLE_EXPLICITLY_AUTHORIZED_H_LAST_SEED42_RESULT_AUDIT_LAUNCHED",
+    "utc": "2026-10-25T13:44:11.691475+00:00",
+    "time_wrapper_pid": 750745,
+    "audit_pid": 750748,
+    "CPU_slot": 1,
+    "nonblocking_lifetime_flock_implemented_by_SHA_bound_entry": true,
+    "entry": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/h_pair_result_audit.py",
+    "entry_sha256": "f75bccc7db5554b3fef9f05353ab6f228906a926e76bdd7d5315c35675bf9738",
+    "terminal_sha256": "02d7f66612d2e683ba6b52fbfc7379a74cefa1d180b89b9549f7299ea583d831",
+    "log": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/H_LAST_clip_seed42_independent_audit_20261025T134411Z.log",
+    "time_v": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/H_LAST_clip_seed42_independent_audit_20261025T134411Z.time_v.log",
+    "output": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/H_LAST_clip_seed42_independent_audit.json",
+    "CUDA_VISIBLE_DEVICES": "",
+    "threads": 1,
+    "automatic_retries": 0,
+    "argv": [
+      "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+      "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/h_pair_result_audit.py",
+      "--execute",
+      "--terminal-sha",
+      "02d7f66612d2e683ba6b52fbfc7379a74cefa1d180b89b9549f7299ea583d831",
+      "--slot",
+      "1",
+      "--output-name",
+      "H_LAST_clip_seed42_independent_audit.json"
+    ]
+  },
+  "actual_exit_code": 1,
+  "wall_seconds": 0.52,
+  "max_RSS_KiB": 39444,
+  "log_sha256": "e910c1a103aca0085b5942d8f07673bfb6cd1153ac7159a75fa2a8433b88c967",
+  "time_v_sha256": "d13daa0c3de8d565c89c8d340ab819bdeae995955df608f4ece466532d692889",
+  "failure": "AssertionError: fresh prior independent role checks at h_pair_result_audit.py:262",
+  "accepted_admission_schema_evidence": {
+    "all_source_completions_fresh": {
+      "type": "int",
+      "value": 140
+    },
+    "cross_invocation_receipt_reuse": {
+      "type": "bool",
+      "value": false
+    },
+    "fresh_ledger_invocations": {
+      "type": "list",
+      "len": 14,
+      "first": {
+        "backbone": "clip_vit_b16",
+        "precision": "AMP",
+        "fresh_source_completions": 10,
+        "exact_original_ledger_except_top_utc": true,
+        "reference_sha256": "ac721584a4a505b52574de7b39a10ce9eed0709a459c9600f05719e721800872",
+        "elapsed_seconds": 207.99148830212653,
+        "cross_invocation_receipt_reuse": false
+      }
+    }
+  },
+  "producer_source_assignments": [
+    {
+      "line": 83,
+      "text": "  root,configuration,freeze,runs,identity=analysis_h._pair_context(config,args.backbone,args.seed)\n check_pins(pins)\n if len(ledgers)!=14 or len(identity['cache_completion_sha256'])!=14 or any(row['fresh_source_completions']!=10 for row in ledgers):raise ValueError('original full14role/140fresh source checks were not completed')\n result=dict(status='PASS_ORIGINAL_FULL14ROLE_PAIR_CONTEXT_WITH_FRESH_PARALLEL_ORIGINAL_LEDGERS',utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),backbone=args.backbone,seed=args.seed,models=2,roles=14,identity=identity,elapsed_seconds=time.monotonic()-start,pinned_sha256=pins,fresh_ledger_invocations=ledgers,all_source_completions_fresh=140,cross_invocation_receipt_reuse=False,production_scoring_executed=False,GPU_launch_attempted=False,live_cache_owner_changed=False,scope='Original full role verification, exact original paired numerical ledgers and every PNG byte/RGB check. Only independent source-completion scheduling changed inside this NEW CPU process.')\n publish_json_new(output,result);print('PASS_ACTUAL_CANONICAL_ORIGINAL_PAIR_CONTEXT',output,flush=True);return result"
+    },
+    {
+      "line": 84,
+      "text": " check_pins(pins)\n if len(ledgers)!=14 or len(identity['cache_completion_sha256'])!=14 or any(row['fresh_source_completions']!=10 for row in ledgers):raise ValueError('original full14role/140fresh source checks were not completed')\n result=dict(status='PASS_ORIGINAL_FULL14ROLE_PAIR_CONTEXT_WITH_FRESH_PARALLEL_ORIGINAL_LEDGERS',utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),backbone=args.backbone,seed=args.seed,models=2,roles=14,identity=identity,elapsed_seconds=time.monotonic()-start,pinned_sha256=pins,fresh_ledger_invocations=ledgers,all_source_completions_fresh=140,cross_invocation_receipt_reuse=False,production_scoring_executed=False,GPU_launch_attempted=False,live_cache_owner_changed=False,scope='Original full role verification, exact original paired numerical ledgers and every PNG byte/RGB check. Only independent source-completion scheduling changed inside this NEW CPU process.')\n publish_json_new(output,result);print('PASS_ACTUAL_CANONICAL_ORIGINAL_PAIR_CONTEXT',output,flush=True);return result\nif __name__=='__main__':main()"
+    }
+  ],
+  "primary_72_artifact_terminal_SHA_verification_completed_before_failure": true,
+  "real_score_or_bootstrap_computation_started": false,
+  "acceptance_report_created": false,
+  "original_auditor_source_changed": false,
+  "production_or_F_changed": false,
+  "real_processes_exited": {
+    "750748": true,
+    "750745": true
+  },
+  "pending": "No retry authorized. Root must review this auditor/schema mismatch; preserve this attempt and original source. No claim of scientific acceptance or snapshot promotion."
+}

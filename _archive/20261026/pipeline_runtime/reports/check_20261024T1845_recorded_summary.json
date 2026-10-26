@@ -1,0 +1,194 @@
+{
+  "utc": "2026-10-24T19:19:34.301912+00:00",
+  "check_scheduled_utc": "2026-10-24T18:45:00Z",
+  "status": "MAIN_MATRIX_HEALTHY_DINO5SUMMARY_ACCEPTED_EFF7_ACCEPTED_COLD_PLAN_REVIEWED_NOT_APPLIED",
+  "D_training_and_cache": {
+    "formal_complete": 15,
+    "formal_registered": 15,
+    "all_registered_formal_complete": 15,
+    "all_registered_formal": 45,
+    "role_cache_complete": 105
+  },
+  "D_individual_statistics_accepted": 11,
+  "D_individual_statistics_total": 15,
+  "D_current_CPU_jobs": [
+    {
+      "run_id": "D_formal_efficientnet_b0_seed42",
+      "pid": 2108407,
+      "status": "PRODUCTION_ANALYSIS_RUNNING",
+      "roles_passed": [
+        "train",
+        "dev",
+        "source_cal",
+        "source_test",
+        "target_full",
+        "target_cal",
+        "target_test"
+      ],
+      "analysis_started_utc": "2026-10-24T19:00:59.322849+00:00",
+      "alive": true
+    },
+    {
+      "run_id": "D_formal_efficientnet_b0_seed123",
+      "pid": 2110945,
+      "status": "PRODUCTION_ANALYSIS_RUNNING",
+      "roles_passed": [
+        "train",
+        "dev",
+        "source_cal",
+        "source_test",
+        "target_full",
+        "target_cal",
+        "target_test"
+      ],
+      "analysis_started_utc": "2026-10-24T19:06:39.267079+00:00",
+      "alive": true
+    }
+  ],
+  "D_DINO_five_seed_summary": {
+    "status": "INDEPENDENTLY_ACCEPTED",
+    "tables": 12,
+    "field_checks": 48476,
+    "max_absolute_difference": 4.547473508864641e-13,
+    "production_elapsed": "22:33.86",
+    "peak_RSS_KiB": 984104,
+    "exit_status": 0,
+    "complete_sha256": "455f9e7e9d2bdf7ac1c01504fb36d1c3b4f6609746b03a82d53b94cdef0f2508",
+    "acceptance_sha256": "89c9309cacae09bbed76a629e666b888e3042dae020ad73c187c494e5bb7c2dd"
+  },
+  "D_Eff7": {
+    "status": "PASS_REAL_D_MODEL_COMPLETE_ARTIFACT_CAL_BOOTSTRAP_RESOURCE_ACCEPTANCE",
+    "65_artifacts": 65,
+    "numeric_checks": 35464,
+    "CAL_repeats": 200,
+    "TEST_draws": 2000,
+    "elapsed": "35:56.98",
+    "peak_RSS_KiB": 6941484,
+    "exit_status": 0,
+    "acceptance_sha256": "5355abfd4aa67b52076983c1b9e3ddbddc343144d560cac76dd71bea7e6f6d5c"
+  },
+  "H_standard_development": {
+    "complete_independently_accepted": 8,
+    "active": [
+      {
+        "pid": 2079695,
+        "run_id": "H_dev_dinov2_vit_b14_B_lr3e-05_seed1007_e30",
+        "gpu": 0,
+        "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e",
+        "backbone": "dinov2_vit_b14",
+        "committed_epoch": 28,
+        "committed_attempts": 5348,
+        "committed_success": 5348,
+        "committed_skips": 0,
+        "live_logged_attempt_events": 5483,
+        "live_logged_skips": 0,
+        "process_alive": true
+      },
+      {
+        "pid": 2079696,
+        "run_id": "H_dev_dinov2_vit_b14_AB_lr3e-05_seed1007_e30",
+        "gpu": 1,
+        "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+        "backbone": "dinov2_vit_b14",
+        "committed_epoch": 28,
+        "committed_attempts": 5348,
+        "committed_success": 5348,
+        "committed_skips": 0,
+        "live_logged_attempt_events": 5380,
+        "live_logged_skips": 0,
+        "process_alive": true
+      },
+      {
+        "pid": 2079697,
+        "run_id": "H_dev_dinov2_vit_b14_B_lr3e-05_seed1042_e30",
+        "gpu": 2,
+        "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+        "backbone": "dinov2_vit_b14",
+        "committed_epoch": 28,
+        "committed_attempts": 5348,
+        "committed_success": 5348,
+        "committed_skips": 0,
+        "live_logged_attempt_events": 5366,
+        "live_logged_skips": 0,
+        "process_alive": true
+      },
+      {
+        "pid": 2079698,
+        "run_id": "H_dev_dinov2_vit_b14_AB_lr3e-05_seed1042_e30",
+        "gpu": 3,
+        "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646",
+        "backbone": "dinov2_vit_b14",
+        "committed_epoch": 28,
+        "committed_attempts": 5348,
+        "committed_success": 5348,
+        "committed_skips": 0,
+        "live_logged_attempt_events": 5409,
+        "live_logged_skips": 0,
+        "process_alive": true
+      }
+    ],
+    "pending": 8,
+    "owner_pid": 1993186,
+    "owner_alive": true,
+    "complete_checkpoint_snapshot_epochs": [
+      20,
+      20,
+      20,
+      20
+    ],
+    "complete_checkpoint_success": [
+      3820,
+      3820,
+      3820,
+      3820
+    ],
+    "complete_checkpoint_skips": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "complete_checkpoint_audit_sha256": "8c7d40ec4f45dec394994db7bdfc6b256a5efab2bffc5bcc377b51bea677c69a",
+    "formal_complete": 0,
+    "formal_registered": 30
+  },
+  "AMP_scope": {
+    "D_development_final": 32,
+    "D_formal_final": 57,
+    "D_final_total": 89,
+    "H_first8_development_final": 0,
+    "H_live_counts_separate": true,
+    "no_makeup_updates": true
+  },
+  "capacity": {
+    "free_GiB": 253.1262435913086,
+    "normal_required_including16temporary50reserve_GiB": 202.42952018745507,
+    "normal_margin_GiB": 50.696723403853525,
+    "all_registered_conditionals_deficit_GiB": 21.16481574363803,
+    "SSD_released_bytes": 0
+  },
+  "cold": {
+    "real_two_file_native_pilot": "PASS_CANONICAL_NATIVE_READER_AND_FAILURE_ROLLBACK",
+    "initial_audit_key_error_retained": true,
+    "full_plan_files": 775,
+    "full_plan_logical_GiB": 41.89892612025142,
+    "fixture_tests": 13,
+    "independent_review": "ALL4FINDINGS_FIXED_ACCEPTED",
+    "bulk_native_pilot_or_apply_executed": false,
+    "actual_release": 0,
+    "plan_sha256": "55ac68a9801609a49f33b68eb533d13cf2308a3efa5b02df191d568b7b4875b5",
+    "remaining_gate": "Next available fixed CPU slot: full775 freshSHA/native pilot -> verify rollback -> refreshed capacity -> apply -> independent aliases/free-space readback. No third CPU production slot."
+  },
+  "source_best": "HOLD_UNSELECTED_NO_EXTRA_EXECUTION_NO_COMPACT_SAVINGS_ADMITTED",
+  "manuscript": {
+    "DINO_bilingual_result_backfill": "PASS",
+    "path": "论文方法与设置准备_v2/20261024_覆盖整合版/已验收结果_DINO五种子_中英.md",
+    "sha256": "7c279b99b008f511c9c1ce6afe43c1a564a24abcd8bf3bf64c8ef898540f7664",
+    "complete_journal_papers": false
+  },
+  "connection": "Temporary UI unavailable; SSH minimal probe succeeded19:15:19; no SSH error or restart",
+  "next_check_utc": "2026-10-24T19:25:00Z",
+  "blocks": "No current main-matrix execution fault. Cold full native validation/apply pending before conditional capacity admission. Source-best scope remains parent HOLD.",
+  "protected_inputs_verified_count": 13,
+  "science_HEAD": "5ef6d06bf7aeda02a5a11113e4c35a2c9909f215"
+}

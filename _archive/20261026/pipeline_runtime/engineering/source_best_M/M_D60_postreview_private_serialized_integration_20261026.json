@@ -1,0 +1,34 @@
+{
+  "schema": "M_PRIVATE_POSTREVIEW_D60_INTEGRATION_EXECUTION_V1",
+  "pid": 1422604,
+  "exit_code": 0,
+  "source_sha256": {
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/m_source_best_d_numeric.py": "a7b079965fd34acbf2e974480aa197ded476cbc21f1447aeac523e1c4aab1dd0",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests/test_m_source_best_d_numeric.py": "770097a21dfc48a292192cd7696d42359a1a2e38da01b068eb3e0bbb596caef8",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/m_source_best_result_audit.py": "72f28181f6aef259a9686d35d2848cfb5f9f041f9184389c48e67f21ed24e419"
+  },
+  "script_sha256": "dccc56043a66fcac28492051120c421aa8c81fe10855e9131c1cea559ea6bf0e",
+  "log": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_D60_postreview_private_serialized_integration_20261026.log",
+  "log_sha256": "9c6ce592c6fbe2df5e2a1a1984f6e0f51a1055ff437de0dd77cba3b8e1dcb7f1",
+  "finished_utc": "2026-10-26T06:17:29.236670+00:00",
+  "no_actual_M_shared_slot_or_GPU_used": true,
+  "result": {
+    "schema": "M_PRIVATE_D60_SERIALIZED_CORE_INTEGRATION_V1",
+    "status": "PASS",
+    "source_sha256": {
+      "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/m_source_best_d_numeric.py": "a7b079965fd34acbf2e974480aa197ded476cbc21f1447aeac523e1c4aab1dd0",
+      "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests/test_m_source_best_d_numeric.py": "770097a21dfc48a292192cd7696d42359a1a2e38da01b068eb3e0bbb596caef8",
+      "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/m_source_best_result_audit.py": "72f28181f6aef259a9686d35d2848cfb5f9f041f9184389c48e67f21ed24e419"
+    },
+    "logical_assets": 60,
+    "draws_checked": 28000,
+    "CAL_rows_checked": 3208,
+    "synthetic_allocated_bytes": 33746944,
+    "seconds": 115.67885059211403,
+    "peak_RSS_KiB": 589076,
+    "actual_M_source_cache_or_shared_slot_used": false,
+    "GPU_used": false,
+    "real_statistic_canary_or_resource_qualification": false,
+    "scientific_final_acceptance": false
+  }
+}

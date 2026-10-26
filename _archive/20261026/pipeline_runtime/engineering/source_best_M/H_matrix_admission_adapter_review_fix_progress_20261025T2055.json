@@ -1,0 +1,19 @@
+{
+  "utc": "2026-10-25T20:55:29.060173+00:00",
+  "status": "REVIEW_REGRESSIONS_FIXED_41_TESTS_PASS_INDEPENDENT_FIX_CONFIRMATION_PENDING",
+  "findings": [
+    "Important: neighbor tick mismatch on livePID incorrectly accepted as reuse",
+    "Important: DINO qualified_pair unboundQ/auxbody authorization"
+  ],
+  "reviewed_before_sha256": "3642a04a300ca09cef94558b63ef821bd9ae82534b127484b825246ff562d039",
+  "fixed_source_sha256": "a65b198602e66662de005c6162563f7286041808c9cafd3b4630b1755c0e3196",
+  "test_sha256": "31ec9fc52e1f275cfadc73609534bae7b65de39ec6fbed1e53123f1c1d9ab0ca",
+  "RED_review_regressions_failed": 3,
+  "GREEN_full_tests_passed": 41,
+  "GREEN_seconds": 0.78,
+  "exit_code": 0,
+  "minimal_scope": "CLIP3407 qualified requires external canonical0aeQ; DINO7 prototype only, DINO formal disabled until separately independently accepted ownQ chain",
+  "production_run": false,
+  "actual_CPU_qualification_issued": false,
+  "active_F_or_M_changed": false
+}

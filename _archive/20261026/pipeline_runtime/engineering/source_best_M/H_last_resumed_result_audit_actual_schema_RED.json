@@ -1,0 +1,99 @@
+{
+  "schema": "FROZEN_BB299E_RESUME_LAUNCH_SCHEMA_REJECTION_REPRO_V1",
+  "utc": "2026-10-26T03:58:53.680097+00:00",
+  "original_bb_source_sha256": "bb299e512e355fa0a8c9b25f901b1788cee6a2b445a4eb1ddb67b30cb4c3a0e2",
+  "cases": [
+    {
+      "backbone": "clip_vit_b16",
+      "seed": 3407,
+      "launch_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_primary_analysis_clip_vit_b16_seed3407_resume_20261026T013643Z_launch.json",
+      "launch_sha256": "0d3a89013786d51824a4b8679f3e2ee57c0678c2370faef330c487591b6cf91b",
+      "status": "RESUMED_ORIGINAL_PRIMARY_H_PAIR_STATISTICS_FROM_UNFINISHED_USER_PAUSE",
+      "frozen_pure_validate_chain_error": "actual original primary launch",
+      "launch_path_predicate_accepts": false,
+      "M_statistics_started_present": false,
+      "command": [
+        "/usr/bin/time",
+        "-v",
+        "-o",
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_primary_analysis_clip_vit_b16_seed3407_resume_20261026T013643Z_time_v.log",
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+        "-B",
+        "-u",
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_parallel_fresh_validation/cpu_primary_analysis.py",
+        "--execute",
+        "--backbone",
+        "clip_vit_b16",
+        "--seed",
+        "3407",
+        "--slot",
+        "1",
+        "--qualification",
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_parallel_CPU_actual_qualification_clip_vit_b16_20261025T0830.json",
+        "--qualification-sha",
+        "0ae309b3366de860cbd77f539c24a05aae3ec1180dbbd84bbbff95ed3111d7f7",
+        "--admission",
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_clip_vit_b16_seed3407_independent_7role_parallel_candidate_20261025T0645.json",
+        "--admission-sha",
+        "01ec7684d433eed873a0220a27607eb13b1b992680d32d4aedf5fd833ddb7a94"
+      ],
+      "additional_resume_fields": {
+        "resume_existing_terminal": false,
+        "unfinished_partial_identity_preserved": true,
+        "expected_fresh_original_ledger_invocations": 42,
+        "resume_authorization": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/DETECTOR_RESUME_AUTHORIZED_20261026T0133.json",
+          "sha256": "3c820360f0e9e554fbcf7d941f5cfa996a84d2c82f59cef448521cdb4e00ade5"
+        }
+      },
+      "actual_result_or_terminal_read": false
+    },
+    {
+      "backbone": "dinov2_vit_b14",
+      "seed": 7,
+      "launch_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_primary_analysis_dinov2_vit_b14_seed7_resume_20261026T013643Z_launch.json",
+      "launch_sha256": "ea89f76b78671e6f942862d4247dd9524d61a8332151db9992a4ed6bb83ea113",
+      "status": "RESUMED_ORIGINAL_PRIMARY_H_PAIR_STATISTICS_FROM_UNFINISHED_USER_PAUSE",
+      "frozen_pure_validate_chain_error": "actual original primary launch",
+      "launch_path_predicate_accepts": false,
+      "M_statistics_started_present": false,
+      "command": [
+        "/usr/bin/time",
+        "-v",
+        "-o",
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_primary_analysis_dinov2_vit_b14_seed7_resume_20261026T013643Z_time_v.log",
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+        "-B",
+        "-u",
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_parallel_fresh_validation/cpu_primary_analysis.py",
+        "--execute",
+        "--backbone",
+        "dinov2_vit_b14",
+        "--seed",
+        "7",
+        "--slot",
+        "0",
+        "--qualification",
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_parallel_CPU_actual_qualification_dinov2_vit_b14.json",
+        "--qualification-sha",
+        "ab853480f704f24d4b080e04f0bcefb81fd31c4426e74aa36a351d7e8925bebe",
+        "--admission",
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_dinov2_vit_b14_seed7_independent_7role_parallel_candidate_20261025T0645.json",
+        "--admission-sha",
+        "ff866b5a2504fa56d0c447b4ae2b23dba20af297a272331978dd13ee0ba050c8"
+      ],
+      "additional_resume_fields": {
+        "resume_existing_terminal": false,
+        "unfinished_partial_identity_preserved": true,
+        "expected_fresh_original_ledger_invocations": 42,
+        "resume_authorization": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/DETECTOR_RESUME_AUTHORIZED_20261026T0133.json",
+          "sha256": "3c820360f0e9e554fbcf7d941f5cfa996a84d2c82f59cef448521cdb4e00ade5"
+        }
+      },
+      "actual_result_or_terminal_read": false
+    }
+  ],
+  "producer_or_result_jobs_run": false,
+  "source_mutated": false
+}

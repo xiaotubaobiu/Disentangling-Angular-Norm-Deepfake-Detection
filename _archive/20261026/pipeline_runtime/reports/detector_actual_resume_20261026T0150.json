@@ -1,0 +1,355 @@
+{
+  "schema": "DETECTOR_V2_ACTUAL_RESUME_SUPERVISION_V1",
+  "observed_utc": "2026-10-26T01:50:45.846034+00:00",
+  "state": "DETECTOR_ONLY_RUNNING",
+  "resume_authority": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/DETECTOR_RESUME_AUTHORIZED_20261026T0133.json",
+    "sha256": "3c820360f0e9e554fbcf7d941f5cfa996a84d2c82f59cef448521cdb4e00ade5"
+  },
+  "archived_pause": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/user_pause_20261025T2351/PAUSED_BY_USER.resolved_detector_20261026T0133.json",
+    "sha256": "62d47b959ba56d8293d83f98f98a2d4edf3dcbf5602ee2a42803365df79ad6e4"
+  },
+  "root_active_pause_marker_present": false,
+  "non_detector_labeling_JEV_GLM_MMTT_pair_investigation_remain_paused": true,
+  "M": {
+    "original_owner_code": "2c68dfb05aa0cd28808e7ae14f317225513202b7190151962e184ddf6bf4db5b",
+    "owner": {
+      "pid": 825619,
+      "alive": true,
+      "state": "S",
+      "ppid": 825618,
+      "CPU_user_ticks": 482,
+      "CPU_system_ticks": 82,
+      "birth_ticks": 472924282
+    },
+    "wrapper": {
+      "pid": 825618,
+      "alive": true,
+      "state": "S",
+      "ppid": 1,
+      "CPU_user_ticks": 0,
+      "CPU_system_ticks": 0,
+      "birth_ticks": 472924282
+    },
+    "launch": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/actual_M_cache45_GPU_owner_resume_20261026T014845Z_launch.json",
+      "sha256": "5a3bad5c1339f534d80524ba5ff2042ad27358ca826eba212daaf930dddda14e"
+    },
+    "status_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_finite_owner/cache/7d86ce010bdd427defbb5b959558ae32ccfbc0fc81b8a6bd36fdc71d733f8303/c1b83bab4bd34df784afc18bda94777a/status.json",
+    "status_sha256_at_observation": "e693babd7c6abed99a097fd57a6bd7392ad207a9dc1a6b3c11894d81f01abee8",
+    "status_snapshot": {
+      "active": {
+        "H_formal_clip_vit_b16_AB_seed42": {
+          "index": 3,
+          "pid": 825634,
+          "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646"
+        },
+        "H_formal_clip_vit_b16_AB_seed7": {
+          "index": 1,
+          "pid": 825630,
+          "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c"
+        },
+        "H_formal_clip_vit_b16_B_seed42": {
+          "index": 2,
+          "pid": 825633,
+          "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45"
+        },
+        "H_formal_clip_vit_b16_B_seed7": {
+          "index": 0,
+          "pid": 825629,
+          "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e"
+        }
+      },
+      "artifact_root": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023",
+      "completed": {
+        "D_formal_clip_vit_b16_seed123": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/66074608f8814b518c6ecda7da6a7cdb/D_formal_clip_vit_b16_seed123.json",
+          "sha256": "07652f13bf8c98b885bfd3eb5678f756af1ec2131aa288c52b6f9886538739e3"
+        },
+        "D_formal_clip_vit_b16_seed2026": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/66074608f8814b518c6ecda7da6a7cdb/D_formal_clip_vit_b16_seed2026.json",
+          "sha256": "21bba254f22ce109b82d7dd8fd56acbf100acee33c9ead03ee3a362c32325107"
+        },
+        "D_formal_clip_vit_b16_seed3407": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/66074608f8814b518c6ecda7da6a7cdb/D_formal_clip_vit_b16_seed3407.json",
+          "sha256": "4877f87e11096d6c91b19d28d4e38061bf87786b2b5072f68249f69ed23d8fdc"
+        },
+        "D_formal_clip_vit_b16_seed42": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/66074608f8814b518c6ecda7da6a7cdb/D_formal_clip_vit_b16_seed42.json",
+          "sha256": "9d428aef3d0819cfac5686cfdbd134c8b4a8932047e4d6378b066c754156fdf4"
+        },
+        "D_formal_clip_vit_b16_seed7": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/66074608f8814b518c6ecda7da6a7cdb/D_formal_clip_vit_b16_seed7.json",
+          "sha256": "636fe93a76438f10c27e00a2b883f5615b151d6f446e0f5590e5f9a138b0b10d"
+        },
+        "D_formal_dinov2_vit_b14_seed123": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/66074608f8814b518c6ecda7da6a7cdb/D_formal_dinov2_vit_b14_seed123.json",
+          "sha256": "2391602f1431ab8b90eab840112a1b0e7ee95a2b438a1a0ef63e43776f4db8d8"
+        },
+        "D_formal_dinov2_vit_b14_seed2026": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/66074608f8814b518c6ecda7da6a7cdb/D_formal_dinov2_vit_b14_seed2026.json",
+          "sha256": "2c48fae7c8c7be1c53a499320277c7ff8450eb7dcaefbbfba29b5740daa407c1"
+        },
+        "D_formal_dinov2_vit_b14_seed3407": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/66074608f8814b518c6ecda7da6a7cdb/D_formal_dinov2_vit_b14_seed3407.json",
+          "sha256": "30c89f8265cc4d1ecacd90fcb424757c1f0a792283d5fb6fdf781845f5e90eef"
+        },
+        "D_formal_dinov2_vit_b14_seed42": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/66074608f8814b518c6ecda7da6a7cdb/D_formal_dinov2_vit_b14_seed42.json",
+          "sha256": "272c72437be64961f829ef83f9b9fbc733d96867fdd60473e667e15386ae7c03"
+        },
+        "D_formal_dinov2_vit_b14_seed7": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/66074608f8814b518c6ecda7da6a7cdb/D_formal_dinov2_vit_b14_seed7.json",
+          "sha256": "30e086eb7122f7106b00fa4bbf93683d5a198d52a71dcdc9692bfb1491f92c18"
+        },
+        "D_formal_efficientnet_b0_seed123": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/66074608f8814b518c6ecda7da6a7cdb/D_formal_efficientnet_b0_seed123.json",
+          "sha256": "84c4cce1442970db18bb7177f79d76977d9f03084ae8ca2fee8d3501a8876d6b"
+        },
+        "D_formal_efficientnet_b0_seed2026": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/66074608f8814b518c6ecda7da6a7cdb/D_formal_efficientnet_b0_seed2026.json",
+          "sha256": "89ebd17e0765a0514d4d491914264464f580f4180837c7989a68b5ee56348cc4"
+        },
+        "D_formal_efficientnet_b0_seed3407": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/66074608f8814b518c6ecda7da6a7cdb/D_formal_efficientnet_b0_seed3407.json",
+          "sha256": "543316a99865af8e35c7705c73057229b55c9f3e37e0570b430d9473a1d3f2dd"
+        },
+        "D_formal_efficientnet_b0_seed42": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/66074608f8814b518c6ecda7da6a7cdb/D_formal_efficientnet_b0_seed42.json",
+          "sha256": "d64ff2c554b74edbd8876894bc248239d2ecf8c57344f53810b2ec2614267202"
+        },
+        "D_formal_efficientnet_b0_seed7": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/66074608f8814b518c6ecda7da6a7cdb/D_formal_efficientnet_b0_seed7.json",
+          "sha256": "af3cf004f0ceea055c3bff1e0aa6f9f3aa2a6af40c02417cb80b1c065f927558"
+        }
+      },
+      "failures": {},
+      "mode": "cache",
+      "owner_pid": 825619,
+      "owner_plan_sha256": "7d86ce010bdd427defbb5b959558ae32ccfbc0fc81b8a6bd36fdc71d733f8303",
+      "owner_start_ticks": 472924282,
+      "pending": [
+        "H_formal_clip_vit_b16_B_seed123",
+        "H_formal_clip_vit_b16_AB_seed123",
+        "H_formal_clip_vit_b16_B_seed2026",
+        "H_formal_clip_vit_b16_AB_seed2026",
+        "H_formal_clip_vit_b16_B_seed3407",
+        "H_formal_clip_vit_b16_AB_seed3407",
+        "H_formal_dinov2_vit_b14_B_seed7",
+        "H_formal_dinov2_vit_b14_AB_seed7",
+        "H_formal_dinov2_vit_b14_B_seed42",
+        "H_formal_dinov2_vit_b14_AB_seed42",
+        "H_formal_dinov2_vit_b14_B_seed123",
+        "H_formal_dinov2_vit_b14_AB_seed123",
+        "H_formal_dinov2_vit_b14_B_seed2026",
+        "H_formal_dinov2_vit_b14_AB_seed2026",
+        "H_formal_dinov2_vit_b14_B_seed3407",
+        "H_formal_dinov2_vit_b14_AB_seed3407",
+        "H_formal_efficientnet_b0_B_seed7",
+        "H_formal_efficientnet_b0_AB_seed7",
+        "H_formal_efficientnet_b0_B_seed42",
+        "H_formal_efficientnet_b0_AB_seed42",
+        "H_formal_efficientnet_b0_B_seed123",
+        "H_formal_efficientnet_b0_AB_seed123",
+        "H_formal_efficientnet_b0_B_seed2026",
+        "H_formal_efficientnet_b0_AB_seed2026",
+        "H_formal_efficientnet_b0_B_seed3407",
+        "H_formal_efficientnet_b0_AB_seed3407"
+      ],
+      "phase_nonce": "c1b83bab4bd34df784afc18bda94777a",
+      "primary_cache_stage_sha256": "90bfad1afbdfb8096c41625625e109ea9cf06ceb4f5246e435cc48241646a3ce",
+      "schema": "M_FINITE_OWNER_PROGRESS_V1",
+      "scientific_admission": false,
+      "seconds": 117.82594498898834
+    },
+    "completed_operational_models": 15,
+    "active_count": 4,
+    "pending_count": 26,
+    "active_processes": {
+      "H_formal_clip_vit_b16_AB_seed42": {
+        "pid": 825634,
+        "alive": true,
+        "state": "R",
+        "ppid": 825619,
+        "CPU_user_ticks": 4666,
+        "CPU_system_ticks": 1306,
+        "birth_ticks": 472924496
+      },
+      "H_formal_clip_vit_b16_AB_seed7": {
+        "pid": 825630,
+        "alive": true,
+        "state": "S",
+        "ppid": 825619,
+        "CPU_user_ticks": 4788,
+        "CPU_system_ticks": 1366,
+        "birth_ticks": 472924487
+      },
+      "H_formal_clip_vit_b16_B_seed42": {
+        "pid": 825633,
+        "alive": true,
+        "state": "S",
+        "ppid": 825619,
+        "CPU_user_ticks": 4601,
+        "CPU_system_ticks": 1307,
+        "birth_ticks": 472924493
+      },
+      "H_formal_clip_vit_b16_B_seed7": {
+        "pid": 825629,
+        "alive": true,
+        "state": "S",
+        "ppid": 825619,
+        "CPU_user_ticks": 4740,
+        "CPU_system_ticks": 1269,
+        "birth_ticks": 472924483
+      }
+    },
+    "role_markers_physical_committed": 96,
+    "role_marker_total": 180,
+    "counting_method": "Enumerate exact45registered×D6/H3canonical paths; H B/role depth included; crosschecked recursive complete inventory",
+    "counter_correction": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_role_count_directory_depth_correction_20261026T0140.json",
+      "sha256": "d9acc953a9f4c44b5f7bd776634ba18c9c3522dc60c51be4b1f831a0f462ddee"
+    },
+    "independent_six_role_statistical_admissions": 0,
+    "statistics_canary_passed": false,
+    "full_statistics_permit": false,
+    "prior_D15_models_reencoded": false,
+    "interrupted_partial_cache_files_retained": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_interrupted_H_feature_resume_inventory_20261026T0140.json",
+      "sha256": "b66431078c540e40d0cbe09e0a8de2168e7b156c537820e9d519cf5acaefa65f"
+    },
+    "GPU_forward_on_current_resumed_H_workers_not_yet_observed": true
+  },
+  "H": {
+    "formal_training_sealed": 30,
+    "all_formal_including_D": 45,
+    "original_cache_roles": 210,
+    "independent_cache_models": 12,
+    "independent_primary_scientific_stat_pairs": 4,
+    "total_stat_pairs": 15,
+    "actual_resumed_CPU": {
+      "clip_vit_b16_seed3407": {
+        "wrapper": {
+          "pid": 806373,
+          "alive": true,
+          "state": "S",
+          "ppid": 1,
+          "CPU_user_ticks": 0,
+          "CPU_system_ticks": 0,
+          "birth_ticks": 472852151
+        },
+        "child": {
+          "pid": 806374,
+          "alive": true,
+          "state": "S",
+          "ppid": 806373,
+          "CPU_user_ticks": 73411,
+          "CPU_system_ticks": 15166,
+          "birth_ticks": 472852151
+        },
+        "slot": 1,
+        "launch": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_primary_analysis_clip_vit_b16_seed3407_resume_20261026T013643Z_launch.json",
+          "sha256": "0d3a89013786d51824a4b8679f3e2ee57c0678c2370faef330c487591b6cf91b"
+        },
+        "stdout": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_primary_analysis_clip_vit_b16_seed3407_resume_20261026T013643Z.log",
+          "sha256": "1ea9cada16f6353940e65ac115e20384865d0f75cb2da26ac8cbdfc8daa5198b"
+        },
+        "ledger_starts": 3,
+        "expected_initial_full_source_checks": 42,
+        "time_v_terminal": null
+      },
+      "dinov2_vit_b14_seed7": {
+        "wrapper": {
+          "pid": 806375,
+          "alive": true,
+          "state": "S",
+          "ppid": 1,
+          "CPU_user_ticks": 0,
+          "CPU_system_ticks": 0,
+          "birth_ticks": 472852152
+        },
+        "child": {
+          "pid": 806376,
+          "alive": true,
+          "state": "R",
+          "ppid": 806375,
+          "CPU_user_ticks": 74183,
+          "CPU_system_ticks": 15153,
+          "birth_ticks": 472852152
+        },
+        "slot": 0,
+        "launch": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_primary_analysis_dinov2_vit_b14_seed7_resume_20261026T013643Z_launch.json",
+          "sha256": "ea89f76b78671e6f942862d4247dd9524d61a8332151db9992a4ed6bb83ea113"
+        },
+        "stdout": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_primary_analysis_dinov2_vit_b14_seed7_resume_20261026T013643Z.log",
+          "sha256": "799279666be97f74427ac61a2d3077e4337b3956c08ab6e0602da8d5d7a682de"
+        },
+        "ledger_starts": 3,
+        "expected_initial_full_source_checks": 42,
+        "time_v_terminal": null
+      }
+    },
+    "Eff_own_functional_CPU_Q": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_parallel_CPU_actual_qualification_efficientnet_b0.json",
+      "sha256": "fc1106633391cdf2b5bfaaad1c4e5b25e6c9adbd53e26a08793da3cd5540c772"
+    },
+    "Eff_own_independent_Aq": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_parallel_fresh_validation/independent_actual_CPU_parallel_pair_admission_audit_efficientnet_b0.json",
+      "sha256": "c71f5776a64810c374c279d75e9e42ee3ab46071dc51316db5628d2aef4368f6"
+    },
+    "Eff_formal_metadata_engineering_source_SHA": "845bd8adab8dd95e47cae44543b0cffe2f57bcc99657a623e09529d8e76d7544",
+    "Eff_anchor_219_tests_passed_engineering_only": true,
+    "Eff_anchor_IO_review_pending": true,
+    "Eff_formal_actual_main_not_executed": true
+  },
+  "locks": {
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/H_pipeline.lock": [
+      "41: FLOCK  ADVISORY  WRITE 825619 fd:01:51809676 0 EOF"
+    ],
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/.cpu_slots/slot0.lock": [
+      "36: FLOCK  ADVISORY  WRITE 806376 fd:01:52325275 0 EOF"
+    ],
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/.cpu_slots/slot1.lock": [
+      "16: FLOCK  ADVISORY  WRITE 806374 fd:01:52325193 0 EOF"
+    ]
+  },
+  "capacity": {
+    "resume_budget": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/plans/M_detector_resume_remaining_write_plan_20261026T0140_candidate.json",
+      "sha256": "38b3fe99340bc42d18798f36e7b1cff9fe4a4e8a8e6e692cdd5b19fbf5075254"
+    },
+    "independent_reassessment": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_M_detector_resume_capacity_reassessment_20261026.json",
+      "sha256": "cd1bf7de81c1a42ba6c7cd41b13fbae05b0a534716de483f3f33ca7cb93890b6"
+    },
+    "required_at_initial_resume_bytes": 150215493801,
+    "free_bytes_at_observation": 152061083648,
+    "initial_budget_margin_bytes": 1845589847,
+    "runtime_floor_bytes": 53687091200,
+    "full_M_features_reserved_bytes": 18413684905,
+    "all30_M_statistic_caps_reserved": true,
+    "M_partial_feature_credit": 0,
+    "cold_release_bytes": 0,
+    "original_H_feature_repair_requires_new_full_budget": true
+  },
+  "GPU": [
+    "0, 0, 0",
+    "1, 0, 0",
+    "2, 0, 0",
+    "3, 0, 0",
+    "4, 0, 28156",
+    "5, 0, 28156",
+    "6, 0, 28156",
+    "7, 0, 28156"
+  ],
+  "GPU4_7_not_controlled": true,
+  "source_protocol_effective_updates_seeds_or_threshold_rules_not_changed": true,
+  "new_scheduler_created": false,
+  "remaining_delivery": "H remaining independent admissions/statistics+five-seed summaries; M H caches/capacity/admissions/canaries/separate statpermit/four-core5seed analyses; true figures/fullCNENmanuscripts",
+  "next_check_UTC": "2026-10-26T02:00:00Z"
+}

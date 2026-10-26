@@ -1,0 +1,220 @@
+{
+  "utc": "2026-10-23T12:35:01.238715+00:00",
+  "scope": "Phasefollowup_ONLY;fullcheckpointverificationremainsseparatepinned1230receipt",
+  "sample_seconds": 8.706203179433942,
+  "GPU_samples": [
+    {
+      "utc": "2026-10-23T12:34:52.524356+00:00",
+      "csv": "0, 96, 4932\n1, 0, 4932\n2, 82, 5414\n3, 77, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-23T12:34:54.668394+00:00",
+      "csv": "0, 95, 4932\n1, 0, 4932\n2, 81, 5414\n3, 77, 5414\n4, 53, 28156\n5, 27, 28156\n6, 79, 28156\n7, 51, 28156\n"
+    },
+    {
+      "utc": "2026-10-23T12:34:56.821280+00:00",
+      "csv": "0, 95, 4932\n1, 0, 4932\n2, 81, 5414\n3, 84, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-23T12:34:58.965465+00:00",
+      "csv": "0, 98, 4932\n1, 0, 4932\n2, 87, 5414\n3, 80, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-23T12:35:01.097188+00:00",
+      "csv": "0, 89, 4932\n1, 0, 4932\n2, 87, 5414\n3, 77, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n"
+    }
+  ],
+  "runs": [
+    {
+      "run_id": "D_dev_clip_vit_b16_lr1e-05_seed1007_e30",
+      "pid": 3942500,
+      "gpu": 0,
+      "current_last_committed_epoch": 25,
+      "last_epoch_seconds": 508.44561076164246,
+      "main_process_CPU_cores_over_window": 1.1221883751896569,
+      "files": [
+        {
+          "file": "epoch_25_samples.npy",
+          "mtime_utc": "2026-10-23T12:21:40.699363+00:00",
+          "bytes": 818304
+        },
+        {
+          "file": "epoch_25_methods.npy",
+          "mtime_utc": "2026-10-23T12:21:40.699363+00:00",
+          "bytes": 26181760
+        },
+        {
+          "file": "epoch_25_augmentations.npy",
+          "mtime_utc": "2026-10-23T12:22:05.179471+00:00",
+          "bytes": 2454656
+        },
+        {
+          "file": "epoch_25_updates.jsonl",
+          "mtime_utc": "2026-10-23T12:28:42.768383+00:00",
+          "bytes": 189229
+        },
+        {
+          "file": "epoch_26_samples.npy",
+          "mtime_utc": "2026-10-23T12:30:14.644431+00:00",
+          "bytes": 818304
+        },
+        {
+          "file": "epoch_26_methods.npy",
+          "mtime_utc": "2026-10-23T12:30:14.644431+00:00",
+          "bytes": 26181760
+        },
+        {
+          "file": "epoch_26_augmentations.npy",
+          "mtime_utc": "2026-10-23T12:30:40.476437+00:00",
+          "bytes": 2454656
+        },
+        {
+          "file": "epoch_26_updates.jsonl",
+          "mtime_utc": "2026-10-23T12:35:00.720348+00:00",
+          "bytes": 123062
+        }
+      ]
+    },
+    {
+      "run_id": "D_dev_clip_vit_b16_lr1e-05_seed1042_e30",
+      "pid": 3942501,
+      "gpu": 1,
+      "current_last_committed_epoch": 25,
+      "last_epoch_seconds": 524.4578959941864,
+      "main_process_CPU_cores_over_window": 1.0004361052100217,
+      "files": [
+        {
+          "file": "epoch_25_samples.npy",
+          "mtime_utc": "2026-10-23T12:26:03.628178+00:00",
+          "bytes": 818304
+        },
+        {
+          "file": "epoch_25_methods.npy",
+          "mtime_utc": "2026-10-23T12:26:03.628178+00:00",
+          "bytes": 26181760
+        },
+        {
+          "file": "epoch_25_augmentations.npy",
+          "mtime_utc": "2026-10-23T12:26:30.040224+00:00",
+          "bytes": 2454656
+        },
+        {
+          "file": "epoch_25_updates.jsonl",
+          "mtime_utc": "2026-10-23T12:33:16.072413+00:00",
+          "bytes": 189688
+        },
+        {
+          "file": "epoch_26_samples.npy",
+          "mtime_utc": "2026-10-23T12:34:52.616354+00:00",
+          "bytes": 818304
+        },
+        {
+          "file": "epoch_26_methods.npy",
+          "mtime_utc": "2026-10-23T12:34:52.616354+00:00",
+          "bytes": 26181760
+        }
+      ]
+    },
+    {
+      "run_id": "D_dev_dinov2_vit_b14_lr1e-05_seed1007_e30",
+      "pid": 3942502,
+      "gpu": 2,
+      "current_last_committed_epoch": 20,
+      "last_epoch_seconds": 647.0629725456238,
+      "main_process_CPU_cores_over_window": 1.307113992800235,
+      "files": [
+        {
+          "file": "epoch_20_samples.npy",
+          "mtime_utc": "2026-10-23T12:21:22.383277+00:00",
+          "bytes": 818304
+        },
+        {
+          "file": "epoch_20_methods.npy",
+          "mtime_utc": "2026-10-23T12:21:22.383277+00:00",
+          "bytes": 26181760
+        },
+        {
+          "file": "epoch_20_augmentations.npy",
+          "mtime_utc": "2026-10-23T12:21:46.963391+00:00",
+          "bytes": 2454656
+        },
+        {
+          "file": "epoch_20_updates.jsonl",
+          "mtime_utc": "2026-10-23T12:30:18.024432+00:00",
+          "bytes": 190156
+        },
+        {
+          "file": "epoch_21_samples.npy",
+          "mtime_utc": "2026-10-23T12:32:13.704434+00:00",
+          "bytes": 818304
+        },
+        {
+          "file": "epoch_21_methods.npy",
+          "mtime_utc": "2026-10-23T12:32:13.704434+00:00",
+          "bytes": 26181760
+        },
+        {
+          "file": "epoch_21_augmentations.npy",
+          "mtime_utc": "2026-10-23T12:32:39.068427+00:00",
+          "bytes": 2454656
+        },
+        {
+          "file": "epoch_21_updates.jsonl",
+          "mtime_utc": "2026-10-23T12:35:00.620348+00:00",
+          "bytes": 52006
+        }
+      ]
+    },
+    {
+      "run_id": "D_dev_dinov2_vit_b14_lr1e-05_seed1042_e30",
+      "pid": 3942503,
+      "gpu": 3,
+      "current_last_committed_epoch": 20,
+      "last_epoch_seconds": 651.6639921665192,
+      "main_process_CPU_cores_over_window": 1.3312347255320494,
+      "files": [
+        {
+          "file": "epoch_20_samples.npy",
+          "mtime_utc": "2026-10-23T12:22:43.047623+00:00",
+          "bytes": 818304
+        },
+        {
+          "file": "epoch_20_methods.npy",
+          "mtime_utc": "2026-10-23T12:22:43.047623+00:00",
+          "bytes": 26181760
+        },
+        {
+          "file": "epoch_20_augmentations.npy",
+          "mtime_utc": "2026-10-23T12:23:07.939714+00:00",
+          "bytes": 2454656
+        },
+        {
+          "file": "epoch_20_updates.jsonl",
+          "mtime_utc": "2026-10-23T12:31:41.604439+00:00",
+          "bytes": 189874
+        },
+        {
+          "file": "epoch_21_samples.npy",
+          "mtime_utc": "2026-10-23T12:33:40.300401+00:00",
+          "bytes": 818304
+        },
+        {
+          "file": "epoch_21_methods.npy",
+          "mtime_utc": "2026-10-23T12:33:40.300401+00:00",
+          "bytes": 26181760
+        },
+        {
+          "file": "epoch_21_augmentations.npy",
+          "mtime_utc": "2026-10-23T12:34:10.220384+00:00",
+          "bytes": 2454656
+        },
+        {
+          "file": "epoch_21_updates.jsonl",
+          "mtime_utc": "2026-10-23T12:35:00.688349+00:00",
+          "bytes": 17815
+        }
+      ]
+    }
+  ],
+  "code_or_process_changed": false
+}

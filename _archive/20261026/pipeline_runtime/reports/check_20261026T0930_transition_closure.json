@@ -1,0 +1,167 @@
+{
+  "schema": "DETECTOR_V2_0930_PHASE_TRANSITION_CLOSURE_V1",
+  "observed_utc": "2026-10-26T09:50:30.126020+00:00",
+  "formal_training_accepted": 45,
+  "H_individual_statistics_accepted_pairs": 6,
+  "H_individual_pairs_planned": 15,
+  "H_primary_cache_roles_complete": 210,
+  "M_cache": {
+    "owner": {
+      "pid": 825619,
+      "alive": true,
+      "state": "S",
+      "start_ticks": 472924282,
+      "CPU_ticks": 97000
+    },
+    "status": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_finite_owner/cache/7d86ce010bdd427defbb5b959558ae32ccfbc0fc81b8a6bd36fdc71d733f8303/c1b83bab4bd34df784afc18bda94777a/status.json",
+      "sha256": "ae918ce0148eeb8cca787034818ddc100c9aa9b72b7683024f108f1faf65afd5"
+    },
+    "complete_models": 23,
+    "active_models": {
+      "H_formal_clip_vit_b16_AB_seed3407": {
+        "index": 3,
+        "pid": 1763003,
+        "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646"
+      },
+      "H_formal_clip_vit_b16_B_seed3407": {
+        "index": 1,
+        "pid": 1698503,
+        "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c"
+      },
+      "H_formal_dinov2_vit_b14_AB_seed7": {
+        "index": 0,
+        "pid": 2055815,
+        "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e"
+      },
+      "H_formal_dinov2_vit_b14_B_seed7": {
+        "index": 2,
+        "pid": 1764583,
+        "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45"
+      }
+    },
+    "pending_models": 18,
+    "failures": {},
+    "role_markers": 125,
+    "total": 180
+  },
+  "M_actual_two_job_cache_admissions_acceptance": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_first_two_actual_job_cache_admissions_acceptance_20261026T0930.json",
+    "sha256": "3ba39cd5b4aee91f012cb68901af81b02a6b653c6be4b650593528304dfae854"
+  },
+  "H_M_six_role_true_exit": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_actual_H_clip_seed7_six_role_admission_20261026T070258Z_exit.json",
+    "sha256": "a63d948a22fc237922148bb0b9f0391c6c2b6033973ba30478ce54f43ce98a7b"
+  },
+  "H_CLIP_primary_five_seed_summary": {
+    "actual_data_accepted": true,
+    "root_acceptance": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/H_CLIP_five_seed_summary_root_acceptance_20261026T0940.json",
+      "sha256": "865bc327275f7ec75896f3aaa21746e0a4b7685ff1a7fffb81c0ef0f678baded"
+    },
+    "independent_audit": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/H_CLIP_five_seed_saved_summary_actual_independent_audit_20261026.json",
+      "sha256": "7603b1dd884b7f89adff896ce191f52faa7a79b3ab569ad0123628ebfd5e8cd1"
+    },
+    "source_checkpoint": "original_LAST_final.pt",
+    "seed_count": 5,
+    "summary_complete": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/five_seed_saved_result_summary/complete.json",
+      "sha256": "9c76dc6ca7989fd48cbe53192eff75ad2f6ea658409c1163eae4da831ff0b2ea"
+    },
+    "H_backbones_summarized": 1,
+    "H_backbones_total": 3,
+    "DFD_allB_mean_logit_delta_pooled_AUC_mean": -0.01808727143986264,
+    "DFD_delta_pooled_AUC_sample_SD": 0.010993741168266543,
+    "DFD_source_real_delta_pooled_BA_mean": -0.04120943364103054,
+    "DFD_delta_pooled_BA_sample_SD": 0.017471685558150808,
+    "negative_seed_count_each": 5,
+    "SD_is_not_CI": true
+  },
+  "M_bounded_canary_permit": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_bounded_two_job_statistic_canary_permit_20261026T0935.json",
+    "sha256": "acc82da837e41e8f7faeeaf83b4868e3bd30a0cab4f2c105db4b4dcfa26702fe"
+  },
+  "M_full30_statistic_permission_issued": false,
+  "M_actual_statistical_resource_qualified": false,
+  "M_D_first_actual_statistic_canary": {
+    "launch": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_D_clip_seed7_actual_statistic_canary_20261026T0940_launch.json",
+      "sha256": "966197891dec12aec8593a4ed8d302d44566126132d6c1bfb9ae7007c9341e8b"
+    },
+    "observer": {
+      "pid": 2456792,
+      "alive": true,
+      "state": "S",
+      "start_ticks": 475770021,
+      "CPU_ticks": 4
+    },
+    "wrapper": {
+      "pid": 2456862,
+      "alive": true,
+      "state": "S",
+      "start_ticks": 475770026,
+      "CPU_ticks": 0
+    },
+    "child": {
+      "pid": 2456864,
+      "alive": true,
+      "state": "S",
+      "start_ticks": 475770026,
+      "CPU_ticks": 7789
+    },
+    "CPU_slot": 0,
+    "actual_AS_limits": [
+      {
+        "pid": 2456862,
+        "Max_address_space": "Max address space         34359738368          34359738368          bytes     "
+      },
+      {
+        "pid": 2456864,
+        "Max_address_space": "Max address space         34359738368          34359738368          bytes     "
+      }
+    ],
+    "true_exit": null,
+    "output_exists": true,
+    "complete_exists": false,
+    "artifact_receipts": 0,
+    "source_cache_context_prevalidation_until_outputs_visible": false
+  },
+  "M_H_statistic_canary_started": false,
+  "H_Eff7_primary": {
+    "wrapper": {
+      "pid": 1747330,
+      "alive": true,
+      "state": "S",
+      "start_ticks": 474915816,
+      "CPU_ticks": 0
+    },
+    "child": {
+      "pid": 1747331,
+      "alive": true,
+      "state": "S",
+      "start_ticks": 474915816,
+      "CPU_ticks": 620244
+    },
+    "CPU_slot": 1,
+    "fresh_source_ledger_starts": 23,
+    "total": 42,
+    "true_exit": null
+  },
+  "capacity": {
+    "free_GiB": 140.4646339416504,
+    "full_required_bytes": 148068010153,
+    "required_GiB": 137.89908043388277,
+    "margin_GiB": 2.5655535077676177,
+    "physical_SSD_release": 0,
+    "partial_feature_credit": 0
+  },
+  "accepted_H_CLIP_paper_integration": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/manuscript_H_CLIP_actual_five_seed_partial_20261026T0945.json",
+    "sha256": "2eacfcb2f4d5b79bbbdd104bc0f57ab0e7bdfc35882adbc430fcb6c1cd421f65"
+  },
+  "full_papers_and_figures_complete": false,
+  "GPU4_7_or_other_project_control": [],
+  "JEV_labeling_resumed": false,
+  "next_check_UTC": "2026-10-26T10:00:00Z"
+}

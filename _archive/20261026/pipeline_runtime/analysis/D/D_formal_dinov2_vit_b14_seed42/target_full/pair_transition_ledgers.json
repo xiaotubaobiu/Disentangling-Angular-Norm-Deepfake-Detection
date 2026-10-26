@@ -1,0 +1,258 @@
+[
+  {
+    "grouping": "correct",
+    "comparison": "raw_to_l2",
+    "aggregation": "mean_logit",
+    "state_names": [
+      "incorrect",
+      "tie",
+      "correct"
+    ],
+    "counts": [
+      [
+        599455.0,
+        0.0,
+        209724.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        51764.0,
+        0.0,
+        1418109.0
+      ]
+    ],
+    "pair_mass": 2279052.0,
+    "auc_before": 0.6449493034823252,
+    "auc_after": 0.7142588234055213,
+    "delta_auc": 0.06930951992319613,
+    "reconstruction_error": 1.3877787807814457e-17
+  },
+  {
+    "grouping": "correct",
+    "comparison": "raw_to_l2",
+    "aggregation": "mean_probability",
+    "state_names": [
+      "incorrect",
+      "tie",
+      "correct"
+    ],
+    "counts": [
+      [
+        563387.0,
+        0.0,
+        189606.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        87687.0,
+        0.0,
+        1438372.0
+      ]
+    ],
+    "pair_mass": 2279052.0,
+    "auc_before": 0.6696025364932436,
+    "auc_after": 0.7143224463505001,
+    "delta_auc": 0.04471990985725644,
+    "reconstruction_error": 4.85722573273506e-17
+  },
+  {
+    "grouping": "correct",
+    "comparison": "logit_to_probability",
+    "representation": "raw",
+    "state_names": [
+      "incorrect",
+      "tie",
+      "correct"
+    ],
+    "counts": [
+      [
+        725905.0,
+        0.0,
+        83274.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        27088.0,
+        0.0,
+        1442785.0
+      ]
+    ],
+    "pair_mass": 2279052.0,
+    "auc_before": 0.6449493034823252,
+    "auc_after": 0.6696025364932436,
+    "delta_auc": 0.024653233010918575,
+    "reconstruction_error": 9.020562075079397e-17
+  },
+  {
+    "grouping": "correct",
+    "comparison": "logit_to_probability",
+    "representation": "l2",
+    "state_names": [
+      "incorrect",
+      "tie",
+      "correct"
+    ],
+    "counts": [
+      [
+        650972.0,
+        0.0,
+        247.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        102.0,
+        0.0,
+        1627731.0
+      ]
+    ],
+    "pair_mass": 2279052.0,
+    "auc_before": 0.7142588234055213,
+    "auc_after": 0.7143224463505001,
+    "delta_auc": 6.362294497887718e-05,
+    "reconstruction_error": 1.883801274693564e-17
+  },
+  {
+    "grouping": "collision",
+    "comparison": "raw_to_l2",
+    "aggregation": "mean_logit",
+    "state_names": [
+      "incorrect",
+      "tie",
+      "correct"
+    ],
+    "counts": [
+      [
+        94804.0,
+        0.0,
+        20952.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        8901.0,
+        0.0,
+        221909.0
+      ]
+    ],
+    "pair_mass": 346566.0,
+    "auc_before": 0.6659914706001165,
+    "auc_after": 0.7007640680274464,
+    "delta_auc": 0.03477259742732986,
+    "reconstruction_error": 6.938893903907228e-18
+  },
+  {
+    "grouping": "collision",
+    "comparison": "raw_to_l2",
+    "aggregation": "mean_probability",
+    "state_names": [
+      "incorrect",
+      "tie",
+      "correct"
+    ],
+    "counts": [
+      [
+        90896.0,
+        0.0,
+        33586.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        12845.0,
+        0.0,
+        209239.0
+      ]
+    ],
+    "pair_mass": 346566.0,
+    "auc_before": 0.640813005315005,
+    "auc_after": 0.7006601917095157,
+    "delta_auc": 0.05984718639451071,
+    "reconstruction_error": 1.3877787807814457e-17
+  },
+  {
+    "grouping": "collision",
+    "comparison": "logit_to_probability",
+    "representation": "raw",
+    "state_names": [
+      "incorrect",
+      "tie",
+      "correct"
+    ],
+    "counts": [
+      [
+        107785.0,
+        0.0,
+        7971.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        16697.0,
+        0.0,
+        214113.0
+      ]
+    ],
+    "pair_mass": 346566.0,
+    "auc_before": 0.6659914706001165,
+    "auc_after": 0.640813005315005,
+    "delta_auc": -0.02517846528511164,
+    "reconstruction_error": 5.551115123125783e-17
+  },
+  {
+    "grouping": "collision",
+    "comparison": "logit_to_probability",
+    "representation": "l2",
+    "state_names": [
+      "incorrect",
+      "tie",
+      "correct"
+    ],
+    "counts": [
+      [
+        103685.0,
+        0.0,
+        20.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        56.0,
+        0.0,
+        242805.0
+      ]
+    ],
+    "pair_mass": 346566.0,
+    "auc_before": 0.7007640680274464,
+    "auc_after": 0.7006601917095157,
+    "delta_auc": -0.00010387631793078374,
+    "reconstruction_error": 4.37069000783219e-17
+  }
+]

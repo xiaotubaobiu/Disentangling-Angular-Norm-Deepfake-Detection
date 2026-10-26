@@ -1,0 +1,187 @@
+{
+  "schema": "INDEPENDENT_M_CONSUMER_CSV_LEXICAL_IDENTITY_FIX_REVIEW_V1",
+  "created_utc": "2026-10-26T12:38:16.953971+00:00",
+  "verdict": "PASS_MINIMAL_CSV_LEXICAL_IDENTITY_FIX",
+  "source": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/m_source_best_result_audit.py",
+    "sha256": "7836d63269669aea0c7ef73e3c8bc88309dd4b17645d06d40b30b8f11c0e9e98",
+    "bytes": 49083
+  },
+  "summary": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/m_source_best_five_seed_summary.py",
+    "sha256": "4e0451809ddb6dddb2b484bae84cb9e500789d6005aee8f16c414e87ff1ffbb0",
+    "bytes": 45805
+  },
+  "tests": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests/test_m_source_best_result_audit.py",
+    "sha256": "b737c795482ec413e17d710bc9a7741b75a4731e500c2ac63367ff866218ef01",
+    "bytes": 31255
+  },
+  "unchanged_D_kernel": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/m_source_best_d_numeric.py",
+    "sha256": "a7b079965fd34acbf2e974480aa197ded476cbc21f1447aeac523e1c4aab1dd0",
+    "bytes": 40643
+  },
+  "baseline": {
+    "source": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/review_snapshots/M_consumer_CSV_lexical_identity_20261026T1235/m_source_best_result_audit.py",
+      "sha256": "85420f856d8b869033642b6c8c90b5917d6205dc088d8a6a2edc05564fb5d8a7",
+      "bytes": 49068
+    },
+    "summary": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/review_snapshots/M_consumer_CSV_lexical_identity_20261026T1235/m_source_best_five_seed_summary.py",
+      "sha256": "9fab078be3b150caf804970f81acd09321aa4a8ff46d1d61f45361671f19490f",
+      "bytes": 45805
+    }
+  },
+  "change": {
+    "file": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/m_source_best_result_audit.py",
+    "line": 255,
+    "effect": "Add only dtype['video_id']=str to pd.read_csv. Preserve rank_score_decimal:str, float_precision='round_trip', keep_default_na and every other reader, identity, grouping, numeric and permission rule. IDs remain lexical; no zero stripping or numeric coercion in comparisons.",
+    "minimal_and_necessary": true
+  },
+  "actual_sample": {
+    "diagnostic": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_independent_consumer_actual_RQ4_CSV_leading_zero_diagnostic_20261026T1235.json",
+      "sha256": "61fca684852c1abaee986c691e7e7844c4bdd46322a432d363281f97beada315",
+      "bytes": 1311
+    },
+    "files": {
+      "CSV": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/source_best_M/f2245c70bde16847e0f0a13d8b6d93e15cdd1356772e69ba2302e26ff0fcc8aa/D_clip_vit_b16_seed7/artifacts/rq4/raw_mean_logit/source_cal_scores.csv",
+        "sha256": "5080d0a1c4f025315e373d8d8b3194578593fc9b8bc2ca4c7f1a8d09520b12a6",
+        "bytes": 41926
+      },
+      "frame": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/source_best_M/f2245c70bde16847e0f0a13d8b6d93e15cdd1356772e69ba2302e26ff0fcc8aa/D_clip_vit_b16_seed7/artifacts/rq4/source_cal_frame_margins.parquet",
+        "sha256": "393ef73734d2737c6b5337e5ae6a614b8d94ed0bdd992a227468fa03dae11b8f",
+        "bytes": 1102998
+      }
+    },
+    "result": {
+      "CSV_bytes": 41926,
+      "Parquet_batches_before_sample": 1,
+      "Parquet_projection_columns": [
+        "video_uid",
+        "video_id"
+      ],
+      "frame_bytes": 1102998,
+      "frame_projected_video_ids": [
+        "004",
+        "004",
+        "004",
+        "004",
+        "004",
+        "004",
+        "004",
+        "004"
+      ],
+      "new_type": "str",
+      "new_video_id": "004",
+      "old_dtype": "int64",
+      "old_inferred_video_id": "4",
+      "raw_CSV_video_id": "004",
+      "source_file_SHA_unchanged": true,
+      "video_uid": "DF40/ff/real/004"
+    },
+    "scope": "Read42KB saved CSV identity columns and first64-row Parquet batch projected to video_uid/video_id from1.1MB saved frame artifact. SHA checked before/after; no metric, score aggregation or numerical audit run."
+  },
+  "independent_verification": {
+    "target_command": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -B -m pytest -q -p no:cacheprovider --basetemp /tmp/M_CSV_lexical_review_j047dkrx /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests/test_m_source_best_result_audit.py -k test_saved_score_CSV_preserves_lexical_video_identity",
+    "target_result": "2 passed,52 deselected in1.72s;exit0",
+    "private_probe_command": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -B - [bounded real ID reads and fixed AST identity helpers only]",
+    "private_stdin_sha256": "f74694d67f77ce2d7d50abd70cd8c523e88a932f256cbb27e5bcfa623a5fe4f6",
+    "private_probe_exit": 0,
+    "wrong_ID_rejections": [
+      {
+        "reason": "private_identity_only/private/v/004/video_id: value differs",
+        "type": "str",
+        "value": "4"
+      },
+      {
+        "reason": "private_identity_only/private/v/004/video_id: value differs",
+        "type": "str",
+        "value": "0004"
+      },
+      {
+        "reason": "private_identity_only/private/v/004/video_id: value differs",
+        "type": "str",
+        "value": "005"
+      },
+      {
+        "reason": "private_identity_only/private/v/004/video_id: value differs",
+        "type": "int",
+        "value": 4
+      }
+    ],
+    "wrong_video_uid_and_group_id_rejected": true,
+    "matching_lexical_ID_accepted": true,
+    "logs": {
+      "reviewer_M_CSV_lexical_fix_target2.log": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_M_CSV_lexical_fix_target2.log",
+        "sha256": "985192a7fef0cedc642789ee25941096db38208293f904fcb6230a66193c8926",
+        "bytes": 113
+      },
+      "reviewer_M_CSV_lexical_fix_target2_time.log": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_M_CSV_lexical_fix_target2_time.log",
+        "sha256": "87809292adcf9f28d3dad3be11a487270fabfa007ab1dd88d57b5097ceed98a5",
+        "bytes": 1112
+      },
+      "reviewer_M_CSV_lexical_real_sample_and_wrongID.log": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_M_CSV_lexical_real_sample_and_wrongID.log",
+        "sha256": "2c7f9f537e1e470930876c5cf0d7f9ebc4648a1d470b70e47caa953c3613c803",
+        "bytes": 1080
+      },
+      "reviewer_M_CSV_lexical_real_sample_and_wrongID_time.log": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_M_CSV_lexical_real_sample_and_wrongID_time.log",
+        "sha256": "ec87319f1de12b2ba1a06fe7d737a5f3c49f6ce799633ad19b64a6740263706c",
+        "bytes": 808
+      }
+    },
+    "CPU_affinity_count": 1,
+    "CUDA_VISIBLE_DEVICES": "",
+    "OMP_MKL_OPENBLAS_THREADS": 2,
+    "shared_slot_acquired": false
+  },
+  "static_nonregression": {
+    "complete_consumer_AST_equal_after_only_stated_dtype_addition": true,
+    "all_numeric_grouping_permission_source_pin_and_identity_AST_otherwise_identical": true,
+    "summary_complete_AST_equal_except_AUDIT_SHA": true,
+    "all_prior_test_function_AST_unchanged": true,
+    "two_added_D_H_typed_transport_cases": "IDs004/010/000 remainstr; label/score/rank decimal and all artifact SHA unchanged."
+  },
+  "root_full_suite": {
+    "log": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/M_consumer_CSV_lexical_identity_GREEN_20261026T1235.log",
+      "sha256": "af11f7e891dd78ffe36ddb4c41e2c4294e30a315facbbe81348914ceec718b4e",
+      "bytes": 181
+    },
+    "result": "141 passed in 53.31s",
+    "reviewer_reran": false
+  },
+  "prior_context_fix": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_M_consumer_actual_context_seed_binding_fix_review_20261026.json",
+    "sha256": "5ad3a07d0edc65e780514de95a170a38a5dbb31c4f16c04397fcb2bc9613fed1",
+    "bytes": 20244
+  },
+  "findings": {
+    "Critical": [],
+    "Important": [],
+    "new_Minor": []
+  },
+  "carried_deferred": {
+    "id": "MCORE-003",
+    "severity": "Minor",
+    "detail": "Raw saved limitations prefix/epoch equality still permits bool/int aliases; strict source-context integers and returned disclosure remain intact. Previously explicitly deferred, not altered or retested, and does not block this minimal numeric-consumer compatibility fix."
+  },
+  "limitations": [
+    "This is engineering review only; actual independent D60/H37 numerical acceptance has not been retried or completed by this reviewer.",
+    "No actual audit/metadata_chain/producer run, source_context/model/weight/PNG/cache payload recomputation, shared-slot/lease acquisition, source/process/status/permit modification or full old suite rerun.",
+    "The real read is bounded saved-artifact ID inspection only. Private fixed D helpers compare identities plus a constant synthetic score; no rank/point/CI/bootstrap recomputation occurs.",
+    "Future actual audit requires the fresh external request/initial source chain bound to7836d6 and original operational gates. Keep prior failed attempts and original producer files."
+  ],
+  "actual_audit_started": false,
+  "actual_numeric_acceptance": false,
+  "new_resource_or_production_permission": false,
+  "source_or_process_modified": false
+}

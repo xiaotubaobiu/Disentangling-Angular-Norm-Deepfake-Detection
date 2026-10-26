@@ -1,0 +1,275 @@
+{
+  "schema": "INDEPENDENT_M_SELECTED_CORE_CONSUMER_IMPORTANT_FIX_CONFIRMATION_V1",
+  "reviewed_utc": "2026-10-26T06:19:28.864965+00:00",
+  "scope": "Only independent closure confirmation of MCORE-001 and MCORE-002 from the prior110e941 initial review. No new overall review,old40/author42suite rerun,source qualification,actual resource qualification or actual M result audit.",
+  "prior_initial_review": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_M_selected_core_result_consumer_review_20261026.json",
+    "sha256": "110e941438bf1205be425b09e7c6c6c47fbae85c4d3aa5be46aec1d72bd51de4",
+    "bytes": 17869
+  },
+  "reviewed_source": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/m_source_best_result_audit.py",
+    "sha256": "72f28181f6aef259a9686d35d2848cfb5f9f041f9184389c48e67f21ed24e419",
+    "bytes": 48707
+  },
+  "reviewed_tests": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests/test_m_source_best_result_audit.py",
+    "sha256": "2ee63ce67d49156af15691291daecb0382c3982c3f3e912dd54833cdf7a0a946",
+    "bytes": 28385
+  },
+  "fixed_D_dependency": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/m_source_best_d_numeric.py",
+    "sha256": "a7b079965fd34acbf2e974480aa197ded476cbc21f1447aeac523e1c4aab1dd0",
+    "bytes": 40643
+  },
+  "findings_confirmation": [
+    {
+      "id": "MCORE-001",
+      "grade_before": "Important",
+      "status": "CLOSED_WITHIN_THIS_FIX_SCOPE",
+      "code_locations": [
+        "tools/m_source_best_result_audit.py:27",
+        "tools/m_source_best_result_audit.py:137",
+        "tools/m_source_best_result_audit.py:484",
+        "tools/m_source_best_result_audit.py:487",
+        "tools/m_source_best_result_audit.py:489"
+      ],
+      "static_effect": "D_KERNEL/D_SHA declare the accepted a7b079 dependency. dependency_pins returns the constant without reading a new expected digest. audit_numeric verifies that same fixed digest before import,after import and after compute.",
+      "independent_evidence": [
+        {
+          "case": "valid",
+          "compute_called": true,
+          "error": null,
+          "fixed_dependency_expected": "a7b079965fd34acbf2e974480aa197ded476cbc21f1447aeac523e1c4aab1dd0",
+          "loader_called": true
+        },
+        {
+          "case": "before_import",
+          "compute_called": false,
+          "error": "fixed independent D source SHA before import",
+          "fixed_dependency_expected": "a7b079965fd34acbf2e974480aa197ded476cbc21f1447aeac523e1c4aab1dd0",
+          "loader_called": false
+        },
+        {
+          "case": "after_import",
+          "compute_called": false,
+          "error": "D independent source drift during import",
+          "fixed_dependency_expected": "a7b079965fd34acbf2e974480aa197ded476cbc21f1447aeac523e1c4aab1dd0",
+          "loader_called": true
+        },
+        {
+          "case": "after_compute",
+          "compute_called": true,
+          "error": "D independent source drift during compute",
+          "fixed_dependency_expected": "a7b079965fd34acbf2e974480aa197ded476cbc21f1447aeac523e1c4aab1dd0",
+          "loader_called": true
+        }
+      ],
+      "expectation_and_result": "Legal fixed dependency reaches fake loader/compute. Drift before import rejects with no loader or compute call; drift after import rejects before compute; drift during compute rejects before returning result. No actual D library code is executed by these probes."
+    },
+    {
+      "id": "MCORE-002",
+      "grade_before": "Important",
+      "status": "CLOSED_WITHIN_THIS_FIX_SCOPE",
+      "code_locations": [
+        "tools/m_source_best_result_audit.py:437",
+        "tools/m_source_best_result_audit.py:441",
+        "tools/m_source_best_result_audit.py:445",
+        "tools/m_source_best_result_audit.py:447"
+      ],
+      "static_effect": "Require exact canonical complete.head filenames and stored full-file weight/bias SHA fields. Pins.add uses those fixed declarations before header parsing/np.load. Exact NPYshape/FP32dtype/length and raw head byte hash remain checked.",
+      "independent_evidence": {
+        "changed_sha256": "6f37481dbe2a724eb54da136b0f37e4239d188aaffbf6ecaca9685231f7bea6b",
+        "complete_head_file_pins_all_exact": true,
+        "declared_sha256": "0d1908886433bea27833dd68611b5aefdba0d629c71f74f808bc7f551a97df9e",
+        "error": "fixed SHA drift /tmp/M_Important_fix_probe_pvv2uog5/features/source_best_M/40b8ac947531961d74d525aea5d6b59acdc0dc5e50b5cebe98ba59a675ecc866/H_formal_clip_vit_b16_AB_seed7/B/SOURCE_TEST/head_weight.npy",
+        "legal_heads_passed_and_loaded": 12,
+        "marker_sha256_unchanged": "ffa742ce64ac24f491d74270101544cc452b8c89bd6d9cce2576f6921583fb76",
+        "padding_changed_raw_FP32_identical": true,
+        "padding_drift_rejected_before_changed_np_load": true
+      },
+      "expectation_and_result": "A valid six-role private fixture passes and loads all12heads,with every expected digest matching complete.head. Padding-only private NPY drift preserves raw FP32 values and fixed marker SHA but now rejects before the changed head reaches consumer np.load."
+    }
+  ],
+  "deferred_finding": {
+    "id": "MCORE-003",
+    "severity": "Minor",
+    "status": "EXPLICITLY_DEFERRED_NOT_FIXED_OR_RETESTED",
+    "prior_evidence_ref": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_M_selected_core_result_consumer_review_20261026.json",
+      "sha256": "110e941438bf1205be425b09e7c6c6c47fbae85c4d3aa5be46aec1d72bd51de4",
+      "bytes": 17869
+    },
+    "remaining_limitation": "Raw saved limitations prefix/epochs still use Python value equality,so bool/int aliases can match. This fix makes no claim that saved disclosure types are now strict.",
+    "strict_source_context_boundary": "Source_best_prefix.epoch and attempts/successful_updates/AMP_skips are still explicitly strict integers; selected_prefix report is reconstructed from these correct context values. The earlier bool-alias case did not demonstrate a wrong metric or wrong returned prefix count.",
+    "not_a_new_Important": true
+  },
+  "verification": [
+    {
+      "kind": "Only two added targeted regressions",
+      "passed": 2,
+      "pytest_seconds": 3.92,
+      "wall_seconds": 4.2,
+      "peak_RSS_KiB": 188300,
+      "exit_code": 0,
+      "log": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_M_selected_core_Important_fix2.log",
+        "sha256": "2cacaced69fd13dd93cbda918e70fa8d629057c1452afa743ca9b9c5c0a73e02",
+        "bytes": 21
+      },
+      "time_v": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_M_selected_core_Important_fix2_time.log",
+        "sha256": "f08f11d5b51ed365b2b8209444a7779ea3a9df8f3eb73d7c2f1012de0c990fb7",
+        "bytes": 1342
+      },
+      "command": [
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "-s",
+        "-p",
+        "no:cacheprovider",
+        "--basetemp",
+        "/tmp/review_M_Important_fix_9szgzpl3",
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests/test_m_source_best_result_audit.py::test_MCORE001_fixed_D_SHA_rejects_before_exec_module",
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests/test_m_source_best_result_audit.py::test_MCORE002_complete_head_file_SHA_rejects_private_header_padding"
+      ]
+    },
+    {
+      "kind": "Independent tiny boundary probes",
+      "D_cases": 4,
+      "head_positive_and_padding_cases": 2,
+      "wall_seconds": 0.61,
+      "peak_RSS_KiB": 126744,
+      "exit_code": 0,
+      "log": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_M_selected_core_Important_fix_independent.log",
+        "sha256": "5ea379367db4f20ce0bfd261ed3906529152e10556ee1f140f1c3f0c9b2f1598",
+        "bytes": 3386
+      },
+      "time_v": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_M_selected_core_Important_fix_independent_time.log",
+        "sha256": "b36583570f33bdd8b300da11575443d7acd4f59e44e2443d55a75b3574b874ff",
+        "bytes": 807
+      },
+      "command": [
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+        "-B",
+        "-"
+      ],
+      "stdin_harness_sha256": "703337e1da6a6eb434c70d27ef3ef90934a5028a8f0a4e6a8b644dbc272c8c17",
+      "method": "Private digest-reader and fake import-loader callbacks for D; metadata-only six-role fixture for valid heads/padding. No actual D numerical kernel,full2000draw synthetic run or real cache payload in the independent probe.",
+      "summary": {
+        "D_cases": [
+          {
+            "case": "valid",
+            "compute_called": true,
+            "error": null,
+            "fixed_dependency_expected": "a7b079965fd34acbf2e974480aa197ded476cbc21f1447aeac523e1c4aab1dd0",
+            "loader_called": true
+          },
+          {
+            "case": "before_import",
+            "compute_called": false,
+            "error": "fixed independent D source SHA before import",
+            "fixed_dependency_expected": "a7b079965fd34acbf2e974480aa197ded476cbc21f1447aeac523e1c4aab1dd0",
+            "loader_called": false
+          },
+          {
+            "case": "after_import",
+            "compute_called": false,
+            "error": "D independent source drift during import",
+            "fixed_dependency_expected": "a7b079965fd34acbf2e974480aa197ded476cbc21f1447aeac523e1c4aab1dd0",
+            "loader_called": true
+          },
+          {
+            "case": "after_compute",
+            "compute_called": true,
+            "error": "D independent source drift during compute",
+            "fixed_dependency_expected": "a7b079965fd34acbf2e974480aa197ded476cbc21f1447aeac523e1c4aab1dd0",
+            "loader_called": true
+          }
+        ],
+        "Minor003_retested_or_changed": false,
+        "actual_D_code_executed": false,
+        "actual_payloads_or_weights_read": false,
+        "head": {
+          "changed_sha256": "6f37481dbe2a724eb54da136b0f37e4239d188aaffbf6ecaca9685231f7bea6b",
+          "complete_head_file_pins_all_exact": true,
+          "declared_sha256": "0d1908886433bea27833dd68611b5aefdba0d629c71f74f808bc7f551a97df9e",
+          "error": "fixed SHA drift /tmp/M_Important_fix_probe_pvv2uog5/features/source_best_M/40b8ac947531961d74d525aea5d6b59acdc0dc5e50b5cebe98ba59a675ecc866/H_formal_clip_vit_b16_AB_seed7/B/SOURCE_TEST/head_weight.npy",
+          "legal_heads_passed_and_loaded": 12,
+          "marker_sha256_unchanged": "ffa742ce64ac24f491d74270101544cc452b8c89bd6d9cce2576f6921583fb76",
+          "padding_changed_raw_FP32_identical": true,
+          "padding_drift_rejected_before_changed_np_load": true
+        },
+        "root": "/tmp/M_Important_fix_probe_pvv2uog5",
+        "slots_acquired": 0,
+        "source_code_mutations": 0
+      }
+    }
+  ],
+  "environment": {
+    "CUDA_VISIBLE_DEVICES": "",
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "declined_scope": [
+    "No overall consumer re-review or old40/author42suite duplicate.",
+    "No D numerical mathematics,group_id fix or D60serialized integration qualification; separate reviewer remains responsible.",
+    "No actual M source/context/payload/model/weights/PNG/producer/terminal audit.",
+    "No actual shared scientific slot or AS32GiB/resource admission.",
+    "No fixing or retesting deferredMinorMCORE-003.",
+    "No all-output/five-seed or wholeM scientific acceptance."
+  ],
+  "entry_location_boundary_unchanged": {
+    "CODE_rule": "Path(__file__).resolve().parents[1]",
+    "required_actual_entry": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/m_source_best_result_audit.py",
+    "production_invocation": "Keep original W/tools absolute path,Git-reviewed bytes,and externally fixed request+consumer dependency SHAs. A byte snapshot elsewhere is archival readback only.",
+    "do_not_execute_relocated_snapshot_entry": true,
+    "reason": "Relocating to E/qualification_snapshots/entry.py changes CODE and producer33/transport/import paths; do not alter frozen package to accommodate relocation."
+  },
+  "protected_M36": {
+    "ref": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_actual_four_gate_review_preparation.json",
+      "sha256": "016d1b05fda474af90cba388509a788ae2fe35fbb792164cf4bc1d7a082854f0",
+      "bytes": 52734
+    },
+    "count": 36,
+    "current_all_match": true
+  },
+  "protected_old_H_sources": [
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/h_pair_result_audit.py",
+      "sha256": "6cd3bff403cc2f7c27a870d092023e4c8677f5d9386668abbc439829eadaa4e5",
+      "bytes": 44143
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/h_last_matrix_result_audit.py",
+      "sha256": "bb299e512e355fa0a8c9b25f901b1788cee6a2b445a4eb1ddb67b30cb4c3a0e2",
+      "bytes": 25066
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/h_primary_pair_admission_audit.py",
+      "sha256": "845bd8adab8dd95e47cae44543b0cffe2f57bcc99657a623e09529d8e76d7544",
+      "bytes": 22901
+    }
+  ],
+  "source_modified": false,
+  "source_code_byte_mutation_probes_attempted": false,
+  "actual_CPU_slot_acquired": false,
+  "actual_D_library_executed": false,
+  "actual_M_results_accepted": false,
+  "resource_qualified": false,
+  "production_admitted": false,
+  "remaining_Important_findings_in_confirmed_scope": 0,
+  "remaining_Minor_findings_deferred": [
+    "MCORE-003"
+  ],
+  "verdict": "CONFIRMED_MCORE001_AND_MCORE002_ONLY_WITH_MINOR003_DEFERRED",
+  "recommendation": "The two reproduced Important defects are closed for frozen72f/2ee+a7b dependency. Retain prior initial review and deferredMinor evidence; use separate broader integration/resource/scientific acceptance gates unchanged."
+}

@@ -1,0 +1,93 @@
+{
+  "schema": "H_LAST_RESUMED_RESULT_AUDIT_SAFE_MOCK_PROVENANCE_GUARD_V1",
+  "utc": "2026-10-26T04:23:17.318327+00:00",
+  "status": "CORE_AND_SOURCE_PROVENANCE_TARGETED_GREEN_REQUIRES_INDEPENDENT_IO_REVIEW",
+  "source": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/h_last_resumed_result_audit.py",
+    "sha256": "0d33952bcb640ecfbe6d2cb4a0a2ac132089f485f43046d4096f0e2cdb83412b"
+  },
+  "tests": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests/test_h_last_resumed_result_audit.py",
+    "sha256": "5e6ea076a832a407bc36bbb425424cb99eb02701f7b585c56bed4f9698027acc"
+  },
+  "original_bb_source_sha256": "bb299e512e355fa0a8c9b25f901b1788cee6a2b445a4eb1ddb67b30cb4c3a0e2",
+  "original_numeric_kernel_sha256": "6cd3bff403cc2f7c27a870d092023e4c8677f5d9386668abbc439829eadaa4e5",
+  "prior_implementation_and_denial_record": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/H_last_resumed_result_audit_implementation_report.json",
+    "sha256": "1b9d2c28b91804d5bd8a6517d3bd0361552a22790b97c28629ea4c999f964e0b",
+    "preserved": true
+  },
+  "safe_authorized_method": "Root explicitly selected a different operation: mock digest-read return values within private test modules, without appending/replacing any __file__/BB_PATH source bytes. Rejected file mutation command was not retried or rewrapped.",
+  "safe_probe_details": {
+    "names": [
+      "test_mock_late_audit_digest_drift_rejected_without_source_writes",
+      "test_mock_publication_digest_drift_rejected_without_source_writes",
+      "test_source_attestation_binds_initial_and_observed_digests_without_source_writes"
+    ],
+    "late_audit": [
+      "consumer digest",
+      "BB digest"
+    ],
+    "late_publication": [
+      "consumer digest",
+      "BB digest"
+    ],
+    "positive": "Initial and after-audit actual observations equal the captured initial values; positive reports fixed original values rather than later substituted digests.",
+    "disk_source_mutations_by_probes": false,
+    "only_non_source_temp_disk_write": "publication probe writes tiny binding.json and may have left a SYNTHETIC_ONLY result on the expectedRED run; no source file copy/mutation fixture is invoked by these probes.",
+    "all_publication_slots_explicit_non_acquiring_counters": true
+  },
+  "TDD": {
+    "RED": "4 DID_NOT_RAISE digest boundary failures plus1 absent attestation field;5failed21deselected.",
+    "GREEN": "79passed2.19s =26new+53preserved tests",
+    "wall_seconds": 2.52,
+    "peak_RSS_KiB": 144608,
+    "CPU_threads": 1,
+    "CUDA_VISIBLE_DEVICES": ""
+  },
+  "guard_implementation": "ENTRY_SHA captured when the new consumer imports; BB_SHA fixed and matched against bytes before AST compilation. _check_consumer_sources compares observed digests with these fixed initial values at audit entry, metadata evidence, audit return, and immediately before the output open. It never updates expected digests from a later read. Both source paths and initial/observed values are reported.",
+  "declared_derived_orchestration_sites": [
+    "validate_chain launch declaration gate",
+    "load_spec primary launch path gate",
+    "_metadata additional provenance pin return",
+    "main publication source guard"
+  ],
+  "original_numeric_audit_AST_unchanged": true,
+  "launch_records_passed_unmodified": true,
+  "missing_M_or_environment_not_synthesized": true,
+  "normal_launch_guards_preserved": true,
+  "resume_scope": "Only immutableCLIP3407/DINO7 resume20261026T013643Z rawSHA records with exactDetector authorization and prior unfinished user pause. No arbitrary resume status/path allowed.",
+  "protected_sha256_unchanged": {
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/h_parallel_matrix_admission_audit.py": "a65b198602e66662de005c6162563f7286041808c9cafd3b4630b1755c0e3196",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/qualification_snapshots/H_matrix_admission_a65b198602e66662de005c6162563f7286041808c9cafd3b4630b1755c0e3196/entry.py": "a65b198602e66662de005c6162563f7286041808c9cafd3b4630b1755c0e3196",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/h_last_matrix_result_audit.py": "bb299e512e355fa0a8c9b25f901b1788cee6a2b445a4eb1ddb67b30cb4c3a0e2",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/h_parallel_pair_admission_audit.py": "318a248fc2baf3aa3e3e0e697dd9d04ae4190eaeb7f6061eae79f9a34123bb75",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/H_parallel_pair_admission_audit_context.json": "6af5420a066cd80e5946f450d8fc71bdfb580b10fd5f9b2939ddf4df7ede1e63",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_parallel_fresh_validation/parallel_source.py": "a6133c824913ab3bf361095b415eefc9ef75be39ab32fb49ab62e2656dc2624a",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_parallel_fresh_validation/cpu_ledger_adapter.py": "c6b98535e5a28123baae595ab1f4b208f1feab43ff4018e740be94366d044287",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_parallel_fresh_validation/cpu_ledger_admission.py": "bd202e85a4990f9246b96a7081815d07cf364041e5d3498f49bfe41d8779b213",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_parallel_fresh_validation/cpu_primary_analysis.py": "c081c6ffeb14dc6bb0219851fd3fd11df25b28d2eed26ac4b7e06ef1e6e4c6ce",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_parallel_CPU_actual_qualification_clip_vit_b16_20261025T0830.json": "0ae309b3366de860cbd77f539c24a05aae3ec1180dbbd84bbbff95ed3111d7f7",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_parallel_CPU_actual_qualification_dinov2_vit_b14.json": "ab853480f704f24d4b080e04f0bcefb81fd31c4426e74aa36a351d7e8925bebe"
+  },
+  "actual_resume_facts_unchanged": {
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_primary_analysis_clip_vit_b16_seed3407_resume_20261026T013643Z_launch.json": "0d3a89013786d51824a4b8679f3e2ee57c0678c2370faef330c487591b6cf91b",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_primary_analysis_dinov2_vit_b14_seed7_resume_20261026T013643Z_launch.json": "ea89f76b78671e6f942862d4247dd9524d61a8332151db9992a4ed6bb83ea113",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/DETECTOR_RESUME_AUTHORIZED_20261026T0133.json": "3c820360f0e9e554fbcf7d941f5cfa996a84d2c82f59cef448521cdb4e00ade5",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/user_pause_20261025T2351/pause_verified.json": "3e2696907c8199c103c271366b5264c364f81869b7f8f2bca4282d21f1ff93a2"
+  },
+  "logs": {
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/H_last_resumed_result_audit_safe_mock_provenance_RED.log": "12cbd61b15d7bb1d9742977842af2978a84dd75ef9465d190f527d69eed9c39f",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/H_last_resumed_result_audit_safe_mock_GREEN.log": "0675869a94013abf59566d677dc838efccc83682d7fcec389c291d6732542123",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/H_last_resumed_result_audit_safe_mock_time_v.log": "42611c2745f9ae40baa4290e2eee6ec5feca0bb07693f565a85ecbfc5f0142a1"
+  },
+  "actions": {
+    "actual_result_audit": false,
+    "actual_CPU_slot": false,
+    "real_unfinished_result_payload_read": false,
+    "models_or_GPU": false,
+    "F4_M36_originalBB_or_launch_records_changed": false,
+    "commit_or_seal": false
+  },
+  "remaining_gate": "Existing independent IO reviewer; root approval and immutable snapshot before any actual completed-result audit. No scientific result is accepted in this engineering phase."
+}

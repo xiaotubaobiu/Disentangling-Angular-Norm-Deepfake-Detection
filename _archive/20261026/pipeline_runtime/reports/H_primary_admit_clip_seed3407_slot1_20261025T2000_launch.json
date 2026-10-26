@@ -1,0 +1,21 @@
+{
+  "utc": "2026-10-25T20:00:22Z",
+  "status": "LAUNCHED_ONE_FINITE_ORIGINAL_CLIP3407_FULL14ROLE_CPU_ADMISSION_PENDING_INDEPENDENT_REVIEW",
+  "pid": 3487041,
+  "backbone": "clip_vit_b16",
+  "seed": 3407,
+  "CPU_slot": 1,
+  "entry_template": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/primary_admit_clip_seed123_slot1.py",
+  "entry_template_sha256": "cd33c85b28dcf82ea0307c0786603a49cf67014f1406ef0d92668a28a6151fa7",
+  "parameterized_entry_code": "\"\"\"One finite original primary-H admission, reusing qualified shared slot code.\"\"\"\nfrom pathlib import Path\nimport os,json,hashlib,sys,runpy,importlib.util,shutil\nR=Path('/home/z/workspace/deepfake_pipeline_reliability_v2_20261023');F=R/'qualification/H_parallel_fresh_validation'\nPINS={'cpu_primary_analysis.py':'c081c6ffeb14dc6bb0219851fd3fd11df25b28d2eed26ac4b7e06ef1e6e4c6ce','cpu_ledger_admission.py':'bd202e85a4990f9246b96a7081815d07cf364041e5d3498f49bfe41d8779b213','parallel_source.py':'a6133c824913ab3bf361095b415eefc9ef75be39ab32fb49ab62e2656dc2624a','cpu_ledger_adapter.py':'c6b98535e5a28123baae595ab1f4b208f1feab43ff4018e740be94366d044287'}\nsha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest()\nfor name,pin in PINS.items():\n if sha(F/name)!=pin:raise ValueError('qualified original CPU wrapper dependency drift')\nq=R/'reports/H_parallel_CPU_actual_qualification_clip_vit_b16_20261025T0830.json'\nif sha(q)!='0ae309b3366de860cbd77f539c24a05aae3ec1180dbbd84bbbff95ed3111d7f7':raise ValueError('actual CLIP CPU qualification drift')\noutput=R/'reports/H_clip_vit_b16_seed3407_independent_7role_parallel_candidate_20261025T0645.json'\nif output.exists():raise FileExistsError(output)\nfor history in ('B','AB'):\n for role in ('B/SOURCE_CAL','B/SOURCE_TEST','B/TARGET_TEST','common/B/SOURCE_TEST','common/B/TARGET_TEST','common/AB/SOURCE_TEST','common/AB/TARGET_TEST'):\n  p=R/'features/H'/f'H_formal_clip_vit_b16_{history}_seed3407'/role/'complete.json'\n  if p.is_symlink() or not p.is_file():raise ValueError('complete 14 role cache prerequisites missing')\nb=R/'reports/full_capacity_check_pre_H_cache_20261025T0555.json'\nif sha(b)!='3ce2d435d51895b9cfe53ac2f4bde6df12db244a7a2365c89a3f31b418b502cd' or shutil.disk_usage(R).free<json.loads(b.read_text())['normal_required_bytes']:raise ValueError('full primary remaining space gate failed')\nspec=importlib.util.spec_from_file_location('_qualified_original_primary_cpu_slot',F/'cpu_primary_analysis.py');entry=importlib.util.module_from_spec(spec);spec.loader.exec_module(entry)\nwith entry.cpu_slot(1):\n print('ACQUIRED_EXISTING_PRIMARY_SHARED_CPU_SLOT_1_ONE_FINITE_ADMISSION',flush=True)\n sys.argv=[str(F/'cpu_ledger_admission.py'),'--execute','--backbone','clip_vit_b16','--seed','3407']\n runpy.run_path(str(F/'cpu_ledger_admission.py'),run_name='__main__')\n",
+  "parameterized_code_sha256": "b6aca21f368587e26430c5ef3f7bf9a13d170083f19b58ddff3874f13bda8131",
+  "qualification_sha256": "0ae309b3366de860cbd77f539c24a05aae3ec1180dbbd84bbbff95ed3111d7f7",
+  "stdout": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_primary_admit_clip_seed3407_slot1_20261025T2000.log",
+  "time_v": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_primary_admit_clip_seed3407_slot1_20261025T2000_time_v.log",
+  "candidate": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_clip_vit_b16_seed3407_independent_7role_parallel_candidate_20261025T0645.json",
+  "new_dispatcher": false,
+  "repeat_on_failure": false,
+  "production_or_F_files_changed": false,
+  "actual_independent_admission_accepted": false,
+  "remaining_gate": "Requires generic metadata rebind for seed3407; existing oldauditor123/2026 context must not be overwritten"
+}

@@ -1,0 +1,121 @@
+{
+  "run_id": "D_formal_clip_vit_b16_seed42",
+  "pid": 1976083,
+  "started_utc": "2026-10-24T14:52:41.775495+00:00",
+  "status": "PRODUCTION_ANALYSIS_TERMINAL",
+  "CPU_only": true,
+  "CUDA_VISIBLE_DEVICES": "",
+  "calibration_repeats": 200,
+  "test_bootstrap_repeats": 2000,
+  "roles": {
+    "train": {
+      "status": "PASS_FULL_CURRENT_CACHE_AND_ORIGINAL_HEAD",
+      "rows": 102225,
+      "dimension": 512,
+      "chunk_count": 25,
+      "zero_norm_count": 0,
+      "source_manifest_sha256": "9d85e421d803f20481eb7720854cdb4369349b97dd5e04f5763dbe851077f496",
+      "cache_completion_sha256": "5353a8b6d4c5407612704cbabc46f7faf0d8e9c9ce7dcf33bcb68eaeb2c6ede4",
+      "seconds": 94.93309400323778,
+      "utc": "2026-10-24T14:54:18.629223+00:00"
+    },
+    "dev": {
+      "status": "PASS_FULL_CURRENT_CACHE_AND_ORIGINAL_HEAD",
+      "rows": 18264,
+      "dimension": 512,
+      "chunk_count": 5,
+      "zero_norm_count": 0,
+      "source_manifest_sha256": "2c157ce3f30504479e50023ff43c76bdd0a2df8cd7e31a938356a6306b7550bd",
+      "cache_completion_sha256": "15effa8fa5ce70920eb1246b461ba1a20c378c38f82b57091e006fbf1bc3bedd",
+      "seconds": 13.261176540516317,
+      "utc": "2026-10-24T14:54:31.913326+00:00"
+    },
+    "source_cal": {
+      "status": "PASS_FULL_CURRENT_CACHE_AND_ORIGINAL_HEAD",
+      "rows": 1120,
+      "dimension": 512,
+      "chunk_count": 1,
+      "zero_norm_count": 0,
+      "source_manifest_sha256": "5acc4b7e2d28c6ff9bf437ed2316f35b4473441a38c0871bcca092ead1d4ecc7",
+      "cache_completion_sha256": "d5b71b642265dd0822de8797c8021fca9f81636e7f1b2aef4c3e63b9e8b6e812",
+      "seconds": 2.7295751608908176,
+      "utc": "2026-10-24T14:54:34.648154+00:00"
+    },
+    "source_test": {
+      "status": "PASS_FULL_CURRENT_CACHE_AND_ORIGINAL_HEAD",
+      "rows": 24192,
+      "dimension": 512,
+      "chunk_count": 6,
+      "zero_norm_count": 0,
+      "source_manifest_sha256": "316559639a981ca7e508864853579846bef4ed6bfec727e03755164988dc6f6a",
+      "cache_completion_sha256": "7a0cd629479454a52844173ef683044d2632edc72c32f565326cb285c0a092d8",
+      "seconds": 21.040419010445476,
+      "utc": "2026-10-24T14:54:55.691267+00:00"
+    },
+    "target_full": {
+      "status": "PASS_FULL_CURRENT_CACHE_AND_ORIGINAL_HEAD",
+      "rows": 104424,
+      "dimension": 512,
+      "chunk_count": 26,
+      "zero_norm_count": 0,
+      "source_manifest_sha256": "bf1ee5585c245a4c318195816342096be14e94a9f070a10759ea7f48469be229",
+      "cache_completion_sha256": "a429cd9117b86a3879279d8754deaad0fd677fa17a1df71458f9b6d1d6aba9e7",
+      "seconds": 76.29418604075909,
+      "utc": "2026-10-24T14:56:11.992854+00:00"
+    },
+    "target_cal": {
+      "status": "PASS_FULL_CURRENT_CACHE_AND_ORIGINAL_HEAD",
+      "rows": 640,
+      "dimension": 512,
+      "chunk_count": 1,
+      "zero_norm_count": 0,
+      "source_manifest_sha256": "42728e3d17735787b49a3e8907e6072da56add1547202103bf594504fa9c9850",
+      "cache_completion_sha256": "1432fb47555d4849b31dce5126776da8920cdfe9136d8d8cf641fefe86dbf2ce",
+      "seconds": 2.296519411727786,
+      "utc": "2026-10-24T14:56:14.311462+00:00"
+    },
+    "target_test": {
+      "status": "PASS_FULL_CURRENT_CACHE_AND_ORIGINAL_HEAD",
+      "rows": 33664,
+      "dimension": 512,
+      "chunk_count": 9,
+      "zero_norm_count": 0,
+      "source_manifest_sha256": "4ee912e318397814ab2d780570e45762c4cd497dde984b5bdf09578e8a813c19",
+      "cache_completion_sha256": "6669189bc7465215f5ca3d03fb7c55e2a9d2435dfbe49759d1d9280c8701e8e1",
+      "seconds": 25.07872056774795,
+      "utc": "2026-10-24T14:56:39.393383+00:00"
+    }
+  },
+  "utc": "2026-10-24T15:28:58.660377+00:00",
+  "identity": {
+    "schema": "pipeline-reliability-v2-D-fp32-cache-1",
+    "config_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/configs/execution.json",
+    "config_sha256": "deae26fadc19a09c35ec2eba443e4b1c0ce3abd8ff304b85aa6cc1cb98fca750",
+    "artifact_root": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023",
+    "run_id": "D_formal_clip_vit_b16_seed42",
+    "backbone": "clip_vit_b16",
+    "dimension": 512,
+    "epochs": 30,
+    "training_identity": {
+      "config": "7449c202c02873bdfd6f77f92365d386b7a86d0aa67a955d0ad9a15839816394",
+      "train_manifest": "9d85e421d803f20481eb7720854cdb4369349b97dd5e04f5763dbe851077f496",
+      "dev_manifest": "2c157ce3f30504479e50023ff43c76bdd0a2df8cd7e31a938356a6306b7550bd",
+      "initialization": "5806e77cd80f8b59890b7e101eabd078d9fb84e6937f9e85e4ecb61988df416f",
+      "environment": "d3e6f2a2fc50770a2c3c8ab5b913dfa9049111a398c9de72d85baf618b139ebb",
+      "code": "336f3097434edf903a5ff402162e29afeca2442ca50f9c7d9883ca60136b8335",
+      "qualification": "c2a9a09d208d2671b7a123df7ee29e83b8abedcac08d9221d5ad26f3948700aa"
+    },
+    "checkpoint_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_clip_vit_b16_seed42/final.pt",
+    "checkpoint_sha256": "eb9912c9ac0bb1521cc368dd9394dd46e9b1ea4454807c391cfdb7a9574b0685",
+    "training_complete_sha256": "97ba1778845527152f838999c2c7a41071d3507cbeb6ae0252330fb53292e31a",
+    "cache_code_sha256": "8f5814646194c772dcf00f6751a35c2f792dd5f11008e0834fdba4eb5e329761"
+  },
+  "cache_completion_sha256": "71bce6eac85aeab38e2268236bd2e5029f4a829e414f2554eb6b5ede3710e6b3",
+  "D_freeze_sha256": "6f30a13cc60778b77653493f78be0535a928879ec93226d139f724eab3c23a67",
+  "current_role": "target_test",
+  "admission_passed_utc": "2026-10-24T14:56:41.073582+00:00",
+  "analysis_started_utc": "2026-10-24T14:56:41.074696+00:00",
+  "analysis_result_status": "ANALYSIS_COMPLETE",
+  "analysis_completion_sha256": "ffcb4bcabc1e89b566b59549438e023c8dc6038ba06b9b8763b81b4f1b73dbd1",
+  "ended_utc": "2026-10-24T15:28:58.660360+00:00"
+}

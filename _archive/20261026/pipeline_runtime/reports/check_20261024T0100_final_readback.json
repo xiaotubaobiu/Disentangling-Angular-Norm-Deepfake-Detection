@@ -1,0 +1,121 @@
+{
+  "utc": "2026-10-24T01:05:22.459992+00:00",
+  "status": "PASS_0100_SUPERVISION_FIRST_BATCH_NOT_TERMINAL_ETA_AND_HANDOFF_READBACK",
+  "record_sha256": "0136fbc8994079288fb2aeffb07fe3025d3758ee86e5625bfc87cd7f8ce6aa4f",
+  "reports_sha256": {
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/checkpoint_health_20261024T0100.json": "e49065eef0f1d300ae65b37083ff71469ec18d3f468f092440aab1776196414d",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/check_20261024T0100Z.json": "ed4309508b37d54cc707feec90d0afd2536f6e37b539e7eafa073be0e91cdbfb",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/AMP_numeric_acceptance_20261024T0100.json": "490bd348a7daf21178ed4f7598cfbff3064b49a7948acae44ae9f236b5051278",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/D_completed_artifact_audit_20261024T0100.json": "454c823c608dbc52af994532eb7b95da5ed0ffee1aed5eed4a9af8dbc4b55bdb",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/D_terminal_revalidation_20261024T0100.json": "76927e523b03b253d284ab46b0a5c17f859738e311355cee5e18f78831892264",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/immutable_inputs_20261024T0100.json": "a08f4eec788cc05c81c043df03eeb988b41b53b37d875625c9baba20d4ddfdc8",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/D_first_formal_batch_eta_20261024T0100.json": "852936f3b875392b5bdac7bf3656c0251f76979fe98a0709321120de63b0144f",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/stage_progress_and_remaining_20261024T0100.json": "a45bad9a49d104b390b607f637229d886760b81c4483b5efd8508512f939d5f5",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/check_20261024T0120_preparation.json": "12d8f4404802fd8bb008f87f626119169421ca337ebcf5bf6ba41b4451e278b4"
+  },
+  "status_sha256": "77bda0ca47b95372fbfc3aba2307a76625c6753b61227bbc82878c384ec25253",
+  "HANDOFF_sha256": "fab6a2c44145674daa0349968aab51fa3e468212b9581a69cc14bcd60647c809",
+  "Obsidian_status_sha256": "764000a9262a70ccb01a344ff263eaec7b8feae9b8cc975da733ada0a0a05f08",
+  "D_current_queue": {
+    "owner_pid": 3942476,
+    "stage": "P3_D_FORMAL_TRAINING",
+    "utc": "2026-10-24T01:05:19.629982+00:00",
+    "active": [
+      {
+        "pid": 342137,
+        "run_id": "D_formal_clip_vit_b16_seed7",
+        "gpu": 0,
+        "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e"
+      },
+      {
+        "pid": 342138,
+        "run_id": "D_formal_clip_vit_b16_seed42",
+        "gpu": 1,
+        "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c"
+      },
+      {
+        "pid": 342139,
+        "run_id": "D_formal_clip_vit_b16_seed123",
+        "gpu": 2,
+        "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45"
+      },
+      {
+        "pid": 342140,
+        "run_id": "D_formal_clip_vit_b16_seed2026",
+        "gpu": 3,
+        "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646"
+      }
+    ],
+    "completed_this_session": [
+      "D_dev_clip_vit_b16_lr1e-05_seed1007_e30",
+      "D_dev_clip_vit_b16_lr1e-05_seed1042_e30",
+      "D_dev_dinov2_vit_b14_lr1e-05_seed1007_e30",
+      "D_dev_dinov2_vit_b14_lr1e-05_seed1042_e30",
+      "D_dev_dinov2_vit_b14_lr3e-05_seed1007_e30",
+      "D_dev_dinov2_vit_b14_lr3e-05_seed1042_e30",
+      "D_dev_dinov2_vit_b14_lr5e-05_seed1042_e30",
+      "D_dev_dinov2_vit_b14_lr5e-05_seed1007_e30",
+      "D_dev_efficientnet_b0_lr1e-04_seed1007_e30",
+      "D_dev_efficientnet_b0_lr1e-04_seed1042_e30"
+    ],
+    "detail": {
+      "pending": [
+        "D_formal_clip_vit_b16_seed3407",
+        "D_formal_dinov2_vit_b14_seed7",
+        "D_formal_dinov2_vit_b14_seed42",
+        "D_formal_dinov2_vit_b14_seed123",
+        "D_formal_dinov2_vit_b14_seed2026",
+        "D_formal_dinov2_vit_b14_seed3407",
+        "D_formal_efficientnet_b0_seed7",
+        "D_formal_efficientnet_b0_seed42",
+        "D_formal_efficientnet_b0_seed123",
+        "D_formal_efficientnet_b0_seed2026",
+        "D_formal_efficientnet_b0_seed3407"
+      ]
+    }
+  },
+  "formal_pinned_checkpoint_epochs": [
+    28,
+    28,
+    28,
+    28
+  ],
+  "formal_complete_count": 0,
+  "AMP_development_final": 32,
+  "AMP_formal_pinned": 17,
+  "AMP_formal_live": 17,
+  "combined_pinned_AMP_skips": 49,
+  "combined_live_AMP_skips": 49,
+  "new_live_AMP_skips_since0000": 7,
+  "AMP_live_cutoff_utc": "2026-10-24T01:01:59.658965+00:00",
+  "first_model_eta_point_utc": "2026-10-24T01:13:00.980182+00:00",
+  "all4_first_batch_eta_point_utc": "2026-10-24T01:15:36.694904+00:00",
+  "practical_first_batch_estimate": "Around01:15-01:20UTC24Octifrecentspeedpersists;notcompletedorastudydeadline",
+  "PID_liveness": {
+    "3942476": true,
+    "342137": true,
+    "342138": true,
+    "342139": true,
+    "342140": true,
+    "1532179": true,
+    "1532180": true,
+    "1532181": true,
+    "1532182": true
+  },
+  "GPU_snapshot_csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 95, 4932\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 97, 4932\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 97, 4932\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 99, 4932\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n",
+  "compute_snapshot_csv": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 342137\nGPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 342138\nGPU-5df5602a-848e-d944-26cd-aec11b964b45, 342139\nGPU-626ec32f-1401-c959-74b0-db04ed63c646, 342140\nGPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 1532179\nGPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 1532180\nGPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 1532181\nGPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 1532182\n",
+  "capacity_fresh_GiB": {
+    "workspace": 414.26647567749023,
+    "Dataset": 2827.9958114624023
+  },
+  "Git_HEAD": "aa9166fa68bb57272e497697652c0b591af21ea9",
+  "Git_clean": true,
+  "H_bundle_sha256": "639d09df6ae68a36875d376c9176d8d69a1b070ae054d0eb04b2f221c1080ff3",
+  "H_GPU_action": "NOT_ATTEMPTED_OR_RETRIED_PRIORITY_GUARD_CLOSED",
+  "H_full_source_or_PNG_audit_repeated": false,
+  "next_manual_check_utc": "2026-10-24T01:20:00Z",
+  "full_study_complete": false,
+  "formal_models_complete": 0,
+  "formal_models_total": 45,
+  "journal_papers_complete": false
+}

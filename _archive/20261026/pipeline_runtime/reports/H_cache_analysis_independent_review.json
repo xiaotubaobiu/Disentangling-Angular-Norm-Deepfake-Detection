@@ -1,0 +1,237 @@
+{
+  "schema": "H_CACHE_ANALYSIS_INDEPENDENT_REVIEW_V1",
+  "status": "PASS_CPU_IMPLEMENTATION_REVIEW",
+  "utc": "2026-10-23T11:50:01.963902+00:00",
+  "reviewer": "/root/h_cache_analysis_review",
+  "scope": "Independent read-only review of H formal cache and production CPU analysis driver; implementation evidence only",
+  "reviewed_git_head": "8afedc7c1c2b491a757b5a9bf2e3b157b832901a",
+  "reviewed_working_tree_state": [
+    "A  docs/h_cache_analysis_usage.md",
+    "A  reliability_v2/analysis_h.py",
+    "A  reliability_v2/cache_h.py",
+    "A  reliability_v2/coverage_h.py",
+    "A  reliability_v2/stats_h.py",
+    "A  tests/test_analysis_h.py",
+    "A  tests/test_cache_h.py",
+    "A  tests/test_coverage_h.py",
+    "A  tests/test_stats_h.py"
+  ],
+  "reviewed_source_root": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2",
+  "reviewed_source_sha256": {
+    "cache_h.py": "9119200359f8d696f1366e6c0137bca533c63089c32e505971e69f84ebaf40fb",
+    "analysis_h.py": "051226f11737615bb3546ae1a301d621fd662943dc1c849e18085e610c865383",
+    "stats_h.py": "5627cccc714c2fc59a3dadfed3ddeba32d1488020cfd550ca70d0c9be947dd74",
+    "coverage_h.py": "268a77b2ddb5458a9a85276347c2e43d51f86d0a2c4ff719b95d7b15d235deee",
+    "data_h.py": "ad81f65c27d53159e6902bf8a20b0910cd129f75eb0105e5a5a053bcc2d2f45e",
+    "qualification_h.py": "b356d2ff1be89476821927abdb3145d2c8989724eb465d3b01b5c0f091060c1d",
+    "worker_h.py": "d0219aa52ebb1b6602602d5b09eb5fdfbbb9dc3aeb7b55dbfc0251ced66136f4",
+    "queue_h.py": "a2792361443e64622391fb6ae766ee5e6f887789d662afdfb6d809f9a5ea8176",
+    "cache_d.py": "8f5814646194c772dcf00f6751a35c2f792dd5f11008e0834fdba4eb5e329761",
+    "scoring_d.py": "9bddf066fcb8df1b9659d4cfe14aa4febdf850f7cc39c1c0c3d6050864263d1c",
+    "analysis_d.py": "a1d3be7bd43acb43995768f9167225b066ee9e6691c61c7b8bf28b00de53ba5e",
+    "bootstrap_fast.py": "7eaeaf0973d72cd1def838cf6bc82863c92c75fb35409553332015dec8b0e4e5",
+    "trainer.py": "56f0db0634a525a530fb53482732365ebf9693a1f5470b0a95ec0820cc614368"
+  },
+  "reviewed_test_sha256": {
+    "test_cache_h.py": "751cae931f358a1523048942b12ac9b8bb2b9b2403172f7179027df66b9ace81",
+    "test_analysis_h.py": "06b11ffdf3758c478d59e0efadf2bccc94e92b76e1cd9980abf807fa25ce4144"
+  },
+  "reviewed_documentation": {
+    "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/docs/h_cache_analysis_usage.md",
+    "sha256": "a08eeee76f4a290b87055779291e9959c730c32850cdd11d82e1e38a9b967217"
+  },
+  "complete_frozen_plan_read": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/configs/plan_frozen_input.md",
+    "sha256": "b018b01915a62c645fc3718134970cd49dc0651ecfd02792220f3a0086c6594d"
+  },
+  "protected_hashes": {
+    "h_code_bundle_sha256": "5b5b101bcaabd73f4818bd9de03425d5c3898c21fcf0181fb28f39f6e5e4f295",
+    "training_code_sha256": "336f3097434edf903a5ff402162e29afeca2442ca50f9c7d9883ca60136b8335",
+    "both_match_requested_unchanged_values": true
+  },
+  "allowed_mutations": "This report, unique review logs, and synthetic fixtures under /tmp only; no source/test/config/production freeze/gate/model/process mutations or commits",
+  "environment": {
+    "CUDA_VISIBLE_DEVICES": "",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "OMP_NUM_THREADS": "2",
+    "OPENBLAS_NUM_THREADS": "2",
+    "MKL_NUM_THREADS": "2",
+    "NUMEXPR_NUM_THREADS": "2"
+  },
+  "commands": [
+    {
+      "command": "R/environment/bin/python -m pytest -q -p no:cacheprovider --basetemp=/tmp/H_cache_analysis_independent_pytest_20261023114556 tests/test_cache_h.py tests/test_analysis_h.py",
+      "cwd": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2",
+      "result": "63 passed in 165.50s",
+      "exit_code": 0,
+      "log": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_cache_analysis_independent_pytest_20261023114556.log",
+        "sha256": "17513a0c9953aa6a986805caf58e04650e5b9457de57b8e31c1cca52cff7b11e"
+      }
+    },
+    {
+      "command": "PYTHONPATH=V R/environment/bin/python /tmp/H_cache_analysis_independent_probe_20261023114556_final.py",
+      "cwd": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2",
+      "exit_code": 0,
+      "script": {
+        "path": "/tmp/H_cache_analysis_independent_probe_20261023114556_final.py",
+        "sha256": "1be4eb20280ee1db048dbe2b4d24c3d720e75c851ec06692a56b899013c62a40"
+      },
+      "log": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_cache_analysis_independent_probe_20261023114556_final.log",
+        "sha256": "b68136f4757679fde61e4e642055e0039a9da51967febc7627628ed834155ec4"
+      },
+      "results": {
+        "CUDA_initialized": false,
+        "probes": [
+          {
+            "acceptance_stubs": [
+              "cache_h._validate_live",
+              "analysis_h._pair_context",
+              "coverage_h.report_coverage"
+            ],
+            "artifacts": 72,
+            "bootstrap_draws_per_cohort": 2000,
+            "completed_reuse_without_reload": true,
+            "independent_auc_two_class_calls": 336,
+            "independently_rechecked_metric_rows": 48,
+            "model_training_cuda_forbidden": true,
+            "probe": "real_cache_load_to_production_driver",
+            "real_cache_roles_loaded": 14,
+            "status": "PASS"
+          },
+          {
+            "probe": "truncated_completion_inventory",
+            "rejection": "H analysis completion schema/status/model identity is invalid",
+            "status": "PASS_REJECTED"
+          },
+          {
+            "machine_scores_tied": true,
+            "operating_metrics_retained": true,
+            "probe": "rank_350_digit_roundtrip_and_numeric_NA",
+            "rank_auc": 1.0,
+            "ranking_unresolved_auc_NA": true,
+            "status": "PASS"
+          }
+        ],
+        "source_sha256": {
+          "analysis_d.py": "a1d3be7bd43acb43995768f9167225b066ee9e6691c61c7b8bf28b00de53ba5e",
+          "analysis_h.py": "051226f11737615bb3546ae1a301d621fd662943dc1c849e18085e610c865383",
+          "bootstrap_fast.py": "7eaeaf0973d72cd1def838cf6bc82863c92c75fb35409553332015dec8b0e4e5",
+          "cache_d.py": "8f5814646194c772dcf00f6751a35c2f792dd5f11008e0834fdba4eb5e329761",
+          "cache_h.py": "9119200359f8d696f1366e6c0137bca533c63089c32e505971e69f84ebaf40fb",
+          "coverage_h.py": "268a77b2ddb5458a9a85276347c2e43d51f86d0a2c4ff719b95d7b15d235deee",
+          "scoring_d.py": "9bddf066fcb8df1b9659d4cfe14aa4febdf850f7cc39c1c0c3d6050864263d1c",
+          "stats_h.py": "5627cccc714c2fc59a3dadfed3ddeba32d1488020cfd550ca70d0c9be947dd74"
+        },
+        "status": "PASS"
+      }
+    },
+    {
+      "command": "Read-only source/test/documentation/plan hashes, worker_h.h_code_hash(), trainer.code_hash(), analysis_h.formal_cache_status(R), production path existence",
+      "exit_code": 0
+    }
+  ],
+  "requirements_checked": [
+    {
+      "requirement": "Exactly seven accepted evaluation roles per effective formal model; 14 explicit run/role/config cache loads per pair",
+      "roles": [
+        "B/SOURCE_CAL",
+        "B/SOURCE_TEST",
+        "B/TARGET_TEST",
+        "common/B/SOURCE_TEST",
+        "common/B/TARGET_TEST",
+        "common/AB/SOURCE_TEST",
+        "common/AB/TARGET_TEST"
+      ],
+      "result": "PASS"
+    },
+    {
+      "requirement": "Accepted H data/runtime qualification and source-only recipe; all five matched pair ledgers and final effective registry precision; superseded AMP rejected",
+      "result": "PASS_SOURCE_AND_SYNTHETIC_TESTS"
+    },
+    {
+      "requirement": "Original FP32 two-row head and final checkpoint/completion seal identity; canonical paths; exact row hashes and eight unique mother/final RGB rows; fresh PNG byte/RGB hashes",
+      "result": "PASS_SOURCE_AND_SYNTHETIC_TESTS"
+    },
+    {
+      "requirement": "Atomic chunk resume preserves committed chunks; committed corruption, changed head/role/config and same-stat changed images reject",
+      "result": "PASS_SOURCE_AND_SYNTHETIC_TESTS"
+    },
+    {
+      "requirement": "Lifetime run/GPU ownership and fresh approved GPU0-3/D-priority checks before allocation; no GPU4-7 access",
+      "result": "PASS_MOCKED_RESOURCE_BOUNDARY_TESTS_ONLY"
+    },
+    {
+      "requirement": "Raw mean-logit primary and mean-probability sensitivity; all-B H10-H00 and common 2x2 separate, no cross-cohort subtraction",
+      "result": "PASS_REAL_CACHE_TO_DRIVER_SYNTHETIC_INTEGRATION"
+    },
+    {
+      "requirement": "Each model own real-only B SOURCE_CAL threshold; AB cells reuse deployment threshold; CAL never enters AUC; no training/L2-model/target-real calibration/development inference",
+      "result": "PASS_SOURCE_AND_SYNTHETIC_INTEGRATION"
+    },
+    {
+      "requirement": "Fixed 72-file pair and six-file summary inventories, identities, schema/status, hash-bound complete reuse; final input/code race rechecks",
+      "result": "PASS_SOURCE_AND_TARGETED_REGRESSIONS"
+    },
+    {
+      "requirement": "Saved scores reread and 48 metric rows independently recomputed; 350-digit rank roundtrip; unresolved rank AUC NA with operating metrics retained",
+      "result": "PASS_INDEPENDENT_PROBES"
+    },
+    {
+      "requirement": "Accepted-freeze-only coverage; 2000 shared TEST-group multiplicity draws; exactly five seed summaries with ddof=1 and no 15-model IID pooling",
+      "result": "PASS_SOURCE_TARGETED_TESTS_AND_SYNTHETIC_INTEGRATION"
+    }
+  ],
+  "resolved_findings": [
+    {
+      "id": "H_ANALYSIS_COMPLETION_FIXED_INVENTORY",
+      "prior_evidence": "Independent CPU temporary probe accepted a receipt with only identity.json and no schema/status or result files",
+      "resolution": "Fixed required 72-file inventory plus completion schema/status/model/recompute checks",
+      "verification": "Independent rerun rejected truncated completion; 63 targeted tests passed"
+    },
+    {
+      "id": "H_SUMMARY_FINAL_INPUT_RACE_GUARD",
+      "prior_evidence": "Source review found final summary only rehashed pair complete.json, permitting underlying file/code drift after initial verification",
+      "resolution": "Final all-five _pair_context plus _verify_completed and code identity rechecks",
+      "verification": "Source inspection of frozen analysis_h.py and targeted summary mutation regression passed"
+    }
+  ],
+  "harness_setup_retries": [
+    {
+      "log": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_cache_analysis_independent_probe_20261023114556.log",
+        "sha256": "ba2ab042b067044f98cb9029b4922526610db36bbe7b688fbf67eb5a268c51c3"
+      },
+      "reason": "Temporary script initially lacked explicit PYTHONPATH; corrected invocation"
+    },
+    {
+      "log": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_cache_analysis_independent_probe_20261023114556_rerun.log",
+        "sha256": "c6a7c28f2399ec81f2814910d89d0c6faae71f9013e104e0245510a4e250cfbd"
+      },
+      "reason": "One embedded double quote was consumed by PowerShell; corrected harness without product edits"
+    }
+  ],
+  "remaining_findings": [],
+  "production_status": {
+    "status": "WAITING_H_FORMAL_CACHES",
+    "complete_pairs": 0,
+    "expected_pairs": 15,
+    "GPU_launch_attempted": false
+  },
+  "production_paths_present": {
+    "data/H/freeze.json": false,
+    "qualification/H_gate.json": false,
+    "configs/H_execution.json": false,
+    "H_run_registry.json": false
+  },
+  "limits": [
+    "No actual production H freeze, runtime gate, H execution registry, formal cache, formal analysis, trained model or scientific result was created or qualified by this review.",
+    "Independent cache-to-driver integration used actual PNG byte/RGB verification, chunk writing, verify_cache/load_features, score/statistics/export/reuse code; accepted live provenance, pair-context and freeze coverage entry points were stubbed and explicitly marked synthetic.",
+    "Targeted cache tests use synthetic formal completion/ledger evidence and toy CPU model with expensive data/qualification acceptance stubbed. Production pixels, pretrained GPU behavior, full H source-only resume qualification and physical GPU dispatch remain future gates.",
+    "No GPU work, process control, automation or commits were performed. Existing D training/H preprocessing and GPU4-7 were not modified.",
+    "Review is exact to listed working-tree source hashes at the recorded Git HEAD; new H modules were untracked at review time.",
+    "The parent whole CPU suite and other agents coverage/statistical audits are separate evidence, not claimed as executed by this reviewer."
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "utc": "2026-10-24T10:57:59.428355+00:00",
+  "status": "MEASURED_POINT_ESTIMATES_ONLY_NO_WHOLESTUDY_PROMISE",
+  "rows": [
+    {
+      "pid": 745561,
+      "run_id": "D_formal_dinov2_vit_b14_seed3407",
+      "gpu": 3,
+      "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646",
+      "metadata_epoch": 24,
+      "recent_complete_intervals": [
+        656.1461296081543,
+        663.1769666671753,
+        668.7232284545898
+      ],
+      "complete_exists": false,
+      "status": "ROLLING_POINT_ESTIMATE_ONLY",
+      "terminal_estimate_utc": "2026-10-24T11:59:53.418239+00:00"
+    },
+    {
+      "pid": 835840,
+      "run_id": "D_formal_efficientnet_b0_seed123",
+      "gpu": 2,
+      "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+      "metadata_epoch": 23,
+      "recent_complete_intervals": [
+        480.6929805278778,
+        570.363648891449,
+        289.4955654144287
+      ],
+      "complete_exists": false,
+      "status": "ROLLING_POINT_ESTIMATE_ONLY",
+      "terminal_estimate_utc": "2026-10-24T11:45:44.344718+00:00"
+    },
+    {
+      "pid": 836451,
+      "run_id": "D_formal_efficientnet_b0_seed2026",
+      "gpu": 1,
+      "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+      "metadata_epoch": 24,
+      "recent_complete_intervals": [
+        641.4483604431152,
+        395.1315290927887,
+        280.5435366630554
+      ],
+      "complete_exists": false,
+      "status": "ROLLING_POINT_ESTIMATE_ONLY",
+      "terminal_estimate_utc": "2026-10-24T11:39:45.060218+00:00"
+    },
+    {
+      "pid": 1489240,
+      "run_id": "D_formal_efficientnet_b0_seed3407",
+      "gpu": 0,
+      "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e",
+      "metadata_epoch": 2,
+      "recent_complete_intervals": [
+        279.72353196144104
+      ],
+      "complete_exists": false,
+      "status": "INSUFFICIENT_THREE_COMPLETE_INTERVALS_NO_ROLLING_ETA"
+    }
+  ]
+}

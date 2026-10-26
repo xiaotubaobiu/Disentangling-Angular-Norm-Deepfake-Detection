@@ -1,0 +1,134 @@
+{
+  "utc": "2026-10-25T09:15:04.988427+00:00",
+  "status": "INDEPENDENT_PRIMARY_ANALYSIS_ENTRY_REVIEW_TWO_IMPORTANT_GUARD_FIXES_REQUIRED",
+  "scope": "Finite future original PRIMARY H statistics continuation only; qualification receipt is currently nonexistent, real primary analysis remains held, active original seed7/candidate seed42 admissions and cache owner remain unchanged.",
+  "candidate_sha256": {
+    "cpu_primary_analysis.py": "7e682830f97b4b59cd7e3d44f8cce60543f48c8b9928635f86d357d7a4f3433d",
+    "tests/test_cpu_primary_analysis.py": "3e70230c45a284d3b3422dc42cdbb378d47af5acedb20849782a545164f0220b",
+    "PRIMARY_ANALYSIS_CONTINUATION_PLAN.md": "7e17d05b6821d268d9b0490002e0b7c0bbf35b574b561d9dfbfde0761515e80e",
+    "cpu_ledger_admission.py": "bd202e85a4990f9246b96a7081815d07cf364041e5d3498f49bfe41d8779b213",
+    "cpu_ledger_adapter.py": "c6b98535e5a28123baae595ab1f4b208f1feab43ff4018e740be94366d044287",
+    "parallel_source.py": "a6133c824913ab3bf361095b415eefc9ef75be39ab32fb49ab62e2656dc2624a"
+  },
+  "fresh_independent_combined_suite": {
+    "command": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -B -m pytest -q",
+    "cwd": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_parallel_fresh_validation",
+    "environment": {
+      "CUDA_VISIBLE_DEVICES": "",
+      "OMP_NUM_THREADS": "2",
+      "MKL_NUM_THREADS": "2",
+      "OPENBLAS_NUM_THREADS": "2",
+      "PYTHONDONTWRITEBYTECODE": "1"
+    },
+    "returncode": 0,
+    "stdout": "........................................................                 [100%]\n56 passed in 0.27s\n",
+    "elapsed_seconds": 3.1518332343548536
+  },
+  "root_new_guard_test_evidence": {
+    "cpu_primary_analysis_RED.log": {
+      "sha256": "1621fd640f759f4fd72581ae96fa640748603710c011908811efd36c1d79439d",
+      "result": "11 failed in 0.06s: missing entry"
+    },
+    "cpu_primary_analysis_GREEN.log": {
+      "sha256": "dd1dbb7cd11180bb13b756435c287872ccadffd13faaa006cc5600142d2c5a74",
+      "result": "11 passed in 0.04s"
+    }
+  },
+  "findings": [
+    {
+      "severity": "Important",
+      "file": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_parallel_fresh_validation/cpu_primary_analysis.py",
+      "lines": [
+        59,
+        60,
+        61,
+        62
+      ],
+      "title": "Admission implementation executes before the accepted qualification hash check",
+      "impact": "The entry imports cpu_ledger_admission and calls input_pins before comparing its bytes with q.implementation_sha256. An altered or foreign already-imported admission module can therefore execute before the qualification implementation mismatch is rejected. This breaks the intended gate ordering even though later rejection prevents the normal analyze_pair call.",
+      "bounded_probe": "With an otherwise valid fake qualification expecting a different admission hash, an injected admission.input_pins spy executed before ValueError(actual CPU qualification implementation changed). No science modules were imported or files changed.",
+      "fix": "Validate every q implementation SHA against canonical helper/admission files before importing or calling any of them; also validate the imported admission module canonical path/identity if imports may be cached. Add a regression proving an admission callable is not reached on hash mismatch.",
+      "blocks_actual_launch": true
+    },
+    {
+      "severity": "Important",
+      "file": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_parallel_fresh_validation/cpu_primary_analysis.py",
+      "lines": [
+        38,
+        39,
+        42,
+        43,
+        48,
+        79,
+        87,
+        92
+      ],
+      "title": "CPU slot is scoped to a block instead of the required process lifetime, and scientific imports precede slot acquisition",
+      "impact": "cpu_slot explicitly unlocks and closes its stream on context exit, including main return while the interpreter is still alive. A new job can therefore acquire the same slot before true process exit, contrary to PLAN.md:3. The slot is also acquired after scientific imports, so a process can load torch/pandas/scientific modules before discovering that both CPU slots are occupied. Current legacy admission detection is conservative and working for the observed absolute command tokens.",
+      "bounded_probe": "Using a temporary fake root and no legacy processes, a second file descriptor was blocked inside cpu_slot, but acquired the lock immediately after scope exit while the same process remained alive. No real slot file or live process was touched.",
+      "fix": "Reserve the actual slot before scientific imports, then use a process-lifetime launch/lock mechanism or retain the kernel lock descriptor until OS process exit. Preserve both legacy reservations until true process exit. Add a subprocess regression proving the lock remains held after the with body and is released only after that process exits.",
+      "blocks_promised_resource_admission": true
+    }
+  ],
+  "critical_findings": 0,
+  "important_findings": 2,
+  "minor_findings": 0,
+  "independent_bounded_fake_probe": {
+    "returncode": 0,
+    "result": {
+      "import_order_probe": {
+        "unverified_admission_called_before_hash_rejection": true,
+        "error": "actual CPU qualification implementation changed",
+        "scientific_modules_imported": false
+      },
+      "slot_lifetime_probe": {
+        "lock_available_inside_scope": false,
+        "lock_available_after_scope_while_same_process_alive": true,
+        "same_process_alive": true
+      },
+      "real_scientific_runs_or_live_files_modified": false
+    },
+    "method": "Fake read_proof and admission spy in an isolated interpreter for guard ordering, plus a temporary fake slot root for lock lifetime. No actual qualification, admission, original statistics or role verification was run."
+  },
+  "verified_strengths": [
+    "Default main returns a nonexecuting plan. The real path requires external qualification and admission SHA arguments, canonical regular reports files, proof size/hash checks, empty CUDA and bounded environment threads.",
+    "Qualification validates explicit actual 14-role/140-fresh-source status, typed counts, allowed backbone/use, independent review and no GPU authority. Pair admission validates exact backbone/seed/two-model/fourteen-role scope, run mapping and all fourteen marker keys; current cache marker bytes are checked.",
+    "Unchanged admission.input_pins supplies the approved 20-source and exact 37 accepted canonical proof expectations; reviewed helper/adapter source hashes remain unchanged. The original full remaining primary budget hash and current free-space comparison are checked.",
+    "Original analysis_h.analyze_pair remains unchanged. Static source trace confirms initial pair-context 14 ledgers, feature loading 14, final pair-context 14 for a new analysis, and initial 14 followed by original completed-inventory/hash verification for completed resume. The original per-pair nonblocking flock remains in place.",
+    "Original scientific work still uses all seven roles for both histories, both aggregations, source-only thresholds, 2000 draws, and separate all-B/common cohorts. The entry receipt explicitly requires independent saved metric/bootstrap audit and does not accept scientific performance.",
+    "Observed legacy command lines for serial seed7 (time/Python PIDs 3459141/3459142) and candidate seed42 (3611167/3611168) contain the exact absolute script tokens checked by legacy_slot_alive, preserving both reservations through wrapper exit."
+  ],
+  "test_coverage_boundary": "The 11 new guards cover inert plan, qualification flags/typed counts, missing proof, and pair scope. They do not exercise implementation-before-import ordering, true process-lifetime reservation, an actual qualification file, or original statistics. Independent fake probes establish the two reported gaps.",
+  "trust_and_acceptance_boundary": "An externally supplied qualification SHA is the trust anchor for a future real independently accepted qualification document. This review does not create or authenticate such a document, and unit test flags/counts alone do not establish the actual 14-role result. The actual original seed42 and serial seed7 admissions remain parent-owned and unmodified.",
+  "declined_to_judge": [
+    {
+      "behavior": "Actual CPU qualification completeness, exact pair admission result, memory/I/O capacity and speedup",
+      "reason": "Required real admissions/independent qualification are still running or nonexistent; no scientific execution was authorized in this review."
+    },
+    {
+      "behavior": "Saved primary metrics, bootstrap kernels/results and final scientific claims",
+      "reason": "No primary analyze_pair run was launched. Any future original outputs still require the independent metric/bootstrap audit explicitly required by the entry."
+    },
+    {
+      "behavior": "Production/GPU/cache owner integration, M sensitivity and real-H storage savings",
+      "reason": "All are outside the finite primary entry scope. Only final independently accepted primary artifacts may support later storage accounting."
+    },
+    {
+      "behavior": "Arbitrary concurrent attempts to complete the same pair and restart-branch timing",
+      "reason": "Original pair flock and original completed-artifact checks were inspected, but no concurrent scientific run was authorized for fault testing."
+    }
+  ],
+  "review_actions": {
+    "source_or_proof_files_modified": false,
+    "real_weights_or_GPU_used": false,
+    "actual_admission_or_primary_statistics_launched": false,
+    "legacy_admissions_or_cache_owner_modified": false,
+    "real_CPU_slot_file_modified": false,
+    "fake_slot_fixture_only": true
+  },
+  "engineering_entry_review_passed": false,
+  "actual_CPU_qualification_accepted": false,
+  "resource_admission_accepted": false,
+  "primary_scientific_results_accepted": false,
+  "production_integration_accepted": false
+}

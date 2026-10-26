@@ -1,0 +1,75 @@
+{
+  "utc": "2026-10-24T10:06:58.811270+00:00",
+  "status": "READONLY_RESOURCE_SNAPSHOT_NO_ATTRIBUTION_FROM_SINGLE_WINDOW",
+  "df": "Filesystem              Type     1K-blocks       Used  Available Use% Mounted on\n/dev/sdc2               fuseblk 3907000316 1054915512 2852084804  28% /Dataset\n/dev/mapper/vg_ssd-data ext4    1441019496  954203692  413542256  70% /home/z/workspace\n",
+  "loadavg": "43.43 38.09 26.34 20/2662 1140389",
+  "memory_kB": {
+    "MemTotal": 395612172,
+    "MemAvailable": 365639556,
+    "Cached": 250337004,
+    "Dirty": 136800,
+    "Writeback": 0
+  },
+  "same_user_open_write_fds_under_Dataset": [
+    {
+      "pid": 1003508,
+      "comm": "python3",
+      "fd": 1,
+      "open_mode": 1,
+      "target_scope": "//Dataset/JEV-Forensics-6Class/v1"
+    },
+    {
+      "pid": 1003508,
+      "comm": "python3",
+      "fd": 2,
+      "open_mode": 1,
+      "target_scope": "//Dataset/JEV-Forensics-6Class/v1"
+    },
+    {
+      "pid": 1008045,
+      "comm": "python",
+      "fd": 1,
+      "open_mode": 1,
+      "target_scope": "//Dataset/JEV-Forensics-6Class/v1"
+    },
+    {
+      "pid": 1008045,
+      "comm": "python",
+      "fd": 2,
+      "open_mode": 1,
+      "target_scope": "//Dataset/JEV-Forensics-6Class/v1"
+    },
+    {
+      "pid": 1008045,
+      "comm": "python",
+      "fd": 4,
+      "open_mode": 1,
+      "target_scope": "//Dataset/JEV-Forensics-6Class/v1"
+    },
+    {
+      "pid": 1064437,
+      "comm": "python",
+      "fd": 1,
+      "open_mode": 1,
+      "target_scope": "//Dataset/JEV-Forensics-6Class/v1"
+    },
+    {
+      "pid": 1064437,
+      "comm": "python",
+      "fd": 2,
+      "open_mode": 1,
+      "target_scope": "//Dataset/JEV-Forensics-6Class/v1"
+    },
+    {
+      "pid": 1064437,
+      "comm": "python",
+      "fd": 3,
+      "open_mode": 2,
+      "target_scope": "//Dataset/FFHQ/archives"
+    }
+  ],
+  "unreadable_or_raced_fd_entries": 5,
+  "scope": "Only same-user process metadata and current writable Dataset FD directory prefixes; no file content read or process intervention. Closed earlier writers cannot be attributed.",
+  "Dataset_free_change_since0930_GiB": -16.432544708251953,
+  "training_changed": false
+}

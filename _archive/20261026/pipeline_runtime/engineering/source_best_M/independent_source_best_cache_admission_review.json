@@ -1,0 +1,233 @@
+{
+  "schema": "INDEPENDENT_M_CACHE_ADMISSION_REVIEW_V1",
+  "reviewed_utc": "2026-10-25T17:02:12.111613+00:00",
+  "reviewer": "independent source_best_m_io_review",
+  "scope": "Only tools/source_best_cache_admission.py and tests/test_source_best_cache_admission.py; synthetic CPU evidence only",
+  "source_sha256": "bf27fc614fe405bd97dd6356a64ad80e1b05956c9664a939791278e454a6eb23",
+  "source_snapshot": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/review_snapshots/source_best_cache_admission_bf27fc614fe405bd97dd6356a64ad80e1b05956c9664a939791278e454a6eb23.py",
+  "baseline_changes": [
+    {
+      "phase": "initial static read only; no execution claimed",
+      "source_sha256": "70b88ba82acf5f2a8cfecc3c1282cca0eeb6c011ed18e8a24179817de3e0b0b1",
+      "test_sha256": "c289c5fe531a3e927fa5f50ea4fe9cac0559945a3a3373eca2eca13521f47e32"
+    },
+    {
+      "phase": "current source reviewed/executed; test SHA observed immediately before unit run",
+      "source_sha256": "bf27fc614fe405bd97dd6356a64ad80e1b05956c9664a939791278e454a6eb23",
+      "test_sha256": "0980b61ef580960bb103b28b7548ab756072b0e862cb87b07b649955f8b07a1a",
+      "changes": "Pure capacity report extracted and validate_feature_capacity added by implementer, not reviewer"
+    },
+    {
+      "phase": "end observation; implementation owner appended regressions during review",
+      "source_sha256": "36ddad7ac8ae865afd24bd3733485f4ef63346cb5d0935c4745e1e7d8284d397",
+      "test_sha256": "20b7841c84d0f068daf3bdc8f51d8546c583e137e40dbeebde24504af6bf6cd1",
+      "note": "New appended test revision was not rerun by reviewer; original observed 17-pass/4-skip unit log and independent probes are retained separately"
+    }
+  ],
+  "worktree_head": "c915e513b4cfeb6f02bdfe039492a39b19c727e5",
+  "unchanged_accepted_code_sha256": {
+    "source_best_cache.py": "4c5494d06f133b962fd22872ac88d22ad9155fcca102e29f0e300cc06a4ff0c7",
+    "source_best_analysis.py": "0ec974eec85a0a5204b8804707d627fa908a80eb1a4e76cfa81729ce0a875a32",
+    "source_best_sink.py": "9b638a05738061fce9fb4537b6076c118b579631c8852452d4f894fa55a581f0",
+    "source_best_runtime.py": "69b3d590d95fd3004c7c64617fbad642526b02862a97f61546d3cd375fc18742",
+    "source_best_source_qualification.py": "3bc8e60a64226b37817d8142b6b374ad0400bf891c3209ad95329e8ccaa47ab9"
+  },
+  "executed": [
+    {
+      "log": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_source_best_cache_admission_tests.log",
+      "log_sha256": "a502201a160cb4b66e23a707902bb12e26736900d0ebce234ad27c542c9456fe",
+      "command": [
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--basetemp",
+        "/tmp/review_cache_admission_unit_k0gjmb33",
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests/test_source_best_cache_admission.py"
+      ],
+      "environment": {
+        "CUDA_VISIBLE_DEVICES": "",
+        "OMP_NUM_THREADS": "2",
+        "MKL_NUM_THREADS": "2",
+        "OPENBLAS_NUM_THREADS": "2",
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2:/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests"
+      },
+      "source_sha256_recorded_at_launch": null,
+      "result": "17 passed, 4 skipped in 12.84s",
+      "expected_exit": 0
+    },
+    {
+      "log": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_source_best_cache_admission_probes.log",
+      "log_sha256": "0a2b1938dffcc5adfa39f13ddedf6cd08978c45baefb54b4d21276cee668ae02",
+      "command": [
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-s",
+        "-p",
+        "no:cacheprovider",
+        "--basetemp",
+        "/tmp/review_cache_admission_probes_j5oncddg",
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_source_best_cache_admission_probes.py"
+      ],
+      "environment": {
+        "CUDA_VISIBLE_DEVICES": "",
+        "OMP_NUM_THREADS": "2",
+        "MKL_NUM_THREADS": "2",
+        "OPENBLAS_NUM_THREADS": "2",
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2:/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests"
+      },
+      "source_sha256_recorded_at_launch": "bf27fc614fe405bd97dd6356a64ad80e1b05956c9664a939791278e454a6eb23",
+      "result": "3 failed, 2 passed in 5.91s",
+      "expected_exit": 1
+    },
+    {
+      "log": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_source_best_cache_admission_extra_probes.log",
+      "log_sha256": "746ccdbe2aecaa6a6e1cee5808d8a5749503b215d3598227c90802df0aabf164",
+      "command": [
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-s",
+        "-p",
+        "no:cacheprovider",
+        "--basetemp",
+        "/tmp/review_cache_admission_extra_hhtgr4_0",
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_source_best_cache_admission_extra_probes.py"
+      ],
+      "environment": {
+        "CUDA_VISIBLE_DEVICES": "",
+        "OMP_NUM_THREADS": "2",
+        "MKL_NUM_THREADS": "2",
+        "OPENBLAS_NUM_THREADS": "2",
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2:/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests:/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M"
+      },
+      "source_sha256_recorded_at_launch": "bf27fc614fe405bd97dd6356a64ad80e1b05956c9664a939791278e454a6eb23",
+      "result": "2 failed in 4.16s",
+      "expected_exit": 1
+    }
+  ],
+  "independent_probe_files": {
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_source_best_cache_admission_probes.py": "1a5565b80f73b0b7ca5aa71759c33c15c111425a875acb5c2cd14408cb89b950",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_source_best_cache_admission_extra_probes.py": "45048e7854b7c54dddd0b821c47896511a70ab35bbd8f41196adcf3520a3ca2a"
+  },
+  "probe_scope": {
+    "job": "Real synthetic D BoundContext, all six actual cache.write_role/verify_role; only source fixture primary/source-file setup is mocked as in existing isolated unit fixture",
+    "collectors": "Tiny one-row Parquet, bounded real NPY/header/head/identity/chunk/manifest files for exact9 source-only runs and exact45 models/180 roles. Upstream finite-owner read_owner_stage verification is stubbed as an already-accepted trust boundary; owner.proof stub still binds synthetic file SHA. Actual owned_role, canonical namespace/inventory, real CPU slot in /tmp, append-only report publication, and capacity consumer run. No evidence of an actual GPU forward is manufactured or used outside /tmp.",
+    "late_mutations": "Deterministic callback after real last role validator returns, before aggregate return/publication, mutates earlier synthetic head; separate probe replaces verified complete marker immediately after real verify_role returns. Models/encoders/GPU are never run."
+  },
+  "findings": [
+    {
+      "id": "CAD001",
+      "severity": "Important",
+      "file": "tools/source_best_cache_admission.py",
+      "lines": [
+        47,
+        48,
+        53,
+        61,
+        70
+      ],
+      "title": "Job admission does not bind the recorded marker SHA to the bytes verified, and lacks final all-role derived-file rebinding",
+      "actual": "Real D full-role admission returned PASS/fresh_original_source_context_and_all_selected_role_checks=true after first head was changed during last role validation. Subsequent original cache.verify_role rejected the first role with selected checkpoint head bits changed. A second real D probe changed complete.json to {} after verify_role returned: line47 recorded the SHA of those unverified corrupt bytes and returned PASS; later original verifier rejected unexpected cache completion fields. c.check(full=True) binds original context inputs but not already-checked derived output files.",
+      "evidence": [
+        "reviewer_source_best_cache_admission_probes.log::test_real_D_all_role_snapshot_rejects_late_earlier_head_drift",
+        "reviewer_source_best_cache_admission_extra_probes.log::test_real_D_verified_marker_and_recorded_SHA_must_be_same_bytes"
+      ],
+      "corrupt_marker_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "expected": "A PASS must refer to the same marker/derived-cache bytes whose complete validity was checked and must reject earlier role drift observed before aggregate return/publication. A changed file must not become a fresh accepted SHA merely because it is hashed after validation.",
+      "recommendation": "Capture exact selected derived namespace and marker/file bindings before the expensive verifier, prove the relevant bytes/inventory are unchanged afterward, then rebind the full selected role set and source/context/code pins at the aggregate publication boundary. Validate/recompute original heads and the already-required chunk/metadata/hash contract. Apply finalizer in admit_contexts and before admit_job publication/reuse. Reuse current source validation; do not repeat original image/model work merely to close derived-cache binding."
+    },
+    {
+      "id": "CAD002",
+      "severity": "Important",
+      "file": "tools/source_best_cache_admission.py",
+      "lines": [
+        85,
+        89,
+        91,
+        98,
+        100,
+        106,
+        107,
+        112
+      ],
+      "title": "Source9 collector and 45/180 closure/consumer can publish or return stale aggregate success/zero remaining writes",
+      "actual": "Both positive tiny collector corpora passed (exact9 and45/180, including healthy validate_feature_capacity==0). In separate drift probes, changing the first head after the last real owned_role check still published source9 status PASS and real_source_only_GPU_qualification_passed=true, or capacity PASS_OWNED_45MODEL_180ROLE_FORMATS_ZERO_SCHEDULED_FEATURE_WRITES with future_scheduled_feature_write_bytes=0. A healthy saved closure plus drift during the consumer own180-role sweep also passed saved==fresh and returned0. In every case the original owned_role immediately rejected the currently corrupt first head. The newly added consumer correctly catches preexisting changes but its fresh regeneration has the same aggregate drift gap.",
+      "evidence": [
+        "reviewer_source_best_cache_admission_probes.log::test_collectors_reject_late_earlier_head_drift[source_qualification]",
+        "reviewer_source_best_cache_admission_probes.log::test_collectors_reject_late_earlier_head_drift[cache]",
+        "reviewer_source_best_cache_admission_extra_probes.log::test_capacity_consumer_rejects_drift_during_its_own_revalidation"
+      ],
+      "expected": "Collector PASS and capacity0 may be emitted only after an end-of-sweep rebind of all checked owned formats and bound owner/worker/input/code evidence. The consumer must use the same invariant before returning zero. This remains a format/producer/future-write statement, not scientific/data acceptance.",
+      "recommendation": "Share a final aggregate rebind used by source collector, _feature_capacity_report, publication and validate_feature_capacity; capture verified bindings before/after per-role checking so the final pass compares against already-verified bytes. Source9 must rebind required payload checksums plus all heads/manifests/markers/chunk metadata and pins; capacity may retain its explicitly disclosed content_checksums=False scope but must rebind its entire format/header/head/ownership contract. Recheck externally bound stage/worker refs and code at final consumption/publication. If ordinary cooperating writers can remain active, acquire their established locks or require a quiescent append-only stage; do not claim an arbitrary hostile-filesystem atomic snapshot."
+    }
+  ],
+  "grade_counts": {
+    "Critical": 0,
+    "Important": 2,
+    "Minor": 0
+  },
+  "strengths": [
+    "Uses actual cache.prepare_context/BoundContext and unchanged full role validation for independent job admission; checks all six D or H2x3 roles and original source-best head.",
+    "Exact registered endpoint/run sets and canonical role namespaces prevent simple subset-based zero-write closure. Source9 also recomputes feature payload SHAs.",
+    "Append-only bounded evidence writers and established private lock/shared CPU-slot primitives are reused.",
+    "Capacity collector explicitly discloses format-only scope, no fresh all-payload checksums/images/science/production admission; added consumer binds external closure SHA/canonical path/current collector code and exact current report equality."
+  ],
+  "coverage_limits": [
+    "Provided unit fixture intentionally skips H matched-pair admit_contexts cases: this review does not claim a fresh positive H2x3 BoundContext job-admission integration test. H source/format roles and all dimensions/history combinations are covered only by tiny owned-format collector corpora.",
+    "Provided new capacity consumer unit test stubs _feature_capacity_report; the independent synthetic45/180 positive and consumer-drift probes exercise its real downstream role sweep.",
+    "Deterministic mutation tests target drift before the function returns; they do not establish atomic behavior against arbitrary hostile concurrent filesystem mutation."
+  ],
+  "declined_to_judge_before_verdict": [
+    {
+      "behavior": "Finite-owner plan/worker lifecycle and previously reported owner bugs",
+      "reason": "Different parallel reviewer owns that changing component. Collector probes explicitly assume its accepted evidence boundary; no owner defect is recycled as a finding here."
+    },
+    {
+      "behavior": "Accepted45 actual source-best checkpoints/tensors or source PNG/pixel provenance",
+      "reason": "Reruns expressly prohibited. Only tiny synthetic fixtures and headers/format evidence used."
+    },
+    {
+      "behavior": "Actual9 GPU source qualification or real cache production",
+      "reason": "No GPU/model inference/real producer job authorized; synthetic collector success is not actual qualification."
+    },
+    {
+      "behavior": "Scientific four-comparison outputs, CAL200/TEST2000, matched update claims or whole-M qualification",
+      "reason": "Tool scope is cache admission/format ownership/future writes. No statistics, training, experiments or science accepted."
+    },
+    {
+      "behavior": "Actual17.149GiB whole-cache or joint persistent/temp/RSS admission and disk-budget credit",
+      "reason": "No real role corpus or integrated budget gate run. Header-format closure alone is not measured process RSS/joint disk qualification; future0 consumer is presently blocked by CAD002."
+    },
+    {
+      "behavior": "Power-loss durability and protection against arbitrary hostile concurrent filesystem mutation",
+      "reason": "Outside delegated contract and no such tests run. Recommendations target ordinary observed before-return drift and existing path/hash/lock contracts."
+    },
+    {
+      "behavior": "Fresh whole test suite, active primary/H owner/statistics jobs and production release",
+      "reason": "Only focused CPU synthetic tests authorized; existing owners/slots/processes and production checkout remained untouched."
+    }
+  ],
+  "recommendation": "Request changes: close CAD001/CAD002 with preserved RED-to-GREEN tests before independent job admission or any capacity-zero consumption is accepted. No production or budget authorization is granted.",
+  "verdict": "NOT_ACCEPTED_CURRENT_COMPONENT_PENDING_TWO_IMPORTANT_FIXES",
+  "production_admitted": false,
+  "whole_M_admitted": false,
+  "real_budget_credit_bytes": 0,
+  "production_checkout": {
+    "path": "/home/z/workspace/deepfake_detector_publish_20261023",
+    "HEAD": "5ef6d06bf7aeda02a5a11113e4c35a2c9909f215",
+    "git_status_porcelain": "",
+    "clean": true
+  },
+  "reviewer_modified_implementation_or_original_tests": false,
+  "real_jobs_started": false,
+  "GPU_used": false
+}

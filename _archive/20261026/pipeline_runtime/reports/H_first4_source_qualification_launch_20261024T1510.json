@@ -1,0 +1,52 @@
+{
+  "utc": "2026-10-24T15:15:21.178529+00:00",
+  "status": "ORIGINAL_HQUEUE_FIRST4_FIXED_SOURCE_ATTEMPTS_LAUNCHED",
+  "owner_pid": 1986029,
+  "command": [
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+    "-u",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/analysis_execution_records/H_first4_source_qualification.command.py"
+  ],
+  "command_sha256": "d86504b4eefe5c53c8ef8c7240d5c7f638b4341434cac467633ebe2a5d63aa8e",
+  "stdout": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_first4_source_qualification_20261024T1510.stdout.log",
+  "D_actual_terminal_utc": "2026-10-24T15:06:49.638397+00:00",
+  "D_owner_dead": true,
+  "D_models": 15,
+  "D_role_markers": 105,
+  "prelaunch_free_lock_probes": [
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/queue.lock",
+      "returncode": 0
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/H_pipeline.lock",
+      "returncode": 0
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/gpu_locks/GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e.lock",
+      "returncode": 0
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/gpu_locks/GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c.lock",
+      "returncode": 0
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/gpu_locks/GPU-5df5602a-848e-d944-26cd-aec11b964b45.lock",
+      "returncode": 0
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/gpu_locks/GPU-626ec32f-1401-c959-74b0-db04ed63c646.lock",
+      "returncode": 0
+    }
+  ],
+  "prelaunch_compute_apps": "GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 1532179\nGPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 1532180\nGPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 1532181\nGPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 1532182\n",
+  "required_normal_capacity_bytes": 379541131418.6428,
+  "actual_free_bytes": 394127515648,
+  "H_freeze_sha256": "11ac3398b8bd2b347da24efbe45fb74e890681d2d063933b01a65d5fdba0675d",
+  "source_only_416_probe": true,
+  "original_H_modules_unchanged": true,
+  "no_automatic_conditional_retry": true,
+  "development_after_all6_fresh_qualification_acceptance": true,
+  "normal_matrix_capacity_covered": true,
+  "full_extreme_conditional_cold_archive_pending": true
+}

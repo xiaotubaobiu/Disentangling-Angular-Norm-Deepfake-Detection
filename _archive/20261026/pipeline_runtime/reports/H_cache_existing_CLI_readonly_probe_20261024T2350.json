@@ -1,0 +1,16 @@
+{
+  "utc": "2026-10-24T23:58:22.719667+00:00",
+  "status": "PASS_EXISTING_INLINE_CACHE_CLI_AVAILABLE_NO_SHIM_REQUIRED",
+  "module": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/cache_h.py",
+  "module_sha256": "9119200359f8d696f1366e6c0137bca533c63089c32e505971e69f84ebaf40fb",
+  "command_help": {
+    "returncode": 0,
+    "stdout": "usage: cache_h.py [-h] --config CONFIG --run-id RUN_ID [--device DEVICE]\n\nFP32 H evaluation caches with live, fail-closed five-pair authorization. Each\nof the seven accepted H evaluation tables has its own canonical cache at\nartifact_root/features/H/<run_id>/<role>. Features and ORIGINAL two-output\nhead remain FP32; scoring promotes both head rows before subtraction. No\nsource CAL AUC is calculated here. Every verification freshly hashes processed\nPNG bytes and decoded RGB, even if stat metadata is absent or unchanged.\nSource-video bytes are covered by accepted freeze evidence; the default freeze\nvalidator rechecks metadata, not video bytes. This module does not claim a\nfresh source-video integrity scan. Committed chunk markers follow atomic array\nwrites. Unmarked partial arrays are overwritten on resume; committed\ncorruption is rejected. A completed cache is verified and reused without\nconstructing an encoder. CUDA export uses the original trainer's lifetime GPU\nownership and fresh H/D-priority boundaries.\n\noptions:\n  -h, --help       show this help message and exit\n  --config CONFIG\n  --run-id RUN_ID\n  --device DEVICE\n",
+    "stderr": ""
+  },
+  "initial_readonly_hypothesis_rejected": "Searching for def main returned empty, but the actual file tail contains a valid inline __main__ argparse block. The first probe itself succeeded; an incorrect no-CLI assertion failed before any diagnosis file or code change. This corrected record preserves the failed hypothesis without claiming a production fault.",
+  "code_or_documentation_changed": false,
+  "new_entry_implemented": false,
+  "actual_GPU_export_attempted": false,
+  "current_training_blocked": false
+}

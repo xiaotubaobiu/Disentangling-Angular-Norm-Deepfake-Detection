@@ -1,0 +1,432 @@
+{
+  "utc": "2026-10-25T01:24:03.271895+00:00",
+  "status": "ORIGINAL_FOUR_DINO42_123_SUCCESSORS_CONTINUE",
+  "queue": {
+    "owner_pid": 2222605,
+    "stage": "H_FORMAL_AMP_TRAINING",
+    "utc": "2026-10-25T01:23:56.137749+00:00",
+    "active": [
+      {
+        "pid": 2341387,
+        "run_id": "H_formal_dinov2_vit_b14_B_seed42",
+        "gpu": 0,
+        "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e",
+        "backbone": "dinov2_vit_b14"
+      },
+      {
+        "pid": 2342618,
+        "run_id": "H_formal_dinov2_vit_b14_AB_seed42",
+        "gpu": 3,
+        "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646",
+        "backbone": "dinov2_vit_b14"
+      },
+      {
+        "pid": 2352444,
+        "run_id": "H_formal_dinov2_vit_b14_B_seed123",
+        "gpu": 2,
+        "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+        "backbone": "dinov2_vit_b14"
+      },
+      {
+        "pid": 2352469,
+        "run_id": "H_formal_dinov2_vit_b14_AB_seed123",
+        "gpu": 1,
+        "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+        "backbone": "dinov2_vit_b14"
+      }
+    ],
+    "completed_this_session": [
+      "H_formal_clip_vit_b16_B_seed7",
+      "H_formal_clip_vit_b16_AB_seed42",
+      "H_formal_clip_vit_b16_AB_seed7",
+      "H_formal_clip_vit_b16_B_seed42",
+      "H_formal_clip_vit_b16_B_seed123",
+      "H_formal_clip_vit_b16_AB_seed123",
+      "H_formal_clip_vit_b16_AB_seed2026",
+      "H_formal_clip_vit_b16_B_seed2026",
+      "H_formal_clip_vit_b16_B_seed3407",
+      "H_formal_clip_vit_b16_AB_seed3407",
+      "H_formal_dinov2_vit_b14_B_seed7",
+      "H_formal_dinov2_vit_b14_AB_seed7"
+    ],
+    "detail": {
+      "pending": [
+        "H_formal_dinov2_vit_b14_B_seed2026",
+        "H_formal_dinov2_vit_b14_AB_seed2026",
+        "H_formal_dinov2_vit_b14_B_seed3407",
+        "H_formal_dinov2_vit_b14_AB_seed3407",
+        "H_formal_efficientnet_b0_B_seed7",
+        "H_formal_efficientnet_b0_AB_seed7",
+        "H_formal_efficientnet_b0_B_seed42",
+        "H_formal_efficientnet_b0_AB_seed42",
+        "H_formal_efficientnet_b0_B_seed123",
+        "H_formal_efficientnet_b0_AB_seed123",
+        "H_formal_efficientnet_b0_B_seed2026",
+        "H_formal_efficientnet_b0_AB_seed2026",
+        "H_formal_efficientnet_b0_B_seed3407",
+        "H_formal_efficientnet_b0_AB_seed3407"
+      ],
+      "requested_stage": "H_FORMAL_AMP_TRAINING",
+      "capacity": {
+        "allowed": true,
+        "free_bytes": 196030504960,
+        "required_bytes": 53687091200,
+        "reserve_GiB": 50,
+        "initial_working_set_estimate_GiB": 0,
+        "additional_conditional_bytes": 0
+      }
+    },
+    "resource_policy": "D_PRIORITY; idle GPU0-3 only; global lifetime locks"
+  },
+  "active_observation": [
+    {
+      "pid": 2341387,
+      "run_id": "H_formal_dinov2_vit_b14_B_seed42",
+      "gpu": 0,
+      "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e",
+      "backbone": "dinov2_vit_b14",
+      "committed_epochs": 8,
+      "committed_attempts": 1528,
+      "committed_success": 1528,
+      "committed_AMP_skips": 0,
+      "live_complete_records": 1684,
+      "live_AMP_skips": 0,
+      "skip_recoveries": [],
+      "last5_mean_epoch_seconds": 150.474845123291,
+      "recent_draw_equivalent_per_second": 162.47233868204765,
+      "recent_complete_update_log_period_seconds": 156.07362613677978,
+      "rough_E30_update_end_ETA_UTC": "2026-10-25T02:19:02.216785+00:00",
+      "ETA_is_terminal_acceptance": false,
+      "state_exists": true
+    },
+    {
+      "pid": 2342618,
+      "run_id": "H_formal_dinov2_vit_b14_AB_seed42",
+      "gpu": 3,
+      "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646",
+      "backbone": "dinov2_vit_b14",
+      "committed_epochs": 8,
+      "committed_attempts": 1528,
+      "committed_success": 1528,
+      "committed_AMP_skips": 0,
+      "live_complete_records": 1602,
+      "live_AMP_skips": 0,
+      "skip_recoveries": [],
+      "last5_mean_epoch_seconds": 151.22208361625673,
+      "recent_draw_equivalent_per_second": 161.66950894579384,
+      "recent_complete_update_log_period_seconds": 156.5278887271881,
+      "rough_E30_update_end_ETA_UTC": "2026-10-25T02:20:03.209859+00:00",
+      "ETA_is_terminal_acceptance": false,
+      "state_exists": true
+    },
+    {
+      "pid": 2352444,
+      "run_id": "H_formal_dinov2_vit_b14_B_seed123",
+      "gpu": 2,
+      "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+      "backbone": "dinov2_vit_b14",
+      "committed_epochs": 1,
+      "committed_attempts": 191,
+      "committed_success": 191,
+      "committed_AMP_skips": 0,
+      "live_complete_records": 340,
+      "live_AMP_skips": 0,
+      "skip_recoveries": [],
+      "last5_mean_epoch_seconds": 154.85629320144653,
+      "recent_draw_equivalent_per_second": 157.87540496140215,
+      "recent_complete_update_log_period_seconds": null,
+      "rough_E30_update_end_ETA_UTC": null,
+      "ETA_is_terminal_acceptance": false,
+      "state_exists": true
+    },
+    {
+      "pid": 2352469,
+      "run_id": "H_formal_dinov2_vit_b14_AB_seed123",
+      "gpu": 1,
+      "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+      "backbone": "dinov2_vit_b14",
+      "committed_epochs": 1,
+      "committed_attempts": 191,
+      "committed_success": 191,
+      "committed_AMP_skips": 0,
+      "live_complete_records": 284,
+      "live_AMP_skips": 0,
+      "skip_recoveries": [],
+      "last5_mean_epoch_seconds": 156.2570252418518,
+      "recent_draw_equivalent_per_second": 156.4601653087906,
+      "recent_complete_update_log_period_seconds": null,
+      "rough_E30_update_end_ETA_UTC": null,
+      "ETA_is_terminal_acceptance": false,
+      "state_exists": true
+    }
+  ],
+  "actual_PID_evidence": "    PID    PPID STAT ELAPSED %CPU   RSS COMMAND\n1532179 1532010 Sl   1347302  8.7 614500 VLLM::Worker_TP0\n1532180 1532010 Sl   1347302  7.5 649584 VLLM::Worker_TP1\n1532181 1532010 Sl   1347302  7.5 684028 VLLM::Worker_TP2\n1532182 1532010 Sl   1347302  7.5 670596 VLLM::Worker_TP3\n2222605 2222604 Sl     13552  4.8 603140 /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -B -u /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/continue_H_formal_AMP.py --budget /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/full_capacity_live_20261024T2045.json --budget-sha e6d4cb2594c9cafb77630e99a550ec9815a96d1f91ad7762b986c7ecd2fa2c4a --execute\n2341387 2222605 Sl      1428  123 3922328 /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -u -m reliability_v2.worker_h --config /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/configs/H_execution.json --run-id H_formal_dinov2_vit_b14_B_seed42\n2342618 2222605 Sl      1381  123 3900792 /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -u -m reliability_v2.worker_h --config /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/configs/H_execution.json --run-id H_formal_dinov2_vit_b14_AB_seed42\n2352444 2222605 Rl       356  111 3464288 /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -u -m reliability_v2.worker_h --config /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/configs/H_execution.json --run-id H_formal_dinov2_vit_b14_B_seed123\n2352469 2222605 Sl       312  108 3479032 /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -u -m reliability_v2.worker_h --config /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/configs/H_execution.json --run-id H_formal_dinov2_vit_b14_AB_seed123\n",
+  "GPU_samples": [
+    {
+      "utc": "2026-10-25T01:21:54.855748+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 87, 5414\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 81, 5412\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 92, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 85, 5332\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T01:21:57.005001+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 91, 5414\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 84, 5412\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 93, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 84, 5332\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T01:21:59.143112+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 93, 5414\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 83, 5412\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 92, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 78, 5332\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T01:22:01.278935+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 93, 5414\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 85, 5412\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 93, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 84, 5332\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T01:22:03.408898+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 86, 5414\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 83, 5412\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 93, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 80, 5332\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T01:22:05.542575+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 93, 5414\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 83, 5412\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 93, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 82, 5332\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T01:22:07.687862+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 93, 5414\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 76, 5412\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 92, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 78, 5332\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T01:22:09.838686+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 7, 5414\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 84, 5412\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 93, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 80, 5332\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T01:22:11.958383+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 0, 5414\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 77, 5412\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 93, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 83, 5332\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T01:22:14.090453+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 0, 5414\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 78, 5412\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 89, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 79, 5332\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T01:22:16.196740+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 0, 5414\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 88, 5412\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 1, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 80, 5332\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T01:22:18.325782+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 0, 5414\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 81, 5412\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 0, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 81, 5332\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T01:22:20.477011+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 0, 5414\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 79, 5412\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 0, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 82, 5332\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T01:22:22.608825+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 0, 5414\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 75, 5412\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 0, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 80, 5332\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T01:22:24.742915+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 79, 5414\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 74, 5412\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 0, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 83, 5332\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T01:22:26.847342+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 82, 5414\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 76, 5412\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 0, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 81, 5332\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T01:22:28.997110+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 82, 5414\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 81, 5412\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 81, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 84, 5332\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T01:22:31.101942+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 79, 5414\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 93, 5414\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 85, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 84, 5332\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T01:22:33.246292+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 83, 5414\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 93, 5414\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 84, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 80, 5332\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T01:22:35.404341+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 79, 5414\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 87, 5414\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 78, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 82, 5332\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T01:22:37.528606+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 82, 5414\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 93, 5414\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 81, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 77, 5332\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T01:22:39.664063+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 79, 5414\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 93, 5414\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 83, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 12, 5332\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T01:22:41.783683+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 83, 5414\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 92, 5414\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 82, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 93, 5332\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T01:22:43.924676+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 83, 5414\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 93, 5414\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 75, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 93, 5332\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T01:22:46.042833+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 78, 5414\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 93, 5414\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 82, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 94, 5332\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T01:22:48.175331+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 83, 5414\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 93, 5414\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 79, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 93, 5332\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T01:22:50.316994+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 82, 5414\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 93, 5414\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 82, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 93, 5332\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T01:22:52.456938+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 77, 5414\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 5, 5414\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 82, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 96, 5332\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T01:22:54.568170+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 82, 5414\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 0, 5414\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 79, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 88, 5332\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T01:22:56.709811+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 76, 5414\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 0, 5414\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 82, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 93, 5332\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T01:22:58.842169+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 78, 5414\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 0, 5414\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 77, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 88, 5332\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T01:23:00.971198+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 83, 5414\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 0, 5414\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 83, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 6, 5332\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T01:23:03.083533+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 82, 5414\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 0, 5414\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 84, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 0, 5332\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T01:23:05.216995+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 83, 5414\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 84, 5414\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 82, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 0, 5332\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T01:23:07.356993+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 80, 5414\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 78, 5414\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 81, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 0, 5332\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T01:23:09.492133+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 81, 5414\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 82, 5414\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 79, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 0, 5332\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T01:23:11.632976+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 82, 5414\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 83, 5414\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 83, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 0, 5332\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 44, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 46, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 53, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 32, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T01:23:13.750913+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 80, 5414\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 79, 5414\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 82, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 0, 5332\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T01:23:15.877033+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 83, 5414\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 81, 5414\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 79, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 79, 5332\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T01:23:18.021003+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 81, 5414\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 80, 5414\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 77, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 83, 5332\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T01:23:20.168666+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 76, 5414\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 83, 5414\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 83, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 83, 5332\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T01:23:22.303369+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 75, 5414\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 81, 5414\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 83, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 82, 5332\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T01:23:24.452931+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 81, 5414\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 80, 5414\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 78, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 83, 5332\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T01:23:26.547499+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 81, 5414\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 83, 5414\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 82, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 80, 5332\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T01:23:28.680990+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 83, 5414\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 83, 5414\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 79, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 86, 5332\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T01:23:30.838785+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 82, 5414\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 83, 5414\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 82, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 79, 5332\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T01:23:32.981092+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 83, 5414\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 79, 5414\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 83, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 82, 5332\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T01:23:35.122370+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 76, 5414\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 81, 5414\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 83, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 81, 5332\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T01:23:37.270900+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 75, 5414\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 75, 5414\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 83, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 81, 5332\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T01:23:39.416696+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 77, 5414\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 83, 5414\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 83, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 76, 5332\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T01:23:41.564634+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 82, 5414\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 79, 5414\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 82, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 83, 5332\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 22, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 18, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 18, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 2, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T01:23:43.722255+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 83, 5414\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 85, 5414\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 82, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 82, 5332\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T01:23:45.864706+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 79, 5414\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 86, 5414\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 77, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 82, 5332\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T01:23:47.967686+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 83, 5414\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 88, 5414\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 79, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 81, 5332\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T01:23:50.104668+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 75, 5414\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 82, 5414\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 77, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 75, 5332\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T01:23:52.244936+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 79, 5414\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 83, 5414\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 83, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 75, 5332\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T01:23:54.388232+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 83, 5414\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 77, 5414\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 80, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 82, 5332\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T01:23:56.524060+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 83, 5414\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 84, 5414\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 84, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 84, 5332\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T01:23:58.619801+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 83, 5414\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 85, 5414\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 83, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 84, 5332\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T01:24:00.761278+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 83, 5414\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 85, 5414\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 83, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 82, 5332\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T01:24:02.893004+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 82, 5414\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 80, 5414\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 78, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 84, 5332\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    }
+  ],
+  "GPU0_3_mean_util_percent": {
+    "0": 72.60655737704919,
+    "1": 75.21311475409836,
+    "2": 74.9672131147541,
+    "3": 72.54098360655738
+  },
+  "GPU_window_scope": "61points about130seconds, partialDINOepoch andsuccessorinitialization; not wholetrainingmean",
+  "protected13_unchanged": true,
+  "Git_HEAD": "5ef6d06bf7aeda02a5a11113e4c35a2c9909f215",
+  "Git_status": "",
+  "capacity_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/full_capacity_live_20261025T0120.json",
+  "capacity_sha256": "f036009adac3bd91bb0f1b07bbc6f98b23db7aa397352a6ebfda6d975b342c44",
+  "free_GiB": 182.56761932373047,
+  "required_GiB": 123.8124627466526,
+  "margin_GiB": 58.75515657707787,
+  "DINO7_independent_terminal_present": true,
+  "H_formal_sealed_count": 12,
+  "H_formal_running": 4,
+  "H_formal_pending": 14,
+  "target_export_allowed": false,
+  "source_best_HOLD": true,
+  "cold_release_bytes": 0
+}

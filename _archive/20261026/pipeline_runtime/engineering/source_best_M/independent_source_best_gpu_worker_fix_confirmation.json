@@ -1,0 +1,78 @@
+{
+  "schema": "INDEPENDENT_M_SOURCE_BEST_GPU_WORKER_FIX_CONFIRMATION_V1",
+  "utc": "2026-10-25T12:13:21.949339+00:00",
+  "reviewer": "independent post_amp_qualification_review subagent",
+  "status": "M_GPU_1_RESOLVED_NO_OTHER_PROTOCOL_RELAXATION_FOUND",
+  "scope": "GPU-1 fail-closed original-primary terminal guard confirmation, using CPU synthetic fixtures only. No actual source context/production weights/GPU/target/owner/F execution or production admission.",
+  "source_sha256": "f3cac34e1493cd109e336b77f94b087527e97d722f02253880371a7c2caebed5",
+  "test_source_sha256": "95fa2191932e2775b60bf75e30153c92e3b3efc704e09c4628e64dfb270833f3",
+  "preserved_previous_source_sha256": "cdee08aa5d14695bbf7aa04fb26445100a0d6f4fee4b131005df333835c4c38a",
+  "original_review_preserved": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_source_best_gpu_worker_review.json",
+    "sha256": "25d90bcb5e9e9a79743b920c591b6bb302c43f9d7d42a87c6fba632d44190380"
+  },
+  "resolved_findings": [
+    {
+      "id": "M-GPU-1",
+      "status": "RESOLVED",
+      "location": "source_best_gpu.py:29-31",
+      "fix": "Requires explicitly typed empty active list, exact H_PRIMARY_CACHE_EXPORT_REQUIRES_INDEPENDENT_ROLE_ADMISSION_COMPLETE stage, positive nonbool integer owner_pid, dict detail and exact typed list30 run_ids matching the original pinned primary stage/source effective30 inventory.",
+      "fresh_independent_evidence": "Canonical terminal positive case passed. Missing/null/false active, unrelated_COMPLETE stage, bool/zero/null owner, duplicate run inventory and non-list run inventory all rejected.",
+      "regressions": "New D/H negative cases had10realRED with2positive cases; fresh complete GPU worker22case run passed."
+    }
+  ],
+  "AST_evidence": {
+    "unchanged_functions": {
+      "_extract_owned": true,
+      "extract_worker": true,
+      "main": true
+    },
+    "bridge_gate_AST_other_than_replaced_terminal_requirements_unchanged": true,
+    "meaning": "Phase/native lifetime ordering, per-batch/role permit guard placement, selected source-best/FP32 original-head loading, role writer/resume and external operational receipt path are unchanged. Remaining bridge qualification/source/stage binding requirements were not relaxed."
+  },
+  "verification": {
+    "command": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -B -m pytest -q -p no:cacheprovider /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests/test_source_best_gpu.py",
+    "cwd": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2",
+    "environment": {
+      "CUDA_VISIBLE_DEVICES": "",
+      "OMP_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2"
+    },
+    "fresh_unit_result": "22 passed in7.22s",
+    "fresh_unit_exit_code": 0,
+    "independent_terminal_checks_exit_code": 0,
+    "independent_valid_canonical_positive": true,
+    "independent_rejected_cases": [
+      "missing_active",
+      "null_active",
+      "false_active",
+      "unrelated_complete",
+      "bool_owner",
+      "zero_owner",
+      "null_owner",
+      "duplicate_inventory",
+      "non_list_inventory"
+    ],
+    "RED_evidence_sha256": "55227b9e9b2e33513f8c15060fabfa9db63807397c452fd633a7de35ffe7869a",
+    "combined40_root_GREEN_evidence_sha256": "bc8360ead26d38e2dae1da5b5ff089d40050dd5fa1ce5e00867ae2dac7466b0b",
+    "lease_tests_rerun_by_this_confirmation": false,
+    "full_suite_rerun_by_this_confirmation": false,
+    "legacy_files_checked_unchanged": 40,
+    "CUDA_initialized": false,
+    "harness_note": "Initial standalone toy check omitted tests directory import path; corrected harness then completed with exit0. The22case pytest run passed independently before that correction; implementation was untouched."
+  },
+  "lease_dependency_confirmation": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_source_best_lease_fix_confirmation.json",
+    "sha256": "df42a0dbfdedeff23f082570e6ac01e2cf537d126bccd533da2dbf771e272ed7",
+    "status": "PURE_LEASE_FIXES_CONFIRMED_NO_REMAINING_ENGINEERING_REVIEW_BLOCKER",
+    "source_sha256": "175075eaa2e3dac44db2dbb0229abeb126058d694267901c6929cd28e0b9e5a9",
+    "scope": "Existing independent pure-lease fix confirmation inspected; no actual phase/native/GPU operation performed here."
+  },
+  "new_findings": [],
+  "retained_unadmitted_boundaries": "No production permit, real source-only GPU qualification or dispatcher is supplied. A genuine inherited phase fd and native shared GPU lease are still required; cache4c/SF974/legacyV20 are unchanged; operation receipts remain independent_scientific_admission=False. Final M driver/statistics/role/resource/scientific gates remain open.",
+  "actions_performed": "Read-only source/AST/RED-GREEN/dependency inspection and one-thread empty-CUDA22toy cases plus9temporary terminal negatives/positive. Wrote only this confirmation; prior review preserved. No actual context prepare,45weight reread, target image/inference, GPU allocation, original production/F/owner/job changes.",
+  "remaining_blockers": "No remaining review blocker from GPU-1. Root must verify the required fresh complete suite and preserve accepted source/dependency versions, then obtain real source-only GPU bridge qualification and all independently approved ownership, cache/storage/joint-capacity permits before any M production execution. Dispatcher/final M scientific driver are still not implemented."
+}

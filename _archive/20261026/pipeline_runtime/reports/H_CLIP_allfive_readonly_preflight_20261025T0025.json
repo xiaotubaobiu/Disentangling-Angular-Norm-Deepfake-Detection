@@ -1,0 +1,84 @@
+{
+  "utc": "2026-10-25T00:27:28.503114+00:00",
+  "status": "WAITING_LAST_CLIP_PAIR_SEAL_AND_INDEPENDENT_TERMINAL_ACCEPTANCE",
+  "expected_models": 10,
+  "expected_pairs": 5,
+  "independently_accepted_models": 8,
+  "runs": [
+    {
+      "run_id": "H_formal_clip_vit_b16_B_seed7",
+      "complete": true,
+      "sealed": true,
+      "independent_terminal_accepted": true
+    },
+    {
+      "run_id": "H_formal_clip_vit_b16_AB_seed7",
+      "complete": true,
+      "sealed": true,
+      "independent_terminal_accepted": true
+    },
+    {
+      "run_id": "H_formal_clip_vit_b16_B_seed42",
+      "complete": true,
+      "sealed": true,
+      "independent_terminal_accepted": true
+    },
+    {
+      "run_id": "H_formal_clip_vit_b16_AB_seed42",
+      "complete": true,
+      "sealed": true,
+      "independent_terminal_accepted": true
+    },
+    {
+      "run_id": "H_formal_clip_vit_b16_B_seed123",
+      "complete": true,
+      "sealed": true,
+      "independent_terminal_accepted": true
+    },
+    {
+      "run_id": "H_formal_clip_vit_b16_AB_seed123",
+      "complete": true,
+      "sealed": true,
+      "independent_terminal_accepted": true
+    },
+    {
+      "run_id": "H_formal_clip_vit_b16_B_seed2026",
+      "complete": true,
+      "sealed": true,
+      "independent_terminal_accepted": true
+    },
+    {
+      "run_id": "H_formal_clip_vit_b16_AB_seed2026",
+      "complete": true,
+      "sealed": true,
+      "independent_terminal_accepted": true
+    },
+    {
+      "run_id": "H_formal_clip_vit_b16_B_seed3407",
+      "complete": false,
+      "sealed": false,
+      "independent_terminal_accepted": false
+    },
+    {
+      "run_id": "H_formal_clip_vit_b16_AB_seed3407",
+      "complete": false,
+      "sealed": false,
+      "independent_terminal_accepted": false
+    }
+  ],
+  "waiting_runs": [
+    "H_formal_clip_vit_b16_B_seed3407",
+    "H_formal_clip_vit_b16_AB_seed3407"
+  ],
+  "H_execution_sha256": "ec344230ac000185312eb5cd069c5ef1e3917ddc82b65f466fd8180fccc7ee9c",
+  "H_registry_sha256": "c8965b2f754fd12ba30bc0a1ee037cb42ba85439c861f27c4d3769a8c6ce1a6f",
+  "original_queue_code_sha256": "a2792361443e64622391fb6ae766ee5e6f887789d662afdfb6d809f9a5ea8176",
+  "original_audit_paired_ledgers_source_sha256": "c7adc69b925f02dd3b921c06dab4aab42cc90d379c5673681d0f7d0ae3f50b67",
+  "original_readonly_function": "queue_h.audit_paired_ledgers(H_execution_path,clip_vit_b16,precision=AMP)",
+  "allfive_ledger_executed": false,
+  "qualification_gate_written": false,
+  "registry_changed": false,
+  "target_export_allowed": false,
+  "source_best_HOLD": true,
+  "scope": "Read-only completion/acceptance preflight only; no skip-pattern inference from partial seeds. After both seed3407 E30 seals and independent terminal acceptance, original allfive source-ledger evaluation is permitted. Any gate/FP32/effective-registry stage remains under original phase ownership and fresh all-remaining capacity; no H target export is admitted now."
+}

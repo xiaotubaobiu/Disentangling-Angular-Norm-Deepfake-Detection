@@ -1,0 +1,49 @@
+{
+  "schema": "SAVED_RESULT_FIVE_SEED_REDUCERS_ENGINEERING_ACCEPTANCE_V1",
+  "status": "PASS_NEW_REDUCERS_ENGINEERING_ONLY",
+  "utc": "2026-10-26T08:55:14.095693+00:00",
+  "commit": "91f89765ab4f4f36d9a28c7be3a1616b3f66e425",
+  "parent_commit": "9dbb3cfcaa80ff6956068046177bd899f98629ea",
+  "changed_files_sha256": {
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/h_saved_five_seed_summary.py": "01e625dc771daa56442364ff49ec8aa819c4ec215b2d467e6ce52621e45d0a57",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests/test_h_saved_five_seed_summary.py": "f24831342399e0c3d9baf3e93cbdba68f14a5e8aa28ad72069a966cd1c077919",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/m_source_best_five_seed_summary.py": "f966e0b08a5cfee2f5c73bfbebd24618455869d95c85a5c1f6718e6dde7439b7",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests/test_m_source_best_five_seed_summary.py": "5382f646c2d0fc6329f7de6de933d2fc6392cdd4ce5b72f1044628d5e0539130"
+  },
+  "review_evidence": {
+    "H_author": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/H_saved_five_seed_summary_joint_residual_fix_engineering.json",
+      "sha256": "6619c2931c7ac501ed33445c292115280864def11088b2064cc39c08fa16c6ef"
+    },
+    "H_independent": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_H_saved_five_seed_summary_joint_residual_fix_confirmation_20261026.json",
+      "sha256": "912e6e67b12335753997660307380d2a3ba2344bcd5100bb41a6ecfb56c29a2c"
+    },
+    "M_author": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_source_best_five_seed_summary_allocation_fix_engineering_candidate_20261026.json",
+      "sha256": "bb833494e3c2fa8cc59e30124e79626893a2da23bfc394d72ec0cd11459e0b5c"
+    },
+    "M_001_002_independent": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_M_source_best_five_seed_summary_fix_confirmation_20261026.json",
+      "sha256": "0d8b32794eaff60c246b1eb266ca0180061cbec7ae51037cf08741cfa7a53019"
+    },
+    "M_003_independent": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_M_source_best_five_seed_summary_allocation_fix_confirmation_20261026.json",
+      "sha256": "a6785dff16aaef60ae6c78826bc63d740378ccc1c61989013825fdf441e6c533"
+    }
+  },
+  "H_final_author_tests": 84,
+  "M_final_author_tests": 87,
+  "H_independent_residual_targeted_tests": 6,
+  "M33_unchanged": true,
+  "original_shared_slots_acquired": false,
+  "actual_H_summary_executed": false,
+  "actual_M_summary_executed": false,
+  "M_statistical_canary_executed": false,
+  "actual_resource_qualification_granted": false,
+  "production_permission_issued": false,
+  "scientific_final_acceptance": false,
+  "git_diff_check_exit": 0,
+  "git_status_after": "",
+  "remaining": "Actual data SHA-bound requests, fresh full budget and available original CPU slot; M also all10 independent jobs perbone after two real resource/numeric canaries."
+}

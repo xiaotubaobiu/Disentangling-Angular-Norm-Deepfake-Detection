@@ -1,0 +1,18 @@
+{
+  "utc": "2026-10-25T00:56:50.094328+00:00",
+  "status": "FROZEN_CPU_HEALTH_NEW_OUTPUT_STARTED",
+  "time_wrapper_pid": 2340029,
+  "command": [
+    "/usr/bin/time",
+    "-v",
+    "-o",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_formal_checkpoint_health_time_v_20261025T0055.log",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+    "-B",
+    "-u",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_formal_checkpoint_health_20261025T0055.command.py"
+  ],
+  "caller_sha256": "3f96c1cfb4df0600a68de0d10c4bd67381b2c7f058681f725b42aa37c7c7c7fa",
+  "source_sha256": "c59bd1514efa1892027bab7910d25ff6a3057efaae82d3aff988e85a12058cc6",
+  "report": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_formal_checkpoint_health_20261025T0055.json"
+}

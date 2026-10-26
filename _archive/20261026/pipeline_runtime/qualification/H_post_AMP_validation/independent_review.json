@@ -1,0 +1,89 @@
+{
+  "schema": "INDEPENDENT_H_POST_AMP_CONTINUATION_REVIEW_V1",
+  "utc": "2026-10-25T05:27:33.670518+00:00",
+  "reviewer": "independent post_amp_qualification_review subagent",
+  "status": "REVIEW_COMPLETE_NO_CRITICAL_OR_IMPORTANT_FINDINGS_RUNTIME_GATES_STILL_REQUIRED",
+  "production_execution_performed": false,
+  "files_reviewed": {
+    "PLAN.md": "ce62fb7ca6cbf7d89d7ca08aded67fd942d0c9dc840f206f0644e3574ccd889d",
+    "continue_H_post_AMP.py": "527719cc0cfc52bd160e1050503ad9488b5aeca4149418a070fb8879e20bb67e",
+    "test_post_AMP.py": "06a5bf0cb085bd3fa1da71600936618dcc62bc1f68298e4d70b363d339c11bd7",
+    "RED.log": "f11a555d7652e9520a336375992e07bf2e1b57eed3120e1e2c5537596b4d7bc7",
+    "GREEN_initial.log": "45f403ae94e5767ac539c4673307692b482915b3d1a0a341e92e3ca76aaf36df",
+    "original_helper": "3955e3299f1bcdc2529cb196af17902df376ec2eaf685560cd08aba41b10dadc",
+    "queue_h.py": "a2792361443e64622391fb6ae766ee5e6f887789d662afdfb6d809f9a5ea8176",
+    "trainer.py": "56f0db0634a525a530fb53482732365ebf9693a1f5470b0a95ec0820cc614368"
+  },
+  "findings": [],
+  "minor_notes": [
+    {
+      "severity": "Minor",
+      "title": "FP32 stop preserves trigger but does not write capacity observation",
+      "location": "continue_H_post_AMP.py:94-99; original queue_h.py:442-443; PLAN.md:5",
+      "evidence": "Independent fake-tail reproduction observed a saved REQUIRES_UNIFORM_FP32_FALLBACK AMP ledger and no FP32_capacity report: reject_new_training raises at original capacity_check before the following original save_json.",
+      "impact": "The scientific stop and trigger preservation work. PLAN.md also promises capacity evidence; projected additional bytes and observed free bytes are currently not persisted for later inspection. Fresh full branch capacity still must be independently qualified before any eventual branch dispatch.",
+      "suggestion": "Optionally persist a rejection-only capacity observation before raising, or narrow the plan statement. Keep the unconditional stop before registration."
+    }
+  ],
+  "verification": {
+    "pytest_command": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -B -m pytest -q -p no:cacheprovider /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_post_AMP_validation/test_post_AMP.py",
+    "pytest_environment": {
+      "CUDA_VISIBLE_DEVICES": "",
+      "OMP_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTHONDONTWRITEBYTECODE": "1"
+    },
+    "pytest_result": "34 passed in 3.52s",
+    "pytest_exit_code": 0,
+    "independent_checks_exit_code": 0,
+    "independent_checks": {
+      "import_without_torch_or_CUDA_training_modules": true,
+      "full_AST_equality_to_original_effective_through_run_end": true,
+      "fallback_rejects_before_registration_batch_and_global_promotion": true,
+      "fallback_trigger_AMP_ledger_preserved": true,
+      "fallback_capacity_report_preserved": false,
+      "fake_execute_event_order": [
+        "preflight",
+        "freeze",
+        "qualification",
+        "lock_enter",
+        "preflight",
+        "freeze",
+        "qualification",
+        "budget",
+        "queue_create",
+        "tail",
+        "lock_exit"
+      ]
+    },
+    "scope": "CPU tests and temporary fake roots only. No original production helper invocation, source/config mutation, training/cache dispatch, lock acquisition on production, restart, kill, or GPU operation."
+  },
+  "reviewed_invariants": [
+    "Pinned original helper and pure API pin frozen production source; scientific tail equals original AST from effective={} to final registry/status.",
+    "Default main path is read-only preflight; CUDA/training imports occur only in execute after admission.",
+    "Original owner2222605 must be absent and matching H workers absent; execute acquires original nonblocking lock and repeats full admission plus original validators under ownership.",
+    "All30 exact formal AMP registration, unique independent accepted terminal-report coverage, current158 artifact seals, terminal checkpoint SHA/fields, source DEV proof counters, pending registry, and owner successful terminal status are required.",
+    "Fresh original all-five ledgers use default original verifier and no cached override; original global registry publication follows successful all-three ledgers.",
+    "Real uniform FP32 trigger unconditionally raises before formal FP32 registration or batch; the AMP trigger is durable. No waiver/selective rerun or conditional capacity admission is substituted.",
+    "Budget requires every primary component, nonnegative finite amounts, 16GiB temporary and50GiB reserve, no M/compact/cold credit, fresh pinned base, live free bytes, and remaining training clamp atzero."
+  ],
+  "runtime_observation": {
+    "owner2222605_exists": true,
+    "H_stage": "H_FORMAL_AMP_TRAINING",
+    "H_active": [
+      {
+        "pid": 3086577,
+        "run_id": "H_formal_efficientnet_b0_AB_seed3407",
+        "gpu": 3,
+        "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646",
+        "backbone": "efficientnet_b0"
+      }
+    ],
+    "independent_formal_terminal_coverage_count": 28,
+    "effective_runs": {},
+    "target_export_allowed": false,
+    "production_allowed_now": false,
+    "remaining_gates": "All30 formal terminal models must finish and receive independent acceptance; original finite owner must actually exit; no matching workers; successful inactive owner terminal stage; original lock; fresh full budget and repeated complete preflight. Do not promote while owner/workers are active."
+  }
+}

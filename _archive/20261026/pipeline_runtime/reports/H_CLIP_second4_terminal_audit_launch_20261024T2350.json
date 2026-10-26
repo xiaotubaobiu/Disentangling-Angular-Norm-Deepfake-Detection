@@ -1,0 +1,58 @@
+{
+  "utc": "2026-10-24T23:58:22.763880+00:00",
+  "status": "H_SECOND4_E30_SEALED_CPU_TERMINAL_AUDIT_STARTED_PENDING",
+  "time_wrapper_pid": 2308568,
+  "command": [
+    "/usr/bin/time",
+    "-v",
+    "-o",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_CLIP_second4_terminal_audit_time_v_20261024T2350.log",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+    "-B",
+    "-u",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/audit_H_formal_terminal.py",
+    "--run-id",
+    "H_formal_clip_vit_b16_B_seed123",
+    "--run-id",
+    "H_formal_clip_vit_b16_AB_seed123",
+    "--run-id",
+    "H_formal_clip_vit_b16_B_seed2026",
+    "--run-id",
+    "H_formal_clip_vit_b16_AB_seed2026",
+    "--report",
+    "H_CLIP_second4_terminal_acceptance_20261024T2350.json"
+  ],
+  "script_sha256": "b76806a40ee85233123d17efceee8b10f6882600fa74507ff19d603d4685fa02",
+  "review_sha256": "496246f0cd8fff11b1049b6805745fd86df9c2058f8affd2e1eca4992b1fc324",
+  "selected_ready_runs": [
+    {
+      "run_id": "H_formal_clip_vit_b16_B_seed123",
+      "epochs": 30,
+      "complete": true,
+      "sealed": true
+    },
+    {
+      "run_id": "H_formal_clip_vit_b16_AB_seed123",
+      "epochs": 30,
+      "complete": true,
+      "sealed": true
+    },
+    {
+      "run_id": "H_formal_clip_vit_b16_B_seed2026",
+      "epochs": 30,
+      "complete": true,
+      "sealed": true
+    },
+    {
+      "run_id": "H_formal_clip_vit_b16_AB_seed2026",
+      "epochs": 30,
+      "complete": true,
+      "sealed": true
+    }
+  ],
+  "CUDA_VISIBLE_DEVICES": "",
+  "CPU_threads": 2,
+  "actual_training_restarted": false,
+  "target_gate_granted": false,
+  "report": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_CLIP_second4_terminal_acceptance_20261024T2350.json"
+}

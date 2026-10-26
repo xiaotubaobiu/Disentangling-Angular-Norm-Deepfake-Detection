@@ -1,0 +1,108 @@
+{
+  "utc": "2026-10-25T08:09:18.750995+00:00",
+  "status": "INDEPENDENT_CPU_ADMISSION_ENTRY_REVIEW_IMPORTANT_CANONICAL_PROOF_BINDING_FIX_REQUIRED",
+  "scope": "Concrete finite entry in a NEW CPU process, calling original analysis_h._pair_context with fresh parallel original source verification inside each original ledger. No actual admission launched by reviewer.",
+  "candidate_root": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_parallel_fresh_validation",
+  "candidate_sha256": {
+    "cpu_ledger_admission.py": "f0585af97d977700aadbcc26002c306b90732a4aaf3e920c55a4184d22aa82c5",
+    "tests/test_cpu_ledger_admission_entry.py": "062371e596bb56df72463fd9820e3faa7f21e0c4976a10522e46e9a749a487f8",
+    "cpu_ledger_adapter.py": "c6b98535e5a28123baae595ab1f4b208f1feab43ff4018e740be94366d044287",
+    "parallel_source.py": "a6133c824913ab3bf361095b415eefc9ef75be39ab32fb49ab62e2656dc2624a"
+  },
+  "qualified_source_manifest_sha256": "977431237b901d5ac88172f98bc2591d3cd7992c35be50546cda34ad2276a747",
+  "pinned_all3_acceptance_sha256": "49a620f6de1c58e259d8a214ce6cae188c911e2118d22a3d5f5fcf39c24f83ed",
+  "frozen_registry_sha256": "93d9336f5fe57c8af09b0d0177f0e1f9dd1bbab51331347127dec95e4e8dda27",
+  "fresh_independent_test": {
+    "command": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -B -m pytest -q",
+    "cwd": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_parallel_fresh_validation",
+    "environment": {
+      "CUDA_VISIBLE_DEVICES": "",
+      "OMP_NUM_THREADS": "2",
+      "MKL_NUM_THREADS": "2",
+      "OPENBLAS_NUM_THREADS": "2",
+      "PYTHONDONTWRITEBYTECODE": "1"
+    },
+    "returncode": 0,
+    "stdout": "...........................................                              [100%]\n43 passed in 0.21s\n",
+    "elapsed_seconds": 0.457137705758214
+  },
+  "root_TDD_logs": {
+    "cpu_admission_entry_RED.log": {
+      "sha256": "6c4f139260473d2780de49a1740987386bd4e7b3b790b1e0214d8ebaeeafa33b",
+      "result": "5 failed in 0.04s: missing entry"
+    },
+    "cpu_admission_entry_GREEN.log": {
+      "sha256": "9f8b2d8196886a371985c0736139ee40ef2878975d8d76c033348c56c74acda7",
+      "result": "43 passed in 0.21s"
+    }
+  },
+  "findings": [
+    {
+      "severity": "Important",
+      "file": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_parallel_fresh_validation/cpu_ledger_admission.py",
+      "lines": [
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38
+      ],
+      "title": "Pinned acceptance report is not used to enforce its accepted canonical proof hashes",
+      "impact": "The entry hard-pins the all-three acceptance report, but never reads its current_canonical_proof_sha256 map. It takes fresh current hashes of gate/ledger/seal paths instead. A live proof file can therefore differ from the accepted snapshot yet be admitted into the before/after pin set; an unselected backbone gate is not later checked by the selected backbone original pair-context path. This is a canonical global evidence-admission gap, not a bypass of the selected backbone original full verifier or PNG/RGB checks.",
+      "bounded_read_only_probe_returncode": 0,
+      "bounded_read_only_probe_result": {
+        "baseline_pin_count": 87,
+        "simulated_live_mismatch_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_target_export_dinov2_vit_b14.json",
+        "accepted_expected_sha256": "984eb18fd9233bd615b1b48859ff91515a49f74cbd06e70928617b5261956b59",
+        "simulated_live_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+        "input_pins_accepted_mismatch": true,
+        "no_scientific_import": true,
+        "files_modified": false
+      },
+      "fix": "Read the mandatory expected proof map from the pinned acceptance report and require every accepted path/hash before scientific imports. Seed pins from accepted expectations, validate their canonical path/shape/inventory as appropriate, and reject rather than overwrite any accepted value when adding current dependencies. Add regression tests with a live value differing from an unchanged accepted map and with an expected accepted-map entry missing.",
+      "blocks_actual_candidate_launch": true
+    }
+  ],
+  "critical_findings": 0,
+  "important_findings": 1,
+  "minor_findings": 0,
+  "verified_strengths": [
+    "Default main is inert. CLI bounds backbone and seed; existing output is preserved; the real path requires empty CUDA visibility and exactly two OMP/MKL/OpenBLAS threads before scientific imports.",
+    "The exact qualified 20-source manifest, reviewed helper/adapter digests and final registry are checked. Actual source/input hashes are checked before the original science import and around every adapted ledger and final context.",
+    "The entry rejects preimported reliability_v2 modules, checks canonical paths for directly used scientific modules, derives the exact selected effective ten runs, and injects the ORIGINAL worker_h.verify_run_completion into the reviewed restored adapter.",
+    "Original analysis_h._pair_context calls original cache_h.verify_cache for two histories times seven roles. Its original _validate_live/_context/_target_authorization calls the temporarily adapted queue audit; _read_manifest still calls full _validate_inputs byte and decoded RGB checks; original cache chunk/head/provenance checks remain in place. No override to those functions exists.",
+    "A success requires fourteen adapted ledgers, fourteen cache completion markers and ten fresh source completions per ledger. Publication uses the accepted atomic no-overwrite publisher."
+  ],
+  "test_coverage_boundary": "The five new entry tests exercise inert default, no-I/O inert path, existing output, CPU/thread rejection and invalid CLI values. They do not exercise successful input-pins construction against the accepted proof map, missing/mismatching accepted pins, foreign module paths or late entry failures. The independent in-memory probe covered the reported accepted-map mismatch without altering any file or importing science.",
+  "declined_to_judge": [
+    {
+      "behavior": "Actual original pair-context result, 14 role completion, current PNG/RGB success and canonical identity",
+      "reason": "Requires the separate actual finite run after review fixes. Reviewer intentionally did not call main --execute or original pair-context."
+    },
+    {
+      "behavior": "Capacity, memory/I/O contention, throughput and speed improvement relative to baseline",
+      "reason": "No real admission measurement was run; source review and bounded fake tests cannot establish performance or resource admission."
+    },
+    {
+      "behavior": "Production/scoring/cache owner integration or changes to original seed7 admission",
+      "reason": "Explicitly out of scope; entry is isolated and running primary processes are unchanged."
+    }
+  ],
+  "review_actions": {
+    "source_or_proof_files_modified": false,
+    "real_weights_or_GPU_used": false,
+    "actual_admission_or_scoring_launched": false,
+    "live_owner_or_git_state_modified": false,
+    "probe_only_monkeypatched_digest_in_separate_test_interpreter": true
+  },
+  "engineering_entry_review_passed": false,
+  "actual_pair_context_validation_accepted": false,
+  "capacity_or_throughput_accepted": false,
+  "production_integration_accepted": false
+}

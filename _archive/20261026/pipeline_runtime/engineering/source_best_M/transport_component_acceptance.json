@@ -1,0 +1,27 @@
+{
+  "utc": "2026-10-25T04:21:07.544001+00:00",
+  "status": "PASS_ISOLATED_TRANSPORT_COMPONENT_BASELINE_TDD_REVIEW_FIXES_AND_WHOLE386_NOT_M_PRODUCTION",
+  "worktree": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code",
+  "base_HEAD": "5ef6d06bf7aeda02a5a11113e4c35a2c9909f215",
+  "component_commit": "0db2fb726988ce9d3cf88731f5c93698a3aee7d3",
+  "committed_files": [
+    "studies/pipeline_reliability/v2/reliability_v2/sensitivity_io.py",
+    "studies/pipeline_reliability/v2/tests/test_sensitivity_io.py",
+    "studies/pipeline_reliability/v2/tests/test_sensitivity_io_review_fixes.py"
+  ],
+  "ignored_test_files_explicitly_captured": true,
+  "baseline356_passed": true,
+  "pre_review_full376_passed": true,
+  "independent_review_sha256": "43c055eefd0e2027b1031b26e626ab5c22f00c9b59f65e1d0c5e9a0a0471933c",
+  "review_three_Important_findings_resolved_by_root_RED10_GREEN30": true,
+  "final_whole_suite386_passed": true,
+  "final_suite_log_sha256": "ff8370ae03b8f5a43711e5f0c1fde150420f0c5fd13cd7245f022fde4d0b7f36",
+  "final_suite_time_v_sha256": "51b751ac7b62f41c2b7298e094c0da312a73ba0dc301efad29122adad471d2eb",
+  "source_sha256": "d311923c3e35b8e9ba2fc42dc5ee7e6e46b66ce3c9f2d3a923ea8ccb949be9ce",
+  "decode_scope": "Explicit inflation limit bounds collected raw bytes only. Parsed-object peak RSS and actual H use remain separately unqualified.",
+  "deferred_minor_findings": [],
+  "review_declined_scope_rulings": "Whole M endpoints/statistics/H gate/resource orchestration, hostile-directory/power-loss guarantees and future H RSS were not implemented or qualified by this component; no production claim is made.",
+  "M_production_admitted": false,
+  "M_target_exports_started": false,
+  "primary_source_code_or_training_processes_changed": false
+}

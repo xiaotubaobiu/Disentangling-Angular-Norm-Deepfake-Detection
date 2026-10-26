@@ -1,0 +1,23 @@
+{
+  "utc": "2026-10-25T04:08:48.036334+00:00",
+  "status": "REVIEW_FIXES_TARGETED30GREEN_FRESH_WHOLE386_RUNNING_NOT_PRODUCTION_ADMISSION",
+  "full_suite_pid": 2769851,
+  "command": [
+    "/usr/bin/time",
+    "-v",
+    "-o",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/full_suite_after_review_time_v.log",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+    "-B",
+    "-m",
+    "pytest",
+    "-q"
+  ],
+  "review_sha256": "43c055eefd0e2027b1031b26e626ab5c22f00c9b59f65e1d0c5e9a0a0471933c",
+  "source_sha256": "d311923c3e35b8e9ba2fc42dc5ee7e6e46b66ce3c9f2d3a923ea8ccb949be9ce",
+  "original_tests_sha256": "b73365307ec288a01684dc92f46d328bd2e69ab590ece4ae1fbafa17df0276a0",
+  "fix_tests_sha256": "43c7a1c898b62eae34b0a880c9c456ae33739121738196dd45d7e7aba1569f33",
+  "source_profile_earlier_codec_sha256": "eefa6578b404977b005fbc5064fe3a32768b0f7dc6550faef64847a4b321e5d8",
+  "raw_codec_format_changed": false,
+  "M_production_admitted": false
+}

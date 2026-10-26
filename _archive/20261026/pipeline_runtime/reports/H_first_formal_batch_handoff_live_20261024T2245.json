@@ -1,0 +1,87 @@
+{
+  "utc": "2026-10-24T22:52:26.559175+00:00",
+  "status": "FIRST4_FORMAL_E30_SEALED_ORIGINAL_OWNER_SUCCESSORS_RUNNING_INDEPENDENT_AUDIT_PENDING",
+  "queue": {
+    "owner_pid": 2222605,
+    "stage": "H_FORMAL_AMP_TRAINING",
+    "utc": "2026-10-24T22:51:14.892483+00:00",
+    "active": [
+      {
+        "pid": 2228136,
+        "run_id": "H_formal_clip_vit_b16_AB_seed7",
+        "gpu": 1,
+        "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+        "backbone": "clip_vit_b16"
+      },
+      {
+        "pid": 2228137,
+        "run_id": "H_formal_clip_vit_b16_B_seed42",
+        "gpu": 2,
+        "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+        "backbone": "clip_vit_b16"
+      },
+      {
+        "pid": 2270152,
+        "run_id": "H_formal_clip_vit_b16_B_seed123",
+        "gpu": 0,
+        "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e",
+        "backbone": "clip_vit_b16"
+      },
+      {
+        "pid": 2270153,
+        "run_id": "H_formal_clip_vit_b16_AB_seed123",
+        "gpu": 3,
+        "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646",
+        "backbone": "clip_vit_b16"
+      }
+    ],
+    "completed_this_session": [
+      "H_formal_clip_vit_b16_B_seed7",
+      "H_formal_clip_vit_b16_AB_seed42"
+    ],
+    "detail": {
+      "pending": [
+        "H_formal_clip_vit_b16_B_seed2026",
+        "H_formal_clip_vit_b16_AB_seed2026",
+        "H_formal_clip_vit_b16_B_seed3407",
+        "H_formal_clip_vit_b16_AB_seed3407",
+        "H_formal_dinov2_vit_b14_B_seed7",
+        "H_formal_dinov2_vit_b14_AB_seed7",
+        "H_formal_dinov2_vit_b14_B_seed42",
+        "H_formal_dinov2_vit_b14_AB_seed42",
+        "H_formal_dinov2_vit_b14_B_seed123",
+        "H_formal_dinov2_vit_b14_AB_seed123",
+        "H_formal_dinov2_vit_b14_B_seed2026",
+        "H_formal_dinov2_vit_b14_AB_seed2026",
+        "H_formal_dinov2_vit_b14_B_seed3407",
+        "H_formal_dinov2_vit_b14_AB_seed3407",
+        "H_formal_efficientnet_b0_B_seed7",
+        "H_formal_efficientnet_b0_AB_seed7",
+        "H_formal_efficientnet_b0_B_seed42",
+        "H_formal_efficientnet_b0_AB_seed42",
+        "H_formal_efficientnet_b0_B_seed123",
+        "H_formal_efficientnet_b0_AB_seed123",
+        "H_formal_efficientnet_b0_B_seed2026",
+        "H_formal_efficientnet_b0_AB_seed2026",
+        "H_formal_efficientnet_b0_B_seed3407",
+        "H_formal_efficientnet_b0_AB_seed3407"
+      ],
+      "requested_stage": "H_FORMAL_AMP_TRAINING",
+      "capacity": {
+        "allowed": true,
+        "free_bytes": 221399547904,
+        "required_bytes": 53687091200,
+        "reserve_GiB": 50,
+        "initial_working_set_estimate_GiB": 0,
+        "additional_conditional_bytes": 0
+      }
+    },
+    "resource_policy": "D_PRIORITY; idle GPU0-3 only; global lifetime locks"
+  },
+  "formal_H_sealed": 4,
+  "independent_accepted_H": 0,
+  "audit_process_time_wrapper_pid": 2270679,
+  "audit_report_exists": false,
+  "source_best_HOLD": true,
+  "cold_release_bytes": 0
+}

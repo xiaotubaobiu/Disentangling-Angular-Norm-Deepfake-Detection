@@ -1,0 +1,88 @@
+{
+  "BASE": "9dbb3cfcaa80ff6956068046177bd899f98629ea",
+  "HEAD": "9dbb3cfcaa80ff6956068046177bd899f98629ea",
+  "M33_unchanged_and_all33_SHA_verified": true,
+  "actual_resource_qualification": false,
+  "actual_summary_executed": false,
+  "change": {
+    "finding": "M5SUM003",
+    "joint_budget_behavior": "unchanged; no duplicate capacity peak/reserve reservation added",
+    "logical_table_contract": "unchanged71/355 rows; M5SUM001 fixed33 imports and M5SUM002 counts unchanged",
+    "measurement": "namespace directory plus every descendant directory/file: max(st_blocks*512,logical length rounded up to filesystem fragment allocation unit)",
+    "overcap_behavior": "ValueError actual summary allocation cap exceeded; existing/partial files preserved,never deleted or rewritten",
+    "shared_guard": "existing/reuse,publication before complete with rounded remaining marker reservation,and common post-publication/return path"
+  },
+  "fixed_M33_metadata": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_statistic_canary_engineering_acceptance_20261026T0430.json",
+    "sha256": "9bec22803f8e7c15918fdb1b4938e028e09a3115a4d23aea89dff1cb89d25571"
+  },
+  "prior_repair_receipt": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_source_best_five_seed_summary_review_fixes_engineering_candidate_20261026.json",
+    "sha256": "bc767c39b0d5a2f313d50430c572e2803e649e0b103946706cde490cf640326f"
+  },
+  "production_admitted": false,
+  "publisher_IO_review": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_M_source_best_five_seed_summary_publisher_IO_review_20261026.json",
+    "sha256": "569cb62bf6a45aefe3f58a40de7528803e8bbf102efde011bcbf4f6e8f8bbce2"
+  },
+  "remaining_blockers": [
+    "Independent M5SUM003 confirmation pending",
+    "Actual complete ten-job audits per backbone and external fresh resource request not yet issued"
+  ],
+  "schema": "M_SOURCE_BEST_FIVE_SEED_SUMMARY_ALLOCATION_FIX_ENGINEERING_CANDIDATE_V1",
+  "scientific_final_acceptance": false,
+  "scope": [
+    "Only new summary tool/test patch plus fresh engineering logs/receipt",
+    "Original M33/72f/a7/H source/live owner/config untouched; tracked git diff empty",
+    "fallocate KEEP_SIZE only operated on this pytest run private self-created CSVs under/tmp; no original or real result mutated",
+    "No old suite,weights/models/GPU/actualslot/statistics/summary/commit/seal"
+  ],
+  "source": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/m_source_best_five_seed_summary.py",
+    "sha256": "f966e0b08a5cfee2f5c73bfbebd24618455869d95c85a5c1f6718e6dde7439b7"
+  },
+  "status": "M5SUM003_FIXED_SYNTHETICALLY_PENDING_INDEPENDENT_CONFIRMATION",
+  "test": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests/test_m_source_best_five_seed_summary.py",
+    "sha256": "5382f646c2d0fc6329f7de6de933d2fc6392cdd4ce5b72f1044628d5e0539130"
+  },
+  "timestamp_UTC": "2026-10-26T08:14:51.465989+00:00",
+  "verification": {
+    "CPU_only": true,
+    "GREEN": "87 passed in3.73s;exit0",
+    "RED": "2 failed,1 passed,84 deselected; overcap reuse incorrectly returned success against856; original fresh-publication overcap regression passed",
+    "actual_slot_acquired": false,
+    "command": [
+      "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+      "-B",
+      "-m",
+      "pytest",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests/test_m_source_best_five_seed_summary.py"
+    ],
+    "default_CLI": "PREPARE_ONLY;exit0",
+    "logs": [
+      {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_source_best_five_seed_summary_allocation_RED.log",
+        "sha256": "971d1730d7f06dc01294b40ef2f4e67a272d57a6d1f150834f5c3d7b9a32577f"
+      },
+      {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_source_best_five_seed_summary_allocation_GREEN.log",
+        "sha256": "556cef1741a1480a095114b17b98740463bbedd307c31d3c1765baa62dbf8c86"
+      },
+      {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_source_best_five_seed_summary_allocation_PREPARE_ONLY.log",
+        "sha256": "120057e97a16ab4bc675a2aaaab836f5778f618223090200928e422d51da2efa"
+      }
+    ],
+    "new_cases": [
+      "KEEP_SIZE preallocated own private CSV retains all SHA/logical bytes but overcap reuse must refuse and preserve completed output",
+      "independent allocation calculation includes directories,st_blocks and sparse logical roundup",
+      "late allocated overcap during own private fresh publication refuses completion and preserves partial files"
+    ],
+    "original_source_bytes_modified": false,
+    "threads": 1
+  }
+}

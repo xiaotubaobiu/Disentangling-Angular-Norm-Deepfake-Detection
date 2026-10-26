@@ -1,0 +1,213 @@
+{
+  "utc": "2026-10-24T07:39:45.048686+00:00",
+  "status": "MEASURED_RUNTIME_ESTIMATES_ONLY_NOT_TERMINAL_OR_PERFORMANCE",
+  "rows": [
+    {
+      "pid": 711439,
+      "run_id": "D_formal_dinov2_vit_b14_seed2026",
+      "gpu": 0,
+      "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e",
+      "metadata_epoch": 12,
+      "history_sha256": "ed6b4dbdf27b806e27357909fa201bc66bba494c01ac165bd1fafde22127f19c",
+      "remaining_epoch_endpoints": 18,
+      "last6_DEV_markers": [
+        {
+          "epoch": 7,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_dinov2_vit_b14_seed2026/epoch_07_source_dev.parquet",
+          "mtime": 1792823962.0162828
+        },
+        {
+          "epoch": 8,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_dinov2_vit_b14_seed2026/epoch_08_source_dev.parquet",
+          "mtime": 1792824603.1873233
+        },
+        {
+          "epoch": 9,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_dinov2_vit_b14_seed2026/epoch_09_source_dev.parquet",
+          "mtime": 1792825244.9736865
+        },
+        {
+          "epoch": 10,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_dinov2_vit_b14_seed2026/epoch_10_source_dev.parquet",
+          "mtime": 1792825887.7292426
+        },
+        {
+          "epoch": 11,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_dinov2_vit_b14_seed2026/epoch_11_source_dev.parquet",
+          "mtime": 1792826519.9426978
+        },
+        {
+          "epoch": 12,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_dinov2_vit_b14_seed2026/epoch_12_source_dev.parquet",
+          "mtime": 1792827159.4246523
+        }
+      ],
+      "last3_checkpoint_inclusive_intervals_seconds": [
+        642.7555561065674,
+        632.2134552001953,
+        639.481954574585
+      ],
+      "median_same_backbone_terminal_overhead_seconds": 7.795993804931641,
+      "terminal_estimate_utc": "2026-10-24T10:44:13.926441+00:00",
+      "remaining_minutes": 184.48129592339197,
+      "complete_exists": false,
+      "final_exists": false
+    },
+    {
+      "pid": 745561,
+      "run_id": "D_formal_dinov2_vit_b14_seed3407",
+      "gpu": 3,
+      "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646",
+      "metadata_epoch": 6,
+      "history_sha256": "2a144d0360940bb4dc946f1efdbebf5351eb68c982751082868e5fde4dc2d586",
+      "remaining_epoch_endpoints": 24,
+      "last6_DEV_markers": [
+        {
+          "epoch": 1,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_dinov2_vit_b14_seed3407/epoch_01_source_dev.parquet",
+          "mtime": 1792824333.6557605
+        },
+        {
+          "epoch": 2,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_dinov2_vit_b14_seed3407/epoch_02_source_dev.parquet",
+          "mtime": 1792824975.7306774
+        },
+        {
+          "epoch": 3,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_dinov2_vit_b14_seed3407/epoch_03_source_dev.parquet",
+          "mtime": 1792825619.0787272
+        },
+        {
+          "epoch": 4,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_dinov2_vit_b14_seed3407/epoch_04_source_dev.parquet",
+          "mtime": 1792826259.4836433
+        },
+        {
+          "epoch": 5,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_dinov2_vit_b14_seed3407/epoch_05_source_dev.parquet",
+          "mtime": 1792826900.5174503
+        },
+        {
+          "epoch": 6,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_dinov2_vit_b14_seed3407/epoch_06_source_dev.parquet",
+          "mtime": 1792827542.4617863
+        }
+      ],
+      "last3_checkpoint_inclusive_intervals_seconds": [
+        640.4049160480499,
+        641.0338070392609,
+        641.9443359375
+      ],
+      "median_same_backbone_terminal_overhead_seconds": 7.795993804931641,
+      "terminal_estimate_utc": "2026-10-24T11:55:37.322252+00:00",
+      "remaining_minutes": 255.87122610410054,
+      "complete_exists": false,
+      "final_exists": false
+    },
+    {
+      "pid": 746133,
+      "run_id": "D_formal_efficientnet_b0_seed7",
+      "gpu": 1,
+      "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+      "metadata_epoch": 14,
+      "history_sha256": "87cfa024cf5763418909b1e72443b857d6b137b153fb0442da4861a2b4478be2",
+      "remaining_epoch_endpoints": 16,
+      "last6_DEV_markers": [
+        {
+          "epoch": 9,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_efficientnet_b0_seed7/epoch_09_source_dev.parquet",
+          "mtime": 1792826201.827868
+        },
+        {
+          "epoch": 10,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_efficientnet_b0_seed7/epoch_10_source_dev.parquet",
+          "mtime": 1792826442.4869688
+        },
+        {
+          "epoch": 11,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_efficientnet_b0_seed7/epoch_11_source_dev.parquet",
+          "mtime": 1792826719.9260278
+        },
+        {
+          "epoch": 12,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_efficientnet_b0_seed7/epoch_12_source_dev.parquet",
+          "mtime": 1792826995.3651545
+        },
+        {
+          "epoch": 13,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_efficientnet_b0_seed7/epoch_13_source_dev.parquet",
+          "mtime": 1792827272.7960413
+        },
+        {
+          "epoch": 14,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_efficientnet_b0_seed7/epoch_14_source_dev.parquet",
+          "mtime": 1792827547.5257497
+        }
+      ],
+      "last3_checkpoint_inclusive_intervals_seconds": [
+        275.4391267299652,
+        277.4308867454529,
+        274.72970843315125
+      ],
+      "median_same_backbone_terminal_overhead_seconds": 0.5699977874755859,
+      "terminal_estimate_utc": "2026-10-24T08:52:41.960931+00:00",
+      "remaining_minutes": 72.94853741725287,
+      "complete_exists": false,
+      "final_exists": false
+    },
+    {
+      "pid": 746134,
+      "run_id": "D_formal_efficientnet_b0_seed42",
+      "gpu": 2,
+      "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+      "metadata_epoch": 14,
+      "history_sha256": "efb5265d4f01cf0b119dd7c8ec8ab44bbd211da78254a8e80f74c93285c5c68d",
+      "remaining_epoch_endpoints": 16,
+      "last6_DEV_markers": [
+        {
+          "epoch": 9,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_efficientnet_b0_seed42/epoch_09_source_dev.parquet",
+          "mtime": 1792826143.8641012
+        },
+        {
+          "epoch": 10,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_efficientnet_b0_seed42/epoch_10_source_dev.parquet",
+          "mtime": 1792826415.0670664
+        },
+        {
+          "epoch": 11,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_efficientnet_b0_seed42/epoch_11_source_dev.parquet",
+          "mtime": 1792826692.2181184
+        },
+        {
+          "epoch": 12,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_efficientnet_b0_seed42/epoch_12_source_dev.parquet",
+          "mtime": 1792826960.8052619
+        },
+        {
+          "epoch": 13,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_efficientnet_b0_seed42/epoch_13_source_dev.parquet",
+          "mtime": 1792827234.876418
+        },
+        {
+          "epoch": 14,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_efficientnet_b0_seed42/epoch_14_source_dev.parquet",
+          "mtime": 1792827510.1380239
+        }
+      ],
+      "last3_checkpoint_inclusive_intervals_seconds": [
+        268.5871434211731,
+        274.07115626335144,
+        275.2616057395935
+      ],
+      "median_same_backbone_terminal_overhead_seconds": 0.5699977874755859,
+      "terminal_estimate_utc": "2026-10-24T08:51:12.947517+00:00",
+      "remaining_minutes": 71.4649805188179,
+      "complete_exists": false,
+      "final_exists": false
+    }
+  ],
+  "method": "LastcompletedsourceDEVmtime + remainingepochs * mean(last3sourceDEVcompletionintervals) + median same-backbone completed terminal overhead. Includes checkpoint/loop overhead; future stalls can change estimate.",
+  "next_check_utc": "2026-10-24T08:30:00Z",
+  "whole_study_ETA": "Not established before actualHthroughput/cache and conditionalfallback costs; historical75h not commitment."
+}

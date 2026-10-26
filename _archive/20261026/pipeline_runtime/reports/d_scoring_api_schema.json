@@ -1,0 +1,195 @@
+{
+  "required_frame_columns": [
+    "image_path",
+    "label",
+    "method_id",
+    "video_id",
+    "video_uid",
+    "group_id",
+    "domain",
+    "role",
+    "rgb_sha256"
+  ],
+  "features": "Nxd raw numpy.float32",
+  "original_head_W": "2xd numpy FP32 rows [real,fake], promoted before subtraction",
+  "original_head_b": "2-vector FP32 [real,fake], promoted before subtraction",
+  "score_columns": [
+    "domain",
+    "role",
+    "label",
+    "method_id",
+    "video_id",
+    "video_uid",
+    "group_id",
+    "member_video_uids",
+    "member_group_ids",
+    "grouping",
+    "representation",
+    "aggregation",
+    "score",
+    "n_frames",
+    "n_methods",
+    "rank_score",
+    "high_precision_used",
+    "ranking_usable",
+    "precision_history"
+  ],
+  "metric_columns": [
+    "n_real",
+    "n_fake",
+    "real_mass",
+    "fake_mass",
+    "pooled_auc",
+    "ranking_usable",
+    "analysis_status",
+    "macro_auc",
+    "macro_valid",
+    "macro_tpr",
+    "macro_ba",
+    "missing_methods",
+    "grouping",
+    "representation",
+    "aggregation"
+  ],
+  "calibration_columns": [
+    "n_real",
+    "n_fake",
+    "real_mass",
+    "fake_mass",
+    "pooled_auc",
+    "ranking_usable",
+    "analysis_status",
+    "macro_auc",
+    "macro_valid",
+    "macro_tpr",
+    "macro_ba",
+    "missing_methods",
+    "threshold",
+    "operating_score_field",
+    "false_positives",
+    "false_positive_mass",
+    "true_positives",
+    "fpr",
+    "tpr",
+    "pooled_ba",
+    "calibration_kind",
+    "status",
+    "test_id_hash",
+    "ancestor_independence",
+    "repeat",
+    "budget",
+    "calibration_ids",
+    "unique_set_count"
+  ],
+  "effect_columns": [
+    "seed",
+    "aggregation",
+    "delta_correct",
+    "delta_collision",
+    "interaction",
+    "sign_correct",
+    "sign_collision",
+    "reversal",
+    "valid",
+    "tolerance"
+  ],
+  "public_apis": {
+    "frame_margins": {
+      "signature": "(frames, features_fp32, W, b, *, eps=1e-12)",
+      "doc": "Return frame identities plus FP64 Raw/L2 margins from the original head.\n\nW shape (2,d), b shape (2,), real output 0, fake output 1. Radius is\ncomputed in FP64 from the saved FP32 h; u=h/max(radius,1e-12)."
+    },
+    "frame_margins_delta": {
+      "signature": "(frames, features_fp32, delta_w, delta_b, *, eps=1e-12)",
+      "doc": "Equivalent API when a cache loader already subtracted head rows in FP64."
+    },
+    "aggregate_videos": {
+      "signature": "(frame_scores, *, grouping='correct', representation='raw', aggregation='mean_logit')",
+      "doc": "Aggregate a single frozen role, including real-only SOURCE_CAL, without AUC."
+    },
+    "precision_safe_score_table": {
+      "signature": "(videos)",
+      "doc": "Exportable score rows without mpmath's short default string conversion.\n\n350 significant digits preserve the protocol's <=320-digit scores. CSV\nwriters must serialize this table, not the live mp.mpf rank_score objects."
+    },
+    "restore_rank_scores": {
+      "signature": "(serialized)",
+      "doc": "Restore precision-safe export while keeping comparisons above FP64."
+    },
+    "score_eight_cells": {
+      "signature": "(frames, features_fp32, W, b, *, fixed_methods=None)",
+      "doc": "Return (video_scores, metric_rows) for the prespecified 2x2x2 cells."
+    },
+    "score_cached_frames": {
+      "signature": "(frame_scores, *, fixed_methods=None)",
+      "doc": null
+    },
+    "binary_auc": {
+      "signature": "(labels, scores, weights=None)",
+      "doc": "Exact empirical weighted concordance with half credit for ties.\n\nScores may be mpmath.mpf; sorting/comparisons preserve their precision.\nOnly the final empirical AUC ratio is converted to float."
+    },
+    "metric_summary": {
+      "signature": "(videos, threshold=None, fixed_methods=None, *, allow_macro=True, threshold_score_field='score')",
+      "doc": "Same-pool AUC and operating metrics; absent fixed methods invalidate macro."
+    },
+    "empirical_fpr_threshold": {
+      "signature": "(real_scores, alpha=0.05)",
+      "doc": "Smallest feasible FP64 score>=tau boundary under empirical FPR<=alpha.\n\nnextafter can exceed 1 for saturated probability scores. This real-only\nroutine never calls binary_auc or metric_summary."
+    },
+    "calibration_subsets": {
+      "signature": "(real_video_ids, *, budgets=(10, 20, 40, 80), repeats=200, seed=20261023)",
+      "doc": "Common random permutations, nested prefixes, unavailable budgets as NA."
+    },
+    "calibration_experiment": {
+      "signature": "(source_real, target_real, fixed_test, *, aggregation='mean_logit', budgets=(10, 20, 40, 80), repeats=200, seed=20261023, fixed_methods=None)",
+      "doc": "Thresholds on real CAL, all evaluation metrics on one fixed TEST table.\n\nReuse the same seed/ID pool across every model/flow. Full candidate CAL pool\nrelation exclusions must already have been frozen by manifest preparation.\nDirect ID overlap is blocked here; ancestor independence is not inferred."
+    },
+    "oracle_operating_points": {
+      "signature": "(videos, *, fixed_methods=None)",
+      "doc": "Post-hoc diagnostic maxima at actual attainable ROC vertices only."
+    },
+    "pair_transition_ledger": {
+      "signature": "(labels, before, after, weights=None, *, chunk_size=128)",
+      "doc": "3x3 incorrect/tie/correct fake-real pair transitions, exact DeltaAUC.\n\nSupports arbitrary precision score objects and repeated-bootstrap weights.\nChunking bounds temporary memory rather than building the full pair table."
+    },
+    "high_precision_aggregate": {
+      "signature": "(logit_groups: 'Sequence', *, aggregation='mean_probability', force=False, precisions=(80, 160, 320), reference_scores=None, logit_scale=1.0)",
+      "doc": "Recompute identical FP64 logits with mpmath; never float-rerank.\n\nAuto-trigger for float probability endpoints/ties or a negative-control\norder mismatch. Stability requires unchanged ordering at two precisions\nAND no unresolved endpoint saturation. Even 320 digits may be insufficient;\nthat condition is returned as unusable rather than silently accepted."
+    },
+    "weighted_median": {
+      "signature": "(values, weights)",
+      "doc": null
+    },
+    "controls_and_diagnostics": {
+      "signature": "(frame_scores, *, training_radii, training_weights, fixed_methods=None)",
+      "doc": "Complete-video controls and per-video mechanism audit tables.\n\nc is the weighted TRAIN radius median, never a target statistic. Positive\nscaling applies a*z per frame to all frames of each video before pooling.\nLocal-affine residual fits sigmoid(z) on z within each video; Jensen gap\nis mean(sigmoid(z))-sigmoid(mean(z))."
+    },
+    "collision_closure": {
+      "signature": "(frames, *, known_edges=())",
+      "doc": "Union known source group edges AND all method-dropped collision edges.\n\nknown_edges contains pairs of caller source group IDs. Existing group_id\nmust already encode known ancestry/RGB relationships. Unknown relations\nremain unknown and must be disclosed by the caller."
+    },
+    "resample_closure": {
+      "signature": "(frames, closure, sampled_closure_ids)",
+      "doc": "Materialize repeated draws with draw_id; later groupby must retain it."
+    },
+    "d_effects": {
+      "signature": "(metrics, *, seed=None, tolerance=1e-10)",
+      "doc": "Per-seed signed L2-Raw deltas and collision-minus-correct interaction."
+    },
+    "summarize_seed_effects": {
+      "signature": "(effects, *, expected_seeds=(7, 42, 123, 2026, 3407), tolerance=1e-10)",
+      "doc": "Sample SD across training seeds; mean reversal is distinct from seed count."
+    },
+    "bootstrap_d_comparisons": {
+      "signature": "(frame_scores, *, repeats=2000, seed=20261023, fixed_methods=None, known_edges=(), min_groups=20, max_group_fraction=0.5)",
+      "doc": "Common closure-group bootstrap with pointwise conditional intervals.\n\nConservative reporting gate defaults: >=20 connected groups and largest\ngroup <=50% of natural videos. This is an explicit operational limitation,\nnot a mathematical sufficiency guarantee. Otherwise describe across seeds.\nMissing fixed methods invalidate macro for that draw; two-class failures\ninvalidate its pooled comparisons. Training seeds are never pooled as IID."
+    },
+    "bootstrap_video_metrics": {
+      "signature": "(videos, *, threshold=None, repeats=2000, seed=20261023, fixed_methods=None, min_groups=20, max_group_fraction=0.5)",
+      "doc": "Normal-condition bootstrap over caller's known source/relationship groups.\n\nOperates on a correct-grouped video table, independent of the cross-grouping\nclosure interaction procedure. Duplicate draws remain duplicate rows."
+    }
+  },
+  "score_spaces": {
+    "score": "FP64 empirical deployment thresholds; >= and nextafter",
+    "rank_score": "FP64 or mpmath object; AUC, pair ledger, oracle never rerank as float64",
+    "serialization": "precision_safe_score_table()/restore_rank_scores(); 350 digit decimal strings"
+  }
+}

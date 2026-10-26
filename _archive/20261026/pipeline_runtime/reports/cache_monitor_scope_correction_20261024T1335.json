@@ -1,0 +1,14 @@
+{
+  "utc": "2026-10-24T13:37:19.833906+00:00",
+  "action": "Stop only own overly broad read-only cache progress diagnostic; preserve original cache workers",
+  "diagnostic_pid": 1935744,
+  "production_processes_signaled": false,
+  "new_worker_started": false,
+  "SIGTERM_sent_to_verified_own_diagnostic": true,
+  "original_diagnostic_no_longer_running": true,
+  "reason": "cache_d._read_manifest invokes _validate_inputs and full per-image stat walk; inappropriate for quick progress snapshot. Full producer/consumer scientific verify_cache protocol stays unchanged.",
+  "new_monitor_scope": "Frozen source Parquet byte hash/current model context, committed array byte hash/dtype/row alignment/finiteness, original head equality, ownership/progress only; not full live-source or complete-role acceptance.",
+  "old_monitor_source_sha256": "ca545e235a5869e1e79e0228e088ee461ffeac6ac0be204611341c5d42e2c9d3",
+  "new_monitor_source_sha256": "485130978fe91d15af1ad392840e4c5fa3e56d419729742c1b5db775029f7199",
+  "scientific_cache_d_sha256": "8f5814646194c772dcf00f6751a35c2f792dd5f11008e0834fdba4eb5e329761"
+}

@@ -1,0 +1,106 @@
+{
+  "schema": "H_LAST_PAIR_INDEPENDENT_RESULT_AUDIT_PREPARATION_V1",
+  "utc": "2026-10-25T13:35:13.848163+00:00",
+  "status": "PREPARED_SYNTHETIC_TESTS_PASS_ACTUAL_AUDIT_NOT_EXECUTED",
+  "model": "original_LAST_final.pt_not_M_source_best",
+  "backbone": "clip_vit_b16",
+  "seed": 42,
+  "files": {
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/h_pair_result_audit.py": "f75bccc7db5554b3fef9f05353ab6f228906a926e76bdd7d5315c35675bf9738",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/test_h_pair_result_audit.py": "27864f82c6784fbbbe9efaadbb1a3df330a74561a07c3f5cc2c167dea784a64a",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/H_LAST_pair_audit_PLAN.md": "629a736cac644ecb06389a46c11d2c5d12f5eab43e45050e41d59a71c7742970",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/H_LAST_pair_audit_README.md": "b3b2c079d3db17f814a2df78cb2a82fd8196fb5ef49ce52ee25f5623577ee133",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/H_LAST_pair_audit_RED.log": "58924177b06ed0ca99864b37654f3a3090b518c4b9decaf9a744e1adc0068ff7",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/H_LAST_pair_audit_boundary_RED.log": "4ca90eebf7e2658b7b1b66a4450c380e83dab0fb50da7f0cde7d29779fcc9048",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/H_LAST_pair_audit_GREEN_initial.log": "4c6f2b1e9a57200f78813c12fa8f1d4cdd92f593577ff3d1e8749f839278b6f4",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/H_LAST_pair_audit_GREEN_final.log": "508fb2a7cf898fcb48c072f0b8ec8db1843d24e8f0d10b4d5c90bb96c671bdd6"
+  },
+  "entry": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/h_pair_result_audit.py",
+  "test_entry": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/test_h_pair_result_audit.py",
+  "synthetic_tests": {
+    "count": 44,
+    "passed": true,
+    "test_seconds": 10.545,
+    "wall_seconds": 10.71,
+    "max_rss_KiB": 82312,
+    "CPU_threads": 1,
+    "CUDA_VISIBLE_DEVICES": ""
+  },
+  "actual_audit_execution_template": "CUDA_VISIBLE_DEVICES='' OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 PYTHONDONTWRITEBYTECODE=1 /usr/bin/time -v /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/h_pair_result_audit.py --execute --terminal-sha <ROOT_OBSERVED_TERMINAL_SHA256> --slot <ROOT_SELECTED_FREE_0_OR_1> --output-name H_LAST_clip_seed42_independent_audit.json",
+  "execution_requirements": [
+    "Root explicitly confirms actual original pair terminal and authorizes one real audit",
+    "Externally observed terminal SHA required; complete marker schema/status/identity and72 exact artifacts must verify",
+    "Acquire same existing slot0.lock or slot1.lock nonblocking and retain lifetime through report publication; immediately exit if busy"
+  ],
+  "prepared_checks": [
+    "72 artifacts plus terminal SHA before/after; original8 analysis-code pins and107 immutable accepted admission pins",
+    "Exact original LAST effective pair identity, all14 marker header/SHA/input rows and accepted role-manifest natural-video metadata",
+    "Original-precision rank AUC/fixed macro and FP64 FPR/TPR/BA at default and separately frozen B sourceCAL boundaries",
+    "All applicable2000 exact shared-group RNG multiplicity maps, integer weighted draw values, signed effects, validity/NA, percentile intervals",
+    "Frozen single-pair NA declarations and snapshot four-SHA+identity eligibility only"
+  ],
+  "implementation_independence": {
+    "producer_PreparedCell_imported": false,
+    "producer_scoring_kernel_imported": false,
+    "torch_imported": false,
+    "independent_method": "integer fake-versus-real concordance through REAL prefixes; direct materialized pair checks for every synthetic2000draw case",
+    "AST_imports": [
+      "__future__",
+      "argparse",
+      "contextlib",
+      "csv",
+      "decimal",
+      "fcntl",
+      "hashlib",
+      "json",
+      "math",
+      "numpy",
+      "os",
+      "pathlib",
+      "pyarrow.parquet",
+      "stat",
+      "sys",
+      "time"
+    ]
+  },
+  "estimated_actual_resources": {
+    "shared_slots": 1,
+    "scientific_threads": 1,
+    "planned_RAM_GiB": 2,
+    "estimated_wall_minutes": [
+      10,
+      30
+    ],
+    "actual_data_performance_measured": false
+  },
+  "existing_audit_search": {
+    "paths": [
+      "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification",
+      "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering",
+      "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2",
+      "/tmp filenames"
+    ],
+    "finding": "Found D summary/packet and H checkpoint/admission/transport audits; no reusable H scientific saved-result/bootstrap audit found in searched trees"
+  },
+  "accepted_external_bindings_not_revalidated_during_preparation": {
+    "admission_sha256": "3e6c6366089ac131804e26d260e40f7af7c0bac92c87ee2b763d8a507c8c48f7",
+    "admission_audit_sha256": "a7d29d89b9dcfc9fea48c6e6488e1632273fd3980a907161ed3e7de045165bf3",
+    "identity_sha256": "b0200cf4495865f7fd716ce4f0b7666a4afe6690b8dcc9e85335ba5d8b34fb1f",
+    "transport_audit_sha256": "a6931518424cc6d98c646fe7d13eb5ca874ab5222d2427bd86a572a678af4a13"
+  },
+  "pending_scope": [
+    "Actual72-artifact metrics/bootstrap/source-CAL audit awaits explicit root terminal authorization and a free shared slot",
+    "Fresh pixel/source-context,45weight/model/GPU reads are deliberately excluded; prior cache integrity admission is SHA-rebound",
+    "Frame-to-video/feature-dot-product and geometry/coverage numerical reconstruction are not independently confirmed by this saved-score audit",
+    "Five-seed training summary remains pending",
+    "Snapshot promotion remains separate; no encoding or resampling"
+  ],
+  "actual_audit_started": false,
+  "actual_terminal_status_polled": false,
+  "real_CPU_slot_opened": false,
+  "background_waiter_started": false,
+  "production_or_F_files_changed": false,
+  "M_function_implemented": false,
+  "snapshot_promoted": false,
+  "capacity_credit_bytes": 0
+}

@@ -1,0 +1,239 @@
+{
+  "schema": "INDEPENDENT_M_CACHE_PERMIT_ISSUER_FIX_CONFIRMATION_V1",
+  "reviewed_utc": "2026-10-25T18:36:48.344730+00:00",
+  "reviewed_source_sha256": "6c38937a4e88317a060385ef8a64a5f3f76a9b3fb8250e3d8f09bd14b2c6d750",
+  "reviewed_test_sha256": "e320f38c6b6246c43b317cd4dc887ce7d345710541fd608aecdb70648c27be67",
+  "source_snapshot": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/review_snapshots/source_best_cache_permit_6c38937a4e88317a060385ef8a64a5f3f76a9b3fb8250e3d8f09bd14b2c6d750.py",
+  "test_snapshot": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/review_snapshots/test_source_best_cache_permit_e320f38c6b6246c43b317cd4dc887ce7d345710541fd608aecdb70648c27be67.py",
+  "prior_review": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_source_best_cache_permit_review.json",
+    "sha256": "763b9c5fb36b212cc662cf5461008d9d97b21fd059f20bd81c4eab001b69e96e"
+  },
+  "prior_RED_logs_preserved": {
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_source_best_cache_permit_probes.log": "58ea95d92fd9553537ed4fc041947d552d56c8d12ca273eb0b56df3b6ff9abaf",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_source_best_cache_permit_publication_probes.log": "7a9246c8cb859f7c82f7ca651957f12dbc253a0a31281c9b9626d48bd2c97e39"
+  },
+  "executed": [
+    {
+      "command": [
+        "/usr/bin/time",
+        "-v",
+        "-o",
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_source_best_cache_permit_fix_probes_time.log",
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-s",
+        "-p",
+        "no:cacheprovider",
+        "--basetemp",
+        "/tmp/review_cache_permit_fix_probes_lthlycjh",
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_source_best_cache_permit_fix_probes.py"
+      ],
+      "environment": {
+        "CUDA_VISIBLE_DEVICES": "",
+        "OMP_NUM_THREADS": "2",
+        "MKL_NUM_THREADS": "2",
+        "OPENBLAS_NUM_THREADS": "2",
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2:/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests:/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M"
+      },
+      "source_sha256_at_launch": "6c38937a4e88317a060385ef8a64a5f3f76a9b3fb8250e3d8f09bd14b2c6d750",
+      "provided_test_sha256_at_launch": "e320f38c6b6246c43b317cd4dc887ce7d345710541fd608aecdb70648c27be67",
+      "executed_test_sha256": "1d1f883cc00a13b5927e3c646d12057352d57e0e612de0fbf346f9556487ccc1",
+      "log": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_source_best_cache_permit_fix_probes.log",
+      "log_sha256": "01ea4fd5e9a41cc6c0a282a02648583c4268cb262a316969b6a96229b72124c8",
+      "time_log": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_source_best_cache_permit_fix_probes_time.log",
+      "time_log_sha256": "639439567b3c2b8c77131252e45740d01f38f170ecff91f814d9632edff6de42",
+      "result": "15 passed",
+      "exit_code": 0,
+      "pytest_seconds": 2.55,
+      "wall_seconds": 3.13,
+      "peak_RSS_KiB": 523604
+    },
+    {
+      "command": [
+        "/usr/bin/time",
+        "-v",
+        "-o",
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_source_best_cache_permit_fix_units_time.log",
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-s",
+        "-p",
+        "no:cacheprovider",
+        "--basetemp",
+        "/tmp/review_cache_permit_fix_units_fyo_lu7l",
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests/test_source_best_cache_permit.py"
+      ],
+      "environment": {
+        "CUDA_VISIBLE_DEVICES": "",
+        "OMP_NUM_THREADS": "2",
+        "MKL_NUM_THREADS": "2",
+        "OPENBLAS_NUM_THREADS": "2",
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2:/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests:/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M"
+      },
+      "source_sha256_at_launch": "6c38937a4e88317a060385ef8a64a5f3f76a9b3fb8250e3d8f09bd14b2c6d750",
+      "provided_test_sha256_at_launch": "e320f38c6b6246c43b317cd4dc887ce7d345710541fd608aecdb70648c27be67",
+      "executed_test_sha256": "e320f38c6b6246c43b317cd4dc887ce7d345710541fd608aecdb70648c27be67",
+      "log": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_source_best_cache_permit_fix_units.log",
+      "log_sha256": "667327637f6fc40940ead006e759d0482d00a1a32b070e4cecba67f8e31d917b",
+      "time_log": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_source_best_cache_permit_fix_units_time.log",
+      "time_log_sha256": "1f4d22a93a95a1fe40f01210dd98ad7c88d3c6658d4f040c7001b9238f0ef36b",
+      "result": "23 passed",
+      "exit_code": 0,
+      "pytest_seconds": 1.88,
+      "wall_seconds": 2.44,
+      "peak_RSS_KiB": 523952
+    }
+  ],
+  "independent_probe_file": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_source_best_cache_permit_fix_probes.py",
+  "independent_probe_sha256": "1d1f883cc00a13b5927e3c646d12057352d57e0e612de0fbf346f9556487ccc1",
+  "scope": "Read-only new cache-permit tool composition/fix confirmation; all public proof/phase/source/capacity fixtures are synthetic/tmp. Real accepted owner/cache/bridge readers exercised, no dispatcher/model/GPU/actual source data.",
+  "commit_contract": {
+    "prepare": "The immutable owner plan is written first with the predicted exact-byteSHA/ref of the absent final permit. It cannot pass the accepted owner reader while that permit is absent. Both destination collision checks happen before either new document is written.",
+    "precommit": "After the prepared owner-plan write, all source45, strict original phase, GPU bridge, four actual-gate refs, full futurebudget and implementation pins are rebound. Full required budget plus1MiB publication reserve required.",
+    "commit": "cache_permit.json final publication is the authorization commit point. No qualification/fullbudget rejection is run after this commit inside issue.",
+    "execution": "Existing owner.validate_plan(initial=True) remains the actual execution preflight and rejects later insufficient full budget or changed phase. A valid past commit is not retroactively an unsuccessful issuance solely because current free space later changes."
+  },
+  "closed_findings": [
+    {
+      "id": "CPI001",
+      "severity_before": "Important",
+      "status": "CLOSED",
+      "file": "tools/source_best_cache_permit.py",
+      "lines": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "evidence": "Public missing_D_record, wrong_source_SHA and sameH30 reordered_queue cases all reject with exact reason before any final permit. Provided unit retains the wrong-source-route case with downstream proof/budget/input refs rebound, avoiding a trivial unrelated-input failure."
+    },
+    {
+      "id": "CPI002",
+      "severity_before": "Important",
+      "status": "CLOSED_WITHIN_DEFINED_FINAL_PERMIT_COMMIT_CONTRACT",
+      "file": "tools/source_best_cache_permit.py",
+      "lines": [
+        44,
+        45,
+        48,
+        49,
+        50,
+        53,
+        54,
+        55,
+        58,
+        59
+      ],
+      "evidence": [
+        {
+          "case": "Known foreign owner-plan collision",
+          "result": "Exact append-only collision rejection before any new permit; foreign JSON preserved. Original failing test unchanged in its essential collision/assertion."
+        },
+        {
+          "case": "Complete budget drops to required-1 after owner plan, before final permit",
+          "result": "Exact actual free capacity below complete joint remaining budget rejection; no permit, nonconsumable plan retained. Required158913789952B, simulated later free158913789951B."
+        },
+        {
+          "case": "Original queueH30 order changes after owner plan, before permit",
+          "result": "Exact original GPU queue terminal/empty occupancy refusal and no consumable permit. The previous plan-publication callback now lies before the new final commit, so this remains the same meaningful drift injection."
+        },
+        {
+          "case": "Source45 proof bytes changed after plan write",
+          "result": "Exact input/code hash drift refusal; no permit. After restoring only synthetic source bytes, same request resumes and preserves prepared plan hash+mtime."
+        },
+        {
+          "case": "Plan publication interrupted before/after its physical write",
+          "result": "No permit emitted. After-plan file is rejected by real owner because referenced permit is absent. Both cases resume with unchanged prepared bytes where present."
+        },
+        {
+          "case": "Publication allocation budget",
+          "result": "required+1048575B refuses exact reserve check before permit;required+1048576B commits successfully and passes actual owner/cache preflights."
+        },
+        {
+          "case": "Budget changes after a successful commit",
+          "result": "Issue returns success while its precommit conditions are valid. Later free=required-1 makes unchanged real owner.validate_plan(initial=True) reject full initial or runtime resource budget failed; already committed file hashes/mtimes remain unchanged. This is a separate execution-gate assertion, not a weakened precommit refusal."
+        }
+      ]
+    }
+  ],
+  "positive_real_reader_evidence": {
+    "entry": "Actual m.main --execute on externalSHA-bound synthetic request, not assemble-only.",
+    "bridge_and_owner": "Actual gpu._bridge_gate, qualification.closed_primary_stage, owner.validate_plan(initial=True), analysis.remaining_required and cache._permit; no positive stub for these accepted functions.",
+    "scope": "Exactly45 registered parent endpoints accepted by cache._permit; unregisteredF endpoint rejected. Budget includes all30 statistic outputs and all45 feature endpoints,50GiB floor, conservative feature-write amount.",
+    "resume": "Exact request replay yields identical refs/hashes/mtimes. Gate drift and foreign permit collision still reject before final success.",
+    "mocks": "Synthetic disk-space oracle only; native_gpu and owner.schedule forbidden-call sentinels ensure no execution. Minimal context fields supplied to cache._permit reflect that function contract and do not claim checkpoint-backed BoundContext preparation."
+  },
+  "tests_not_weakened": {
+    "static_inputs": "Source hash, exact45/source route, strict original phase and all earlier gate/budget negatives remain active.",
+    "collisions": "Both ownerplan and permit foreign collisions preserve data and assert no new authorization.",
+    "precommit_failure": "Strict matching failure reasons and no-permit assertions retained; staging plan can exist and must fail real owner reader until committed permit exists.",
+    "postcommit_budget": "Explicitly split from precommit fault and checked by the actual qualified owner startup function, consistent with the newly declared commit point.",
+    "healthy": "Public issue, exact resume, actual45-cache preflights and complete-budget computations still asserted, not replaced with generic expected exceptions."
+  },
+  "new_findings": [],
+  "remaining_grade_counts": {
+    "Critical": 0,
+    "Important": 0,
+    "Minor": 0
+  },
+  "accepted_code_unchanged": {
+    "tools/source_best_cache_admission.py": "06eda77a7fc41969d003c2f538edab79bc762ca3f5413f47f9a72a4e8b6f23c8",
+    "tools/source_best_owner.py": "2c68dfb05aa0cd28808e7ae14f317225513202b7190151962e184ddf6bf4db5b",
+    "reliability_v2/source_best_cache.py": "4c5494d06f133b962fd22872ac88d22ad9155fcca102e29f0e300cc06a4ff0c7",
+    "reliability_v2/source_best_gpu.py": "f3cac34e1493cd109e336b77f94b087527e97d722f02253880371a7c2caebed5",
+    "reliability_v2/source_best_lease.py": "175075eaa2e3dac44db2dbb0229abeb126058d694267901c6929cd28e0b9e5a9",
+    "reliability_v2/source_best_analysis.py": "0ec974eec85a0a5204b8804707d627fa908a80eb1a4e76cfa81729ce0a875a32",
+    "reliability_v2/source_best_source_qualification.py": "3bc8e60a64226b37817d8142b6b374ad0400bf891c3209ad95329e8ccaa47ab9",
+    "reliability_v2/source_best_runtime.py": "69b3d590d95fd3004c7c64617fbad642526b02862a97f61546d3cd375fc18742"
+  },
+  "source_sha256_after_tests": "6c38937a4e88317a060385ef8a64a5f3f76a9b3fb8250e3d8f09bd14b2c6d750",
+  "test_sha256_after_tests": "e320f38c6b6246c43b317cd4dc887ce7d345710541fd608aecdb70648c27be67",
+  "worktree_HEAD": "09be61044522c193f12a03b4fbbe666a48d2e95f",
+  "declined_to_judge_before_verdict": [
+    {
+      "behavior": "The actual authority/validity of four independently accepted actual storage/cache/jointbudget gates and sourceGPU bridge",
+      "reason": "These are caller-provided external trust prerequisites; all this audit inputs are synthetic explicit test documents. No qualification/gate success is created under the realR authorization namespace."
+    },
+    {
+      "behavior": "Actual45 tensor/image/source provenance or real GPU/cache/statistic work",
+      "reason": "Expressly prohibited and not accessed or launched. Only tiny source inventory records and accepted reader functions are exercised."
+    },
+    {
+      "behavior": "A redesign or expansion of accepted owner/cache/source9 protocols",
+      "reason": "All remain unchanged. Fix acceptance requires using the declared final commit plus original owner execution gate; ad hoc consumers are not given a new independent fullbudget guarantee."
+    },
+    {
+      "behavior": "Real full future capacity, filesystem/RSS/temp profiles and overallM scientific/production permission",
+      "reason": "Synthetic free-space oracles and test-process RSS are test evidence only. No actual capacity credit, permit request or production admission issued."
+    },
+    {
+      "behavior": "Arbitrary hostile concurrent mutation, power-loss durability or all postcommit filesystem I/O failure outcomes",
+      "reason": "No such universal guarantee claimed or tested. This audit verifies deterministic qualification/budget/source failures before final commit, collision behavior and exact resume. Accepted publication primitive and recovery remain the inherited filesystem contract."
+    },
+    {
+      "behavior": "Whole suite, production deployment, existing H/primary/F/statistic owners or real lock/PID/GPU access",
+      "reason": "Only15 independent small probes and focused23-unit file run; temporary lock files under/tmp only. No dispatcher or PID query performed."
+    }
+  ],
+  "recommendation": "Accept this new issuer fix within the stated composition and final-commit scope. Keep actual accepted gates, source/cache/owner qualification and current full-budget owner startup as prerequisites; this receipt does not authorize production execution.",
+  "verdict": "ACCEPTED_ISSUER_COMPONENT_FIXES_ONLY_NO_REMAINING_IMPORTANT",
+  "production_admitted": false,
+  "whole_M_admitted": false,
+  "real_budget_credit_bytes": 0,
+  "reviewer_modified_W": false,
+  "real_jobs_started": false,
+  "GPU_used": false,
+  "production_checkout": {
+    "path": "/home/z/workspace/deepfake_detector_publish_20261023",
+    "HEAD": "5ef6d06bf7aeda02a5a11113e4c35a2c9909f215",
+    "git_status_porcelain": "",
+    "clean": true
+  }
+}

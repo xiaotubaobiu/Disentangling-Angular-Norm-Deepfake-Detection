@@ -1,0 +1,402 @@
+{
+  "utc": "2026-10-23T22:04:29.370702+00:00",
+  "status": "PASS_DEVELOPMENT_FINAL32_FORMAL_OBSERVED0_NO_NEW_SKIPS",
+  "pinned_cutoff_utc": "2026-10-23T22:01:25.552915+00:00",
+  "live_cutoff_utc": "2026-10-23T22:02:20.661118+00:00",
+  "by_phase": {
+    "development": {
+      "pinned_runs": 10,
+      "pinned_attempts": 239700,
+      "pinned_successful_updates": 239668,
+      "pinned_AMP_skips": 32,
+      "live_attempt_records": 239700,
+      "live_successful_update_records": 239668,
+      "live_AMP_skips": 32,
+      "new_live_skips_since2100": 0
+    },
+    "formal": {
+      "pinned_runs": 4,
+      "pinned_attempts": 22372,
+      "pinned_successful_updates": 22372,
+      "pinned_AMP_skips": 0,
+      "live_attempt_records": 22742,
+      "live_successful_update_records": 22742,
+      "live_AMP_skips": 0,
+      "new_live_skips_since2100": 0
+    }
+  },
+  "combined_pinned_totals": {
+    "attempts": 262072,
+    "successful_updates": 262040,
+    "AMP_skips": 32
+  },
+  "combined_live_AMP_skips": 32,
+  "combined_new_live_skips_since2100": 0,
+  "unstarted_formal_runs": 11,
+  "unstarted_formal_numeric_scope": "NOT_OBSERVED_not_counted_as_verifiedzero",
+  "per_run": [
+    {
+      "run_id": "D_dev_clip_vit_b16_lr1e-05_seed1007_e30",
+      "status": "COMPLETE",
+      "pinned_checkpoint_epoch": 30,
+      "pinned_checkpoint_attempts": 23970,
+      "pinned_checkpoint_success": 23966,
+      "pinned_checkpoint_skips": 4,
+      "current_history_epoch_metadata_only": 30,
+      "current_committed_history_attempts": 23970,
+      "current_committed_history_success": 23966,
+      "current_committed_history_skips": 4,
+      "live_records": 23970,
+      "live_successful_update_records": 23966,
+      "live_skips": 4,
+      "new_live_skips_since_previous_cutoff": 0,
+      "skip_positions": [
+        12024,
+        14061,
+        18187,
+        19456
+      ],
+      "max_consecutive_skips": 1
+    },
+    {
+      "run_id": "D_dev_clip_vit_b16_lr1e-05_seed1042_e30",
+      "status": "COMPLETE",
+      "pinned_checkpoint_epoch": 30,
+      "pinned_checkpoint_attempts": 23970,
+      "pinned_checkpoint_success": 23966,
+      "pinned_checkpoint_skips": 4,
+      "current_history_epoch_metadata_only": 30,
+      "current_committed_history_attempts": 23970,
+      "current_committed_history_success": 23966,
+      "current_committed_history_skips": 4,
+      "live_records": 23970,
+      "live_successful_update_records": 23966,
+      "live_skips": 4,
+      "new_live_skips_since_previous_cutoff": 0,
+      "skip_positions": [
+        10860,
+        15251,
+        19357,
+        21601
+      ],
+      "max_consecutive_skips": 1
+    },
+    {
+      "run_id": "D_dev_dinov2_vit_b14_lr1e-05_seed1007_e30",
+      "status": "COMPLETE",
+      "pinned_checkpoint_epoch": 30,
+      "pinned_checkpoint_attempts": 23970,
+      "pinned_checkpoint_success": 23968,
+      "pinned_checkpoint_skips": 2,
+      "current_history_epoch_metadata_only": 30,
+      "current_committed_history_attempts": 23970,
+      "current_committed_history_success": 23968,
+      "current_committed_history_skips": 2,
+      "live_records": 23970,
+      "live_successful_update_records": 23968,
+      "live_skips": 2,
+      "new_live_skips_since_previous_cutoff": 0,
+      "skip_positions": [
+        17450,
+        19979
+      ],
+      "max_consecutive_skips": 1
+    },
+    {
+      "run_id": "D_dev_dinov2_vit_b14_lr1e-05_seed1042_e30",
+      "status": "COMPLETE",
+      "pinned_checkpoint_epoch": 30,
+      "pinned_checkpoint_attempts": 23970,
+      "pinned_checkpoint_success": 23967,
+      "pinned_checkpoint_skips": 3,
+      "current_history_epoch_metadata_only": 30,
+      "current_committed_history_attempts": 23970,
+      "current_committed_history_success": 23967,
+      "current_committed_history_skips": 3,
+      "live_records": 23970,
+      "live_successful_update_records": 23967,
+      "live_skips": 3,
+      "new_live_skips_since_previous_cutoff": 0,
+      "skip_positions": [
+        16851,
+        19231,
+        21371
+      ],
+      "max_consecutive_skips": 1
+    },
+    {
+      "run_id": "D_dev_dinov2_vit_b14_lr3e-05_seed1007_e30",
+      "status": "COMPLETE",
+      "pinned_checkpoint_epoch": 30,
+      "pinned_checkpoint_attempts": 23970,
+      "pinned_checkpoint_success": 23967,
+      "pinned_checkpoint_skips": 3,
+      "current_history_epoch_metadata_only": 30,
+      "current_committed_history_attempts": 23970,
+      "current_committed_history_success": 23967,
+      "current_committed_history_skips": 3,
+      "live_records": 23970,
+      "live_successful_update_records": 23967,
+      "live_skips": 3,
+      "new_live_skips_since_previous_cutoff": 0,
+      "skip_positions": [
+        16375,
+        20685,
+        22214
+      ],
+      "max_consecutive_skips": 1
+    },
+    {
+      "run_id": "D_dev_dinov2_vit_b14_lr3e-05_seed1042_e30",
+      "status": "COMPLETE",
+      "pinned_checkpoint_epoch": 30,
+      "pinned_checkpoint_attempts": 23970,
+      "pinned_checkpoint_success": 23967,
+      "pinned_checkpoint_skips": 3,
+      "current_history_epoch_metadata_only": 30,
+      "current_committed_history_attempts": 23970,
+      "current_committed_history_success": 23967,
+      "current_committed_history_skips": 3,
+      "live_records": 23970,
+      "live_successful_update_records": 23967,
+      "live_skips": 3,
+      "new_live_skips_since_previous_cutoff": 0,
+      "skip_positions": [
+        16549,
+        19435,
+        21534
+      ],
+      "max_consecutive_skips": 1
+    },
+    {
+      "run_id": "D_dev_dinov2_vit_b14_lr5e-05_seed1007_e30",
+      "status": "COMPLETE",
+      "pinned_checkpoint_epoch": 30,
+      "pinned_checkpoint_attempts": 23970,
+      "pinned_checkpoint_success": 23967,
+      "pinned_checkpoint_skips": 3,
+      "current_history_epoch_metadata_only": 30,
+      "current_committed_history_attempts": 23970,
+      "current_committed_history_success": 23967,
+      "current_committed_history_skips": 3,
+      "live_records": 23970,
+      "live_successful_update_records": 23967,
+      "live_skips": 3,
+      "new_live_skips_since_previous_cutoff": 0,
+      "skip_positions": [
+        18026,
+        21105,
+        23504
+      ],
+      "max_consecutive_skips": 1
+    },
+    {
+      "run_id": "D_dev_dinov2_vit_b14_lr5e-05_seed1042_e30",
+      "status": "COMPLETE",
+      "pinned_checkpoint_epoch": 30,
+      "pinned_checkpoint_attempts": 23970,
+      "pinned_checkpoint_success": 23969,
+      "pinned_checkpoint_skips": 1,
+      "current_history_epoch_metadata_only": 30,
+      "current_committed_history_attempts": 23970,
+      "current_committed_history_success": 23969,
+      "current_committed_history_skips": 1,
+      "live_records": 23970,
+      "live_successful_update_records": 23969,
+      "live_skips": 1,
+      "new_live_skips_since_previous_cutoff": 0,
+      "skip_positions": [
+        21447
+      ],
+      "max_consecutive_skips": 1
+    },
+    {
+      "run_id": "D_dev_efficientnet_b0_lr1e-04_seed1007_e30",
+      "status": "COMPLETE",
+      "pinned_checkpoint_epoch": 30,
+      "pinned_checkpoint_attempts": 23970,
+      "pinned_checkpoint_success": 23966,
+      "pinned_checkpoint_skips": 4,
+      "current_history_epoch_metadata_only": 30,
+      "current_committed_history_attempts": 23970,
+      "current_committed_history_success": 23966,
+      "current_committed_history_skips": 4,
+      "live_records": 23970,
+      "live_successful_update_records": 23966,
+      "live_skips": 4,
+      "new_live_skips_since_previous_cutoff": 0,
+      "skip_positions": [
+        15044,
+        17275,
+        20204,
+        22740
+      ],
+      "max_consecutive_skips": 1
+    },
+    {
+      "run_id": "D_dev_efficientnet_b0_lr1e-04_seed1042_e30",
+      "status": "COMPLETE",
+      "pinned_checkpoint_epoch": 30,
+      "pinned_checkpoint_attempts": 23970,
+      "pinned_checkpoint_success": 23965,
+      "pinned_checkpoint_skips": 5,
+      "current_history_epoch_metadata_only": 30,
+      "current_committed_history_attempts": 23970,
+      "current_committed_history_success": 23965,
+      "current_committed_history_skips": 5,
+      "live_records": 23970,
+      "live_successful_update_records": 23965,
+      "live_skips": 5,
+      "new_live_skips_since_previous_cutoff": 0,
+      "skip_positions": [
+        14072,
+        17596,
+        21680,
+        21706,
+        22698
+      ],
+      "max_consecutive_skips": 1
+    },
+    {
+      "run_id": "D_formal_clip_vit_b16_seed7",
+      "status": "RUNNING",
+      "pinned_checkpoint_epoch": 7,
+      "pinned_checkpoint_attempts": 5593,
+      "pinned_checkpoint_success": 5593,
+      "pinned_checkpoint_skips": 0,
+      "current_history_epoch_metadata_only": 7,
+      "current_committed_history_attempts": 5593,
+      "current_committed_history_success": 5593,
+      "current_committed_history_skips": 0,
+      "live_records": 5735,
+      "live_successful_update_records": 5735,
+      "live_skips": 0,
+      "new_live_skips_since_previous_cutoff": 0,
+      "skip_positions": [],
+      "max_consecutive_skips": 0
+    },
+    {
+      "run_id": "D_formal_clip_vit_b16_seed42",
+      "status": "RUNNING",
+      "pinned_checkpoint_epoch": 7,
+      "pinned_checkpoint_attempts": 5593,
+      "pinned_checkpoint_success": 5593,
+      "pinned_checkpoint_skips": 0,
+      "current_history_epoch_metadata_only": 7,
+      "current_committed_history_attempts": 5593,
+      "current_committed_history_success": 5593,
+      "current_committed_history_skips": 0,
+      "live_records": 5650,
+      "live_successful_update_records": 5650,
+      "live_skips": 0,
+      "new_live_skips_since_previous_cutoff": 0,
+      "skip_positions": [],
+      "max_consecutive_skips": 0
+    },
+    {
+      "run_id": "D_formal_clip_vit_b16_seed123",
+      "status": "RUNNING",
+      "pinned_checkpoint_epoch": 7,
+      "pinned_checkpoint_attempts": 5593,
+      "pinned_checkpoint_success": 5593,
+      "pinned_checkpoint_skips": 0,
+      "current_history_epoch_metadata_only": 7,
+      "current_committed_history_attempts": 5593,
+      "current_committed_history_success": 5593,
+      "current_committed_history_skips": 0,
+      "live_records": 5664,
+      "live_successful_update_records": 5664,
+      "live_skips": 0,
+      "new_live_skips_since_previous_cutoff": 0,
+      "skip_positions": [],
+      "max_consecutive_skips": 0
+    },
+    {
+      "run_id": "D_formal_clip_vit_b16_seed2026",
+      "status": "RUNNING",
+      "pinned_checkpoint_epoch": 7,
+      "pinned_checkpoint_attempts": 5593,
+      "pinned_checkpoint_success": 5593,
+      "pinned_checkpoint_skips": 0,
+      "current_history_epoch_metadata_only": 7,
+      "current_committed_history_attempts": 5593,
+      "current_committed_history_success": 5593,
+      "current_committed_history_skips": 0,
+      "live_records": 5693,
+      "live_successful_update_records": 5693,
+      "live_skips": 0,
+      "new_live_skips_since_previous_cutoff": 0,
+      "skip_positions": [],
+      "max_consecutive_skips": 0
+    },
+    {
+      "run_id": "D_formal_clip_vit_b16_seed3407",
+      "status": "NOT_STARTED",
+      "live_records": null,
+      "live_skips": null
+    },
+    {
+      "run_id": "D_formal_dinov2_vit_b14_seed7",
+      "status": "NOT_STARTED",
+      "live_records": null,
+      "live_skips": null
+    },
+    {
+      "run_id": "D_formal_dinov2_vit_b14_seed42",
+      "status": "NOT_STARTED",
+      "live_records": null,
+      "live_skips": null
+    },
+    {
+      "run_id": "D_formal_dinov2_vit_b14_seed123",
+      "status": "NOT_STARTED",
+      "live_records": null,
+      "live_skips": null
+    },
+    {
+      "run_id": "D_formal_dinov2_vit_b14_seed2026",
+      "status": "NOT_STARTED",
+      "live_records": null,
+      "live_skips": null
+    },
+    {
+      "run_id": "D_formal_dinov2_vit_b14_seed3407",
+      "status": "NOT_STARTED",
+      "live_records": null,
+      "live_skips": null
+    },
+    {
+      "run_id": "D_formal_efficientnet_b0_seed7",
+      "status": "NOT_STARTED",
+      "live_records": null,
+      "live_skips": null
+    },
+    {
+      "run_id": "D_formal_efficientnet_b0_seed42",
+      "status": "NOT_STARTED",
+      "live_records": null,
+      "live_skips": null
+    },
+    {
+      "run_id": "D_formal_efficientnet_b0_seed123",
+      "status": "NOT_STARTED",
+      "live_records": null,
+      "live_skips": null
+    },
+    {
+      "run_id": "D_formal_efficientnet_b0_seed2026",
+      "status": "NOT_STARTED",
+      "live_records": null,
+      "live_skips": null
+    },
+    {
+      "run_id": "D_formal_efficientnet_b0_seed3407",
+      "status": "NOT_STARTED",
+      "live_records": null,
+      "live_skips": null
+    }
+  ],
+  "protocol": "Fixed30*799=23970attempts,102272draws/epoch,effective128/micro32. LRclockattempts/Adamclocksuccess. No makeup/retrain/precision/seed/threshold/testchange. Formalzero is only throughthiscutoff.",
+  "runtime_sha256": "3b80a182c6f320fbf5b91c663210e938f81e6424946b9cd618fd6ab7fea6bf13",
+  "checkpoint_sha256": "fd36e048781b483ee612b4da4667aa2dd893bd299e5952214781af5de4713eba"
+}

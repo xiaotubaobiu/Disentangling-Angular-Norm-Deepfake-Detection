@@ -1,0 +1,198 @@
+{
+  "utc": "2026-10-23T10:38:19.600241+00:00",
+  "status": "HEALTH_CHECK_PASS_NO_REPAIR_REQUIRED",
+  "D_standard_development_total": 10,
+  "D_development_completed": 0,
+  "D_active": 4,
+  "D_pending": 6,
+  "D_queue_stage": "P2_D_STANDARD_DEVELOPMENT",
+  "D_queue_owner_pid": 3942476,
+  "checkpoint_health_status": "PASS",
+  "verified_checkpoint_epochs": [
+    11,
+    11,
+    9,
+    9
+  ],
+  "committed_update_records_checked": 31960,
+  "verified_AMP_skips": 0,
+  "live_attempt_progress": [
+    {
+      "run_id": "D_dev_clip_vit_b16_lr1e-05_seed1007_e30",
+      "checkpoint_epoch_verified": 11,
+      "live_update_epoch": 12,
+      "live_attempt": 9587,
+      "attempt_progress_since_inspection": 277,
+      "latest_update_file": "epoch_12_updates.jsonl"
+    },
+    {
+      "run_id": "D_dev_clip_vit_b16_lr1e-05_seed1042_e30",
+      "checkpoint_epoch_verified": 11,
+      "live_update_epoch": 12,
+      "live_attempt": 9587,
+      "attempt_progress_since_inspection": 462,
+      "latest_update_file": "epoch_12_updates.jsonl"
+    },
+    {
+      "run_id": "D_dev_dinov2_vit_b14_lr1e-05_seed1007_e30",
+      "checkpoint_epoch_verified": 9,
+      "live_update_epoch": 10,
+      "live_attempt": 7721,
+      "attempt_progress_since_inspection": 370,
+      "latest_update_file": "epoch_10_updates.jsonl"
+    },
+    {
+      "run_id": "D_dev_dinov2_vit_b14_lr1e-05_seed1042_e30",
+      "checkpoint_epoch_verified": 9,
+      "live_update_epoch": 10,
+      "live_attempt": 7651,
+      "attempt_progress_since_inspection": 359,
+      "latest_update_file": "epoch_10_updates.jsonl"
+    }
+  ],
+  "gpu_summary": [
+    {
+      "index": 0,
+      "mean_util_percent": 95.33333333333333,
+      "min_util_percent": 92,
+      "max_util_percent": 98,
+      "samples": 12,
+      "memory_used_MiB": 4932
+    },
+    {
+      "index": 1,
+      "mean_util_percent": 92.75,
+      "min_util_percent": 83,
+      "max_util_percent": 96,
+      "samples": 12,
+      "memory_used_MiB": 4932
+    },
+    {
+      "index": 2,
+      "mean_util_percent": 82.41666666666667,
+      "min_util_percent": 72,
+      "max_util_percent": 88,
+      "samples": 12,
+      "memory_used_MiB": 5414
+    },
+    {
+      "index": 3,
+      "mean_util_percent": 80.16666666666667,
+      "min_util_percent": 73,
+      "max_util_percent": 87,
+      "samples": 12,
+      "memory_used_MiB": 5414
+    },
+    {
+      "index": 4,
+      "mean_util_percent": 0.0,
+      "min_util_percent": 0,
+      "max_util_percent": 0,
+      "samples": 12,
+      "memory_used_MiB": 28156
+    },
+    {
+      "index": 5,
+      "mean_util_percent": 0.0,
+      "min_util_percent": 0,
+      "max_util_percent": 0,
+      "samples": 12,
+      "memory_used_MiB": 28156
+    },
+    {
+      "index": 6,
+      "mean_util_percent": 0.0,
+      "min_util_percent": 0,
+      "max_util_percent": 0,
+      "samples": 12,
+      "memory_used_MiB": 28156
+    },
+    {
+      "index": 7,
+      "mean_util_percent": 0.0,
+      "min_util_percent": 0,
+      "max_util_percent": 0,
+      "samples": 12,
+      "memory_used_MiB": 28156
+    }
+  ],
+  "CPU_busy_percent": 36.41303868378104,
+  "CPU_iowait_percent": 0.031758634378721715,
+  "throughput_inputs_per_second": [
+    198.5941643463363,
+    194.61381191606768,
+    157.08609447483312,
+    155.46801803270134
+  ],
+  "throughput_scope": "recent3epochs sampling+training+fullsourceDEV; checkpointwriteaftertiming",
+  "H_progress": {
+    "GPU_used": false,
+    "ORT_threads_each": 2,
+    "completed_videos": 2830,
+    "data_frozen": false,
+    "elapsed_seconds": 7108.4998093424365,
+    "eta_seconds": 14068.801212765718,
+    "geometry_freeze": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_geometry_frozen.json",
+    "geometry_protocol_sha256": "85a865f0e3343ecaf5b8c0174c8a3f602ec873deeccb03bd1826d617f2a7ae03",
+    "image_root": "/Dataset/deepfake_detection/derived/pipeline_reliability_v2_20261023/H",
+    "pid": 3915880,
+    "status": "RUNNING",
+    "total_videos": 8431,
+    "version_ineligible_video_counts": {
+      "A": 20,
+      "AB": 70,
+      "B": 20
+    },
+    "workers": 4
+  },
+  "H_reason_audit": {
+    "cutoff_utc": "2026-10-23T10:35:08.519798+00:00",
+    "unique_videos": 2777,
+    "ineligible_video_reason_counts": {
+      "A": {
+        "no_qualified_face": 20
+      },
+      "B": {
+        "no_qualified_face": 20
+      },
+      "AB": {
+        "no_qualified_face": 66
+      }
+    },
+    "duplicate_jsonl_lines": 0
+  },
+  "capacity": {
+    "working_set_estimate": 200,
+    "reserve": 50,
+    "workspace_free": 440.8230628967285,
+    "Dataset_free": 2878.358585357666,
+    "workspace_still_exceeds_full_250_GiB": true
+  },
+  "H_conservative_Dataset_reserve_bytes": 334058314306.0,
+  "protected_GPU_processes_unchanged": [
+    1532179,
+    1532180,
+    1532181,
+    1532182
+  ],
+  "config_and_gate_sha256_unchanged": true,
+  "experiment_process_restarted": false,
+  "frozen_config_modified": false,
+  "automation_retried": false,
+  "H_fresh_audit_status": "NOT_STARTED_WAITING_FOR_PIXEL_COMPLETION",
+  "blocking_faults": [],
+  "parent_coordination": [
+    "Continue manual checks; no hourly automation exists and no retry was attempted.",
+    "H separate source/model gate and20development/30formal queue implementation/review remain pending; arrange this before H pixel completion if feasible.",
+    "Do not freeze H from old running finalizer; after pixels use repaired audit-existing fresh process and independently inspect full8431candidate closure/integrity/commoncohort."
+  ],
+  "next_recommended_check_utc": "2026-10-23T11:30:00Z",
+  "final_model_performance_reported": false,
+  "evidence_sha256": {
+    "reports/checkpoint_health_1030.json": "5b45f70d25f66d45d1bc8505411a04de3d63a49138812ab2d2f2d4c7fb650909",
+    "reports/runtime_health_1030.json": "2efa2b81de74b48746f6572e3edd4cd504ce626c1e4d9645405a1012974d5fb9",
+    "reports/H_partial_coverage_1030.json": "2923f59db3bcc245e60a8a0b3d0fa140f667527b2ccbca9eba9efabc47deca99",
+    "qualification/checkpoint_health_1030.py": "d19d2f184e222fb435e2b26450764f2141ef8ad63b9c5ed7c124942a731b2d58",
+    "logs/checkpoint_health_1030.log": "13b2fb9dd577f2131fbae74a4aac1f57c630b055880b67aa121d657717825c06"
+  }
+}

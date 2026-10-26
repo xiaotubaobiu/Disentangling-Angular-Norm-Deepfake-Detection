@@ -1,0 +1,65 @@
+{
+  "utc": "2026-10-23T19:36:11.218485+00:00",
+  "status": "MEASURED_THROUGHPUT_COARSE_STANDARD_PHASE_ESTIMATE_ONLY",
+  "rows": [
+    {
+      "run_id": "D_dev_dinov2_vit_b14_lr5e-05_seed1007_e30",
+      "gpu": 2,
+      "observed_utc": "2026-10-23T19:33:23.471723+00:00",
+      "committed_epochs": 28,
+      "live_completed_attempts": 23171,
+      "remaining_attempts": 799,
+      "remaining_epoch_equivalent": 1.0,
+      "recent3epoch_mean_seconds": 634.6633791128794,
+      "draw_normalized_inputs_per_second": 161.1436918622182,
+      "coarse_remaining_seconds": 634.6633791128794,
+      "coarse_remaining_minutes": 10.577722985214656,
+      "coarse_finish_utc": "2026-10-23T19:43:58.135102+00:00"
+    },
+    {
+      "run_id": "D_dev_dinov2_vit_b14_lr5e-05_seed1042_e30",
+      "gpu": 3,
+      "observed_utc": "2026-10-23T19:33:23.595914+00:00",
+      "committed_epochs": 29,
+      "live_completed_attempts": 23431,
+      "remaining_attempts": 539,
+      "remaining_epoch_equivalent": 0.6745932415519399,
+      "recent3epoch_mean_seconds": 634.4363202253977,
+      "draw_normalized_inputs_per_second": 161.20136369819681,
+      "coarse_remaining_seconds": 427.9864538191356,
+      "coarse_remaining_minutes": 7.13310756365226,
+      "coarse_finish_utc": "2026-10-23T19:40:31.582368+00:00"
+    },
+    {
+      "run_id": "D_dev_efficientnet_b0_lr1e-04_seed1007_e30",
+      "gpu": 0,
+      "observed_utc": "2026-10-23T19:33:23.654745+00:00",
+      "committed_epochs": 12,
+      "live_completed_attempts": 10139,
+      "remaining_attempts": 13831,
+      "remaining_epoch_equivalent": 17.310387984981226,
+      "recent3epoch_mean_seconds": 273.63033135732013,
+      "draw_normalized_inputs_per_second": 373.75973450270806,
+      "coarse_remaining_seconds": 4736.647200254186,
+      "coarse_remaining_minutes": 78.94412000423644,
+      "coarse_finish_utc": "2026-10-23T20:52:20.301945+00:00"
+    },
+    {
+      "run_id": "D_dev_efficientnet_b0_lr1e-04_seed1042_e30",
+      "gpu": 1,
+      "observed_utc": "2026-10-23T19:33:23.698680+00:00",
+      "committed_epochs": 10,
+      "live_completed_attempts": 8200,
+      "remaining_attempts": 15770,
+      "remaining_epoch_equivalent": 19.737171464330412,
+      "recent3epoch_mean_seconds": 282.3826678593953,
+      "draw_normalized_inputs_per_second": 362.1752028028984,
+      "coarse_remaining_seconds": 5573.43513409595,
+      "coarse_remaining_minutes": 92.89058556826583,
+      "coarse_finish_utc": "2026-10-23T21:06:17.133814+00:00"
+    }
+  ],
+  "formula": "remaining23970attemptbudget/799 * recent3completeepochmeanseconds",
+  "limits": "Extrapolation assumes current rate, spreads complete-epoch sampling/train/sourceDEV overhead over attempts, may miss current pendingDEV/checkpoint overhead. Standard development only; not conditional45/60, formal training, caches, H or full paper ETA.",
+  "no_recipe_or_dispatch_change": true
+}

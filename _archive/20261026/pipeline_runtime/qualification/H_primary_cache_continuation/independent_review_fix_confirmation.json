@@ -1,0 +1,62 @@
+{
+  "schema": "INDEPENDENT_H_PRIMARY_CACHE_REVIEW_FIX_CONFIRMATION_V1",
+  "utc": "2026-10-25T05:41:25.772738+00:00",
+  "status": "CACHE_1_AND_CACHE_2_RESOLVED_NO_REMAINING_REVIEW_BLOCKER_FOR_THESE_FIXES",
+  "reviewer": "independent post_amp_qualification_review subagent",
+  "production_execution_performed": false,
+  "original_review_preserved": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_primary_cache_continuation/independent_review.json",
+    "sha256": "5e4c4f0f2e174e099ebdac1898cc8733ff214cf442e4f466d6839cfcbb54b1f7"
+  },
+  "verified_artifacts": {
+    "cache_continuation.py": "ba898aac90b497d2b06a874616985df8dfdf7d969428a1ec609e2efed0963ae6",
+    "test_cache_continuation.py": "8f4224663ae441a871194b08cd4546323eec0010edaeddb75959574b66bd1ca1",
+    "qualified_source_manifest.json": "977431237b901d5ac88172f98bc2591d3cd7992c35be50546cda34ad2276a747",
+    "review_fixes_RED.log": "51984d151e3d181e72a18c4940cec5d5ac03ad2fa512f3f83daff5b8981af993",
+    "GREEN_final.log": "ac6209146d8c4f6ef684a61968b17e0bbf8e490367d5bb912b4a3129efcf1b1d",
+    "original_H_posttraining_acceptance": "d4e868df933f526a1e4df5eb0f5fe0677b3aeba3174937a5d8a0278011509d5c"
+  },
+  "resolved_findings": [
+    {
+      "id": "CACHE-1",
+      "status": "RESOLVED",
+      "location": "cache_continuation.py:52-69,88-89,101,108,112",
+      "evidence": "Hardcoded raw-byte manifest SHA binds all20 exact productionPython files and the accepted original implementation report. All20 manifest file pins independently matched Git blobs at5ef6d06bf7aeda02a5a11113e4c35a2c9909f215. qualified_source_bindings returned22 bindings for all current modules+manifest+acceptance. bindings includes this validation at admission/dispatch and worker before original cache import. Repeating the original fake-root arbitrary cache_h source admission now raises ValueError qualified extractor/helper source changed:reliability_v2/cache_h.py.",
+      "regressions": "Eight drift cases cover cache_h/cache_d/scoring_d/trainer/queue_h/queue_d/worker_h/data_h; exact original manifest positive case passes."
+    },
+    {
+      "id": "CACHE-2",
+      "status": "RESOLVED",
+      "location": "cache_continuation.py:108,112-113",
+      "evidence": "_launch now verifies budgetSHA and all bindings on entry and again immediately before Popen. Repeating the original changed-after-_devices budget reproduction now raises ValueError launch budget/context changed, with zero mocked Popen calls.",
+      "regressions": "Both first launch and a later launch from the same returned _devices list reject changed budget bytes."
+    }
+  ],
+  "verification": {
+    "command": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -B -m pytest -q -p no:cacheprovider /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_primary_cache_continuation/test_cache_continuation.py",
+    "environment": {
+      "CUDA_VISIBLE_DEVICES": "",
+      "OMP_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTHONDONTWRITEBYTECODE": "1"
+    },
+    "fresh_pytest_result": "28 passed in0.07s",
+    "fresh_pytest_exit_code": 0,
+    "independent_fix_reproductions_exit_code": 0,
+    "qualified_manifest_Git_blob_matches": 20,
+    "current_source_and_acceptance_binding_count": 22,
+    "original_acceptance_status": "CPU_IMPLEMENTATION_ACCEPTED_PRODUCTION_EXPERIMENTS_PENDING",
+    "original_acceptance_commit": "a612f24194a0a89f42f0e3bf6dde73a6287ee76d",
+    "scope": "CPU-only unit tests, read-only Git/source/acceptance inspection, temporary fake roots and mocked subprocesses. No production helper/controller/worker execution, GPU operation, live lock acquisition, mutation, restart or kill."
+  },
+  "runtime_observation": {
+    "owner2222605_exists": false,
+    "post_AMP_controller3205328_exists": true,
+    "H_stage": "H_FORMAL_AMP_COMPLETE_INDEPENDENT_TERMINAL_AND_PAIRED_LEDGER_REVIEW_REQUIRED",
+    "H_active": [],
+    "registry_status": null,
+    "target_export_allowed": false
+  },
+  "remaining_blockers": "No remaining code-review blocker from CACHE-1 or CACHE-2. This confirmation does not authorize competing cache execution while the original all3 ledger stage owns H_pipeline.lock. Before cache execution, require completed canonical all3 effective registry, predecessor stage exit/exclusive shared-lock handoff, no matching training/cache workers, fresh full primary budget and repeated full preflight under ownership. Per-role independent scientific/cache acceptance remains required after operational extraction."
+}

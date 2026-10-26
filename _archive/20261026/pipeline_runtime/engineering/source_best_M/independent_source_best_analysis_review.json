@@ -1,0 +1,367 @@
+{
+  "schema": "INDEPENDENT_SOURCE_BEST_PUBLIC_ANALYSIS_REVIEW_V1",
+  "reviewed_at_utc": "2026-10-25T15:32:54.445025+00:00",
+  "scope": "Public CPU execute/resume, preflight/static identity, fixed30-job capacity/source boundaries and external proof binding. Synthetic canary fixtures only; no actual R input/cache/lock/producer PID/GPU use.",
+  "production_admitted": false,
+  "source": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_analysis.py",
+    "sha256": "e9debdda2a93ec7641a17951ef13df7e414d6bbccbefebfc0783a5676daf433e",
+    "snapshot_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_review_snapshots/source_best_analysis_e9debdda2a93ec7641a17951ef13df7e414d6bbccbefebfc0783a5676daf433e.py"
+  },
+  "runtime": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_runtime.py",
+    "sha256": "69b3d590d95fd3004c7c64617fbad642526b02862a97f61546d3cd375fc18742",
+    "scope_note": "Shared runtime is separately reviewed by lease reviewer. This review uses its real CPU slot and TemporaryPool APIs under /tmp, without re-adjudicating all process/lease mechanics.",
+    "snapshot_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_review_snapshots/source_best_runtime_69b3d590d95fd3004c7c64617fbad642526b02862a97f61546d3cd375fc18742.py"
+  },
+  "tests": {
+    "entry_tests_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests/test_source_best_analysis.py",
+    "entry_tests_sha256": "9c0c3c7f81bd3d50e0b725d0c67bd54643d383942cbe39bb1c9185c4a231e226",
+    "runtime_tests_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests/test_source_best_runtime.py",
+    "runtime_tests_sha256": "c96853dc80ac57cd364e3c88c69b2317fce470eb2df4febd603908b6ba213b7f",
+    "independent_harness_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_source_best_analysis_public_tests.py",
+    "independent_harness_sha256": "ac759cf3065d8b53b1992c7ab624ffdca6da231cde6b29cf07fb3a9c3e592f6f",
+    "fixture_stats_tests_sha256": "10c099df2347abda25fda315526235daf86e798e645e8e26db6a1f58171ff809",
+    "fixture_cache_tests_sha256": "6f125b2f2d51188b0b75299ba521a61e845ae3d8b6e76b2b520be5a3db74411d"
+  },
+  "execution": {
+    "transport": "PowerShell literal here-string via ssh -o BatchMode=yes v100 python3 -, require_escalated prefix ssh; existing R/environment/bin/python.",
+    "environment_overrides": {
+      "CUDA_VISIBLE_DEVICES": "",
+      "OMP_NUM_THREADS": "2",
+      "MKL_NUM_THREADS": "2",
+      "OPENBLAS_NUM_THREADS": "2",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2:/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests"
+    },
+    "positive_D_command": [
+      "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+      "-m",
+      "pytest",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "--basetemp",
+      "/tmp/independent_entry_D_positive_final_dx25kc_v",
+      "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_source_best_analysis_public_tests.py::test_public_execute_resume_real_slots_pool_sink_kernel[D]"
+    ],
+    "positive_D_result": "1 passed in10.07s;exit0",
+    "positive_H_command": [
+      "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+      "-m",
+      "pytest",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "--basetemp",
+      "/tmp/independent_entry_H_positive_final_t48wc0ua",
+      "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_source_best_analysis_public_tests.py::test_public_execute_resume_real_slots_pool_sink_kernel[H]"
+    ],
+    "positive_H_result": "1 passed in6.72s;exit0",
+    "adversarial_command": [
+      "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+      "-m",
+      "pytest",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "--basetemp",
+      "/tmp/independent_entry_adversarial_final_RED_0db3px1u",
+      "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_source_best_analysis_public_tests.py",
+      "-k",
+      "running_external_reference_drift or foreign_feature_bytes or foreign_statistic_sink"
+    ],
+    "adversarial_result": "5 expected adversarial regression failures in14.53s;exit1. All three proof-drift cases DID NOT RAISE and committed complete. Both invalid-credit assertions failed with exact byte deltas.",
+    "baseline_command": [
+      "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+      "-m",
+      "pytest",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests/test_source_best_analysis.py",
+      "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests/test_source_best_runtime.py"
+    ],
+    "baseline_result": "27 passed in2.07s;exit0",
+    "logs": {
+      "independent_source_best_analysis_D_positive_final.log": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_source_best_analysis_D_positive_final.log",
+        "sha256": "7fd5cc2f4a4312d7f66b495cc720f74e04ce5bc6a7ca79fa954919e6171ecc8c"
+      },
+      "independent_source_best_analysis_H_positive_final.log": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_source_best_analysis_H_positive_final.log",
+        "sha256": "9941bce41249d7d3269483bbf146fbbe90f67ccbfbc978c74cd7bcff9dd32cfe"
+      },
+      "independent_source_best_analysis_adversarial_final_RED.log": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_source_best_analysis_adversarial_final_RED.log",
+        "sha256": "9fa91b1952da43979fdb16f3015b5a4c89f72e66b78037d37acf58b054a385cf"
+      },
+      "independent_source_best_analysis_baseline_tests.log": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_source_best_analysis_baseline_tests.log",
+        "sha256": "3770ea7dc13d4179dcbbb8216c59a95c9f26ba1ed7ef81a669063fdb01994b0a"
+      }
+    },
+    "positive_evidence": [
+      {
+        "route": "D",
+        "synthetic_root": "/tmp/independent_entry_D_positive_final_dx25kc_v/test_public_execute_resume_rea0/fixture/artifacts",
+        "output": "/tmp/independent_entry_D_positive_final_dx25kc_v/test_public_execute_resume_rea0/fixture/artifacts/analysis/source_best_M/01c42919e6c270c0fe80508d890891b191bf96444a4340b7d92e0c0ba070ce84/D_clip_vit_b16_seed7",
+        "worker_receipt_path": "/tmp/independent_entry_D_positive_final_dx25kc_v/test_public_execute_resume_rea0/fixture/artifacts/reports/M_statistic_workers/D_clip_vit_b16_seed7_9c508bed448dc6b3956c229aa1cd9aaec293db076f7ae555b2fb99119bd1390e.json",
+        "worker_receipt_sha256": "413befb62653c1fe9377ad89447f85f1092405d2c96a71e68a8ae922de1ac62e",
+        "sink_complete_sha256": "9c508bed448dc6b3956c229aa1cd9aaec293db076f7ae555b2fb99119bd1390e",
+        "artifact_receipts": 60,
+        "exact_cache_markers": 6,
+        "static_identity_sha256": "01c42919e6c270c0fe80508d890891b191bf96444a4340b7d92e0c0ba070ce84",
+        "code_sha256": {
+          "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/analysis_d.py": "a1d3be7bd43acb43995768f9167225b066ee9e6691c61c7b8bf28b00de53ba5e",
+          "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/multiplicity_bundle.py": "3aa5debf7d98bd976bc21fa5be2135d34cdfa8e0b91873f356cc8f57e24360c3",
+          "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/multiplicity_codec.py": "1931371915dcbf542b78b79ca433f202e6c6cdf194400985020f105eff92fa73",
+          "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/sensitivity_io.py": "d311923c3e35b8e9ba2fc42dc5ee7e6e46b66ce3c9f2d3a923ea8ccb949be9ce",
+          "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_analysis.py": "e9debdda2a93ec7641a17951ef13df7e414d6bbccbefebfc0783a5676daf433e",
+          "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_cache.py": "4c5494d06f133b962fd22872ac88d22ad9155fcca102e29f0e300cc06a4ff0c7",
+          "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_files.py": "9745e0181aa4da0a8fa53b73066e2b47f400d0e824df77d20c7e097fa082c908",
+          "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_runtime.py": "69b3d590d95fd3004c7c64617fbad642526b02862a97f61546d3cd375fc18742",
+          "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_sink.py": "9b638a05738061fce9fb4537b6076c118b579631c8852452d4f894fa55a581f0",
+          "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_stats.py": "012d5147f8f1bbb63dae6b1aff730e71459a359ead332c754e734ce525ca7a47"
+        },
+        "real_pool_claims": 2,
+        "real_pool_releases": 2,
+        "execute_then_completed_resume_passed": true,
+        "first_slot": 0,
+        "resume_slot": 1,
+        "resume_skipped_features_and_kernel": true,
+        "output_SHA_and_mtime_unchanged_on_resume": true,
+        "source_eligibility_mocked": true,
+        "cache_permit_eligibility_mocked": true,
+        "cache_write_load_verify_slot_pool_sink_kernel_real": true,
+        "scientific_final_acceptance": false,
+        "bounded_resource_canary": true
+      },
+      {
+        "route": "H",
+        "synthetic_root": "/tmp/independent_entry_H_positive_final_t48wc0ua/test_public_execute_resume_rea0/fixture/artifacts",
+        "output": "/tmp/independent_entry_H_positive_final_t48wc0ua/test_public_execute_resume_rea0/fixture/artifacts/analysis/source_best_M/cda5f5c08e15495d1d5dd180d53c25a314b2b364d2176bd6e33175b43345170b/H_clip_vit_b16_seed7",
+        "worker_receipt_path": "/tmp/independent_entry_H_positive_final_t48wc0ua/test_public_execute_resume_rea0/fixture/artifacts/reports/M_statistic_workers/H_clip_vit_b16_seed7_031c19eafa2800a59c92eb5299448599719abeaefb48d1aa51e02f501edba98d.json",
+        "worker_receipt_sha256": "965b053dcfba6bac428495a5da895b5aa866486bbb458802968fca5ab3709f7c",
+        "sink_complete_sha256": "031c19eafa2800a59c92eb5299448599719abeaefb48d1aa51e02f501edba98d",
+        "artifact_receipts": 37,
+        "exact_cache_markers": 6,
+        "static_identity_sha256": "cda5f5c08e15495d1d5dd180d53c25a314b2b364d2176bd6e33175b43345170b",
+        "code_sha256": {
+          "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/analysis_d.py": "a1d3be7bd43acb43995768f9167225b066ee9e6691c61c7b8bf28b00de53ba5e",
+          "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/multiplicity_bundle.py": "3aa5debf7d98bd976bc21fa5be2135d34cdfa8e0b91873f356cc8f57e24360c3",
+          "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/multiplicity_codec.py": "1931371915dcbf542b78b79ca433f202e6c6cdf194400985020f105eff92fa73",
+          "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/sensitivity_io.py": "d311923c3e35b8e9ba2fc42dc5ee7e6e46b66ce3c9f2d3a923ea8ccb949be9ce",
+          "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_analysis.py": "e9debdda2a93ec7641a17951ef13df7e414d6bbccbefebfc0783a5676daf433e",
+          "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_cache.py": "4c5494d06f133b962fd22872ac88d22ad9155fcca102e29f0e300cc06a4ff0c7",
+          "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_files.py": "9745e0181aa4da0a8fa53b73066e2b47f400d0e824df77d20c7e097fa082c908",
+          "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_runtime.py": "69b3d590d95fd3004c7c64617fbad642526b02862a97f61546d3cd375fc18742",
+          "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_sink.py": "9b638a05738061fce9fb4537b6076c118b579631c8852452d4f894fa55a581f0",
+          "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_stats.py": "012d5147f8f1bbb63dae6b1aff730e71459a359ead332c754e734ce525ca7a47"
+        },
+        "real_pool_claims": 2,
+        "real_pool_releases": 2,
+        "execute_then_completed_resume_passed": true,
+        "first_slot": 0,
+        "resume_slot": 1,
+        "resume_skipped_features_and_kernel": true,
+        "output_SHA_and_mtime_unchanged_on_resume": true,
+        "source_eligibility_mocked": true,
+        "cache_permit_eligibility_mocked": true,
+        "cache_write_load_verify_slot_pool_sink_kernel_real": true,
+        "scientific_final_acceptance": false,
+        "bounded_resource_canary": true
+      }
+    ],
+    "proof_drift_evidence": [
+      {
+        "reference": "qualification",
+        "case_root": "/tmp/independent_entry_adversarial_final_RED_0db3px1u/test_running_external_referenc0/fixture/artifacts",
+        "expected_sha256": "06cd53636a8c7bf2f3ce7a101d19c66fb51d73c6d690a24300e61f193928e3e2",
+        "changed_sha256": "4d398b3437fe60d6e881095a7d742bec20c8050ac7782bd30e3c9c7e661e747f",
+        "complete_committed_despite_drift": true,
+        "complete_path": "/tmp/independent_entry_adversarial_final_RED_0db3px1u/test_running_external_referenc0/fixture/artifacts/analysis/source_best_M/445b387b03a138d8892eb379bce023787d78ef4c2730f17e026295b5048dcf41/H_clip_vit_b16_seed7/complete.json",
+        "execution_status": "COMPLETE_DECLARED_TRANSPORT_PENDING_INDEPENDENT_SAVED_RESULT_AUDIT"
+      },
+      {
+        "reference": "plan",
+        "case_root": "/tmp/independent_entry_adversarial_final_RED_0db3px1u/test_running_external_referenc1/fixture/artifacts",
+        "expected_sha256": "ca192f309f1762b5faa20b41ec597d3759a59869eba3a04fa42cf1fa8289749a",
+        "changed_sha256": "4d398b3437fe60d6e881095a7d742bec20c8050ac7782bd30e3c9c7e661e747f",
+        "complete_committed_despite_drift": true,
+        "complete_path": "/tmp/independent_entry_adversarial_final_RED_0db3px1u/test_running_external_referenc1/fixture/artifacts/analysis/source_best_M/ea4f7f60f676551bd5a2aabaa54d318fdd52bbae6eb43521deae891e5956a8f0/H_clip_vit_b16_seed7/complete.json",
+        "execution_status": "COMPLETE_DECLARED_TRANSPORT_PENDING_INDEPENDENT_SAVED_RESULT_AUDIT"
+      },
+      {
+        "reference": "cache_permit",
+        "case_root": "/tmp/independent_entry_adversarial_final_RED_0db3px1u/test_running_external_referenc2/fixture/artifacts",
+        "expected_sha256": "0a3446a42ab0f7bb937e2d4b7358ce21b1ec58bd08e750d6d2869d1bf626e635",
+        "changed_sha256": "4d398b3437fe60d6e881095a7d742bec20c8050ac7782bd30e3c9c7e661e747f",
+        "complete_committed_despite_drift": true,
+        "complete_path": "/tmp/independent_entry_adversarial_final_RED_0db3px1u/test_running_external_referenc2/fixture/artifacts/analysis/source_best_M/3960cbb57758325f5d3f3bb3cd1117b9eeb8e832e1cacf91ae6f1e5220408ac9/H_clip_vit_b16_seed7/complete.json",
+        "execution_status": "COMPLETE_DECLARED_TRANSPORT_PENDING_INDEPENDENT_SAVED_RESULT_AUDIT"
+      }
+    ],
+    "not_run": [
+      "No real input/model/weight/pixel/cache/scientific job under R.",
+      "No real primary/cache/GPU/statistic-slot lease or existing producer PID was touched. Runtime introspection/lock/fork tests used only reviewer-owned process/children and synthetic roots.",
+      "No implementation or W/test edit, production permit issuance, automation or agent."
+    ],
+    "mutation_limits": "Only E independent test/snapshot/report/log files and /tmp synthetic PNG/Parquet/FP32 caches/proofs/output files. Fake permit/proof documents are explicitly synthetic and never installed in actual R production paths."
+  },
+  "harness_development_history": {
+    "scope": "Own test fixtures were repaired without editing W; failed attempts retained and are not component findings.",
+    "initial_H_problems": [
+      "Old h_data fixture lacked mother_frame_index/mother_timestamp_seconds for real M cache writer.",
+      "Complete project H fixture lacked scoring video_id and reused RGB across classes; fixed only own synthetic data by adding video_id and fresh distinct class/method/slot PNGs with correct hashes."
+    ],
+    "false_positive_prevention": "Earlier broad pytest.raises(ValueError) drift tests were masked by unrelated H fixture errors; those preliminary passes are explicitly invalid/superseded. Final H positive passes, drift expectations use an authority/hash regex, and final RED metadata independently confirms changed proof bytes plus committed completes.",
+    "preserved_harness_versions": [
+      {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_source_best_analysis_public_tests_before_H_RGB_fix.py",
+        "sha256": "a89f9989c2feaaf69d4784bcf4361471702138dbfb4d34d6d1f528d46c6c34da"
+      },
+      {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_source_best_analysis_public_tests_before_H_fixture_fix.py",
+        "sha256": "437a56ab4d5b52ef25bd5c514b891c991ba091d273d9cf40badabcb195982a54"
+      },
+      {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_source_best_analysis_public_tests_before_H_video_id_fix.py",
+        "sha256": "75c502a8e4814fc60164a8668a6f7551cf411e171d0f748aeda8a42df3d82579"
+      }
+    ]
+  },
+  "strengths": [
+    {
+      "location": "source_best_analysis.py:15-27",
+      "effect": "Exactly30 registered D/H jobs and45 feature endpoints; all five fixed seeds/three backbones. Static result identity binds job,input,source contexts,cache markers and code without budget/slot volatility."
+    },
+    {
+      "location": "source_best_analysis.py:73-99",
+      "effect": "External SHA-bound source/job/permit/format/capacity preflight and>=50GiB runtime floor; same primary CPU slots acquired before expensive cache/source verification; exact D6/H2x3 marker map compared with independent admission."
+    },
+    {
+      "location": "source_best_analysis.py:65-71",
+      "effect": "Canary scope is exactly Dclip7/Hclip7, supports independently accepted bounded resource plan with actual-entry resource qualification still false, while normal permit requires actual resource qualification and all30 jobs. It does not reduce CAL/TEST draws or add scientific experiments."
+    },
+    {
+      "location": "source_best_analysis.py:99-130",
+      "effect": "Real global retained-staging pool surrounds sink/kernel work; final cache verification precedes sink completion; execution return explicitly defers scientific/five-seed acceptance."
+    },
+    {
+      "location": "independent_source_best_analysis_public_tests.py",
+      "effect": "D60 and H37 public positive execute plus completed resume independently pass with actual cache.write/load/verify,slot,pool,sink and statistical kernels. Slot exclusion,live pool claim,exact6 cache loads,unchanged saved files and no kernel/feature reload on resume are asserted."
+    }
+  ],
+  "findings": [
+    {
+      "id": "MENTRY-001",
+      "severity": "Important",
+      "file": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_analysis.py",
+      "line": 47,
+      "related_lines": [
+        44,
+        45,
+        46,
+        47,
+        48
+      ],
+      "title": "Unqualified feature bytes receive future-write credit without a bounded usable-cache contract.",
+      "evidence": "A4096byte foreign_unclaimed.bin inside a registered feature-run directory, with no valid cache outputs, reduced remaining_required by12288bytes including its directories. The exact expected non-credit/rejection test is RED.",
+      "effect": "Full remaining feature writes can be understated even when no corresponding usable cache exists; a correctly named parent directory is insufficient to show those bytes replace future writes. This is resource accounting, not scientific acceptance.",
+      "recommendation": "Keep full feature_cap conservative until an externally accepted remaining-plan/role contract explicitly validates retained feature contributions; or enforce the full registered append-only role inventory/shape/context and failed-evidence accounting before granting any byte credit. Do not delete evidence or count compression/snapshots/reuse as credit."
+    },
+    {
+      "id": "MENTRY-002",
+      "severity": "Important",
+      "file": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_analysis.py",
+      "line": 55,
+      "related_lines": [
+        50,
+        52,
+        54,
+        55,
+        56,
+        57
+      ],
+      "title": "Statistic-output consumption is credited without binding the current input/job/static identity/full inventory.",
+      "evidence": "A valid generic CompactSink for the same directory job name but input_admission_sha256=b*64 instead of plan a*64 and inventory only unrelated.json reduced current-plan remaining writes by49152bytes. It has the same cap/sink implementation yet is not this selected-M job result.",
+      "effect": "An externally pinned30-job plan can receive budget credit for a foreign result namespace; the future real execute would derive a different identity token and reject that plan at line97, so the full matrix write bound was not actually covered.",
+      "recommendation": "Before credit, require canonical token derived from the saved static identity, current input SHA,exact job/schema/scope/static implementation inventory and complete declared D60/H37 inventory (and source/cache binding as required). Use a verified allocation contract, not scientific-result acceptance; otherwise conservatively grant zero credit."
+    },
+    {
+      "id": "MENTRY-003",
+      "severity": "Important",
+      "file": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_analysis.py",
+      "line": 103,
+      "related_lines": [
+        80,
+        81,
+        82,
+        90,
+        101,
+        102,
+        103,
+        104,
+        123
+      ],
+      "title": "Referenced qualification/capacity/cache-permit artifacts are not rebound while the public job runs.",
+      "evidence": "With real H37 kernel/sink,each of qualification,capacity-plan and cache-permit files was changed after preflight and before the kernel. All3 public execute calls still returned COMPLETE_DECLARED_TRANSPORT_PENDING_INDEPENDENT_SAVED_RESULT_AUDIT and committed sink complete.json. Independently read back expected-vs-current hashes and completes are included.",
+      "effect": "Direct admission/permit bytes are rechecked, but unchanged reference fields can point to invalidated/revoked external proof bytes. Final completion can be published without the complete originally authorized proof chain still holding.",
+      "recommendation": "Keep the full external proof closure or rerun equivalent preflight/reference rechecks in guard,including cache execution permit and its required gates, qualification and capacity plan. Rebind before source/cache loading,around each saved artifact and immediately before completion/return as appropriate. A changed reference must fail closed with no new complete; preserve staged/committed evidence."
+    }
+  ],
+  "resource_and_review_limits": [
+    "The public entry records peak_RSS but does not itself set a process address-space/RSS/wall-time hard limit. Actual bounded canary launch/resource-plan qualification must explicitly establish any such guard; sink decoded-table/array and disk caps are not a process-memory proof. No actual canary resource admission is granted here.",
+    "Budget plan values and engineering acceptance flags are synthetic in the harness. All30 job caps and45 feature-run names remain present; actual primary remaining writes/50GiB reserve/source input eligibility still need independent real approval.",
+    "D/H initial qualification/head checks are mocked by explicit temporary Contexts/permit validators; real cache storage/load/verify and downstream kernel/sink operate on only synthetic data. This does not requalify actual45 models or native H inputs."
+  ],
+  "declined_to_judge": [
+    {
+      "behavior": "Actual production/canary permit issuance,real D/H source/cache/format qualification,whole M science or first real jobs.",
+      "reason": "No actual permit exists/was issued or real workload launched; synthetic proof flags only exercise code flow."
+    },
+    {
+      "behavior": "Lease inheritance/watchdog/process safety beyond the directly used real slot/pool APIs.",
+      "reason": "Runtime69 has a separate lease reviewer. This report does not supersede that review."
+    },
+    {
+      "behavior": "Actual full30-job resource budget,memory/time profile,physical storage high-water or seed-level scientific audit.",
+      "reason": "These remain independent gates. Positive tests are small structural canary/transport checks,not actual resource qualification."
+    },
+    {
+      "behavior": "Primary H terminal/scientific audit,F/GPU/cache owner changes,real slots/PID operations.",
+      "reason": "Explicitly untouched and outside this public-entry review."
+    },
+    {
+      "behavior": "Every crash/recovery race and hostile runtime/hostfilesystem isolation.",
+      "reason": "Only stated synthetic authority/capacity/execute-resume paths were exercised."
+    }
+  ],
+  "recommendation": "Request changes for MENTRY-001/002/003. Public D/H positive harness is now available in E for the root-owned RED/GREEN fix pass; preserve all old logs/fixtures and rerun the fixed authority/capacity cases before real canary issuance. No implementation changes by reviewer.",
+  "verdict": {
+    "public_entry": "REQUEST_CHANGES",
+    "critical_findings": 0,
+    "important_findings": 3,
+    "D_public_execute_and_resume": "PASS",
+    "H_public_execute_and_resume": "PASS",
+    "baseline_tests": "27 passed in2.07s",
+    "adversarial_regressions": "5 RED in14.53s confirm3 Important categories",
+    "whole_M": "NOT_PROMOTED",
+    "production_admitted": false
+  },
+  "checkout": {
+    "HEAD": "58e006881e58386dab708f8b65f608ae6225a290",
+    "production_HEAD": "5ef6d06bf7aeda02a5a11113e4c35a2c9909f215",
+    "production_status": ""
+  },
+  "blockers": {
+    "review_execution": "None. Own fixture errors repaired and preserved; final evidence is unmasked.",
+    "public_entry_acceptance": [
+      "MENTRY-001",
+      "MENTRY-002",
+      "MENTRY-003"
+    ],
+    "production": "Still false; real canary/scientific/resource gates remain."
+  }
+}

@@ -1,0 +1,159 @@
+{
+  "utc": "2026-10-24T22:20:33.706497+00:00",
+  "status": "PASS_H_FORMAL_FOUR_GPU_PROGRESS_AND_ATOMIC_E14_PAIRED_SNAPSHOTS",
+  "queue_stage": "H_FORMAL_AMP_TRAINING",
+  "queue_owner": 2222605,
+  "active": [
+    {
+      "pid": 2228135,
+      "run_id": "H_formal_clip_vit_b16_B_seed7",
+      "gpu": 0,
+      "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e",
+      "backbone": "clip_vit_b16",
+      "committed_history_epochs": 16,
+      "committed_attempts": 3056,
+      "committed_success": 3056,
+      "committed_skips": 0,
+      "later_live_complete_update_records": 3067,
+      "later_live_skips": 0,
+      "live_skip_recovery": [],
+      "mean_epoch_seconds_all": 119.2849672138691,
+      "mean_last5_epoch_seconds": 118.82992744445801,
+      "recent_draw_equivalent_per_second": 205.73941704565271,
+      "mean_last5_completed_update_log_mtime_period_seconds": 124.40705170631409,
+      "rough_last_epoch_update_end_ETA_UTC": "2026-10-24T22:48:57.474829+00:00",
+      "ETA_is_terminal_or_acceptance": false
+    },
+    {
+      "pid": 2228136,
+      "run_id": "H_formal_clip_vit_b16_AB_seed7",
+      "gpu": 1,
+      "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+      "backbone": "clip_vit_b16",
+      "committed_history_epochs": 15,
+      "committed_attempts": 2865,
+      "committed_success": 2865,
+      "committed_skips": 0,
+      "later_live_complete_update_records": 3034,
+      "later_live_skips": 0,
+      "live_skip_recovery": [],
+      "mean_epoch_seconds_all": 120.78566536903381,
+      "mean_last5_epoch_seconds": 120.1715795993805,
+      "recent_draw_equivalent_per_second": 203.4424452229305,
+      "mean_last5_completed_update_log_mtime_period_seconds": 127.77342081069946,
+      "rough_last_epoch_update_end_ETA_UTC": "2026-10-24T22:50:31.829474+00:00",
+      "ETA_is_terminal_or_acceptance": false
+    },
+    {
+      "pid": 2228137,
+      "run_id": "H_formal_clip_vit_b16_B_seed42",
+      "gpu": 2,
+      "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+      "backbone": "clip_vit_b16",
+      "committed_history_epochs": 15,
+      "committed_attempts": 2865,
+      "committed_success": 2865,
+      "committed_skips": 0,
+      "later_live_complete_update_records": 3034,
+      "later_live_skips": 0,
+      "live_skip_recovery": [],
+      "mean_epoch_seconds_all": 120.40030107498168,
+      "mean_last5_epoch_seconds": 119.70364427566528,
+      "recent_draw_equivalent_per_second": 204.23772515813093,
+      "mean_last5_completed_update_log_mtime_period_seconds": 127.63422093391418,
+      "rough_last_epoch_update_end_ETA_UTC": "2026-10-24T22:50:29.069477+00:00",
+      "ETA_is_terminal_or_acceptance": false
+    },
+    {
+      "pid": 2228138,
+      "run_id": "H_formal_clip_vit_b16_AB_seed42",
+      "gpu": 3,
+      "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646",
+      "backbone": "clip_vit_b16",
+      "committed_history_epochs": 16,
+      "committed_attempts": 3056,
+      "committed_success": 3056,
+      "committed_skips": 0,
+      "later_live_complete_update_records": 3056,
+      "later_live_skips": 0,
+      "live_skip_recovery": [],
+      "mean_epoch_seconds_all": 119.72738642990589,
+      "mean_last5_epoch_seconds": 119.41976647377014,
+      "recent_draw_equivalent_per_second": 204.72322733414373,
+      "mean_last5_completed_update_log_mtime_period_seconds": 124.5918535232544,
+      "rough_last_epoch_update_end_ETA_UTC": "2026-10-24T22:49:08.166049+00:00",
+      "ETA_is_terminal_or_acceptance": false
+    }
+  ],
+  "H_formal_completed": 0,
+  "H_formal_pending": 26,
+  "H_standard_dev_accepted": 20,
+  "H_dev_attempts": 114600,
+  "H_dev_success": 114600,
+  "H_dev_skips": 0,
+  "D_dev_AMP_skips": 32,
+  "D_formal_AMP_skips": 57,
+  "formal_complete_study": 15,
+  "formal_total": 45,
+  "GPU_samples": [
+    {
+      "utc": "2026-10-24T22:20:28.278712+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 96, 4932\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 98, 4932\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 98, 4932\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 0, 4932\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-24T22:20:30.422358+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 96, 4932\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 95, 4932\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 98, 4932\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 0, 4932\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-24T22:20:32.550062+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 98, 4932\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 98, 4932\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 97, 4932\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 0, 4932\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    }
+  ],
+  "GPU0_3_mean_util_percent": {
+    "0": 96.66666666666667,
+    "1": 97.0,
+    "2": 97.66666666666667,
+    "3": 0.0
+  },
+  "GPU_processes": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 2228135, /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python, 4924\nGPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 2228136, /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python, 4924\nGPU-5df5602a-848e-d944-26cd-aec11b964b45, 2228137, /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python, 4924\nGPU-626ec32f-1401-c959-74b0-db04ed63c646, 2228138, /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python, 4924\nGPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 1532179, VLLM::Worker_TP0, 28152\nGPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 1532180, VLLM::Worker_TP1, 28152\nGPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 1532181, VLLM::Worker_TP2, 28152\nGPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 1532182, VLLM::Worker_TP3, 28152\n",
+  "full_snapshot_report": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_formal_checkpoint_health_20261024T2215.json",
+  "full_snapshot_report_sha256": "a770b0046dd31330df8a5c8f292f0740a346dffdbef7f291011730774707ec24",
+  "full_snapshot_epochs": [
+    14,
+    14,
+    14,
+    14
+  ],
+  "full_snapshot_attempts": [
+    2674,
+    2674,
+    2674,
+    2674
+  ],
+  "full_snapshot_skips": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "common_pair_snapshot_epochs": [
+    14,
+    14
+  ],
+  "snapshot_skip_asymmetries": [],
+  "terminal_all5_pair_qualification": false,
+  "FP32_trigger_decision": "No asymmetry in observed14epochs; defer final decision to all5 full terminal paired ledgers per frozen protocol, no target outcomes.",
+  "later_history_and_live_scope": "Later histories/complete event records are distinct cuts beyond full tensor snapshot; not all30 totals.",
+  "throughput_clock": "24448 training draws divided by recent trainer epoch seconds, including training/DEV/sampling records and excluding subsequent checkpoint writes; completed update-log mtime periods separately include intervening work.",
+  "capacity_report": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/full_capacity_live_20261024T2215.json",
+  "capacity_report_sha256": "5e3aefc5c216e07aac360cd19509165285e08cb08b326006574bbc640df31165",
+  "protected_input_count": 13,
+  "protected_input_changes": 0,
+  "D_real_packet24_artifacts_unchanged": true,
+  "D_result_and_figure_prose_SHA_unchanged": true,
+  "git_head": "5ef6d06bf7aeda02a5a11113e4c35a2c9909f215",
+  "git_clean": true,
+  "source_best": "HOLD",
+  "cold_release_bytes": 0,
+  "next_check_utc": "2026-10-24T22:45:00Z"
+}

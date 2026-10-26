@@ -1,0 +1,63 @@
+{
+  "utc": "2026-10-24T13:15:22.858503+00:00",
+  "status": "PASS_PAIRED_HISTORY_FIGURE_INDEPENDENT_PIXELS_MASKS_PROVENANCE_AND_VISUAL_ACCEPTANCE",
+  "source_packet": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/manuscript_figures/paired_histories",
+  "source_packet_completion_sha256": "cb2844f1108a40004a628f9326f8291266304047a130d7fcb06c5677e35a4e28",
+  "generation_status_is_historical_snapshot": "RENDERED_NUMERIC_AND_VISUAL_REVIEW_PENDING",
+  "exporter_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/export_paired_history_figure.py",
+  "exporter_sha256": "e7d529c4070f3caedd854d6a33f9491390c3c083fa403b291c5da3a992cbaa70",
+  "product_HEAD": "5ef6d06bf7aeda02a5a11113e4c35a2c9909f215",
+  "independent_review": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/paired_history_figure_independent_review_20261024T1300.json",
+  "independent_review_sha256": "d45348eb8d99d9051ac437cbded8468ee649cf1076d371ff3f8bb44416907f6d",
+  "findings": {
+    "Critical": 0,
+    "Important": 0,
+    "Minor": 0
+  },
+  "resolved_findings": [
+    "Clarified saved face-geometry confidence metadata versus deepfake-model performance scores; no additional geometry-confidence ranking."
+  ],
+  "independent_verification": {
+    "input_hashes": 46,
+    "output_hashes": 4,
+    "source_files": 35,
+    "RGB_image_identities": 20,
+    "masks_padding_recomputed": 15,
+    "selected_source_mothers": 5,
+    "parent_chains_verified": true,
+    "selection_recomputed_from_current_common_TRAIN": true
+  },
+  "visual_review": {
+    "parent_viewed_actual_PNG": true,
+    "independent_reviewer_viewed_actual_shared_PNG": true,
+    "PNG_dimensions": [
+      3720,
+      3360
+    ],
+    "no_visible_clipping_or_overlap": true,
+    "local_PNG_sha_matches_primary": true,
+    "image_aspect_ratios_retained": true
+  },
+  "primary_manuscript_packet": "/home/z/obsidian/paper/deepfake-detector/新实验设计/20261023/论文方法与设置准备_v2/20261024_覆盖整合版/figures/paired_histories",
+  "mirror_packet": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/manuscript_preparation/20261024_覆盖整合版/figures/paired_histories",
+  "copies_byte_identical": true,
+  "artifacts_sha256": {
+    "captions_cn_en.md": "fca00292ff2e7d7e53883b31fb93f7ed770fa13009076baf8b9ebed6d8b9b5cc",
+    "paired_mother_processing_histories.svg": "f97cf2ab38f5154686bc499db23aa3ba2bfea2a4ed1ca3b2cb77af4627ffe3e7",
+    "paired_history_plot_data.json": "89290c555358767a3fccd01e9a58cef4d37806f1c7ffe98393e0b6bc3e2edb72",
+    "paired_mother_processing_histories.png": "768da8272f188234167229e0d13b7044981747c7e7760edde14bb4d6b768d997"
+  },
+  "source_only_common_TRAIN": true,
+  "saved_face_geometry_metadata_read": true,
+  "deepfake_model_performance_scores_read": false,
+  "new_geometry_confidence_ranking": false,
+  "GPU_qualification_claimed": false,
+  "pixels_reprocessed": false,
+  "first_packet_and_script_preserved": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/backups/20261024T1310Z",
+  "accepted_plan_figures": 3,
+  "remaining_plan_figures": [
+    "formal_score_ECDF",
+    "calibration_variation"
+  ],
+  "complete_study_or_papers": false
+}

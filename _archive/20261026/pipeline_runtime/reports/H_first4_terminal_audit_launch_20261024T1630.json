@@ -1,0 +1,28 @@
+{
+  "utc": "2026-10-24T16:41:39.821037+00:00",
+  "pid": 2036833,
+  "script": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_first4_terminal_audit_20261024T1630.py",
+  "script_sha256": "29ce377d62bc97202b98e4ae520304258b6fa484062b6d7a29833322fdf927d9",
+  "template_sha256": "e7d8714631a47651dd20675fbb2ef5bfb38e3d997af00a837119172d0d140fe4",
+  "status": "FINITE_FIRST4_H_TERMINAL_AUDIT_RUNNING",
+  "source_only": true,
+  "training_restarted": false,
+  "jobs": [
+    {
+      "run_id": "H_dev_clip_vit_b16_B_lr1e-05_seed1007_e30",
+      "pid": 1996893
+    },
+    {
+      "run_id": "H_dev_clip_vit_b16_AB_lr1e-05_seed1007_e30",
+      "pid": 1996894
+    },
+    {
+      "run_id": "H_dev_clip_vit_b16_B_lr1e-05_seed1042_e30",
+      "pid": 1996895
+    },
+    {
+      "run_id": "H_dev_clip_vit_b16_AB_lr1e-05_seed1042_e30",
+      "pid": 1996896
+    }
+  ]
+}

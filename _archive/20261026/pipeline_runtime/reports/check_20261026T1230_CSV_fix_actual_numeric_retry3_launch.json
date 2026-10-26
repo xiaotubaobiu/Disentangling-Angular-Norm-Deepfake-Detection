@@ -1,0 +1,32 @@
+{
+  "schema": "DETECTOR_V2_CHECK_1230_ACTUAL_NUMERIC_RETRY3_LAUNCH_V1",
+  "observed_utc": "2026-10-26T12:40:58.426215+00:00",
+  "engineering_acceptance": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_saved_result_consumer_CSV_lexical_identity_fix_engineering_acceptance_20261026T1240.json",
+    "sha256": "7e06c8c8c643f098762936b0e0f875ae1a1c1decc3502e35d39d34377ca4cc4a"
+  },
+  "independent_review": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_M_consumer_CSV_lexical_identity_fix_review_20261026.json",
+    "sha256": "f2ebbc562a66f868a21f109608e6e7b8a2ea9f3484d614b8454d09f1a4e86701"
+  },
+  "tests141_pass": true,
+  "code_commit": "4cfbee389b9105223edeb90883fa37d4ac01f0e5",
+  "actual_numeric_audit_launch": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/M_D_clip_seed7_R1_actual_selected_core_numeric_audit_CSV_ID_R2_20261026T1240_launch.json",
+    "sha256": "41b89f6920b1adc70a07d587304b89faab4b0c618e088040ae16a85a892785d1"
+  },
+  "audit_attempt": 3,
+  "observer_PID": 4053159,
+  "python_PID": 4053161,
+  "CPU_slot": 0,
+  "AS_soft_and_hard_bytes": 34359738368,
+  "producer_rerun": false,
+  "source_D60_complete_sha256": "b503feed80f9a7ef80b6e29cba20c45ce6244e205a48bd48eec077b4aaec5e60",
+  "actual_numeric_acceptance": false,
+  "H_canary_started": false,
+  "full30_statistic_permission": false,
+  "M_owner_recovery_executed": false,
+  "remaining_budget_full_bytes": 148068010153,
+  "free_bytes": 149789216768,
+  "next_check": "13:00UTC or actual independent audit terminal earlier"
+}

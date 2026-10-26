@@ -1,0 +1,160 @@
+{
+  "status": "PASS",
+  "approved_routes": [
+    "H"
+  ],
+  "source_only": true,
+  "target_used": false,
+  "schema": "H_SOURCE_QUALIFICATION_V1",
+  "training_code_sha256": "336f3097434edf903a5ff402162e29afeca2442ca50f9c7d9883ca60136b8335",
+  "qualification_code_sha256": "4581ece963c8196422b718425f035d1e96b35b35c1e0d29025c7b2065bc23c18",
+  "h_code_bundle_sha256": "h_bundle_fixture",
+  "H_data_freeze_sha256": "ed19fd02603cfbb84e96e987e0b28000a384da14853ee1d3cb394fffe93ceda8",
+  "architecture_gate_sha256": "79b3f621d394afd6546fc9fa0d204b0c5014ebcfcf7fe744d79092e6a6b49ea9",
+  "base_config_sha256": "24d4fe888f3b317264fca5a60c1309f1493384d9daf5f2ab90579dae376c501d",
+  "environment_sha256": "51e7c324653b7546a2aab3c27bd8e62cfa3d332c6d95c57b53fa8dbb93bd8bd6",
+  "probe_receipt_sha256": "48b4001117ba0252b85b3f479fdc89988dafcac44ef1cedca1fd7817aeee25bf",
+  "backbones": {
+    "clip_vit_b16": {
+      "microbatch": 32,
+      "fp32_microbatch": 32,
+      "precisions": {
+        "AMP": {
+          "microbatch": 32,
+          "receipt": "qualification/H/clip_vit_b16/AMP/micro32/receipt.json",
+          "receipt_sha256": "a6065d9521a13397d7ae6c97558b1b13a9b440e11679beba7523503c73be8e84",
+          "oom_failures": []
+        },
+        "FP32": {
+          "microbatch": 32,
+          "receipt": "qualification/H/clip_vit_b16/FP32/micro32/receipt.json",
+          "receipt_sha256": "a62c10d393169b891aeedfecd227669cb5ba7ca641b91f8893d156ff44cbe2f3",
+          "oom_failures": []
+        }
+      }
+    },
+    "dinov2_vit_b14": {
+      "microbatch": 32,
+      "fp32_microbatch": 32,
+      "precisions": {
+        "AMP": {
+          "microbatch": 32,
+          "receipt": "qualification/H/dinov2_vit_b14/AMP/micro32/receipt.json",
+          "receipt_sha256": "bc6cb7c48f27c7e6547bd3958bbd533f978a5be453aa96699f5ed90bd9acb2d9",
+          "oom_failures": []
+        },
+        "FP32": {
+          "microbatch": 32,
+          "receipt": "qualification/H/dinov2_vit_b14/FP32/micro32/receipt.json",
+          "receipt_sha256": "cf29a21b464b2344d4c9b3d406a5e316a0b27bab8391bd3ffdeec092f830cd8f",
+          "oom_failures": []
+        }
+      }
+    },
+    "efficientnet_b0": {
+      "microbatch": 32,
+      "fp32_microbatch": 32,
+      "precisions": {
+        "AMP": {
+          "microbatch": 32,
+          "receipt": "qualification/H/efficientnet_b0/AMP/micro32/receipt.json",
+          "receipt_sha256": "04f8a2e40324a655a9eb32e21ff9d747dd0c6387966fa935c2f80b39ceb7a1a1",
+          "oom_failures": []
+        },
+        "FP32": {
+          "microbatch": 32,
+          "receipt": "qualification/H/efficientnet_b0/FP32/micro32/receipt.json",
+          "receipt_sha256": "ee94f55c4e42c41b9ba3e24cc414f50bd3c2b1e9a4df145721df00aa4ef44e69",
+          "oom_failures": []
+        }
+      }
+    }
+  },
+  "accepted_evidence_stats": {
+    "qualification/H/clip_vit_b16/AMP/micro32/receipt.json": {
+      "checkpoint.pt": {
+        "size": 28,
+        "mtime_ns": 1792753619539734765
+      },
+      "metrics.json": {
+        "size": 11,
+        "mtime_ns": 1792753619539734765
+      },
+      "receipt.json": {
+        "size": 244,
+        "mtime_ns": 1792753619539734765
+      }
+    },
+    "qualification/H/clip_vit_b16/FP32/micro32/receipt.json": {
+      "checkpoint.pt": {
+        "size": 28,
+        "mtime_ns": 1792753619539734765
+      },
+      "metrics.json": {
+        "size": 11,
+        "mtime_ns": 1792753619539734765
+      },
+      "receipt.json": {
+        "size": 245,
+        "mtime_ns": 1792753619539734765
+      }
+    },
+    "qualification/H/dinov2_vit_b14/AMP/micro32/receipt.json": {
+      "checkpoint.pt": {
+        "size": 28,
+        "mtime_ns": 1792753619539734765
+      },
+      "metrics.json": {
+        "size": 11,
+        "mtime_ns": 1792753619539734765
+      },
+      "receipt.json": {
+        "size": 246,
+        "mtime_ns": 1792753619539734765
+      }
+    },
+    "qualification/H/dinov2_vit_b14/FP32/micro32/receipt.json": {
+      "checkpoint.pt": {
+        "size": 28,
+        "mtime_ns": 1792753619539734765
+      },
+      "metrics.json": {
+        "size": 11,
+        "mtime_ns": 1792753619539734765
+      },
+      "receipt.json": {
+        "size": 247,
+        "mtime_ns": 1792753619543734745
+      }
+    },
+    "qualification/H/efficientnet_b0/AMP/micro32/receipt.json": {
+      "checkpoint.pt": {
+        "size": 28,
+        "mtime_ns": 1792753619543734745
+      },
+      "metrics.json": {
+        "size": 11,
+        "mtime_ns": 1792753619543734745
+      },
+      "receipt.json": {
+        "size": 247,
+        "mtime_ns": 1792753619543734745
+      }
+    },
+    "qualification/H/efficientnet_b0/FP32/micro32/receipt.json": {
+      "checkpoint.pt": {
+        "size": 28,
+        "mtime_ns": 1792753619543734745
+      },
+      "metrics.json": {
+        "size": 11,
+        "mtime_ns": 1792753619543734745
+      },
+      "receipt.json": {
+        "size": 248,
+        "mtime_ns": 1792753619543734745
+      }
+    }
+  },
+  "acceptance_verification": "fresh_cryptographic_full_evidence_and_deep_H_freeze"
+}

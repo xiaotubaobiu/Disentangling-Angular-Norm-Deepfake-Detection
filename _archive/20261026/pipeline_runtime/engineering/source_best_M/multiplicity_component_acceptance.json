@@ -1,0 +1,28 @@
+{
+  "utc": "2026-10-25T05:04:02.130298+00:00",
+  "status": "PASS_ISOLATED_MULTIPLICITY_COMPONENT_ONLY",
+  "commit": "430267a41faa515b45533c1d1236e7353c5ebf45",
+  "files_sha256": {
+    "reliability_v2/multiplicity_codec.py": "1931371915dcbf542b78b79ca433f202e6c6cdf194400985020f105eff92fa73",
+    "tests/test_multiplicity_codec.py": "234f5839588453b81873d0778a3cab2370937bef25872a85220bb9a5de2472ae",
+    "tests/test_multiplicity_review_fixes.py": "6d04659d1f42b92055bd080282685c3f44d41d2d04b4bdf71329860f649b5375"
+  },
+  "independent_review": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_multiplicity_review.json",
+  "independent_review_sha256": "35615f4154f35ab7fc514a2dd83883c7cecf42017183c745cc5f06df1b14fac6",
+  "important_finding": "MC-001 missing table/row descriptors must fail closed; reproduced3RED, single root fix pass56targetedGREEN, full412GREEN",
+  "full_suite_tests": 412,
+  "full_suite_log_sha256": "fc509c2963188b6e435f5593a872291b9f9b872a112978299dba16b614d2a87c",
+  "full_suite_time_v_sha256": "3730da07a36d2e768901acaebf3bec93b787e7c4d056210727133bff3b22e221",
+  "post_fix_real29_readback": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/matrix_after_MC001_real_readback.json",
+  "post_fix_real29_readback_sha256": "cf09344af8e54e1570936eeb144b78384d636dfc1f5ea0bb4a21c1ef6ff4182b",
+  "original_real_profile": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/existing_D_multiplicity_profile.json",
+  "original_real_profile_sha256": "f03c46939aeca64ab64fb8c7314d66897812dc1f49611584d4898526fc7eac1b",
+  "M_production_admitted": false,
+  "H_real_profile_complete": false,
+  "limitations": [
+    "pure exact value codec only; production bundle/resume/hostile NPZ header loader not qualified",
+    "M source-best endpoint/cache/four-comparison driver and real H profile pending",
+    "29 actual D LAST files are storage probes, not source-best results",
+    "no production savings credited before full combined capacity admission"
+  ]
+}

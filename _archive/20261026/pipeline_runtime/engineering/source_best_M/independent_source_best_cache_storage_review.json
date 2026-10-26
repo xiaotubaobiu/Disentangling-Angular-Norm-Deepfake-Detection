@@ -1,0 +1,364 @@
+{
+  "schema": "INDEPENDENT_SOURCE_BEST_CACHE_STORAGE_REVIEW_V1",
+  "reviewed_at_utc": "2026-10-25T10:42:56.849366+00:00",
+  "scope": "Read-only review of NEW source_best_cache.py storage, append-only/resume behavior, namespace/lock behavior, bounded NPY use, copied legacy globals and the 17.149GiB nominal feature-storage envelope. Synthetic CPU fixtures only; no actual target data/model job, production permit or GPU authorization.",
+  "production_admitted": false,
+  "source": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_cache.py",
+    "sha256": "b57bd4ff02a06e8db72a265de56a62b1f5dadef160862fa3ebba5e3f7f9107af"
+  },
+  "tests": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests/test_source_best_cache.py",
+    "sha256": "6f125b2f2d51188b0b75299ba521a61e845ae3d8b6e76b2b520be5a3db74411d"
+  },
+  "unchanged_legacy_dependencies": {
+    "cache_d.py": "8f5814646194c772dcf00f6751a35c2f792dd5f11008e0834fdba4eb5e329761",
+    "cache_h.py": "9119200359f8d696f1366e6c0137bca533c63089c32e505971e69f84ebaf40fb",
+    "trainer.py": "56f0db0634a525a530fb53482732365ebf9693a1f5470b0a95ec0820cc614368"
+  },
+  "checkout": {
+    "BASE_HEAD_at_start": "d0d41812480803615ad89d4795e7d8837601e4f3",
+    "HEAD_at_record": "d0d41812480803615ad89d4795e7d8837601e4f3",
+    "production_HEAD": "5ef6d06bf7aeda02a5a11113e4c35a2c9909f215",
+    "production_status": ""
+  },
+  "execution": {
+    "transport": "PowerShell literal here-string piped to ssh -o BatchMode=yes v100 python3 -, require_escalated prefix ssh. Existing R/environment/bin/python runs tests/probes.",
+    "test_runs": 1,
+    "test_command": [
+      "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+      "-m",
+      "pytest",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "--basetemp",
+      "/tmp/cache_storage_reviewer_tests_fmr6kery",
+      "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests/test_source_best_cache.py"
+    ],
+    "cwd": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2",
+    "environment_overrides": {
+      "CUDA_VISIBLE_DEVICES": "",
+      "OMP_NUM_THREADS": "2",
+      "MKL_NUM_THREADS": "2",
+      "OPENBLAS_NUM_THREADS": "2",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2"
+    },
+    "test_exit_code": 0,
+    "test_stdout": "...........................................                              [100%]\n43 passed in 13.22s\n",
+    "probe_commands": "Two existing-environment inline Python scripts using the existing project fixture.__wrapped__ with pytest.MonkeyPatch and a synthetic D request; all created Torch/PNG/Parquet/cache/lock files remain under distinct /tmp trees. Synthetic extract probe stubs _permit only and never supplies a real permit.",
+    "probe_exit_codes": [
+      0,
+      0
+    ],
+    "logs": {
+      "reviewer_source_best_cache_storage_tests.log": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_source_best_cache_storage_tests.log",
+        "sha256": "923d93225cd8c9dd263d2528de753ba50fb2a38b90245661403ab2e2822bc0a3"
+      },
+      "reviewer_source_best_cache_storage_probes.log": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_source_best_cache_storage_probes.log",
+        "sha256": "7de2e4bebdfa26c8952cd7f8a4170e9a465cdeef570a39968b6b12df74eaa381"
+      },
+      "reviewer_source_best_cache_storage_bound_probes.log": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_source_best_cache_storage_bound_probes.log",
+        "sha256": "f1f7dab937b3fbcb761354569650c4b42fb2100a376117f2ecb2ed0331650afb"
+      }
+    },
+    "probe_results": {
+      "root": "/tmp/cache_storage_independent_probes_ge7sgsyo",
+      "results": [
+        {
+          "name": "child_write_lock_symlink",
+          "operation": {
+            "status": "returned",
+            "return_type": "dict"
+          },
+          "outside_created": true,
+          "symlink_preserved": true,
+          "complete_created": true
+        },
+        {
+          "name": "cached_manifest_symlink",
+          "verify": {
+            "status": "returned",
+            "return_type": "tuple"
+          },
+          "write_completed_resume": {
+            "status": "returned",
+            "return_type": "dict"
+          },
+          "symlink_preserved": true,
+          "outside_sha256": "9fa22d77ab8a0d8b3def7cf841f07432efc0bae670831d25facd1dbdb676ee72"
+        },
+        {
+          "name": "extract_ancestor_symlink",
+          "operation": {
+            "status": "raised",
+            "exception": "ValueError",
+            "message": "canonical path escape"
+          },
+          "outside_created_paths": [
+            "source_best_M",
+            "source_best_M/e9f6dfe0cb59559db589ccefb88a09dc62594eaba00eda1fa49269457a0cf6e1",
+            "source_best_M/e9f6dfe0cb59559db589ccefb88a09dc62594eaba00eda1fa49269457a0cf6e1/D_formal_clip_vit_b16_seed7",
+            "source_best_M/e9f6dfe0cb59559db589ccefb88a09dc62594eaba00eda1fa49269457a0cf6e1/D_formal_clip_vit_b16_seed7/extract.lock"
+          ],
+          "model_job_scope": "Synthetic fixture CPU only; real permit never supplied."
+        },
+        {
+          "name": "child_symlink_head_weight.npy",
+          "operation": {
+            "status": "raised",
+            "exception": "ValueError",
+            "message": "regular array required"
+          },
+          "external_unchanged": true
+        },
+        {
+          "name": "child_symlink_chunk_000000.npy",
+          "operation": {
+            "status": "raised",
+            "exception": "ValueError",
+            "message": "feature iterator ended before all manifest rows"
+          },
+          "external_unchanged": true
+        },
+        {
+          "name": "child_symlink_identity.json",
+          "operation": {
+            "status": "raised",
+            "exception": "ValueError",
+            "message": "bounded regular metadata required"
+          },
+          "external_unchanged": true
+        },
+        {
+          "name": "child_symlink_complete.json",
+          "operation": {
+            "status": "raised",
+            "exception": "ValueError",
+            "message": "bounded regular metadata required"
+          },
+          "external_unchanged": true
+        },
+        {
+          "name": "child_symlink_chunk_000000.json",
+          "operation": {
+            "status": "raised",
+            "exception": "ValueError",
+            "message": "bounded regular metadata required"
+          },
+          "external_unchanged": true
+        }
+      ]
+    },
+    "bound_probe_results": {
+      "root": "/tmp/cache_storage_bound_probes_vialf9wt",
+      "results": [
+        {
+          "name": "orphan_npy_symlink_actual_commit",
+          "operation": {
+            "status": "raised",
+            "exception": "ValueError",
+            "message": "regular array required"
+          },
+          "external_unchanged": true,
+          "complete_created": false
+        },
+        {
+          "name": "metadata_and_orphan_budget",
+          "verify_after_padding": {
+            "status": "returned",
+            "return_type": "tuple"
+          },
+          "completed_resume_after_padding": {
+            "status": "returned",
+            "return_type": "dict"
+          },
+          "complete_json_bytes": 2100052,
+          "report_formula_single_role_upper_bytes": 1111619,
+          "actual_role_bytes_after_padding_before_orphan": 2153530,
+          "valid_cache_accepted_above_report_formula": true,
+          "foreign_out_of_range_orphan_verify": {
+            "status": "returned",
+            "return_type": "tuple"
+          },
+          "foreign_orphan_retained": true,
+          "no_claim_about_actual_capsules": "Only synthetic D fixture; no real target tables or source models opened."
+        }
+      ]
+    },
+    "read_only_other_actions": [
+      "Numbered source/test reads and AST-extracted relevant legacy function bodies.",
+      "Read CACHE_PLAN.md and feature-storage/capacity report metadata.",
+      "Recomputed report arithmetic only; no actual Parquet table or checkpoint was opened.",
+      "Before/after source/test/dependency hashes and clean production HEAD/status."
+    ],
+    "not_run": [
+      "No root whole-suite duplication or manipulation.",
+      "No actual target inputs, actual source-model/checkpoint audit or real inference/profile.",
+      "No GPU, primary owner/lock, primary two-statistic slots, F, automations or agents."
+    ],
+    "mutations": "No source, test, plan, existing accepted module, real artifact or production edits. Only fresh reviewer evidence at E and synthetic files under /tmp."
+  },
+  "strengths": [
+    {
+      "location": "source_best_cache.py:159-179",
+      "effect": "New arrays and JSON use fsynced temporary files and nonoverwriting hard links. Existing arrays compare C-order bytes, including signed zero; existing JSON compares typed canonical data. Originals and mismatching foreign orphan bytes are preserved."
+    },
+    {
+      "location": "source_best_cache.py:144-152,181-194",
+      "effect": "NPY1.0 header, expected FP32 C-order shape and exact file byte count are checked before np.load for arrays reached through the normal guarded path. Chunk rows stay fixed at4096; head hash and signed-zero bits are checked."
+    },
+    {
+      "location": "source_best_cache.py:196-214",
+      "effect": "FunctionType receives a copied globals dictionary and proxy trainer; nested legacy commit callbacks resolve append-only _atomic_array/save_json in that cloned dictionary. No writeback to legacy module globals was found in this path, and legacy source hashes stayed unchanged."
+    },
+    {
+      "location": "test_source_best_cache.py:51-60,81-84,145-180",
+      "effect": "Independent 43-case run passed in13.22s: normal/complete/partial chunk resume, mismatching foreign orphan preservation, duplicate-writer flock refusal, pre-load malformed header rejection and signed-zero preservation."
+    },
+    {
+      "location": "source_best_cache.py:273-286",
+      "effect": "GPU bridge explicitly fails closed. No permit issuer or M permit was created; candidate cache completion still grants no statistic/inference authorization."
+    }
+  ],
+  "findings": [
+    {
+      "id": "SBC-STOR-001",
+      "severity": "Important",
+      "file": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_cache.py",
+      "line": 223,
+      "related_lines": [
+        131,
+        133,
+        223,
+        290
+      ],
+      "title": "Lock creation follows unchecked child/ancestor symlinks and can create or lock files outside the candidate namespace.",
+      "evidence": "Confirmed in /tmp without hostile concurrent replacement. A dangling role/write.lock symlink caused write_role to create the external target and return successfully with complete.json present. A features ancestor symlink caused synthetic-permit extract to create the external source_best_M/admission/run/extract.lock directory chain before later raising canonical path escape.",
+      "actual_effect": "Existing static symlinks bypass the namespace boundary for filesystem creation and flock acquisition. Pointing at another owner lock could also redirect exclusion; no real owner lock was touched in this review.",
+      "recommendation": "Validate the complete lock path and ancestors before any mkdir/open. Use root-relative directory handles with O_DIRECTORY/O_NOFOLLOW and O_NOFOLLOW on a validated regular lock fd, then flock that fd. Reject aliasing/shared lock inodes as required. Keep original accepted trainer unchanged; supply the safe wrapper only for M.",
+      "regression_expectation": "Child lock symlink and ancestor symlink must reject before any external file/directory is created or locked; valid duplicate writers must still exclude and release correctly."
+    },
+    {
+      "id": "SBC-STOR-002",
+      "severity": "Important",
+      "file": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_cache.py",
+      "line": 233,
+      "related_lines": [
+        181,
+        194,
+        232,
+        233,
+        245,
+        246
+      ],
+      "title": "Cached manifest symlink is followed and accepted by both verification and completed resume.",
+      "evidence": "After a successful synthetic cache, manifest.parquet was changed to a symlink pointing to an identical small synthetic Parquet outside the artifact namespace. verify_role and completed write_role resume both returned successfully, with the symlink retained.",
+      "actual_effect": "Role-level canonical checks do not validate this leaf. Hash equality proves content but does not establish the required regular canonical cache artifact or storage ownership. Other tested array/identity/complete/chunk-marker symlinks reject; this manifest is an uncovered exception.",
+      "recommendation": "Inventory and validate every registered child, including manifest.parquet, as a nonsymlink regular artifact before hashing/reading/resume or copying. Preserve rejected evidence; do not overwrite or repair the symlink.",
+      "regression_expectation": "Same-byte external manifest symlink, dangling manifest symlink and wrong child types reject before completion/resume; external data remain unchanged."
+    },
+    {
+      "id": "SBC-STOR-003",
+      "severity": "Important",
+      "file": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_cache.py",
+      "line": 28,
+      "related_lines": [
+        28,
+        181,
+        188,
+        189,
+        229,
+        244,
+        246
+      ],
+      "title": "Accepted cache inventory/metadata are not constrained by the overhead assumptions of the17.149GiB feature-only bound.",
+      "evidence": "A complete synthetic cache with an extra2MiB unregistered field in complete.json was accepted by verify_role and completed resume. The role consumed2,153,530 logical bytes versus1,111,619 bytes from the report same per-role formula. _json allows32MiB per file; no cumulative1MiB metadata/provenance quota or exact completion key set is enforced. An out-of-range chunk_999999.npy orphan is also ignored by verify_role and retained.",
+      "actual_effect": "Nominal registered FP32 payload arithmetic remains correct, but a successful verified candidate directory can exceed the report envelope. Ignored orphans, retained temporary evidence and repeated attempt/admission namespaces must not receive automatic capacity credit or be silently excluded from an actual physical/high-water budget.",
+      "recommendation": "Enforce exact registered schemas and a cumulative per-role metadata/provenance allowance matching the bound. Inventory permitted filenames and chunk ranges; validate all NPY headers, including in-range orphans, before load. Preserve/refuse unknown, out-of-range or residual temporary evidence until separately accounted. Keep atomic temporary peak and failed evidence in a separate fresh joint-capacity budget; never delete evidence merely to fit the nominal successful-cache envelope.",
+      "regression_expectation": "Oversized/unknown completion fields, cumulative metadata excess, out-of-range orphan and retained temporary files cannot produce an in-envelope successful cache. Valid same-input partial recovery remains append-only and within registered inventory."
+    }
+  ],
+  "nominal_capacity_recomputation": {
+    "report_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_feature_storage_bound_20261025T0830.json",
+    "report_sha256": "4ff3f710eaf9eb1f00cc1da6e02f9718b0c96132ed48370701372515271898c6",
+    "role_count": 180,
+    "selected_models": 45,
+    "components_bytes": {
+      "FP32_vectors": 17040640000,
+      "FP32_heads": 1230240,
+      "manifest_copies": 1129003785,
+      "bounded_headers_and_role_provenance": 195624960
+    },
+    "model_provenance_upper_bytes": 47185920,
+    "independently_summed_upper_bytes": 18413684905,
+    "reported_upper_bytes": 18413684905,
+    "reported_GiB": 17.149080433882773,
+    "formula_mismatches": [],
+    "judgment": "Arithmetic matches18,413,684,905bytes=17.1490804339GiB for one nominal registered successful-cache revision. Current verifier does not enforce all overhead/inventory premises; SBC-STOR-003 prevents treating it as an unconditional bound. Actual frozen table/count provenance was not re-audited."
+  },
+  "nonblocking_limits": [
+    {
+      "location": "source_best_cache.py:159-164",
+      "note": "Directory fsync or temporary unlink may raise after hard-link publication succeeded. A caller can observe an exception with committed evidence retained. Same-input retry verification can converge, but explicit committed/cleanup-pending diagnostics would make this outcome clearer; no rollback/deletion should be introduced."
+    },
+    {
+      "location": "source_best_cache.py:250-254",
+      "note": "load_role concatenates all mapped chunks into one in-memory feature array. Fixed shape/storage checks do not qualify aggregate decoded-array/DataFrame/feature-batch RSS; production memory admission remains separate."
+    },
+    {
+      "location": "source_best_cache.py:196-214",
+      "note": "Copied globals isolate assignments, not arbitrary mutable objects or later monkeypatching. No concrete mutating legacy path was found in the reviewed call graph. This is not a claim of hostile runtime/module isolation."
+    }
+  ],
+  "declined_to_judge": [
+    {
+      "behavior": "Actual source-best tensors/head/source-policy/file qualification and real target-role input eligibility.",
+      "reason": "Other accepted validators are called unchanged; only synthetic storage/context fixtures ran. No actual model or target table was opened."
+    },
+    {
+      "behavior": "Actual CPU/GPU inference microqualification, CUDA phase/UUID lease bridge and real permit issuance.",
+      "reason": "GPU bridge is unimplemented and fails closed; no production permit exists or was created."
+    },
+    {
+      "behavior": "Four-core statistics, all45 scientific endpoint results,5seeds/200CAL/2000TEST, H target gates and equal-update claims.",
+      "reason": "Candidate file storage does not implement/authorize these behaviors; synthetic feature bytes are not scientific results."
+    },
+    {
+      "behavior": "Running root full-suite outcome, real storage/RSS profiles and full remaining primary+M+temporary+50GiB reserve admission.",
+      "reason": "Root owns the unchanged full-suite run. Arithmetic-only feature-envelope review and synthetic tests supply no live capacity or production admission."
+    },
+    {
+      "behavior": "Primary owner/F/legacy source changes, GPU4-7 usage or primary statistic-slot scheduling.",
+      "reason": "Explicitly prohibited and untouched. All test locks and artifacts were under /tmp."
+    },
+    {
+      "behavior": "Power-loss durability and hostile concurrent filesystem replacement safety.",
+      "reason": "No crash/fault-hostile race harness ran. Static pre-existing symlink vulnerabilities above are in scope and reproduced without requiring such a race."
+    }
+  ],
+  "recommendation": "Request changes in the NEW M cache storage component for SBC-STOR-001/002/003, then one root-owned RED/GREEN fix pass and fresh verification after the currently frozen whole suite finishes. Do not mutate existing legacy/accepted modules or delete foreign/failed evidence. No production promotion.",
+  "verdict": {
+    "storage_component": "REQUEST_CHANGES",
+    "critical_findings": 0,
+    "important_findings": 3,
+    "targeted_tests": "43 passed in13.22s; supplied tests do not cover the reproduced gaps.",
+    "copied_globals": "No additional concrete mutation hole found in the inspected legacy call graph.",
+    "nominal_feature_bound": "Arithmetic correct; enforcement incomplete.",
+    "whole_M": "NOT_ADJUDICATED_OR_PROMOTED",
+    "production_admitted": false
+  },
+  "blockers": {
+    "review_execution": "None; no denied, pending or uncertain action.",
+    "storage_acceptance": [
+      "SBC-STOR-001",
+      "SBC-STOR-002",
+      "SBC-STOR-003"
+    ],
+    "production": "No M permit; scientific/GPU/joint-capacity gates remain unadmitted."
+  }
+}

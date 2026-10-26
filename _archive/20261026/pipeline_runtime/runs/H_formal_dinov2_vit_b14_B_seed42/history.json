@@ -1,0 +1,842 @@
+[
+  {
+    "epoch": 1,
+    "train_loss": 0.4644369552818893,
+    "attempts": 191,
+    "success": 191,
+    "skip": 0,
+    "draw_count": 24448,
+    "method_counts": {
+      "real": 12170,
+      "FaceSwap": 3000,
+      "Deepfakes": 3052,
+      "NeuralTextures": 3055,
+      "Face2Face": 3171
+    },
+    "sample_sha256": "8bb7a89363af6c79c70658dc7b77e1b52056f77479dd3aab8a8dabadcf018a55",
+    "augmentation_sha256": "07256ec99f0b231a4055ffa76fec668b40edf75f6abfc1c4d7bf368073300738",
+    "dev": {
+      "macro_auc": 0.9921827233819548,
+      "pooled_auc": 0.9921827233819548,
+      "method_auc": {
+        "Deepfakes": 0.9995632806358634,
+        "Face2Face": 0.9995632806358634,
+        "FaceSwap": 0.9995632806358634,
+        "NeuralTextures": 0.9700410516202288
+      }
+    },
+    "seconds": 153.32308316230774
+  },
+  {
+    "epoch": 2,
+    "train_loss": 0.1739940704114696,
+    "attempts": 191,
+    "success": 191,
+    "skip": 0,
+    "draw_count": 24448,
+    "method_counts": {
+      "NeuralTextures": 2966,
+      "real": 12245,
+      "Face2Face": 3069,
+      "Deepfakes": 3053,
+      "FaceSwap": 3115
+    },
+    "sample_sha256": "4b36db524ee0de550eb02811c12577108cc122cb0be1b313374666a59f6ed31a",
+    "augmentation_sha256": "bd9285dfc6242e77a5df2d3de0c8993c56d355df8dcada7fa02bf103b3365516",
+    "dev": {
+      "macro_auc": 0.9970521442920779,
+      "pooled_auc": 0.9970521442920779,
+      "method_auc": {
+        "Deepfakes": 1.0,
+        "Face2Face": 0.999475936763036,
+        "FaceSwap": 0.9995632806358634,
+        "NeuralTextures": 0.9891693597694122
+      }
+    },
+    "seconds": 150.85082387924194
+  },
+  {
+    "epoch": 3,
+    "train_loss": 0.08922169017678624,
+    "attempts": 191,
+    "success": 191,
+    "skip": 0,
+    "draw_count": 24448,
+    "method_counts": {
+      "real": 12414,
+      "Face2Face": 3044,
+      "Deepfakes": 3095,
+      "NeuralTextures": 2918,
+      "FaceSwap": 2977
+    },
+    "sample_sha256": "c4b9b9555e8b31d2125cb2ee832c3d775a38dcd2680b20e31db0b842c3a7abb4",
+    "augmentation_sha256": "d4fd1cf015eb2fbba8fc56c181032af181bddf56ce285355d36ec979f1c3af49",
+    "dev": {
+      "macro_auc": 0.9985588260983491,
+      "pooled_auc": 0.9985588260983492,
+      "method_auc": {
+        "Deepfakes": 0.9998253122543453,
+        "Face2Face": 0.9996506245086907,
+        "FaceSwap": 0.9984278102891082,
+        "NeuralTextures": 0.9963315573412526
+      }
+    },
+    "seconds": 148.08108139038086
+  },
+  {
+    "epoch": 4,
+    "train_loss": 0.06696905015787373,
+    "attempts": 191,
+    "success": 191,
+    "skip": 0,
+    "draw_count": 24448,
+    "method_counts": {
+      "real": 12244,
+      "FaceSwap": 2984,
+      "Face2Face": 3155,
+      "Deepfakes": 3014,
+      "NeuralTextures": 3051
+    },
+    "sample_sha256": "cbc3742efd77ed502a309ccafb946328d9544087f66d4a21605538014001496f",
+    "augmentation_sha256": "36f7b42c6f318660811053c36de89876d3df1623346abd5df67fc4bf8e6f043d",
+    "dev": {
+      "macro_auc": 0.9951960869944974,
+      "pooled_auc": 0.9951960869944974,
+      "method_auc": {
+        "Deepfakes": 1.0,
+        "Face2Face": 0.9995632806358634,
+        "FaceSwap": 0.9988645296532448,
+        "NeuralTextures": 0.9823565376888811
+      }
+    },
+    "seconds": 150.1946897506714
+  },
+  {
+    "epoch": 5,
+    "train_loss": 0.06878825644743068,
+    "attempts": 191,
+    "success": 191,
+    "skip": 0,
+    "draw_count": 24448,
+    "method_counts": {
+      "Deepfakes": 3171,
+      "real": 12126,
+      "FaceSwap": 3023,
+      "NeuralTextures": 3041,
+      "Face2Face": 3087
+    },
+    "sample_sha256": "478e4c2769d81359c5e8924b31b37c42fab2e4ef45fedf3df5aa3ad3b3c70215",
+    "augmentation_sha256": "91d3ac3cfe543c790a12ec6f8162c3c1c15ad97bdf2ed7036a53f2619bb6e4ef",
+    "dev": {
+      "macro_auc": 0.9993885928902088,
+      "pooled_auc": 0.9993885928902088,
+      "method_auc": {
+        "Deepfakes": 1.0,
+        "Face2Face": 0.9997379683815181,
+        "FaceSwap": 1.0,
+        "NeuralTextures": 0.997816403179317
+      }
+    },
+    "seconds": 150.56765127182007
+  },
+  {
+    "epoch": 6,
+    "train_loss": 0.046270883549492395,
+    "attempts": 191,
+    "success": 191,
+    "skip": 0,
+    "draw_count": 24448,
+    "method_counts": {
+      "FaceSwap": 2917,
+      "Deepfakes": 3101,
+      "real": 12233,
+      "Face2Face": 3059,
+      "NeuralTextures": 3138
+    },
+    "sample_sha256": "dde6873e0f18294fb2e821aaf64d8ef52caf69e1688486b4143ede251ec6556e",
+    "augmentation_sha256": "8a2efb2531023e41a9aaa4f3a70202cf81d41e220bdc1ab78a36bcb32ba294ca",
+    "dev": {
+      "macro_auc": 0.9959385099135295,
+      "pooled_auc": 0.9959385099135296,
+      "method_auc": {
+        "Deepfakes": 0.9999126561271727,
+        "Face2Face": 0.9972049960695257,
+        "FaceSwap": 0.9999126561271727,
+        "NeuralTextures": 0.9867237313302472
+      }
+    },
+    "seconds": 149.99800395965576
+  },
+  {
+    "epoch": 7,
+    "train_loss": 0.03708141775928555,
+    "attempts": 191,
+    "success": 191,
+    "skip": 0,
+    "draw_count": 24448,
+    "method_counts": {
+      "Face2Face": 3038,
+      "real": 12257,
+      "FaceSwap": 3103,
+      "Deepfakes": 3033,
+      "NeuralTextures": 3017
+    },
+    "sample_sha256": "d9634508c2c2f95c9311a5bc8b9d46b8d92d1ce53055b577f73d788a5d2ec35a",
+    "augmentation_sha256": "6ecb7083ba6a492cb364770489ab054794a638b63d6673a2ba4302cae7c53c42",
+    "dev": {
+      "macro_auc": 0.9984059743209014,
+      "pooled_auc": 0.9984059743209014,
+      "method_auc": {
+        "Deepfakes": 1.0,
+        "Face2Face": 0.9969429644510438,
+        "FaceSwap": 1.0,
+        "NeuralTextures": 0.9966809328325618
+      }
+    },
+    "seconds": 150.41493439674377
+  },
+  {
+    "epoch": 8,
+    "train_loss": 0.036961169318534944,
+    "attempts": 191,
+    "success": 191,
+    "skip": 0,
+    "draw_count": 24448,
+    "method_counts": {
+      "real": 12222,
+      "Face2Face": 3068,
+      "Deepfakes": 3008,
+      "NeuralTextures": 3007,
+      "FaceSwap": 3143
+    },
+    "sample_sha256": "12c6dc119a5137846e28c6e810a1901cf8a0fa4418cccea16f5377729d7e0ee6",
+    "augmentation_sha256": "eaa3667b5b66fce569c268e3b955717fd19be689064536073192e8d8e9d5f4b5",
+    "dev": {
+      "macro_auc": 0.9983404664162809,
+      "pooled_auc": 0.9983404664162809,
+      "method_auc": {
+        "Deepfakes": 1.0,
+        "Face2Face": 0.9987771857804175,
+        "FaceSwap": 0.9997379683815181,
+        "NeuralTextures": 0.994846711503188
+      }
+    },
+    "seconds": 151.1989462375641
+  },
+  {
+    "epoch": 9,
+    "train_loss": 0.029381448739447206,
+    "attempts": 191,
+    "success": 191,
+    "skip": 0,
+    "draw_count": 24448,
+    "method_counts": {
+      "real": 12289,
+      "NeuralTextures": 3022,
+      "Deepfakes": 3015,
+      "FaceSwap": 3064,
+      "Face2Face": 3058
+    },
+    "sample_sha256": "d2873cdff6822b7e209b48b4478c1eb06ffd591453f7ea697310f3a6f5f5ddef",
+    "augmentation_sha256": "a19ebc767441cd220526377265fd39f12bb92de95b762f7499f6b59f97956c22",
+    "dev": {
+      "macro_auc": 0.9975980434972487,
+      "pooled_auc": 0.9975980434972487,
+      "method_auc": {
+        "Deepfakes": 1.0,
+        "Face2Face": 0.9992139051445541,
+        "FaceSwap": 0.9993885928902088,
+        "NeuralTextures": 0.9917896759542318
+      }
+    },
+    "seconds": 151.5250449180603
+  },
+  {
+    "epoch": 10,
+    "train_loss": 0.029459235151127684,
+    "attempts": 191,
+    "success": 191,
+    "skip": 0,
+    "draw_count": 24448,
+    "method_counts": {
+      "NeuralTextures": 3115,
+      "Deepfakes": 3046,
+      "Face2Face": 3040,
+      "FaceSwap": 3002,
+      "real": 12245
+    },
+    "sample_sha256": "1e4fac7df00def2d80942439fa4880df61d58a6db9bcb0bbda826837bce118a7",
+    "augmentation_sha256": "ea463fef1ae152212bf628c77c57710e6c115c5662627258f9faf4f686994b93",
+    "dev": {
+      "macro_auc": 0.998973709494279,
+      "pooled_auc": 0.998973709494279,
+      "method_auc": {
+        "Deepfakes": 1.0,
+        "Face2Face": 0.999475936763036,
+        "FaceSwap": 1.0,
+        "NeuralTextures": 0.9964189012140798
+      }
+    },
+    "seconds": 151.0281810760498
+  },
+  {
+    "epoch": 11,
+    "train_loss": 0.027905914722819915,
+    "attempts": 191,
+    "success": 191,
+    "skip": 0,
+    "draw_count": 24448,
+    "method_counts": {
+      "real": 12343,
+      "Face2Face": 3065,
+      "NeuralTextures": 3004,
+      "Deepfakes": 3060,
+      "FaceSwap": 2976
+    },
+    "sample_sha256": "24680151bbdf3fe71ee987ff74f1ef0f622862804742ec13d0bacd7b657a440d",
+    "augmentation_sha256": "4cd09bd408a969766e8ba86c8baced49342d3f87641739b449e8a74d99e97e15",
+    "dev": {
+      "macro_auc": 0.997947418988558,
+      "pooled_auc": 0.997947418988558,
+      "method_auc": {
+        "Deepfakes": 1.0,
+        "Face2Face": 0.9998253122543453,
+        "FaceSwap": 1.0,
+        "NeuralTextures": 0.9919643636998865
+      }
+    },
+    "seconds": 151.90301728248596
+  },
+  {
+    "epoch": 12,
+    "train_loss": 0.02220794625326757,
+    "attempts": 191,
+    "success": 191,
+    "skip": 0,
+    "draw_count": 24448,
+    "method_counts": {
+      "real": 12244,
+      "FaceSwap": 3091,
+      "NeuralTextures": 2972,
+      "Face2Face": 3143,
+      "Deepfakes": 2998
+    },
+    "sample_sha256": "c53f056a60c9536ff6d09fc96c7520c0c469c79657b5d73e69caa80fe93f8007",
+    "augmentation_sha256": "f7e915ba3b1ea209b772fe2402742d75cbaac9da6bb03a040481ac2d58bf5ef0",
+    "dev": {
+      "macro_auc": 0.9981221067342125,
+      "pooled_auc": 0.9981221067342126,
+      "method_auc": {
+        "Deepfakes": 1.0,
+        "Face2Face": 0.999475936763036,
+        "FaceSwap": 1.0,
+        "NeuralTextures": 0.9930124901738143
+      }
+    },
+    "seconds": 150.64102983474731
+  },
+  {
+    "epoch": 13,
+    "train_loss": 0.019038857248519104,
+    "attempts": 191,
+    "success": 191,
+    "skip": 0,
+    "draw_count": 24448,
+    "method_counts": {
+      "real": 12327,
+      "Deepfakes": 3025,
+      "Face2Face": 3166,
+      "FaceSwap": 2953,
+      "NeuralTextures": 2977
+    },
+    "sample_sha256": "57ed392311e9a926cd5101b369762bc5fb198ac517ab8e3e0b751fe2b679ba62",
+    "augmentation_sha256": "73d412133a51db4c9c15c53b0f9544bdf3a67005944ca2a86c54fa7e0452b12c",
+    "dev": {
+      "macro_auc": 0.9970958162284915,
+      "pooled_auc": 0.9970958162284915,
+      "method_auc": {
+        "Deepfakes": 1.0,
+        "Face2Face": 0.9995632806358634,
+        "FaceSwap": 1.0,
+        "NeuralTextures": 0.9888199842781029
+      }
+    },
+    "seconds": 151.1332266330719
+  },
+  {
+    "epoch": 14,
+    "train_loss": 0.015094205000832755,
+    "attempts": 191,
+    "success": 191,
+    "skip": 0,
+    "draw_count": 24448,
+    "method_counts": {
+      "Deepfakes": 3065,
+      "real": 12084,
+      "Face2Face": 3189,
+      "NeuralTextures": 3069,
+      "FaceSwap": 3041
+    },
+    "sample_sha256": "92a74b7fa195d3994ba8d52ed9fe1e2b5de2d1e21fb57da35ed5efe3c4279d13",
+    "augmentation_sha256": "a31f8e3caf595cd275cdfe576129f953ec852cf52da331dc45f4c1ba2f88db85",
+    "dev": {
+      "macro_auc": 0.9979692549567648,
+      "pooled_auc": 0.9979692549567648,
+      "method_auc": {
+        "Deepfakes": 1.0,
+        "Face2Face": 0.9990392173988994,
+        "FaceSwap": 0.9999126561271727,
+        "NeuralTextures": 0.9929251463009869
+      }
+    },
+    "seconds": 151.50919222831726
+  },
+  {
+    "epoch": 15,
+    "train_loss": 0.013112549299461991,
+    "attempts": 191,
+    "success": 191,
+    "skip": 0,
+    "draw_count": 24448,
+    "method_counts": {
+      "real": 12237,
+      "FaceSwap": 3026,
+      "Face2Face": 3079,
+      "Deepfakes": 3068,
+      "NeuralTextures": 3038
+    },
+    "sample_sha256": "618de58bb0a5168e696689369cb7f40552bb2caa0aed0ef2c42341a9ea90800b",
+    "augmentation_sha256": "fb4b9bbece6437e945cc788134ce18d75fdb5bcb1018dc5e3ed0f1c96c9d97e5",
+    "dev": {
+      "macro_auc": 0.9990828893353132,
+      "pooled_auc": 0.9990828893353131,
+      "method_auc": {
+        "Deepfakes": 1.0,
+        "Face2Face": 0.9990392173988994,
+        "FaceSwap": 1.0,
+        "NeuralTextures": 0.997292339942353
+      }
+    },
+    "seconds": 149.79085445404053
+  },
+  {
+    "epoch": 16,
+    "train_loss": 0.010722051569655616,
+    "attempts": 191,
+    "success": 191,
+    "skip": 0,
+    "draw_count": 24448,
+    "method_counts": {
+      "NeuralTextures": 3125,
+      "Face2Face": 3137,
+      "real": 12081,
+      "Deepfakes": 3012,
+      "FaceSwap": 3093
+    },
+    "sample_sha256": "ba16a36d275aaa802985d4cb4022fb0993944bda8855dcb613ad676048a657d7",
+    "augmentation_sha256": "0ae51acac0b2dca4c9c90fe99628a5cc91ba85b4d5ddbddfae2936415246f915",
+    "dev": {
+      "macro_auc": 0.9986461699711765,
+      "pooled_auc": 0.9986461699711765,
+      "method_auc": {
+        "Deepfakes": 1.0,
+        "Face2Face": 0.999475936763036,
+        "FaceSwap": 1.0,
+        "NeuralTextures": 0.99510874312167
+      }
+    },
+    "seconds": 150.5458858013153
+  },
+  {
+    "epoch": 17,
+    "train_loss": 0.006516440566726692,
+    "attempts": 191,
+    "success": 191,
+    "skip": 0,
+    "draw_count": 24448,
+    "method_counts": {
+      "real": 12143,
+      "NeuralTextures": 3066,
+      "Deepfakes": 3124,
+      "FaceSwap": 3105,
+      "Face2Face": 3010
+    },
+    "sample_sha256": "3ec3fbbf55dfbe541471547467aa97468f599ffb8e0f1aa65ab23f913d9876aa",
+    "augmentation_sha256": "2cb8e67058f5a7a5ec5c271157c46ed4a2a541ef300b50fe270713dc9711aa7f",
+    "dev": {
+      "macro_auc": 0.9993012490173815,
+      "pooled_auc": 0.9993012490173814,
+      "method_auc": {
+        "Deepfakes": 1.0,
+        "Face2Face": 0.9997379683815181,
+        "FaceSwap": 1.0,
+        "NeuralTextures": 0.9974670276880077
+      }
+    },
+    "seconds": 150.97668862342834
+  },
+  {
+    "epoch": 18,
+    "train_loss": 0.004562313614793473,
+    "attempts": 191,
+    "success": 191,
+    "skip": 0,
+    "draw_count": 24448,
+    "method_counts": {
+      "FaceSwap": 3014,
+      "NeuralTextures": 3010,
+      "real": 12239,
+      "Face2Face": 3097,
+      "Deepfakes": 3088
+    },
+    "sample_sha256": "722aec7613c08fb37120a557b8a5ae83ef95a33f46db2181c5744f5c46ecfdb8",
+    "augmentation_sha256": "0dc3aa4832f3d841417ee50d3e9059ce3261aeab1e11c958f0a63c1a8f5fd398",
+    "dev": {
+      "macro_auc": 0.9990173814306926,
+      "pooled_auc": 0.9990173814306926,
+      "method_auc": {
+        "Deepfakes": 1.0,
+        "Face2Face": 0.9998253122543453,
+        "FaceSwap": 1.0,
+        "NeuralTextures": 0.9962442134684252
+      }
+    },
+    "seconds": 150.43121910095215
+  },
+  {
+    "epoch": 19,
+    "train_loss": 0.0049199373924529366,
+    "attempts": 191,
+    "success": 191,
+    "skip": 0,
+    "draw_count": 24448,
+    "method_counts": {
+      "real": 12272,
+      "NeuralTextures": 3021,
+      "FaceSwap": 3092,
+      "Deepfakes": 3060,
+      "Face2Face": 3003
+    },
+    "sample_sha256": "6852b476bcafe3150adbca040e51d774acee793e76cf6690e04576c9a81d9c0e",
+    "augmentation_sha256": "1ccb29623a1334c51304217d81ac12b0ceba98f4c4e025fcaf6ed81ca6ab08a6",
+    "dev": {
+      "macro_auc": 0.9991483972399336,
+      "pooled_auc": 0.9991483972399336,
+      "method_auc": {
+        "Deepfakes": 1.0,
+        "Face2Face": 0.9999126561271727,
+        "FaceSwap": 1.0,
+        "NeuralTextures": 0.9966809328325618
+      }
+    },
+    "seconds": 150.47166776657104
+  },
+  {
+    "epoch": 20,
+    "train_loss": 0.0035119294895941673,
+    "attempts": 191,
+    "success": 191,
+    "skip": 0,
+    "draw_count": 24448,
+    "method_counts": {
+      "FaceSwap": 2976,
+      "real": 12365,
+      "NeuralTextures": 2984,
+      "Deepfakes": 3068,
+      "Face2Face": 3055
+    },
+    "sample_sha256": "5380ef155e5d7fcae2b12aba0ff22cd847a641b39452198be6863520d23ca0ad",
+    "augmentation_sha256": "38d489109ff9ea79d7d35bd23bf11d0682756ebe9bda3be083742df85fe6a34f",
+    "dev": {
+      "macro_auc": 0.9984714822255218,
+      "pooled_auc": 0.9984714822255218,
+      "method_auc": {
+        "Deepfakes": 1.0,
+        "Face2Face": 0.9999126561271727,
+        "FaceSwap": 1.0,
+        "NeuralTextures": 0.9939732727749149
+      }
+    },
+    "seconds": 149.146155834198
+  },
+  {
+    "epoch": 21,
+    "train_loss": 0.0022045480067895344,
+    "attempts": 191,
+    "success": 191,
+    "skip": 0,
+    "draw_count": 24448,
+    "method_counts": {
+      "Deepfakes": 3087,
+      "NeuralTextures": 3068,
+      "Face2Face": 3049,
+      "real": 12159,
+      "FaceSwap": 3085
+    },
+    "sample_sha256": "2c14f8729ac19b4c59cdee43bc2238e4b79de2007924bd916de1b7ac88d5162c",
+    "augmentation_sha256": "f249b7ced8819bc7535198ac46bfb288e0aa737d4a9e2f078ec1d145e9a47266",
+    "dev": {
+      "macro_auc": 0.9991047253035199,
+      "pooled_auc": 0.9991047253035199,
+      "method_auc": {
+        "Deepfakes": 1.0,
+        "Face2Face": 0.9995632806358634,
+        "FaceSwap": 1.0,
+        "NeuralTextures": 0.9968556205782164
+      }
+    },
+    "seconds": 150.57306551933289
+  },
+  {
+    "epoch": 22,
+    "train_loss": 0.0011117643584053554,
+    "attempts": 191,
+    "success": 191,
+    "skip": 0,
+    "draw_count": 24448,
+    "method_counts": {
+      "real": 12133,
+      "Face2Face": 3053,
+      "FaceSwap": 3191,
+      "NeuralTextures": 2989,
+      "Deepfakes": 3082
+    },
+    "sample_sha256": "78406e124f4ad5dab5879251e6b820ff8c2b39723a2a6bda3b994e3f6b3d9758",
+    "augmentation_sha256": "26eae58238c1bf6af182b6754cc068433ccb995d30068d0077dd134b3c0f43cb",
+    "dev": {
+      "macro_auc": 0.9991265612717268,
+      "pooled_auc": 0.9991265612717268,
+      "method_auc": {
+        "Deepfakes": 1.0,
+        "Face2Face": 0.9997379683815181,
+        "FaceSwap": 1.0,
+        "NeuralTextures": 0.9967682767053891
+      }
+    },
+    "seconds": 151.05732655525208
+  },
+  {
+    "epoch": 23,
+    "train_loss": 0.0019457831354665507,
+    "attempts": 191,
+    "success": 191,
+    "skip": 0,
+    "draw_count": 24448,
+    "method_counts": {
+      "real": 12226,
+      "Deepfakes": 3031,
+      "Face2Face": 3029,
+      "FaceSwap": 3123,
+      "NeuralTextures": 3039
+    },
+    "sample_sha256": "72e1a72a01023797c4ea19c38e6f808868a907d27fef8301a570e34ccaf1fedf",
+    "augmentation_sha256": "1ae2a7185c09ccb9d9c09d40ad25210bf59636d918d2d55473ee5e406ab688f5",
+    "dev": {
+      "macro_auc": 0.9993667569220019,
+      "pooled_auc": 0.9993667569220019,
+      "method_auc": {
+        "Deepfakes": 1.0,
+        "Face2Face": 0.9997379683815181,
+        "FaceSwap": 1.0,
+        "NeuralTextures": 0.9977290593064897
+      }
+    },
+    "seconds": 150.11089038848877
+  },
+  {
+    "epoch": 24,
+    "train_loss": 0.00013833312093431414,
+    "attempts": 191,
+    "success": 191,
+    "skip": 0,
+    "draw_count": 24448,
+    "method_counts": {
+      "real": 12182,
+      "Deepfakes": 3096,
+      "NeuralTextures": 2970,
+      "Face2Face": 3110,
+      "FaceSwap": 3090
+    },
+    "sample_sha256": "b1dfe82c01c54f673567c14652d93d255a875938b4507c4bc4be3cdcd49817c6",
+    "augmentation_sha256": "e799cf46f8342ff8d38c8816abca3a3acdec6ebbd8e918cdfd9343516f8f65fe",
+    "dev": {
+      "macro_auc": 0.9993230849855883,
+      "pooled_auc": 0.9993230849855883,
+      "method_auc": {
+        "Deepfakes": 1.0,
+        "Face2Face": 0.9996506245086907,
+        "FaceSwap": 1.0,
+        "NeuralTextures": 0.9976417154336623
+      }
+    },
+    "seconds": 149.49847769737244
+  },
+  {
+    "epoch": 25,
+    "train_loss": 0.0005745683986869157,
+    "attempts": 191,
+    "success": 191,
+    "skip": 0,
+    "draw_count": 24448,
+    "method_counts": {
+      "real": 12233,
+      "FaceSwap": 2987,
+      "NeuralTextures": 3112,
+      "Face2Face": 3073,
+      "Deepfakes": 3043
+    },
+    "sample_sha256": "f96c8aac716d1bf070ca97a4d9ba9e5eaf552f3c9903787f654f00e2415373b5",
+    "augmentation_sha256": "ef1a9f779638bedc282595db4e1ba8e5c8b3e6e4d322877978b7a506f38fdeba",
+    "dev": {
+      "macro_auc": 0.9993449209537951,
+      "pooled_auc": 0.9993449209537951,
+      "method_auc": {
+        "Deepfakes": 1.0,
+        "Face2Face": 0.9997379683815181,
+        "FaceSwap": 1.0,
+        "NeuralTextures": 0.9976417154336623
+      }
+    },
+    "seconds": 150.39016795158386
+  },
+  {
+    "epoch": 26,
+    "train_loss": 8.449619587179254e-05,
+    "attempts": 191,
+    "success": 191,
+    "skip": 0,
+    "draw_count": 24448,
+    "method_counts": {
+      "real": 12244,
+      "NeuralTextures": 3089,
+      "FaceSwap": 2998,
+      "Deepfakes": 3109,
+      "Face2Face": 3008
+    },
+    "sample_sha256": "9e3e31e45b35966a5a9a859173968310dbef46a9e249e4fb6bce3331951b44bc",
+    "augmentation_sha256": "386fd83888a2f81a5ebfcc79573508b8bde49a975dd572651c1c4c16615a32cf",
+    "dev": {
+      "macro_auc": 0.9994322648266224,
+      "pooled_auc": 0.9994322648266224,
+      "method_auc": {
+        "Deepfakes": 1.0,
+        "Face2Face": 0.9998253122543453,
+        "FaceSwap": 1.0,
+        "NeuralTextures": 0.9979037470521442
+      }
+    },
+    "seconds": 146.26681232452393
+  },
+  {
+    "epoch": 27,
+    "train_loss": 4.6345775859206136e-05,
+    "attempts": 191,
+    "success": 191,
+    "skip": 0,
+    "draw_count": 24448,
+    "method_counts": {
+      "real": 12213,
+      "Face2Face": 3106,
+      "Deepfakes": 3128,
+      "FaceSwap": 3005,
+      "NeuralTextures": 2996
+    },
+    "sample_sha256": "603c07e931fc722fab1ea170e822e6a28db79cbc1b6ab71dd3fddc663c16cde8",
+    "augmentation_sha256": "a4178e0e632d4e2c9b5c10bd79f7dfdf96de7dae1a615622bf955b547f295612",
+    "dev": {
+      "macro_auc": 0.999475936763036,
+      "pooled_auc": 0.999475936763036,
+      "method_auc": {
+        "Deepfakes": 1.0,
+        "Face2Face": 0.999475936763036,
+        "FaceSwap": 1.0,
+        "NeuralTextures": 0.9984278102891082
+      }
+    },
+    "seconds": 151.08246445655823
+  },
+  {
+    "epoch": 28,
+    "train_loss": 2.5995616942488085e-05,
+    "attempts": 191,
+    "success": 191,
+    "skip": 0,
+    "draw_count": 24448,
+    "method_counts": {
+      "real": 12228,
+      "Deepfakes": 3055,
+      "NeuralTextures": 3137,
+      "FaceSwap": 3092,
+      "Face2Face": 2936
+    },
+    "sample_sha256": "6d98e0cf7098d1badc8bafc363ada3416e865454be83b37550e167495b1f89a6",
+    "augmentation_sha256": "ce912db86b91eb8b1121a5480cfd3e3529c70fb63cad10be8a1b353e8ae8b05e",
+    "dev": {
+      "macro_auc": 0.9994541007948293,
+      "pooled_auc": 0.9994541007948292,
+      "method_auc": {
+        "Deepfakes": 1.0,
+        "Face2Face": 0.9996506245086907,
+        "FaceSwap": 1.0,
+        "NeuralTextures": 0.9981657786706263
+      }
+    },
+    "seconds": 148.10416316986084
+  },
+  {
+    "epoch": 29,
+    "train_loss": 2.563511708956114e-06,
+    "attempts": 191,
+    "success": 191,
+    "skip": 0,
+    "draw_count": 24448,
+    "method_counts": {
+      "real": 12199,
+      "NeuralTextures": 3007,
+      "Deepfakes": 3056,
+      "FaceSwap": 3078,
+      "Face2Face": 3108
+    },
+    "sample_sha256": "1aa9c2491c269a3482d43a734907b9a8c7470e14e27afe2564b27c2c4845d86c",
+    "augmentation_sha256": "396d1d4a14523c93ce4ac3c3d42b3661a8c9eb3295b653e3e617af9bbce9f2c9",
+    "dev": {
+      "macro_auc": 0.9994541007948293,
+      "pooled_auc": 0.9994541007948292,
+      "method_auc": {
+        "Deepfakes": 1.0,
+        "Face2Face": 0.9996506245086907,
+        "FaceSwap": 1.0,
+        "NeuralTextures": 0.9981657786706263
+      }
+    },
+    "seconds": 143.86727714538574
+  },
+  {
+    "epoch": 30,
+    "train_loss": 2.062660081224292e-05,
+    "attempts": 191,
+    "success": 191,
+    "skip": 0,
+    "draw_count": 24448,
+    "method_counts": {
+      "Face2Face": 3069,
+      "real": 12230,
+      "Deepfakes": 3043,
+      "FaceSwap": 3016,
+      "NeuralTextures": 3090
+    },
+    "sample_sha256": "3f82fb5d951cc0ff27be9b85ccfd49d147a8ad56a9a748924306210a40ebf5d4",
+    "augmentation_sha256": "f67e8661d8ea18ecd9e2162c8f8be23c12ab4b1fbb849ceb980cfac2cb546e2a",
+    "dev": {
+      "macro_auc": 0.9995414446676566,
+      "pooled_auc": 0.9995414446676566,
+      "method_auc": {
+        "Deepfakes": 1.0,
+        "Face2Face": 0.9996506245086907,
+        "FaceSwap": 1.0,
+        "NeuralTextures": 0.9985151541619356
+      }
+    },
+    "seconds": 143.2317726612091
+  }
+]

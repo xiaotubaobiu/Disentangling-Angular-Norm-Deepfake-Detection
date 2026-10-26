@@ -1,0 +1,108 @@
+{
+  "utc": "2026-10-23T18:09:21.105138+00:00",
+  "status": "PASS_1800_D_RECOVERY_H_DEEP_AND_INDEPENDENT_REVIEW_NATIVE_FREEZE_RUNNING_NOT_FROZEN",
+  "files": {
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/check_20261023T1800Z.json": "637fc930175490baac5d78c021eccad20a03d809dbf16ccad8c862bacdf96f71",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/checkpoint_health_1800.json": "7ab2f4e8b3573f7f07928acc29948a52528d1f1d5484a5da6a390068b78e0ca9",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/D_terminal_revalidation_1800.json": "5dc737a08e1e8d67e45fbcc9d6da11f75551cd1d343f5552772fed1e9d97e0ff",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/AMP_numeric_acceptance_1800.json": "18a2a9833e2e238e9541bec86cba7b00611650b4be6a5b8fc0d402ebdee89bb7",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_terminal_acceptance_1800.json": "ca7fa4aaba396f4e586f13d4ef355c452633e5649053d7b46633a7da50386fff",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_freeze_validation_health_1800.json": "312a8f19a79f2838012de6a0bc4abc4de243818e4ad7acf7406e9e9a9c69b7b7",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_freeze_launch_snapshot_1800.json": "41eceef17f41d71651b4800d25c5807872bc4bdc0a937bafced794569910dbde",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_production_data_independent_review_1450.json": "760a1411084a5ed747710cc1c58f2ead2c69e0df6775345f76346b8db48bf748",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_production_data_final_signoff_verification_1800.json": "0aea3d0b53db7fed2dc0c5ced3473fd2f442f61dccbfde7a540b09e37f00cf9c",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_production_data_inspection.json": "c319ee7a6a6ab332b85f5ecd4a0b56bebeedd073228e6d8227ad187a09806b2d",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_production_data_inspection_launch.json": "7ee5ed3ce0cc4df04dc7603bdbf06e29a481ab5b37e21109816185854ec3d11b",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/checkpoint_health_1800.py": "2b905dd08720f58417848e2dce9921876d983d1fb76966e635468b4225753377",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/runtime_monitor_1800.py": "2ca2bbf8546007be499e9eeba44de2a9447136a35df4c116c02a84ad8606ae49",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_production_data_freeze_1800.py": "e8302ebd3c769d5b25bd9bde8e4f9fcc622821e28b9b05a937ea6b15ba514074",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/logs/checkpoint_health_1800.log": "df3ad3adf553191df31f0f0b57e418c9beac89e598dd11424a2a9c8a0b966cca",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/logs/runtime_monitor_1800.log": "f95fcf6c793d62a12601a272a7f58a3c028d955580d6d6025dd2dd933a721bb7",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/status.json": "c7dff6755949676420cb8724595cde317056de067052c699f746513bec4ea499",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/HANDOFF.md": "2882f0a7b3ab06bdc98e2335b36089f2ec7c09f753f1e69849068fc017561470",
+    "/home/z/obsidian/paper/deepfake-detector/新实验设计/20261023/执行状态_20261023_v2.md": "380025d3fc49db472c93bc75d55f8844b991a9dc0064ae4af2a2a7bb603bf983"
+  },
+  "mutable_freeze_launch_snapshot": {
+    "utc": "2026-10-23T18:04:20.145754+00:00",
+    "status": "RUNNING",
+    "operation": "data_h.freeze_h_data mandatory full integrity revalidation then exclusive freeze",
+    "pid": 246169,
+    "supervisor_pid": 246168,
+    "CPU_only": true,
+    "OMP_MKL_OPENBLAS_threads": 2,
+    "deep_report_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_production_data_inspection.json",
+    "deep_report_sha256": "c319ee7a6a6ab332b85f5ecd4a0b56bebeedd073228e6d8227ad187a09806b2d",
+    "independent_review": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_production_data_independent_review_1450.json",
+      "sha256": "760a1411084a5ed747710cc1c58f2ead2c69e0df6775345f76346b8db48bf748",
+      "reviewer": {
+        "identity": "Codex independent subagent /root/h_pipeline_review",
+        "independent": true
+      }
+    },
+    "data_gate_code_sha256": "ad81f65c27d53159e6902bf8a20b0910cd129f75eb0105e5a5a053bcc2d2f45e",
+    "does_not_train_or_use_GPU": true,
+    "freeze_created": false
+  },
+  "mutable_launch_path_note": "Current launch/log change upon completion; immutable1800snapshot separately bound above. Do not require future mutable path to equal this initialRUNNING hash.",
+  "process_liveness": {
+    "200931": false,
+    "246169": true,
+    "246168": true,
+    "3942476": true,
+    "57156": true,
+    "64175": true,
+    "124606": true,
+    "125862": true,
+    "1532179": true,
+    "1532180": true,
+    "1532181": true,
+    "1532182": true
+  },
+  "D_counts": {
+    "complete": 4,
+    "active": 4,
+    "pending": 2
+  },
+  "D_pinned_active_epochs": [
+    26,
+    25,
+    20,
+    20
+  ],
+  "D_later_committed_active_epochs": [
+    26,
+    26,
+    20,
+    20
+  ],
+  "D_pinned_totals": {
+    "attempts": 168589,
+    "success": 168572,
+    "skips": 17
+  },
+  "D_later_committed_totals": {
+    "attempts": 169388,
+    "success": 169371,
+    "skips": 17
+  },
+  "live_skip_cutoff": "2026-10-23T18:02:33.222438+00:00",
+  "new_skips_since1717": 2,
+  "new_skip_positions_zero_based": [
+    20685,
+    19435
+  ],
+  "H_deep_complete": true,
+  "H_independent_review": "PASS",
+  "H_mandatory_native_freeze_validation": "RUNNING",
+  "H_freeze_worker_pid": 246169,
+  "H_freeze_supervisor_pid": 246168,
+  "H_freeze_native_session_id": 7052,
+  "H_data_frozen": false,
+  "H_GPU_qualification_or_training_started": false,
+  "backup_verified": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/backups/20261023T1800Z",
+  "next_manual_check_utc": "2026-10-23T18:45:00Z",
+  "scientific_results_complete": false,
+  "journal_manuscripts_complete": false,
+  "scope": "Per-stage1800proof and readback; no native freeze completion or GPU qualification asserted. Code/plan/master papers and original/full/independent evidence unchanged; new helper only wraps existing mandatory freeze behavior."
+}

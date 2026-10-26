@@ -1,0 +1,199 @@
+{
+  "checked_UTC": "2026-10-09T01:03:39.906853+00:00",
+  "frozen_manifest_sha256": {
+    "calibration": "abfc2ba19c927f0dd11a2facbc45d152fa997217a6960579ff0caba42648dbdb",
+    "ff_test": "3b73739fe62954eb389b49e3f6d46ee1ff326a71cc88b28dc1c43c825069d168",
+    "cdf_test": "1eeb4918687957494c8af29a7652f6db9b74768f214d0048bdd599d41645a351"
+  },
+  "score_values_used": false,
+  "protocol_or_input_changes": false,
+  "test_bootstrap_iterations": 2000,
+  "policy": "all prescribed methods must be present; a missing method invalidates the entire macro replicate; no reduced-method averaging",
+  "scope": "declared frozen group_id proxy only, unknown ancestry not certified",
+  "bootstrap_support_structure": [
+    {
+      "role": "calibration",
+      "unit": "image",
+      "rows": 1120,
+      "groups": 70,
+      "real_groups": 70,
+      "minimum_fake_method_groups": null,
+      "fake_methods": 0,
+      "support_by_seed": {}
+    },
+    {
+      "role": "calibration",
+      "unit": "video",
+      "rows": 140,
+      "groups": 70,
+      "real_groups": 70,
+      "minimum_fake_method_groups": null,
+      "fake_methods": 0,
+      "support_by_seed": {}
+    },
+    {
+      "role": "ff_test",
+      "unit": "image",
+      "rows": 59935,
+      "groups": 962,
+      "real_groups": 70,
+      "minimum_fake_method_groups": 4,
+      "fake_methods": 31,
+      "support_by_seed": {
+        "7": {
+          "macro_support_valid": 1961,
+          "macro_support_invalid": 39,
+          "methods_with_missing_support": {
+            "rddm": 39
+          }
+        },
+        "42": {
+          "macro_support_valid": 1961,
+          "macro_support_invalid": 39,
+          "methods_with_missing_support": {
+            "rddm": 39
+          }
+        },
+        "123": {
+          "macro_support_valid": 1961,
+          "macro_support_invalid": 39,
+          "methods_with_missing_support": {
+            "rddm": 39
+          }
+        },
+        "2026": {
+          "macro_support_valid": 1966,
+          "macro_support_invalid": 34,
+          "methods_with_missing_support": {
+            "rddm": 34
+          }
+        },
+        "3407": {
+          "macro_support_valid": 1963,
+          "macro_support_invalid": 37,
+          "methods_with_missing_support": {
+            "rddm": 37
+          }
+        }
+      }
+    },
+    {
+      "role": "ff_test",
+      "unit": "video",
+      "rows": 3024,
+      "groups": 70,
+      "real_groups": 70,
+      "minimum_fake_method_groups": 58,
+      "fake_methods": 21,
+      "support_by_seed": {
+        "7": {
+          "macro_support_valid": 2000,
+          "macro_support_invalid": 0,
+          "methods_with_missing_support": {}
+        },
+        "42": {
+          "macro_support_valid": 2000,
+          "macro_support_invalid": 0,
+          "methods_with_missing_support": {}
+        },
+        "123": {
+          "macro_support_valid": 2000,
+          "macro_support_invalid": 0,
+          "methods_with_missing_support": {}
+        },
+        "2026": {
+          "macro_support_valid": 2000,
+          "macro_support_invalid": 0,
+          "methods_with_missing_support": {}
+        },
+        "3407": {
+          "macro_support_valid": 2000,
+          "macro_support_invalid": 0,
+          "methods_with_missing_support": {}
+        }
+      }
+    },
+    {
+      "role": "cdf_test",
+      "unit": "image",
+      "rows": 368922,
+      "groups": 20789,
+      "real_groups": 177,
+      "minimum_fake_method_groups": 2,
+      "fake_methods": 31,
+      "support_by_seed": {
+        "7": {
+          "macro_support_valid": 1726,
+          "macro_support_invalid": 274,
+          "methods_with_missing_support": {
+            "rddm": 274
+          }
+        },
+        "42": {
+          "macro_support_valid": 1736,
+          "macro_support_invalid": 264,
+          "methods_with_missing_support": {
+            "rddm": 264
+          }
+        },
+        "123": {
+          "macro_support_valid": 1753,
+          "macro_support_invalid": 247,
+          "methods_with_missing_support": {
+            "rddm": 247
+          }
+        },
+        "2026": {
+          "macro_support_valid": 1712,
+          "macro_support_invalid": 288,
+          "methods_with_missing_support": {
+            "rddm": 288
+          }
+        },
+        "3407": {
+          "macro_support_valid": 1716,
+          "macro_support_invalid": 284,
+          "methods_with_missing_support": {
+            "rddm": 284
+          }
+        }
+      }
+    },
+    {
+      "role": "cdf_test",
+      "unit": "video",
+      "rows": 13053,
+      "groups": 12889,
+      "real_groups": 177,
+      "minimum_fake_method_groups": 292,
+      "fake_methods": 21,
+      "support_by_seed": {
+        "7": {
+          "macro_support_valid": 2000,
+          "macro_support_invalid": 0,
+          "methods_with_missing_support": {}
+        },
+        "42": {
+          "macro_support_valid": 2000,
+          "macro_support_invalid": 0,
+          "methods_with_missing_support": {}
+        },
+        "123": {
+          "macro_support_valid": 2000,
+          "macro_support_invalid": 0,
+          "methods_with_missing_support": {}
+        },
+        "2026": {
+          "macro_support_valid": 2000,
+          "macro_support_invalid": 0,
+          "methods_with_missing_support": {}
+        },
+        "3407": {
+          "macro_support_valid": 2000,
+          "macro_support_invalid": 0,
+          "methods_with_missing_support": {}
+        }
+      }
+    }
+  ]
+}

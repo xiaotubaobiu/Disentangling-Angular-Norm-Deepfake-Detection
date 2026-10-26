@@ -1,0 +1,524 @@
+{
+  "utc": "2026-10-23T13:24:09.677824+00:00",
+  "nominal_window": "2026-10-23T13:15:00Z",
+  "actual_sample_window": [
+    "2026-10-23T13:17:11.616475+00:00",
+    "2026-10-23T13:21:08.897437+00:00"
+  ],
+  "status": "HEALTHY_TWO_DEVELOPMENT_MODELS_COMPLETED_AUTOMATIC_HANDOFF_VERIFIED",
+  "D_total": 10,
+  "D_complete": 2,
+  "D_active": 4,
+  "D_pending": 4,
+  "D_completed_before_sampling": 1,
+  "D_second_completion_during_check_utc": "2026-10-23T13:18:27.385831+00:00",
+  "D_queue_owner_pid": 3942476,
+  "D_queue_stage": "P2_D_STANDARD_DEVELOPMENT",
+  "completed_model_deliverables": [
+    {
+      "run_id": "D_dev_clip_vit_b16_lr1e-05_seed1007_e30",
+      "status": "PASS_COMPLETED_FROZEN_LAST_MODEL",
+      "completed_utc": "2026-10-23T13:12:54.503380+00:00",
+      "epochs": 30,
+      "attempts": 23970,
+      "successful_updates": 23966,
+      "AMP_skips": 4,
+      "final_sha256": "c8ab51e54078b153c4d2298889eed6bdfcb077b1cc5ea0ae05b7f810efd90f26",
+      "source_best_sha256": "e1042c176b6a2bbdf045d4cd6fdd65b2a81a23edebac5dcdfd8e3f34212cb32b",
+      "final_equal_terminal_state_model": true,
+      "DEV_epochs_independently_recomputed": 30,
+      "DEV_video_rows_per_epoch": 2283,
+      "DEV_methods_per_epoch": 21,
+      "independent_DEV_max_abs_error": 0.0,
+      "epoch_files_verified": 150,
+      "core_files_verified": 7,
+      "extra_files": [],
+      "selection": "frozen_last",
+      "target_used": false
+    },
+    {
+      "run_id": "D_dev_clip_vit_b16_lr1e-05_seed1042_e30",
+      "status": "PASS_COMPLETED_FROZEN_LAST_MODEL",
+      "completed_utc": "2026-10-23T13:18:27.385831+00:00",
+      "epochs": 30,
+      "attempts": 23970,
+      "successful_updates": 23966,
+      "AMP_skips": 4,
+      "final_sha256": "649d0817ca11d7537d09237aa0a9111c6c94c3db52305dd5b512fea6beac43a9",
+      "source_best_sha256": "9313be6e7fd71f917a1398d09bd06c51676b6abd6c8d724c35a5242a9bd13b44",
+      "final_equal_terminal_state_model": true,
+      "DEV_epochs_independently_recomputed": 30,
+      "DEV_video_rows_per_epoch": 2283,
+      "DEV_methods_per_epoch": 21,
+      "independent_DEV_max_abs_error": 0.0,
+      "epoch_files_verified": 150,
+      "core_files_verified": 7,
+      "extra_files": [],
+      "selection": "frozen_last",
+      "target_used": false
+    }
+  ],
+  "active_runs": [
+    {
+      "pid": 3942502,
+      "run_id": "D_dev_dinov2_vit_b14_lr1e-05_seed1007_e30",
+      "gpu": 2,
+      "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+      "parent_pid": 3942476,
+      "CUDA_VISIBLE_DEVICES": "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+      "CPU_ticks_at_end": 2037633,
+      "CPU_ticks_at_start": 2035632,
+      "pinned_checkpoint_status": "PASS",
+      "pinned_checkpoint_epoch": 24,
+      "pinned_attempts": 19176,
+      "pinned_successful_updates": 19175,
+      "pinned_skips": 1,
+      "live_log_records": 19641,
+      "live_log_successful_update_records": 19640,
+      "live_log_skips": 1,
+      "new_live_skips_since1230": 1,
+      "live_cutoff_utc": "2026-10-23T13:21:08.757954+00:00",
+      "draw_normalized_throughput_per_second": 158.09669129993327
+    },
+    {
+      "pid": 3942503,
+      "run_id": "D_dev_dinov2_vit_b14_lr1e-05_seed1042_e30",
+      "gpu": 3,
+      "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646",
+      "parent_pid": 3942476,
+      "CUDA_VISIBLE_DEVICES": "GPU-626ec32f-1401-c959-74b0-db04ed63c646",
+      "CPU_ticks_at_end": 2050598,
+      "CPU_ticks_at_start": 2048570,
+      "pinned_checkpoint_status": "PASS",
+      "pinned_checkpoint_epoch": 24,
+      "pinned_attempts": 19176,
+      "pinned_successful_updates": 19175,
+      "pinned_skips": 1,
+      "live_log_records": 19494,
+      "live_log_successful_update_records": 19492,
+      "live_log_skips": 2,
+      "new_live_skips_since1230": 2,
+      "live_cutoff_utc": "2026-10-23T13:21:08.885899+00:00",
+      "draw_normalized_throughput_per_second": 157.95002411820633
+    },
+    {
+      "pid": 57156,
+      "run_id": "D_dev_dinov2_vit_b14_lr3e-05_seed1007_e30",
+      "gpu": 0,
+      "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e",
+      "parent_pid": 3942476,
+      "CUDA_VISIBLE_DEVICES": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e",
+      "CPU_ticks_at_end": 61908,
+      "CPU_ticks_at_start": 59886,
+      "pinned_checkpoint_status": "PENDING_FIRST_EPOCH_RECOVERY_POINT",
+      "pinned_checkpoint_epoch": 0,
+      "pinned_attempts": 0,
+      "pinned_successful_updates": null,
+      "pinned_skips": null,
+      "live_log_records": 665,
+      "live_log_successful_update_records": 665,
+      "live_log_skips": 0,
+      "new_live_skips_since1230": 0,
+      "live_cutoff_utc": "2026-10-23T13:21:08.896198+00:00",
+      "draw_normalized_throughput_per_second": null
+    },
+    {
+      "pid": 64175,
+      "run_id": "D_dev_dinov2_vit_b14_lr3e-05_seed1042_e30",
+      "gpu": 1,
+      "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+      "parent_pid": 3942476,
+      "CUDA_VISIBLE_DEVICES": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+      "CPU_ticks_at_end": 17824,
+      "CPU_ticks_at_start": 15766,
+      "pinned_checkpoint_status": "PENDING_FIRST_EPOCH_RECOVERY_POINT",
+      "pinned_checkpoint_epoch": 0,
+      "pinned_attempts": 0,
+      "pinned_successful_updates": null,
+      "pinned_skips": null,
+      "live_log_records": 133,
+      "live_log_successful_update_records": 133,
+      "live_log_skips": 0,
+      "new_live_skips_since1230": 0,
+      "live_cutoff_utc": "2026-10-23T13:21:08.897319+00:00",
+      "draw_normalized_throughput_per_second": null
+    }
+  ],
+  "pending_run_ids": [
+    "D_dev_dinov2_vit_b14_lr5e-05_seed1007_e30",
+    "D_dev_dinov2_vit_b14_lr5e-05_seed1042_e30",
+    "D_dev_efficientnet_b0_lr1e-04_seed1007_e30",
+    "D_dev_efficientnet_b0_lr1e-04_seed1042_e30"
+  ],
+  "completed_final_model_tensor_equality_checked": true,
+  "completed_core_and_epoch_inventory_files": 314,
+  "completed_DEV_parquet_files": 60,
+  "independent_DEV_metric_comparisons": 1380,
+  "independent_DEV_metric_max_abs_error": 0.0,
+  "committed_checkpoint_ledger": [
+    {
+      "run_id": "D_dev_clip_vit_b16_lr1e-05_seed1007_e30",
+      "status": "PASS",
+      "epoch": 30,
+      "attempts": 23970,
+      "success": 23966,
+      "AMP_skips": 4
+    },
+    {
+      "run_id": "D_dev_clip_vit_b16_lr1e-05_seed1042_e30",
+      "status": "PASS",
+      "epoch": 30,
+      "attempts": 23970,
+      "success": 23966,
+      "AMP_skips": 4
+    },
+    {
+      "run_id": "D_dev_dinov2_vit_b14_lr1e-05_seed1007_e30",
+      "status": "PASS",
+      "epoch": 24,
+      "attempts": 19176,
+      "success": 19175,
+      "AMP_skips": 1
+    },
+    {
+      "run_id": "D_dev_dinov2_vit_b14_lr1e-05_seed1042_e30",
+      "status": "PASS",
+      "epoch": 24,
+      "attempts": 19176,
+      "success": 19175,
+      "AMP_skips": 1
+    },
+    {
+      "run_id": "D_dev_dinov2_vit_b14_lr3e-05_seed1007_e30",
+      "status": "PENDING_FIRST_EPOCH_RECOVERY_POINT",
+      "epoch": 0,
+      "attempts": 0,
+      "success": null,
+      "AMP_skips": null
+    },
+    {
+      "run_id": "D_dev_dinov2_vit_b14_lr3e-05_seed1042_e30",
+      "status": "PENDING_FIRST_EPOCH_RECOVERY_POINT",
+      "epoch": 0,
+      "attempts": 0,
+      "success": null,
+      "AMP_skips": null
+    }
+  ],
+  "committed_attempts_verified": 86292,
+  "committed_successful_updates_verified": 86282,
+  "committed_AMP_skips_verified": 10,
+  "live_log_records": 87873,
+  "live_successful_update_records": 87862,
+  "live_AMP_skips": 11,
+  "new_live_AMP_skips_since1230": 4,
+  "numeric_scope": "Pinned complete/oldDINO recovery checkpoints contain10 skips; later live ledger contains11 because DINO1042 lr1e-5 attempt19231 in epoch25 is beyond its pinned24 checkpoint. Newly started lr3e-5 runs have identity/live-log proofs but no committed first-epoch recovery point at this inspection cutoff; successful-update checkpoint counts are NA, not claimed verified.",
+  "protocol": {
+    "per_run_frozen_epochs": 30,
+    "attempts_per_epoch": 799,
+    "planned_attempts_per_run": 23970,
+    "effective_batch": 128,
+    "microbatch": 32,
+    "scheduler_clock": "attempt_count",
+    "successful_updates_separately_reported": true,
+    "no_makeup_steps": true,
+    "stop_policy": "nonfinite loss stops immediately;8 consecutive AMP skips stops for source protocol review;observed maximum1",
+    "D_contrast_comparability": "Raw/L2, logit/probability and grouping interventions within one model reuse its final weights/cache and same numeric training history. Different backbones/seeds are fixed-attempt, not guaranteed equal-successful-update comparisons.",
+    "H_future_rule": "No H training exists yet. Audit skip attempt positions for all5 pairs of each backbone before target export; mismatch invokes uniform qualified FP32 rerun of all10 H formal histories for that backbone, retaining AMP artifacts. Current D skips do not themselves invoke H fallback."
+  },
+  "numeric_action": "Keep fixed30x799=23970attempts perrun; isolatedAMPbackoffs allimmediately recovered, maxconsecutive1. No补步/retrain/configchange;successfulupdatecounts separatelyreported. D comparisons share each finalmodel/cache; differentmodels not guaranteed successful-update matched.",
+  "GPU_initial_summary": [
+    {
+      "index": 0,
+      "mean_util_percent": 79.41666666666667,
+      "min_util_percent": 65,
+      "max_util_percent": 88,
+      "samples": 12,
+      "memory_used_MiB": 5412
+    },
+    {
+      "index": 1,
+      "mean_util_percent": 90.91666666666667,
+      "min_util_percent": 0,
+      "max_util_percent": 100,
+      "samples": 12,
+      "memory_used_MiB": 4932
+    },
+    {
+      "index": 2,
+      "mean_util_percent": 80.41666666666667,
+      "min_util_percent": 72,
+      "max_util_percent": 87,
+      "samples": 12,
+      "memory_used_MiB": 5414
+    },
+    {
+      "index": 3,
+      "mean_util_percent": 0.0,
+      "min_util_percent": 0,
+      "max_util_percent": 0,
+      "samples": 12,
+      "memory_used_MiB": 5414
+    }
+  ],
+  "GPU_followup_summary": [
+    {
+      "gpu": 0,
+      "mean_util_percent": 80.5,
+      "min_util_percent": 75,
+      "max_util_percent": 85,
+      "samples": 8
+    },
+    {
+      "gpu": 1,
+      "mean_util_percent": 74.875,
+      "min_util_percent": 51,
+      "max_util_percent": 89,
+      "samples": 8
+    },
+    {
+      "gpu": 2,
+      "mean_util_percent": 81,
+      "min_util_percent": 75,
+      "max_util_percent": 83,
+      "samples": 8
+    },
+    {
+      "gpu": 3,
+      "mean_util_percent": 81.625,
+      "min_util_percent": 76,
+      "max_util_percent": 88,
+      "samples": 8
+    }
+  ],
+  "CPU_busy_percent": 31.34307234377557,
+  "CPU_iowait_percent": 0.022556291214987992,
+  "GPU3_initial_low_util_explanation": "Initial13:17:11-13:17:35sample window crossed epoch25 CPU prep: sample/method mtimes13:17:21,augmentations13:17:45; followup13:20:53-13:21:08 recovered76-88percent. No restart required.",
+  "draw_normalized_throughput_scope": "102272 TRAIN draws divided by recent3 epoch durations (sampling/preparation+training+full source DEV), excluding subsequent checkpoint write; not total image processing throughput",
+  "new_run_full_epoch_throughput": "PENDING_FIRST_COMPLETED_EPOCH;do not extrapolate exact new learning-rate run rates from partialepoch",
+  "kernel_queue_run_GPU_lock_proofs": [
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/queue.lock",
+      "expected_pid": 3942476,
+      "kernel_lock": "3: FLOCK  ADVISORY  WRITE 3942476 fd:01:51773448 0 EOF"
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_dev_dinov2_vit_b14_lr1e-05_seed1007_e30/run.lock",
+      "expected_pid": 3942502,
+      "kernel_lock": "29: FLOCK  ADVISORY  WRITE 3942502 fd:01:51910071 0 EOF"
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/gpu_locks/GPU-5df5602a-848e-d944-26cd-aec11b964b45.lock",
+      "expected_pid": 3942502,
+      "kernel_lock": "28: FLOCK  ADVISORY  WRITE 3942502 fd:01:51909972 0 EOF"
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_dev_dinov2_vit_b14_lr1e-05_seed1042_e30/run.lock",
+      "expected_pid": 3942503,
+      "kernel_lock": "22: FLOCK  ADVISORY  WRITE 3942503 fd:01:51910075 0 EOF"
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/gpu_locks/GPU-626ec32f-1401-c959-74b0-db04ed63c646.lock",
+      "expected_pid": 3942503,
+      "kernel_lock": "21: FLOCK  ADVISORY  WRITE 3942503 fd:01:51909991 0 EOF"
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_dev_dinov2_vit_b14_lr3e-05_seed1007_e30/run.lock",
+      "expected_pid": 57156,
+      "kernel_lock": "2: FLOCK  ADVISORY  WRITE 57156 fd:01:52306119 0 EOF"
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/gpu_locks/GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e.lock",
+      "expected_pid": 57156,
+      "kernel_lock": "1: FLOCK  ADVISORY  WRITE 57156 fd:01:51909974 0 EOF"
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_dev_dinov2_vit_b14_lr3e-05_seed1042_e30/run.lock",
+      "expected_pid": 64175,
+      "kernel_lock": "13: FLOCK  ADVISORY  WRITE 64175 fd:01:52306127 0 EOF"
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/gpu_locks/GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c.lock",
+      "expected_pid": 64175,
+      "kernel_lock": "12: FLOCK  ADVISORY  WRITE 64175 fd:01:51909973 0 EOF"
+    }
+  ],
+  "duplicate_trainer_roots": 0,
+  "process_ownership_verified": true,
+  "H_progress": {
+    "GPU_used": false,
+    "ORT_threads_each": 2,
+    "completed_videos": 6170,
+    "data_frozen": false,
+    "elapsed_seconds": 16894.33465193305,
+    "eta_seconds": 6190.938516697023,
+    "geometry_freeze": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_geometry_frozen.json",
+    "geometry_protocol_sha256": "85a865f0e3343ecaf5b8c0174c8a3f602ec873deeccb03bd1826d617f2a7ae03",
+    "image_root": "/Dataset/deepfake_detection/derived/pipeline_reliability_v2_20261023/H",
+    "pid": 3915880,
+    "status": "RUNNING",
+    "total_videos": 8431,
+    "version_ineligible_video_counts": {
+      "A": 114,
+      "AB": 356,
+      "B": 114
+    },
+    "workers": 4
+  },
+  "H_rolling_remaining_hours": 1.7197051435269508,
+  "H_partial_coverage": {
+    "utc": "2026-10-23T13:17:44.063726+00:00",
+    "scope": "PARTIAL_PREPROCESSING_COVERAGE_ONLY_NOT_FINAL_H_COHORTS",
+    "unique_videos": 6066,
+    "duplicate_lines": 0,
+    "trailing_partial_lines_ignored": 0,
+    "version_ineligible_videos": {
+      "A": 114,
+      "B": 114,
+      "AB": 355
+    },
+    "ineligible_video_reason_counts": {
+      "A": {
+        "no_qualified_face": 108,
+        "insufficient_unique_mothers": 6
+      },
+      "B": {
+        "no_qualified_face": 108,
+        "insufficient_unique_mothers": 6
+      },
+      "AB": {
+        "no_qualified_face": 349,
+        "insufficient_unique_mothers": 6
+      }
+    },
+    "processed_groups": {
+      "FFPP/source/Deepfakes": {
+        "processed": 1000,
+        "A": 1000,
+        "B": 1000,
+        "AB": 997,
+        "common": 997
+      },
+      "FFPP/source/Face2Face": {
+        "processed": 471,
+        "A": 470,
+        "B": 470,
+        "AB": 468,
+        "common": 468
+      },
+      "FFPP/source/FaceSwap": {
+        "processed": 388,
+        "A": 387,
+        "B": 387,
+        "AB": 385,
+        "common": 385
+      },
+      "FFPP/source/NeuralTextures": {
+        "processed": 388,
+        "A": 387,
+        "B": 387,
+        "AB": 385,
+        "common": 385
+      },
+      "FFPP/source/real": {
+        "processed": 388,
+        "A": 388,
+        "B": 388,
+        "AB": 386,
+        "common": 386
+      },
+      "DFD/target/DeepFakeDetection": {
+        "processed": 3068,
+        "A": 3027,
+        "B": 3027,
+        "AB": 2831,
+        "common": 2831
+      },
+      "DFD/target/real": {
+        "processed": 363,
+        "A": 293,
+        "B": 293,
+        "AB": 259,
+        "common": 259
+      }
+    },
+    "all_results_preserved": true,
+    "thresholds_and_geometry_changed": false
+  },
+  "H_partial_vs_live_cutoff_note": "6066unique manifest audit at13:17:44 hasAB355fail;later6170progress hasAB356fail. Difference is observation cutoff, not reason inconsistency; finalcohorts still unavailable.",
+  "H_fresh_audit_status": "NOT_STARTED_WAITING_ALL8431_AND_WRITERS_STOP_THEN_FRESH_REPAIRED_PROCESS_AND_INDEPENDENT_REVIEW",
+  "H_data_frozen": false,
+  "H_freeze_created": false,
+  "H_GPU_qualification_or_training_started": false,
+  "H_real_formal_cache_pairs": 0,
+  "H_required_fresh_audit_command": "CUDA_VISIBLE_DEVICES= OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -m reliability_v2.geometry_h audit-existing --manifest-paths /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/data/H/H_processed_manifest_paths.json --artifacts /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/data/H",
+  "H_audit_cwd": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2",
+  "capacity": {
+    "working_set_estimate_GiB": 200,
+    "reserve_GiB": 50,
+    "workspace_free_GiB": 437.82239151000977,
+    "Dataset_free_GiB": 2842.3333778381348,
+    "apparent_bytes": {
+      "artifact_root": 30113634050,
+      "H_derived": 61404195071
+    }
+  },
+  "H_conservative_reserved_bytes": 334058314306,
+  "capacity_status": "PASS_workingdisk200GiBestimate_plus50GiBreserve_andDatasetHconservative311GiBreserve",
+  "code_commit": "a612f24194a0a89f42f0e3bf6dde73a6287ee76d",
+  "code_working_tree_clean": true,
+  "plan_sha256": "b018b01915a62c645fc3718134970cd49dc0651ecfd02792220f3a0086c6594d",
+  "config_sha256": "8f12b0285593b30cb4fc8e2d50f125dc7f1c9ea690f36a286e9fdca24f6df1f4",
+  "D_gate_sha256": "c2a9a09d208d2671b7a123df7ee29e83b8abedcac08d9221d5ad26f3948700aa",
+  "protected_file_sha256": {
+    "trainer.py": "56f0db0634a525a530fb53482732365ebf9693a1f5470b0a95ec0820cc614368",
+    "models.py": "5c4adb39314433c5f0d40311d7ada3ad5d30c7b239773be02080be120f5a2e60",
+    "geometry_h.py": "161ac4e837463ff16e7916ca42eeb5d13acc44aab9bcc1c397025b9426ad9532",
+    "cache_d.py": "8f5814646194c772dcf00f6751a35c2f792dd5f11008e0834fdba4eb5e329761",
+    "scoring_d.py": "9bddf066fcb8df1b9659d4cfe14aa4febdf850f7cc39c1c0c3d6050864263d1c"
+  },
+  "manuscript_sha256": {
+    "/home/z/obsidian/paper/deepfake-detector/中文稿.md": "a485eea1bbac50672a98642e0efcbd8b3841296e894ef54059ca241f3ddf6ef2",
+    "/home/z/obsidian/paper/deepfake-detector/英文稿.md": "60274b7a2e1a23b9fc83d07c267e5b61b9b97c01264f12b9c1aa718c29a7cebd"
+  },
+  "protected_PIDs": [
+    1532179,
+    1532180,
+    1532181,
+    1532182
+  ],
+  "protected_services_changed": false,
+  "experiment_process_restarted": false,
+  "frozen_config_modified": false,
+  "automation_retried": false,
+  "inspector_launch_issue": "RESOLVED:initialModuleNotFoundError beforemain caused omittedPYTHONPATH;failedlogretained;explicitcode-rootPYTHONPATHprobe andsameCPUinspector passed. No experiment restart.",
+  "blocking_faults": [],
+  "next_recommended_check_utc": "2026-10-23T14:15:00Z",
+  "next_check_focus": [
+    "Verify new lr3e-5 first-epoch committed recoveries and advancing logs.",
+    "Original lr1e-5 DINO30epoch models likely near14:20-14:25completion by recent full-epoch timing; verify terminal artifacts/automaticnext queue then.",
+    "Monitor H rolling ETA (~15:04UTC at13:21cutoff); do not freeze before all8431 and fresh full audit+independentreview.",
+    "No automation retry; parent manual supervision."
+  ],
+  "new_deliverable_stage": "First2of10 Dstandarddevelopment frozen-last models complete with fullartifact inventories and actualsourceDEVindependentrecomputation. FormalDmodels0/Hmodels0; recipefreeze awaits allstandarddevandconditionalDINOdecision.",
+  "scientific_results_complete": false,
+  "journal_manuscripts_complete": false,
+  "H_implementation_CPU_tests_previously_passed": 318,
+  "evidence_sha256": {
+    "reports/checkpoint_health_1315.json": "f3d959e438204ee2a0b6b013a1c9afb4b5955952caf7576182a6551df1563429",
+    "reports/runtime_health_1315.json": "8b835c9875e766cfb9de29b488c1d6653a2d2dabc00f09b742866aeb1a3eedb6",
+    "reports/H_partial_coverage_1315.json": "f9930602ddd9f198c86ba6ec7c8cb7c7231d4341ae5b9c02916ee57b1119db52",
+    "reports/D_completed_artifact_audit_1315.json": "faef4936209d30c8a730b1549799b54e7e4ebdc000ddbb15cdbbb1ffc1a00ddf",
+    "reports/D_numeric_queue_followup_1315.json": "99e02222fb8faab5ab9443ee1de61099aab081f71bf9f8c29a5bce2c1bcaa445",
+    "reports/checkpoint_inspector_launch_environment_1315.json": "e758cf0e9cc433868928968d4da8e7564050abe4c2721b1bc3ab3fd24476c124",
+    "qualification/checkpoint_health_1315.py": "c0eaeb33518e6a8c829dd58a9e9d6bc0552b72144d4353488fd4047c3b0a5e92",
+    "qualification/runtime_health_1315.py": "cb987481671c34014aa4a318c7326596324e31a747000fe14b05aa5e929e79a7",
+    "qualification/completion_audit_1315.py": "493c7a38e6de585b1dc1edf66ffb470dc0ee56b40de0cc5a55736b3cd7d86252",
+    "qualification/numeric_queue_followup_1315.py": "61ce5e83b2a6dd22d85fddc162a8317fa4f3e9b79f5e648fc9269410b4619b9d",
+    "logs/checkpoint_health_1315.log": "98e89524b2625f24f118d13d78fba7d401ac3405f65945c5c833669895f23ba2",
+    "logs/runtime_health_1315.log": "bcbdfbf4232da06c1d64de3058edbcc190be9cd60720d964639a1cd690b6a9bc",
+    "logs/completion_audit_1315.log": "a22981992aa6a536a93c2a5b9b63d9d251b9e666d21de5865b9688a5d5b718ac",
+    "logs/numeric_queue_followup_1315.log": "4521df327baf896e7c0b9abf1596c36afa54bc88e95560269e9aa6755a8ff6f9",
+    "logs/checkpoint_health_1315_initial_import_failure.log": "2805d7ab4e42ca7c4fc7ae8d4451385e75561def98a31fa6ae595d5523b2a061"
+  }
+}

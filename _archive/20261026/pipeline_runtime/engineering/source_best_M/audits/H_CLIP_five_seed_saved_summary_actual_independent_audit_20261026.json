@@ -1,0 +1,946 @@
+{
+  "schema": "INDEPENDENT_ACTUAL_H_CLIP_FIVE_SEED_SAVED_SUMMARY_AUDIT_V1",
+  "status": "PASS_ACTUAL_SAVED_FIVE_SEED_SUMMARY_DATA",
+  "utc": "2026-10-26T09:40:57.146323+00:00",
+  "backbone": "clip_vit_b16",
+  "source_checkpoint": "original_LAST_final.pt",
+  "seeds": [
+    7,
+    42,
+    123,
+    2026,
+    3407
+  ],
+  "summary_output": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/five_seed_saved_result_summary",
+  "summary_complete_sha256": "9c76dc6ca7989fd48cbe53192eff75ad2f6ea658409c1163eae4da831ff0b2ea",
+  "launch_sha256": "bc32979105537b56c9efa5d12cf8be033f69c6f377041e3971f597efa096d694",
+  "true_exit_sha256": "fd81e32151e6a991d24bf0c4c6d22c80f4d883614338bece719e16fe407492b4",
+  "request_sha256": "b904035bf5a1304ff76ce2cd9ea1357c9c4fe4f8beeabac0b01007fbe05e07bc",
+  "producer_true_exit": 0,
+  "producer_GNU_time_exit": 0,
+  "summary_source_sha256": "01e625dc771daa56442364ff49ec8aa819c4ec215b2d467e6ce52621e45d0a57",
+  "output_7_file_sha256": {
+    "complete.json": "9c76dc6ca7989fd48cbe53192eff75ad2f6ea658409c1163eae4da831ff0b2ea",
+    "five_seed_comparisons.csv": "eab8ce134dbe87613ff0e0329c28e338ea62cc0c7cc1c48b15e8a6511b38c1f8",
+    "five_seed_metrics.csv": "599435e1fb7c81b1421073259bbcae9211143c0fa8467e22d0ecab91b0d2b4f6",
+    "identity.json": "9fb7dbd7e739715611978f0ee6a89f70986b04ab0122b11b5360b4a3a2b85ce7",
+    "limitations.json": "979986c51c2b2f4cc1c07a0ec0ad2be432ff85b253913e8528686c1a769342f1",
+    "per_seed_comparisons.csv": "e4a1c276bf8362bc86dd8883a672338475cba92b935e189b1898371e5b544784",
+    "per_seed_metrics.csv": "166abdd47a7c8cb3d5b9e8e6d97954228e0f37b9d6cb108adbfe969420656d5e"
+  },
+  "row_counts": {
+    "per_seed_metrics": 240,
+    "per_seed_comparisons": 1680,
+    "five_seed_metrics": 336,
+    "five_seed_comparisons": 336
+  },
+  "independently_checked_source_CSV_count": 80,
+  "all_per_seed_routes_columns_values_NA_match_original_accepted_CSVs": true,
+  "independent_reduction": {
+    "algorithm": "stdlib statistics.fmean and statistics.stdev, ddof1; all5 finite or summary unavailable; exactly registered5 per stratum; sign tolerance1e-10",
+    "producer_or_original_reducer_helpers_called": false,
+    "metric_strata": {
+      "strata": 336,
+      "complete_exact5_seed_strata": 336,
+      "unavailable_strata": 0
+    },
+    "comparison_strata": {
+      "strata": 336,
+      "complete_exact5_seed_strata": 336,
+      "unavailable_strata": 0
+    },
+    "numeric_scalar_checks": 1344,
+    "max_absolute_error": 1.1102230246251565e-16,
+    "negative_per_seed_comparison_rows_preserved": 915,
+    "missing_seeds_or_duplicated_stratum_seed": false
+  },
+  "native_DFD_allB_mean_logit_H10_minus_H00": [
+    {
+      "backbone": "clip_vit_b16",
+      "domain": "TARGET_TEST",
+      "cohort": "all_B",
+      "aggregation": "mean_logit",
+      "comparison": "H10-H00",
+      "threshold_kind": "default",
+      "metric": "fpr",
+      "estimate_mean": -0.059385665529010236,
+      "estimate_sample_sd": 0.030296711291702583,
+      "n_valid_seeds": 5,
+      "n_positive": 0,
+      "n_negative": 5,
+      "n_zero_within_tolerance": 0,
+      "per_seed_values": {
+        "7": -0.11262798634812285,
+        "42": -0.05460750853242319,
+        "123": -0.040955631399317405,
+        "2026": -0.040955631399317405,
+        "3407": -0.047781569965870296
+      }
+    },
+    {
+      "backbone": "clip_vit_b16",
+      "domain": "TARGET_TEST",
+      "cohort": "all_B",
+      "aggregation": "mean_logit",
+      "comparison": "H10-H00",
+      "threshold_kind": "default",
+      "metric": "macro_auc",
+      "estimate_mean": -0.01808727143986264,
+      "estimate_sample_sd": 0.010993741168266543,
+      "n_valid_seeds": 5,
+      "n_positive": 0,
+      "n_negative": 5,
+      "n_zero_within_tolerance": 0,
+      "per_seed_values": {
+        "7": -0.010494852358353901,
+        "42": -0.010976298636503623,
+        "123": -0.020298541792806768,
+        "2026": -0.012243618581796789,
+        "3407": -0.03642304582985212
+      }
+    },
+    {
+      "backbone": "clip_vit_b16",
+      "domain": "TARGET_TEST",
+      "cohort": "all_B",
+      "aggregation": "mean_logit",
+      "comparison": "H10-H00",
+      "threshold_kind": "default",
+      "metric": "macro_ba",
+      "estimate_mean": -0.011602178798098129,
+      "estimate_sample_sd": 0.020370693611951464,
+      "n_valid_seeds": 5,
+      "n_positive": 2,
+      "n_negative": 3,
+      "n_zero_within_tolerance": 0,
+      "per_seed_values": {
+        "7": 0.012045740778950709,
+        "42": 0.0013704870048967255,
+        "123": -0.024781516972954387,
+        "2026": -0.007767972209161922,
+        "3407": -0.03887763259222177
+      }
+    },
+    {
+      "backbone": "clip_vit_b16",
+      "domain": "TARGET_TEST",
+      "cohort": "all_B",
+      "aggregation": "mean_logit",
+      "comparison": "H10-H00",
+      "threshold_kind": "default",
+      "metric": "macro_tpr",
+      "estimate_mean": -0.08259002312520647,
+      "estimate_sample_sd": 0.029865173607999368,
+      "n_valid_seeds": 5,
+      "n_positive": 0,
+      "n_negative": 5,
+      "n_zero_within_tolerance": 0,
+      "per_seed_values": {
+        "7": -0.08853650479022135,
+        "42": -0.05186653452262968,
+        "123": -0.09051866534522635,
+        "2026": -0.05649157581764119,
+        "3407": -0.12553683515031377
+      }
+    },
+    {
+      "backbone": "clip_vit_b16",
+      "domain": "TARGET_TEST",
+      "cohort": "all_B",
+      "aggregation": "mean_logit",
+      "comparison": "H10-H00",
+      "threshold_kind": "default",
+      "metric": "pooled_auc",
+      "estimate_mean": -0.01808727143986264,
+      "estimate_sample_sd": 0.010993741168266543,
+      "n_valid_seeds": 5,
+      "n_positive": 0,
+      "n_negative": 5,
+      "n_zero_within_tolerance": 0,
+      "per_seed_values": {
+        "7": -0.010494852358353901,
+        "42": -0.010976298636503623,
+        "123": -0.020298541792806768,
+        "2026": -0.012243618581796789,
+        "3407": -0.03642304582985212
+      }
+    },
+    {
+      "backbone": "clip_vit_b16",
+      "domain": "TARGET_TEST",
+      "cohort": "all_B",
+      "aggregation": "mean_logit",
+      "comparison": "H10-H00",
+      "threshold_kind": "default",
+      "metric": "pooled_ba",
+      "estimate_mean": -0.011602178798098129,
+      "estimate_sample_sd": 0.020370693611951464,
+      "n_valid_seeds": 5,
+      "n_positive": 2,
+      "n_negative": 3,
+      "n_zero_within_tolerance": 0,
+      "per_seed_values": {
+        "7": 0.012045740778950709,
+        "42": 0.0013704870048967255,
+        "123": -0.024781516972954387,
+        "2026": -0.007767972209161922,
+        "3407": -0.03887763259222177
+      }
+    },
+    {
+      "backbone": "clip_vit_b16",
+      "domain": "TARGET_TEST",
+      "cohort": "all_B",
+      "aggregation": "mean_logit",
+      "comparison": "H10-H00",
+      "threshold_kind": "default",
+      "metric": "tpr",
+      "estimate_mean": -0.08259002312520647,
+      "estimate_sample_sd": 0.029865173607999368,
+      "n_valid_seeds": 5,
+      "n_positive": 0,
+      "n_negative": 5,
+      "n_zero_within_tolerance": 0,
+      "per_seed_values": {
+        "7": -0.08853650479022135,
+        "42": -0.05186653452262968,
+        "123": -0.09051866534522635,
+        "2026": -0.05649157581764119,
+        "3407": -0.12553683515031377
+      }
+    },
+    {
+      "backbone": "clip_vit_b16",
+      "domain": "TARGET_TEST",
+      "cohort": "all_B",
+      "aggregation": "mean_logit",
+      "comparison": "H10-H00",
+      "threshold_kind": "source_real",
+      "metric": "fpr",
+      "estimate_mean": 0.07713310580204777,
+      "estimate_sample_sd": 0.06963628356317861,
+      "n_valid_seeds": 5,
+      "n_positive": 5,
+      "n_negative": 0,
+      "n_zero_within_tolerance": 0,
+      "per_seed_values": {
+        "7": 0.1774744027303754,
+        "42": 0.11262798634812285,
+        "123": 0.027303754266211594,
+        "2026": 0.0034129692832764458,
+        "3407": 0.06484641638225255
+      }
+    },
+    {
+      "backbone": "clip_vit_b16",
+      "domain": "TARGET_TEST",
+      "cohort": "all_B",
+      "aggregation": "mean_logit",
+      "comparison": "H10-H00",
+      "threshold_kind": "source_real",
+      "metric": "macro_auc",
+      "estimate_mean": -0.01808727143986264,
+      "estimate_sample_sd": 0.010993741168266543,
+      "n_valid_seeds": 5,
+      "n_positive": 0,
+      "n_negative": 5,
+      "n_zero_within_tolerance": 0,
+      "per_seed_values": {
+        "7": -0.010494852358353901,
+        "42": -0.010976298636503623,
+        "123": -0.020298541792806768,
+        "2026": -0.012243618581796789,
+        "3407": -0.03642304582985212
+      }
+    },
+    {
+      "backbone": "clip_vit_b16",
+      "domain": "TARGET_TEST",
+      "cohort": "all_B",
+      "aggregation": "mean_logit",
+      "comparison": "H10-H00",
+      "threshold_kind": "source_real",
+      "metric": "macro_ba",
+      "estimate_mean": -0.04120943364103054,
+      "estimate_sample_sd": 0.017471685558150808,
+      "n_valid_seeds": 5,
+      "n_positive": 0,
+      "n_negative": 5,
+      "n_zero_within_tolerance": 0,
+      "per_seed_values": {
+        "7": -0.05900479304011341,
+        "42": -0.043429949566529236,
+        "123": -0.03248240240565292,
+        "2026": -0.0160771486654242,
+        "3407": -0.055052874527432905
+      }
+    },
+    {
+      "backbone": "clip_vit_b16",
+      "domain": "TARGET_TEST",
+      "cohort": "all_B",
+      "aggregation": "mean_logit",
+      "comparison": "H10-H00",
+      "threshold_kind": "source_real",
+      "metric": "macro_tpr",
+      "estimate_mean": -0.005285761480013229,
+      "estimate_sample_sd": 0.045697888971782764,
+      "n_valid_seeds": 5,
+      "n_positive": 2,
+      "n_negative": 3,
+      "n_zero_within_tolerance": 0,
+      "per_seed_values": {
+        "7": 0.05946481665014858,
+        "42": 0.025768087215064406,
+        "123": -0.037661050545094166,
+        "2026": -0.02874132804757179,
+        "3407": -0.04525933267261317
+      }
+    },
+    {
+      "backbone": "clip_vit_b16",
+      "domain": "TARGET_TEST",
+      "cohort": "all_B",
+      "aggregation": "mean_logit",
+      "comparison": "H10-H00",
+      "threshold_kind": "source_real",
+      "metric": "pooled_auc",
+      "estimate_mean": -0.01808727143986264,
+      "estimate_sample_sd": 0.010993741168266543,
+      "n_valid_seeds": 5,
+      "n_positive": 0,
+      "n_negative": 5,
+      "n_zero_within_tolerance": 0,
+      "per_seed_values": {
+        "7": -0.010494852358353901,
+        "42": -0.010976298636503623,
+        "123": -0.020298541792806768,
+        "2026": -0.012243618581796789,
+        "3407": -0.03642304582985212
+      }
+    },
+    {
+      "backbone": "clip_vit_b16",
+      "domain": "TARGET_TEST",
+      "cohort": "all_B",
+      "aggregation": "mean_logit",
+      "comparison": "H10-H00",
+      "threshold_kind": "source_real",
+      "metric": "pooled_ba",
+      "estimate_mean": -0.04120943364103054,
+      "estimate_sample_sd": 0.017471685558150808,
+      "n_valid_seeds": 5,
+      "n_positive": 0,
+      "n_negative": 5,
+      "n_zero_within_tolerance": 0,
+      "per_seed_values": {
+        "7": -0.05900479304011341,
+        "42": -0.043429949566529236,
+        "123": -0.03248240240565292,
+        "2026": -0.0160771486654242,
+        "3407": -0.055052874527432905
+      }
+    },
+    {
+      "backbone": "clip_vit_b16",
+      "domain": "TARGET_TEST",
+      "cohort": "all_B",
+      "aggregation": "mean_logit",
+      "comparison": "H10-H00",
+      "threshold_kind": "source_real",
+      "metric": "tpr",
+      "estimate_mean": -0.005285761480013229,
+      "estimate_sample_sd": 0.045697888971782764,
+      "n_valid_seeds": 5,
+      "n_positive": 2,
+      "n_negative": 3,
+      "n_zero_within_tolerance": 0,
+      "per_seed_values": {
+        "7": 0.05946481665014858,
+        "42": 0.025768087215064406,
+        "123": -0.037661050545094166,
+        "2026": -0.02874132804757179,
+        "3407": -0.04525933267261317
+      }
+    }
+  ],
+  "native_DFD_allB_mean_logit_absolute_AUC": [
+    {
+      "backbone": "clip_vit_b16",
+      "domain": "TARGET_TEST",
+      "cohort": "all_B",
+      "aggregation": "mean_logit",
+      "cell": "H00",
+      "threshold_kind": "default",
+      "metric": "pooled_auc",
+      "estimate_mean": 0.9006504598544837,
+      "estimate_sample_sd": 0.007949090247225035,
+      "n_valid_seeds": 5,
+      "n_positive": 5,
+      "n_negative": 0,
+      "n_zero_within_tolerance": 0,
+      "per_seed_values": {
+        "7": 0.9112199532985835,
+        "42": 0.8917399829295161,
+        "123": 0.9028324149773765,
+        "2026": 0.9037051068258258,
+        "3407": 0.8937548412411166
+      }
+    },
+    {
+      "backbone": "clip_vit_b16",
+      "domain": "TARGET_TEST",
+      "cohort": "all_B",
+      "aggregation": "mean_logit",
+      "cell": "H10",
+      "threshold_kind": "default",
+      "metric": "pooled_auc",
+      "estimate_mean": 0.882563188414621,
+      "estimate_sample_sd": 0.016193340249915474,
+      "n_valid_seeds": 5,
+      "n_positive": 5,
+      "n_negative": 0,
+      "n_zero_within_tolerance": 0,
+      "per_seed_values": {
+        "7": 0.9007251009402296,
+        "42": 0.8807636842930124,
+        "123": 0.8825338731845698,
+        "2026": 0.891461488244029,
+        "3407": 0.8573317954112645
+      }
+    }
+  ],
+  "source_pair_acceptance_bindings": [
+    {
+      "seed": 7,
+      "complete_sha256": "26c5d3774e06b118803619e4a93f3c83d382874a6db90726ff6c171a9411f7a1",
+      "identity_sha256": "d1fd43a76d47cb19ec50f47d75864bc1315678782a8e73476725da7d0f5b7399",
+      "accepted_numeric_audit_sha256": "aebb55beb1b3411125b7b27ce2fad62808f572843c57585738e719c3d40482df",
+      "historical_audit_source_sha256": "6cd3bff403cc2f7c27a870d092023e4c8677f5d9386668abbc439829eadaa4e5",
+      "explicit_historical_absent_fields_retained": [
+        "independent_numeric_kernel_sha256",
+        "all_five_seed_conclusions_available"
+      ],
+      "prior_cohorts_reused": 8,
+      "prior_draws_reused": 16000
+    },
+    {
+      "seed": 42,
+      "complete_sha256": "02d7f66612d2e683ba6b52fbfc7379a74cefa1d180b89b9549f7299ea583d831",
+      "identity_sha256": "b0200cf4495865f7fd716ce4f0b7666a4afe6690b8dcc9e85335ba5d8b34fb1f",
+      "accepted_numeric_audit_sha256": "7daea9b17a4e9e8aea32cd6e5d500cba564d66d33fdd15ce6dbb9cbc97c31e1e",
+      "historical_audit_source_sha256": "12ed094960dc7082215bf6261093d54962ccfb80d557c4ba3e0136baf467b32f",
+      "explicit_historical_absent_fields_retained": [
+        "evidence_route",
+        "independent_numeric_kernel_sha256",
+        "all_five_seed_conclusions_available",
+        "binding_spec_sha256"
+      ],
+      "prior_cohorts_reused": 8,
+      "prior_draws_reused": 16000
+    },
+    {
+      "seed": 123,
+      "complete_sha256": "7b39aaa3f7754560041da7d2cae2be73a1271325484ead7edc9a25da8210a2d2",
+      "identity_sha256": "092faa868738f6000daddc1cb08714b9af5d8873b0980caa2a5e834454f59a43",
+      "accepted_numeric_audit_sha256": "5b3ab5c2bd1ec7ae94201ff3220d3226b1ea9a07631ba53013ac797bed9b46c2",
+      "historical_audit_source_sha256": "bb299e512e355fa0a8c9b25f901b1788cee6a2b445a4eb1ddb67b30cb4c3a0e2",
+      "explicit_historical_absent_fields_retained": [],
+      "prior_cohorts_reused": 8,
+      "prior_draws_reused": 16000
+    },
+    {
+      "seed": 2026,
+      "complete_sha256": "ec0e96104715aabb1c25001767248b8f858886d174622203e7ad7a1fde0337cc",
+      "identity_sha256": "706c100ab3c4fb5dbd1a4ecd84396a3f94c314010bffa017ca05b4cceb7d2cec",
+      "accepted_numeric_audit_sha256": "02aba8fa4886dd8b53f2261037d2ed4892f5cfb7bc2aef7753fd16168d55339d",
+      "historical_audit_source_sha256": "bb299e512e355fa0a8c9b25f901b1788cee6a2b445a4eb1ddb67b30cb4c3a0e2",
+      "explicit_historical_absent_fields_retained": [],
+      "prior_cohorts_reused": 8,
+      "prior_draws_reused": 16000
+    },
+    {
+      "seed": 3407,
+      "complete_sha256": "9f54977b174bf42b03e86f8d001113466af92f1111a43a3af38c9e7c75b1f7eb",
+      "identity_sha256": "f04ad16dac32d44bccd492e07327846a1062638bc6bc44d1ca636891dd1cb8a3",
+      "accepted_numeric_audit_sha256": "1a8a2b9e1409b5fb4ddec5a19dde8e1c15d9a187a727a02da255aad27d393c08",
+      "historical_audit_source_sha256": "0d33952bcb640ecfbe6d2cb4a0a2ac132089f485f43046d4096f0e2cdb83412b",
+      "explicit_historical_absent_fields_retained": [],
+      "prior_cohorts_reused": 8,
+      "prior_draws_reused": 16000
+    }
+  ],
+  "within_model_CI_prior_receipts": [
+    {
+      "seed": 7,
+      "folder": "mean_logit/SOURCE_TEST/all_B",
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed7/mean_logit/SOURCE_TEST/all_B/conditional_bootstrap.json",
+      "sha256": "0485f4d28b1fb8ea102daebe933d7ee598be029ed7f55a40a349383df9e92249",
+      "prior_draws_checked": 2000
+    },
+    {
+      "seed": 7,
+      "folder": "mean_logit/SOURCE_TEST/common",
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed7/mean_logit/SOURCE_TEST/common/conditional_bootstrap.json",
+      "sha256": "4c9f3dd2731135858107605bd48197d0633836f22d30244cfb5403cb74bb7ba7",
+      "prior_draws_checked": 2000
+    },
+    {
+      "seed": 7,
+      "folder": "mean_logit/TARGET_TEST/all_B",
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed7/mean_logit/TARGET_TEST/all_B/conditional_bootstrap.json",
+      "sha256": "2c1fe746a4178c0a273f4c19bce73001cf6c58d71d019f7db4b341102fd2a865",
+      "prior_draws_checked": 2000
+    },
+    {
+      "seed": 7,
+      "folder": "mean_logit/TARGET_TEST/common",
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed7/mean_logit/TARGET_TEST/common/conditional_bootstrap.json",
+      "sha256": "bb92e1a20326b4d993fe37f2edcf696962c3004c39f1c39c773778292197596b",
+      "prior_draws_checked": 2000
+    },
+    {
+      "seed": 7,
+      "folder": "mean_probability/SOURCE_TEST/all_B",
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed7/mean_probability/SOURCE_TEST/all_B/conditional_bootstrap.json",
+      "sha256": "3059cd846ff44e33cd15bd77dccde6f51ecbbfb23c6fdb9fdebd37b59f93ad27",
+      "prior_draws_checked": 2000
+    },
+    {
+      "seed": 7,
+      "folder": "mean_probability/SOURCE_TEST/common",
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed7/mean_probability/SOURCE_TEST/common/conditional_bootstrap.json",
+      "sha256": "09745081c31e8c6418802870f99b57ee60b37eb34bfd2f61c2a1d75c3e9b9e91",
+      "prior_draws_checked": 2000
+    },
+    {
+      "seed": 7,
+      "folder": "mean_probability/TARGET_TEST/all_B",
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed7/mean_probability/TARGET_TEST/all_B/conditional_bootstrap.json",
+      "sha256": "7c68d4eb61f04e0accab4694e57b4b352b4710c0c2f92bcacf5bf33783fa32fc",
+      "prior_draws_checked": 2000
+    },
+    {
+      "seed": 7,
+      "folder": "mean_probability/TARGET_TEST/common",
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed7/mean_probability/TARGET_TEST/common/conditional_bootstrap.json",
+      "sha256": "f062fc981046f246ce9f625410428db8eba417630e72a886abdaa93d920cacbc",
+      "prior_draws_checked": 2000
+    },
+    {
+      "seed": 42,
+      "folder": "mean_logit/SOURCE_TEST/all_B",
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed42/mean_logit/SOURCE_TEST/all_B/conditional_bootstrap.json",
+      "sha256": "ddc4b28fbc134c6fe03a6220699c86f21b3c98f3dc5855203ad9d2028ce27be5",
+      "prior_draws_checked": 2000
+    },
+    {
+      "seed": 42,
+      "folder": "mean_logit/SOURCE_TEST/common",
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed42/mean_logit/SOURCE_TEST/common/conditional_bootstrap.json",
+      "sha256": "6869336ac3feb33c9e1ad97335c6e9f1e4bb20d9d4b81238066bfe267a99dc35",
+      "prior_draws_checked": 2000
+    },
+    {
+      "seed": 42,
+      "folder": "mean_logit/TARGET_TEST/all_B",
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed42/mean_logit/TARGET_TEST/all_B/conditional_bootstrap.json",
+      "sha256": "90295899175f91bf1e6a779a26574f1ffcc3009d4521fc04b7d33e65fefd1f79",
+      "prior_draws_checked": 2000
+    },
+    {
+      "seed": 42,
+      "folder": "mean_logit/TARGET_TEST/common",
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed42/mean_logit/TARGET_TEST/common/conditional_bootstrap.json",
+      "sha256": "438407b1ee4e6771402604956797df743e8838bc405389689e5d54289386c349",
+      "prior_draws_checked": 2000
+    },
+    {
+      "seed": 42,
+      "folder": "mean_probability/SOURCE_TEST/all_B",
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed42/mean_probability/SOURCE_TEST/all_B/conditional_bootstrap.json",
+      "sha256": "2884b9c456888ea4f5306022ac0e9619c36890f8dfd67d3902ab022a5d9b0c9d",
+      "prior_draws_checked": 2000
+    },
+    {
+      "seed": 42,
+      "folder": "mean_probability/SOURCE_TEST/common",
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed42/mean_probability/SOURCE_TEST/common/conditional_bootstrap.json",
+      "sha256": "cc73565ee97cf4c05ab6673551a6538bd8eff62558590facea6c5d29aba07da8",
+      "prior_draws_checked": 2000
+    },
+    {
+      "seed": 42,
+      "folder": "mean_probability/TARGET_TEST/all_B",
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed42/mean_probability/TARGET_TEST/all_B/conditional_bootstrap.json",
+      "sha256": "f1e1a0e5b39d59c3ad7e8e139494a1b5d8d434f2952f8aa2cc4cf1adc820797c",
+      "prior_draws_checked": 2000
+    },
+    {
+      "seed": 42,
+      "folder": "mean_probability/TARGET_TEST/common",
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed42/mean_probability/TARGET_TEST/common/conditional_bootstrap.json",
+      "sha256": "8317f3bb2402eea3329f9fc61d1970d93983236e70dc40735a43556a9c311155",
+      "prior_draws_checked": 2000
+    },
+    {
+      "seed": 123,
+      "folder": "mean_logit/SOURCE_TEST/all_B",
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed123/mean_logit/SOURCE_TEST/all_B/conditional_bootstrap.json",
+      "sha256": "61d5115fb87945adc97c5c805d8acf1f3320608821f47d088b7c49d8e37073b2",
+      "prior_draws_checked": 2000
+    },
+    {
+      "seed": 123,
+      "folder": "mean_logit/SOURCE_TEST/common",
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed123/mean_logit/SOURCE_TEST/common/conditional_bootstrap.json",
+      "sha256": "c60a39ba2c9263c210fadc6aeabda55f6cbdb86a6b9d4e1989392c4e664e2bd9",
+      "prior_draws_checked": 2000
+    },
+    {
+      "seed": 123,
+      "folder": "mean_logit/TARGET_TEST/all_B",
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed123/mean_logit/TARGET_TEST/all_B/conditional_bootstrap.json",
+      "sha256": "9f81727535d67fd7815614bc5a9daa4cb8bc23481d801e396ab47288abc89a9f",
+      "prior_draws_checked": 2000
+    },
+    {
+      "seed": 123,
+      "folder": "mean_logit/TARGET_TEST/common",
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed123/mean_logit/TARGET_TEST/common/conditional_bootstrap.json",
+      "sha256": "9a99a4004af0da05a412f6f659e69c0f5e3ed7a237d894c7b348157ba2e97404",
+      "prior_draws_checked": 2000
+    },
+    {
+      "seed": 123,
+      "folder": "mean_probability/SOURCE_TEST/all_B",
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed123/mean_probability/SOURCE_TEST/all_B/conditional_bootstrap.json",
+      "sha256": "19bb2ae781a38687b1324eda0e584c10e09cf2c295af318a24cf88c9b896343e",
+      "prior_draws_checked": 2000
+    },
+    {
+      "seed": 123,
+      "folder": "mean_probability/SOURCE_TEST/common",
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed123/mean_probability/SOURCE_TEST/common/conditional_bootstrap.json",
+      "sha256": "5bc8b788c9db4a1cd0d078b58cba30b9b1466f8b8f14501aa14794747270ff15",
+      "prior_draws_checked": 2000
+    },
+    {
+      "seed": 123,
+      "folder": "mean_probability/TARGET_TEST/all_B",
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed123/mean_probability/TARGET_TEST/all_B/conditional_bootstrap.json",
+      "sha256": "b750fba0b6ccf6c3f95b51da81f37ee1eea288799dd528c72615e67e97187f63",
+      "prior_draws_checked": 2000
+    },
+    {
+      "seed": 123,
+      "folder": "mean_probability/TARGET_TEST/common",
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed123/mean_probability/TARGET_TEST/common/conditional_bootstrap.json",
+      "sha256": "01f10a946f903cd28fe79eda88641e3527bc9091620e19d0f0aad6c1138eb3a6",
+      "prior_draws_checked": 2000
+    },
+    {
+      "seed": 2026,
+      "folder": "mean_logit/SOURCE_TEST/all_B",
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed2026/mean_logit/SOURCE_TEST/all_B/conditional_bootstrap.json",
+      "sha256": "6040f9d20482dbe1dfac6aeaf51cfe9dd89dde374c6b4055188674285b6a594e",
+      "prior_draws_checked": 2000
+    },
+    {
+      "seed": 2026,
+      "folder": "mean_logit/SOURCE_TEST/common",
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed2026/mean_logit/SOURCE_TEST/common/conditional_bootstrap.json",
+      "sha256": "77eb7472df9a483d58bca909570d72b4690f31598df50a8adb201f95e5da56a2",
+      "prior_draws_checked": 2000
+    },
+    {
+      "seed": 2026,
+      "folder": "mean_logit/TARGET_TEST/all_B",
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed2026/mean_logit/TARGET_TEST/all_B/conditional_bootstrap.json",
+      "sha256": "b57fb4d9efc04da18daee88f82fde43e456e1b381e8908df34037e9c78990725",
+      "prior_draws_checked": 2000
+    },
+    {
+      "seed": 2026,
+      "folder": "mean_logit/TARGET_TEST/common",
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed2026/mean_logit/TARGET_TEST/common/conditional_bootstrap.json",
+      "sha256": "df23c9e8300de155f716a5d8541aa8883aee42d3a6b1700bb582857a4c5462bc",
+      "prior_draws_checked": 2000
+    },
+    {
+      "seed": 2026,
+      "folder": "mean_probability/SOURCE_TEST/all_B",
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed2026/mean_probability/SOURCE_TEST/all_B/conditional_bootstrap.json",
+      "sha256": "e6b4d54b66d009d687dcd31c37fc8d820d3db325ed02d3fe878c1f38fd2b883e",
+      "prior_draws_checked": 2000
+    },
+    {
+      "seed": 2026,
+      "folder": "mean_probability/SOURCE_TEST/common",
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed2026/mean_probability/SOURCE_TEST/common/conditional_bootstrap.json",
+      "sha256": "1e5c5c036cb9fd7c7d2210db90784cb82e64ba6423bed02d74e490833448dae2",
+      "prior_draws_checked": 2000
+    },
+    {
+      "seed": 2026,
+      "folder": "mean_probability/TARGET_TEST/all_B",
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed2026/mean_probability/TARGET_TEST/all_B/conditional_bootstrap.json",
+      "sha256": "ea71d7bfd9348d2136132a8383005334c621860a8a38d8db0f019db116122ced",
+      "prior_draws_checked": 2000
+    },
+    {
+      "seed": 2026,
+      "folder": "mean_probability/TARGET_TEST/common",
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed2026/mean_probability/TARGET_TEST/common/conditional_bootstrap.json",
+      "sha256": "8e3d1ac8f6e38214a0a05cb8c4b511e26862d7a58ac1ea64bd8a3e5a25f668cd",
+      "prior_draws_checked": 2000
+    },
+    {
+      "seed": 3407,
+      "folder": "mean_logit/SOURCE_TEST/all_B",
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed3407/mean_logit/SOURCE_TEST/all_B/conditional_bootstrap.json",
+      "sha256": "430509c0da700bc9b58500a1b25663caf8e0f1f45763be1eb654a792d416e64e",
+      "prior_draws_checked": 2000
+    },
+    {
+      "seed": 3407,
+      "folder": "mean_logit/SOURCE_TEST/common",
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed3407/mean_logit/SOURCE_TEST/common/conditional_bootstrap.json",
+      "sha256": "dea38f88e2e5036be91a3d62de3735751d097ca3c316d4df73e6604ef3bfd5a0",
+      "prior_draws_checked": 2000
+    },
+    {
+      "seed": 3407,
+      "folder": "mean_logit/TARGET_TEST/all_B",
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed3407/mean_logit/TARGET_TEST/all_B/conditional_bootstrap.json",
+      "sha256": "0fde112df156c7a1424b2212cc332ecddf9bda3ca15f6678227b266a2f1ae0b1",
+      "prior_draws_checked": 2000
+    },
+    {
+      "seed": 3407,
+      "folder": "mean_logit/TARGET_TEST/common",
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed3407/mean_logit/TARGET_TEST/common/conditional_bootstrap.json",
+      "sha256": "43d7e6eed43195020b3d42f13bfa75aa8fcc044eae6fb28ab3ff58f7d99072f2",
+      "prior_draws_checked": 2000
+    },
+    {
+      "seed": 3407,
+      "folder": "mean_probability/SOURCE_TEST/all_B",
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed3407/mean_probability/SOURCE_TEST/all_B/conditional_bootstrap.json",
+      "sha256": "aa7e675aad98852d22dfc703c2c5a0c5d8f753c9eea76e174b60df3363445a2d",
+      "prior_draws_checked": 2000
+    },
+    {
+      "seed": 3407,
+      "folder": "mean_probability/SOURCE_TEST/common",
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed3407/mean_probability/SOURCE_TEST/common/conditional_bootstrap.json",
+      "sha256": "f6af168fa560106aac4b0ce1f4e97bc36462c1c122b6308392e8f2dd9033f0cb",
+      "prior_draws_checked": 2000
+    },
+    {
+      "seed": 3407,
+      "folder": "mean_probability/TARGET_TEST/all_B",
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed3407/mean_probability/TARGET_TEST/all_B/conditional_bootstrap.json",
+      "sha256": "08c5feb52708052ca3c0a969f30a2c7757981122ef26bd6622d425a579e974cf",
+      "prior_draws_checked": 2000
+    },
+    {
+      "seed": 3407,
+      "folder": "mean_probability/TARGET_TEST/common",
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed3407/mean_probability/TARGET_TEST/common/conditional_bootstrap.json",
+      "sha256": "d8b5f73a7f4f53e12bcce2cd59e11af3c453ac4c76f2ac6cc49b75370f099eab",
+      "prior_draws_checked": 2000
+    }
+  ],
+  "CI_scope": "Within-model2000-draw NA/pointwise CI were previously independently accepted for each source pair and are retained in original pair outputs with the bound hashes above. Source comparison CSVs contain point estimates only. No new five-seed CI or p-values generated; sampleSD describes across5 training seeds.",
+  "historical_source_scope": {
+    "policy_text": "Prior non-consumed original model/pixel/feature source pins retained from accepted evidence; not freshly byte-rehashed here",
+    "historical_nonconsumed_source_bytes_rehashed": false,
+    "full616_producer_pin_map_independently_rehashed": false,
+    "actual_small_consumed_pins_rehashed_pre_post": 143,
+    "sourceproof_python_pin_count": 34,
+    "historical_absent_fields_not_synthesized": true
+  },
+  "namespace_resources": {
+    "logical_file_bytes": 510481,
+    "allocated_bytes_including_directory": 536576,
+    "limit_bytes": 16777216,
+    "within_limit": true,
+    "producer_max_RSS_KiB": 34524,
+    "producer_elapsed": "0:07.81",
+    "independent_audit_elapsed_seconds": 0.10841375030577183
+  },
+  "independent_audit_runtime": {
+    "CPU_slot": 0,
+    "slot_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/.cpu_slots/slot0.lock",
+    "nonblocking_kernel_flock_acquired": true,
+    "raw_integer_fd_held_until_OS_exit": true,
+    "CUDA_VISIBLE_DEVICES": "",
+    "threads": {
+      "OMP_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1"
+    },
+    "shared_slot1_untouched": true
+  },
+  "checked_small_pin_sha256": {
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_CLIP_saved_five_seed_summary_20261026T0935_launch.json": "bc32979105537b56c9efa5d12cf8be033f69c6f377041e3971f597efa096d694",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_CLIP_saved_five_seed_summary_20261026T0935_exit.json": "fd81e32151e6a991d24bf0c4c6d22c80f4d883614338bece719e16fe407492b4",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_CLIP_saved_five_seed_summary_20261026T0935.log": "6825aa011af8c52d31d9ffb764b2181dd4d71c5903ec5ae326350b76bc554637",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_CLIP_saved_five_seed_summary_20261026T0935_time_v.log": "8d5ca2e94bc67f63a5d57e0c69548e4cdda21f56df6d96b897d4454f2f3c1406",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/H_SAVED_FIVE_SEED_clip_vit_b16_request.json": "b904035bf5a1304ff76ce2cd9ea1357c9c4fe4f8beeabac0b01007fbe05e07bc",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/five_seed_saved_result_summary/complete.json": "9c76dc6ca7989fd48cbe53192eff75ad2f6ea658409c1163eae4da831ff0b2ea",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/five_seed_saved_result_summary/five_seed_comparisons.csv": "eab8ce134dbe87613ff0e0329c28e338ea62cc0c7cc1c48b15e8a6511b38c1f8",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/five_seed_saved_result_summary/five_seed_metrics.csv": "599435e1fb7c81b1421073259bbcae9211143c0fa8467e22d0ecab91b0d2b4f6",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/five_seed_saved_result_summary/identity.json": "9fb7dbd7e739715611978f0ee6a89f70986b04ab0122b11b5360b4a3a2b85ce7",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/five_seed_saved_result_summary/limitations.json": "979986c51c2b2f4cc1c07a0ec0ad2be432ff85b253913e8528686c1a769342f1",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/five_seed_saved_result_summary/per_seed_comparisons.csv": "e4a1c276bf8362bc86dd8883a672338475cba92b935e189b1898371e5b544784",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/five_seed_saved_result_summary/per_seed_metrics.csv": "166abdd47a7c8cb3d5b9e8e6d97954228e0f37b9d6cb108adbfe969420656d5e",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/h_saved_five_seed_summary.py": "01e625dc771daa56442364ff49ec8aa819c4ec215b2d467e6ce52621e45d0a57",
+    "/home/z/obsidian/paper/deepfake-detector/新实验设计/20261023/新实验计划_本机适配版.md": "b018b01915a62c645fc3718134970cd49dc0651ecfd02792220f3a0086c6594d",
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/analysis_h.py": "051226f11737615bb3546ae1a301d621fd662943dc1c849e18085e610c865383",
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/stats_h.py": "5627cccc714c2fc59a3dadfed3ddeba32d1488020cfd550ca70d0c9be947dd74",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/D_summary_independent_validation/audit.py": "9ed097d6d38c9d0a84324f9788c63b63cda2a66b63502c1078a439d9d910a6a9",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/h_pair_result_audit.py": "6cd3bff403cc2f7c27a870d092023e4c8677f5d9386668abbc439829eadaa4e5",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_primary_cache_continuation/qualified_source_manifest.json": "977431237b901d5ac88172f98bc2591d3cd7992c35be50546cda34ad2276a747",
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/analysis_d.py": "a1d3be7bd43acb43995768f9167225b066ee9e6691c61c7b8bf28b00de53ba5e",
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/bootstrap_fast.py": "7eaeaf0973d72cd1def838cf6bc82863c92c75fb35409553332015dec8b0e4e5",
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/cache_d.py": "8f5814646194c772dcf00f6751a35c2f792dd5f11008e0834fdba4eb5e329761",
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/cache_h.py": "9119200359f8d696f1366e6c0137bca533c63089c32e505971e69f84ebaf40fb",
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/coverage_h.py": "f1b684903d2486107dc1ba2312502b7f34a66636b196662b0a3566a159475f9d",
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/data_d.py": "7d37fda956a5b5d0d9a4281a24b5967507ce28b892dd3a01486ec05280277cd1",
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/data_h.py": "ad81f65c27d53159e6902bf8a20b0910cd129f75eb0105e5a5a053bcc2d2f45e",
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/geometry_h.py": "161ac4e837463ff16e7916ca42eeb5d13acc44aab9bcc1c397025b9426ad9532",
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/models.py": "5c4adb39314433c5f0d40311d7ada3ad5d30c7b239773be02080be120f5a2e60",
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/qualification_h.py": "5c70e9fb2a39bd974b0db278d519a8b7103f9553c3bfee32c7accb311edf0ec0",
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/qualify.py": "5e8b6e856f2396bf15fa4e464cb8228a043864bc7b0e90dfcbd9d20f847b06eb",
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/queue_d.py": "3db3d1ebb63fbe233fa19116934268ab999be94faaff59fe1f2d52fdbe1949b8",
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/queue_h.py": "a2792361443e64622391fb6ae766ee5e6f887789d662afdfb6d809f9a5ea8176",
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/scoring_d.py": "9bddf066fcb8df1b9659d4cfe14aa4febdf850f7cc39c1c0c3d6050864263d1c",
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/summary_d.py": "489330049b8b95c74db9bb3d191a38f7e7190107788144ff6c07aaec9946db93",
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/trainer.py": "56f0db0634a525a530fb53482732365ebf9693a1f5470b0a95ec0820cc614368",
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/worker_h.py": "d0219aa52ebb1b6602602d5b09eb5fdfbbb9dc3aeb7b55dbfc0251ced66136f4",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/h_pair_result_audit_before_seed7_binding.py": "12ed094960dc7082215bf6261093d54962ccfb80d557c4ba3e0136baf467b32f",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/h_parallel_pair_admission_audit.py": "318a248fc2baf3aa3e3e0e697dd9d04ae4190eaeb7f6061eae79f9a34123bb75",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/h_last_matrix_result_audit.py": "bb299e512e355fa0a8c9b25f901b1788cee6a2b445a4eb1ddb67b30cb4c3a0e2",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/primary_admit_clip_seed123_slot1.py": "cd33c85b28dcf82ea0307c0786603a49cf67014f1406ef0d92668a28a6151fa7",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/qualification_snapshots/H_last_resumed_result_audit_0d33952bcb640ecfbe6d2cb4a0a2ac132089f485f43046d4096f0e2cdb83412b/entry.py": "0d33952bcb640ecfbe6d2cb4a0a2ac132089f485f43046d4096f0e2cdb83412b",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/qualification_snapshots/H_matrix_admission_a65b198602e66662de005c6162563f7286041808c9cafd3b4630b1755c0e3196/entry.py": "a65b198602e66662de005c6162563f7286041808c9cafd3b4630b1755c0e3196",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_parallel_fresh_validation/cpu_ledger_adapter.py": "c6b98535e5a28123baae595ab1f4b208f1feab43ff4018e740be94366d044287",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_parallel_fresh_validation/cpu_ledger_admission.py": "bd202e85a4990f9246b96a7081815d07cf364041e5d3498f49bfe41d8779b213",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_parallel_fresh_validation/cpu_primary_analysis.py": "c081c6ffeb14dc6bb0219851fd3fd11df25b28d2eed26ac4b7e06ef1e6e4c6ce",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_parallel_fresh_validation/parallel_source.py": "a6133c824913ab3bf361095b415eefc9ef75be39ab32fb49ab62e2656dc2624a",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_primary_cache_independent_admission/admit_clip_seed7_20261025T0750.py": "a75dbe5c136fe4aaa12ff4b5b25e25ee326e1277df812a7b711ec871cc65c947",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed7/identity.json": "d1fd43a76d47cb19ec50f47d75864bc1315678782a8e73476725da7d0f5b7399",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed7/complete.json": "26c5d3774e06b118803619e4a93f3c83d382874a6db90726ff6c171a9411f7a1",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/H_LAST_clip_seed7_independent_audit.json": "aebb55beb1b3411125b7b27ce2fad62808f572843c57585738e719c3d40482df",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed7/mean_logit/SOURCE_TEST/all_B/metrics.csv": "13302a62311666980888879dac831ad7d9eba4ec9f1b9443402a3ab3d033fe8f",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed7/mean_logit/SOURCE_TEST/all_B/comparisons.csv": "738994cd3f543cdb252f48852f53148c5bc79c8e69fe5d28ae142665e08e2e99",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed7/mean_logit/SOURCE_TEST/common/metrics.csv": "1be669ee052adb16b05655bf4c174a3fc843ba35781771440a81cec5b6cc7525",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed7/mean_logit/SOURCE_TEST/common/comparisons.csv": "382e740cd1ee6a019be027f3fafbeb5bd3aabcce51d8c29fbc17a55c7af8fb2e",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed7/mean_logit/TARGET_TEST/all_B/metrics.csv": "fdf8588b39247dd2e5c4fe9556fbd874f9ef3672ba07f0b0b65d68246fe6b387",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed7/mean_logit/TARGET_TEST/all_B/comparisons.csv": "ca73315ca5b3cb42154e61f422579bd6f194aefccc399cb62a27b77bb5371486",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed7/mean_logit/TARGET_TEST/common/metrics.csv": "744b3b0255db1b4b341c309dee9f2413fdfd07a1573debcbc0aad8d9145d45ff",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed7/mean_logit/TARGET_TEST/common/comparisons.csv": "c775ccd037ae75e7a57d61ca6a8ef17003142bc8ca0287baf25f632937efb21b",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed7/mean_probability/SOURCE_TEST/all_B/metrics.csv": "93cabb1c464ddd80bacc0843c45304920673a7f16e240046c1f5a59626e12aaa",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed7/mean_probability/SOURCE_TEST/all_B/comparisons.csv": "1c1c603b0075978129f05f453a6592861d1a4ba48ff1a821d06c710c7f3a6e8f",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed7/mean_probability/SOURCE_TEST/common/metrics.csv": "f11099f3804686ffd6d07fefbf3b34164b9699c786609f2e8ba056a8426c4ee7",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed7/mean_probability/SOURCE_TEST/common/comparisons.csv": "052cbe5d759bae8220b598135323b7d9dfb86393276716429683fbf2f970652e",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed7/mean_probability/TARGET_TEST/all_B/metrics.csv": "2b1bd17e06e5f013d3daa7cb4ad6a7f928c6d908b231679c02dc6ca9ef84e762",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed7/mean_probability/TARGET_TEST/all_B/comparisons.csv": "70fd9564c91762c3b4c8fb4cb6b367d5405a022f5bd9e80e656abf71e573828f",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed7/mean_probability/TARGET_TEST/common/metrics.csv": "25517166dfc592234e09d3c1dc41a8872396d62b49778e8be59ff824b2498481",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed7/mean_probability/TARGET_TEST/common/comparisons.csv": "3aed3ef5cd5564319b0bc76b0b2b920ac2758bf3ba7dfd79dfd6d68f20e6b173",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed42/identity.json": "b0200cf4495865f7fd716ce4f0b7666a4afe6690b8dcc9e85335ba5d8b34fb1f",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed42/complete.json": "02d7f66612d2e683ba6b52fbfc7379a74cefa1d180b89b9549f7299ea583d831",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/H_LAST_clip_seed42_independent_audit.json": "7daea9b17a4e9e8aea32cd6e5d500cba564d66d33fdd15ce6dbb9cbc97c31e1e",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed42/mean_logit/SOURCE_TEST/all_B/metrics.csv": "98437be946191adc8a7bb6b100964865e9fd9db855bc713f6627bb280a24e3ab",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed42/mean_logit/SOURCE_TEST/all_B/comparisons.csv": "7da0ff5aa5bee8ecc70f30adce84e78bfb89d54605cb689dec00e5022982093c",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed42/mean_logit/SOURCE_TEST/common/metrics.csv": "f4036f595f38372f24f745fce1cdfa258d689ad2d9fb912474b42be7fb1d32e2",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed42/mean_logit/SOURCE_TEST/common/comparisons.csv": "bf8dd29995242c9873c07c362d9bef3cacbfc5a6f1256fdf1db6065903c0e7f0",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed42/mean_logit/TARGET_TEST/all_B/metrics.csv": "0c8fbb2b979591da8b3457105b9aa45d5da543b20601315d0b9e880c686c750c",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed42/mean_logit/TARGET_TEST/all_B/comparisons.csv": "b22f4501c0cbc041e0b4f49759d6f79993ed25893065fa50230c6c26066912c5",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed42/mean_logit/TARGET_TEST/common/metrics.csv": "c6f0a5ed64d0589d1c989baaea95b99e5f15e0326abc798b8b0b288d6f5803a3",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed42/mean_logit/TARGET_TEST/common/comparisons.csv": "57e232d1e9f7e3d82b09047fa3897c29c6b5671ca5068b1eff5b4395347fbe25",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed42/mean_probability/SOURCE_TEST/all_B/metrics.csv": "e095bf9ccb2c34a6a3213696f27fa0dcb22639be31410be64b5c03efa754e852",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed42/mean_probability/SOURCE_TEST/all_B/comparisons.csv": "eef21754b9d2075ad74d5621a98dfb03771289ba6c146e2d0d1e51a49c798402",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed42/mean_probability/SOURCE_TEST/common/metrics.csv": "8cdf509b0dd316a4c6a7caa95ba8e35069c58ddf6117e4c57abb0b42036b15e1",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed42/mean_probability/SOURCE_TEST/common/comparisons.csv": "15290e3fb778e4bcf121f0444228c1e3713a31ec983346fb6cc1b705448cf8fb",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed42/mean_probability/TARGET_TEST/all_B/metrics.csv": "932190fa1041b529b4884b96e3ca471c1656db1390af6b2b12b25d0bbd275811",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed42/mean_probability/TARGET_TEST/all_B/comparisons.csv": "61b6f179388b9a966b8a53fb3b59ae5824a7c5c1f1979e3ffd0a0fda601242f5",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed42/mean_probability/TARGET_TEST/common/metrics.csv": "1eb3c1a9ca428888e98e9d8225125058e8c04c63ed144efe679e718f949bc9c6",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed42/mean_probability/TARGET_TEST/common/comparisons.csv": "34ad46e06fcfb6fe63e76974fdd0701c60573ad44bd85562fa0aca0dd14e8669",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed123/identity.json": "092faa868738f6000daddc1cb08714b9af5d8873b0980caa2a5e834454f59a43",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed123/complete.json": "7b39aaa3f7754560041da7d2cae2be73a1271325484ead7edc9a25da8210a2d2",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/H_LAST_clip_seed123_independent_audit.json": "5b3ab5c2bd1ec7ae94201ff3220d3226b1ea9a07631ba53013ac797bed9b46c2",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed123/mean_logit/SOURCE_TEST/all_B/metrics.csv": "6677eceb99c0652635df78a388dcfa634233a81414ca8429a92409672add104e",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed123/mean_logit/SOURCE_TEST/all_B/comparisons.csv": "888dca9d47002397f4d43c11179f792e3ee0db9f25229ae9d1213dcecddfba4f",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed123/mean_logit/SOURCE_TEST/common/metrics.csv": "8810fd1eb944f810c5599ad8480b34012277b7fc733c22b6df39c53f4b45a7ce",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed123/mean_logit/SOURCE_TEST/common/comparisons.csv": "2bd9922e64633f37af91d342e8d924c9a5608ab26a43777d8a4660528679faf9",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed123/mean_logit/TARGET_TEST/all_B/metrics.csv": "77b17d8c7c247f80df18f8cef75a14c0194fc7e41204975c9a8ecf9815fbbe43",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed123/mean_logit/TARGET_TEST/all_B/comparisons.csv": "b32e0417512a12df072258e71db085844e5d855c9d823440e60ecc2a2c9b4cf1",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed123/mean_logit/TARGET_TEST/common/metrics.csv": "4a9c7c7906044f1b45a13c58a0c8e3a07ea1ace5862bd657e08b1ff250651385",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed123/mean_logit/TARGET_TEST/common/comparisons.csv": "ca943274641c5c23f614ca6f4b2380008504659e24b9790f7bed0cba2ac24518",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed123/mean_probability/SOURCE_TEST/all_B/metrics.csv": "5fbe341b61bd757078cc4bdbe60db275840ef0180638bd412547778faa14c020",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed123/mean_probability/SOURCE_TEST/all_B/comparisons.csv": "d454d463f70b77bd247c1de66ed6127ff6e6b3b5c78c035e1b04cf3abd8ebd64",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed123/mean_probability/SOURCE_TEST/common/metrics.csv": "ca72b5501317cbe9427c9f081b14bc56773f607458789138af950deb44df0eb9",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed123/mean_probability/SOURCE_TEST/common/comparisons.csv": "0862e0d19a238105e61ba00c83c1160569979d828cc55073d2625a418234cecd",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed123/mean_probability/TARGET_TEST/all_B/metrics.csv": "59a3954a1a9af9ea43cc872c0c314937b3e425ac2f976dec2ec29ce73f0f0de5",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed123/mean_probability/TARGET_TEST/all_B/comparisons.csv": "0427e39a0c5c35b2a8a3297eb068140aeb97a23d6682a77a4825d8f1050ea971",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed123/mean_probability/TARGET_TEST/common/metrics.csv": "6f4ac95155b97f42489b0857336a032121f82abaa7ce9436a68761e9a2511522",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed123/mean_probability/TARGET_TEST/common/comparisons.csv": "22a47d48e630e7c86e88d21d6b47173362089b09384022f5755fe7d41747cbbc",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed2026/identity.json": "706c100ab3c4fb5dbd1a4ecd84396a3f94c314010bffa017ca05b4cceb7d2cec",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed2026/complete.json": "ec0e96104715aabb1c25001767248b8f858886d174622203e7ad7a1fde0337cc",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/H_LAST_clip_seed2026_independent_audit.json": "02aba8fa4886dd8b53f2261037d2ed4892f5cfb7bc2aef7753fd16168d55339d",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed2026/mean_logit/SOURCE_TEST/all_B/metrics.csv": "57cbd89af9fd0525a181973ef61880797d91e0254c70a17c612fb930ffdf59d0",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed2026/mean_logit/SOURCE_TEST/all_B/comparisons.csv": "656d1bef377d97a91df67cafe86ce143a826902e1301f6ae555d143c6d84eaa2",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed2026/mean_logit/SOURCE_TEST/common/metrics.csv": "956f3e1bbda2cb480a2015de8006918f8ff1b28beef0b15f49946ac3b06df940",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed2026/mean_logit/SOURCE_TEST/common/comparisons.csv": "cb6f63d426ea6e579809354865b20c0bc351ef3e67049cd60303848c98016672",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed2026/mean_logit/TARGET_TEST/all_B/metrics.csv": "0b00ce30eb7ddafde63253cb694ae422a4b772ccf1b2289176bf6d65d03cbf49",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed2026/mean_logit/TARGET_TEST/all_B/comparisons.csv": "3897c3c9f75e8fa333368733aa3e01b975cbd7f98ad5f04ca84753f0438544d6",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed2026/mean_logit/TARGET_TEST/common/metrics.csv": "f1ff0e1909fb423f6b42096ecf41c6e3cb4731d97f68b983f6edf87a4776780f",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed2026/mean_logit/TARGET_TEST/common/comparisons.csv": "8b77ae7a3940609e5f4e5ca14c610c0202671cd410f3f2097a8e9c03ad8e7869",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed2026/mean_probability/SOURCE_TEST/all_B/metrics.csv": "0e6b18f8b02b82eddd396c5b795885e1a758b67c48b02c966620bbc65450e8df",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed2026/mean_probability/SOURCE_TEST/all_B/comparisons.csv": "ec557b8aa93c33d2b410371502ad1f729b96ac81d9e660a5d1df5bb544a1d1d1",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed2026/mean_probability/SOURCE_TEST/common/metrics.csv": "6fbdf7c6119673a4b6cba4ebadba8654d1e21510e2cd2143fcf933951db1088b",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed2026/mean_probability/SOURCE_TEST/common/comparisons.csv": "57def1af5f6ad22394a3bccf8fabc57de489f99ca2c579b8b3ec234070d64810",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed2026/mean_probability/TARGET_TEST/all_B/metrics.csv": "07c7d7f302f3f969232eac1e242344a01fae57877afb7a85256d7ac06a2d81f5",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed2026/mean_probability/TARGET_TEST/all_B/comparisons.csv": "b6533a07b8725a7efbcb2109590a0c7325759d8d8fa908d09c6617565d7d8aee",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed2026/mean_probability/TARGET_TEST/common/metrics.csv": "ead0e326e4b100f1a55cd1843bca4ee349d335a871812da34f25116ee200d796",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed2026/mean_probability/TARGET_TEST/common/comparisons.csv": "f65f5210e2b6daaa138ae4ecf85bd4a731756384265cac28066ab17f8cc0dc35",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed3407/identity.json": "f04ad16dac32d44bccd492e07327846a1062638bc6bc44d1ca636891dd1cb8a3",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed3407/complete.json": "9f54977b174bf42b03e86f8d001113466af92f1111a43a3af38c9e7c75b1f7eb",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/H_LAST_clip_seed3407_independent_audit.json": "1a8a2b9e1409b5fb4ddec5a19dde8e1c15d9a187a727a02da255aad27d393c08",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed3407/mean_logit/SOURCE_TEST/all_B/metrics.csv": "5231fbef8379c0713c97e93627b0c64087876add37cf220470c1ef49107420ec",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed3407/mean_logit/SOURCE_TEST/all_B/comparisons.csv": "7d94d5c82cc8d30277b418c46af21893c498c4affc862ae49ff601008ac08275",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed3407/mean_logit/SOURCE_TEST/common/metrics.csv": "452db16fe0fe3f6b35003d85f455d3a1bca0066dcdac1bad5e9695b9caa110e3",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed3407/mean_logit/SOURCE_TEST/common/comparisons.csv": "acc660a743783003220c4ee36531227111c43e090996d4d00d2b6deaa9cd95a4",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed3407/mean_logit/TARGET_TEST/all_B/metrics.csv": "99b66a49a00306c30967415659ccc96ce98ee3781f7fe7f28ef653b39d8098ff",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed3407/mean_logit/TARGET_TEST/all_B/comparisons.csv": "a3a9c008742268fa07287071e34987eced4cb1dc6e7c64cd83d77f11c9a8b491",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed3407/mean_logit/TARGET_TEST/common/metrics.csv": "cb97174b86efeb2b06785fdbbeb20e6ddb303a3b9ae57d6a6fa2bc5b8c0e54b5",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed3407/mean_logit/TARGET_TEST/common/comparisons.csv": "40e7446aae2a29d84e9b89dd1fbb02f977a7c505636a528b08d487b6ebc168b4",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed3407/mean_probability/SOURCE_TEST/all_B/metrics.csv": "a48f0fbea2af4c0d5d58f565b069cd0b1c1a8e28b6e99fbc74e32ca08d3a8464",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed3407/mean_probability/SOURCE_TEST/all_B/comparisons.csv": "beca3d0b70225680ef1c75c0a197c1a6b3080a459486e569f2ffec54e106c9ac",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed3407/mean_probability/SOURCE_TEST/common/metrics.csv": "e8937d0c745347ad14f1dd64fbf8d1a088cc1cf4cd7853de124e570ec3ce0ed3",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed3407/mean_probability/SOURCE_TEST/common/comparisons.csv": "5a4391a6af074f3066f928cb79233952c32f19be9da2d561e12abdea15ee7afa",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed3407/mean_probability/TARGET_TEST/all_B/metrics.csv": "d9bfc30c03c6f7626deb4e96cd41782f3e55b24478fc93c2aed01800de3334d7",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed3407/mean_probability/TARGET_TEST/all_B/comparisons.csv": "82a3a3e2f57ff61e7a63e9bec952ab38d0c8dc37365d8732827b7a592c7746be",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed3407/mean_probability/TARGET_TEST/common/metrics.csv": "a69d2c37ec3947f61f3ef6c883e975bfbe63a56e5605423cfa15c90aa9b090a2",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed3407/mean_probability/TARGET_TEST/common/comparisons.csv": "0528587013b4624d891d2ddf1e2c476d1668f7cb2ed42b852b9f36160bdab95c"
+  },
+  "actual_saved_summary_data_accepted": true,
+  "all_experiments_complete": false,
+  "M_statistic_or_resource_qualification_granted": false,
+  "limitations": [
+    "CLIP original-LAST five-training-seed saved-result aggregation only; no other backbone or15-model IID conclusion.",
+    "No original models/weights/pixels/parquet/features or feature-dot products were opened; no bootstrap records recomputed; prior per-seed numeric/role acceptance reused.",
+    "Negative/zero/NA outcomes and all cohort/aggregation/threshold strata remain; actual input had no unavailable five-seed strata.",
+    "Source per-model conditional intervals are not across-seed confidence intervals, and five-seed SD is not a population guarantee. No p-values or significance claims.",
+    "No M canary permission, cache/target gate bypass, owner/code change or GPU use. GPU4-7 and slot1 unchanged; JEV/non-Detector work remains paused."
+  ],
+  "findings": {
+    "Critical": [],
+    "Important": [],
+    "Minor": []
+  }
+}

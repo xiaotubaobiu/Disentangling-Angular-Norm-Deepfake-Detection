@@ -1,0 +1,302 @@
+{
+  "schema": "INDEPENDENT_SOURCE_BEST_CACHE_STORAGE_FIX_CONFIRMATION_V1",
+  "reviewed_at_utc": "2026-10-25T10:49:57.317615+00:00",
+  "scope": "Read-only confirmation of the first storage-review fix pass; frozen d0b278 source only. Namespace findings close, capacity finding retains an independently reproduced lock-size hole. Synthetic CPU files only.",
+  "production_admitted": false,
+  "source": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_cache.py",
+    "sha256": "d0b2783794daefb1c644313723c3c74d649213adb58317e334accd68d8771f61",
+    "previous_review_sha256": "b57bd4ff02a06e8db72a265de56a62b1f5dadef160862fa3ebba5e3f7f9107af"
+  },
+  "tests": {
+    "new_review_tests_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests/test_source_best_cache_review.py",
+    "new_review_tests_sha256": "fcf5e728fa69a8c277549ab2622ad060e2fa4ec55cae9d49e8d3fbd5a0f8b89c",
+    "unchanged_original_tests_sha256": "6f125b2f2d51188b0b75299ba521a61e845ae3d8b6e76b2b520be5a3db74411d"
+  },
+  "prior_review": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_source_best_cache_storage_review.json",
+    "sha256": "921b7690c2f5175b7042f0227147baff1ef5edfedd32d13c68d45ca4bc75bf49",
+    "preserved": true
+  },
+  "legacy_unchanged_sha256": {
+    "cache_d.py": "8f5814646194c772dcf00f6751a35c2f792dd5f11008e0834fdba4eb5e329761",
+    "cache_h.py": "9119200359f8d696f1366e6c0137bca533c63089c32e505971e69f84ebaf40fb",
+    "trainer.py": "56f0db0634a525a530fb53482732365ebf9693a1f5470b0a95ec0820cc614368"
+  },
+  "checkout": {
+    "BASE_HEAD_at_start": "d0d41812480803615ad89d4795e7d8837601e4f3",
+    "HEAD_at_record": "d0d41812480803615ad89d4795e7d8837601e4f3",
+    "production_HEAD": "5ef6d06bf7aeda02a5a11113e4c35a2c9909f215",
+    "production_status": ""
+  },
+  "execution": {
+    "transport": "PowerShell literal here-string piped to ssh -o BatchMode=yes v100 python3 -, require_escalated prefix ssh; existing environment interpreter for tests/probes.",
+    "test_runs": 1,
+    "test_command": [
+      "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+      "-m",
+      "pytest",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "--basetemp",
+      "/tmp/cache_storage_fix_reviewer_tests_df4lusi9",
+      "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests/test_source_best_cache_review.py"
+    ],
+    "cwd": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2",
+    "environment_overrides": {
+      "CUDA_VISIBLE_DEVICES": "",
+      "OMP_NUM_THREADS": "2",
+      "MKL_NUM_THREADS": "2",
+      "OPENBLAS_NUM_THREADS": "2",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2"
+    },
+    "test_exit_code": 0,
+    "test_stdout": "................                                                         [100%]\n16 passed in 4.22s\n",
+    "test_log": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_source_best_cache_storage_fix_tests.log",
+      "sha256": "2805746ddf20f15f8091af34b2222cda6053dc11dd0fdadeafdeb222df4845f7"
+    },
+    "probe_command": "Existing environment inline script using unchanged project.__wrapped__ D fixture in /tmp: repeat lock/ancestor/manifest symlink, padding/orphan/tmp cases, then preexisting2MiB ordinary private role/model locks. Extract probes stub _permit only in synthetic processes.",
+    "probe_exit_code": 0,
+    "probe_log": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_source_best_cache_storage_fix_probes.log",
+      "sha256": "dc56809db92467c152cbf2cb70619ae139909f5a317d60b1025a2da429d823d7"
+    },
+    "probe_results": {
+      "root": "/tmp/cache_storage_fix_confirmation_probes_iewy82z9",
+      "results": [
+        {
+          "name": "child_lock_symlink",
+          "operation": {
+            "status": "raised",
+            "exception": "ValueError",
+            "message": "canonical path escape"
+          },
+          "outside_created": false,
+          "complete_created": false
+        },
+        {
+          "name": "extract_ancestor_symlink",
+          "operation": {
+            "status": "raised",
+            "exception": "ValueError",
+            "message": "canonical path escape"
+          },
+          "outside_children": []
+        },
+        {
+          "name": "manifest_symlink",
+          "verify": {
+            "status": "raised",
+            "exception": "ValueError",
+            "message": "canonical path escape"
+          },
+          "resume": {
+            "status": "raised",
+            "exception": "ValueError",
+            "message": "canonical path escape"
+          },
+          "external_unchanged": true
+        },
+        {
+          "name": "metadata_padding",
+          "verify": {
+            "status": "raised",
+            "exception": "ValueError",
+            "message": "cumulative role JSON metadata capacity exceeded"
+          },
+          "resume": {
+            "status": "raised",
+            "exception": "ValueError",
+            "message": "cumulative role JSON metadata capacity exceeded"
+          },
+          "evidence_unchanged": true
+        },
+        {
+          "name": "out_of_range_orphan",
+          "verify": {
+            "status": "raised",
+            "exception": "ValueError",
+            "message": "chunk outside frozen role capacity"
+          },
+          "resume": {
+            "status": "raised",
+            "exception": "ValueError",
+            "message": "chunk outside frozen role capacity"
+          },
+          "evidence_unchanged": true
+        },
+        {
+          "name": "foreign_temporary",
+          "verify": {
+            "status": "raised",
+            "exception": "ValueError",
+            "message": "unregistered candidate/orphan artifact; preserve evidence and resolve before resume"
+          },
+          "resume": {
+            "status": "raised",
+            "exception": "ValueError",
+            "message": "unregistered candidate/orphan artifact; preserve evidence and resolve before resume"
+          },
+          "evidence_unchanged": true
+        },
+        {
+          "name": "oversized_role_lock",
+          "write": {
+            "status": "returned",
+            "return_type": "dict"
+          },
+          "verify": {
+            "status": "returned",
+            "return_type": "tuple"
+          },
+          "lock_bytes": 2097152,
+          "lock_bytes_unchanged": true,
+          "actual_role_logical_bytes": 2153808,
+          "nominal_success_role_bound_bytes": 1111707,
+          "accepted_above_bound": true
+        },
+        {
+          "name": "oversized_model_lock",
+          "extract": {
+            "status": "returned",
+            "return_type": "dict"
+          },
+          "extract_lock_bytes": 2097152,
+          "model_provenance_allowance_bytes": 1048576,
+          "permit_scope": "Fixture-only _permit stub; no actual permit/model/target input."
+        }
+      ]
+    },
+    "not_run": [
+      "No whole-suite rerun, stop/signal or process-management action.",
+      "No actual source/target model/data job, real permit, GPU/F/primary owner/statistic-slot work."
+    ],
+    "mutations": "Only fresh reviewer logs/confirmation and small /tmp fixture artifacts. Frozen source/tests, legacy modules, original review and production unchanged."
+  },
+  "finding_confirmation": [
+    {
+      "id": "SBC-STOR-001",
+      "previous_severity": "Important",
+      "status": "FIX_CONFIRMED",
+      "locations": [
+        "source_best_cache.py:47-72",
+        "source_best_cache.py:282",
+        "source_best_cache.py:349"
+      ],
+      "inspection": "_lock checks the full path before filesystem creation, walks directories by root-relative O_DIRECTORY/O_NOFOLLOW fds, opens a nonsymlink regular single-link lock and checks its inode before flock. Same valid lock still provides kernel exclusion.",
+      "fresh_evidence": "16 regressions passed. Independent prior dangling role-lock and features ancestor symlink probes reject with no external lock/file/directory creation."
+    },
+    {
+      "id": "SBC-STOR-002",
+      "previous_severity": "Important",
+      "status": "FIX_CONFIRMED",
+      "locations": [
+        "source_best_cache.py:74-92",
+        "source_best_cache.py:232-233",
+        "source_best_cache.py:282-283",
+        "source_best_cache.py:303-305"
+      ],
+      "inspection": "Role inventory validates every leaf as a canonical nonsymlink regular file before precheck/verification, including manifest.parquet.",
+      "fresh_evidence": "Independent same-byte external manifest symlink now rejects on verify and completed resume; external bytes are unchanged."
+    },
+    {
+      "id": "SBC-STOR-003",
+      "previous_severity": "Important",
+      "status": "PARTIALLY_FIXED_IMPORTANT_REMAINS",
+      "locations": [
+        "source_best_cache.py:60-64",
+        "source_best_cache.py:74-92",
+        "source_best_cache.py:223-249"
+      ],
+      "confirmed_parts": "Exact complete/head/chunk fields, cumulative role JSON<=1MiB, permitted filenames/chunk index range and in-range orphan NPY header budgets are present. Repeated oversized padding, out-of-range orphan and .foreign.tmp probes all reject and preserve evidence.",
+      "remaining_evidence": "Preexisting ordinary regular single-link write.lock with2,097,152bytes is accepted by _lock and _inventory. write_role and verify_role both returned successfully. Role logical bytes2,153,808 exceeded the same report formula1,111,707. A synthetic extract with a2,097,152byte extract.lock also completed despite the1MiB model provenance allowance.",
+      "remaining_static_boundary": "Role inventory does not inventory the model parent siblings. Arbitrary model-parent bytes are not bounded by the role JSON limit or a fixed lock size. Parent inventory needs an explicit successful-cache definition for D six roles/H B three roles plus permitted empty extract.lock.",
+      "recommendation": "Require st_size==0 for regular private lock fds before flock, and enforce empty write.lock in read-only role inventory too; never truncate foreign lock bytes. Enforce canonical model-parent directory inventory/allowance before accepting a successful persistent-cache namespace. Preserve/refuse unknown or failed evidence; keep temporary/high-water/RSS/joint resource accounting separate."
+    }
+  ],
+  "remaining_findings": [
+    {
+      "id": "SBC-STOR-003-LOCK_SIZE",
+      "severity": "Important",
+      "file": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_cache.py",
+      "line": 63,
+      "related_lines": [
+        79,
+        90,
+        92,
+        349
+      ],
+      "title": "Permitted lock files have no byte bound, so a verified successful persistent cache can exceed the claimed feature envelope.",
+      "reproduction_log": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_source_best_cache_storage_fix_probes.log",
+      "observed_role_lock_bytes": 2097152,
+      "observed_role_bytes": 2153808,
+      "nominal_single_role_formula_bytes": 1111707,
+      "observed_model_extract_lock_bytes": 2097152,
+      "model_provenance_allowance_bytes": 1048576,
+      "expected_behavior": "Reject and preserve nonempty/private-lock violations before flock/write/inference; verification must reject nonempty role lock too. Model-parent extras must not silently count as in-envelope successful storage.",
+      "regression_expectation": "Both role and model oversized regular-lock probes reject with bytes unchanged; verify rejects a nonempty lock even without attempting write. Existing duplicate-lock exclusion and valid empty-lock completed/partial resume still pass."
+    }
+  ],
+  "capacity_judgment": {
+    "nominal_report_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_feature_storage_bound_20261025T0830.json",
+    "nominal_report_sha256": "4ff3f710eaf9eb1f00cc1da6e02f9718b0c96132ed48370701372515271898c6",
+    "nominal_upper_bytes": 18413684905,
+    "nominal_upper_GiB": 17.149080433882773,
+    "formula_arithmetic": "Previously independently recomputed and unchanged.",
+    "success_bound_enforcement": "Not yet fully established because ordinary lock/model-parent bytes remain unbounded.",
+    "not_included": [
+      "Failed atomic temporary evidence and temporary peak",
+      "Prior admission/attempt namespaces",
+      "Model/DataFrame/concatenate RSS",
+      "Statistics/transport/H/joint capacity"
+    ]
+  },
+  "updated_nonblocking_limits": [
+    "Residual temporary evidence now intentionally blocks automatic resume; preserve it and resolve/use a separately budgeted revision rather than deleting evidence.",
+    "Post-link fsync/unlink errors can leave committed output plus retained temporary evidence; explicit outcome diagnostics remain useful.",
+    "load_role still concatenates all chunks; aggregate RSS needs independent admission."
+  ],
+  "declined_to_judge": [
+    {
+      "behavior": "Actual source-best/H qualification, real target inputs, direct-inference equivalence and scientific source-best results.",
+      "reason": "Only synthetic existing fixtures ran."
+    },
+    {
+      "behavior": "Production permit policy correctness beyond the synthetic regressions, GPU bridge/leases, actual joint-capacity authorization.",
+      "reason": "Separate review/qualification; no real permit issued and CUDA path remains fail closed."
+    },
+    {
+      "behavior": "Root running/postfix whole-suite result or stopping its own pytest.",
+      "reason": "Reviewer neither reran nor managed that process; no full-suite assertion supplied here."
+    },
+    {
+      "behavior": "Power-loss and hostile concurrent filesystem/runtime mutation guarantees.",
+      "reason": "Static namespace protections were inspected and prior static symlink probes repeated; no such stronger fault/race certification performed."
+    },
+    {
+      "behavior": "Primary owner/F/accepted legacy code, GPU/statistic slot work.",
+      "reason": "Explicitly untouched and outside the storage confirmation."
+    }
+  ],
+  "recommendation": "Accept closure of SBC-STOR-001/002 and the repaired JSON/orphan parts of SBC-STOR-003. Retain Important SBC-STOR-003 for lock-size/model-parent inventory before accepting the success-capacity envelope. A further root-owned regression/fix/verification is needed; no code changes by this reviewer.",
+  "verdict": {
+    "storage_fix_confirmation": "REQUEST_CHANGES_RESIDUAL_CAPACITY",
+    "SBC_STOR_001": "CLOSED",
+    "SBC_STOR_002": "CLOSED",
+    "SBC_STOR_003": "IMPORTANT_REMAINS",
+    "new_tests": "16 passed in4.22s",
+    "critical_findings": 0,
+    "remaining_important_findings": 1,
+    "production_admitted": false
+  },
+  "blockers": {
+    "review_execution": "None; no denied, pending or uncertain action.",
+    "storage_acceptance": [
+      "SBC-STOR-003-LOCK_SIZE and model-parent inventory"
+    ],
+    "production": "No production/cache/statistic/GPU resource admission."
+  }
+}

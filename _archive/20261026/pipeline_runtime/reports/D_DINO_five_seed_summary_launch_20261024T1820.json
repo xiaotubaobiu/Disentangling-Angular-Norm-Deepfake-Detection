@@ -1,0 +1,68 @@
+{
+  "utc": "2026-10-24T18:25:28.473875+00:00",
+  "status": "REAL_DINO_FIVE_SEED_SUMMARY_LAUNCHED_ALL5_INDEPENDENT_MODEL_AUDITS_ACCEPTED_LIVE_INPUT_ADMISSION_PENDING",
+  "backbone": "dinov2_vit_b14",
+  "registered_seeds": [
+    7,
+    42,
+    123,
+    2026,
+    3407
+  ],
+  "slot": 0,
+  "flock_pid": 2091428,
+  "command": [
+    "/usr/bin/flock",
+    "--nonblock",
+    "--conflict-exit-code",
+    "75",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/D/production_cpu.lock",
+    "/usr/bin/time",
+    "-v",
+    "-o",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/D_DINO_five_seed_summary_time_v_20261024T1820.log",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+    "-u",
+    "-m",
+    "reliability_v2.summary_d",
+    "run",
+    "--config",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/configs/execution.json",
+    "--backbone",
+    "dinov2_vit_b14"
+  ],
+  "summary_code_sha256": "489330049b8b95c74db9bb3d191a38f7e7190107788144ff6c07aaec9946db93",
+  "independent_model_acceptance": {
+    "7": {
+      "run_id": "D_formal_dinov2_vit_b14_seed7",
+      "independent_acceptance_sha256": "8764a1ec9d8493cf22ae82673bf3ffb98201672303489dee87b6f706d4c81baa",
+      "analysis_complete_sha256": "1b1a979b6911e450c0132e38bdd7a9f49b2f1d6587dae0b53d4b6e7bbc7611a4"
+    },
+    "42": {
+      "run_id": "D_formal_dinov2_vit_b14_seed42",
+      "independent_acceptance_sha256": "0cb0e9f4fb5cb120e65269c9c6155ca3edf418c5867b0a8b3e5714cf0d218b35",
+      "analysis_complete_sha256": "80991ef9139284c0a0be179f2d493a8f626afe40af02c99619ac5e8262de838b"
+    },
+    "123": {
+      "run_id": "D_formal_dinov2_vit_b14_seed123",
+      "independent_acceptance_sha256": "50a7ed9f4351f850b5a488694a5cf2e9e11f8a4129564be6a0f4e60073291db3",
+      "analysis_complete_sha256": "0d7946c6ce25d67130b09b87c1eb1e67b29b204d94b3cd1fd2e6332b326008f9"
+    },
+    "2026": {
+      "run_id": "D_formal_dinov2_vit_b14_seed2026",
+      "independent_acceptance_sha256": "2a1c074d46254a65c921a107655cd756cf642c1b2ae6d8145903f1c86ddc4d0e",
+      "analysis_complete_sha256": "b9b3ea24695f4e2956fcf660ea8d98c09552afd9d0de3dbe963424cfa424b280"
+    },
+    "3407": {
+      "run_id": "D_formal_dinov2_vit_b14_seed3407",
+      "independent_acceptance_sha256": "1d4ab7338fdc9fc870127816a0771cb4305bb7e98dcdedfed26b887d1cc4e0f6",
+      "analysis_complete_sha256": "78b2c43e2bd3950cd3510599c5baf67fa64c37e83f7013f7c89a192230f73055"
+    }
+  },
+  "capacity_snapshot_sha256": "dd65cb90c6cc5ce24ecc562d4eeba2c5e4fd7600515454854e14d6ddf27971af",
+  "calibration_repeats": 200,
+  "test_bootstrap_repeats": 2000,
+  "producer_code_changed": false,
+  "input_gate": "Original entry freshly validates all5 seven-role caches/65-artifact inventories before aggregation and again before commit.",
+  "next_after_terminal": "Run original generic standalone independent12table audit; measure actual time/RSS; only after accepted backfillDINO rows. No summary acceptance claimed from launch."
+}

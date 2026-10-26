@@ -1,0 +1,301 @@
+{
+  "utc": "2026-10-24T23:29:30.736062+00:00",
+  "status": "PASS_H_FOUR_ORIGINAL_FORMAL_PROGRESS_RECOVERY_AND_PAIRED_STREAMS_BILINGUAL_ASSEMBLY_READBACK",
+  "H_formal_accepted": 4,
+  "H_formal_running": 4,
+  "H_formal_pending": 22,
+  "D_formal_accepted": 15,
+  "whole_formal_terminal_accepted": 19,
+  "whole_formal_total": 45,
+  "accepted_scope": "H4 AMP terminal artifacts; allfive-pair effective precision and H target gate still pending",
+  "source_only": true,
+  "full_atomic_snapshots": [
+    {
+      "run_id": "H_formal_clip_vit_b16_B_seed123",
+      "snapshot_epoch": 13,
+      "snapshot_attempts": 2483,
+      "snapshot_successful_updates": 2483,
+      "snapshot_AMP_skips": 0
+    },
+    {
+      "run_id": "H_formal_clip_vit_b16_AB_seed123",
+      "snapshot_epoch": 13,
+      "snapshot_attempts": 2483,
+      "snapshot_successful_updates": 2483,
+      "snapshot_AMP_skips": 0
+    },
+    {
+      "run_id": "H_formal_clip_vit_b16_B_seed2026",
+      "snapshot_epoch": 13,
+      "snapshot_attempts": 2483,
+      "snapshot_successful_updates": 2483,
+      "snapshot_AMP_skips": 0
+    },
+    {
+      "run_id": "H_formal_clip_vit_b16_AB_seed2026",
+      "snapshot_epoch": 13,
+      "snapshot_attempts": 2483,
+      "snapshot_successful_updates": 2483,
+      "snapshot_AMP_skips": 0
+    }
+  ],
+  "H_full_atomic_success_total": 9932,
+  "H_full_atomic_skips_total": 0,
+  "paired_available_common_epochs": [
+    {
+      "seed": 123,
+      "epochs": 13
+    },
+    {
+      "seed": 2026,
+      "epochs": 13
+    }
+  ],
+  "full_checkpoint_resource": {
+    "elapsed": "0:22.94",
+    "peak_RSS_KiB": 1955044,
+    "swap": 0,
+    "exit": 0
+  },
+  "later_current_observation": [
+    {
+      "pid": 2270152,
+      "run_id": "H_formal_clip_vit_b16_B_seed123",
+      "gpu": 0,
+      "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e",
+      "backbone": "clip_vit_b16",
+      "committed_epochs": 17,
+      "committed_attempts": 3247,
+      "committed_success": 3247,
+      "committed_AMP_skips": 0,
+      "live_complete_records": 3438,
+      "live_AMP_skips": 0,
+      "new_live_skips_since2245": 0,
+      "skip_recovery": []
+    },
+    {
+      "pid": 2270153,
+      "run_id": "H_formal_clip_vit_b16_AB_seed123",
+      "gpu": 3,
+      "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646",
+      "backbone": "clip_vit_b16",
+      "committed_epochs": 17,
+      "committed_attempts": 3247,
+      "committed_success": 3247,
+      "committed_AMP_skips": 0,
+      "live_complete_records": 3435,
+      "live_AMP_skips": 0,
+      "new_live_skips_since2245": 0,
+      "skip_recovery": []
+    },
+    {
+      "pid": 2270880,
+      "run_id": "H_formal_clip_vit_b16_B_seed2026",
+      "gpu": 1,
+      "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+      "backbone": "clip_vit_b16",
+      "committed_epochs": 17,
+      "committed_attempts": 3247,
+      "committed_success": 3247,
+      "committed_AMP_skips": 0,
+      "live_complete_records": 3251,
+      "live_AMP_skips": 0,
+      "new_live_skips_since2245": 0,
+      "skip_recovery": []
+    },
+    {
+      "pid": 2270881,
+      "run_id": "H_formal_clip_vit_b16_AB_seed2026",
+      "gpu": 2,
+      "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+      "backbone": "clip_vit_b16",
+      "committed_epochs": 17,
+      "committed_attempts": 3247,
+      "committed_success": 3247,
+      "committed_AMP_skips": 0,
+      "live_complete_records": 3285,
+      "live_AMP_skips": 0,
+      "new_live_skips_since2245": 0,
+      "skip_recovery": []
+    }
+  ],
+  "GPU_61point_mean": {
+    "0": 87.77049180327869,
+    "1": 83.45901639344262,
+    "2": 84.54098360655738,
+    "3": 84.0
+  },
+  "GPU_window_scope": "61 points about130seconds, approximatelyoneHepoch, not wholetrainingaverage",
+  "later_GPU_point_csv": "0, 0, 4932\n1, 96, 4932\n2, 97, 4932\n3, 95, 4932\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n",
+  "recent_throughput_and_ETA": [
+    {
+      "pid": 2270152,
+      "run_id": "H_formal_clip_vit_b16_B_seed123",
+      "gpu": 0,
+      "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e",
+      "backbone": "clip_vit_b16",
+      "committed_epochs": 14,
+      "committed_attempts": 2674,
+      "committed_success": 2674,
+      "committed_AMP_skips": 0,
+      "live_complete_records": 2865,
+      "live_AMP_skips": 0,
+      "skip_recoveries": [],
+      "last5_mean_epoch_seconds": 118.93031530380249,
+      "recent_draw_equivalent_per_second": 205.56575451388161,
+      "recent_complete_update_log_period_seconds": 124.52752466201783,
+      "rough_E30_update_end_ETA_UTC": "2026-10-24T23:54:12.092811+00:00",
+      "ETA_is_terminal_acceptance": false
+    },
+    {
+      "pid": 2270153,
+      "run_id": "H_formal_clip_vit_b16_AB_seed123",
+      "gpu": 3,
+      "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646",
+      "backbone": "clip_vit_b16",
+      "committed_epochs": 14,
+      "committed_attempts": 2674,
+      "committed_success": 2674,
+      "committed_AMP_skips": 0,
+      "live_complete_records": 2851,
+      "live_AMP_skips": 0,
+      "skip_recoveries": [],
+      "last5_mean_epoch_seconds": 119.69783191680908,
+      "recent_draw_equivalent_per_second": 204.24764265564602,
+      "recent_complete_update_log_period_seconds": 125.54351615905762,
+      "rough_E30_update_end_ETA_UTC": "2026-10-24T23:54:43.248685+00:00",
+      "ETA_is_terminal_acceptance": false
+    },
+    {
+      "pid": 2270880,
+      "run_id": "H_formal_clip_vit_b16_B_seed2026",
+      "gpu": 1,
+      "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+      "backbone": "clip_vit_b16",
+      "committed_epochs": 14,
+      "committed_attempts": 2674,
+      "committed_success": 2674,
+      "committed_AMP_skips": 0,
+      "live_complete_records": 2674,
+      "live_AMP_skips": 0,
+      "skip_recoveries": [],
+      "last5_mean_epoch_seconds": 120.46942973136902,
+      "recent_draw_equivalent_per_second": 202.9394515647316,
+      "recent_complete_update_log_period_seconds": 126.04664235115051,
+      "rough_E30_update_end_ETA_UTC": "2026-10-24T23:56:20.274749+00:00",
+      "ETA_is_terminal_acceptance": false
+    },
+    {
+      "pid": 2270881,
+      "run_id": "H_formal_clip_vit_b16_AB_seed2026",
+      "gpu": 2,
+      "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+      "backbone": "clip_vit_b16",
+      "committed_epochs": 14,
+      "committed_attempts": 2674,
+      "committed_success": 2674,
+      "committed_AMP_skips": 0,
+      "live_complete_records": 2702,
+      "live_AMP_skips": 0,
+      "skip_recoveries": [],
+      "last5_mean_epoch_seconds": 119.86771821975708,
+      "recent_draw_equivalent_per_second": 203.9581662443824,
+      "recent_complete_update_log_period_seconds": 125.35705170631408,
+      "rough_E30_update_end_ETA_UTC": "2026-10-24T23:55:53.661293+00:00",
+      "ETA_is_terminal_acceptance": false
+    }
+  ],
+  "capacity": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/full_capacity_live_20261024T2320.json",
+    "free_GiB": 199.3727798461914,
+    "remaining_including16temp50reserve_GiB": 140.60988152262087,
+    "margin_GiB": 58.76289832357054,
+    "conditional_FP32_still_requires_fresh_remaining_budget": true
+  },
+  "H_dev_final": {
+    "attempts": 114600,
+    "success": 114600,
+    "AMP_skips": 0
+  },
+  "H_first4_formal_final": {
+    "attempts": 22920,
+    "success": 22920,
+    "AMP_skips": 0
+  },
+  "D_dev_AMP_skips": 32,
+  "D_formal_AMP_skips": 57,
+  "source_best_HOLD": true,
+  "source_best_parent_question_pending": true,
+  "cold_SSD_release_bytes": 0,
+  "protected13_unchanged": true,
+  "no_worker_or_owner_restart": true,
+  "no_duplicate_dispatch": true,
+  "no_makeup_or_protocol_change": true,
+  "GPU4_7_unchanged": true,
+  "manuscript_drafts": [
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/manuscript_preparation/20261024_覆盖整合版/期刊论文整合稿_中文.md",
+      "mirror": "/home/z/obsidian/paper/deepfake-detector/新实验设计/20261023/论文方法与设置准备_v2/20261024_覆盖整合版/期刊论文整合稿_中文.md",
+      "sha256": "16eb42c79a1c63849b7535596a75bdf265e0be5710adbcf1caeb91f022d2d84d",
+      "language": "cn",
+      "accepted_D_data_rows_exact": 30,
+      "figure_links_and_source_hashes": 8,
+      "existing_citation_keys_resolved": 16,
+      "canonical_body_fragments_unchanged": 5,
+      "pending_blocks": [
+        "ABSTRACT",
+        "H_RESULTS",
+        "CONCLUSIONS"
+      ],
+      "markdown_table_blocks": 9,
+      "all_local_links_exist": true,
+      "math_and_code_delimiters_balanced": true
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/manuscript_preparation/20261024_覆盖整合版/journal_manuscript_integrated_en.md",
+      "mirror": "/home/z/obsidian/paper/deepfake-detector/新实验设计/20261023/论文方法与设置准备_v2/20261024_覆盖整合版/journal_manuscript_integrated_en.md",
+      "sha256": "719184ca6464459467b56f76640ed7d266127a0d3927c82759d4b465c11726b7",
+      "language": "en",
+      "accepted_D_data_rows_exact": 30,
+      "figure_links_and_source_hashes": 8,
+      "existing_citation_keys_resolved": 16,
+      "canonical_body_fragments_unchanged": 5,
+      "pending_blocks": [
+        "ABSTRACT",
+        "H_RESULTS",
+        "CONCLUSIONS"
+      ],
+      "markdown_table_blocks": 9,
+      "all_local_links_exist": true,
+      "math_and_code_delimiters_balanced": true
+    }
+  ],
+  "manuscript_readback_scope": "Separate root readback parser, accepted source/body equivalence and exact30-row numeric preservation; not a new independent scientific-kernel implementation, third-party language review, completed paper, or rendered final-page layout acceptance. Original assembly manifest retains export-time readback_pending; this later receipt records actual readback.",
+  "pending_manuscript_blocks": [
+    "ABSTRACT",
+    "H_RESULTS",
+    "CONCLUSIONS"
+  ],
+  "final_typeset_layout_pending": true,
+  "scientific_results_complete": false,
+  "journal_manuscripts_complete": false,
+  "evidence_sha256": {
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_formal_checkpoint_health_20261024T2320.json": "45755d2c6c20e92753dce3261555325ad5b6d84e55cc50a79bc6d1a47865a055",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_formal_checkpoint_health_time_v_20261024T2320.log": "7827d1d4ceaa43ed941a636597bf258ffba47a27e97c9d9c1a0e2c4fa144aac5",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/runtime_health_20261024T2320.json": "449b2ff0558cf0289395946725958d03bec2941f97540425b0498ca2a86bed52",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/full_capacity_live_20261024T2320.json": "4b67343aef57fd1274881a760f1af1d9da98e1e2259d9ce42445a92a929f792b",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/journal_working_drafts_assembly_scope_20261024T2320.json": "4d2854c4fbf165fa391a3e9304910347765528bbef9414e9697b6e42c7956913",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/journal_working_drafts_assembly_20261024T2320.json": "8929160f17163738a842fb638764270428beee3473181f5060d7b668942d5265",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/journal_working_drafts_readback_acceptance_20261024T2320.json": "d02d70c52c1d86fab27e38b4c9ca4334fdb47e72010e838d6403ffd271748cbf"
+  },
+  "next_check_UTC": "2026-10-24T23:50:00+00:00",
+  "next_check": "Inspect original four workers nearing E30 using actual seals, complete checkpoints/AMP recovery/paired ledgers, automatic successor handoff and capacity. Do not repeat first4 terminal audit, existing data audit, or source-best expansion. ETA last update23:54–23:56 is only scheduling estimate; terminal seal and acceptance required.",
+  "remaining": [
+    "H26 formal endpoints",
+    "allfive-pair numerical ledgers and conditional uniform backbone FP32 when required",
+    "30 effectiveH x7role caches",
+    "15H paired analyses/3five-seed summaries/remainingfigures",
+    "fill H/abstract/conclusions and finalize/verify completeCNENpapers",
+    "source-bestscope remains pending userdecision"
+  ]
+}

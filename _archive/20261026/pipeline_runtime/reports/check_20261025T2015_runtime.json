@@ -1,0 +1,69 @@
+{
+  "utc": "2026-10-25T20:16:08Z",
+  "M_source9": {
+    "owner_pid": 3225047,
+    "owner_alive": true,
+    "completed": {
+      "D_formal_clip_vit_b16_seed7": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_only_GPU_qualification/883a623cc487472892444961790070b1/D_formal_clip_vit_b16_seed7.json",
+        "sha256": "002ed481cb09f4764ef7f3710b82f13ac4b7b09f92d9d7e86b825ab97771e3f9"
+      },
+      "D_formal_dinov2_vit_b14_seed7": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_only_GPU_qualification/883a623cc487472892444961790070b1/D_formal_dinov2_vit_b14_seed7.json",
+        "sha256": "c8c3c4306dfeb5173044a6d8775603e03f4248a3b9226d0e69e44af259aa4a5f"
+      },
+      "D_formal_efficientnet_b0_seed7": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_only_GPU_qualification/883a623cc487472892444961790070b1/D_formal_efficientnet_b0_seed7.json",
+        "sha256": "3b704d448bfee274dc454b6a2199bbc016f4e778282176252eb8094483912cab"
+      }
+    },
+    "active": {
+      "H_formal_clip_vit_b16_AB_seed7": {
+        "index": 2,
+        "pid": 3249648,
+        "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+        "alive": true
+      },
+      "H_formal_clip_vit_b16_B_seed7": {
+        "index": 3,
+        "pid": 3225098,
+        "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646",
+        "alive": true
+      },
+      "H_formal_dinov2_vit_b14_AB_seed7": {
+        "index": 1,
+        "pid": 3256703,
+        "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+        "alive": true
+      },
+      "H_formal_dinov2_vit_b14_B_seed7": {
+        "index": 0,
+        "pid": 3256578,
+        "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e",
+        "alive": true
+      }
+    },
+    "pending": [
+      "H_formal_efficientnet_b0_B_seed7",
+      "H_formal_efficientnet_b0_AB_seed7"
+    ],
+    "failures": {},
+    "seconds": 2985.914089466445
+  },
+  "H_cache_roles": 210,
+  "H_operational_models": 30,
+  "H_statistics_independently_accepted": 4,
+  "free_GiB": 155.0414695739746,
+  "CLIP3407": {
+    "wrapper_alive": true,
+    "fresh_ledgers": 4,
+    "last_lines": [
+      "BEGIN_FRESH_ORIGINAL_LEDGER 1 clip_vit_b16 AMP models10_no_receipt_reuse",
+      "BEGIN_FRESH_ORIGINAL_LEDGER 2 clip_vit_b16 AMP models10_no_receipt_reuse",
+      "BEGIN_FRESH_ORIGINAL_LEDGER 3 clip_vit_b16 AMP models10_no_receipt_reuse",
+      "BEGIN_FRESH_ORIGINAL_LEDGER 4 clip_vit_b16 AMP models10_no_receipt_reuse"
+    ],
+    "candidate": false
+  },
+  "GPU": "0, 0, 1238\n1, 0, 1238\n2, 0, 1236\n3, 0, 1236\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n"
+}

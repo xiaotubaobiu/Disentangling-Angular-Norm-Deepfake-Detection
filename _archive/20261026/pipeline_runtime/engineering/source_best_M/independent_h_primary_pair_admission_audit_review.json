@@ -1,0 +1,228 @@
+{
+  "schema": "INDEPENDENT_GENERIC_H_PRIMARY_PAIR_ADMISSION_METADATA_REVIEW_V1",
+  "reviewed_utc": "2026-10-25T22:32:09.868354+00:00",
+  "scope": "Only new generic H originalLAST finite pair-admission metadata tool/protocol and test composition; no actual admission execution, scientific/kernel/data qualification or changes to accepted dependencies.",
+  "reviewed_source": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/h_primary_pair_admission_audit.py",
+    "sha256": "14c3e92025726ff8be02e87c63d24e8ef554b2bff9cada3019eebaf77e83a299",
+    "snapshot": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/review_snapshots/h_primary_pair_admission_audit_14c3e92025726ff8be02e87c63d24e8ef554b2bff9cada3019eebaf77e83a299.py"
+  },
+  "reviewed_tests": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests/test_h_primary_pair_admission_audit.py",
+    "sha256": "6820e957f43c4006822f652949cb59c33be1ee53aab40f3598470c116c0623b5",
+    "snapshot": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/review_snapshots/test_h_primary_pair_admission_audit_6820e957f43c4006822f652949cb59c33be1ee53aab40f3598470c116c0623b5.py"
+  },
+  "source_and_test_at_report": {
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/h_primary_pair_admission_audit.py": "14c3e92025726ff8be02e87c63d24e8ef554b2bff9cada3019eebaf77e83a299",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests/test_h_primary_pair_admission_audit.py": "6820e957f43c4006822f652949cb59c33be1ee53aab40f3598470c116c0623b5"
+  },
+  "executed": [
+    {
+      "command": [
+        "/usr/bin/time",
+        "-v",
+        "-o",
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_h_primary_pair_admission_units_time.log",
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--basetemp",
+        "/tmp/independent_h_primary_units_g5j58bmw",
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests/test_h_primary_pair_admission_audit.py"
+      ],
+      "environment": {
+        "CUDA_VISIBLE_DEVICES": "",
+        "OMP_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1",
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2:/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests"
+      },
+      "slot_contract": "Public surrogates explicitly replace old.SHARED.cpu_slot with non-acquiring counter; no real lock acquisition permitted",
+      "source_sha256_at_launch": "14c3e92025726ff8be02e87c63d24e8ef554b2bff9cada3019eebaf77e83a299",
+      "test_sha256_at_launch": "6820e957f43c4006822f652949cb59c33be1ee53aab40f3598470c116c0623b5",
+      "log": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_h_primary_pair_admission_units.log",
+      "log_sha256": "ced198ea6584947d25dafb1e9f1a3d52111530fc2162c1912f9a3575fe772a9b",
+      "time_log": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_h_primary_pair_admission_units_time.log",
+      "time_log_sha256": "6740279dcbb02675a6017b4175d540c915b6f6558620f3750e02ebc5f473dc01",
+      "result": "111 passed",
+      "exit_code": 0,
+      "pytest_seconds": 6.33
+    },
+    {
+      "command": [
+        "/usr/bin/time",
+        "-v",
+        "-o",
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_h_primary_pair_admission_probes_time.log",
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "-s",
+        "-p",
+        "no:cacheprovider",
+        "--basetemp",
+        "/tmp/independent_h_primary_probes_fxpo66hl",
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_h_primary_pair_admission_probes.py"
+      ],
+      "environment": {
+        "CUDA_VISIBLE_DEVICES": "",
+        "OMP_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1",
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2:/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests"
+      },
+      "slot_contract": "All public main surrogates use explicit non-acquiring counting contexts; no original or synthetic flock operation invoked",
+      "source_sha256_at_launch": "14c3e92025726ff8be02e87c63d24e8ef554b2bff9cada3019eebaf77e83a299",
+      "test_sha256_at_launch": "6820e957f43c4006822f652949cb59c33be1ee53aab40f3598470c116c0623b5",
+      "log": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_h_primary_pair_admission_probes.log",
+      "log_sha256": "d570ec30e10f9762bbe90620fc805077b9fd4bd261bef167a2b98549cf0b852c",
+      "time_log": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_h_primary_pair_admission_probes_time.log",
+      "time_log_sha256": "222c534434b8c01030be1e01f0c1cc30be279f52a9b0cf7a8e1d8eef578d3db0",
+      "result": "2 failed, 2 passed",
+      "exit_code": 1,
+      "pytest_seconds": 1.22
+    }
+  ],
+  "probe_file": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_h_primary_pair_admission_probes.py",
+    "sha256": "5058a9011011773ebad1ad31f0ab89b65e978457636bd1d5243612e297e142cb"
+  },
+  "execution_boundaries": {
+    "all_public_main_cases": "Explicitly non-acquiring counting context substitutes for old.SHARED.cpu_slot. Original and synthetic flock functions are never invoked; all generated fixtures/source replacements/output JSON/Parquet are under/tmp. EmptyCUDA, OMP/MKL/OPENBLAS1thread and no bytecode for executed unit/probe commands.",
+    "real_metadata_positive": "Provided real_own_qualification_chain_metadata_only tests for explicit CLIP0ae and DINOab85 verify current own-Q and three canonical aux/body chains. Legacy CLIP/DINO/Eff launch JSON inspected only; real incomplete EffC is never read.",
+    "current_PID_tests": "Provided nearby-tick tests inspect only their own pytest process and/proc boot metadata; no actual owner/worker process is queried, controlled or waited for.",
+    "accepted_helper_use": "a65 exact puremetadata helpers reused unchanged; bb299e functions extracted by AST rather than importing/scientific execution. Independent downstream compatibility probe likewise compiles only _int/validate_ledgers/validate_chain."
+  },
+  "findings": [
+    {
+      "id": "HPA001",
+      "severity": "Important",
+      "file": "tools/h_primary_pair_admission_audit.py",
+      "lines": [
+        127,
+        142,
+        143,
+        155,
+        156,
+        157
+      ],
+      "title": "Snapshot namespace is checked before slot entry, but selfSHA is captured later and can attest unexecuted replacement bytes",
+      "trigger": "Public surrogate uses valid14c snapshot namespace; the explicit no-lock counting context replaces only/tmp snapshot source at context entry, after main.require_snapshot passed and before audit_owned constructs its evidence pins. New bytes are a script which would immediately raise if actually executed.",
+      "actual": "main publishes PASS_COMPLETED_QUALIFIED_ORIGINAL_PAIR_ADMISSION_METADATA_HASH_REBIND; bracketed self pin is2a80d0325a40d5da55d644213486109f741c02f2daa73f30ee4877313dbfb726 for the replacement code, whereas actual loaded code and namespace are14c3e920... . final_check merely verifies that newly captured SHA remains current, so it never detects that source namespace/selfSHA no longer match or that it has attested bytes not executed.",
+      "evidence": "reviewer_h_primary_pair_admission_probes.log::test_snapshot_change_after_initial_namespace_check_must_reject",
+      "expected": "The digest/namespace validated initially must be the same immutable digest recorded in every later pin/final publication check. Any observed drift after initial snapshot validation must refuse and leave no positive output.",
+      "minimal_fix": "Have snapshot preflight return and preserve the original expected path/digest, pass that fixed binding through slot/audit/publication rather than calling sha(__file__) afresh as an authority. Recheck exact canonical snapshot namespace and original digest after slot entry and at final publication; keep accepted a65/318/6af/bb/F sources unchanged. Add RED-to-GREEN test at this exact preflight-to-slot boundary."
+    },
+    {
+      "id": "HPA002",
+      "severity": "Important",
+      "file": "tools/h_primary_pair_admission_audit.py",
+      "lines": [
+        120,
+        121,
+        122,
+        123,
+        137,
+        138,
+        140,
+        146,
+        149
+      ],
+      "title": "Final footer sweep does not bracket the complete7-manifest fingerprint set; earlier manifest drift can still be published",
+      "trigger": "On28th and final manifest_footer call of the public path (last item of final pre-link sweep), rewrite only the first synthetic Parquet manifest with same required columns and81rows rather than80. All external JSON/code107 pins stay unchanged.",
+      "actual": "Public main publishes PASS and records80rows/oldmtime/oldsize for the first manifest while a fresh original manifest_footer reports81rows/currentmetadata before the function returns. The final check_pins protects JSON/code/marker inputs but not raw manifest/footer fingerprints. The existing last-footer unit changes candidate JSON and is caught by final hash sweep; it does not cover footer-source drift itself.",
+      "evidence": "reviewer_h_primary_pair_admission_probes.log::test_last_footer_earlier_manifest_drift_must_reject",
+      "expected": "An earlier selected manifest/footer changed before final link cannot coexist with a published current7-footer metadata acceptance. Reject and preserve evidence, without expanding scope to expensive full manifest/pixel/model validation.",
+      "minimal_fix": "Bracket all7 canonical footer sources using cheap immutable fingerprints (for example inode/device/size/mtime_ns/ctime_ns and bounded footer bytes/metadata) collected before/after per-footer validation, then compare the complete fingerprint set after the last footer and immediately before link. Do not hash entire Parquet/data payloads or modify accepted helper/science semantics. The snapshot should compare against previously verified values rather than adopting newly changed bytes as new authority."
+    }
+  ],
+  "grade_counts": {
+    "Critical": 0,
+    "Important": 2,
+    "Minor": 0
+  },
+  "positive_protocol_checks": [
+    "Registered3bones/five seeds; qualified limited to explicit fixed ownCLIP/DINO Q, Eff formal denied before any fake slot. Prototype allowed onlyDINO7/Eff7.",
+    "OwnQ fixed canonical externalSHA plus canonical3aux/rawSHA and semantic body; typed14/140/107/20/37, exact source/F4 implementation family, actual prototype identity and independent entry review; negative wrongbone/failedaux/boolcounts/outsidepaths exercised.",
+    "Exact DINO template hash and registered bone/label/seed/slot substitutions; three legacy exactharness byte hashes remain supported; canonical UTC-attempt launch/witness/binding path family present.",
+    "Conflict pins, original14marker metadata and real source-selection/LAST identity, same cohort/head perhistory,7footer metadata and lifetime producer-birth/exit evidence remain checked.",
+    "Non-overwrite final output by hardlink, partial evidence on precommit failure, no new dispatcher/scoring/training/GPU/Q issuance. Existing root tests include proof drift during JSON serialization and last-footer JSON pin change.",
+    "Independent qualified positive surrogates for exact legacyDINO7 and futureDINO123 output A were consumed successfully by accepted bb299e validate_chain purecode, including107 source/proof pins,110 producer pins, actual_entry/Q/aux/cache_admission/primary_entry/cache_audit_entry bracketed refs and42ledger records. No numeric/scientific code was run."
+  ],
+  "real_qualification_metadata_refs": {
+    "CLIP_Q": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_parallel_CPU_actual_qualification_clip_vit_b16_20261025T0830.json",
+      "sha256": "0ae309b3366de860cbd77f539c24a05aae3ec1180dbbd84bbbff95ed3111d7f7"
+    },
+    "DINO_Q": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_parallel_CPU_actual_qualification_dinov2_vit_b14.json",
+      "sha256": "ab853480f704f24d4b080e04f0bcefb81fd31c4426e74aa36a351d7e8925bebe"
+    },
+    "DINO_independent_actual_audit": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_parallel_fresh_validation/independent_actual_CPU_parallel_pair_admission_audit_dinov2_vit_b14.json",
+      "sha256": "0b5b9c1011fa2159066112f0ac5d530b866f168882df76a1ab874b1deb3baa85"
+    }
+  },
+  "protected_dependency_SHA": {
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/qualification_snapshots/H_matrix_admission_a65b198602e66662de005c6162563f7286041808c9cafd3b4630b1755c0e3196/entry.py": "a65b198602e66662de005c6162563f7286041808c9cafd3b4630b1755c0e3196",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/h_last_matrix_result_audit.py": "bb299e512e355fa0a8c9b25f901b1788cee6a2b445a4eb1ddb67b30cb4c3a0e2",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/h_parallel_pair_admission_audit.py": "318a248fc2baf3aa3e3e0e697dd9d04ae4190eaeb7f6061eae79f9a34123bb75",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/h_pair_result_audit_before_seed7_binding.py": "12ed094960dc7082215bf6261093d54962ccfb80d557c4ba3e0136baf467b32f",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_parallel_fresh_validation/parallel_source.py": "a6133c824913ab3bf361095b415eefc9ef75be39ab32fb49ab62e2656dc2624a",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_parallel_fresh_validation/cpu_ledger_adapter.py": "c6b98535e5a28123baae595ab1f4b208f1feab43ff4018e740be94366d044287",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_parallel_fresh_validation/cpu_ledger_admission.py": "bd202e85a4990f9246b96a7081815d07cf364041e5d3498f49bfe41d8779b213",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_parallel_fresh_validation/cpu_primary_analysis.py": "c081c6ffeb14dc6bb0219851fd3fd11df25b28d2eed26ac4b7e06ef1e6e4c6ce",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/h_pair_result_audit.py": "6cd3bff403cc2f7c27a870d092023e4c8677f5d9386668abbc439829eadaa4e5"
+  },
+  "M33_and_fixed_owner_collector_issuer36_unchanged": true,
+  "worktree_HEAD": "654e643356c8e3e2b0c4d49b974e0b826dd8c414",
+  "production_checkout": {
+    "path": "/home/z/workspace/deepfake_detector_publish_20261023",
+    "HEAD": "5ef6d06bf7aeda02a5a11113e4c35a2c9909f215",
+    "tracked_status_porcelain": "",
+    "tracked_clean": true
+  },
+  "declined_to_judge_before_verdict": [
+    {
+      "behavior": "Actual generic main execution or lifetime originalCPU slot proof",
+      "reason": "Expressly prohibited. Every public test uses a non-acquiring counter and writes/tmp; no real slot0/1 or rejected lock-IO approach attempted. Synthetic lifetime_CPU_flock_held field is not actual resource qualification."
+    },
+    {
+      "behavior": "Actual source/training/ledger/140pixel/model/cachechunk correctness or scientific equal-budget conclusions",
+      "reason": "Accepted originalF/a65/318/6af/bb contracts reused; no real context, PNG, tensor, weight, numeric ledger or scientific kernel rerun. Unit PASS and copied metadata do not qualify data/statistics."
+    },
+    {
+      "behavior": "Incomplete actual Eff prototype candidate or Eff formal CPU qualification",
+      "reason": "Eff actualC was excluded. Existing Eff launch JSON only is a permitted smallmetadata positive; every Eff full positive fixture is synthetic and formal mode remains disabled."
+    },
+    {
+      "behavior": "Arbitrary hostile concurrent filesystem atomic snapshot guarantees, all IO failures/powerloss durability or unbounded malformed producer artifacts",
+      "reason": "This review demonstrates deterministic observed prepublication drift gaps; it does not claim universal race-free behavior or expand immutable accepted helper contracts. Published fake outputs exist only/tmp."
+    },
+    {
+      "behavior": "Modifying accepted a65/old318/6af/bb299e/F4/M33, new training/dispatcher, active H/M/F owners or JEV",
+      "reason": "Outside task scope; no source edits, real locks/PID controls, GPU/statistical jobs, sourcedata changes, deletion or other application actions performed."
+    },
+    {
+      "behavior": "Root205/full-scope suite as independent execution evidence",
+      "reason": "Only new111 tests and four independent targeted probes executed here. Root205 result is background and not relabeled as independently rerun."
+    }
+  ],
+  "recommendation": "Request changes for HPA001/HPA002 before commit/seal or real use of this new generic entry. Preserve these RED logs and add narrow non-locking surrogate regressions, then independently confirm fixes without changing protected sources/scientific definitions.",
+  "verdict": "NOT_ACCEPTED_TWO_IMPORTANT_PREPUBLICATION_BINDING_GAPS",
+  "real_H_data_or_statistics_qualification_issued": false,
+  "actual_CPU_qualification_issued": false,
+  "real_slot_acquired": false,
+  "implementation_modified_by_reviewer": false,
+  "GPU_used": false,
+  "M_authorized_by_this_review": false,
+  "scientific_conclusions_accepted": false
+}

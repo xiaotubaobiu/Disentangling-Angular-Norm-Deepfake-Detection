@@ -1,0 +1,39 @@
+{
+  "status": "COMPLETE_CONTENT_EVIDENCE_POLICY_NOT_FROZEN",
+  "utc": "2026-10-07T10:20:20.497174+00:00",
+  "manifest_sha256": "16789ae0d6fc395c6a49246c663982d2bcc55338051cffdcad1088a1a0b3dc16",
+  "indexed_unique_paths": 1514777,
+  "examined_unique_paths": 1514777,
+  "pending_unique_paths": 0,
+  "invalid_unique_paths": 0,
+  "global_proven_collision_hash_counts": {
+    "byte": {
+      "roles": 38631,
+      "domains": 0,
+      "labels": 0,
+      "methods": 21022
+    },
+    "RGB": {
+      "roles": 38631,
+      "domains": 0,
+      "labels": 0,
+      "methods": 21022
+    }
+  },
+  "source_real_candidate_content_overlap_rows": {
+    "byte": {
+      "train": 0,
+      "test": 0
+    },
+    "RGB": {
+      "train": 0,
+      "test": 0
+    }
+  },
+  "parser_revision": "full three-digit tokens; five-digit SadTalker prefixes unknown; EFS buckets never sources",
+  "source_annotation_only": true,
+  "data_roles_changed": false,
+  "training_allowed": false,
+  "candidate_count_scenario": "UNAPPROVED: original released TRAIN only, known original-train FS/FR; original released TEST only, known original-test FF FS/FR; remove retained-test RGB from train; >=8 distinct decoded frames; EFS unique pixels remain conditional/unknown; no fake calibration",
+  "limits": "Content collisions prove byte/pixel reuse only. Source annotations prove only known declared FF links. EFS ancestry and audio drivers remain unknown. Partial counts are lower bounds; eligibility is not an approved split."
+}

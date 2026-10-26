@@ -1,0 +1,176 @@
+{
+  "blockers": [],
+  "dependency_snapshot_sha256": {
+    "reliability_v2/geometry_h.py": "161ac4e837463ff16e7916ca42eeb5d13acc44aab9bcc1c397025b9426ad9532",
+    "reliability_v2/models.py": "5c4adb39314433c5f0d40311d7ada3ad5d30c7b239773be02080be120f5a2e60",
+    "reliability_v2/queue_d.py": "3db3d1ebb63fbe233fa19116934268ab999be94faaff59fe1f2d52fdbe1949b8",
+    "reliability_v2/queue_h.py": "a2792361443e64622391fb6ae766ee5e6f887789d662afdfb6d809f9a5ea8176",
+    "reliability_v2/trainer.py": "56f0db0634a525a530fb53482732365ebf9693a1f5470b0a95ec0820cc614368",
+    "reliability_v2/worker_h.py": "790c43fae63b4265bdc0fd80de408fc02dbd697d32e17b12fdc9d0352b05bcf6"
+  },
+  "earlier_runs_not_used_for_final_pass": [
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_pytest.log",
+      "reason": "Review harness initially omitted parent temporary directory; no implementation conclusion drawn."
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_pytest_run2.log",
+      "reason": "48 passed, one correctly rejected data_h.py changing mid-inspection; superseded by final frozen-code checks."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_final_focused.log",
+      "result": "10 passed in 32.48s after announced final code freeze",
+      "sha256": "ff97f047d9ef27d54cdd0bc1197224261d0bb224ed2eec29f1098c7dd8df6c5e"
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_final_independent.log",
+      "result": "5 independent checks PASS; CUDA_VISIBLE_DEVICES empty and torch CUDA uninitialized",
+      "sha256": "d0073993dec48e5af5e6385b0b5bdd4c9abe5293398a7d0d611cffc14b35faa3"
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_pytest_run3.log",
+      "result": "Supporting prior snapshot only: 52 passed in 107.00s; final patch coverage is the focused log above.",
+      "sha256": "93c2b3a48952af6e505a857746f954fcd5bf7f977adb0526d4d6c3399242db64"
+    }
+  ],
+  "execution_safety": {
+    "D_jobs_changed": false,
+    "GPU4_7_access": false,
+    "GPU_allocation": false,
+    "H_pixel_jobs_changed": false,
+    "Jev_or_automation_changed": false,
+    "production_config_edits": false,
+    "source_code_edits": false,
+    "writes_only_authorized_report_and_review_logs": true
+  },
+  "frozen_plan_sha256": "b018b01915a62c645fc3718134970cd49dc0651ecfd02792220f3a0086c6594d",
+  "h_code_bundle_sha256": "03a140d2de1edd8df0dfc88a341d53f288aa68a1d4cf520e8c642c024164b4c1",
+  "independent_checks": [
+    {
+      "name": "real_geometry_source_domain_boundary_fixed",
+      "result": {
+        "actual_geometry_domain": "source",
+        "canonical_source_accepted": true,
+        "noncanonical_domains_rejected": true
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "actual_weighted_paired_probe_sampling_contract",
+      "result": {
+        "counts": {
+          "Deepfakes": 2,
+          "Face2Face": 2,
+          "FaceSwap": 2,
+          "NeuralTextures": 2,
+          "real": 8
+        },
+        "masses": {
+          "Deepfakes": 0.125,
+          "Face2Face": 0.125,
+          "FaceSwap": 0.125,
+          "NeuralTextures": 0.125,
+          "real": 0.5
+        },
+        "paired_mothers_samples_methods_keyed_augmentations": true,
+        "rows": 128
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "real_cal_never_auc",
+      "result": {
+        "cal_false_positives": 0,
+        "two_class_auc_calls": 5
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "source_unused_bridge_quarantines_entire_connected_component",
+      "result": {
+        "SOURCE_UNUSED_bridge_closed": true,
+        "quarantined_videos": 3
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "production_candidate_count_domain_and_initial_source_roles",
+      "result": {
+        "candidate_videos": 8431,
+        "known_group_roles_disjoint_before_RGB_closure": true,
+        "role_counts": {
+          "DEV": 540,
+          "SOURCE_CAL": 140,
+          "SOURCE_TEST": 700,
+          "SOURCE_UNUSED": 560,
+          "TARGET_TEST": 3431,
+          "TRAIN": 3060
+        },
+        "scope": "metadata only; no production artifact audit or freeze"
+      },
+      "status": "PASS"
+    }
+  ],
+  "limitations": [
+    "This report does not certify the production PNG population or complete DFD ancestry; DFD filename/source proxies remain conditional.",
+    "No production H inspect/freeze/review PASS, production H gate or GPU qualification was run by this reviewer.",
+    "Default validation of proof files larger than 8 MiB is accepted size/mtime freshness, not fresh cryptographic byte verification; deep validation rehashes and verifies those files."
+  ],
+  "production_requirements_still_separate": [
+    "Wait for all H pixel preprocessing to complete, then run a fresh process full 8431-candidate audit using current immutable geometry code.",
+    "Perform a new full production artifact/cohort review and bind its exact candidate/audit/table/code/protocol hashes before any H data freeze.",
+    "Only after that data freeze may real source-only H AMP and FP32 qualification run for all three pretrained backbones; all required receipts must pass before H gate acceptance."
+  ],
+  "production_state_at_report": {
+    "H_data_freeze_exists": false,
+    "H_gate_exists": false
+  },
+  "resolved_findings": [
+    {
+      "consequence": "prepare_probe rejected all actual accepted source TRAIN/DEV/CAL tables.",
+      "id": "H-DQ-001",
+      "location": "reliability_v2/qualification_h.py:_source",
+      "resolution": "Qualifier and fixtures use canonical source domain; geometry-to-qualification interface regression added and independent final check passes.",
+      "severity": "Important",
+      "trigger": "Canonical geometry FFPP table rows use domain=source; old qualifier required domain=ff."
+    },
+    {
+      "consequence": "Same-size byte mutation with restored mtime could escape fresh default validation.",
+      "id": "H-DQ-002",
+      "location": "reliability_v2/qualification_h.py:_verify_small_evidence and validate_qualification",
+      "resolution": "Default now cryptographically rehashes every proof file up to 8 MiB and checks full file inventory, while receipt hashes and accepted stat fingerprints remain bound. Same-size metrics mutation with restored mtime is rejected by final regression.",
+      "severity": "Important",
+      "trigger": "Earlier shallow proof validation used only size/mtime for saved small DEV/CAL/metrics/array evidence."
+    }
+  ],
+  "reviewed_files_sha256": {
+    "reliability_v2/data_h.py": "ad81f65c27d53159e6902bf8a20b0910cd129f75eb0105e5a5a053bcc2d2f45e",
+    "reliability_v2/qualification_h.py": "4581ece963c8196422b718425f035d1e96b35b35c1e0d29025c7b2065bc23c18",
+    "tests/test_data_h.py": "f7488203ecc057ecf597faed28497130b733aca1807e0f62d1cfaa019dc51070",
+    "tests/test_qualification_h.py": "62b26113ddef7b4d3355580c235c9a9f616e27a766dc61331bb5dd04b668005a"
+  },
+  "reviewer": {
+    "identity": "/root/h_data_qual_review",
+    "independent": true
+  },
+  "schema": "H_DATA_QUALIFICATION_IMPLEMENTATION_REVIEW_V1",
+  "scope": "Read-only implementation/source-qualification review and CPU-only synthetic checks after parent announced code freeze. This is not the H_DATA_INDEPENDENT_REVIEW_V1 production data approval.",
+  "status": "PASS_CODE_REVIEW_ONLY",
+  "training_code_sha256": "336f3097434edf903a5ff402162e29afeca2442ca50f9c7d9883ca60136b8335",
+  "utc": "2026-10-23T11:08:31.657840+00:00",
+  "verified_implementation_contracts": [
+    "Production data gate requires exactly 8431 complete candidate manifests and exactly 560 SOURCE_UNUSED records, fresh current geometry code/protocol audit hashes, source-video byte hashes, processed metadata inventory and mother/crop/mask artifact inventory.",
+    "Full inspection reconstructs SOURCE_UNUSED-inclusive source/RGB graph closure and quarantine, reconstructs all thirteen active tables exactly, checks audit disposition, active-role source/RGB isolation, and excludes quarantined/SOURCE_UNUSED videos from every active table.",
+    "Common TRAIN/DEV B and AB tables retain identical ordered logical mothers, labels, method contributions and .5 real/.125 per fake mass with equal video/frame weights; asymmetric dedup is rejected.",
+    "All-B deployment and common-B/common-AB CAL/source/target cohorts are separately bound; common-B is an exact all-B subset.",
+    "Production freeze requires external independent hash-bound PASS and explicit quarantine disposition when historical conflicts exist; this review does not supply that approval.",
+    "Source probes select 8 real videos plus 2 per fake method, with 8 mothers each: 128 TRAIN rows, 64 real/64 fake. DEV is source-only common cohort, B SOURCE_CAL is real-only and never enters two-class AUC.",
+    "Actual weighted sampler, four-worker loader, mother-keyed augmentation, continuous two epochs versus one epoch plus resume compare parameters, optimizer, scaler/RNG/state/history, draws/methods/augmentation arrays/batches and FP32 Raw features byte-for-byte.",
+    "Expected Raw feature dimensions are 512/768/1280; all encoder/head parameters must be trainable and receive gradients. CPU runtime tests exercise a toy 512-dimensional encoder in both histories; production pretrained AMP/FP32 proofs remain separate.",
+    "Config/data/code/initialization identity changes reject checkpoint recovery; qualification acceptance requires six current two-history receipts for three backbones and AMP/FP32, with 32->16->8 fallback permitted only after bound OOM evidence.",
+    "validate_h_freeze default performs strict fresh metadata/code/review/audit/table/processed-manifest hashing, while deep=True rechecks all actual source/PNG bytes and reconstructs cohorts. Ordinary workers do not perform a full production source-video/PNG scan.",
+    "Qualification acceptance deep-verifies H data and all proof artifacts; default runtime qualification rehashes receipts, selected source PNGs and small proofs, checks accepted large-proof size/mtime, and does not deserialize checkpoints."
+  ]
+}

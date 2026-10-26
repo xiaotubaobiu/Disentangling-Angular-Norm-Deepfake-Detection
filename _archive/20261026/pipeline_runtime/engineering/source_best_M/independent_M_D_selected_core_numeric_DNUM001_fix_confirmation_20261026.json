@@ -1,0 +1,84 @@
+{
+  "schema": "INDEPENDENT_M_D_SELECTED_CORE_NUMERIC_FIX_CONFIRMATION_V1",
+  "utc": "2026-10-26T06:11:29.675769+00:00",
+  "reviewer": "parallel_source_review",
+  "status": "PASS_DNUM001_NARROW_FIX_CONFIRMATION",
+  "reviewed_sha256": {
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/m_source_best_d_numeric.py": "a7b079965fd34acbf2e974480aa197ded476cbc21f1447aeac523e1c4aab1dd0",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests/test_m_source_best_d_numeric.py": "770097a21dfc48a292192cd7696d42359a1a2e38da01b068eb3e0bbb596caef8",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_M_D_selected_core_numeric_review_20261026.json": "60622b7bc0ce06f9fa65219c57bf7a7c7f6b9b701ab226acefb630a2dab21f1f"
+  },
+  "initial_finding": "DNUM-001 Important, saved group_id omitted from frame-to-video identity binding before normal/RQ4 bootstrap",
+  "disposition": {
+    "DNUM-001": "CLOSED by independently verified frame-derived source group_id binding, matching original scoring_d._video_scores line122; null normalization restricted to frame-derived cross-source collision only."
+  },
+  "selected_core_library_review_accepted": true,
+  "actual_scientific_acceptance": false,
+  "production_integration_accepted": false,
+  "findings": [],
+  "verification": [
+    {
+      "command": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -B -m pytest -q -p no:cacheprovider tests/test_m_source_best_d_numeric.py -k DNUM_001",
+      "cwd": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2",
+      "environment": {
+        "CUDA_VISIBLE_DEVICES": "",
+        "OMP_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1",
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2"
+      },
+      "exit_code": 0,
+      "result": "2 passed, 22 deselected in 0.45s",
+      "scope": "Only two new directed synthetic tests, including original score CSV write/read roundtrip in pytest tmpdir."
+    },
+    {
+      "command": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -B - <private in-memory original-counterexample and collision-null probes>",
+      "cwd": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2",
+      "environment": {
+        "CUDA_VISIBLE_DEVICES": "",
+        "OMP_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1",
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2"
+      },
+      "exit_code": 0,
+      "results": {
+        "original_4video_32frame_counterexample_rejected": true,
+        "valid_natural_group_assignment_pass": true,
+        "valid_single_source_collision_group_assignment_pass": true,
+        "cross_source_collision_null_modes_pass": [
+          "native None",
+          "registered CSV empty string",
+          "decoded floating NaN"
+        ],
+        "invalid_group_cases_rejected": 13
+      },
+      "cases": "Original UID reassignment, natural None/empty/NaN, all-natural wrong merge, missing group column; four forged cross-collision nonnull group values; three illegal single-source collision null values. Frame identities and scores are private synthetic values; no real input/source mutation."
+    },
+    {
+      "command": "Read-only SHA256 of in-memory source text with declared inserted line219 and lines236-247 omitted, compared to historically reviewed d85fc70 source SHA; hash first194 unchanged test lines compared to historically reviewed dba325 test SHA. No filesystem modification.",
+      "exit_code": 0,
+      "result": "Restored source hash exactly d85fc70a1cfe23593f5f5a679ce9fcfc757ad361c02bab1039de3e25fab6d190; unchanged original22-test prefix exactly dba325934a487a453d45703c5dfb31e5f8c3a5c3bf59e6eeafb9baec48fed07c. The only source changes are the declared narrow DNUM-001 fix."
+    },
+    {
+      "command": "Fresh post-probe SHA256 of current source/test and immutable initial review",
+      "exit_code": 0,
+      "result": "All three match requested exact hashes."
+    }
+  ],
+  "author_reported_separate_verification": {
+    "not_independently_rerun_in_this_followup": true,
+    "full_24_tests": "24 passed in130.49s exit0, author reported",
+    "pre_fix_directed_RED": "Two new tests DID NOT RAISE on oldd85, author reported"
+  },
+  "prior_evidence_retained": "Initial independent review reran original22 tests140.01s exit0 and60 explicit-pair integer/Fraction closed-form cases. Original review remains immutable; no duplicate old full suite was run during this followup.",
+  "remaining_boundaries": [
+    "Pure per-model saved-D selected-core numeric component acceptance only. Actual D60 scientific receipt/input/provenance/transport/resource audit remains separate.",
+    "Original feature/head-to-margin derivation and high-precision rank aggregation/stability are caller-authenticated sources, not independently derived by this library.",
+    "Controls/diagnostics/radius/reference and whole-output numeric acceptance remain excluded as enumerated in the immutable initial review.",
+    "Five-seed sample-SD summaries, all-backbone tables and H RQ1 are outside this per-model D library.",
+    "No protected production package/M33/M36/Hbb/6cd/F4 writes; no real payloads/weights/PNG, no shared slots/locks/GPU, no owner/worker changes. JEV and other non-Detector work remain paused."
+  ]
+}

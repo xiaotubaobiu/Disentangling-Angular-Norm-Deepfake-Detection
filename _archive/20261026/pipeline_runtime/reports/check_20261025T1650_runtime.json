@@ -1,0 +1,84 @@
+{
+  "utc": "2026-10-25T16:51:06Z",
+  "formal_training_accepted": 45,
+  "H_roles": 174,
+  "H_operational_models": 24,
+  "H_independent_models": 8,
+  "H_statistics_independent_pairs": 2,
+  "H_statistics_running": {
+    "123": {
+      "pid": 1477519,
+      "alive": true,
+      "fresh_ledger_starts": 14,
+      "last_lines": [
+        "BEGIN_PRIMARY_FRESH_LEDGER 13 clip_vit_b16 AMP",
+        "BEGIN_PRIMARY_FRESH_LEDGER 14 clip_vit_b16 AMP"
+      ]
+    },
+    "2026": {
+      "pid": 1592783,
+      "alive": true,
+      "fresh_ledger_starts": 11,
+      "last_lines": [
+        "BEGIN_PRIMARY_FRESH_LEDGER 10 clip_vit_b16 AMP",
+        "BEGIN_PRIMARY_FRESH_LEDGER 11 clip_vit_b16 AMP"
+      ]
+    }
+  },
+  "H_original_owner_pid": 3219035,
+  "H_original_owner_alive": true,
+  "H_active": [
+    {
+      "pid": 1755049,
+      "run_id": "H_formal_efficientnet_b0_B_seed123",
+      "gpu": 0,
+      "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e",
+      "backbone": "efficientnet_b0"
+    },
+    {
+      "pid": 1774333,
+      "run_id": "H_formal_efficientnet_b0_AB_seed123",
+      "gpu": 1,
+      "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+      "backbone": "efficientnet_b0"
+    },
+    {
+      "pid": 1797600,
+      "run_id": "H_formal_efficientnet_b0_B_seed2026",
+      "gpu": 3,
+      "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646",
+      "backbone": "efficientnet_b0"
+    },
+    {
+      "pid": 1828203,
+      "run_id": "H_formal_efficientnet_b0_AB_seed2026",
+      "gpu": 2,
+      "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+      "backbone": "efficientnet_b0"
+    }
+  ],
+  "free_GiB": 158.13578033447266,
+  "GPU_snapshot": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 0, 874\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 0, 874\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 0, 874\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 0, 874\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n",
+  "M_new_runtime_entry_source_qualification_full_suite": {
+    "passed": 754,
+    "skipped": 17,
+    "seconds": 677.3,
+    "commit": "c915e513b4cfeb6f02bdfe039492a39b19c727e5"
+  },
+  "M_owner_targeted_after_review_fix": {
+    "passed": 10,
+    "independent_recheck": "pending"
+  },
+  "M_cache_collector_issuer_targeted": {
+    "passed": 16,
+    "skipped": 4,
+    "independent_review": "pending"
+  },
+  "M_real_GPU_qualification": false,
+  "M_canary": false,
+  "M_joint_budget_admitted": false,
+  "M_production": false,
+  "cold_migration_released_bytes": 0,
+  "next_runtime_check": "2026-10-25T17:30:00Z",
+  "H_pending_models": 2
+}

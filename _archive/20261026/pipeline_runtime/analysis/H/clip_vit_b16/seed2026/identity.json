@@ -1,0 +1,48 @@
+{
+  "schema": "H_PAIR_ANALYSIS_IDENTITY_V1",
+  "backbone": "clip_vit_b16",
+  "seed": 2026,
+  "effective_precision": "AMP",
+  "run_ids": {
+    "B": "H_formal_clip_vit_b16_B_seed2026",
+    "AB": "H_formal_clip_vit_b16_AB_seed2026"
+  },
+  "inputs_sha256": {
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/configs/H_execution.json": "ec344230ac000185312eb5cd069c5ef1e3917ddc82b65f466fd8180fccc7ee9c",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/H_run_registry.json": "93d9336f5fe57c8af09b0d0177f0e1f9dd1bbab51331347127dec95e4e8dda27",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_target_export_clip_vit_b16.json": "075d386fb586dd7809355fa5992af609397e07737efa66f06a0c82392ae8cb4c",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_clip_vit_b16_AMP_paired_ledger.json": "ac721584a4a505b52574de7b39a10ce9eed0709a459c9600f05719e721800872",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/data/H/freeze.json": "11ac3398b8bd2b347da24efbe45fb74e890681d2d063933b01a65d5fdba0675d"
+  },
+  "cache_completion_sha256": {
+    "B/B/SOURCE_CAL": "1a930ea5572a6a6302ac58a267316e3a9dced1fbd25d87475cfab0027aa04b1e",
+    "B/B/SOURCE_TEST": "e1c9c83c88b06b6d3d4a54cba7f0978624b0ec05c4e78602b3b397d220aac82b",
+    "B/B/TARGET_TEST": "42e843245e7dc93b9258079bc8cb39db5c247fc836c02eaa0e0773acfeb1efd6",
+    "B/common/B/SOURCE_TEST": "e4cba19f9d752fd3a7e5fbb0918592c3f9d130c6a4562835c21f32345b83b135",
+    "B/common/B/TARGET_TEST": "431c8dd020b68ae5a875cd3a6e7d674df59aee46c76a202501135494a44bad53",
+    "B/common/AB/SOURCE_TEST": "49a9e49550804f31a01a90e11e0b7b162fad379dcf3a43cd8c3d4c3aa166852e",
+    "B/common/AB/TARGET_TEST": "bcdde2bb1a767bf0e6cf3252b3bf9195d06276527d48a7929be89249dc1766a5",
+    "AB/B/SOURCE_CAL": "5ee37c40a1f4c36292b4c3708fd4ad2c1ec7332c8c5409c7f35aed3d45d0b66c",
+    "AB/B/SOURCE_TEST": "ebbac0fee4019b8f510366965832ed58ecb6bc27a0e53393243e043ff74f4c62",
+    "AB/B/TARGET_TEST": "50bbded6d48c2c20a2f3ba50de21d8aee23ab9014dbd2fcae7411ac5861f0c8f",
+    "AB/common/B/SOURCE_TEST": "63fbd066bb67cd885ee1422b329f189263a6c94dd77a1e6dbe064199c0ba2ca0",
+    "AB/common/B/TARGET_TEST": "7d9d9792112477f8efd9c63196004a6f3dbef09b48e9a0ff1f56465d52039bfd",
+    "AB/common/AB/SOURCE_TEST": "9de2c457acf60e2e4ec29b789530635b9ebe62dc357049ca8d144d715e664adb",
+    "AB/common/AB/TARGET_TEST": "df839eefd2dad445e250dfb22a56d87986c60db876219cfee6734445528162df"
+  },
+  "code_sha256": {
+    "analysis_h.py": "051226f11737615bb3546ae1a301d621fd662943dc1c849e18085e610c865383",
+    "cache_h.py": "9119200359f8d696f1366e6c0137bca533c63089c32e505971e69f84ebaf40fb",
+    "stats_h.py": "5627cccc714c2fc59a3dadfed3ddeba32d1488020cfd550ca70d0c9be947dd74",
+    "coverage_h.py": "f1b684903d2486107dc1ba2312502b7f34a66636b196662b0a3566a159475f9d",
+    "analysis_d.py": "a1d3be7bd43acb43995768f9167225b066ee9e6691c61c7b8bf28b00de53ba5e",
+    "scoring_d.py": "9bddf066fcb8df1b9659d4cfe14aa4febdf850f7cc39c1c0c3d6050864263d1c",
+    "bootstrap_fast.py": "7eaeaf0973d72cd1def838cf6bc82863c92c75fb35409553332015dec8b0e4e5",
+    "cache_d.py": "8f5814646194c772dcf00f6751a35c2f792dd5f11008e0834fdba4eb5e329761"
+  },
+  "bootstrap_repeats": 2000,
+  "resampling_seed": 20261023,
+  "source_threshold": "each_model_allB_SOURCE_CAL_empiricalFPR5",
+  "primary": "DFD_allB_Raw_mean_logit_H10_minus_H00",
+  "test_cohorts": "allB_and_common_reported_separately"
+}

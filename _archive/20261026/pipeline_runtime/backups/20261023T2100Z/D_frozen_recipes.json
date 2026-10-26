@@ -1,0 +1,65 @@
+{
+  "recipes": {
+    "clip_vit_b16": {
+      "lr": 1e-05,
+      "epochs": 30,
+      "selection_source_only": true,
+      "source_30epoch_grid": [
+        {
+          "lr": 1e-05,
+          "last5_mean": 0.9998942615454961
+        }
+      ],
+      "final_development_run_ids": [
+        "D_dev_clip_vit_b16_lr1e-05_seed1007_e30",
+        "D_dev_clip_vit_b16_lr1e-05_seed1042_e30"
+      ],
+      "rule": "last5 two-seed mean; <=.001 shorter then smallerLR; DINO adjacent5 windows anyseed>.002, fresh45 then60cap"
+    },
+    "dinov2_vit_b14": {
+      "lr": 1e-05,
+      "epochs": 30,
+      "selection_source_only": true,
+      "source_30epoch_grid": [
+        {
+          "lr": 1e-05,
+          "last5_mean": 0.9999848945064995
+        },
+        {
+          "lr": 3e-05,
+          "last5_mean": 0.9988280044520093
+        },
+        {
+          "lr": 5e-05,
+          "last5_mean": 0.9961986060488739
+        }
+      ],
+      "final_development_run_ids": [
+        "D_dev_dinov2_vit_b14_lr1e-05_seed1007_e30",
+        "D_dev_dinov2_vit_b14_lr1e-05_seed1042_e30"
+      ],
+      "rule": "last5 two-seed mean; <=.001 shorter then smallerLR; DINO adjacent5 windows anyseed>.002, fresh45 then60cap"
+    },
+    "efficientnet_b0": {
+      "lr": 0.0001,
+      "epochs": 30,
+      "selection_source_only": true,
+      "source_30epoch_grid": [
+        {
+          "lr": 0.0001,
+          "last5_mean": 0.9998746652296036
+        }
+      ],
+      "final_development_run_ids": [
+        "D_dev_efficientnet_b0_lr1e-04_seed1007_e30",
+        "D_dev_efficientnet_b0_lr1e-04_seed1042_e30"
+      ],
+      "rule": "last5 two-seed mean; <=.001 shorter then smallerLR; DINO adjacent5 windows anyseed>.002, fresh45 then60cap"
+    }
+  },
+  "utc": "2026-10-23T21:01:42.792548+00:00",
+  "train_manifest_sha256": "9d85e421d803f20481eb7720854cdb4369349b97dd5e04f5763dbe851077f496",
+  "dev_manifest_sha256": "2c157ce3f30504479e50023ff43c76bdd0a2df8cd7e31a938356a6306b7550bd",
+  "code_sha256": "336f3097434edf903a5ff402162e29afeca2442ca50f9c7d9883ca60136b8335",
+  "target_scores_used": false
+}

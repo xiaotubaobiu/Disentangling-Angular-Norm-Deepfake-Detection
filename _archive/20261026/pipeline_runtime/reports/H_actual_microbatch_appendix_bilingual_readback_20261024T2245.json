@@ -1,0 +1,52 @@
+{
+  "utc": "2026-10-24T22:50:59.246730+00:00",
+  "status": "PASS_BILINGUAL_APPENDIX_ACTUAL_H_QUALIFICATION_READBACK",
+  "records": [
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/manuscript_preparation/20261024_覆盖整合版/附录A_复现协议与计数口径_中文.md",
+      "before_sha256": "688dd2ca8d62ce2e38e96489915255550a5c18946c25e250cdc8c5731233ef75",
+      "after_sha256": "fb24469d3b4bd7bb99a77ca1111ededfce1753720799e3ff7b0194350a3243e9",
+      "backup_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/backups/20261024T2245Z/appendix_A_actual_H_microbatch/repo/附录A_复现协议与计数口径_中文.md",
+      "only_single_microbatch_paragraph_updated": true
+    },
+    {
+      "path": "/home/z/obsidian/paper/deepfake-detector/新实验设计/20261023/论文方法与设置准备_v2/20261024_覆盖整合版/附录A_复现协议与计数口径_中文.md",
+      "before_sha256": "688dd2ca8d62ce2e38e96489915255550a5c18946c25e250cdc8c5731233ef75",
+      "after_sha256": "fb24469d3b4bd7bb99a77ca1111ededfce1753720799e3ff7b0194350a3243e9",
+      "backup_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/backups/20261024T2245Z/appendix_A_actual_H_microbatch/obsidian/附录A_复现协议与计数口径_中文.md",
+      "only_single_microbatch_paragraph_updated": true
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/manuscript_preparation/20261024_覆盖整合版/appendix_A_reproducibility_and_counting_en.md",
+      "before_sha256": "ff0a319ee0fe54cdf91b792211d93ba201473ae6b6bbe7aef1175ee326dcb1f7",
+      "after_sha256": "7123fafcfd17db08f581d305c94c0801cc068f5a7af4ba4e17e28044a2be5435",
+      "backup_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/backups/20261024T2245Z/appendix_A_actual_H_microbatch/repo/appendix_A_reproducibility_and_counting_en.md",
+      "only_single_microbatch_paragraph_updated": true
+    },
+    {
+      "path": "/home/z/obsidian/paper/deepfake-detector/新实验设计/20261023/论文方法与设置准备_v2/20261024_覆盖整合版/appendix_A_reproducibility_and_counting_en.md",
+      "before_sha256": "ff0a319ee0fe54cdf91b792211d93ba201473ae6b6bbe7aef1175ee326dcb1f7",
+      "after_sha256": "7123fafcfd17db08f581d305c94c0801cc068f5a7af4ba4e17e28044a2be5435",
+      "backup_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/backups/20261024T2245Z/appendix_A_actual_H_microbatch/obsidian/appendix_A_reproducibility_and_counting_en.md",
+      "only_single_microbatch_paragraph_updated": true
+    }
+  ],
+  "source_qualification_evidence": {
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_gate.json": "a3f120d973ea89d5bd486e6327011b1da83cf3022d83cf05b43bab55e8a8779a",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H/clip_vit_b16/AMP/micro32/receipt.json": "704f19c4b8d01794eacfac0260dc6a247f4f79cf8b2fab69a2907a86ba847bd9",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H/clip_vit_b16/FP32/micro32/receipt.json": "8e78ac440dbbd71408d064ed1516b18a53ca3e8b687d18df642193798151730a",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H/dinov2_vit_b14/AMP/micro32/receipt.json": "7ad72f5ff40440466b00dec881de139994b704ba9264480a05bce97a71bf6b32",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H/dinov2_vit_b14/FP32/micro32/receipt.json": "b7ef0aef23e76b45228b97f35000c58d980f26f062fa01140e285312ed701c6f",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H/efficientnet_b0/AMP/micro32/receipt.json": "bc19b931ecd3a05806e4ccb5bac7ffb6584c2195e33b65c699811adaad02d208",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H/efficientnet_b0/FP32/micro32/receipt.json": "feff2142925cbc5fc219a28172d82f8ff7e60a03c7578c15f12c064975c38170"
+  },
+  "H_execution_sha256": "ec344230ac000185312eb5cd069c5ef1e3917ddc82b65f466fd8180fccc7ee9c",
+  "actual_registered_H_microbatch": 32,
+  "effective_batch": 128,
+  "source_only": true,
+  "new_GPU_qualification_run": false,
+  "scientific_protocol_changed": false,
+  "training_processes_changed": false,
+  "unfinished_H_target_results_added": false,
+  "master_CN_EN_changed": false
+}

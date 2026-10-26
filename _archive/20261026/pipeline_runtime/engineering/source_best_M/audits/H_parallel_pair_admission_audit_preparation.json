@@ -1,0 +1,115 @@
+{
+  "schema": "H_PARALLEL_PAIR_ADMISSION_INDEPENDENT_METADATA_AUDIT_PREPARATION_V1",
+  "utc": "2026-10-25T15:22:51.993545+00:00",
+  "status": "PREPARED_46_SYNTHETIC_TESTS_PASS_REAL_AUDIT_NOT_STARTED",
+  "entry": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/h_parallel_pair_admission_audit.py",
+  "entry_sha256": "318a248fc2baf3aa3e3e0e697dd9d04ae4190eaeb7f6061eae79f9a34123bb75",
+  "context": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/H_parallel_pair_admission_audit_context.json",
+  "context_sha256": "6af5420a066cd80e5946f450d8fc71bdfb580b10fd5f9b2939ddf4df7ede1e63",
+  "files_sha256": {
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/h_parallel_pair_admission_audit.py": "318a248fc2baf3aa3e3e0e697dd9d04ae4190eaeb7f6061eae79f9a34123bb75",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/test_h_parallel_pair_admission_audit.py": "2badb86a170580ef4d0d99899aaceb406b12eb34daa03debfc64cc226574390e",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/H_parallel_pair_admission_audit_context.json": "6af5420a066cd80e5946f450d8fc71bdfb580b10fd5f9b2939ddf4df7ede1e63",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/H_parallel_pair_admission_audit_PLAN.md": "c13c1c86cac00e6894d8e9246f15695ee408f151f573772ed29cb3948a03a50b",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/H_parallel_pair_admission_audit_README.md": "335a4b2b1392c8895576b5e5233ebadcc0fabbd02475f12690a349178d3f8d5b",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/H_parallel_pair_admission_audit_RED.log": "3163c1c35b03a91debcd3577351a3d53ddaeb9dce31c832484a31059dd614e71",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/H_parallel_pair_admission_audit_boundary_RED.log": "443f36b5819771d8bbcf4b5fd92fdf67d11a2ada76eed67e76c70fa0e2501498",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/H_parallel_pair_admission_audit_GREEN_final.log": "2cbcd0f05925e76b11c6bdb7cb933b92643bf65f55c97ade68ddde5ab8cd7d6c",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/H_parallel_pair_admission_audit_static_reference_check.log": "eb5d105a91aa0c9dd5db0385dcf7ccaa2e401199ad5e568f296c73580c87b0ab"
+  },
+  "reuse": {
+    "accepted_seed42_reference_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_parallel_fresh_validation/independent_actual_CPU_parallel_pair_admission_audit.json",
+    "accepted_seed42_reference_sha256": "a7d29d89b9dcfc9fea48c6e6488e1632273fd3980a907161ed3e7de045165bf3",
+    "preserved_shared_audit_source": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/h_pair_result_audit_before_seed7_binding.py",
+    "preserved_shared_source_sha256": "12ed094960dc7082215bf6261093d54962ccfb80d557c4ba3e0136baf467b32f",
+    "shared_functions": [
+      "sha",
+      "require",
+      "cpu_slot",
+      "ROLES"
+    ],
+    "original_F_imported": false,
+    "source_search_counts": {
+      "qualification": 284,
+      "tmp_top_level": 85,
+      "local_task_source_match": 0
+    },
+    "standalone_original_cache_admission_audit_source_found": false
+  },
+  "scope": {
+    "backbone": "clip_vit_b16",
+    "seeds": [
+      123,
+      2026
+    ],
+    "canonical_pins": 107,
+    "qualified_source_modules": 20,
+    "accepted_canonical_proofs": 37,
+    "role_marker_headers": 14,
+    "source_role_manifest_footers": 7,
+    "original_ledger_receipt_rows": 14,
+    "fresh_checks_per_ledger": 10,
+    "total_source_checks_in_receipt": 140
+  },
+  "tests": {
+    "count": 46,
+    "passed": true,
+    "test_seconds": 0.337,
+    "wall_seconds": 0.52,
+    "maximum_RSS_KiB": 114904,
+    "CUDA_VISIBLE_DEVICES": "",
+    "numerical_threads": 1,
+    "full_mock_paths": [
+      123,
+      2026
+    ],
+    "tiny_real_parquet_footer": true,
+    "missing_module_RED": true,
+    "cross_seed_launch_path_RED_then_fixed": true
+  },
+  "static_preparation_only_checks": {
+    "accepted_reference107_inventory_compatible": true,
+    "both_existing_producer_wrapper_sources_compatible": true,
+    "actual_candidates_read": false,
+    "current107_hash_audit_run": false,
+    "actual_role_markers_read": false
+  },
+  "actual_execution_template": "CUDA_VISIBLE_DEVICES='' OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 PYTHONDONTWRITEBYTECODE=1 /usr/bin/time -v /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/h_parallel_pair_admission_audit.py --execute --seed <123_OR_2026> --slot <ROOT_SELECTED_FREE_SLOT> --context-sha 6af5420a066cd80e5946f450d8fc71bdfb580b10fd5f9b2939ddf4df7ede1e63 --receipt-sha <ROOT_CONFIRMED_COMPLETE_CANDIDATE_SHA> --time-sha <ROOT_CONFIRMED_PRODUCER_TIME_SHA> --log-sha <ROOT_CONFIRMED_PRODUCER_LOG_SHA>",
+  "planning_resources": {
+    "shared_CPU_slots": 1,
+    "numerical_threads": 1,
+    "estimated_wall_seconds": [
+      1,
+      10
+    ],
+    "estimated_RAM_MiB": 256,
+    "actual_performance_measured": false
+  },
+  "scope_limits": [
+    "Completed original140-model/source checks and numeric-ledger equivalence are inherited from bound reviewed producer mechanics, not independently rerun",
+    "Full source role-manifest bytes, image/RGB, weights/models and feature chunks are not rehashed/scanned",
+    "Does not start or replace original primary statistics/preflight, change thresholds, infer speedup/resources, grant GPU/M, or accept scientific results"
+  ],
+  "real_audit_started": false,
+  "original_140_validation_repeated": false,
+  "model_GPU_or_PNG_calls": false,
+  "real_CPU_slot_opened": false,
+  "background_waiter_started": false,
+  "original_or_F_edited": false,
+  "existing_result_audit_source_sha256_unchanged": "6cd3bff403cc2f7c27a870d092023e4c8677f5d9386668abbc439829eadaa4e5",
+  "imports": [
+    "argparse",
+    "copy",
+    "hashlib",
+    "importlib.util",
+    "json",
+    "math",
+    "os",
+    "pathlib",
+    "pyarrow.parquet",
+    "re",
+    "stat",
+    "time"
+  ],
+  "remaining_gate": "Root must explicitly confirm each completed candidate and true producer exit, accept fixed code/context, supply external receipt/time/log hashes, and authorize one real audit using a free shared slot."
+}

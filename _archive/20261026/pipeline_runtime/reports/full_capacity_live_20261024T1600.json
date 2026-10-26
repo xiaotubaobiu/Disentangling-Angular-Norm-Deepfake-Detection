@@ -1,0 +1,90 @@
+{
+  "utc": "2026-10-24T16:21:23.638755+00:00",
+  "status": "NORMAL_REMAINING_COVERED_CONDITIONAL_COLD_REVIEW_PENDING",
+  "base_live_projection_sha256": "d9ef5ed7b5476f9389bdaa5d4897035d26a1f5af3c83ca987eea1ce5a0a7823b",
+  "D_current_outputs": {
+    "D_formal_clip_vit_b16_seed7": {
+      "bytes": 7375372865,
+      "completion_marker": true
+    },
+    "D_formal_clip_vit_b16_seed42": {
+      "bytes": 7375359498,
+      "completion_marker": true
+    },
+    "D_formal_clip_vit_b16_seed123": {
+      "bytes": 7375407105,
+      "completion_marker": true
+    },
+    "D_formal_clip_vit_b16_seed2026": {
+      "bytes": 7375357358,
+      "completion_marker": true
+    },
+    "D_formal_clip_vit_b16_seed3407": {
+      "bytes": 6954766718,
+      "completion_marker": false
+    },
+    "D_formal_dinov2_vit_b14_seed7": {
+      "bytes": 0,
+      "completion_marker": false
+    },
+    "D_formal_dinov2_vit_b14_seed42": {
+      "bytes": 0,
+      "completion_marker": false
+    },
+    "D_formal_dinov2_vit_b14_seed123": {
+      "bytes": 0,
+      "completion_marker": false
+    },
+    "D_formal_dinov2_vit_b14_seed2026": {
+      "bytes": 0,
+      "completion_marker": false
+    },
+    "D_formal_dinov2_vit_b14_seed3407": {
+      "bytes": 0,
+      "completion_marker": false
+    },
+    "D_formal_efficientnet_b0_seed7": {
+      "bytes": 0,
+      "completion_marker": false
+    },
+    "D_formal_efficientnet_b0_seed42": {
+      "bytes": 0,
+      "completion_marker": false
+    },
+    "D_formal_efficientnet_b0_seed123": {
+      "bytes": 0,
+      "completion_marker": false
+    },
+    "D_formal_efficientnet_b0_seed2026": {
+      "bytes": 0,
+      "completion_marker": false
+    },
+    "D_formal_efficientnet_b0_seed3407": {
+      "bytes": 0,
+      "completion_marker": false
+    }
+  },
+  "H_current_run_bytes": 7521308020,
+  "remaining_components": {
+    "D_remaining_analysis": 99345673858,
+    "D_remaining_features": 0,
+    "H_training": 82936724883.52281,
+    "H_qualification": 0,
+    "H_features": 10684596224,
+    "H_pair_analysis": 16106127360,
+    "future_logs_manifests_figures_audits": 17179869184
+  },
+  "normal_remaining_write_bytes": 226252991509.52283,
+  "temporary_bytes": 17179869184,
+  "reserve_bytes": 53687091200,
+  "normal_required_bytes": 297119951893.5228,
+  "remaining_conditionals": {
+    "H8_DINO_extension_and_longer_formal_aux": 23610477024.37587,
+    "H30_uniform_FP32_fallback": 53550263095.29912
+  },
+  "free_bytes": 335649325056,
+  "SSD_cold_release_bytes": 0,
+  "scope": "Non-atomic metadata projection; same frozen main-matrix bounds; subtract completed/current bytes, no qualification OOM branch remains. Cold copies do not release SSD. Conditional/formal phase must recheck.",
+  "normal_margin_bytes": 38529373162.47717,
+  "remaining_conditional_cold_deficit_bytes": 38631366957.197815
+}

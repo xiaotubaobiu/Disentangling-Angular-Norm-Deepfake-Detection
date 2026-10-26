@@ -1,0 +1,48 @@
+{
+  "utc": "2026-10-24T12:38:32.556184+00:00",
+  "status": "PASS_EXISTING_CANONICAL_READONLY_CLI_ENTRYPOINTS_WAITING_EXPECTED_INPUTS",
+  "actual_CLI_observations_from_this_check": [
+    {
+      "module": "reliability_v2.analysis_d",
+      "command": "status --config R/configs/execution.json",
+      "returncode": 0,
+      "status": "WAITING_FORMAL_CACHES",
+      "formal_registered": 15,
+      "formal_caches_complete": 0,
+      "marker_only": true
+    },
+    {
+      "module": "reliability_v2.queue_h",
+      "command": "status --root R",
+      "returncode": 0,
+      "H_freeze_present": true,
+      "H_gate_present": false,
+      "D_priority_ready": false,
+      "D_stage": "P3_D_FORMAL_TRAINING",
+      "GPU_launch_attempted": false
+    },
+    {
+      "module": "reliability_v2.analysis_h",
+      "command": "status --root R",
+      "returncode": 0,
+      "status": "WAITING_H_FORMAL_CACHES",
+      "complete_pairs": 0,
+      "expected_pairs": 15,
+      "GPU_launch_attempted": false
+    }
+  ],
+  "H_GPU_qualification_not_complete": true,
+  "no_source_probe_rebuild_or_full_image_audit": true,
+  "no_cache_or_H_dispatcher_started": true,
+  "old_plot_modules_reuse_assessment": {
+    "files": [
+      "studies/pipeline_reliability/src/deepfake_detector/reporting.py",
+      "studies/pipeline_reliability/reports/verification/supplemental_exports.py"
+    ],
+    "reusable": "Agg/static plotting style and PNG/PDF export conventions only",
+    "not_reusable_inputs_or_semantics": "Legacy31method identities, config/v1.1 paths, old six flows and clipped histograms cannot substitute for current v2 source-only coverage/DEV plots."
+  },
+  "matplotlib_version": "3.8.4",
+  "CJK_font_found": false,
+  "planned_label_policy": "English figure labels plus paired Chinese/English captions; no font/software install"
+}

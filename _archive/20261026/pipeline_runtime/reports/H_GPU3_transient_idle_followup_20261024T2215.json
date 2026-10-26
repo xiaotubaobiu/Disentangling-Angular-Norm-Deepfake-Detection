@@ -1,0 +1,57 @@
+{
+  "utc": "2026-10-24T22:21:15.268281+00:00",
+  "scope": "Follow-up on GPU3 0% in prior6second sample. Preserve original sample; infer checkpoint/CPU boundary only from adjacent evidence, no intervention.",
+  "previous_report": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/runtime_health_20261024T2215.json",
+  "same_worker_pid": 2228138,
+  "followup_samples": [
+    {
+      "utc": "2026-10-24T22:21:11.040381+00:00",
+      "GPU_csv": "0, 95, 4932\n1, 0, 4932\n2, 0, 4932\n3, 95, 4932\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n",
+      "committed_epochs": 16,
+      "recent_logs": [
+        {
+          "name": "epoch_16_updates.jsonl",
+          "complete_records": 191
+        },
+        {
+          "name": "epoch_17_updates.jsonl",
+          "complete_records": 72
+        }
+      ],
+      "worker_alive": true
+    },
+    {
+      "utc": "2026-10-24T22:21:13.173591+00:00",
+      "GPU_csv": "0, 98, 4932\n1, 0, 4932\n2, 0, 4932\n3, 96, 4932\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n",
+      "committed_epochs": 16,
+      "recent_logs": [
+        {
+          "name": "epoch_16_updates.jsonl",
+          "complete_records": 191
+        },
+        {
+          "name": "epoch_17_updates.jsonl",
+          "complete_records": 76
+        }
+      ],
+      "worker_alive": true
+    },
+    {
+      "utc": "2026-10-24T22:21:15.268065+00:00",
+      "GPU_csv": "0, 98, 4932\n1, 0, 4932\n2, 0, 4932\n3, 96, 4932\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n",
+      "committed_epochs": 16,
+      "recent_logs": [
+        {
+          "name": "epoch_16_updates.jsonl",
+          "complete_records": 191
+        },
+        {
+          "name": "epoch_17_updates.jsonl",
+          "complete_records": 81
+        }
+      ],
+      "worker_alive": true
+    }
+  ],
+  "processes_restarted": false
+}

@@ -1,0 +1,13 @@
+{
+  "independence_scope": "Known FF source groups and complete exact RGB graph including SOURCE_UNUSED; DFD filename parent proxies do not certify complete ancestry",
+  "primary": "DFD all-B Raw mean-logit H10-H00; FF source validation",
+  "cohorts": "All-B deployment and common 2x2 remain separate; no cross-cohort metric subtraction",
+  "source_threshold": "each model allB SOURCE_CAL only; AB cells reuse B deployment threshold",
+  "bootstrap": "2000 pointwise conditional shared-group TEST draws, not training replicates; proxy ancestry unverified",
+  "representation": "Raw only; fixed original FP32 head promoted to FP64 before subtraction",
+  "numerical_NA": [],
+  "completed_model_pairs": 1,
+  "training_seed_count": 1,
+  "five_seed_summary_pending": true,
+  "formal_scientific_results": true
+}

@@ -1,0 +1,300 @@
+{
+  "utc": "2026-10-24T04:28:07.978543+00:00",
+  "status": "MEASURED_ACTIVE_D_TERMINAL_ESTIMATES_NOT_COMPLETION_CLAIMS",
+  "method": "LastcompletedsourceDEVParquetmtime+remainingepochs*mean(last3successiveDEVcompletionintervals)+median(samebackbonecompletedterminaloverheads); includescheckpoint/loopoverhead",
+  "rows": [
+    {
+      "pid": 457025,
+      "run_id": "D_formal_clip_vit_b16_seed3407",
+      "gpu": 0,
+      "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e",
+      "metadata_history_epoch": 23,
+      "history_snapshot_sha256": "d6bbf97db19852c14c6655868ebf991973d5fbe1c3c995b314eb7a2d418c2e5f",
+      "remaining_epoch_endpoints": 7,
+      "last6_source_DEV_markers": [
+        {
+          "epoch": 18,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_clip_vit_b16_seed3407/epoch_18_source_dev.parquet",
+          "mtime": 1792813474.768876
+        },
+        {
+          "epoch": 19,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_clip_vit_b16_seed3407/epoch_19_source_dev.parquet",
+          "mtime": 1792813976.8076084
+        },
+        {
+          "epoch": 20,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_clip_vit_b16_seed3407/epoch_20_source_dev.parquet",
+          "mtime": 1792814478.7533283
+        },
+        {
+          "epoch": 21,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_clip_vit_b16_seed3407/epoch_21_source_dev.parquet",
+          "mtime": 1792814979.660085
+        },
+        {
+          "epoch": 22,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_clip_vit_b16_seed3407/epoch_22_source_dev.parquet",
+          "mtime": 1792815481.285026
+        },
+        {
+          "epoch": 23,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_clip_vit_b16_seed3407/epoch_23_source_dev.parquet",
+          "mtime": 1792815986.594602
+        }
+      ],
+      "last3_checkpoint_inclusive_epoch_intervals_seconds": [
+        500.9067566394806,
+        501.62494111061096,
+        505.3095760345459
+      ],
+      "median_terminal_overhead_seconds": 7.802000045776367,
+      "estimated_terminal_utc": "2026-10-24T05:25:12.692908+00:00",
+      "estimated_remaining_minutes": 57.07857274214427,
+      "recent_speed_scenarios_utc": [
+        "2026-10-24T05:25:00.743899+00:00",
+        "2026-10-24T05:25:31.563634+00:00"
+      ]
+    },
+    {
+      "pid": 457172,
+      "run_id": "D_formal_dinov2_vit_b14_seed7",
+      "gpu": 3,
+      "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646",
+      "metadata_history_epoch": 18,
+      "history_snapshot_sha256": "cf94f41c0c67c182658ff8550918c853891e2e1d9713cc1fafa5587a65248c33",
+      "remaining_epoch_endpoints": 12,
+      "last6_source_DEV_markers": [
+        {
+          "epoch": 13,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_dinov2_vit_b14_seed7/epoch_13_source_dev.parquet",
+          "mtime": 1792812810.4913008
+        },
+        {
+          "epoch": 14,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_dinov2_vit_b14_seed7/epoch_14_source_dev.parquet",
+          "mtime": 1792813434.035593
+        },
+        {
+          "epoch": 15,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_dinov2_vit_b14_seed7/epoch_15_source_dev.parquet",
+          "mtime": 1792814062.2328095
+        },
+        {
+          "epoch": 16,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_dinov2_vit_b14_seed7/epoch_16_source_dev.parquet",
+          "mtime": 1792814699.603155
+        },
+        {
+          "epoch": 17,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_dinov2_vit_b14_seed7/epoch_17_source_dev.parquet",
+          "mtime": 1792815338.6503544
+        },
+        {
+          "epoch": 18,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_dinov2_vit_b14_seed7/epoch_18_source_dev.parquet",
+          "mtime": 1792815981.086616
+        }
+      ],
+      "last3_checkpoint_inclusive_epoch_intervals_seconds": [
+        637.3703453540802,
+        639.0471994876862,
+        642.4362616539001
+      ],
+      "median_terminal_overhead_seconds": 7.8959455490112305,
+      "estimated_terminal_utc": "2026-10-24T06:34:24.397788+00:00",
+      "estimated_remaining_minutes": 126.27365407546361,
+      "recent_speed_scenarios_utc": [
+        "2026-10-24T06:33:57.426706+00:00",
+        "2026-10-24T06:34:58.217701+00:00"
+      ]
+    },
+    {
+      "pid": 457712,
+      "run_id": "D_formal_dinov2_vit_b14_seed42",
+      "gpu": 2,
+      "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+      "metadata_history_epoch": 18,
+      "history_snapshot_sha256": "be4c6b08b411f336b385d94786450f2d7ca782eec3eecae85ed39cc449582246",
+      "remaining_epoch_endpoints": 12,
+      "last6_source_DEV_markers": [
+        {
+          "epoch": 13,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_dinov2_vit_b14_seed42/epoch_13_source_dev.parquet",
+          "mtime": 1792812824.4712067
+        },
+        {
+          "epoch": 14,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_dinov2_vit_b14_seed42/epoch_14_source_dev.parquet",
+          "mtime": 1792813464.6925664
+        },
+        {
+          "epoch": 15,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_dinov2_vit_b14_seed42/epoch_15_source_dev.parquet",
+          "mtime": 1792814088.5051553
+        },
+        {
+          "epoch": 16,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_dinov2_vit_b14_seed42/epoch_16_source_dev.parquet",
+          "mtime": 1792814728.9553788
+        },
+        {
+          "epoch": 17,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_dinov2_vit_b14_seed42/epoch_17_source_dev.parquet",
+          "mtime": 1792815363.1620967
+        },
+        {
+          "epoch": 18,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_dinov2_vit_b14_seed42/epoch_18_source_dev.parquet",
+          "mtime": 1792816002.8625624
+        }
+      ],
+      "last3_checkpoint_inclusive_epoch_intervals_seconds": [
+        640.4502234458923,
+        634.2067179679871,
+        639.7004656791687
+      ],
+      "median_terminal_overhead_seconds": 7.8959455490112305,
+      "estimated_terminal_utc": "2026-10-24T06:34:28.188136+00:00",
+      "estimated_remaining_minutes": 126.33682655493418,
+      "recent_speed_scenarios_utc": [
+        "2026-10-24T06:33:41.239124+00:00",
+        "2026-10-24T06:34:56.161189+00:00"
+      ]
+    },
+    {
+      "pid": 458602,
+      "run_id": "D_formal_dinov2_vit_b14_seed123",
+      "gpu": 1,
+      "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+      "metadata_history_epoch": 18,
+      "history_snapshot_sha256": "7494e542dd692233540cec00088bac9722aabe2308fe79c002a8f77314ba9cc7",
+      "remaining_epoch_endpoints": 12,
+      "last6_source_DEV_markers": [
+        {
+          "epoch": 13,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_dinov2_vit_b14_seed123/epoch_13_source_dev.parquet",
+          "mtime": 1792812849.0510406
+        },
+        {
+          "epoch": 14,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_dinov2_vit_b14_seed123/epoch_14_source_dev.parquet",
+          "mtime": 1792813488.8853014
+        },
+        {
+          "epoch": 15,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_dinov2_vit_b14_seed123/epoch_15_source_dev.parquet",
+          "mtime": 1792814125.1296203
+        },
+        {
+          "epoch": 16,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_dinov2_vit_b14_seed123/epoch_16_source_dev.parquet",
+          "mtime": 1792814764.5156455
+        },
+        {
+          "epoch": 17,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_dinov2_vit_b14_seed123/epoch_17_source_dev.parquet",
+          "mtime": 1792815392.9218013
+        },
+        {
+          "epoch": 18,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_dinov2_vit_b14_seed123/epoch_18_source_dev.parquet",
+          "mtime": 1792816027.018506
+        }
+      ],
+      "last3_checkpoint_inclusive_epoch_intervals_seconds": [
+        639.3860251903534,
+        628.4061558246613,
+        634.0967047214508
+      ],
+      "median_terminal_overhead_seconds": 7.8959455490112305,
+      "estimated_terminal_utc": "2026-10-24T06:34:02.469995+00:00",
+      "estimated_remaining_minutes": 125.90819085836411,
+      "recent_speed_scenarios_utc": [
+        "2026-10-24T06:32:55.788321+00:00",
+        "2026-10-24T06:35:07.546754+00:00"
+      ]
+    }
+  ],
+  "same_backbone_terminal_overheads": {
+    "clip_vit_b16": [
+      {
+        "run_id": "D_dev_clip_vit_b16_lr1e-05_seed1007_e30",
+        "terminal_overhead_seconds": 7.523963928222656,
+        "complete_sha256": "6e6ee14268ad9752e026c0e366b807fddc898dd18116f00e7e22b64fad52976a"
+      },
+      {
+        "run_id": "D_dev_clip_vit_b16_lr1e-05_seed1042_e30",
+        "terminal_overhead_seconds": 8.055963516235352,
+        "complete_sha256": "a3af5fc833b0955632b45b07cf299b86e1ae644f041bd974eb8d66713a637c19"
+      },
+      {
+        "run_id": "D_formal_clip_vit_b16_seed7",
+        "terminal_overhead_seconds": 7.728000164031982,
+        "complete_sha256": "556528e0bfc6a6fa0edac05b7e825248740f5868f7e75f09dee787ec7f31c1b2"
+      },
+      {
+        "run_id": "D_formal_clip_vit_b16_seed42",
+        "terminal_overhead_seconds": 7.483999967575073,
+        "complete_sha256": "97ba1778845527152f838999c2c7a41071d3507cbeb6ae0252330fb53292e31a"
+      },
+      {
+        "run_id": "D_formal_clip_vit_b16_seed123",
+        "terminal_overhead_seconds": 8.423999786376953,
+        "complete_sha256": "2c37662fb9354e8e7497a340b99bc4698dcc845c2473ddf59b1362bb25c099df"
+      },
+      {
+        "run_id": "D_formal_clip_vit_b16_seed2026",
+        "terminal_overhead_seconds": 7.875999927520752,
+        "complete_sha256": "fcc2fdc90dcc973b9097a826935692c0d9df2eef51c0ac90361f482a8e64dac4"
+      }
+    ],
+    "dinov2_vit_b14": [
+      {
+        "run_id": "D_dev_dinov2_vit_b14_lr1e-05_seed1007_e30",
+        "terminal_overhead_seconds": 8.035967588424683,
+        "complete_sha256": "0ca69289502a63feae56808547ea1f065751450ef154dfadc92b48944624badf"
+      },
+      {
+        "run_id": "D_dev_dinov2_vit_b14_lr1e-05_seed1042_e30",
+        "terminal_overhead_seconds": 7.847968816757202,
+        "complete_sha256": "bc578668a5c4c36c5616c6f5194420d25d2aa125348b069c9ad3a6129935ab4f"
+      },
+      {
+        "run_id": "D_dev_dinov2_vit_b14_lr3e-05_seed1007_e30",
+        "terminal_overhead_seconds": 7.943922281265259,
+        "complete_sha256": "5944c805586a792774a4de8408b61de0547eb8b9092efddc1820b6c0816a3ad0"
+      },
+      {
+        "run_id": "D_dev_dinov2_vit_b14_lr3e-05_seed1042_e30",
+        "terminal_overhead_seconds": 7.279952764511108,
+        "complete_sha256": "6c29d791b3821385fdbab5cfa02afc1b0105017cdd0f13b25e90832352f9f3d8"
+      },
+      {
+        "run_id": "D_dev_dinov2_vit_b14_lr5e-05_seed1007_e30",
+        "terminal_overhead_seconds": 7.268007755279541,
+        "complete_sha256": "880edf90e121006f3bcc2443a44826f8b25a8936631a54c4538b5607f01ee878"
+      },
+      {
+        "run_id": "D_dev_dinov2_vit_b14_lr5e-05_seed1042_e30",
+        "terminal_overhead_seconds": 8.128024578094482,
+        "complete_sha256": "287394d1c4014736e294288f5917fb03334e9f2768396c894c7e004b1048d3fc"
+      }
+    ],
+    "efficientnet_b0": [
+      {
+        "run_id": "D_dev_efficientnet_b0_lr1e-04_seed1007_e30",
+        "terminal_overhead_seconds": 0.547997236251831,
+        "complete_sha256": "60287175a9832dd18735d4b7dbe712f7b6c6a248b63f66bf3c3f4f09fa5aad95"
+      },
+      {
+        "run_id": "D_dev_efficientnet_b0_lr1e-04_seed1042_e30",
+        "terminal_overhead_seconds": 0.5919983386993408,
+        "complete_sha256": "53d85991e0356a30dced443f86e59ce49209ac6b51ec41dc27a2823b83fa9fa6"
+      }
+    ]
+  },
+  "scope": "Metadata-only estimate; scenario range is not a confidence interval. Stalls/contention can shift completion. No model performance used.",
+  "next_recommended_check_utc": "2026-10-24T05:10:00Z",
+  "reason": "Inspect before expected firstCLIPterminal,thenreassessshortautomatic-handoffcheck."
+}

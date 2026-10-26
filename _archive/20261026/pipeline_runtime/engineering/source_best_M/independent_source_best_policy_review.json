@@ -1,0 +1,59 @@
+{
+  "schema": "INDEPENDENT_SOURCE_BEST_M_METADATA_POLICY_REVIEW_V1",
+  "utc": "2026-10-25T06:03:29.397729+00:00",
+  "reviewer": "independent post_amp_qualification_review subagent",
+  "status": "CHANGES_REQUIRED_TWO_IMPORTANT_METADATA_FINDINGS",
+  "scope": "Task2a pure metadata policy only. Disclaimed future sealed-file/tensor/head/data/environment/locks/budget context is not assessed as implemented and is not a finding.",
+  "source_sha256": "4ed7378a03906b0179ee35b6be947c365c0cb47e44c74d6a466b6aa157211752",
+  "test_sha256": "d37ec1869246a0f6ccce1fb9af03591246d0de008f7386d615c3f6bc1ebb7704",
+  "SPEC_sha256": "88967baf771d1a03bd1c979c229c0cad175f9bc9b97715d03613edfd06797728",
+  "PLAN_sha256": "f71af57ea8170b4b2b5b634630be27b75d04775b07fac6ab1375dd50d813227e",
+  "findings": [
+    {
+      "id": "SBP-1",
+      "severity": "Important",
+      "title": "Matching checkpoint/receipt identity is not bound to the supplied frozen task",
+      "location": "source_best_policy.py:47-60",
+      "explanation": "The policy checks that checkpoint_metadata.identity equals completion.identity and that identity hash strings have the right syntax, but never compares identity.config against the original task hash. Original producer metadata binds this field to sha256(json.dumps(task,sort_keys=True).encode()). Thus matching checkpoint+receipt metadata from one formal task can be relabeled as another canonical seed/history/precision task and receive POLICY_PASS.",
+      "reproduction": "Start with valid30-epoch D seed7 metadata, including the correctly computed task hash in both equal identities. Change only supplied task.seed and canonical runID to seed42. The original seed7 task hash remains. metadata_endpoint accepts and emits seed42.",
+      "impact": "This violates the stated pure metadata rejection of foreign endpoints/frozen-task identity, before any real file or tensor validation is relevant.",
+      "requested_change": "Validate the metadata config hash against the exact original canonical task hashing rule (for D and H), then add regressions changing seed/history/precision/task fields and runID while retaining matching old checkpoint/receipt identity. Keep later byte/tensor/provenance validation explicitly pending."
+    },
+    {
+      "id": "SBP-2",
+      "severity": "Important",
+      "title": "H per-epoch history exposure can differ from the supplied frozen task",
+      "location": "source_best_policy.py:17-24,48-57",
+      "explanation": "History validates draws==attempts*128 and receipt totals equal row sums, but does not compare each H row to task.draw_count. A registered H task whose frozen draw_count is24448 accepts a row with24320draws/190attempts as long as the completion totals are adjusted. Prefix counts are arithmetically accurate for the altered history, but that history is inconsistent with the supplied frozen protocol task.",
+      "reproduction": "Valid H B30epoch task with draw_count24448 and matching config identity/effective structural registry: change epoch1 from191attempts/24448draws to190attempts/24320draws and receipt total5730 to5729. metadata_endpoint accepts and reports best epoch2,prefix381attempts/48768draws.",
+      "impact": "The policy can return POLICY_PASS for changed H exposure despite the frozen formal task. This is detectable solely from supplied metadata and is within task2a consistency scope.",
+      "requested_change": "Require each H history row draw_count and attempts to match the valid frozen task.draw_count/effectivebatch128 before returning policy pass. Add per-epoch and uniform changed-exposure regressions. For D, use only an explicitly supplied trusted frozen exposure basis rather than inventing a task field absent from original D registration."
+    }
+  ],
+  "strengths": [
+    "Earliest maximum ties and actual prefix attempts/success/skips/draws match original strict sourceDEV improvement rule.",
+    "Finite sourceAUC range, contiguous epochs, integer counters and arithmetic aggregate consistency are checked.",
+    "Canonical family/seed/run IDs, formal/frozen flags, source-only terminal selection and checkpoint best epoch are constrained.",
+    "H requires structural final all3 registry and matching effective precision/order; D6/H3 roles follow selected scope.",
+    "Module has no file/tensor/GPU dispatch, uses a distinct M namespace, and explicitly declines inference/head/equal-update authority."
+  ],
+  "verification": {
+    "command": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -B -m pytest -q -p no:cacheprovider /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests/test_source_best_policy.py",
+    "cwd": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2",
+    "environment": {
+      "CUDA_VISIBLE_DEVICES": "",
+      "OMP_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2"
+    },
+    "fresh_test_result": "25 passed in0.03s",
+    "fresh_test_exit_code": 0,
+    "final_independent_repro_exit_code": 0,
+    "repro_log": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_source_best_policy_repro.log",
+    "original_producer_reference": "worker_h.py:24-31 expected_training_identity uses task JSON configSHA; trainer.py source_best.pt stores only model/identity/epoch."
+  },
+  "actions_performed": "Read-only code/spec/plan/producer inspection; CPU25case tests; pure synthetic samples. Wrote only this review and reviewer reprolog. Did not alter source, execute inference, load tensors, change production artifacts or interrupt the existing full-suite measurement.",
+  "remaining_blockers": "Resolve SBP-1 and SBP-2 after the active root full-suite measurement finishes, add meaningful regression evidence and request fix confirmation. Metadata-only completion still confers no production M admission; all separately disclaimed real-context, scientific and resource gates remain required."
+}

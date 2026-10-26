@@ -1,0 +1,46 @@
+{
+  "artifact_root": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023",
+  "protocol": "pipeline-reliability-v2-20261023",
+  "effective_batch": 128,
+  "workers": 4,
+  "allowed_gpus": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "allowed_gpu_uuids": [
+    "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e",
+    "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+    "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+    "GPU-626ec32f-1401-c959-74b0-db04ed63c646"
+  ],
+  "backbones": {
+    "clip_vit_b16": {
+      "learning_rate": 1e-05,
+      "weight_path": "/home/z/.cache/clip/ViT-B-16.pt",
+      "weight_sha256": "5806e77cd80f8b59890b7e101eabd078d9fb84e6937f9e85e4ecb61988df416f"
+    },
+    "dinov2_vit_b14": {
+      "learning_rate": 5e-05,
+      "weight_path": "/home/z/project/deepfake_detector/artifacts/weights/dinov2_vitb14_pretrain.pth",
+      "weight_sha256": "0b8b82f85de91b424aded121c7e1dcc2b7bc6d0adeea651bf73a13307fad8c73"
+    },
+    "efficientnet_b0": {
+      "learning_rate": 0.0001,
+      "weight_path": "/home/z/project/deepfake_detector/artifacts/weights/efficientnet_b0.pth",
+      "weight_sha256": "7f5810bc96def8f7552d5b7e68d53c4786f81167d28291b21c0d90e1fca14934"
+    }
+  },
+  "development_seeds": [
+    1007,
+    1042
+  ],
+  "formal_seeds": [
+    7,
+    42,
+    123,
+    2026,
+    3407
+  ]
+}

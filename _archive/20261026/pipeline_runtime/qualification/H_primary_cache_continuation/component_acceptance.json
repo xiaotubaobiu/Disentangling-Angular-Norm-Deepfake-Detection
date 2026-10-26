@@ -1,0 +1,21 @@
+{
+  "utc": "2026-10-25T05:43:00.757631+00:00",
+  "status": "CPU_COMPONENT28TESTS_PASS_AND_INDEPENDENT_FIX_CONFIRMATION_PASS_RUNTIME_ADMISSION_PENDING",
+  "entry_sha256": "ba898aac90b497d2b06a874616985df8dfdf7d969428a1ec609e2efed0963ae6",
+  "tests_sha256": "8f4224663ae441a871194b08cd4546323eec0010edaeddb75959574b66bd1ca1",
+  "qualified_source_manifest_sha256": "977431237b901d5ac88172f98bc2591d3cd7992c35be50546cda34ad2276a747",
+  "tests": 28,
+  "regressions": "CACHE1/2 independent reproductions+10RED→28GREEN single root fixpass",
+  "independent_review_sha256": "5e4c4f0f2e174e099ebdac1898cc8733ff214cf442e4f466d6839cfcbb54b1f7",
+  "independent_fix_confirmation_sha256": "479de7088e3d161be1b3c482bcc130d41de40b4ca74bc05435c1989031890a06",
+  "qualified_original_modules": 20,
+  "operational_receipts_only": true,
+  "independent_scientific_cache_acceptance": false,
+  "production_executed": false,
+  "remaining_runtime_gates": [
+    "canonical all3 final effective registry",
+    "qualification controller3205328 actually finished and original shared H_pipeline.lock exclusively obtained",
+    "no matching training/cache workers; repeated root-only preflight under lock",
+    "fresh full primary capacity16temp50reserve/noM/coldcredit; fixed bound/livefree+allpins perdispatch"
+  ]
+}

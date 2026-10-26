@@ -1,0 +1,36 @@
+{
+  "utc": "2026-10-24T11:23:23.869402+00:00",
+  "status": "LIVE_WORKSPACE_FOOTPRINT_AND_PLANNED_TOTAL_BUDGET_SNAPSHOT",
+  "artifact_root": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023",
+  "workspace_root_measurements": [
+    {
+      "kind": "allocated",
+      "started_utc": "2026-10-24T11:23:21.686021+00:00",
+      "ended_utc": "2026-10-24T11:23:23.489288+00:00",
+      "returncode": 0,
+      "observed_bytes": 79224135680,
+      "stderr": ""
+    },
+    {
+      "kind": "apparent",
+      "started_utc": "2026-10-24T11:23:23.489311+00:00",
+      "ended_utc": "2026-10-24T11:23:23.869238+00:00",
+      "returncode": 0,
+      "observed_bytes": 78771092562,
+      "stderr": ""
+    }
+  ],
+  "H_frozen_verified_PNG_bytes": 76483825411,
+  "H_scope": "Reuseaccepted frozen logicalPNGbyte count only; no new Dataset tree walk or pixel rescan; notcurrentallocatedHfilesystemsize.",
+  "capacity": {
+    "workspace_free_GiB": 392.84589767456055,
+    "Dataset_free_GiB": 2561.963050842285
+  },
+  "planned_total_working_set_GiB": 200,
+  "reserve_GiB": 50,
+  "raw_D_feature_payload_floor_GiB": 13.567399978637695,
+  "scope": "du is non-atomic while originaljobs write checkpoints; may includeinflighttemporaries. Rootenv/logs/states/metadata/currentoutputs included; symlinksnotfollowed andotherfilesystemsnottraversed. Rawfeaturefloor is a subset, notfullproject budget; productioncache/statistics actualgrowth muststillbemeasured.",
+  "no_data_deleted_or_moved": true,
+  "no_training_or_otherproject_intervention": true,
+  "workspace_budget_pass": true
+}

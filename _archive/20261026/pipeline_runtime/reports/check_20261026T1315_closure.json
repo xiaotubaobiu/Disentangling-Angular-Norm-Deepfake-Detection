@@ -1,0 +1,134 @@
+{
+  "schema": "DETECTOR_V2_CHECK_20261026T1315_CLOSURE_V1",
+  "observed_utc": "2026-10-26T13:18:37.264206+00:00",
+  "live_snapshot": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/check_20261026T1315_final_live_snapshot.json",
+    "sha256": "466224a4ee34bcd3d1b25e6adbdfea0f4e26acde6170f45fb2c5aee3cbe206b2"
+  },
+  "read_only_progress_diagnostic": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/check_20261026T1315_readonly_progress_and_open_source_files.json",
+    "sha256": "f27abb27909e4c5072827f122b5090ca72c878798864c9c188c8f874060f85da"
+  },
+  "H_source_best_canary": {
+    "PID": 4064147,
+    "alive": true,
+    "actual_CPU_slot0_lock": [
+      "28: FLOCK  ADVISORY  WRITE 4064147 fd:01:52325275 0 EOF"
+    ],
+    "phase": "SOURCE_CONTEXT_PREFLIGHT_BEFORE_RESULT_SINK",
+    "phase_reason": "output directory absent; frozen entry creates sink only after contexts and initial full guard",
+    "source_code_location": "source_best_analysis.py:100-125",
+    "output_directory_exists": false,
+    "declared_artifacts_committed": 0,
+    "total_declared_artifacts": 37,
+    "exit_observed": false,
+    "numeric_accepted": false,
+    "CPU_jiffies": [
+      "55519",
+      "9117"
+    ],
+    "logical_io": [
+      "rchar: 85854278032",
+      "wchar: 0",
+      "syscr: 1875098",
+      "syscw: 0",
+      "read_bytes: 4106412032"
+    ],
+    "current_resource_snapshot": [
+      "State:\tR (running)",
+      "VmPeak:\t 5684664 kB",
+      "VmHWM:\t  981884 kB",
+      "VmRSS:\t  656004 kB"
+    ],
+    "actual_AS_limit_bytes": 34359738368,
+    "producer_restarted": false
+  },
+  "M_cache": {
+    "operational_models_complete": 27,
+    "total": 45,
+    "original_workers_draining": 3,
+    "pending_dispatch_stopped": 15,
+    "raw_role_markers": 132,
+    "total_roles": 180,
+    "active": {
+      "H_formal_dinov2_vit_b14_AB_seed42": {
+        "index": 2,
+        "pid": 2839835,
+        "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+        "alive": true
+      },
+      "H_formal_dinov2_vit_b14_B_seed123": {
+        "index": 3,
+        "pid": 3089908,
+        "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646",
+        "alive": true
+      },
+      "H_formal_dinov2_vit_b14_B_seed42": {
+        "index": 1,
+        "pid": 2784327,
+        "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+        "alive": true
+      }
+    },
+    "phase_owner_PID": 825619,
+    "phase_lock": [
+      "60: FLOCK  ADVISORY  WRITE 825619 fd:01:51809676 0 EOF"
+    ],
+    "fault": {
+      "__owner__": "exclusive original phase lease required"
+    },
+    "historical_guard_fault_cause": "UNKNOWN",
+    "failure_not_cleared": true,
+    "recovery_executed": false,
+    "new_owner_started": false,
+    "read_only_progress": "All3 CPU and rchar increase since12:30; B42 SOURCE_TEST committed13:15:16.823972; no stderr at snapshot",
+    "pending_recovery_action": "Await remaining3 workers and original owner natural terminal/true exit plus all inherited phase/GPU lease release, then reviewed final-success-union original45 plan and fresh native gates"
+  },
+  "H_primary": {
+    "Eff7_PID": 1747331,
+    "alive": true,
+    "source_checks_started": 38,
+    "total_source_checks": 42,
+    "exit_observed": false,
+    "independently_accepted_statistic_pairs": 6,
+    "total_pairs": 15,
+    "original_cache_roles_complete": 210,
+    "independent_cache_models": 14,
+    "total_cache_models": 30
+  },
+  "D_selected_single_job_actual_canary_acceptance": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_D_clip_seed7_selected_core_actual_canary_independent_acceptance_20261026T1250.json",
+    "sha256": "0f807561f12d4df1480d260f1552541b1e3e8796d392c7a816bfdf3ea4cf1872"
+  },
+  "D_accepted_canary_repeated": false,
+  "M_accepted_statistic_jobs": 1,
+  "M_running_statistic_jobs": 1,
+  "M_not_started_statistic_jobs": 28,
+  "M_both_DH_resource_canaries_qualified": false,
+  "M_full30_statistic_permission": false,
+  "capacity": {
+    "free_bytes": 149759569920,
+    "full_remaining_write_temporary_peak_reserve_bytes": 148068010153,
+    "margin_bytes": 1691559767,
+    "budget_pass": true,
+    "cold_SSD_release_bytes": 0,
+    "partial_feature_credit_bytes": 0
+  },
+  "actual_GPU0_3_snapshot": [
+    "0, 0 %, 0 MiB",
+    "1, 0 %, 1238 MiB",
+    "2, 0 %, 1238 MiB",
+    "3, 0 %, 1238 MiB"
+  ],
+  "code_modified": false,
+  "scientific_sources33_unchanged": true,
+  "code_commit": "4cfbee389b9105223edeb90883fa37d4ac01f0e5",
+  "tests_repeated": false,
+  "new_task_launched": false,
+  "training_or_cache_restarted": false,
+  "protected_GPU4_7_or_other_projects_controlled": false,
+  "JEV_annotation_still_paused": true,
+  "scientific_results_complete": false,
+  "journal_manuscripts_complete": false,
+  "next_recommended_check_utc": "2026-10-26T13:45:00+00:00"
+}

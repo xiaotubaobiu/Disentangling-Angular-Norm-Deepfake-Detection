@@ -1,0 +1,52 @@
+{
+  "utc": "2026-10-25T13:16:58Z",
+  "check": "20261025T1315",
+  "H_roles_written": 114,
+  "H_operational_models": 16,
+  "H_independent_models_accepted": 4,
+  "H_independent_pairs_accepted": 2,
+  "H_owner_pid": 3219035,
+  "H_active": [
+    {
+      "pid": 523493,
+      "run_id": "H_formal_dinov2_vit_b14_B_seed2026",
+      "gpu": 1,
+      "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+      "backbone": "dinov2_vit_b14"
+    },
+    {
+      "pid": 529195,
+      "run_id": "H_formal_dinov2_vit_b14_AB_seed2026",
+      "gpu": 0,
+      "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e",
+      "backbone": "dinov2_vit_b14"
+    },
+    {
+      "pid": 534781,
+      "run_id": "H_formal_dinov2_vit_b14_B_seed3407",
+      "gpu": 3,
+      "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646",
+      "backbone": "dinov2_vit_b14"
+    },
+    {
+      "pid": 542324,
+      "run_id": "H_formal_dinov2_vit_b14_AB_seed3407",
+      "gpu": 2,
+      "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+      "backbone": "dinov2_vit_b14"
+    }
+  ],
+  "H_pending": 10,
+  "H_primary_statistic_terminal_receipts": [],
+  "free_GiB": 161.3641128540039,
+  "M_production_admitted": false,
+  "next_runtime_check_UTC": "2026-10-25T13:45:00Z",
+  "statistic_seed42": [
+    "BEGIN_PRIMARY_FRESH_LEDGER 37 clip_vit_b16 AMP",
+    "BEGIN_PRIMARY_FRESH_LEDGER 38 clip_vit_b16 AMP"
+  ],
+  "statistic_seed7": [
+    "BEGIN_PRIMARY_FRESH_LEDGER 34 clip_vit_b16 AMP",
+    "BEGIN_PRIMARY_FRESH_LEDGER 35 clip_vit_b16 AMP"
+  ]
+}

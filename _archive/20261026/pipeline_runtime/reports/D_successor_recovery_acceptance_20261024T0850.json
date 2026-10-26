@@ -1,0 +1,167 @@
+{
+  "utc": "2026-10-24T08:56:46.382553+00:00",
+  "status": "PASS_BOTH_AUTOMATIC_SUCCESSORS_FIRST_COMPLETE_CPU_RECOVERY_POINTS",
+  "checks": [
+    {
+      "pid": 835840,
+      "run_id": "D_formal_efficientnet_b0_seed123",
+      "gpu": 2,
+      "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+      "process_required": true,
+      "lifecycle_at_inspection": "RUNNING",
+      "status": "PASS",
+      "checkpoint_epoch": 1,
+      "history_epoch_at_observation": 1,
+      "attempts": 799,
+      "successful_updates": 799,
+      "AMP_skips": 0,
+      "checkpoint_sha256": "9faca292bf7e4b0b1e6f30f6259bb18b0f40d90f3bce8b3fde0c06fad2c2f3c4",
+      "checkpoint_inode": 52309127,
+      "checkpoint_bytes": 64943566,
+      "checkpoint_mtime_utc": "2026-10-24T08:55:35.468017+00:00",
+      "checkpoint_age_seconds": 70.47848701477051,
+      "live_path_replaced_during_inspection": false,
+      "identity": {
+        "config": "52dd3c79ac120b7adda1ba9f114f301f0953a6261a561225725ea32c24849362",
+        "train_manifest": "9d85e421d803f20481eb7720854cdb4369349b97dd5e04f5763dbe851077f496",
+        "dev_manifest": "2c157ce3f30504479e50023ff43c76bdd0a2df8cd7e31a938356a6306b7550bd",
+        "initialization": "7f5810bc96def8f7552d5b7e68d53c4786f81167d28291b21c0d90e1fca14934",
+        "environment": "d3e6f2a2fc50770a2c3c8ab5b913dfa9049111a398c9de72d85baf618b139ebb",
+        "code": "336f3097434edf903a5ff402162e29afeca2442ca50f9c7d9883ca60136b8335",
+        "qualification": "c2a9a09d208d2671b7a123df7ee29e83b8abedcac08d9221d5ad26f3948700aa"
+      },
+      "best_epoch": 1,
+      "optimizer_parameter_states": 213,
+      "optimizer_step_counts": [
+        799
+      ],
+      "scaler": {
+        "scale": 128.0,
+        "growth_factor": 2.0,
+        "backoff_factor": 0.5,
+        "growth_interval": 2000,
+        "_growth_tracker": 799
+      },
+      "tensor_finiteness": {
+        "tensors": 1359,
+        "elements": 16124783
+      },
+      "RNG_restoration_checked": "independent Python/NumPy/CPU Torch generators; CUDA RNG shape checked without CUDA initialization",
+      "committed_step_log_records": 799,
+      "skipped_nonfinite_gradients": 0,
+      "recent_array_hashes": [
+        {
+          "epoch": 1,
+          "kind": "samples",
+          "sha256": "5efacd9b94ce29ba8640eebda9ffa1945dc3b92bf017100887552f373f9e3209"
+        },
+        {
+          "epoch": 1,
+          "kind": "augmentations",
+          "sha256": "814cc4464b15969b6783a32e6a83c4172bbf76bcd8dc275ea7033f7d4b08e71e"
+        }
+      ],
+      "current_update_record": {
+        "epoch": 2,
+        "attempt": 906,
+        "lr": 9.999500113705774e-05,
+        "loss": 0.07959166076034307,
+        "gradient_finite": true,
+        "scale_after": 128.0,
+        "success": true,
+        "skip": false
+      },
+      "newest_update_file": "epoch_02_updates.jsonl",
+      "newest_update_age_seconds": 0.2225666046142578,
+      "latest_epoch_seconds": 271.8020124435425,
+      "recent_3_epoch_mean_seconds": 271.8020124435425,
+      "recent_effective_input_rate_per_second": 376.2738880428396,
+      "timing_scope": "sampling+training+full DEV; following checkpoint write excluded",
+      "verification_seconds": 0.34288368187844753
+    },
+    {
+      "pid": 836451,
+      "run_id": "D_formal_efficientnet_b0_seed2026",
+      "gpu": 1,
+      "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+      "process_required": true,
+      "lifecycle_at_inspection": "RUNNING",
+      "status": "PASS",
+      "checkpoint_epoch": 1,
+      "history_epoch_at_observation": 1,
+      "attempts": 799,
+      "successful_updates": 799,
+      "AMP_skips": 0,
+      "checkpoint_sha256": "d72401c1e580901576c1cdde04ce4c54d2b355803bcbb97a0799d2cf7b2d1e8d",
+      "checkpoint_inode": 52309137,
+      "checkpoint_bytes": 64943502,
+      "checkpoint_mtime_utc": "2026-10-24T08:56:00.675994+00:00",
+      "checkpoint_age_seconds": 45.64477491378784,
+      "live_path_replaced_during_inspection": false,
+      "identity": {
+        "config": "d6d6e8efaeabbc071a1b846e17705e2120221af2e5191541d5bc6c75e27afefc",
+        "train_manifest": "9d85e421d803f20481eb7720854cdb4369349b97dd5e04f5763dbe851077f496",
+        "dev_manifest": "2c157ce3f30504479e50023ff43c76bdd0a2df8cd7e31a938356a6306b7550bd",
+        "initialization": "7f5810bc96def8f7552d5b7e68d53c4786f81167d28291b21c0d90e1fca14934",
+        "environment": "d3e6f2a2fc50770a2c3c8ab5b913dfa9049111a398c9de72d85baf618b139ebb",
+        "code": "336f3097434edf903a5ff402162e29afeca2442ca50f9c7d9883ca60136b8335",
+        "qualification": "c2a9a09d208d2671b7a123df7ee29e83b8abedcac08d9221d5ad26f3948700aa"
+      },
+      "best_epoch": 1,
+      "optimizer_parameter_states": 213,
+      "optimizer_step_counts": [
+        799
+      ],
+      "scaler": {
+        "scale": 128.0,
+        "growth_factor": 2.0,
+        "backoff_factor": 0.5,
+        "growth_interval": 2000,
+        "_growth_tracker": 799
+      },
+      "tensor_finiteness": {
+        "tensors": 1359,
+        "elements": 16124783
+      },
+      "RNG_restoration_checked": "independent Python/NumPy/CPU Torch generators; CUDA RNG shape checked without CUDA initialization",
+      "committed_step_log_records": 799,
+      "skipped_nonfinite_gradients": 0,
+      "recent_array_hashes": [
+        {
+          "epoch": 1,
+          "kind": "samples",
+          "sha256": "b542b2204822752acd13daaf5a088eae08c49646b3e9bfe48e82571100932d46"
+        },
+        {
+          "epoch": 1,
+          "kind": "augmentations",
+          "sha256": "12cd034f2467f1a8d2af1214baf6030339db342e76cf04bbb7bf68e1c2a5a8b6"
+        }
+      ],
+      "current_update_record": {
+        "epoch": 2,
+        "attempt": 819,
+        "lr": 9.9999825349024e-05,
+        "loss": 0.04988534655421972,
+        "gradient_finite": true,
+        "scale_after": 128.0,
+        "success": true,
+        "skip": false
+      },
+      "newest_update_file": "epoch_02_updates.jsonl",
+      "newest_update_age_seconds": 0.08482813835144043,
+      "latest_epoch_seconds": 266.4950637817383,
+      "recent_3_epoch_mean_seconds": 266.4950637817383,
+      "recent_effective_input_rate_per_second": 383.7669581893706,
+      "timing_scope": "sampling+training+full DEV; following checkpoint write excluded",
+      "verification_seconds": 0.29417850263416767
+    }
+  ],
+  "inspection_cutoffs_utc": {
+    "D_formal_efficientnet_b0_seed123": "2026-10-24T08:56:46.026451+00:00",
+    "D_formal_efficientnet_b0_seed2026": "2026-10-24T08:56:46.382476+00:00"
+  },
+  "CPU_only": true,
+  "CUDA_initialized": false,
+  "scope": "Targeted followup of two explicit first-epoch pending entries; no training/restart/live restore. Initial0850receipt remains unchanged; its fresh_full_CPU_run_ids includes inspected-but-pending entries, so count only statusPASS with checkpoint_epoch>0 as full tensor proof."
+}

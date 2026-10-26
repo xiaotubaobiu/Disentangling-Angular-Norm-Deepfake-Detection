@@ -1,0 +1,126 @@
+{
+  "utc": "2026-10-24T21:55:38.009295+00:00",
+  "requested_check": "2026-10-24T20:45:00Z",
+  "additional_safe_handoff_and_first_formal_snapshot_completed": "2026-10-24T21:54:00Z",
+  "status": "PASS_D_ALL_STATS_REAL_FIGURES_BILINGUAL_RESULTS_H20_TERMINAL_H30_ORIGINAL_QUEUE_DISPATCH_FIRST_SNAPSHOTS",
+  "D_individual_analyses_accepted": 15,
+  "D_real_five_seed_summaries_accepted": 3,
+  "D_real_figure_packet": {
+    "input_files": 1064,
+    "artifacts": 24,
+    "ECDF_curves": 120,
+    "CAL_cells": 120,
+    "metric_values": 72000,
+    "joined_tables": 12,
+    "joined_rows": 7968,
+    "PNG_visual_QA": 5,
+    "paper_assembly_independent_QA": true
+  },
+  "H_standard_development_accepted": 20,
+  "H_standard_attempts": 114600,
+  "H_standard_successes": 114600,
+  "H_standard_AMP_skips": 0,
+  "H_source_recipes": {
+    "clip_vit_b16": {
+      "lr": 1e-05,
+      "epochs": 30
+    },
+    "dinov2_vit_b14": {
+      "lr": 1e-05,
+      "epochs": 30,
+      "DINO_extension": false
+    },
+    "efficientnet_b0": {
+      "lr": 0.0001,
+      "epochs": 30
+    }
+  },
+  "H_original_formal_owner": 2222605,
+  "H_time_wrapper": 2222604,
+  "H_formal_registered": 30,
+  "H_formal_completed": 0,
+  "H_formal_running": 4,
+  "H_formal_pending": 26,
+  "whole_formal_completed": 15,
+  "whole_formal_total": 45,
+  "actual_dispatch_utc": "2026-10-24T21:45:47Z",
+  "H_complete_state_audit": {
+    "epochs": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "attempts": [
+      382,
+      382,
+      382,
+      382
+    ],
+    "success": [
+      382,
+      382,
+      382,
+      382
+    ],
+    "skips": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "paired_common_epochs": [
+      2,
+      2
+    ],
+    "CPU_only": true,
+    "audit_seconds": 19.934743250720203,
+    "scope": "Selected E2 atomic snapshots; later history E3/live logs are separate and all30 terminal/target gates remain pending."
+  },
+  "later_runtime_health": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/runtime_health_20261024T2145.json",
+  "GPU_mean_percent": {
+    "0": 97.0,
+    "1": 96.33333333333333,
+    "2": 97.0,
+    "3": 97.0
+  },
+  "early_training_draw_equivalent_per_second": [
+    202.64555155230136,
+    200.30169006882824,
+    200.38249107357024,
+    202.10179576263096
+  ],
+  "capacity_GiB": {
+    "free": 208.16866302490234,
+    "required_including16temporary50reserve": 149.4018759723034,
+    "margin": 58.76678705259896
+  },
+  "SSD_cold_release_bytes": 0,
+  "source_best": "HOLD_UNSELECTED_NOT_STARTED",
+  "science_code_unchanged": true,
+  "protected_inputs_unchanged": 13,
+  "full_journal_manuscripts_complete": false,
+  "remaining": [
+    "H30 formal endpoints and independent terminal acceptance",
+    "all-five-pair ledgers per backbone; prescribed uniform FP32 only if triggered, refreshed capacity first",
+    "final effective registry and210 seven-role H caches",
+    "15 H paired analyses/3 summaries/real H figures with independent recomputation",
+    "complete CN/EN main papers/compact T1-T8/results-claim-reference readback",
+    "source-best sensitivity scope pending parent/user decision; main matrix continues"
+  ],
+  "next_check_utc": "2026-10-24T22:15:00Z",
+  "blocking_errors": [],
+  "evidence_sha256": {
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/runtime_health_20261024T2145.json": "5233246462c6d3669e2e2095e7ec449481a70ef4ae78ef5b4b22dbf5d914e169",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/full_capacity_live_20261024T2145.json": "f0961744de419403e0d3771bbbb1e8d8e08eaad32259f17a51da0407ab30f4a3",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_formal_checkpoint_health_20261024T2145.json": "29b79409a5f4f7c31c7a74d3874da0d3b9b3765c071c084365c00093414dac18",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_source_recipe_freeze_and_formal_actual_dispatch_20261024T2145.json": "8568fa5fd04a8b8987954107d3cbd1c9e67d8ebd9dc1e4a3c8dbe7fa0c74c5c8",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_post_standard_formal_AMP_independent_review_20261024T2045.json": "62c862b58e1e3eb40b08a5a2e321bc28ffe8c38ab9767c7b57216abe1245fc70",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_formal_AMP_continuation_launch_20261024T2045.json": "d8ac405eee5be107a190715cc9862c9c97dea1192b3274b3fbae10abd9601f7b",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_EfficientNet_terminal_acceptance_20261024T2045.json": "eae9e20655cdea337cacadca660bf52bbc0ac82f0d6b696d296fc697a30b6c4c",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/efficientnet_b0_five_seed_summary_independent_acceptance_20261024T1630.json": "db1e30f939a58b10dc0e020e40fbce32b96d1f7c1a4895aac7fad6d9175c8d94",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/D_result_figures_real_data_independent_acceptance_20261024.json": "9aa930a32e9b8975107b1b0408be685083c4f70f272ded8fb2c404f1cbd6bc5c",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/D_result_figures_final_acceptance_and_manuscript_assets_20261024T2045.json": "4531b44e9095f4ee7dbbf1b8d2ee95211a949cf2fab71c21add1c456557813e1",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/D_result_figures_paper_assembly_independent_acceptance_20261024T2045.json": "9b0993da7385cb4309912dd1b5ef647f11114fec9e9213a32a7e299c53419d36"
+  }
+}

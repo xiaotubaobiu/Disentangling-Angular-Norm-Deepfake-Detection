@@ -1,0 +1,136 @@
+{
+  "schema": "INDEPENDENT_SOURCE_BEST_LEASE_REVIEW_V1",
+  "utc": "2026-10-25T11:34:26.921607+00:00",
+  "status": "IMPORTANT_FIXES_REQUIRED_PURE_LEASE_ONLY",
+  "scope": "Read-only independent review of isolated pure source-best M lease component. No production owner/worker bridge or permit is accepted. No real GPU, production H_pipeline/native lock, existing PID or F was operated on.",
+  "source_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_lease.py",
+  "source_sha256": "6518ea526d8932a4d025da757440a3cd534983ab726535bfb75952489398fdac",
+  "tests_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests/test_source_best_lease.py",
+  "tests_sha256": "a2afc4efd1821e625b497751abf5109bf4a90d2bd3825aca564a59d15c15e124",
+  "fresh_independent_test": {
+    "command": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -B -m pytest -q -p no:cacheprovider tests/test_source_best_lease.py",
+    "cwd": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2",
+    "environment": {
+      "CUDA_VISIBLE_DEVICES": "",
+      "OMP_NUM_THREADS": "2",
+      "MKL_NUM_THREADS": "2",
+      "OPENBLAS_NUM_THREADS": "2",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2"
+    },
+    "returncode": 0,
+    "stdout": "...............                                                          [100%]\n15 passed in 0.66s\n",
+    "elapsed_seconds": 0.9235157398506999
+  },
+  "independent_bounded_probes": {
+    "returncode": 0,
+    "results": {
+      "_start": {
+        "failed_enter_retained_fd": true,
+        "independent_phase_still_blocked": true,
+        "temporary_cleanup_completed": true
+      },
+      "uuid4": {
+        "failed_enter_retained_fd": true,
+        "independent_phase_still_blocked": true,
+        "temporary_cleanup_completed": true
+      },
+      "ignored_parent_death_SIGTERM": {
+        "owner_exited0": true,
+        "temporary_worker_survived_owner_exit": true,
+        "phase_still_held_after_owner_exit": true,
+        "temporary_worker_released_via_control_pipe": true,
+        "phase_reacquired_after_cleanup": true
+      },
+      "mock_protected_indices_refused_before_native_lock_creation": {
+        "4": true,
+        "5": true,
+        "6": true,
+        "7": true
+      }
+    },
+    "method": "Temporary directories only. _start/uuid4 exceptions were injected in-memory and temporary locks manually cleaned. A temporary owner/worker pair used a control pipe so the ignored-SIGTERM orphan could exit without signaling any existing PID. Four additional CPU children used mocked GPU inventories only; no nvidia-smi or CUDA calls were made."
+  },
+  "findings": [
+    {
+      "id": "LEASE-001",
+      "severity": "Important",
+      "file": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_lease.py",
+      "lines": [
+        49,
+        50,
+        52,
+        53,
+        54,
+        55
+      ],
+      "title": "Owner metadata initialization exceptions leak an acquired phase descriptor",
+      "impact": "After successful flock, line52 assigns self.fd then calls _start and uuid.uuid4 before the cleanup try begins at line53. Either exception escapes __enter__ while the already-acquired phase FD remains open. Failed context entry will not invoke __exit__, so a supervisor that catches the error can keep the original phase locked indefinitely.",
+      "evidence": "Independent probes made _start and uuid4 raise separately. Both left phase.fd present and an independent descriptor blocked on the temporary H_pipeline.lock. Explicit temporary cleanup restored acquisition.",
+      "fix": "Put all post-open/post-flock initialization, metadata and check operations inside a single exception-cleanup boundary, closing and clearing fd for any failure. Add separate _start and uuid4 initialization-failure regressions that assert no retained FD and immediate independent reacquisition.",
+      "blocks_pure_component_acceptance": true
+    },
+    {
+      "id": "LEASE-002",
+      "severity": "Important",
+      "file": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_lease.py",
+      "lines": [
+        75,
+        76,
+        77,
+        78,
+        95
+      ],
+      "title": "Catchable or ignored SIGTERM defeats the promised parent-death cleanup",
+      "impact": "prctl(PDEATHSIG,SIGTERM) preserves the worker signal disposition. If SIGTERM is ignored or handled without exiting, owner death does not terminate the worker. The inherited phase descriptor, and a native GPU descriptor if already acquired, can remain held after the owner exits. The ordinary default-signal test does not cover this case.",
+      "evidence": "An isolated temporary worker ignored SIGTERM before verify_worker(...,arm_parent_death=True). Its direct owner exited0, but the worker remained alive and kept the temporary phase lock busy. It released only after an independent control-pipe exit request. No existing PID was controlled.",
+      "fix": "Use an unignorable parent-death termination policy such as SIGKILL for this new worker, while retaining the direct-parent/start-tick post-prctl race check. Add a regression with inherited/explicit SIGTERM ignore that observes true owner exit, worker termination and release of all temporary phase/native descriptors.",
+      "blocks_pure_component_acceptance": true
+    }
+  ],
+  "critical_findings": 0,
+  "important_findings": 2,
+  "minor_findings": 0,
+  "verified_strengths": [
+    "The component uses the original H_pipeline.lock and gpu_locks/UUID.lock naming domains. The existing-original-flock contention and duplicate-supervisor/worker tests pass using temporary locks.",
+    "dirfd traversal, O_DIRECTORY/O_NOFOLLOW, regular-file/empty/single-link checks and inode comparisons reject tested symlink, nonempty and separately opened same-inode cases without truncation or unlinking.",
+    "The inherited worker path requires the exact proof schema, direct parent PID and start ticks, parent FD/canonical inode agreement, current kernel FLOCK attribution and successful same-description reflock. Existing forged-birth and owner-FD-loss cases reject.",
+    "Normal owner context exit closes without LOCK_UN. Existing inherited-FD test proves a surviving child retains the phase lock until its own descriptor closes, so the normal close path does not prematurely release the shared phase description.",
+    "native_gpu checks selected UUID membership and observed physical index0-3 before opening the native lock, checks mapping again under its exclusive lock, and rejects busy compute inventory or memory>=100MiB. Independent mocked indices4,5,6,7 all reject before native GPU lock creation.",
+    "The native GPU FD is covered by try/finally after opening, including contention/query/verification failures. The tested duplicate native worker is rejected while the first retains its lock."
+  ],
+  "test_coverage_boundary": "The existing15 tests passed but omit the two demonstrated failure modes. They cover default parent-death behavior, not an ignored/handled SIGTERM disposition, and cover failed postlock check, not metadata initialization before that check.",
+  "integration_boundaries": [
+    "This generic lease is not a source-best selection permit, GPU execution approval, scientific gate or job-authentication layer. The future owner/worker bridge must independently bind its approved code, permit, configuration, model selection, native UUID and job identity.",
+    "Busy/memory inventory observations supplement cooperative kernel locks. This review does not prove atomic exclusion against unrelated launchers that ignore the shared phase/native lock protocol.",
+    "Canonical named locks must remain stable; this review did not inject unrestricted hostile unlink/rename operations against directories or shared live lock names."
+  ],
+  "declined_to_judge": [
+    {
+      "behavior": "Production owner/worker bridge, actual GPU0-3 model execution and GPU4-7 service health",
+      "reason": "The bridge is being developed separately and no real GPU/query/owner operation was authorized in this pure component review."
+    },
+    {
+      "behavior": "Full scientific M eligibility, source-best checkpoint/permit correctness and budget/resource admission",
+      "reason": "These are separate gates outside lease semantics; the pure component explicitly confers no production authority."
+    },
+    {
+      "behavior": "Real owner crash cleanup and native CUDA termination latency",
+      "reason": "Only bounded temporary CPU subprocess behavior was tested. No live PID or real CUDA context was used."
+    }
+  ],
+  "review_actions": {
+    "source_or_test_implementation_modified": false,
+    "F_touched": false,
+    "real_H_pipeline_or_native_GPU_lock_opened": false,
+    "real_GPU_or_nvidia_smi_used": false,
+    "existing_process_signaled_or_controlled": false,
+    "temporary_fixtures_cleaned_and_phase_reacquisition_confirmed": true,
+    "direct_probe_subprocesses_waited": true,
+    "temporary_orphan_exit_requested_through_control_pipe": true
+  },
+  "pure_lease_component_accepted": false,
+  "production_bridge_accepted": false,
+  "production_GPU_allowed": false,
+  "production_integration_accepted": false
+}

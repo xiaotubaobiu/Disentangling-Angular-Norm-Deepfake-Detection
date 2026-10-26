@@ -1,0 +1,19 @@
+{
+  "utc": "2026-10-24T21:26:19.548169+00:00",
+  "status": "PASS_ROOT_VISUAL_INSPECTION_ALL_FIVE_REAL_PNGS",
+  "synthetic": false,
+  "source_packet_complete_sha256": "55962876495668c486b0cc38b8772d7a142f8f642cada891028d368fd7e62d29",
+  "visually_inspected_real_PNG_sha256": {
+    "ECDF_source_test.png": "8ce72d05469aadcc1cf027cd18307728afc96eb63f82dd5f5162313519b5f289",
+    "ECDF_target_full.png": "8eb2533fb98447b5ad676b7da879c65d6f2b0555895c25934c24584ab5aa3e0c",
+    "CAL_variation_clip_vit_b16.png": "eaafb53e8148219a9b17db6fc214858b568c2c29485b822bee6640530ff88d4d",
+    "CAL_variation_dinov2_vit_b14.png": "0d9cf1aee75f9eea05e2ec54b35a3ba2e1857a754e8036226d827d2e999d1ad9",
+    "CAL_variation_efficientnet_b0.png": "2b634bc5e3215d053b71b249836373a536abed0b9a78e7f97cc828aed1d6d0b1"
+  },
+  "inspection": "All five actual production PNGs opened with view_image in root session: axes/seed styles/labels/legends/panel separation readable, no overlaps or clipping; source_test and registered target_full are separate; n80 single-set collapsed boxes expected; negative EffL2 target distribution retained.",
+  "numeric_acceptance": false,
+  "numeric_scope": "Separate data auditor PID2205296 still finishing full readset hash verification; this report alone does not admit figures to final paper.",
+  "paper_facing_caption_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/manuscript_figures/D_accepted_results_captions_for_paper_cn_en.md",
+  "paper_facing_caption_sha256": "886c0cf99d91f12e62b8bef6f8b7f60e3a9cb05abe433de8722205c54bb98f02",
+  "caption_scope": "Registered target_full contains CAL and TEST members by design. Fixed RQ4 CAL and TEST are disjoint. Use corrected paper-facing caption, preserve raw packet."
+}

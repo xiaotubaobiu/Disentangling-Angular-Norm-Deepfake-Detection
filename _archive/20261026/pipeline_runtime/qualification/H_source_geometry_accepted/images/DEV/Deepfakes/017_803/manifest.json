@@ -1,0 +1,1253 @@
+{
+  "common_B_AB": true,
+  "decode": {
+    "candidate_count": 32,
+    "candidate_decode_failure_timestamps": [],
+    "decode_seconds": 5.639803872443736,
+    "duration_seconds": 15.92,
+    "selected_frames": [
+      {
+        "frame_index": 0,
+        "rgb_sha256": "c267dec697244467622cbf17f408b36d873564b1f4268e6be88e36a0df266de2",
+        "timestamp_seconds": 0.0
+      },
+      {
+        "frame_index": 51,
+        "rgb_sha256": "64bd9b99089fa62c2d41df5c2be1a0ac0cc7419e1cc699e001818346ba69b4bf",
+        "timestamp_seconds": 2.04
+      },
+      {
+        "frame_index": 115,
+        "rgb_sha256": "66f50a225d0b741be00a5aa2c6d040a00e350eb1856d4f7b75c2470dcb156ccf",
+        "timestamp_seconds": 4.6000000000000005
+      },
+      {
+        "frame_index": 166,
+        "rgb_sha256": "88536f4b21c9951aed572d87556c11ad4ecfa72059518f5f0b4e8c49e2e64b3b",
+        "timestamp_seconds": 6.640000000000001
+      },
+      {
+        "frame_index": 231,
+        "rgb_sha256": "8ae2b6ba314aed2a8849e100c987be4038f280807b0ab9625869038091382ded",
+        "timestamp_seconds": 9.24
+      },
+      {
+        "frame_index": 282,
+        "rgb_sha256": "f6f44e637a45e56343a9b199ac4c01b2bf1469babe6e3ab29b26dae73666366a",
+        "timestamp_seconds": 11.28
+      },
+      {
+        "frame_index": 346,
+        "rgb_sha256": "dd1429c512ccd3731ec1104d604e9ea32ae9a23434b4cf663f5288309aeb27f1",
+        "timestamp_seconds": 13.84
+      },
+      {
+        "frame_index": 397,
+        "rgb_sha256": "38d0d25a234998cee8b990e0ce7e554113521d4265bca534b094941d74a5b323",
+        "timestamp_seconds": 15.88
+      }
+    ],
+    "strategy": "uniform_time_candidates_32",
+    "unique_candidate_rgb": 32
+  },
+  "elapsed_seconds": 8.303144497796893,
+  "eligible": {
+    "A": true,
+    "AB": true,
+    "B": true
+  },
+  "frames": [
+    {
+      "A": {
+        "byte_sha256": "699b10819d66b7124a9486648ca0ba93d92ff363d48b4560e0a742a66a9047c8",
+        "input_rgb_sha256": "c267dec697244467622cbf17f408b36d873564b1f4268e6be88e36a0df266de2",
+        "mask_byte_sha256": "849588744d056373b6d3352d9982a361b126b36fa4cb622fd2e44a146ae5c835",
+        "mask_bytes": 502,
+        "mask_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry_accepted/images/DEV/Deepfakes/017_803/000/A_mask.png",
+        "matrix": [
+          [
+            0.8164350685588305,
+            -0.010392295520034622,
+            -439.53742967010294
+          ],
+          [
+            0.010392295520034622,
+            0.8164350685588305,
+            -71.06220383836254
+          ]
+        ],
+        "ok": true,
+        "padding_ratio": 0.0,
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry_accepted/images/DEV/Deepfakes/017_803/000/A.png",
+        "png_bytes": 94044,
+        "rgb_sha256": "b5399b6202d4ac6d8840a15e147df842c40749f48adad6bc870212ddd0b4e729"
+      },
+      "AB": {
+        "byte_sha256": "04633b37183c68e83dfaabaf66c78e5680d6fae1aa6fab685679e3c0ee5916c8",
+        "input_rgb_sha256": "b5399b6202d4ac6d8840a15e147df842c40749f48adad6bc870212ddd0b4e729",
+        "mask_byte_sha256": "3825dffc06a264aa20d1194112b39570597248e35e7532aed82b8ec224b959c7",
+        "mask_bytes": 591,
+        "mask_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry_accepted/images/DEV/Deepfakes/017_803/000/AB_mask.png",
+        "matrix": [
+          [
+            0.6913845210206765,
+            0.0,
+            32.14916786195485
+          ],
+          [
+            0.0,
+            0.6913845210206765,
+            13.286271016534855
+          ]
+        ],
+        "ok": true,
+        "padding_ratio": 0.375617825255102,
+        "parent_byte_sha256": "699b10819d66b7124a9486648ca0ba93d92ff363d48b4560e0a742a66a9047c8",
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry_accepted/images/DEV/Deepfakes/017_803/000/AB.png",
+        "png_bytes": 54105,
+        "rgb_sha256": "0e6cd86833a9dbfdc90ea738d6812360265c30a73d259c99f1f75a4a25acbe78"
+      },
+      "B": {
+        "byte_sha256": "50be9d5e09ab56f6275fea7ee8ff70cff36f1746c1424b3bb6256338e0c25a21",
+        "input_rgb_sha256": "c267dec697244467622cbf17f408b36d873564b1f4268e6be88e36a0df266de2",
+        "mask_byte_sha256": "9177adb1a3417cbf8b145d81f33af2b09e28edea1aca7a09cd4a7aa458f93bf7",
+        "mask_bytes": 618,
+        "mask_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry_accepted/images/DEV/Deepfakes/017_803/000/B_mask.png",
+        "matrix": [
+          [
+            0.5465548546150413,
+            0.0,
+            -262.74031199210674
+          ],
+          [
+            0.0,
+            0.5465548546150413,
+            -22.05547534116178
+          ]
+        ],
+        "ok": true,
+        "padding_ratio": 0.0,
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry_accepted/images/DEV/Deepfakes/017_803/000/B.png",
+        "png_bytes": 72919,
+        "rgb_sha256": "77a4617ade7584a8abad69c262546db04a2e79af83344256d61e6acca81b032d"
+      },
+      "a_redetection": {
+        "bbox": [
+          36.819007873535156,
+          34.057838439941406,
+          192.72281646728516,
+          250.049560546875
+        ],
+        "landmarks": [
+          [
+            90.66397857666016,
+            120.03535747528076
+          ],
+          [
+            160.86094284057617,
+            119.40622425079346
+          ],
+          [
+            134.52599239349365,
+            161.2250633239746
+          ],
+          [
+            97.52033042907715,
+            196.26271057128906
+          ],
+          [
+            156.96307563781738,
+            195.5282211303711
+          ]
+        ],
+        "landmarks_finite": true,
+        "multiface": false,
+        "qualified_face_count": 1,
+        "score": 0.7890231609344482
+      },
+      "mother_index": 0,
+      "mother_rgb_sha256": "c267dec697244467622cbf17f408b36d873564b1f4268e6be88e36a0df266de2",
+      "mother_timestamp": 0.0,
+      "original_detection": {
+        "bbox": [
+          586.4561080932617,
+          107.74546813964844,
+          782.9958648681641,
+          380.97208404541016
+        ],
+        "landmarks": [
+          [
+            653.2796478271484,
+            225.52216148376465
+          ],
+          [
+            738.1617431640625,
+            224.8768253326416
+          ],
+          [
+            705.8676605224609,
+            274.80091857910156
+          ],
+          [
+            663.2158727645874,
+            317.85399627685547
+          ],
+          [
+            732.7975578308105,
+            317.05839920043945
+          ]
+        ],
+        "landmarks_finite": true,
+        "multiface": false,
+        "qualified_face_count": 1,
+        "score": 0.8544981479644775
+      }
+    },
+    {
+      "A": {
+        "byte_sha256": "25ed7d86e94d65fa8db12cd4c8cf5f6021422deb8f9279022fe1f7ef7c3c4412",
+        "input_rgb_sha256": "64bd9b99089fa62c2d41df5c2be1a0ac0cc7419e1cc699e001818346ba69b4bf",
+        "mask_byte_sha256": "849588744d056373b6d3352d9982a361b126b36fa4cb622fd2e44a146ae5c835",
+        "mask_bytes": 502,
+        "mask_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry_accepted/images/DEV/Deepfakes/017_803/001/A_mask.png",
+        "matrix": [
+          [
+            0.7919758028607115,
+            -0.036939846164727896,
+            -404.08365351347913
+          ],
+          [
+            0.036939846164727896,
+            0.7919758028607115,
+            -89.01477581357916
+          ]
+        ],
+        "ok": true,
+        "padding_ratio": 0.0,
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry_accepted/images/DEV/Deepfakes/017_803/001/A.png",
+        "png_bytes": 95344,
+        "rgb_sha256": "039e258cc76e661e9ac2f7d053e7a9d18b37ff6dcc7f577b0952b801a34b3f50"
+      },
+      "AB": {
+        "byte_sha256": "2a6cec3fafb5f12d21403903cba473679dee46154d5097158bc3bfbe1b382fee",
+        "input_rgb_sha256": "039e258cc76e661e9ac2f7d053e7a9d18b37ff6dcc7f577b0952b801a34b3f50",
+        "mask_byte_sha256": "08b4955d956b7fa09fc0db3e66e112e73772743ba1a36e966b07c663ef49f1b0",
+        "mask_bytes": 588,
+        "mask_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry_accepted/images/DEV/Deepfakes/017_803/001/AB_mask.png",
+        "matrix": [
+          [
+            0.6924677467630547,
+            0.0,
+            35.14840702510655
+          ],
+          [
+            0.0,
+            0.6924677467630547,
+            12.195234539584007
+          ]
+        ],
+        "ok": true,
+        "padding_ratio": 0.36854272959183676,
+        "parent_byte_sha256": "25ed7d86e94d65fa8db12cd4c8cf5f6021422deb8f9279022fe1f7ef7c3c4412",
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry_accepted/images/DEV/Deepfakes/017_803/001/AB.png",
+        "png_bytes": 54149,
+        "rgb_sha256": "3dc2b15b5544e91689d0b9b9bede0b621b8f5463e36255b246efdd8f4d91061a"
+      },
+      "B": {
+        "byte_sha256": "fb3a0b79afe2972724b2a2122b3cbdd8d73c768025af2d3def8a36ec03887bf2",
+        "input_rgb_sha256": "64bd9b99089fa62c2d41df5c2be1a0ac0cc7419e1cc699e001818346ba69b4bf",
+        "mask_byte_sha256": "9177adb1a3417cbf8b145d81f33af2b09e28edea1aca7a09cd4a7aa458f93bf7",
+        "mask_bytes": 618,
+        "mask_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry_accepted/images/DEV/Deepfakes/017_803/001/B_mask.png",
+        "matrix": [
+          [
+            0.5489998354877557,
+            0.0,
+            -251.52999676398173
+          ],
+          [
+            0.0,
+            0.5489998354877557,
+            -29.12159659451055
+          ]
+        ],
+        "ok": true,
+        "padding_ratio": 0.0,
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry_accepted/images/DEV/Deepfakes/017_803/001/B.png",
+        "png_bytes": 75676,
+        "rgb_sha256": "d0866e66e4eecac1c7d202f9675eae461308c2678ba38187af3af218d558f60f"
+      },
+      "a_redetection": {
+        "bbox": [
+          29.37224578857422,
+          35.58013916015625,
+          191.14804077148438,
+          251.2339859008789
+        ],
+        "landmarks": [
+          [
+            91.40855169296265,
+            117.68269062042236
+          ],
+          [
+            161.66437530517578,
+            117.14881896972656
+          ],
+          [
+            138.10313034057617,
+            161.65381240844727
+          ],
+          [
+            98.9351851940155,
+            197.96239471435547
+          ],
+          [
+            154.99380493164062,
+            197.33861541748047
+          ]
+        ],
+        "landmarks_finite": true,
+        "multiface": false,
+        "qualified_face_count": 1,
+        "score": 0.7772401571273804
+      },
+      "mother_index": 51,
+      "mother_rgb_sha256": "64bd9b99089fa62c2d41df5c2be1a0ac0cc7419e1cc699e001818346ba69b4bf",
+      "mother_timestamp": 2.04,
+      "original_detection": {
+        "bbox": [
+          559.8146286010742,
+          120.13652038574219,
+          762.6994171142578,
+          392.1463165283203
+        ],
+        "landmarks": [
+          [
+            638.1708946228027,
+            231.62034225463867
+          ],
+          [
+            721.3200874328613,
+            228.3351593017578
+          ],
+          [
+            694.4278163909912,
+            283.0962562561035
+          ],
+          [
+            654.1649894714355,
+            330.8018569946289
+          ],
+          [
+            716.8194465637207,
+            327.6973876953125
+          ]
+        ],
+        "landmarks_finite": true,
+        "multiface": false,
+        "qualified_face_count": 1,
+        "score": 0.8760422468185425
+      }
+    },
+    {
+      "A": {
+        "byte_sha256": "701361cb54af8cf1e001d6300f52905b339d7421fcc9c2bc362c5556d499edc1",
+        "input_rgb_sha256": "66f50a225d0b741be00a5aa2c6d040a00e350eb1856d4f7b75c2470dcb156ccf",
+        "mask_byte_sha256": "849588744d056373b6d3352d9982a361b126b36fa4cb622fd2e44a146ae5c835",
+        "mask_bytes": 502,
+        "mask_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry_accepted/images/DEV/Deepfakes/017_803/002/A_mask.png",
+        "matrix": [
+          [
+            0.8054136298121344,
+            -0.08630523578511884,
+            -382.8295661883897
+          ],
+          [
+            0.08630523578511884,
+            0.8054136298121344,
+            -121.85286559942232
+          ]
+        ],
+        "ok": true,
+        "padding_ratio": 0.0,
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry_accepted/images/DEV/Deepfakes/017_803/002/A.png",
+        "png_bytes": 96681,
+        "rgb_sha256": "6f486b1525451bc0c5e78aa038e06b2ac33a79aa20defa227de0a350320c7a69"
+      },
+      "AB": {
+        "byte_sha256": "49673d5edb1abfa3221c5f8418946f09d80b852908924b3d2791e123fdb14224",
+        "input_rgb_sha256": "6f486b1525451bc0c5e78aa038e06b2ac33a79aa20defa227de0a350320c7a69",
+        "mask_byte_sha256": "1375ca9937142c45b0d7e4155fa3f824d244012a5b6d6ff73912b982c140b369",
+        "mask_bytes": 591,
+        "mask_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry_accepted/images/DEV/Deepfakes/017_803/002/AB_mask.png",
+        "matrix": [
+          [
+            0.6928294785953496,
+            0.0,
+            33.806285055682565
+          ],
+          [
+            0.0,
+            0.6928294785953496,
+            11.835225167242015
+          ]
+        ],
+        "ok": true,
+        "padding_ratio": 0.375617825255102,
+        "parent_byte_sha256": "701361cb54af8cf1e001d6300f52905b339d7421fcc9c2bc362c5556d499edc1",
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry_accepted/images/DEV/Deepfakes/017_803/002/AB.png",
+        "png_bytes": 54510,
+        "rgb_sha256": "222f89af177446ea5e417a5c7f17f063de25c80056d85bdc4e511e7251aef727"
+      },
+      "B": {
+        "byte_sha256": "b017e7ef815b15404f25cc582087c172f35dae95d54d0ef010b3bb95caa8cd43",
+        "input_rgb_sha256": "66f50a225d0b741be00a5aa2c6d040a00e350eb1856d4f7b75c2470dcb156ccf",
+        "mask_byte_sha256": "9177adb1a3417cbf8b145d81f33af2b09e28edea1aca7a09cd4a7aa458f93bf7",
+        "mask_bytes": 618,
+        "mask_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry_accepted/images/DEV/Deepfakes/017_803/002/B_mask.png",
+        "matrix": [
+          [
+            0.5465050299463348,
+            0.0,
+            -240.14425685654209
+          ],
+          [
+            0.0,
+            0.5465050299463348,
+            -27.37619607949125
+          ]
+        ],
+        "ok": true,
+        "padding_ratio": 0.0,
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry_accepted/images/DEV/Deepfakes/017_803/002/B.png",
+        "png_bytes": 76815,
+        "rgb_sha256": "631eba60b19c7e06fd74f12daa74e1e8d57b8e0df586fad5b675d4b61aca5363"
+      },
+      "a_redetection": {
+        "bbox": [
+          32.69493865966797,
+          36.08118438720703,
+          191.58453369140625,
+          251.6224365234375
+        ],
+        "landmarks": [
+          [
+            91.14606094360352,
+            120.51157760620117
+          ],
+          [
+            161.11248016357422,
+            119.3894271850586
+          ],
+          [
+            136.26142501831055,
+            161.87735056877136
+          ],
+          [
+            96.92222213745117,
+            196.2501983642578
+          ],
+          [
+            156.02693557739258,
+            194.96741485595703
+          ]
+        ],
+        "landmarks_finite": true,
+        "multiface": false,
+        "qualified_face_count": 1,
+        "score": 0.7744457721710205
+      },
+      "mother_index": 115,
+      "mother_rgb_sha256": "66f50a225d0b741be00a5aa2c6d040a00e350eb1856d4f7b75c2470dcb156ccf",
+      "mother_timestamp": 4.6000000000000005,
+      "original_detection": {
+        "bbox": [
+          545.8815383911133,
+          117.49119567871094,
+          741.0023422241211,
+          390.7427215576172
+        ],
+        "landmarks": [
+          [
+            614.9010162353516,
+            234.6771240234375
+          ],
+          [
+            697.8168182373047,
+            225.48487281799316
+          ],
+          [
+            673.669807434082,
+            280.7849979400635
+          ],
+          [
+            629.9486169815063,
+            325.43931579589844
+          ],
+          [
+            703.4352493286133,
+            316.98569107055664
+          ]
+        ],
+        "landmarks_finite": true,
+        "multiface": false,
+        "qualified_face_count": 1,
+        "score": 0.8982717990875244
+      }
+    },
+    {
+      "A": {
+        "byte_sha256": "f6638161ac741e193466006e7c114250c0a6fbc4d4c88b7e4d1c31e720bbf608",
+        "input_rgb_sha256": "88536f4b21c9951aed572d87556c11ad4ecfa72059518f5f0b4e8c49e2e64b3b",
+        "mask_byte_sha256": "849588744d056373b6d3352d9982a361b126b36fa4cb622fd2e44a146ae5c835",
+        "mask_bytes": 502,
+        "mask_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry_accepted/images/DEV/Deepfakes/017_803/003/A_mask.png",
+        "matrix": [
+          [
+            0.7963564360563437,
+            0.037556394956425265,
+            -437.6713349375171
+          ],
+          [
+            -0.037556394956425265,
+            0.7963564360563437,
+            -38.78457211456133
+          ]
+        ],
+        "ok": true,
+        "padding_ratio": 0.0,
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry_accepted/images/DEV/Deepfakes/017_803/003/A.png",
+        "png_bytes": 96646,
+        "rgb_sha256": "74280042c4f430f589fa347d3c985b32a474b3e93c20e5517374fc3a4dd15fba"
+      },
+      "AB": {
+        "byte_sha256": "5a90584375d47561158453a522a71c2be8bb445905f8d57c82d599839f37dbbd",
+        "input_rgb_sha256": "74280042c4f430f589fa347d3c985b32a474b3e93c20e5517374fc3a4dd15fba",
+        "mask_byte_sha256": "e16f8375cbcdf4a4228dbd7cb2dd139bd11259c05e22ae2e8c1772d1ba4b2f1a",
+        "mask_bytes": 591,
+        "mask_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry_accepted/images/DEV/Deepfakes/017_803/003/AB_mask.png",
+        "matrix": [
+          [
+            0.6919660953646499,
+            0.0,
+            28.26929207380921
+          ],
+          [
+            0.0,
+            0.6919660953646499,
+            12.873199551133723
+          ]
+        ],
+        "ok": true,
+        "padding_ratio": 0.37209024234693877,
+        "parent_byte_sha256": "f6638161ac741e193466006e7c114250c0a6fbc4d4c88b7e4d1c31e720bbf608",
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry_accepted/images/DEV/Deepfakes/017_803/003/AB.png",
+        "png_bytes": 54681,
+        "rgb_sha256": "0fedfeb86cf16f07a30b728f1bed0ac02495d93088c53ca53e7dee677e814f43"
+      },
+      "B": {
+        "byte_sha256": "a0494982a888b06b259c87671a2e482753d322496b5aea52211befe9d3c095d0",
+        "input_rgb_sha256": "88536f4b21c9951aed572d87556c11ad4ecfa72059518f5f0b4e8c49e2e64b3b",
+        "mask_byte_sha256": "9177adb1a3417cbf8b145d81f33af2b09e28edea1aca7a09cd4a7aa458f93bf7",
+        "mask_bytes": 618,
+        "mask_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry_accepted/images/DEV/Deepfakes/017_803/003/B_mask.png",
+        "matrix": [
+          [
+            0.5367834757997271,
+            0.0,
+            -258.3881263281493
+          ],
+          [
+            0.0,
+            0.5367834757997271,
+            -25.886207006500314
+          ]
+        ],
+        "ok": true,
+        "padding_ratio": 0.0,
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry_accepted/images/DEV/Deepfakes/017_803/003/B.png",
+        "png_bytes": 76839,
+        "rgb_sha256": "3ecf04b67464a363f5bd9a696227aacfba3a25527037ab7dec890b1dc3795511"
+      },
+      "a_redetection": {
+        "bbox": [
+          42.70690155029297,
+          34.62616729736328,
+          197.85606384277344,
+          250.4363555908203
+        ],
+        "landmarks": [
+          [
+            92.74004364013672,
+            118.87602615356445
+          ],
+          [
+            163.1027717590332,
+            119.10197067260742
+          ],
+          [
+            132.8689022064209,
+            163.13935351371765
+          ],
+          [
+            97.8133659362793,
+            195.40957641601562
+          ],
+          [
+            156.5748519897461,
+            195.47010803222656
+          ]
+        ],
+        "landmarks_finite": true,
+        "multiface": false,
+        "qualified_face_count": 1,
+        "score": 0.7759039998054504
+      },
+      "mother_index": 166,
+      "mother_rgb_sha256": "88536f4b21c9951aed572d87556c11ad4ecfa72059518f5f0b4e8c49e2e64b3b",
+      "mother_timestamp": 6.640000000000001,
+      "original_detection": {
+        "bbox": [
+          589.4939193725586,
+          116.84327697753906,
+          788.6711807250977,
+          395.04359436035156
+        ],
+        "landmarks": [
+          [
+            655.0841903686523,
+            229.60676193237305
+          ],
+          [
+            740.5003700256348,
+            233.4632167816162
+          ],
+          [
+            702.0673633813858,
+            286.5610523223877
+          ],
+          [
+            657.7446365356445,
+            324.4380111694336
+          ],
+          [
+            730.4320125579834,
+            327.65757751464844
+          ]
+        ],
+        "landmarks_finite": true,
+        "multiface": false,
+        "qualified_face_count": 1,
+        "score": 0.8584598302841187
+      }
+    },
+    {
+      "A": {
+        "byte_sha256": "1b1d0d81617749b73dd8feac531c8face2041c47519c23991c44b8cb4e821155",
+        "input_rgb_sha256": "8ae2b6ba314aed2a8849e100c987be4038f280807b0ab9625869038091382ded",
+        "mask_byte_sha256": "849588744d056373b6d3352d9982a361b126b36fa4cb622fd2e44a146ae5c835",
+        "mask_bytes": 502,
+        "mask_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry_accepted/images/DEV/Deepfakes/017_803/004/A_mask.png",
+        "matrix": [
+          [
+            0.7888463914881094,
+            -0.051969185140251284,
+            -388.90674182182266
+          ],
+          [
+            0.051969185140251284,
+            0.7888463914881094,
+            -107.09176143539878
+          ]
+        ],
+        "ok": true,
+        "padding_ratio": 0.0,
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry_accepted/images/DEV/Deepfakes/017_803/004/A.png",
+        "png_bytes": 96557,
+        "rgb_sha256": "5c1b79f6fc186d28f994923685216e2bae448f1ba367ae80e2cdccac4b424f24"
+      },
+      "AB": {
+        "byte_sha256": "daa64d4fe4a98eda7dac17219c5d02e453676932732902ce69b19d622e446200",
+        "input_rgb_sha256": "5c1b79f6fc186d28f994923685216e2bae448f1ba367ae80e2cdccac4b424f24",
+        "mask_byte_sha256": "a36342b4b7719ecf98421074e8c36f80063a36ce9c0b04659740e31cb1bf1a33",
+        "mask_bytes": 589,
+        "mask_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry_accepted/images/DEV/Deepfakes/017_803/004/AB_mask.png",
+        "matrix": [
+          [
+            0.6959051257905843,
+            0.0,
+            32.38023498926033
+          ],
+          [
+            0.0,
+            0.6959051257905843,
+            12.490967897178464
+          ]
+        ],
+        "ok": true,
+        "padding_ratio": 0.36854272959183676,
+        "parent_byte_sha256": "1b1d0d81617749b73dd8feac531c8face2041c47519c23991c44b8cb4e821155",
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry_accepted/images/DEV/Deepfakes/017_803/004/AB.png",
+        "png_bytes": 55073,
+        "rgb_sha256": "a5f9470a8d6a35b9c995189dcb30c4f6b852ad1811937e4f562f848b5b594cea"
+      },
+      "B": {
+        "byte_sha256": "614f06bacd623b31f6500536535011a65542a648183396bde7c174b800d5ee40",
+        "input_rgb_sha256": "8ae2b6ba314aed2a8849e100c987be4038f280807b0ab9625869038091382ded",
+        "mask_byte_sha256": "9177adb1a3417cbf8b145d81f33af2b09e28edea1aca7a09cd4a7aa458f93bf7",
+        "mask_bytes": 618,
+        "mask_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry_accepted/images/DEV/Deepfakes/017_803/004/B_mask.png",
+        "matrix": [
+          [
+            0.5438697184293526,
+            0.0,
+            -244.48148391019578
+          ],
+          [
+            0.0,
+            0.5438697184293526,
+            -33.54692360027144
+          ]
+        ],
+        "ok": true,
+        "padding_ratio": 0.0,
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry_accepted/images/DEV/Deepfakes/017_803/004/B.png",
+        "png_bytes": 76205,
+        "rgb_sha256": "21ebc3bced59189302a24e6a11dc3e69b6de1021c25d703b3ceecea6d070b1ea"
+      },
+      "a_redetection": {
+        "bbox": [
+          36.14703369140625,
+          34.97943115234375,
+          191.23960876464844,
+          249.5680694580078
+        ],
+        "landmarks": [
+          [
+            90.7880859375,
+            117.26754951477051
+          ],
+          [
+            160.53464889526367,
+            118.41620635986328
+          ],
+          [
+            134.05698108673096,
+            161.42208862304688
+          ],
+          [
+            97.94256782531738,
+            196.36348724365234
+          ],
+          [
+            153.90832138061523,
+            197.11638641357422
+          ]
+        ],
+        "landmarks_finite": true,
+        "multiface": false,
+        "qualified_face_count": 1,
+        "score": 0.7675502300262451
+      },
+      "mother_index": 231,
+      "mother_rgb_sha256": "8ae2b6ba314aed2a8849e100c987be4038f280807b0ab9625869038091382ded",
+      "mother_timestamp": 9.24,
+      "original_detection": {
+        "bbox": [
+          554.211784362793,
+          129.40646362304688,
+          754.857177734375,
+          403.9820251464844
+        ],
+        "landmarks": [
+          [
+            624.8987646102905,
+            245.2340087890625
+          ],
+          [
+            712.0319519042969,
+            240.77357292175293
+          ],
+          [
+            683.0885047912598,
+            295.04456329345703
+          ],
+          [
+            642.5328783988953,
+            341.4817581176758
+          ],
+          [
+            710.285758972168,
+            337.3335494995117
+          ]
+        ],
+        "landmarks_finite": true,
+        "multiface": false,
+        "qualified_face_count": 1,
+        "score": 0.8031386137008667
+      }
+    },
+    {
+      "A": {
+        "byte_sha256": "8b3ff691e3659be7c1f4fa3ed61f717cc88d0cabdec2cb9cf49e88e2f199b350",
+        "input_rgb_sha256": "f6f44e637a45e56343a9b199ac4c01b2bf1469babe6e3ab29b26dae73666366a",
+        "mask_byte_sha256": "849588744d056373b6d3352d9982a361b126b36fa4cb622fd2e44a146ae5c835",
+        "mask_bytes": 502,
+        "mask_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry_accepted/images/DEV/Deepfakes/017_803/005/A_mask.png",
+        "matrix": [
+          [
+            0.7773214578119798,
+            -0.15407799190234073,
+            -348.88659950752606
+          ],
+          [
+            0.15407799190234073,
+            0.7773214578119798,
+            -168.30750317223502
+          ]
+        ],
+        "ok": true,
+        "padding_ratio": 0.0,
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry_accepted/images/DEV/Deepfakes/017_803/005/A.png",
+        "png_bytes": 98172,
+        "rgb_sha256": "918333bb31a696365b9dca05ca1f3c87b902041cd2872fd57bb4e43cae7089c4"
+      },
+      "AB": {
+        "byte_sha256": "32c9ba78cba47581c9e23be5df166135e9561f565c6058c4435265183247ebae",
+        "input_rgb_sha256": "918333bb31a696365b9dca05ca1f3c87b902041cd2872fd57bb4e43cae7089c4",
+        "mask_byte_sha256": "1375ca9937142c45b0d7e4155fa3f824d244012a5b6d6ff73912b982c140b369",
+        "mask_bytes": 591,
+        "mask_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry_accepted/images/DEV/Deepfakes/017_803/005/AB_mask.png",
+        "matrix": [
+          [
+            0.6926858975581713,
+            0.0,
+            33.76515209290558
+          ],
+          [
+            0.0,
+            0.6926858975581713,
+            11.785243270120475
+          ]
+        ],
+        "ok": true,
+        "padding_ratio": 0.375617825255102,
+        "parent_byte_sha256": "8b3ff691e3659be7c1f4fa3ed61f717cc88d0cabdec2cb9cf49e88e2f199b350",
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry_accepted/images/DEV/Deepfakes/017_803/005/AB.png",
+        "png_bytes": 55049,
+        "rgb_sha256": "a689667c67ce6485299ffa9fb67e8a3dd468ed54a93a7d671e1b3c6aca974558"
+      },
+      "B": {
+        "byte_sha256": "1103eac75f4b19014de2ef499e0a1a0dc65128256997d72065104e31f01b9243",
+        "input_rgb_sha256": "f6f44e637a45e56343a9b199ac4c01b2bf1469babe6e3ab29b26dae73666366a",
+        "mask_byte_sha256": "9177adb1a3417cbf8b145d81f33af2b09e28edea1aca7a09cd4a7aa458f93bf7",
+        "mask_bytes": 618,
+        "mask_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry_accepted/images/DEV/Deepfakes/017_803/005/B_mask.png",
+        "matrix": [
+          [
+            0.5393257304167107,
+            0.0,
+            -239.87589792474756
+          ],
+          [
+            0.0,
+            0.5393257304167107,
+            -32.130673113418
+          ]
+        ],
+        "ok": true,
+        "padding_ratio": 0.0,
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry_accepted/images/DEV/Deepfakes/017_803/005/B.png",
+        "png_bytes": 76261,
+        "rgb_sha256": "d4790dfcace8742a99a23eedb53e167d51d757a4f9c9474db266a6fa6a316422"
+      },
+      "a_redetection": {
+        "bbox": [
+          34.80308532714844,
+          36.16082000732422,
+          189.64163970947266,
+          251.7467498779297
+        ],
+        "landmarks": [
+          [
+            91.81519317626953,
+            118.50371932983398
+          ],
+          [
+            160.33692169189453,
+            117.99637603759766
+          ],
+          [
+            136.36776161193848,
+            160.78200507164001
+          ],
+          [
+            99.20112800598145,
+            197.47296524047852
+          ],
+          [
+            154.6857852935791,
+            196.52214813232422
+          ]
+        ],
+        "landmarks_finite": true,
+        "multiface": false,
+        "qualified_face_count": 1,
+        "score": 0.7656372785568237
+      },
+      "mother_index": 282,
+      "mother_rgb_sha256": "f6f44e637a45e56343a9b199ac4c01b2bf1469babe6e3ab29b26dae73666366a",
+      "mother_timestamp": 11.28,
+      "original_detection": {
+        "bbox": [
+          552.5518035888672,
+          127.87078857421875,
+          750.4674224853516,
+          404.7597351074219
+        ],
+        "landmarks": [
+          [
+            616.895149230957,
+            247.15382480621338
+          ],
+          [
+            700.3475608825684,
+            231.82004165649414
+          ],
+          [
+            677.4603042602539,
+            287.07928466796875
+          ],
+          [
+            645.4370059967041,
+            341.90956115722656
+          ],
+          [
+            712.3677673339844,
+            328.2845916748047
+          ]
+        ],
+        "landmarks_finite": true,
+        "multiface": false,
+        "qualified_face_count": 1,
+        "score": 0.8164170980453491
+      }
+    },
+    {
+      "A": {
+        "byte_sha256": "cce6ec235960a662519fc96be257f473e9ab5e2ecb8b9e8049f2faeb6f6f776b",
+        "input_rgb_sha256": "dd1429c512ccd3731ec1104d604e9ea32ae9a23434b4cf663f5288309aeb27f1",
+        "mask_byte_sha256": "849588744d056373b6d3352d9982a361b126b36fa4cb622fd2e44a146ae5c835",
+        "mask_bytes": 502,
+        "mask_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry_accepted/images/DEV/Deepfakes/017_803/006/A_mask.png",
+        "matrix": [
+          [
+            0.8035219989672449,
+            0.014117198617327631,
+            -439.6098450722121
+          ],
+          [
+            -0.014117198617327631,
+            0.8035219989672449,
+            -49.337915680587635
+          ]
+        ],
+        "ok": true,
+        "padding_ratio": 0.0,
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry_accepted/images/DEV/Deepfakes/017_803/006/A.png",
+        "png_bytes": 97095,
+        "rgb_sha256": "0c591becb5614c98d92922e97fb54c514d42eb704112df3591308e90b6b1de7b"
+      },
+      "AB": {
+        "byte_sha256": "c91fde838ff1438bfff06102d28c19038b253406baa4a501f49c9ad18573975d",
+        "input_rgb_sha256": "0c591becb5614c98d92922e97fb54c514d42eb704112df3591308e90b6b1de7b",
+        "mask_byte_sha256": "ea4cedc776c0968622b0a1b758e3796777525228284977fb2c9e03e719fba041",
+        "mask_bytes": 586,
+        "mask_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry_accepted/images/DEV/Deepfakes/017_803/006/AB_mask.png",
+        "matrix": [
+          [
+            0.6868948841574141,
+            0.0,
+            33.03088811986321
+          ],
+          [
+            0.0,
+            0.6868948841574141,
+            15.1912235664185
+          ]
+        ],
+        "ok": true,
+        "padding_ratio": 0.38265306122448983,
+        "parent_byte_sha256": "cce6ec235960a662519fc96be257f473e9ab5e2ecb8b9e8049f2faeb6f6f776b",
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry_accepted/images/DEV/Deepfakes/017_803/006/AB.png",
+        "png_bytes": 54320,
+        "rgb_sha256": "fa46311f178e009e4c90fef3cf1a3ece50649db046d2e7ea2a681d27a6015297"
+      },
+      "B": {
+        "byte_sha256": "9eb4bf7c24023267e9f78651a002611129d10b68b1ffb6e51aac6faaa64a9f9c",
+        "input_rgb_sha256": "dd1429c512ccd3731ec1104d604e9ea32ae9a23434b4cf663f5288309aeb27f1",
+        "mask_byte_sha256": "9177adb1a3417cbf8b145d81f33af2b09e28edea1aca7a09cd4a7aa458f93bf7",
+        "mask_bytes": 618,
+        "mask_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry_accepted/images/DEV/Deepfakes/017_803/006/B_mask.png",
+        "matrix": [
+          [
+            0.5449560367079376,
+            0.0,
+            -262.5807332700456
+          ],
+          [
+            0.0,
+            0.5449560367079376,
+            -20.32023652937798
+          ]
+        ],
+        "ok": true,
+        "padding_ratio": 0.0,
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry_accepted/images/DEV/Deepfakes/017_803/006/B.png",
+        "png_bytes": 76136,
+        "rgb_sha256": "eeec242c2dd70ddca72cc5f1e155a896387301a161f0bf1d5d9b5d16aff85152"
+      },
+      "a_redetection": {
+        "bbox": [
+          34.68384552001953,
+          31.507164001464844,
+          193.79103088378906,
+          248.91063690185547
+        ],
+        "landmarks": [
+          [
+            89.71409606933594,
+            117.6591625213623
+          ],
+          [
+            161.25299072265625,
+            118.11030006408691
+          ],
+          [
+            134.29998970031738,
+            158.42900848388672
+          ],
+          [
+            99.04520416259766,
+            196.19424438476562
+          ],
+          [
+            156.44453048706055,
+            196.203857421875
+          ]
+        ],
+        "landmarks_finite": true,
+        "multiface": false,
+        "qualified_face_count": 1,
+        "score": 0.7955162525177002
+      },
+      "mother_index": 346,
+      "mother_rgb_sha256": "dd1429c512ccd3731ec1104d604e9ea32ae9a23434b4cf663f5288309aeb27f1",
+      "mother_timestamp": 13.84,
+      "original_detection": {
+        "bbox": [
+          586.0261077880859,
+          104.87739562988281,
+          786.8579711914062,
+          378.9056167602539
+        ],
+        "landmarks": [
+          [
+            656.2254915237427,
+            221.46796798706055
+          ],
+          [
+            743.7116394042969,
+            223.87076568603516
+          ],
+          [
+            709.1382713317871,
+            273.6523132324219
+          ],
+          [
+            666.475944519043,
+            316.5226058959961
+          ],
+          [
+            732.9887733459473,
+            318.09749603271484
+          ]
+        ],
+        "landmarks_finite": true,
+        "multiface": false,
+        "qualified_face_count": 1,
+        "score": 0.8111743927001953
+      }
+    },
+    {
+      "A": {
+        "byte_sha256": "1548b57d1b81a4755167fbef8e62c74122455109451d01f61e4382b7f8e8a631",
+        "input_rgb_sha256": "38d0d25a234998cee8b990e0ce7e554113521d4265bca534b094941d74a5b323",
+        "mask_byte_sha256": "849588744d056373b6d3352d9982a361b126b36fa4cb622fd2e44a146ae5c835",
+        "mask_bytes": 502,
+        "mask_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry_accepted/images/DEV/Deepfakes/017_803/007/A_mask.png",
+        "matrix": [
+          [
+            0.8221059283035741,
+            -0.03482351272896267,
+            -414.5836620866815
+          ],
+          [
+            0.03482351272896267,
+            0.8221059283035741,
+            -109.85440870490156
+          ]
+        ],
+        "ok": true,
+        "padding_ratio": 0.0,
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry_accepted/images/DEV/Deepfakes/017_803/007/A.png",
+        "png_bytes": 98581,
+        "rgb_sha256": "463937937b93e72bc397be03478ea8e208cd50368364f23da790bbacd1d27b4b"
+      },
+      "AB": {
+        "byte_sha256": "0dd625b5f6c9a5d33e36954334d1349111658d2a401d554b40721be9939adc5c",
+        "input_rgb_sha256": "463937937b93e72bc397be03478ea8e208cd50368364f23da790bbacd1d27b4b",
+        "mask_byte_sha256": "30e85a5fcf12d2fe2b43de1401ac1d0842dfdb7fde75af94064f1719441efc99",
+        "mask_bytes": 588,
+        "mask_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry_accepted/images/DEV/Deepfakes/017_803/007/AB_mask.png",
+        "matrix": [
+          [
+            0.6932244371268187,
+            0.0,
+            33.32353555411866
+          ],
+          [
+            0.0,
+            0.6932244371268187,
+            16.037023330147136
+          ]
+        ],
+        "ok": true,
+        "padding_ratio": 0.36854272959183676,
+        "parent_byte_sha256": "1548b57d1b81a4755167fbef8e62c74122455109451d01f61e4382b7f8e8a631",
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry_accepted/images/DEV/Deepfakes/017_803/007/AB.png",
+        "png_bytes": 55799,
+        "rgb_sha256": "a6ca527b05b07accdaca0b159ad83f893d240699d68ebba3f805a2906c720de2"
+      },
+      "B": {
+        "byte_sha256": "c574320c0158c2b09121ed40494d650630712570b8d0d20ee8b8da48556ddda8",
+        "input_rgb_sha256": "38d0d25a234998cee8b990e0ce7e554113521d4265bca534b094941d74a5b323",
+        "mask_byte_sha256": "9177adb1a3417cbf8b145d81f33af2b09e28edea1aca7a09cd4a7aa458f93bf7",
+        "mask_bytes": 618,
+        "mask_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry_accepted/images/DEV/Deepfakes/017_803/007/B_mask.png",
+        "matrix": [
+          [
+            0.5589272785477335,
+            0.0,
+            -254.46323036018816
+          ],
+          [
+            0.0,
+            0.5589272785477335,
+            -37.803679553006305
+          ]
+        ],
+        "ok": true,
+        "padding_ratio": 0.0,
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry_accepted/images/DEV/Deepfakes/017_803/007/B.png",
+        "png_bytes": 79207,
+        "rgb_sha256": "866ea023f8a94eed58b5efafbb9576e46707d58b487af51073fb8d4530ec5dc9"
+      },
+      "a_redetection": {
+        "bbox": [
+          34.11412048339844,
+          29.9993896484375,
+          191.43033599853516,
+          245.41783905029297
+        ],
+        "landmarks": [
+          [
+            89.23176956176758,
+            118.34158897399902
+          ],
+          [
+            160.9963035583496,
+            117.79097366333008
+          ],
+          [
+            133.637957572937,
+            163.61666107177734
+          ],
+          [
+            97.18397521972656,
+            196.2645263671875
+          ],
+          [
+            153.45189476013184,
+            195.51287078857422
+          ]
+        ],
+        "landmarks_finite": true,
+        "multiface": false,
+        "qualified_face_count": 1,
+        "score": 0.7780689001083374
+      },
+      "mother_index": 397,
+      "mother_rgb_sha256": "38d0d25a234998cee8b990e0ce7e554113521d4265bca534b094941d74a5b323",
+      "mother_timestamp": 15.88,
+      "original_detection": {
+        "bbox": [
+          557.2827224731445,
+          133.5361785888672,
+          752.2372970581055,
+          400.7146453857422
+        ],
+        "landmarks": [
+          [
+            625.3461618423462,
+            252.02077722549438
+          ],
+          [
+            710.9433670043945,
+            249.11261510849
+          ],
+          [
+            680.5254325866699,
+            302.5317268371582
+          ],
+          [
+            640.6734139919281,
+            343.6980438232422
+          ],
+          [
+            705.82177734375,
+            340.99220275878906
+          ]
+        ],
+        "landmarks_finite": true,
+        "multiface": false,
+        "qualified_face_count": 1,
+        "score": 0.8107077479362488
+      }
+    }
+  ],
+  "processing_seconds": 2.655575530603528,
+  "protocol_sha256": "85a865f0e3343ecaf5b8c0174c8a3f602ec873deeccb03bd1826d617f2a7ae03",
+  "version_failures": {
+    "A": [],
+    "AB": [],
+    "B": []
+  },
+  "video": {
+    "dataset": "FFPP",
+    "domain": "source",
+    "label": 1,
+    "method": "Deepfakes",
+    "path": "/Dataset/deepfake_detection/FaceForensics++/manipulated_sequences/Deepfakes/c23/videos/017_803.mp4",
+    "role": "DEV",
+    "source_evidence": "official_ffpp_pair_and_filename",
+    "source_group": "FFPP/pair/017_803",
+    "source_ids": [
+      "017",
+      "803"
+    ],
+    "video_id": "017_803",
+    "video_uid": "FFPP/source/Deepfakes/017_803"
+  },
+  "video_byte_sha256": "0023b079e42fa41bd5850f2feef65f56e31b029ef38df5e34604680f57f27f6b"
+}

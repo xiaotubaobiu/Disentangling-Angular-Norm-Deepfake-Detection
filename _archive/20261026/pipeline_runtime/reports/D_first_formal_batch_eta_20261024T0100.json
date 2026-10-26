@@ -1,0 +1,255 @@
+{
+  "utc": "2026-10-24T01:01:08.762388+00:00",
+  "status": "MEASURED_FIRST4_FORMAL_BATCH_ETA_NOT_YET_TERMINAL",
+  "method": "LastcompletedsourceDEVParquetmtime + remainingepochs*mean(last3successiveDEVcompletionintervals) + median(2sameCLIPdevelopmentterminaloverheads). Includespreviouscheckpointwriting/loopoverhead.",
+  "rows": [
+    {
+      "run_id": "D_formal_clip_vit_b16_seed7",
+      "gpu": 0,
+      "observed_history_epoch": 28,
+      "remaining_full_epoch_endpoints": 2,
+      "history_snapshot_sha256": "8a1910453521d8d52b99082d6cdfe68b0a7284db04100cc9a242a7fcdbc34794",
+      "last6_source_DEV_completion_markers": [
+        {
+          "epoch": 23,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_clip_vit_b16_seed7/epoch_23_source_dev.parquet",
+          "mtime": 1792800868.985172
+        },
+        {
+          "epoch": 24,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_clip_vit_b16_seed7/epoch_24_source_dev.parquet",
+          "mtime": 1792801372.1557908
+        },
+        {
+          "epoch": 25,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_clip_vit_b16_seed7/epoch_25_source_dev.parquet",
+          "mtime": 1792801873.7486
+        },
+        {
+          "epoch": 26,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_clip_vit_b16_seed7/epoch_26_source_dev.parquet",
+          "mtime": 1792802374.2967353
+        },
+        {
+          "epoch": 27,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_clip_vit_b16_seed7/epoch_27_source_dev.parquet",
+          "mtime": 1792802874.3811078
+        },
+        {
+          "epoch": 28,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_clip_vit_b16_seed7/epoch_28_source_dev.parquet",
+          "mtime": 1792803373.413571
+        }
+      ],
+      "last5_completed_epoch_intervals_seconds": [
+        503.1706187725067,
+        501.59280920028687,
+        500.54813528060913,
+        500.0843725204468,
+        499.03246307373047
+      ],
+      "last3_mean_checkpoint_inclusive_epoch_interval_seconds": 499.8883236249288,
+      "estimated_terminal_utc": "2026-10-24T01:13:00.980182+00:00",
+      "estimated_remaining_minutes": 11.87029656569163,
+      "recent_speed_scenario_terminal_range_utc": [
+        "2026-10-24T01:12:59.002461+00:00",
+        "2026-10-24T01:13:07.810772+00:00"
+      ]
+    },
+    {
+      "run_id": "D_formal_clip_vit_b16_seed42",
+      "gpu": 1,
+      "observed_history_epoch": 28,
+      "remaining_full_epoch_endpoints": 2,
+      "history_snapshot_sha256": "0dd3fc5f8c59465c8f61fe7007f9f849dc770d9b146f86b0d5dafe2ef891f432",
+      "last6_source_DEV_completion_markers": [
+        {
+          "epoch": 23,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_clip_vit_b16_seed42/epoch_23_source_dev.parquet",
+          "mtime": 1792800982.138027
+        },
+        {
+          "epoch": 24,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_clip_vit_b16_seed42/epoch_24_source_dev.parquet",
+          "mtime": 1792801491.036085
+        },
+        {
+          "epoch": 25,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_clip_vit_b16_seed42/epoch_25_source_dev.parquet",
+          "mtime": 1792802002.596675
+        },
+        {
+          "epoch": 26,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_clip_vit_b16_seed42/epoch_26_source_dev.parquet",
+          "mtime": 1792802507.3407197
+        },
+        {
+          "epoch": 27,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_clip_vit_b16_seed42/epoch_27_source_dev.parquet",
+          "mtime": 1792803012.513288
+        },
+        {
+          "epoch": 28,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_clip_vit_b16_seed42/epoch_28_source_dev.parquet",
+          "mtime": 1792803518.3816342
+        }
+      ],
+      "last5_completed_epoch_intervals_seconds": [
+        508.89805793762207,
+        511.5605900287628,
+        504.7440447807312,
+        505.172568321228,
+        505.86834621429443
+      ],
+      "last3_mean_checkpoint_inclusive_epoch_interval_seconds": 505.2616531054179,
+      "estimated_terminal_utc": "2026-10-24T01:15:36.694904+00:00",
+      "estimated_remaining_minutes": 14.46554193496704,
+      "recent_speed_scenario_terminal_range_utc": [
+        "2026-10-24T01:15:35.393688+00:00",
+        "2026-10-24T01:15:49.558778+00:00"
+      ]
+    },
+    {
+      "run_id": "D_formal_clip_vit_b16_seed123",
+      "gpu": 2,
+      "observed_history_epoch": 28,
+      "remaining_full_epoch_endpoints": 2,
+      "history_snapshot_sha256": "d0e42a6161e862e046d91aae42f96b84d8b1d023dee052e0c27a2e03fc78964d",
+      "last6_source_DEV_completion_markers": [
+        {
+          "epoch": 23,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_clip_vit_b16_seed123/epoch_23_source_dev.parquet",
+          "mtime": 1792800970.2859466
+        },
+        {
+          "epoch": 24,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_clip_vit_b16_seed123/epoch_24_source_dev.parquet",
+          "mtime": 1792801478.3360574
+        },
+        {
+          "epoch": 25,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_clip_vit_b16_seed123/epoch_25_source_dev.parquet",
+          "mtime": 1792801985.8486671
+        },
+        {
+          "epoch": 26,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_clip_vit_b16_seed123/epoch_26_source_dev.parquet",
+          "mtime": 1792802489.0887227
+        },
+        {
+          "epoch": 27,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_clip_vit_b16_seed123/epoch_27_source_dev.parquet",
+          "mtime": 1792802993.1932657
+        },
+        {
+          "epoch": 28,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_clip_vit_b16_seed123/epoch_28_source_dev.parquet",
+          "mtime": 1792803496.9296262
+        }
+      ],
+      "last5_completed_epoch_intervals_seconds": [
+        508.05011081695557,
+        507.5126097202301,
+        503.2400555610657,
+        504.10454297065735,
+        503.73636054992676
+      ],
+      "last3_mean_checkpoint_inclusive_epoch_interval_seconds": 503.6936530272166,
+      "estimated_terminal_utc": "2026-10-24T01:15:12.106896+00:00",
+      "estimated_remaining_minutes": 14.055741798877715,
+      "recent_speed_scenario_terminal_range_utc": [
+        "2026-10-24T01:15:10.933701+00:00",
+        "2026-10-24T01:15:21.085811+00:00"
+      ]
+    },
+    {
+      "run_id": "D_formal_clip_vit_b16_seed2026",
+      "gpu": 3,
+      "observed_history_epoch": 28,
+      "remaining_full_epoch_endpoints": 2,
+      "history_snapshot_sha256": "c9cb0969532c8c0eb34b59eb861a85ccdf6b41844c1f40402d130f29cfbe8afa",
+      "last6_source_DEV_completion_markers": [
+        {
+          "epoch": 23,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_clip_vit_b16_seed2026/epoch_23_source_dev.parquet",
+          "mtime": 1792800951.5338154
+        },
+        {
+          "epoch": 24,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_clip_vit_b16_seed2026/epoch_24_source_dev.parquet",
+          "mtime": 1792801455.8840065
+        },
+        {
+          "epoch": 25,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_clip_vit_b16_seed2026/epoch_25_source_dev.parquet",
+          "mtime": 1792801959.1366537
+        },
+        {
+          "epoch": 26,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_clip_vit_b16_seed2026/epoch_26_source_dev.parquet",
+          "mtime": 1792802459.688727
+        },
+        {
+          "epoch": 27,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_clip_vit_b16_seed2026/epoch_27_source_dev.parquet",
+          "mtime": 1792802959.5692248
+        },
+        {
+          "epoch": 28,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_clip_vit_b16_seed2026/epoch_28_source_dev.parquet",
+          "mtime": 1792803460.6736116
+        }
+      ],
+      "last5_completed_epoch_intervals_seconds": [
+        504.350191116333,
+        503.25264716148376,
+        500.55207324028015,
+        499.8804979324341,
+        501.10438680648804
+      ],
+      "last3_mean_checkpoint_inclusive_epoch_interval_seconds": 500.51231932640076,
+      "estimated_terminal_utc": "2026-10-24T01:14:29.488214+00:00",
+      "estimated_remaining_minutes": 13.345430433750153,
+      "recent_speed_scenario_terminal_range_utc": [
+        "2026-10-24T01:14:27.958571+00:00",
+        "2026-10-24T01:14:37.429957+00:00"
+      ]
+    }
+  ],
+  "same_backbone_observed_terminal_overheads": [
+    {
+      "run_id": "D_dev_clip_vit_b16_lr1e-05_seed1007_e30",
+      "terminal_overhead_seconds": 7.523963928222656,
+      "last_source_DEV_mtime_utc": "2026-10-23T13:12:46.979416+00:00",
+      "complete_mtime_utc": "2026-10-23T13:12:54.503380+00:00"
+    },
+    {
+      "run_id": "D_dev_clip_vit_b16_lr1e-05_seed1042_e30",
+      "terminal_overhead_seconds": 8.055963516235352,
+      "last_source_DEV_mtime_utc": "2026-10-23T13:18:19.329867+00:00",
+      "complete_mtime_utc": "2026-10-23T13:18:27.385831+00:00"
+    }
+  ],
+  "first_model_point_utc": "2026-10-24T01:13:00.980182+00:00",
+  "all4_first_batch_point_utc": "2026-10-24T01:15:36.694904+00:00",
+  "all4_recent_speed_scenario_range_utc": [
+    "2026-10-24T01:15:35.393688+00:00",
+    "2026-10-24T01:15:49.558778+00:00"
+  ],
+  "uncertainty": "Recentmin/maxscenarioisnotaconfidenceintervalorguarantee; stalls/validation/writevariationcanchangecompletiontime.",
+  "next_pending_task_order": [
+    "D_formal_clip_vit_b16_seed3407",
+    "D_formal_dinov2_vit_b14_seed7",
+    "D_formal_dinov2_vit_b14_seed42",
+    "D_formal_dinov2_vit_b14_seed123",
+    "D_formal_dinov2_vit_b14_seed2026",
+    "D_formal_dinov2_vit_b14_seed3407",
+    "D_formal_efficientnet_b0_seed7",
+    "D_formal_efficientnet_b0_seed42",
+    "D_formal_efficientnet_b0_seed123",
+    "D_formal_efficientnet_b0_seed2026",
+    "D_formal_efficientnet_b0_seed3407"
+  ],
+  "scope": "Current4CLIPformalonly;notcompletedorfullstudydeadline. Nojob/configchange.",
+  "target_performance_used": false
+}

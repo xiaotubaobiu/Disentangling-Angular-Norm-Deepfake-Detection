@@ -1,0 +1,20 @@
+{
+  "utc": "2026-10-25T04:34:22.252433+00:00",
+  "status": "EXISTING_D_LAST_STRUCTURAL_COUNTER_PROFILE_STARTED_ONCE_NOT_M_PRODUCTION",
+  "pid": 2985371,
+  "command": [
+    "/usr/bin/time",
+    "-v",
+    "-o",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/existing_D_multiplicity_time_v.log",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+    "-B",
+    "-u",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/profile_existing_D_multiplicities.py"
+  ],
+  "script_sha256": "061b1401e52174412bc9c2801860f176293f4cbbbdbdec4bef3f284b07ebc0b2",
+  "per_file_matrix_cell_limit": 100000000,
+  "raw_metadata_byte_limit": 67108864,
+  "process_virtual_memory_limit_GiB": 64,
+  "source_originals_mutated": false
+}

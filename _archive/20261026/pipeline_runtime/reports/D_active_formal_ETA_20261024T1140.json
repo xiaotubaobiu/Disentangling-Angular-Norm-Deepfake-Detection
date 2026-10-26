@@ -1,0 +1,37 @@
+{
+  "utc": "2026-10-24T11:47:46.547419+00:00",
+  "status": "RECENT_MEASURED_POINT_ESTIMATES_NOT_TERMINAL",
+  "rows": [
+    {
+      "pid": 745561,
+      "run_id": "D_formal_dinov2_vit_b14_seed3407",
+      "gpu": 3,
+      "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646",
+      "metadata_epoch": 28,
+      "history_sha256": "713044dcbf2ccac5932d6e396560800109e99decdaf24cc9091dbe8230a898b6",
+      "last3_complete_DEV_file_intervals_seconds": [
+        648.0215129852295,
+        669.0381093025208,
+        660.3718123435974
+      ],
+      "point_terminal_estimate_utc": "2026-10-24T11:59:29.157042+00:00",
+      "complete_exists": false
+    },
+    {
+      "pid": 1489240,
+      "run_id": "D_formal_efficientnet_b0_seed3407",
+      "gpu": 0,
+      "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e",
+      "metadata_epoch": 9,
+      "history_sha256": "64fa2d8e58afbb290074035661f999efdafc3d32f164a5858bdd34b875fa3ce5",
+      "last3_complete_DEV_file_intervals_seconds": [
+        519.6531336307526,
+        483.426540851593,
+        295.4690046310425
+      ],
+      "point_terminal_estimate_utc": "2026-10-24T14:14:58.278359+00:00",
+      "complete_exists": false
+    }
+  ],
+  "scope": "Intervals between committed full source-DEV parquet mtimes include intervening checkpoint work but do not prove a future completion time; I/O and terminal writes can vary."
+}

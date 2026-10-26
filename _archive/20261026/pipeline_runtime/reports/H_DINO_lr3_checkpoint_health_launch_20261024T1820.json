@@ -1,0 +1,40 @@
+{
+  "utc": "2026-10-24T18:22:59.054385+00:00",
+  "pid": 2090126,
+  "status": "FINITE_NEW_H_LR3_COMPLETE_STATE_AUDIT_RUNNING",
+  "script_sha256": "550cb398796d7919ac65ca2e31a0b6f18816603307a1ef5908c75b318070886e",
+  "template_sha256": "fef7f6af47c595fc7bbd1ec8c3735c4341c0f70065cbf2a959066d2d5f7e7b7b",
+  "source_only": true,
+  "production_restarted": false,
+  "qualified_dimension": 768,
+  "job_snapshot": [
+    {
+      "pid": 2079695,
+      "run_id": "H_dev_dinov2_vit_b14_B_lr3e-05_seed1007_e30",
+      "gpu": 0,
+      "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e",
+      "backbone": "dinov2_vit_b14"
+    },
+    {
+      "pid": 2079696,
+      "run_id": "H_dev_dinov2_vit_b14_AB_lr3e-05_seed1007_e30",
+      "gpu": 1,
+      "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+      "backbone": "dinov2_vit_b14"
+    },
+    {
+      "pid": 2079697,
+      "run_id": "H_dev_dinov2_vit_b14_B_lr3e-05_seed1042_e30",
+      "gpu": 2,
+      "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+      "backbone": "dinov2_vit_b14"
+    },
+    {
+      "pid": 2079698,
+      "run_id": "H_dev_dinov2_vit_b14_AB_lr3e-05_seed1042_e30",
+      "gpu": 3,
+      "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646",
+      "backbone": "dinov2_vit_b14"
+    }
+  ]
+}

@@ -1,0 +1,220 @@
+{
+  "utc": "2026-10-23T11:35:45.620276+00:00",
+  "nominal_window": "2026-10-23T11:30:00Z",
+  "actual_sample_window": [
+    "2026-10-23T11:28:06.240189+00:00",
+    "2026-10-23T11:30:16.391031+00:00"
+  ],
+  "status": "HEALTHY_WITH_RECORDED_ISOLATED_AMP_SKIPS_NO_REPAIR",
+  "D_total": 10,
+  "D_complete": 0,
+  "D_active": 4,
+  "D_pending": 6,
+  "checkpoint_epochs": [
+    17,
+    17,
+    14,
+    14
+  ],
+  "committed_update_records": 49538,
+  "committed_AMP_skips": [
+    1,
+    1,
+    0,
+    0
+  ],
+  "later_live_AMP_skips": [
+    2,
+    1,
+    0,
+    0
+  ],
+  "throughput_inputs_per_second": [
+    199.48704904803415,
+    194.9245622260471,
+    157.77648185782041,
+    156.7242686868088
+  ],
+  "throughput_scope": "recent3epochs sampling+training+fullsourceDEV; followingcheckpointwriteexcluded",
+  "GPU_summary": [
+    {
+      "index": 0,
+      "mean_util_percent": 98.16666666666667,
+      "min_util_percent": 93,
+      "max_util_percent": 100,
+      "samples": 12,
+      "memory_used_MiB": 4932
+    },
+    {
+      "index": 1,
+      "mean_util_percent": 92.58333333333333,
+      "min_util_percent": 70,
+      "max_util_percent": 98,
+      "samples": 12,
+      "memory_used_MiB": 4932
+    },
+    {
+      "index": 2,
+      "mean_util_percent": 79.91666666666667,
+      "min_util_percent": 75,
+      "max_util_percent": 87,
+      "samples": 12,
+      "memory_used_MiB": 5414
+    },
+    {
+      "index": 3,
+      "mean_util_percent": 58.25,
+      "min_util_percent": 0,
+      "max_util_percent": 83,
+      "samples": 12,
+      "memory_used_MiB": 5414
+    },
+    {
+      "index": 4,
+      "mean_util_percent": 0.0,
+      "min_util_percent": 0,
+      "max_util_percent": 0,
+      "samples": 12,
+      "memory_used_MiB": 28156
+    },
+    {
+      "index": 5,
+      "mean_util_percent": 0.0,
+      "min_util_percent": 0,
+      "max_util_percent": 0,
+      "samples": 12,
+      "memory_used_MiB": 28156
+    },
+    {
+      "index": 6,
+      "mean_util_percent": 0.0,
+      "min_util_percent": 0,
+      "max_util_percent": 0,
+      "samples": 12,
+      "memory_used_MiB": 28156
+    },
+    {
+      "index": 7,
+      "mean_util_percent": 0.0,
+      "min_util_percent": 0,
+      "max_util_percent": 0,
+      "samples": 12,
+      "memory_used_MiB": 28156
+    }
+  ],
+  "GPU_followup": [
+    {
+      "utc": "2026-10-23T11:30:05.579413+00:00",
+      "csv": "0, 0, 4932\n1, 96, 4932\n2, 86, 5414\n3, 81, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-23T11:30:07.719517+00:00",
+      "csv": "0, 0, 4932\n1, 98, 4932\n2, 83, 5414\n3, 74, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-23T11:30:09.860309+00:00",
+      "csv": "0, 0, 4932\n1, 93, 4932\n2, 76, 5414\n3, 83, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-23T11:30:11.980995+00:00",
+      "csv": "0, 0, 4932\n1, 97, 4932\n2, 88, 5414\n3, 81, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-23T11:30:14.116247+00:00",
+      "csv": "0, 0, 4932\n1, 91, 4932\n2, 73, 5414\n3, 79, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-23T11:30:16.264229+00:00",
+      "csv": "0, 97, 4932\n1, 95, 4932\n2, 85, 5414\n3, 80, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n"
+    }
+  ],
+  "CPU_busy_percent": 37.15115996625874,
+  "CPU_iowait_percent": 0.02473181438773302,
+  "H_progress": {
+    "GPU_used": false,
+    "ORT_threads_each": 2,
+    "completed_videos": 3800,
+    "data_frozen": false,
+    "elapsed_seconds": 10118.693681552075,
+    "eta_seconds": 12331.492220859911,
+    "geometry_freeze": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_geometry_frozen.json",
+    "geometry_protocol_sha256": "85a865f0e3343ecaf5b8c0174c8a3f602ec873deeccb03bd1826d617f2a7ae03",
+    "image_root": "/Dataset/deepfake_detection/derived/pipeline_reliability_v2_20261023/H",
+    "pid": 3915880,
+    "status": "RUNNING",
+    "total_videos": 8431,
+    "version_ineligible_video_counts": {
+      "A": 27,
+      "AB": 142,
+      "B": 27
+    },
+    "workers": 4
+  },
+  "H_reason_reconciliation": {
+    "utc": "2026-10-23T11:33:41.868848+00:00",
+    "scope": "CORRECTED_REASON_RECONCILIATION_SAME_PARTIAL_3809_CUTOFF",
+    "original_report_sha256": "4fe8c2246cb32768310fca7663c52d6e83f1eb7b3bcd108ea824a70647a5b96c",
+    "unique_videos": 3809,
+    "version_ineligible_videos": {
+      "A": 27,
+      "B": 27,
+      "AB": 142
+    },
+    "ineligible_video_reason_counts": {
+      "A": {
+        "no_qualified_face": 21,
+        "insufficient_unique_mothers": 6
+      },
+      "B": {
+        "no_qualified_face": 21,
+        "insufficient_unique_mothers": 6
+      },
+      "AB": {
+        "no_qualified_face": 136,
+        "insufficient_unique_mothers": 6
+      }
+    },
+    "global_video_failure_counts": {
+      "insufficient_unique_mothers": 6
+    },
+    "reason": "Initialmonitorcountedonlyversion_failures;earlyvideo_failuremustalsoaccountforeveryversion",
+    "geometry_or_threshold_modified": false,
+    "processing_failure_preserved": true
+  },
+  "capacity": {
+    "working_set_estimate_GiB": 200,
+    "reserve_GiB": 50,
+    "workspace_free_GiB": 439.7413101196289,
+    "Dataset_free_GiB": 2866.00093460083,
+    "apparent_bytes": {
+      "artifact_root": 28432854296,
+      "H_derived": 36595697358
+    }
+  },
+  "protected_PIDs": [
+    1532179,
+    1532180,
+    1532181,
+    1532182
+  ],
+  "experiment_process_restarted": false,
+  "frozen_config_modified": false,
+  "H_freeze_created": false,
+  "H_GPU_qualification_or_training_started": false,
+  "automation_retried": false,
+  "blocking_faults": [],
+  "next_recommended_check_utc": "2026-10-23T12:30:00Z",
+  "scientific_results_complete": false,
+  "journal_manuscripts_complete": false,
+  "evidence_sha256": {
+    "reports/checkpoint_health_1130.json": "e0ad4bc64189c4df15e7c318c0aeb64ce82a6a7d0b272796833bb3637b138c89",
+    "reports/runtime_health_1130.json": "3daf273416734fd05c5bb3dc03ac4fa0296cc6d832d5977dd542fdf11aa5a8a4",
+    "reports/D_numeric_live_1130.json": "bde8d71d166f668d31c839bad87872ce9a16450747fe5ea6d79ef8eada2ee338",
+    "reports/H_partial_coverage_1130.json": "4fe8c2246cb32768310fca7663c52d6e83f1eb7b3bcd108ea824a70647a5b96c",
+    "reports/H_partial_reason_reconciliation_1130.json": "cfeb68eb087d5cfe618d07fb6bb771434d0dbc31154ffe83026a5fb14ca3873f",
+    "logs/checkpoint_health_1130.log": "df751b7408e07f2b50c2eb1e0fcd72d1caebb05abdc59976140debb68eb17246",
+    "logs/runtime_health_1130.log": "71bcdb77103807736fb82ec5c6c6f67c566247248ca27b1de49ad87258055e50",
+    "qualification/checkpoint_health_1130.py": "97828cb6f5962afac963117a3ec639d3d2d754eb81626006e4384ff81f2b86c5",
+    "qualification/runtime_health_1130.py": "853b1c5fc4e11cc42067bd728fc33de18372fd29ec977a3394c38e4d453b2721"
+  }
+}

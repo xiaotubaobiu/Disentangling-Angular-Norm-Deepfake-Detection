@@ -1,0 +1,454 @@
+{
+  "utc": "2026-10-25T04:02:08.186799+00:00",
+  "status": "PASS_EXISTING_ACCEPTED_D_LAST_ALL_JSON_BYTE_ROUNDTRIP_STORAGE_PROFILE_ONLY",
+  "source_run": "D_formal_clip_vit_b16_seed7",
+  "marker_sha256": "9aa7620cb6a65fed4e2bfd08db6ff0bbab649f794e9850d853bf17529ad1b6c6",
+  "json_files": 29,
+  "original_bytes": 7107748669,
+  "compressed_bytes": 3558242496,
+  "seconds": 234.2626955313608,
+  "records": [
+    {
+      "relative_source": "identity.json",
+      "source_expected_sha256": "94a1b92d302fd35e0d1a4d2fc95c094f631a9760816165a5a3642bb97364cda7",
+      "output": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/storage_profiles/D_clip_seed7_existing_last/identity.json.gz",
+      "receipt": {
+        "schema": "SECONDARY_JSON_GZIP_V1",
+        "codec": "gzip",
+        "zlib_version": "1.2.13",
+        "compressed_sha256": "0ccb5b7809eef0c927dee5b8cec9182a5b6147246fc5cda003f8f1b1e876238c",
+        "uncompressed_sha256": "94a1b92d302fd35e0d1a4d2fc95c094f631a9760816165a5a3642bb97364cda7",
+        "compressed_bytes": 1117,
+        "uncompressed_bytes": 2109
+      },
+      "independent_uncompressed_SHA_and_size_match": true
+    },
+    {
+      "relative_source": "independent_rank_recomputation.json",
+      "source_expected_sha256": "a49fe21e5ecb46fdcadd877fb2eae79f59d511f55080d53a82b924c276d9db95",
+      "output": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/storage_profiles/D_clip_seed7_existing_last/independent_rank_recomputation.json.gz",
+      "receipt": {
+        "schema": "SECONDARY_JSON_GZIP_V1",
+        "codec": "gzip",
+        "zlib_version": "1.2.13",
+        "compressed_sha256": "f62a7f01773dcd71982fa4e66974f0bfdc6493fb148242e7f2a36038282014bd",
+        "uncompressed_sha256": "a49fe21e5ecb46fdcadd877fb2eae79f59d511f55080d53a82b924c276d9db95",
+        "compressed_bytes": 350,
+        "uncompressed_bytes": 4179
+      },
+      "independent_uncompressed_SHA_and_size_match": true
+    },
+    {
+      "relative_source": "limitations.json",
+      "source_expected_sha256": "ab9ad2d30cf5823758581204c6425e8cd2f7a8113ddd483a341ae3b625cdbdee",
+      "output": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/storage_profiles/D_clip_seed7_existing_last/limitations.json.gz",
+      "receipt": {
+        "schema": "SECONDARY_JSON_GZIP_V1",
+        "codec": "gzip",
+        "zlib_version": "1.2.13",
+        "compressed_sha256": "fffcad77454b06bf0dc06e47ed7d7930dd3c8164060e9e0b9beb3b7fedabdac7",
+        "uncompressed_sha256": "ab9ad2d30cf5823758581204c6425e8cd2f7a8113ddd483a341ae3b625cdbdee",
+        "compressed_bytes": 783,
+        "uncompressed_bytes": 1306
+      },
+      "independent_uncompressed_SHA_and_size_match": true
+    },
+    {
+      "relative_source": "rq4/l2_mean_logit/independent_calibration_recompute.json",
+      "source_expected_sha256": "4ea47244b2746f13e0a164ed89e5e8754e151f76ce707988bfae06e7d9c96fd2",
+      "output": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/storage_profiles/D_clip_seed7_existing_last/rq4/l2_mean_logit/independent_calibration_recompute.json.gz",
+      "receipt": {
+        "schema": "SECONDARY_JSON_GZIP_V1",
+        "codec": "gzip",
+        "zlib_version": "1.2.13",
+        "compressed_sha256": "8c2b93fe77d636baeea9a28ab28e68daeee137fc3e72a8869ef561306d7d5588",
+        "uncompressed_sha256": "4ea47244b2746f13e0a164ed89e5e8754e151f76ce707988bfae06e7d9c96fd2",
+        "compressed_bytes": 4148,
+        "uncompressed_bytes": 107102
+      },
+      "independent_uncompressed_SHA_and_size_match": true
+    },
+    {
+      "relative_source": "rq4/l2_mean_logit/oracle.json",
+      "source_expected_sha256": "0809aab9bd51065f9d0ae9ae79c03a7d9db91f50eabaeac73d1bc13ca24344f4",
+      "output": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/storage_profiles/D_clip_seed7_existing_last/rq4/l2_mean_logit/oracle.json.gz",
+      "receipt": {
+        "schema": "SECONDARY_JSON_GZIP_V1",
+        "codec": "gzip",
+        "zlib_version": "1.2.13",
+        "compressed_sha256": "1bdef970327f6de67f70614e32999b4f016eb5030a5899da9838c43b4aed030b",
+        "uncompressed_sha256": "0809aab9bd51065f9d0ae9ae79c03a7d9db91f50eabaeac73d1bc13ca24344f4",
+        "compressed_bytes": 605,
+        "uncompressed_bytes": 2125
+      },
+      "independent_uncompressed_SHA_and_size_match": true
+    },
+    {
+      "relative_source": "rq4/l2_mean_logit/primary_n20_vs_source_bootstrap.json",
+      "source_expected_sha256": "fddb0d25ec692186b698a1256057e13de733240f552cb016f8fd0760ef572277",
+      "output": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/storage_profiles/D_clip_seed7_existing_last/rq4/l2_mean_logit/primary_n20_vs_source_bootstrap.json.gz",
+      "receipt": {
+        "schema": "SECONDARY_JSON_GZIP_V1",
+        "codec": "gzip",
+        "zlib_version": "1.2.13",
+        "compressed_sha256": "4a5fae77f1ebf46a9472b73d5c87dbef94ba1fb0d51d02beb9784994d8118fde",
+        "uncompressed_sha256": "fddb0d25ec692186b698a1256057e13de733240f552cb016f8fd0760ef572277",
+        "compressed_bytes": 213163728,
+        "uncompressed_bytes": 420626525
+      },
+      "independent_uncompressed_SHA_and_size_match": true
+    },
+    {
+      "relative_source": "rq4/l2_mean_probability/independent_calibration_recompute.json",
+      "source_expected_sha256": "4ea47244b2746f13e0a164ed89e5e8754e151f76ce707988bfae06e7d9c96fd2",
+      "output": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/storage_profiles/D_clip_seed7_existing_last/rq4/l2_mean_probability/independent_calibration_recompute.json.gz",
+      "receipt": {
+        "schema": "SECONDARY_JSON_GZIP_V1",
+        "codec": "gzip",
+        "zlib_version": "1.2.13",
+        "compressed_sha256": "8c2b93fe77d636baeea9a28ab28e68daeee137fc3e72a8869ef561306d7d5588",
+        "uncompressed_sha256": "4ea47244b2746f13e0a164ed89e5e8754e151f76ce707988bfae06e7d9c96fd2",
+        "compressed_bytes": 4148,
+        "uncompressed_bytes": 107102
+      },
+      "independent_uncompressed_SHA_and_size_match": true
+    },
+    {
+      "relative_source": "rq4/l2_mean_probability/oracle.json",
+      "source_expected_sha256": "47e885a8e676a7687c67e70da2af813a7cd588c64763a818b5587b66caf9d0b7",
+      "output": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/storage_profiles/D_clip_seed7_existing_last/rq4/l2_mean_probability/oracle.json.gz",
+      "receipt": {
+        "schema": "SECONDARY_JSON_GZIP_V1",
+        "codec": "gzip",
+        "zlib_version": "1.2.13",
+        "compressed_sha256": "8f9803ebd078e30388879bd0722fba93057dd58d989c81fe7b36605486e5124f",
+        "uncompressed_sha256": "47e885a8e676a7687c67e70da2af813a7cd588c64763a818b5587b66caf9d0b7",
+        "compressed_bytes": 606,
+        "uncompressed_bytes": 2128
+      },
+      "independent_uncompressed_SHA_and_size_match": true
+    },
+    {
+      "relative_source": "rq4/l2_mean_probability/primary_n20_vs_source_bootstrap.json",
+      "source_expected_sha256": "c7c2dbc3a705491d7596e9fa82c9ef206619007f4acda10e2ed86b68c448ed12",
+      "output": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/storage_profiles/D_clip_seed7_existing_last/rq4/l2_mean_probability/primary_n20_vs_source_bootstrap.json.gz",
+      "receipt": {
+        "schema": "SECONDARY_JSON_GZIP_V1",
+        "codec": "gzip",
+        "zlib_version": "1.2.13",
+        "compressed_sha256": "0186a44660c129b6ee757b46205c28c51996d34c6b9c949d1273a21aacab241b",
+        "uncompressed_sha256": "c7c2dbc3a705491d7596e9fa82c9ef206619007f4acda10e2ed86b68c448ed12",
+        "compressed_bytes": 213164092,
+        "uncompressed_bytes": 420626560
+      },
+      "independent_uncompressed_SHA_and_size_match": true
+    },
+    {
+      "relative_source": "rq4/raw_mean_logit/independent_calibration_recompute.json",
+      "source_expected_sha256": "89d9c91fb669ee748e05d1487855cdb6f5c8042e13ad6b030555dedbd1e626b0",
+      "output": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/storage_profiles/D_clip_seed7_existing_last/rq4/raw_mean_logit/independent_calibration_recompute.json.gz",
+      "receipt": {
+        "schema": "SECONDARY_JSON_GZIP_V1",
+        "codec": "gzip",
+        "zlib_version": "1.2.13",
+        "compressed_sha256": "686b4ffb29d56ff91263ad7caaa08684a5ecd127d2ab821d5e8fa4ffa6a3f3dd",
+        "uncompressed_sha256": "89d9c91fb669ee748e05d1487855cdb6f5c8042e13ad6b030555dedbd1e626b0",
+        "compressed_bytes": 4355,
+        "uncompressed_bytes": 107182
+      },
+      "independent_uncompressed_SHA_and_size_match": true
+    },
+    {
+      "relative_source": "rq4/raw_mean_logit/oracle.json",
+      "source_expected_sha256": "38119d6b70c0501cd737f7bdf4a598b0f1737252548eaeedf574c278c285be42",
+      "output": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/storage_profiles/D_clip_seed7_existing_last/rq4/raw_mean_logit/oracle.json.gz",
+      "receipt": {
+        "schema": "SECONDARY_JSON_GZIP_V1",
+        "codec": "gzip",
+        "zlib_version": "1.2.13",
+        "compressed_sha256": "9879c100d7079134cbc2c4e36b124f653a0cf7f45df57d96e91605697fea5cbf",
+        "uncompressed_sha256": "38119d6b70c0501cd737f7bdf4a598b0f1737252548eaeedf574c278c285be42",
+        "compressed_bytes": 610,
+        "uncompressed_bytes": 2133
+      },
+      "independent_uncompressed_SHA_and_size_match": true
+    },
+    {
+      "relative_source": "rq4/raw_mean_logit/primary_n20_vs_source_bootstrap.json",
+      "source_expected_sha256": "1f61dc89c49323223d93cc476beaaa6582b9d0ecd96d0b6b32698dcc45472bfd",
+      "output": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/storage_profiles/D_clip_seed7_existing_last/rq4/raw_mean_logit/primary_n20_vs_source_bootstrap.json.gz",
+      "receipt": {
+        "schema": "SECONDARY_JSON_GZIP_V1",
+        "codec": "gzip",
+        "zlib_version": "1.2.13",
+        "compressed_sha256": "6cf64b7b13cd91c59678ca99a7e6aa874eeecfe5bfe1a3a96b3c9bdbe14cbc5c",
+        "uncompressed_sha256": "1f61dc89c49323223d93cc476beaaa6582b9d0ecd96d0b6b32698dcc45472bfd",
+        "compressed_bytes": 213176438,
+        "uncompressed_bytes": 420630589
+      },
+      "independent_uncompressed_SHA_and_size_match": true
+    },
+    {
+      "relative_source": "rq4/raw_mean_probability/independent_calibration_recompute.json",
+      "source_expected_sha256": "a248bffab2c31457273568545eefee7bb1086fda0e135e263822a9a7d775bbd7",
+      "output": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/storage_profiles/D_clip_seed7_existing_last/rq4/raw_mean_probability/independent_calibration_recompute.json.gz",
+      "receipt": {
+        "schema": "SECONDARY_JSON_GZIP_V1",
+        "codec": "gzip",
+        "zlib_version": "1.2.13",
+        "compressed_sha256": "7c75910ae276e2ea7fed339b28065efc1e7d9098892f60e485ac953763247a05",
+        "uncompressed_sha256": "a248bffab2c31457273568545eefee7bb1086fda0e135e263822a9a7d775bbd7",
+        "compressed_bytes": 4362,
+        "uncompressed_bytes": 107182
+      },
+      "independent_uncompressed_SHA_and_size_match": true
+    },
+    {
+      "relative_source": "rq4/raw_mean_probability/oracle.json",
+      "source_expected_sha256": "d47f5f07267f03ba41b3e8857b4e7d3c7de1541fa4e88e7911b3d3ceb2359b43",
+      "output": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/storage_profiles/D_clip_seed7_existing_last/rq4/raw_mean_probability/oracle.json.gz",
+      "receipt": {
+        "schema": "SECONDARY_JSON_GZIP_V1",
+        "codec": "gzip",
+        "zlib_version": "1.2.13",
+        "compressed_sha256": "09506ff1376262ac3072604ab35407c318d124783bd3f7131182cb7b449d9e27",
+        "uncompressed_sha256": "d47f5f07267f03ba41b3e8857b4e7d3c7de1541fa4e88e7911b3d3ceb2359b43",
+        "compressed_bytes": 600,
+        "uncompressed_bytes": 2135
+      },
+      "independent_uncompressed_SHA_and_size_match": true
+    },
+    {
+      "relative_source": "rq4/raw_mean_probability/primary_n20_vs_source_bootstrap.json",
+      "source_expected_sha256": "75ada807a4e64afe8aef62bfec5510896caae1894aee7ba8d4d28b5f99d330ab",
+      "output": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/storage_profiles/D_clip_seed7_existing_last/rq4/raw_mean_probability/primary_n20_vs_source_bootstrap.json.gz",
+      "receipt": {
+        "schema": "SECONDARY_JSON_GZIP_V1",
+        "codec": "gzip",
+        "zlib_version": "1.2.13",
+        "compressed_sha256": "86ac9ca05b95bdc19bb0e597cfe03ec317ce2d93ba1d13a8b0a94f2c290ed80e",
+        "uncompressed_sha256": "75ada807a4e64afe8aef62bfec5510896caae1894aee7ba8d4d28b5f99d330ab",
+        "compressed_bytes": 213176805,
+        "uncompressed_bytes": 420631223
+      },
+      "independent_uncompressed_SHA_and_size_match": true
+    },
+    {
+      "relative_source": "rq4/scope.json",
+      "source_expected_sha256": "16609d5a05013d89f92201928907f9d21b15e6bafe980e3220d836dbe30854e1",
+      "output": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/storage_profiles/D_clip_seed7_existing_last/rq4/scope.json.gz",
+      "receipt": {
+        "schema": "SECONDARY_JSON_GZIP_V1",
+        "codec": "gzip",
+        "zlib_version": "1.2.13",
+        "compressed_sha256": "065edcd0f15b427c013b811d5771429bf61a1fa5a386e05f4229d2dfc9ca6f3d",
+        "uncompressed_sha256": "16609d5a05013d89f92201928907f9d21b15e6bafe980e3220d836dbe30854e1",
+        "compressed_bytes": 539,
+        "uncompressed_bytes": 849
+      },
+      "independent_uncompressed_SHA_and_size_match": true
+    },
+    {
+      "relative_source": "source_test/closure_bootstrap.json",
+      "source_expected_sha256": "f3ac0ba2e0aea8e4ea48d7a5ed63b3f4cfa3a3ab75721e53c3d9ef9d38897af2",
+      "output": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/storage_profiles/D_clip_seed7_existing_last/source_test/closure_bootstrap.json.gz",
+      "receipt": {
+        "schema": "SECONDARY_JSON_GZIP_V1",
+        "codec": "gzip",
+        "zlib_version": "1.2.13",
+        "compressed_sha256": "7360c9c3866e012f4b117ef6b2523d1d73c02fbf76d72239bff393c6aa585388",
+        "uncompressed_sha256": "f3ac0ba2e0aea8e4ea48d7a5ed63b3f4cfa3a3ab75721e53c3d9ef9d38897af2",
+        "compressed_bytes": 926702,
+        "uncompressed_bytes": 9671298
+      },
+      "independent_uncompressed_SHA_and_size_match": true
+    },
+    {
+      "relative_source": "source_test/normal_bootstrap_l2_mean_logit.json",
+      "source_expected_sha256": "39501c35ca0b14e7c4985e3dc8816bc27835c2d4abb66fc5006d28626b0ef7dc",
+      "output": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/storage_profiles/D_clip_seed7_existing_last/source_test/normal_bootstrap_l2_mean_logit.json.gz",
+      "receipt": {
+        "schema": "SECONDARY_JSON_GZIP_V1",
+        "codec": "gzip",
+        "zlib_version": "1.2.13",
+        "compressed_sha256": "a51438947b83df46099718aa749179d6e5852b18ea532878cfc29129bf9458fd",
+        "uncompressed_sha256": "39501c35ca0b14e7c4985e3dc8816bc27835c2d4abb66fc5006d28626b0ef7dc",
+        "compressed_bytes": 646234,
+        "uncompressed_bytes": 7895380
+      },
+      "independent_uncompressed_SHA_and_size_match": true
+    },
+    {
+      "relative_source": "source_test/normal_bootstrap_l2_mean_probability.json",
+      "source_expected_sha256": "f9e74b9f7b8916aa3cf9374ad35a667a74ef22408dd936a3d2f528c49c7195a1",
+      "output": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/storage_profiles/D_clip_seed7_existing_last/source_test/normal_bootstrap_l2_mean_probability.json.gz",
+      "receipt": {
+        "schema": "SECONDARY_JSON_GZIP_V1",
+        "codec": "gzip",
+        "zlib_version": "1.2.13",
+        "compressed_sha256": "df2a68b71c23a6f2be8e5dec16fdde64541702e1562c7495167d15dcb6798610",
+        "uncompressed_sha256": "f9e74b9f7b8916aa3cf9374ad35a667a74ef22408dd936a3d2f528c49c7195a1",
+        "compressed_bytes": 646459,
+        "uncompressed_bytes": 7895328
+      },
+      "independent_uncompressed_SHA_and_size_match": true
+    },
+    {
+      "relative_source": "source_test/normal_bootstrap_raw_mean_logit.json",
+      "source_expected_sha256": "74a9a738d2cd7fb8aae04eddfec77e752a84e057b871b1739d430ec2eec1c572",
+      "output": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/storage_profiles/D_clip_seed7_existing_last/source_test/normal_bootstrap_raw_mean_logit.json.gz",
+      "receipt": {
+        "schema": "SECONDARY_JSON_GZIP_V1",
+        "codec": "gzip",
+        "zlib_version": "1.2.13",
+        "compressed_sha256": "b6a985af2acccb59f4ca27b5d50fa0aa7399941086dc3fdbc35afc8f6747fe80",
+        "uncompressed_sha256": "74a9a738d2cd7fb8aae04eddfec77e752a84e057b871b1739d430ec2eec1c572",
+        "compressed_bytes": 647200,
+        "uncompressed_bytes": 7895350
+      },
+      "independent_uncompressed_SHA_and_size_match": true
+    },
+    {
+      "relative_source": "source_test/normal_bootstrap_raw_mean_probability.json",
+      "source_expected_sha256": "767a3d3a2e5a3952988102fdaaa85d3195f0974423aa719346729cacdf9f9620",
+      "output": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/storage_profiles/D_clip_seed7_existing_last/source_test/normal_bootstrap_raw_mean_probability.json.gz",
+      "receipt": {
+        "schema": "SECONDARY_JSON_GZIP_V1",
+        "codec": "gzip",
+        "zlib_version": "1.2.13",
+        "compressed_sha256": "fedcfaf935d1a990ddea88c16fdf50735a1f0dab1e9081f98851534ecde8f89f",
+        "uncompressed_sha256": "767a3d3a2e5a3952988102fdaaa85d3195f0974423aa719346729cacdf9f9620",
+        "compressed_bytes": 644497,
+        "uncompressed_bytes": 7895139
+      },
+      "independent_uncompressed_SHA_and_size_match": true
+    },
+    {
+      "relative_source": "source_test/pair_transition_ledgers.json",
+      "source_expected_sha256": "6a288db14cdd42dbf037e483de8e3be6d7cc3e57a526f705a19a3918a27e2afe",
+      "output": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/storage_profiles/D_clip_seed7_existing_last/source_test/pair_transition_ledgers.json.gz",
+      "receipt": {
+        "schema": "SECONDARY_JSON_GZIP_V1",
+        "codec": "gzip",
+        "zlib_version": "1.2.13",
+        "compressed_sha256": "cf1c0461d30b4efeae0328322cc3e3a378060ea9c41581482eb1eb4ef3cfed43",
+        "uncompressed_sha256": "6a288db14cdd42dbf037e483de8e3be6d7cc3e57a526f705a19a3918a27e2afe",
+        "compressed_bytes": 790,
+        "uncompressed_bytes": 4470
+      },
+      "independent_uncompressed_SHA_and_size_match": true
+    },
+    {
+      "relative_source": "target_full/closure_bootstrap.json",
+      "source_expected_sha256": "22c5d68878c69e7c9c7b7ad36a91db31be884dda2d9470cead06359dbecaf1b5",
+      "output": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/storage_profiles/D_clip_seed7_existing_last/target_full/closure_bootstrap.json.gz",
+      "receipt": {
+        "schema": "SECONDARY_JSON_GZIP_V1",
+        "codec": "gzip",
+        "zlib_version": "1.2.13",
+        "compressed_sha256": "cabbd64ece9fe7fe2e77c7648ff1b650dc72bc43b64158fd77d374cddb44e568",
+        "uncompressed_sha256": "22c5d68878c69e7c9c7b7ad36a91db31be884dda2d9470cead06359dbecaf1b5",
+        "compressed_bytes": 105550802,
+        "uncompressed_bytes": 227593489
+      },
+      "independent_uncompressed_SHA_and_size_match": true
+    },
+    {
+      "relative_source": "target_full/normal_bootstrap_l2_mean_logit.json",
+      "source_expected_sha256": "7cc38dbaffc95d4a530332d6ad52ecd07607703245fed60e6b4041887d8272fd",
+      "output": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/storage_profiles/D_clip_seed7_existing_last/target_full/normal_bootstrap_l2_mean_logit.json.gz",
+      "receipt": {
+        "schema": "SECONDARY_JSON_GZIP_V1",
+        "codec": "gzip",
+        "zlib_version": "1.2.13",
+        "compressed_sha256": "3f1ac2c47b262c076a2c64b6145f1a035838eeb68c9bc5f8004bd768030108dc",
+        "uncompressed_sha256": "7cc38dbaffc95d4a530332d6ad52ecd07607703245fed60e6b4041887d8272fd",
+        "compressed_bytes": 649117712,
+        "uncompressed_bytes": 1288982265
+      },
+      "independent_uncompressed_SHA_and_size_match": true
+    },
+    {
+      "relative_source": "target_full/normal_bootstrap_l2_mean_probability.json",
+      "source_expected_sha256": "af87b07d55366168faa6744ada104992aa6df00ae1e55707389dfadebea8ba7c",
+      "output": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/storage_profiles/D_clip_seed7_existing_last/target_full/normal_bootstrap_l2_mean_probability.json.gz",
+      "receipt": {
+        "schema": "SECONDARY_JSON_GZIP_V1",
+        "codec": "gzip",
+        "zlib_version": "1.2.13",
+        "compressed_sha256": "9f423647f2d2391000dd43a390b1f806100f85700f31c2130e41139fa6ffae32",
+        "uncompressed_sha256": "af87b07d55366168faa6744ada104992aa6df00ae1e55707389dfadebea8ba7c",
+        "compressed_bytes": 649118033,
+        "uncompressed_bytes": 1288982246
+      },
+      "independent_uncompressed_SHA_and_size_match": true
+    },
+    {
+      "relative_source": "target_full/normal_bootstrap_raw_mean_logit.json",
+      "source_expected_sha256": "f1e338f0caa49d8e6efed34ce072798e93408947b223b2a3e09c046ea150754e",
+      "output": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/storage_profiles/D_clip_seed7_existing_last/target_full/normal_bootstrap_raw_mean_logit.json.gz",
+      "receipt": {
+        "schema": "SECONDARY_JSON_GZIP_V1",
+        "codec": "gzip",
+        "zlib_version": "1.2.13",
+        "compressed_sha256": "5669d881b5f0881f62c154d214fef81e2583a37755c5712443798d5b76af69bb",
+        "uncompressed_sha256": "f1e338f0caa49d8e6efed34ce072798e93408947b223b2a3e09c046ea150754e",
+        "compressed_bytes": 649119754,
+        "uncompressed_bytes": 1288984236
+      },
+      "independent_uncompressed_SHA_and_size_match": true
+    },
+    {
+      "relative_source": "target_full/normal_bootstrap_raw_mean_probability.json",
+      "source_expected_sha256": "e0e96999de9e7f8501af8da96d0598e0cea06b1ee92b202e6516eb908aa90f37",
+      "output": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/storage_profiles/D_clip_seed7_existing_last/target_full/normal_bootstrap_raw_mean_probability.json.gz",
+      "receipt": {
+        "schema": "SECONDARY_JSON_GZIP_V1",
+        "codec": "gzip",
+        "zlib_version": "1.2.13",
+        "compressed_sha256": "811abb415e1011af70eb6a3c3dabec59e3cb0ee28e2f7b99878510251b50a350",
+        "uncompressed_sha256": "e0e96999de9e7f8501af8da96d0598e0cea06b1ee92b202e6516eb908aa90f37",
+        "compressed_bytes": 649120046,
+        "uncompressed_bytes": 1288984334
+      },
+      "independent_uncompressed_SHA_and_size_match": true
+    },
+    {
+      "relative_source": "target_full/pair_transition_ledgers.json",
+      "source_expected_sha256": "ee55a95b6d90636d658214eb8fd2daf414a521ce9ad71cd273df21913935150e",
+      "output": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/storage_profiles/D_clip_seed7_existing_last/target_full/pair_transition_ledgers.json.gz",
+      "receipt": {
+        "schema": "SECONDARY_JSON_GZIP_V1",
+        "codec": "gzip",
+        "zlib_version": "1.2.13",
+        "compressed_sha256": "3d9a51c9a0b64c23d6e70f50f208ec9fd6428ad8756dcb37f28d5b447cb0cd94",
+        "uncompressed_sha256": "ee55a95b6d90636d658214eb8fd2daf414a521ce9ad71cd273df21913935150e",
+        "compressed_bytes": 872,
+        "uncompressed_bytes": 4603
+      },
+      "independent_uncompressed_SHA_and_size_match": true
+    },
+    {
+      "relative_source": "training_reference.json",
+      "source_expected_sha256": "deb165a11a63fa99ec169c58d048ce9b0a09804f3b742608b4920c4a671f35da",
+      "output": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/storage_profiles/D_clip_seed7_existing_last/training_reference.json.gz",
+      "receipt": {
+        "schema": "SECONDARY_JSON_GZIP_V1",
+        "codec": "gzip",
+        "zlib_version": "1.2.13",
+        "compressed_sha256": "8bbcdba289f627126ca37d52573576127784c1f034ac74c07e7c213b349b50dc",
+        "uncompressed_sha256": "deb165a11a63fa99ec169c58d048ce9b0a09804f3b742608b4920c4a671f35da",
+        "compressed_bytes": 109,
+        "uncompressed_bytes": 102
+      },
+      "independent_uncompressed_SHA_and_size_match": true
+    }
+  ],
+  "all_raw_bytes_and_committed_input_SHA_retained": true,
+  "new_scientific_metrics_or_bootstrap_generated": false,
+  "source_best_inference_started": false,
+  "M_production_admitted": false,
+  "H_real_schema_profile_complete": false,
+  "source_originals_moved_or_deleted": false,
+  "scope": "All existing JSON payload schemas of one accepted D LAST model only. Byte equality preserves every stored draw/metric/NA/string/metadata. This is neither new source-best results nor a bound on future source-best compression or H schemas; no compact budget credit is admitted."
+}

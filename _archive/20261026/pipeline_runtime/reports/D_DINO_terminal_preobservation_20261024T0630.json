@@ -1,0 +1,122 @@
+{
+  "utc": "2026-10-24T06:30:54.322164+00:00",
+  "status": "ORIGINAL_FOUR_DINO_STILL_RUNNING_REAL_TERMINAL_PENDING",
+  "queue": {
+    "owner_pid": 3942476,
+    "stage": "P3_D_FORMAL_TRAINING",
+    "utc": "2026-10-24T06:30:42.061017+00:00",
+    "active": [
+      {
+        "pid": 457172,
+        "run_id": "D_formal_dinov2_vit_b14_seed7",
+        "gpu": 3,
+        "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646"
+      },
+      {
+        "pid": 457712,
+        "run_id": "D_formal_dinov2_vit_b14_seed42",
+        "gpu": 2,
+        "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45"
+      },
+      {
+        "pid": 458602,
+        "run_id": "D_formal_dinov2_vit_b14_seed123",
+        "gpu": 1,
+        "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c"
+      },
+      {
+        "pid": 711439,
+        "run_id": "D_formal_dinov2_vit_b14_seed2026",
+        "gpu": 0,
+        "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e"
+      }
+    ],
+    "completed_this_session": [
+      "D_dev_clip_vit_b16_lr1e-05_seed1007_e30",
+      "D_dev_clip_vit_b16_lr1e-05_seed1042_e30",
+      "D_dev_dinov2_vit_b14_lr1e-05_seed1007_e30",
+      "D_dev_dinov2_vit_b14_lr1e-05_seed1042_e30",
+      "D_dev_dinov2_vit_b14_lr3e-05_seed1007_e30",
+      "D_dev_dinov2_vit_b14_lr3e-05_seed1042_e30",
+      "D_dev_dinov2_vit_b14_lr5e-05_seed1042_e30",
+      "D_dev_dinov2_vit_b14_lr5e-05_seed1007_e30",
+      "D_dev_efficientnet_b0_lr1e-04_seed1007_e30",
+      "D_dev_efficientnet_b0_lr1e-04_seed1042_e30",
+      "D_formal_clip_vit_b16_seed7",
+      "D_formal_clip_vit_b16_seed2026",
+      "D_formal_clip_vit_b16_seed123",
+      "D_formal_clip_vit_b16_seed42",
+      "D_formal_clip_vit_b16_seed3407"
+    ],
+    "detail": {
+      "pending": [
+        "D_formal_dinov2_vit_b14_seed3407",
+        "D_formal_efficientnet_b0_seed7",
+        "D_formal_efficientnet_b0_seed42",
+        "D_formal_efficientnet_b0_seed123",
+        "D_formal_efficientnet_b0_seed2026",
+        "D_formal_efficientnet_b0_seed3407"
+      ]
+    }
+  },
+  "rows": [
+    {
+      "pid": 457172,
+      "run_id": "D_formal_dinov2_vit_b14_seed7",
+      "gpu": 3,
+      "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646",
+      "metadata_history_epoch": 29,
+      "latest_attempt_zero_based": 23769,
+      "latest_live_epoch": 30,
+      "last_log_mtime_utc": "2026-10-24T06:30:53.764667+00:00",
+      "complete_exists": false,
+      "final_exists": false,
+      "source_best_exists": true,
+      "history_sha256": "38488a3eef8970aabf016ae8829851b935622bc5b2adf5b02cba715d29eb3a6e"
+    },
+    {
+      "pid": 457712,
+      "run_id": "D_formal_dinov2_vit_b14_seed42",
+      "gpu": 2,
+      "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+      "metadata_history_epoch": 29,
+      "latest_attempt_zero_based": 23710,
+      "latest_live_epoch": 30,
+      "last_log_mtime_utc": "2026-10-24T06:30:54.148667+00:00",
+      "complete_exists": false,
+      "final_exists": false,
+      "source_best_exists": true,
+      "history_sha256": "f9aa8a21125cf7dc9ffdf54dd929b7da8dd02e74d3de4406ca9b8a80e451d8e7"
+    },
+    {
+      "pid": 458602,
+      "run_id": "D_formal_dinov2_vit_b14_seed123",
+      "gpu": 1,
+      "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+      "metadata_history_epoch": 29,
+      "latest_attempt_zero_based": 23708,
+      "latest_live_epoch": 30,
+      "last_log_mtime_utc": "2026-10-24T06:30:54.212667+00:00",
+      "complete_exists": false,
+      "final_exists": false,
+      "source_best_exists": true,
+      "history_sha256": "fca7d569a76980fd838a05c8092916e8bcc5f06a2e11dae86bdef657f98572ff"
+    },
+    {
+      "pid": 711439,
+      "run_id": "D_formal_dinov2_vit_b14_seed2026",
+      "gpu": 0,
+      "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e",
+      "metadata_history_epoch": 6,
+      "latest_attempt_zero_based": 4924,
+      "latest_live_epoch": 7,
+      "last_log_mtime_utc": "2026-10-24T06:30:53.840667+00:00",
+      "complete_exists": false,
+      "final_exists": false,
+      "source_best_exists": true,
+      "history_sha256": "88bf481a314e76f3a9f98fc8444bbc8934b65634c8ab52eceaec2fc3132601de"
+    }
+  ],
+  "no_completion_inferred_from_ETA": true,
+  "no_training_or_GPU_change": true
+}

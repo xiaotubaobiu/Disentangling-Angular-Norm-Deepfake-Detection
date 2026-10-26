@@ -1,0 +1,10 @@
+{
+  "utc": "2026-10-24T19:42:30.448114+00:00",
+  "test": "A fully budget-covered remaining plan must admit even after existing outputs consume initial allocation",
+  "current_guard_expr": "shutil.disk_usage(R).free >= 250 * 1024 ** 3",
+  "free_bytes": 249529786368,
+  "required_remaining_bytes": 193237948485.52283,
+  "actual_old_guard_result": false,
+  "expected_result": true,
+  "status": "EXPECTED_RED_STALE_INITIAL_ALLOCATION_GATE"
+}

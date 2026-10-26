@@ -1,0 +1,115 @@
+10月25日11:00检查（11:02:24实测）：45/45训练终验，D主矩阵统计/图件已验；H84/210角色写出、8模型操作完成、4模型/2对独立验收，两槽主统计继续但0终态。M仅四核心比较已选；新缓存组件67定向/596全套与独立复审通过，真实D上下文266265行通过，H上下文原进程219582待回执；真实H压缩测量、M GPU桥/四比较统计驱动及联合预算仍待。主稿中英镜像及D结论保持，H/M不填未完成结果。详情见R/reports/check_20261025T1100_runtime.json和R/HANDOFF.md，下一11:15UTC。
+
+# 当前论文准备稿（2026-10-24）
+
+10月25日08:30轮检查（闭合2026-10-25T09:41:51.316011+00:00）：H原缓存owner3219035健康、自动接续，角色59/210、聚合标记8、操作完成8/运行4/排队18。CLIPseed42两模型原始完整七角色验收已PASS，4565.85秒，107pins/14角色/每次10模型fresh共140次与原账本完全一致，独立数据回读确认；独立已准入模型2（1对），不作同pair串行提速结论。CLIP限定CPU实际资格已冻结；主H统计wrapper4056923/child4056924于09:36:22用CPU槽1启动原analysis_h.analyze_pair，已第一freshledger；仍保留全七角色、每ledger10fresh、2000TEST与最终独立复算，统计未完成。原版seed7验收3459141/3459142仍待终态（当前report=False,exit0=False），不重启。CPU主统计入口59工程测试与两Important复现修复独立确认，通过前执行顺序和rawfd进程寿命锁已核验；这些源码与帮助文件现被运行中统计固定，禁止热改。M45/45源权重独立验收PASS（10350张量/45FP32头/335pins）；新准确紧凑bundle37针对/529全套及独立复核PASS，隔离commitd0d41812480803615ad89d4795e7d8837601e4f3。D真实最大normal/closure/RQ4三类共1937202279bytes→53309440bytes、原JSON全部有序字节精确恢复，写读peak2553424KiB，另独立读回122.8秒/652676KiB通过；仅已验收LAST文件传输，不是新M结果。M180角色FP32特征+清单/头/保守开销上界17.149GiB，9真实Parquet行数全核对，0复用/压缩信用。真实H文件格式待首个主统计闭合；Mcachecontext/提取驱动、四核心统计驱动和联合预算仍未准入。SSD余163.898GiB，主全余含16临时+50保留需106.951GiB，主余56.947GiB；冷释放0。13保护输入/20原源码、原Gitclean、GPU4–7及中英双端工作稿/三PENDING均保持。完整研究/统计/图件/中英终稿仍未交付。下一09:50UTC优先seed7终态与槽0接续、槽1主统计、缓存自动后继和容量。
+
+
+10月25日06:45轮检查（实际闭合2026-10-25T08:14:34.459268+00:00）：H训练30/30与总45/45终验保持；唯一缓存owner3219035已自动接续首四个CLIP模型，现4运行/22排队/4操作完成，角色36/210、聚合标记4，独立完整七角色模型验收0。首批端到端约95–98分钟/4模型，含完整CPU前后校验，非纯GPU吞吐；后继seed123/2026各B/AB四worker实际存活推进。原版seed7独立14角色CPU验收wrapper3459141运行；新CPU两线程调度入口经两Important复现修复、45测试与独立复审通过，wrapper3611167仅在第二CPU槽执行seed42实际原始14角色/每次10个源终态fresh全校验，保留全部PNG/RGB/原始账本；实际等价终态与端到端提速仍待，不改活跃缓存owner。M真实源权重加载器canonical路径及namespace问题已修复，43针对/492全套PASS与独立复核，隔离commitfb6a082673e24493a9b9f85da6e4290554f34490；实际45源文件/张量/原FP32头回读wrapper3459849已过33/45（D15+H18），未完成部分等待原进程，不把该验证当M缓存/统计或资源准入。M缓存context、原子packedbundle、真实H格式/联合预算、四核心驱动仍待；不扩F、不训练、不计未验证压缩。SSD余164.744GiB，保守主余量预算含16GiB临时+50保留需106.951GiB、尚余57.793GiB；未扣已完成H特征，cold释放0。13保护输入/20原始源码SHA、原Gitclean与GPU4–7边界保持。中英工作稿双端哈希及三PENDING原位核验通过，无未完成性能填入。证据reports/check_20261025T0645_recorded_summary.json；下一08:30UTC核验M真实回读/双CPU验收及原缓存；完整实验/统计/图件/中英终稿仍未交付。
+
+
+10月25日05:55检查（记录2026-10-25T06:29:32.350263+00:00）：训练终态45/45保持；原CPU3205329正常退出0，wall24:13.52/peak642364KiB，三骨干原始全五对账本均MATCHED、15对/30模型各5730成功/0skip，最终AMP有效登记独立核对通过，不触发整骨干FP32。共享H_pipeline.lock释放后，唯一有限缓存wrapper3219034/owner3219035已接续原HQueue.batch/_devices与cache_h.extract，GPU0/1/2/3各派CLIP B7/AB7/B42/AB42，当前4运行/26排队/0模型操作完成；7/210原始角色标记，已写SOURCE_CAL各1120帧×512维，尚0完整模型/0独立七角色准入。GPU有编码后驻留，当前CPU验证阶段，不能把角色写出或瞬时GPU作为完整模型吞吐。四worker连续CPU/I/O推进，保留原进程及20源码pin；重复源/模型/缓存校验为已观察耗时环节，未确定单一根因，不热改。M源选点元数据两Important已12RED→37GREEN、fresh449全套550.19s/exit0与独立修复确认；隔离commitb4a39fccd2c67af083bd24a9b92107e2a427cea1。45条真实源DEV/complete选点核对通过，14/15 H对最佳轮次不同、仅1个best=last候选，均不计特征复用预算；实际文件/张量/头/缓存context、原子packedbundle、最小统计驱动及真实H统计存储profile仍待，M推理未准入。中英方法同步四核心D6/H3/五种子/200CAL2000TEST/描述性解释及D主结果可用后细化范围，三PENDING不填；D文图/16引文键和原主稿不变。SSD余165.592GiB，保守主全余含16临时+50保留需106.951GiB，余58.641GiB，cold释放0/未验压缩计0，已不需FP32条件预算。13保护SHA/原Gitclean/4–7服务保持。下一06:45UTC优先真实缓存推进及准备七角色准入/两CPU统计。
+
+10月25日05:20检查（记录2026-10-25T05:45:02.213400+00:00）：Eff2026/3407四项真实E30封存并独立完整终验PASS，训练终态D15+H30=45/45；不等于完整研究完成。H正式171900尝试=成功/0skip，开发114600/0与D开发32/正式57分列。原2222605已退出，无H训练进程；唯一CPU接续wrapper3205328/controller3205329正在共享H_pipeline.lock下完整复核30独立报告/158文件封存并执行原始全3骨干五对账本与登记，不重复启动。当前globaltarget仍false，原GPU0–3已释放，等待科学门槛后缓存。有限接续35tests+独立复审、主缓存接续28tests+两Important复现修复确认均通过；缓存默认只读实际正确拒绝未齐登记，不竞争派发。缓存新控制器只在资格控制器退出/共享锁/新预算后执行，复用原HQueue.batch/_devices与cache_h.extract，210角色标记仍需逐模型独立准入。M四核心范围不变；D真实29文件无损通过，H原统计内核四合成组合各2000draws全内容/顺序/SHA一致，真实Hprofile与source-best端点/文件生产bundle/最小统计驱动未完成，不计合成压缩预算。SSD余165.656GiB，主全余含16临时+50保留需106.951GiB，cold释放0；13保护SHA/原Git/双稿镜像不变，摘要/H结果/结论三PENDING不填。下一05:55UTC回读现有CPU资格进程及全局登记，不重启、不补步、不动4–7。
+
+10月25日04:45检查（记录2026-10-25T05:06:19.177004+00:00）：Eff42与123四项真实封存及独立完整终验PASS，D15+H26=41/45；原四卡Eff2026/3407，4运行/0排队，完整snapshot28/21/6/6与后续日志19/20/9/1截点分列，均已观察0skip，不外推未完模型。M缺失描述覆盖问题MC001已3RED→56针对GREEN→完整412PASS；真实D29文件7,107,748,669→197,054,952字节且固定新reader重建29原SHA。只接受纯存储组件，不是M生产准入，H实际profile/端点驱动/组合预算待。主容量free166.126GiB，含16临时+50保留需110.910GiB，cold释放0。原监控因正常结束旧PID退出，当前四进程日志与瞬时GPU已补证，不伪造均值。三骨干有效登记/目标缓存仍待；中英正文与三PENDING保持。下一05:20UTC；主post-AMP有限接续实现/测试复核为优先项。
+
+10月25日04:20闭合：Eff7两项独立终验通过，主正式terminal37/45；H22验收，四卡Eff42/123。DINO原全5源端成功账本通过，Eff未齐、全局目标登记仍待。M传输386测试通过并隔离提交；整数权重矩阵53针对测试通过，409全套/真实D profile/新复审未全部完成，M生产未准入。正文/三PENDING保持。下一04:45UTC。
+
+10月25日04:05闭合：DINO十项正式终态全验收，主正式terminal35/45；H20验收，原四卡EfficientNet7/42，DINO原全5源端账本只读审计中，三骨干最终目标登记未齐。M仅四核心比较获选，3项工程修复针对30tests通过、fresh386全套未完；真实D压缩仅约2倍，生产未准入。正文/三PENDING保持，下一04:20UTC。
+
+10月25日03:40闭合：DINO2026独立终验通过，主正式terminal33/45；H18完成/4运行/8待，原四卡DINO3407/Eff7。用户已选择source-best最小M四核心比较，不新增训练/不扩F；隔离实现获授权，新增推理统计尚未通过代码及组合容量准入，旧169GiB预算不能直接启动。H目标缓存三骨干登记门槛保持，中英正文与三PENDING不填。下一04:05UTC。
+
+10月25日03:15检查：H仍16终验/4运行/10待，全正式terminal31/45。DINO2026/3407完整恢复20/20/13/12轮及共同配对/AMP通过，无新终态。中英完整工作框架、已验D文图和双端SHA保持，摘要/H结果/结论三PENDING等待H正式有效登记及完整统计图件。目标缓存未放行，source-bestHOLD。下一03:40UTC。
+
+10月25日02:45检查闭合：DINO123 B/AB实际E30并独立终验通过，H16验收/4运行/10待，全正式terminal31/45。原四卡已接DINO2026/3407；DINO全5与三骨干最终有效登记未齐，H目标cache未启动。source-bestHOLD、原型未接生产。中英正文及三PENDING不变。下一03:15UTC。
+
+10月25日02:25检查闭合：DINO42 B/AB实际E30封存并独立终验通过，H14验收/4运行/12待，全正式terminal29/45。原四卡已接DINO123/2026，三骨干最终有效登记未齐、H目标缓存未启动。source-bestHOLD、并行审计原型未接生产。中英正文及三PENDING不变。下一02:45UTC。
+
+10月25日02:10检查：H仍12终验/4运行/14待，全正式terminal27/45。DINO42恢复验收到26/26轮、123到19/19轮，配对及AMP审计通过；尚未终态不提前计完成。三骨干最终登记未齐、H目标缓存未启动，原型未接生产，source-bestHOLD。中英正文/三PENDING保持。下一02:25UTC。
+
+10月25日01:20检查闭合：DINO7 B/AB独立终验通过，H12完成/4运行/14排队，全正式terminal27/45。原四卡DINO42/123继续；global三骨干登记未齐，H目标cache未启动。源端校验并行原型仅审计工具验证、真实等价/30测试/独立复审通过，生产未接入；中英稿正文与三处PENDING不变。source-bestHOLD。下一02:10UTC。
+
+10月25日00:55检查闭合：CLIP10正式终态及全五对原始源端数值账本均通过，未触发CLIP统一FP32；H10完成/4运行/16排队，全正式terminal25/45。global三骨干effective登记仍未闭合，H目标缓存未启动，目标性能/摘要/全文结论仍PENDING；工作稿正文不变。原四卡现DINO7/42，source-best保持HOLD。
+
+10月25日00:25更新：H仍8独立终验/4运行/18排队，全正式terminal23/45；CLIP3407完整恢复到14轮、DINO7到10轮且共同配对流通过。CLIP全5对只读预检仍等待最后两项封存和独立终验，未放行H目标结果。中英稳定工作稿与三处PENDING不变，source-best继续HOLD。
+
+23:50检查于10月25日00时闭合：H第二批四项真实E30独立终验通过，H8完成/4运行/18排队，全正式terminal23/45；原四卡已接CLIP3407与DINO7的B/AB。全五对有效精度门槛未闭合、H目标性能仍待完成。中英工作整合稿及3个PENDING块保持不变，source-best继续HOLD；不把训练终验数当作全部实验或完整论文交付。
+
+23:20阶段更新：已建立同一结构的[中文工作整合稿](20261024_覆盖整合版/期刊论文整合稿_中文.md)与[English integrated working draft](20261024_覆盖整合版/journal_manuscript_integrated_en.md)，包含已验D结果、方法、讨论、局限性、8张实际图件与附录；三处PENDING为摘要、H结果和全文结论，完整论文未完成。生成记录为历史readback_pending，后续[单独回读验收](20261024_覆盖整合版/journal_working_drafts_readback_acceptance.json)已通过30行D原数/正文来源/双端镜像/8图/16引用键及结构检查；不代表最终PDF排版。H仍4完成/4运行/22排队，四项完整恢复验收到13轮；source-best保持HOLD。
+
+22:45阶段更新：首4 H正式模型已实际30轮封存并独立终验，原四卡自动接seed123/2026的B/AB；H4完成/4运行/22排队。此为训练终态验收，全5对effective精度/target缓存门槛和H目标性能仍未完成。中英附录A已依据六份实际源域GPU资格写明H microbatch32，与方法E2表一致，原稿备份保留。现成12章节的16引用键均能解析；最终装配使用既有references.bib与本覆盖版references_addendum_20261024.bib，旧verified_additional_references.bib作为历史补充保留，避免同三条引用重复拼接。D已验收文图保留，完整中英文主稿仍待H及最终核验。
+
+22:15阶段更新：中英方法4.3已按H自身20条源域开发历史写入实际共同配方与DINO未延长决策，见[独立核验](20261024_覆盖整合版/H共同配方与方法双稿_独立核验_20261024T2215.json)。H正式仍0完成/4运行/26排队，完整state验收到14轮；D已验收文图与完整主稿保持原状态，H目标性能尚未填写。
+
+21:45阶段更新：H20标准开发全部独立验收，源域共同配方已冻结为CLIP/DINO lr1e-5、Eff1e-4、30轮；DINO不触发延长。原HQueue已安全接续H30正式，0完成/4运行/26排队；完整两轮恢复与配对流验收通过。D当前结果/真实图件已验收，H目标结果及完整双稿仍未完成。
+
+## 当前已验收结果（21:28 UTC）
+
+D的15个体分析及CLIP、DINOv2、EfficientNet三份真实五种子汇总全部通过独立验收；见[三骨干中英结果与讨论](20261024_覆盖整合版/已验收结果_D三骨干_中英.md)。[真实图件与论文用修正图注](20261024_覆盖整合版/已验收图件_D三骨干_中英.md)已完成120条ECDF、120个CAL单元、12表及五张PNG版面核验，SYNTHETIC预览不作结果。H20项标准开发已30轮封存，最后四项终验刚完成；H30正式、缓存/配对统计和完整中英主稿仍待完成。source-best未选定，继续HOLD。下方按时间保留历史阶段记录，早期WAITING/待实现等不是当前状态。
+
+用于后续论文整合的最新方法双稿位于 [中文](20261024_覆盖整合版/方法与实验设置_中文.md) 和 [English](20261024_覆盖整合版/methods_and_experimental_setup_en.md)。本版以已验收H冻结清单替换旧版候选数量，并补齐H共同母帧抽样预算、D源域配方冻结及数据资格/模型资格边界。原2026-10-23双稿、引用核验和仓库镜像完整保留为历史基线。
+
+本版仅方法与设置，不含部分正式模型的性能结论。H六项源域GPU资格已通过，标准开发训练已启动；完整正式矩阵、最终统计和中英文完整主稿尚待完成。主中文稿与英文稿未修改。数值、引用和双语一致性见 [事实更新核验](20261024_冻结数据版/事实更新核验.json)。
+
+补充的[中文讨论与局限性](20261024_冻结数据版/讨论与局限性_结果前准备_中文.md)及[English discussion and limitations](20261024_冻结数据版/discussion_and_limitations_pre_results_en.md)仅包含已冻结设计的解释边界，不含性能观察。四项RQ的比较对象、结果依赖与禁止推断见[主张回填核验](20261024_冻结数据版/讨论与主张回填门禁_20261024T0220.json)。这些预备段落须在全部正式结果及独立复算后整合，不代表完整论文已交付。
+
+冻结计划T1–T8、五项图件、实际分析路径及NA/独立复算/种子汇总要求已整理为[中英数据回填契约](20261024_冻结数据版/最终论文表格与图件_数据回填契约_中英.md)。该文件保留结果回填门禁；D五种子汇总入口已实现并通过356项CPU测试及独立复核，真实五种子生产汇总仍须等待全部输入验收。
+
+已验收元数据统计形成[T1-H中英覆盖与排除表](20261024_冻结数据版/T1_H覆盖与排除_中英.md)，含DFD类别覆盖、SOURCE_UNUSED行政排除及检测元数据分母；它不报告模型性能，也不代表H GPU资格完成。
+
+04:20阶段将已验收H候选覆盖、类别分母、失败与有效检测分母整合到新版方法4.1正文，见[覆盖整合核验](20261024_覆盖整合版/H覆盖整合核验.json)。旧冻结数据版与主中文稿/英文稿均保留；本更新不含模型性能结论。
+
+补充[中文复现附录A](20261024_覆盖整合版/附录A_复现协议与计数口径_中文.md)及[English appendix A](20261024_覆盖整合版/appendix_A_reproducibility_and_counting_en.md)，并提供[角色明确的资产索引](20261024_覆盖整合版/附录A_复现资产索引.json)：D的7正式角色与9辅助审计/资格表分列，H的13冻结表保留原绑定。附录不报告未完成模型的性能或最终归档发布状态。
+
+CLIP五个正式模型的[训练预算子表T2](20261024_覆盖整合版/T2_D_CLIP正式训练预算_中英.md)和[终态工件索引](20261024_覆盖整合版/D_CLIP正式终态工件索引.json)已按实际30轮终态及独立复算验收填入；只含训练/工件计数，不含目标域性能，其他骨干与H矩阵仍待完成。
+
+06:00阶段补齐[DFD、SCRFD与NP阈值原始来源核验](20261024_覆盖整合版/文献补充核验_DFD_SCRFD_NP_20261024.md)及[独立BibTeX补充](20261024_覆盖整合版/references_addendum_20261024.bib)。SCRFD明确引用2021预印本；作者仓库确认ICLR2022接收，但OpenReview出版元数据仍受浏览器验证限制。NP已发表作者PDF与期刊关联信息交叉核实；相关假设不自动适用于本研究。主参考文献资产与完整主稿尚未改写，此前会议稿发表状态/DOI仍待核实。
+
+06:30阶段新增[八个已验收D正式模型的T2中英训练预算](20261024_覆盖整合版/T2_D_正式训练预算_已验收部分_20261024T0630_中英.md)及[终态工件索引](20261024_覆盖整合版/D_正式终态工件索引_20261024T0630.json)，包括五CLIP和三个DINOv2。只记录实际30轮训练计数、权重绑定与源域验收，不包含目标性能；其余D/H模型、缓存、最终统计与完整主稿仍待完成。旧CLIP子表保留为历史阶段工件。
+
+07:30阶段新增[D五种子汇总的冻结需求与现有接口核对](20261024_覆盖整合版/D五种子汇总_冻结需求与接口核对_20261024T0730.md)，明确逐seed/样本SD、CAL与TEST不同层次、数值NA、complete_five_seeds门禁及T4–T8实际路径。已有底层函数四类合成探测通过；跨文件来源校验和最终装配入口仍待实现与独立验收，不能据此称五种子生产汇总完成。
+
+实现更新（2026-10-24T08:47:05.995416+00:00）：上述[D汇总接口说明](20261024_覆盖整合版/D五种子汇总_冻结需求与接口核对_20261024T0730.md)已追加唯一入口的实现验收，最终356项CPU测试通过，3项独立复核问题以8项回归修复；旧版“待实现”描述保留为历史。真实五seed生产汇总仍WAITING，不含检测性能结论。
+
+08:50阶段：已验收十个D正式模型，当前[T2中英训练预算](20261024_覆盖整合版/T2_D_正式训练预算_已验收部分_中英.md)与[机器索引](20261024_覆盖整合版/D_正式终态工件索引.json)包含新增EfficientNet seed7/42；合计239,700次尝试、239,659次成功更新、41次跳步。使用这两个稳定路径继续更新，旧八模型阶段文件保留。仅训练预算，不含检测性能或完整论文结论。
+
+09:30阶段新增结果前[中文引言与研究问题](20261024_覆盖整合版/引言与研究问题_中文.md)及[English introduction](20261024_覆盖整合版/introduction_and_research_questions_en.md)，按新四RQ统一输入历史、固定头、分组交互和同池阈值比较，保留回顾性研究与来源代理限制。未沿用旧三RQ、31方法/15轮配置或旧性能结论。三个数据来源使用原始出处；主稿与旧引用资产未改。最终经验贡献仍待完整结果。
+
+10:00阶段补齐[中文相关工作与比较范围](20261024_覆盖整合版/相关工作与比较范围_中文.md)及[English related work](20261024_覆盖整合版/related_work_and_scope_en.md)，涵盖统一评价、固定头推理与归一化训练的区别、NormFake幅度/稀疏性先行工作、概率校准与经验/总体误报约束。七项原始出处已回读，NormFake明确为2026预印本，不引入跨协议SOTA比较或本研究未完成结果；主稿和旧引用资产保留。
+
+10:30阶段补齐[中文数学附录B](20261024_覆盖整合版/附录B_计分恒等式与数值解释_中文.md)及[English appendix B](20261024_覆盖整合版/appendix_B_scoring_identities_and_numerics_en.md)，逐项对应冻结计分实现：epsilon近零边界、公共尺度与偏置、AUC账本与分组交互、FP64校准阈值和高精度rank_score oracle的分数域区别。正文未新增算法、实验或检测数值，既有代码与原稿保留。
+
+10:45阶段：实际DINOv2 seed2026终态已通过独立验收，稳定[T2中英训练预算](20261024_覆盖整合版/T2_D_正式训练预算_已验收部分_中英.md)及[机器索引](20261024_覆盖整合版/D_正式终态工件索引.json)现含十一模型：263,670尝试、263,626成功、44跳步。旧十模型版本已备份；仅训练工件和预算，不含检测结论。
+
+11:40阶段：EfficientNet seed123/2026已完成并通过独立终态验收，稳定[T2中英训练预算](20261024_覆盖整合版/T2_D_正式训练预算_已验收部分_中英.md)及[机器索引](20261024_覆盖整合版/D_正式终态工件索引.json)现含十三模型：311,610尝试、311,559成功、51跳步。旧十一模型版本已备份；DINOv2 seed3407、EfficientNet seed3407及全部H正式模型仍未完成。仅训练工件和预算，不含检测结论。
+
+11:55图表入口核对：现有[数据回填契约](20261024_冻结数据版/最终论文表格与图件_数据回填契约_中英.md)已纠正D五种子入口的过时“尚待实现”描述（实现/356 CPU测试已验收，生产真实输入仍未就绪），并补充T8 rank_score与FP64 score域标签。v2正式图件导出与渲染验收仍待实现，不视作已完成；旧契约已备份，未修改科学定义或主稿。
+
+12:00阶段：DINOv2 seed3407已完成并通过独立终态验收，稳定[T2中英训练预算](20261024_覆盖整合版/T2_D_正式训练预算_已验收部分_中英.md)及[机器索引](20261024_覆盖整合版/D_正式终态工件索引.json)现含十四模型：335,580尝试、335,526成功、54跳步。旧十三模型版本已备份；D仅EfficientNet seed3407未终态，全部H正式模型仍待完成。仅训练工件和预算，不含检测结论。
+
+12:30–12:55图件阶段：两幅已有合格输入的准备图已导出并通过61输入哈希、300坐标独立数值复核与实际PNG版面验收：[H覆盖率PNG](20261024_覆盖整合版/figures/pre_result/H_preprocessing_coverage.png)、[源DEV曲线PNG](20261024_覆盖整合版/figures/pre_result/D_source_development_curves.png)，同目录保留SVG、逐点JSON和[中英图注](20261024_覆盖整合版/figures/pre_result/captions_cn_en.md)，[综合验收](20261024_覆盖整合版/figures/pre_result_acceptance.json)。覆盖图首版图例重叠已修复并完整备份；源DEV含全部10运行/300点，不能作为正式TEST结论。五类同母帧示意输入已按冻结SOURCE TRAIN排序预选，示意图尚未渲染；ECDF与校准波动仍等真实缓存/分析。H416源输入CPU预检和14个D终态cache上下文检查均通过，但不代替H真实GPU资格或七角色缓存验收。
+
+13:00图件阶段：第三幅[同母帧处理图PNG](20261024_覆盖整合版/figures/paired_histories/paired_mother_processing_histories.png)及SVG、[中英图注](20261024_覆盖整合版/figures/paired_histories/captions_cn_en.md)已通过独立46输入/35源文件/20 RGB/15 mask及父图链复核、主线程与独立审查员实际PNG视觉回读，[综合验收](20261024_覆盖整合版/figures/paired_history_acceptance.json)留证。五类共同TRAIN示例按上一轮固定字典序选择，不按几何置信度另排序或使用deepfake模型性能分数；保留既有SCRFD几何元数据。首版措辞已修正，全部图像/逐像素数据字节不变，原版备份。计划三类准备图现已完成，正式ECDF和校准波动仍等真实合格缓存/分析，完整论文与实验未结束。
+
+D训练阶段完成：EfficientNet seed3407于13:19:04实际终态，独立30轮验收通过；稳定T2及机器索引现包含全部15个D正式模型，359,550尝试/359,493成功/57跳步。原owner自动接续四卡FP32缓存，无另建派发器。D缓存/统计与H30正式模型仍未完成，全计划正式训练15/45；不据训练完成声明研究/论文完成。
+
+
+16:25 UTC进展：CLIP seed3407已独立终验通过，CLIP五种子全部具备输入资格，D单模型统计累计5/15。既有summary_d入口已在固定CPU slot1开始真实五种子汇总及资源测量，尚在重新核验所有源缓存与产物；汇总未独立验收，最终表格仍不得回填。slot0接续DINO seed7分析。
+
+At 16:25 UTC, CLIP seed3407 passed independent acceptance, making all five CLIP seeds eligible and bringing individual D analyses to 5/15. The existing summary_d entry point has started real five-seed aggregation and resource measurement in fixed CPU slot1. Its live cache/artifact revalidation and independent summary acceptance remain pending; final tables are not yet eligible for backfill. Slot0 is running DINO seed7 analysis.
+
+
+16:30–16:55阶段：CLIP真实五seed汇总及独立12表/48,476字段复算已通过，见[已验收CLIP中英结果材料](20261024_覆盖整合版/已验收结果_CLIP五种子_中英.md)。包含完整五seed训练变异与结构性NA，保留低跨域性能及零归一化符号翻转；该材料仅CLIP已完成子集，其他骨干/H和最终全文仍待。H首四项源开发已完整E30独立验收，原队列接续四DINO。 / The real five-seed CLIP summary passed independent recomputation; the linked bilingual material preserves NA and negative findings without claiming full-study completion. The first four H development runs passed E30 acceptance and the original queue continued with four DINO runs.
+
+
+17:00阶段：DINO seed7已完整独立验收，D个体统计6/15；DINO五seed汇总仍待其余四模型分析，不能据一个seed回填均值或SD。H当前DINO完整恢复至E8通过，E10仅后续提交日志截点。source-best预定敏感性的具体secondary端点范围/接口与额外容量核验见R/reports/source_best_scope_capacity_review_20261024T1700.json；仅保存权重不等于该敏感性已完成，当前未额外导出目标分数。 / DINO seed7 is individually accepted; its five-seed summary remains pending. H DINO complete checkpoint acceptance covers E8, while E10 denotes later log progress. The prespecified source-best sensitivity still needs explicit secondary endpoint registration and storage admission; retained weights alone do not establish completed sensitivity results.
+
+
+17:25阶段：DINO42/123独立验收完成，D个体统计8/15；尚无完整DINO五seed汇总。source-best仅为父线程要求的范围/资源准备，原文未逐项规定45个secondary及其角色；M/F均未选定、未执行、未向用户发问。原计划全局五seed/200CAL/2000TEST不降低。M/F的37/55GiB紧凑存储数是未验收工程草案，不是新结果或容量准入；源权重、原last结果/负结果与NA均保持。 / DINO42 and123 are individually accepted (8/15 D analyses); the five-seed DINO summary remains pending. Source-best scope/cost candidates are preparation only under the parent hold, with no selected design or target inference. Global statistical strength is retained; compact-storage allowances are unvalidated engineering drafts.
+
+
+18:00阶段：D个体统计9/15独立验收；H开发首8模型完整E30独立验收，当前新lr3仅早期日志，H正式仍未开始。source-best说明包澄清45为已注册正式端点，D15已训/H30待训；M/F仅未选候选，不新增训练、不执行额外推理。源权重产生前不允许用H开发模型替代，统计强度不降低，37/55GiB只是未验收存储工程草案。 / Nine D analyses and the first eight H development runs are independently accepted. The 45 source-best candidates refer to registered formal endpoints; H formal checkpoints do not yet exist. No secondary run is selected or started, and development checkpoints cannot substitute.
+
+
+18:20阶段：D个体统计10/15独立验收，DINO五seed真实汇总已启动但未独立验收，不能据启动回填结果。Hlr3四项完整恢复点验至E6，后续日志另记；source-best两候选仍未启动，未验收紧凑存储不纳入预算。 / Ten D individual analyses are accepted. The real five-seed DINO summary is running, with acceptance and backfill still pending. H lr3 checkpoint acceptance covers E6 only; subsequent logs are separate. Source-best remains on hold and unvalidated compact-storage estimates are excluded from admission.

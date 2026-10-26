@@ -1,0 +1,178 @@
+{
+  "utc": "2026-10-23T11:30:16.391031+00:00",
+  "scope": "Later live-log cutoff, separate from committed checkpoint inspection",
+  "status": "ISOLATED_AMP_OVERFLOWS_WITH_IMMEDIATE_SUCCESSFUL_CONTINUATION",
+  "runs": [
+    {
+      "run_id": "D_dev_clip_vit_b16_lr1e-05_seed1007_e30",
+      "live_records": 14382,
+      "live_skip_count": 2,
+      "skips": [
+        {
+          "file": "epoch_16_updates.jsonl",
+          "event": {
+            "attempt": 12024,
+            "lr": 5.4817647999124515e-06,
+            "loss": 0.01023512240499258,
+            "gradient_norm": null,
+            "gradient_finite": false,
+            "scale_before": 8192.0,
+            "scale_after": 4096.0,
+            "success": false,
+            "skip": true,
+            "epoch": 16
+          },
+          "previous": {
+            "attempt": 12023,
+            "lr": 5.482408077508979e-06,
+            "loss": 1.1662021279335022e-05,
+            "gradient_norm": 0.011805848362913198,
+            "gradient_finite": true,
+            "scale_before": 8192.0,
+            "scale_after": 8192.0,
+            "success": true,
+            "skip": false,
+            "epoch": 16
+          },
+          "next": {
+            "attempt": 12025,
+            "lr": 5.4811215180550845e-06,
+            "loss": 1.8472783267498016e-05,
+            "gradient_norm": 0.03820866385897365,
+            "gradient_finite": true,
+            "scale_before": 4096.0,
+            "scale_after": 4096.0,
+            "success": true,
+            "skip": false,
+            "epoch": 16
+          }
+        },
+        {
+          "file": "epoch_18_updates.jsonl",
+          "event": {
+            "attempt": 14061,
+            "lr": 4.179216503537553e-06,
+            "loss": 0.014836768619716167,
+            "gradient_norm": null,
+            "gradient_finite": false,
+            "scale_before": 8192.0,
+            "scale_after": 4096.0,
+            "success": false,
+            "skip": true,
+            "epoch": 18
+          },
+          "previous": {
+            "attempt": 14060,
+            "lr": 4.179843982320382e-06,
+            "loss": 8.98074358701706e-06,
+            "gradient_norm": 0.0033147912131688004,
+            "gradient_finite": true,
+            "scale_before": 8192.0,
+            "scale_after": 8192.0,
+            "success": true,
+            "skip": false,
+            "epoch": 18
+          },
+          "next": {
+            "attempt": 14062,
+            "lr": 4.1785890444403595e-06,
+            "loss": 0.0002718046307563782,
+            "gradient_norm": 0.9091435882258913,
+            "gradient_finite": true,
+            "scale_before": 4096.0,
+            "scale_after": 4096.0,
+            "success": true,
+            "skip": false,
+            "epoch": 18
+          }
+        }
+      ]
+    },
+    {
+      "run_id": "D_dev_clip_vit_b16_lr1e-05_seed1042_e30",
+      "live_records": 14224,
+      "live_skip_count": 1,
+      "skips": [
+        {
+          "file": "epoch_14_updates.jsonl",
+          "event": {
+            "attempt": 10860,
+            "lr": 6.224557231925628e-06,
+            "loss": 0.008036842569708824,
+            "gradient_norm": null,
+            "gradient_finite": false,
+            "scale_before": 4096.0,
+            "scale_after": 2048.0,
+            "success": false,
+            "skip": true,
+            "epoch": 14
+          },
+          "previous": {
+            "attempt": 10859,
+            "lr": 6.225187568579401e-06,
+            "loss": 5.021877586841583e-05,
+            "gradient_norm": 0.03348192384897299,
+            "gradient_finite": true,
+            "scale_before": 4096.0,
+            "scale_after": 4096.0,
+            "success": true,
+            "skip": false,
+            "epoch": 14
+          },
+          "next": {
+            "attempt": 10861,
+            "lr": 6.223926877355279e-06,
+            "loss": 0.002392565831542015,
+            "gradient_norm": 44.15621551511275,
+            "gradient_finite": true,
+            "scale_before": 2048.0,
+            "scale_after": 2048.0,
+            "success": true,
+            "skip": false,
+            "epoch": 14
+          }
+        }
+      ]
+    },
+    {
+      "run_id": "D_dev_dinov2_vit_b14_lr1e-05_seed1007_e30",
+      "live_records": 11453,
+      "live_skip_count": 0,
+      "skips": []
+    },
+    {
+      "run_id": "D_dev_dinov2_vit_b14_lr1e-05_seed1042_e30",
+      "live_records": 11362,
+      "live_skip_count": 0,
+      "skips": []
+    }
+  ],
+  "GPU_followup_samples": [
+    {
+      "utc": "2026-10-23T11:30:05.579413+00:00",
+      "csv": "0, 0, 4932\n1, 96, 4932\n2, 86, 5414\n3, 81, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-23T11:30:07.719517+00:00",
+      "csv": "0, 0, 4932\n1, 98, 4932\n2, 83, 5414\n3, 74, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-23T11:30:09.860309+00:00",
+      "csv": "0, 0, 4932\n1, 93, 4932\n2, 76, 5414\n3, 83, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-23T11:30:11.980995+00:00",
+      "csv": "0, 0, 4932\n1, 97, 4932\n2, 88, 5414\n3, 81, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-23T11:30:14.116247+00:00",
+      "csv": "0, 0, 4932\n1, 91, 4932\n2, 73, 5414\n3, 79, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-23T11:30:16.264229+00:00",
+      "csv": "0, 97, 4932\n1, 95, 4932\n2, 85, 5414\n3, 80, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n"
+    }
+  ],
+  "action": "PRESERVE_RUNNING_D_FIXED_ATTEMPT_PROTOCOL;no_retrain_or_extra_updates",
+  "performance_conclusions": false
+}

@@ -1,0 +1,72 @@
+{
+  "utc": "2026-10-24T17:08:58.786312+00:00",
+  "status": "PLAN_SENSITIVITY_REQUIRED_BUT_DETAILED_SECONDARY_ENDPOINT_REGISTRATION_AND_EXECUTION_SUPPORT_NOT_FOUND",
+  "frozen_plan_sha256": "b018b01915a62c645fc3718134970cd49dc0651ecfd02792220f3a0086c6594d",
+  "plan_line": 192,
+  "plan_text": "正式冻结的是epoch数、每epoch抽样数和**尝试optimizer更新数**，scheduler按尝试步时钟推进；成功更新计数单列，不把相同epoch写成成功更新必相同。正式主checkpoint为冻结终点`last`，source-best只作预定敏感性。",
+  "supporting_original_protocol": {
+    "path": "/home/z/obsidian/paper/deepfake-detector/新实验设计/20261023/原始材料/实验设计与执行协议_中文.md",
+    "line": 91,
+    "text": "源域预实验结束后，每条路线/每骨干冻结lr、总更新预算、增强、特征边界和最终epoch。正式种子固定7、42、123、2026、3407。主分析使用冻结预算的最终checkpoint；source-best作为敏感性参照，不按目标域选择。"
+  },
+  "current_primary_exporter_restrictions": [
+    {
+      "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/cache_d.py",
+      "line": 94,
+      "text": "final_path = run_root / 'final.pt'",
+      "sha256": "8f5814646194c772dcf00f6751a35c2f792dd5f11008e0834fdba4eb5e329761"
+    },
+    {
+      "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/cache_h.py",
+      "line": 163,
+      "text": "final = run_root / 'final.pt'",
+      "sha256": "9119200359f8d696f1366e6c0137bca533c63089c32e505971e69f84ebaf40fb"
+    },
+    {
+      "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/docs/h_cache_analysis_usage.md",
+      "line": 36,
+      "text": "chunk may be regenerated. No source-best or development model can infer targets.",
+      "sha256": "a08eeee76f4a290b87055779291e9959c730c32850cdd11d82e1e38a9b967217"
+    }
+  ],
+  "inspection_scope": [
+    "current v2 cache_d/cache_h/analysis_d/analysis_h/queue_h modules",
+    "v2 docs",
+    "all<=2MiB Markdown under latest20261023 plan folder",
+    "configs/qualification/analysis_execution_records filenames for source-best/sensitivity registration"
+  ],
+  "existing_production_source_best_registration_found": false,
+  "source_best_weights_retained": true,
+  "secondary_target_inference_launched": false,
+  "primary_checkpoint_overwritten_or_relabelled": false,
+  "new_training_registered": false,
+  "proposed_uniform_interpretation_NOT_YET_FROZEN": {
+    "models": "All15D+30H existing effective formal models, one source-best checkpoint per existing model; no new seed/lr/epoch training or L2 training. This is an explicit candidate interpretation, not a claim the plan spells out45 extra export endpoints.",
+    "evaluation": "Reuse frozen roles, cohorts, features boundary, scores, grouping, CAL200/TEST2000 rules. Store secondary endpoint identity separately, keep last primary and all negative results. Never select subset/epoch using target results.",
+    "H_comparability": "Per-model source-best epochs may differ between B and AB. Report selected epochs and prefix successful/attempted counts; sensitivity cannot inherit strict matched-endpoint or matched-success-update main-result claims. Do not retrain to manufacture shared best epochs.",
+    "permission_boundary": "Current native primary exporter accepts canonical final.pt only; do not rename source_best.pt to final.pt or bypass primary current-context qualification. A separate reviewed secondary endpoint registration/adapter is needed.",
+    "scope_coordination": "Parent should provide any more specific pre-existing sensitivity registration or resolve this uniform full-matrix interpretation before additional target exports. Primary D/H work continues independently."
+  },
+  "conservative_extra_bytes_if_full_uniform_interpretation": {
+    "D15_source_best_feature_cache_current_shape_plus10percent_ceil_GiB": 17179869184,
+    "D15_full_analysis_at_existing9GiB_bound": 144955146240,
+    "H30_source_best_feature_cache_existing_full_bound": 10684596224,
+    "H15_source_best_pair_analysis_existing1GiB_bound": 16106127360
+  },
+  "extra_total_bytes": 188925739008,
+  "D_primary_actual_cache_bytes": 15383039061,
+  "extra_total_GiB": 175.9508056640625,
+  "budget_basis": "Same frozen row counts and dimensions, weights already in primary training budget; D feature actual bytes+10% rounded up, D9GiB/model (observed6.869GiB), H existing feature and1GiB/pair bounds. No reuse savings assumed.",
+  "primary_last_required_prior_bytes": 280136445618.5228,
+  "all_remaining_primary_conditionals_prior_bytes": 77160740119.67499,
+  "workspace_free_now_bytes": 317041938432,
+  "normal_plus_proposed_extra_required_bytes": 469062184626.5228,
+  "all_conditionals_plus_proposed_extra_required_bytes": 546222924746.1978,
+  "normal_plus_proposed_extra_cold_deficit_bytes": 152020246194.52283,
+  "all_conditionals_plus_proposed_extra_cold_deficit_bytes": 229180986314.1978,
+  "verified_staged_cold_copy_bytes": 57722932422,
+  "SSD_cold_release_bytes": 0,
+  "cold_copy_forward_compatibility_pending": true,
+  "storage_conclusion": "Primary normal execution continues within current budget. Full secondary interpretation cannot be admitted from present free SSD and staged copies alone; requires explicit staged working-set/cold-storage plan with actual reversible migration verification. Existing copied bytes are not free space.",
+  "timing": "No new model training cost in this interpretation; extra D CPU work roughly15x34min/2~4.25h plus first-entry verification overhead. Secondary H production/whole GPU export time unmeasured; no precise total ETA claimed."
+}

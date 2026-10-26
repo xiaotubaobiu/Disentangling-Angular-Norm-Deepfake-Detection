@@ -1,0 +1,13 @@
+{
+  "utc": "2026-10-24T08:57:14.559374+00:00",
+  "status": "SYNTAX_HASH_PREPARED_NOT_STARTED",
+  "scripts_sha256": {
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/checkpoint_health_20261024T0900.py": "e30ee203b288b9669e8912bd96f89538a911a9bfaf02667cabb7a99741dc39b9",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/checkpoint_active_focus_20261024T0900.py": "82e45b3777f30959ce3410ddf2228ce22061c79f9b92c82374922be85806bf78",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/completion_audit_20261024T0900.py": "edb87bb6ba0e73f9518447a8d421276e6d2e405d2aba666b319163a9bf53b58d",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/runtime_monitor_20261024T0900.py": "c1b41a14aff8e80d015ca62c4cff534021ef5983d0cfd7c84fc1bf87d89d5a51"
+  },
+  "CPU_only": true,
+  "next_check": "2026-10-24T09:00:00Z",
+  "metadata_correction": "0850focus used fresh_full_CPU_run_ids for all6inspected entries including2pending. Original per-row statuses and current_full_tensor_checkpoint_count22 remain correct and preserved. 0900 distinguishes inspected from actualPASSfull proofs and accepts prior explicitpending status; no training/protocol change."
+}

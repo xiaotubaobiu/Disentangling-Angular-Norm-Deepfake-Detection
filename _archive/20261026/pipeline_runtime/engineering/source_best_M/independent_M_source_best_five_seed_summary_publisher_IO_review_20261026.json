@@ -1,0 +1,125 @@
+{
+  "actual_M_jobs_or_saved_payloads_read": false,
+  "actual_shared_slots_acquired": 0,
+  "findings": [
+    {
+      "evidence": {
+        "all_file_SHA_unchanged": true,
+        "allocated_after": 4296704,
+        "allocated_before": 417792,
+        "cap_bytes": 4194304,
+        "errno": 0,
+        "fallocate_return": 0,
+        "logical_file_bytes_unchanged": true,
+        "reuse_error": null,
+        "reused_accepted": true,
+        "reused_complete_sha256": "9525fced1c8cf2b2a2e9915988325090654fd26b0790f291b55994de13ba41ae"
+      },
+      "id": "M5SUM-003",
+      "impact": "Digest and logical-byte equality do not fix physical allocation. The cap enforced for new publication is not enforced for existing-result reuse, so a success receipt can exceed the externally bound persistent output cap.",
+      "lines": [
+        439,
+        442,
+        475,
+        482,
+        487,
+        488,
+        489
+      ],
+      "recommended_fix": "Use the same directory plus max(st_size,st_blocks*512) allocation check on every existing/reuse and final return path, with a private KEEP_SIZE regression; retain byte/SHA equality checks. No change to original M33/single-job code is needed.",
+      "reproduction": "A private synthetic four-file summary completed within4MiB. Linux fallocate(FALLOC_FL_KEEP_SIZE) then reserved cap+65536 bytes on the private per_seed_core.csv. Its size, contents and every summary file SHA stayed unchanged. Total directory/file allocation grew from417792 to4296704 bytes, exceeding4194304. execute_summary reuse still returned success with the original complete SHA.",
+      "severity": "Important",
+      "status": "OPEN",
+      "title": "Existing completed namespace reuse skips actual allocation cap"
+    }
+  ],
+  "independent_probe_result": {
+    "complete_slot_probe": {
+      "adding_legal_cpu_slot_refused": true,
+      "cpu_slot_field_originally_present": false,
+      "error": "append-only summary result differs"
+    },
+    "native_output_allocation": {
+      "allocated_including_directory_bytes": 417792,
+      "filesystem_allocation_unit": 4096,
+      "logical_files_bytes": 401812
+    },
+    "reuse_allocation_probe": {
+      "all_file_SHA_unchanged": true,
+      "allocated_after": 4296704,
+      "allocated_before": 417792,
+      "cap_bytes": 4194304,
+      "errno": 0,
+      "fallocate_return": 0,
+      "logical_file_bytes_unchanged": true,
+      "reuse_error": null,
+      "reused_accepted": true,
+      "reused_complete_sha256": "9525fced1c8cf2b2a2e9915988325090654fd26b0790f291b55994de13ba41ae"
+    },
+    "stage_unlink_failure_probe": {
+      "complete_published": true,
+      "reentry_same_complete_sha256": true,
+      "unlink_calls": []
+    }
+  },
+  "old_suites_or_72_tests_rerun": false,
+  "original_models_weights_PNGs_read": false,
+  "original_requested_comparisons": [
+    {
+      "case": "Failure unlinking a stage after completion",
+      "evidence": {
+        "complete_published": true,
+        "reentry_same_complete_sha256": true,
+        "unlink_calls": []
+      },
+      "result": "NOT_APPLICABLE_NO_STAGE_OR_UNLINK",
+      "scope": "Injected Path.unlink failure during private create/reentry had zero calls; the four-member publication remained valid and same complete SHA reused."
+    },
+    {
+      "case": "Legal cpu_slot mutation in complete accepted on reuse",
+      "evidence": {
+        "adding_legal_cpu_slot_refused": true,
+        "cpu_slot_field_originally_present": false,
+        "error": "append-only summary result differs"
+      },
+      "result": "REFUSED",
+      "scope": "M5 complete has no cpu_slot field. Adding a legal value changes exact expected complete bytes and is refused; runtime invocation slot is outside completion identity."
+    },
+    {
+      "case": "Logical cap without directory/block allocation",
+      "evidence": {
+        "allocated_including_directory_bytes": 417792,
+        "filesystem_allocation_unit": 4096,
+        "logical_files_bytes": 401812
+      },
+      "result": "NEW_PUBLICATION_MEASURES_ALLOCATION",
+      "scope": "Code469 reserves64KiB over logical data and482-487 checks directory plus max(st_size,st_blocks*512) on new publication; private4096-byte filesystem overhead15980 bytes was covered."
+    }
+  ],
+  "original_review": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_M_source_best_five_seed_summary_review_20261026.json",
+    "sha256": "8b7587334d7dfceab453a9bb1e792c5775f5c8f83aa28d70742ad73c6931bf1f"
+  },
+  "probe_harness_note": "The author's synthetic slot mock omitted exit bookkeeping on exceptions. The independent IO harness used a private try/finally slot stub before recording valid observations; no real lock was acquired.",
+  "production_admitted": false,
+  "remaining_blockers": [
+    "M5SUM-003 fix and independent confirmation",
+    "Actual ten-job completeness and root's later production/resource authorization"
+  ],
+  "reviewed_source": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/m_source_best_five_seed_summary.py",
+    "sha256": "856a926bec16f32c5bfd27dbebdc66ad5e48c0f5ecbc24ace5863f1e1596cb30"
+  },
+  "reviewed_test": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests/test_m_source_best_five_seed_summary.py",
+    "sha256": "acfcc910e6299009670a71315ae23eb1cc2245716be23222a6d955ac29bfd14a"
+  },
+  "schema": "INDEPENDENT_M_SOURCE_BEST_FIVE_SEED_SUMMARY_PUBLISHER_IO_REVIEW_V1",
+  "scientific_final_acceptance": false,
+  "source_byte_mutations": 0,
+  "source_observed_at_receipt_sha256": "856a926bec16f32c5bfd27dbebdc66ad5e48c0f5ecbc24ace5863f1e1596cb30",
+  "source_or_tests_modified": false,
+  "status": "IMPORTANT_REUSE_ALLOCATION_FIX_REQUIRED",
+  "tests_observed_at_receipt_sha256": "acfcc910e6299009670a71315ae23eb1cc2245716be23222a6d955ac29bfd14a",
+  "timestamp_UTC": "2026-10-26T08:08:27.553401+00:00"
+}

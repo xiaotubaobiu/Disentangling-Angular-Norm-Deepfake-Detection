@@ -1,0 +1,29 @@
+{
+  "epoch": 2,
+  "attempts_after": 2,
+  "events": [
+    {
+      "attempt": 1,
+      "lr": 1e-05,
+      "loss": 0.5718402862548828,
+      "gradient_norm": 12.29818452543437,
+      "gradient_finite": true,
+      "scale_before": 128.0,
+      "scale_after": 128.0,
+      "success": true,
+      "skip": false,
+      "epoch": 2
+    }
+  ],
+  "batch_hashes": [
+    {
+      "inputs": "34f228b1cd12353562f6e456b3a05684e58d7526b6daacd8fbbfe25984bfaf22",
+      "labels": "9b734bff30c181553a20ba5c24cc1b50f6a9b3095baa8efe5e1194182bd28641"
+    }
+  ],
+  "sampler_sha256": "391171bc7a40df541161b418fd26743725515ec1b69e26ca0f23d553a5cc624e",
+  "methods_sha256": "951bb88d365396bde8bd6f6f94e01490bc136199ae7e13734ed2e6b83ca80eff",
+  "augmentations_sha256": "5aba5dca88f4fb0292eed9dd157d3dfc35fe8097ad7d57b14c6b6c7ffe9f71aa",
+  "loader_workers": 4,
+  "draw_count": 128
+}

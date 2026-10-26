@@ -1,0 +1,128 @@
+{
+  "api": {
+    "cache_directory": "artifact_root/features/H/<canonical_formal_run_id>/<accepted_table_role>",
+    "extract": "extract(config_path, run_id, device='cuda')",
+    "load_features": "load_features(root, identity=None, *, expected_run_id=None, expected_role=None, config_path=None) -> (manifest, raw_FP32_h, ORIGINAL_FP32_W[2,d], ORIGINAL_FP32_b[2])",
+    "role_completion_marker": "complete.json",
+    "verify_cache": "verify_cache(root, identity=None, *, expected_run_id=None, expected_role=None, config_path=None) -> (metadata, manifest)"
+  },
+  "cache_contract": {
+    "atomicity": "Atomic NPY writes followed by committed chunk JSON markers; incomplete unmarked chunks overwritten on resume; corrupt committed chunks rejected",
+    "capacity": "Initial remaining-role FP32 feature/head/manifest estimate plus 50GiB free reserve",
+    "chunk_rows_minimum": 4096,
+    "epsilon": 1e-12,
+    "exact_reuse": "Completed valid roles verified and reused without constructing encoder",
+    "head": "Original FP32 two-output weights and bias; promote both rows before subtraction in scorer",
+    "ownership": "Per-run extraction lifetime lock; original trainer.owned_gpu held across complete export; fresh worker_h.verify_resource_boundary before ownership, inside ownership, and immediately before model allocation",
+    "precision": "FP32 full encoder .float().eval(); torch.inference_mode and autocast disabled"
+  },
+  "coverage": [
+    "exact seven roles, canonical request identity and row order",
+    "FP32 features/original head and no-encoder exact reuse",
+    "one/four/incomplete pairs and stale paired streams block all output",
+    "missing/stale target gate and pending/disallowed/mismatched registry",
+    "successful uniform FP32 export plus superseded AMP rejection",
+    "checkpoint/config/freeze/gate/table/cache/helper code drift",
+    "fresh byte/RGB hashing with absent stat columns and unchanged-stat tampering",
+    "real-only CAL, source/target role, eight frames and duplicate RGB",
+    "atomic partial chunk resume and uncommitted overwrite",
+    "committed chunk/row/head corruption and resealed wrong head",
+    "duplicate extraction/run locks and GPU ownership release on failure",
+    "D priority boundary immediately before allocation",
+    "initial 50GiB capacity reserve"
+  ],
+  "files": {
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/cache_h.py": "9119200359f8d696f1366e6c0137bca533c63089c32e505971e69f84ebaf40fb",
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/tests/test_cache_h.py": "751cae931f358a1523048942b12ac9b8bb2b9b2403172f7179027df66b9ace81"
+  },
+  "format_change": {
+    "AST_identical": true,
+    "action": "Removed exactly one trailing LF byte",
+    "new_bytes": 27000,
+    "new_sha256": "9119200359f8d696f1366e6c0137bca533c63089c32e505971e69f84ebaf40fb",
+    "old_bytes": 27001,
+    "old_sha256": "13de253e0b2ca48935f275b08aaf00d232de146d091b3d78ed56c3f11da203a8"
+  },
+  "identity_contract": [
+    "worker_h.validate_task canonical frozen formal task plus worker_h.verify_run_completion sealed final.pt; source_best and development models are ineligible",
+    "Exact H_target_export gate + final H_run_registry status/target_export_allowed + effective precision and all ten effective run IDs",
+    "Exact stored paired ledger SHA plus current queue_h.audit_paired_ledgers of all five B/AB pairs; only utc ignored in comparison",
+    "Superseded AMP formal model cannot export after uniform five-pair FP32 fallback",
+    "Configuration, accepted source/evaluation manifests, H freeze/gate/recipe/registry, completion seal/final.pt/original head, training/H/cache/helper code and environment hashes",
+    "Canonical run/role cache directory, exact source table SHA, accepted row/video counts, eight unique RGB and mother slots, exact row order and role/domain identity",
+    "SOURCE_CAL is real-only and no AUC function is called by this module"
+  ],
+  "immutable_bundles": {
+    "H_bundle_sha256": "5b5b101bcaabd73f4818bd9de03425d5c3898c21fcf0181fb28f39f6e5e4f295",
+    "cache_d_helper_sha256": "8f5814646194c772dcf00f6751a35c2f792dd5f11008e0834fdba4eb5e329761",
+    "training_sha256": "336f3097434edf903a5ff402162e29afeca2442ca50f9c7d9883ca60136b8335"
+  },
+  "input_integrity_scope": {
+    "optional_stat_columns": "bytes/mtime columns are not required and do not bypass hashing; same-size same-mtime tampering is rejected",
+    "processed_images": "Fresh byte SHA256 and decoded RGB SHA256 on every extraction/verification; RGB PNG mode required; stat-only acceptance never used",
+    "source_videos": "No fresh source-video byte audit is claimed. Accepted H freeze full-artifact evidence is inherited; default freeze validator freshly rechecks metadata/table/manifests, as documented by data_h."
+  },
+  "production_state": {
+    "GPU_allocation_attempted": false,
+    "H_presence": {
+      "H_run_registry.json": false,
+      "configs/H_execution.json": false,
+      "data/H/freeze.json": false,
+      "features/H": false,
+      "qualification/H_gate.json": false
+    },
+    "automation_created": false,
+    "commits_created": false,
+    "configuration_or_gate_mutation": false,
+    "formal_H_run_count": 0,
+    "process_control_attempted": false,
+    "production_cache_export_attempted": false
+  },
+  "remaining": [
+    "Independent review and eventual combined-suite verification are owned by parent",
+    "Production export requires accepted H data freeze, H source qualification, formal training completion, all-five-pair gate and final registry; these production artifacts are currently absent"
+  ],
+  "repository_HEAD": "8afedc7c1c2b491a757b5a9bf2e3b157b832901a",
+  "resolved_auto_review_event": {
+    "action": "Local root-level test_cache_h.py staging patch",
+    "outcome": "Denied; no local file written",
+    "reason": "Ownership restricts edits to assigned remote files",
+    "resolution": "Wrote only the authorized remote tests/test_cache_h.py directly over SSH; no approval blocker remains"
+  },
+  "roles": [
+    "B/SOURCE_CAL",
+    "B/SOURCE_TEST",
+    "B/TARGET_TEST",
+    "common/B/SOURCE_TEST",
+    "common/B/TARGET_TEST",
+    "common/AB/SOURCE_TEST",
+    "common/AB/TARGET_TEST"
+  ],
+  "schema": "H_CACHE_IMPLEMENTATION_V1",
+  "status": "IMPLEMENTED_SYNTHETIC_CPU_VERIFIED_PRODUCTION_EXPORT_PENDING",
+  "tracking_note": "Repository .gitignore line 9 tests/ ignores the new test file; integration requires git add -f for tests/test_cache_h.py",
+  "utc": "2026-10-23T11:44:30.074120+00:00",
+  "verification": {
+    "D_helper_regression_tests": 25,
+    "H_tests": 47,
+    "TDD_red_evidence": [
+      "Missing H cache module: 1 failed in 2.32s before production source existed",
+      "Pre-allocation fresh GPU boundary regression: 1 failed, 43 deselected in 4.00s before adding immediate pre-model check"
+    ],
+    "command": "CUDA_VISIBLE_DEVICES= OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -m pytest -q tests/test_cache_h.py tests/test_cache_d.py",
+    "exit_code": 0,
+    "format_followup": {
+      "command": "CUDA_VISIBLE_DEVICES= OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -m pytest -q tests/test_cache_h.py -k 'full_fp32_export or atomic_resume or fresh_boundary_rechecked'",
+      "exit_code": 0,
+      "result": "3 passed, 44 deselected in 17.39s",
+      "source_AST_identical_to_full_verified_run": true
+    },
+    "full_repository_suite": "Deferred per parent instruction until shared H analysis code freeze; no full-suite success claim",
+    "independent_CPU_check": "Toy full encoder output compared with a direct CPU expression over image tensors; original-head FP64 difference checked against literal 9999999999.0",
+    "prior_intermediate": "34 passed then one fixture setup failure: large CAL table was constructed after its synthetic freeze. Corrected fixture constructs it before sealing. Follow-up 44 passed in 140.37s; three added focused cases passed in 15.12s.",
+    "result": "72 passed in 151.32s (0:02:31)",
+    "test_scope": "Synthetic CPU fixtures only. Expensive production data/qualification acceptance boundary is mocked; actual H task validation, completion seals, complete five-pair numerical audit, gate/registry logic and FP32 cache behavior are exercised.",
+    "warnings": 0,
+    "working_directory": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2"
+  }
+}

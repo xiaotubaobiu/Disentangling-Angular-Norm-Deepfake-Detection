@@ -1,0 +1,67 @@
+{
+  "utc": "2026-10-23T17:20:50.577480+00:00",
+  "status": "PASS_1715_FULL_D_RECOVERY_AND_STAGE_READBACK_H_DEEP_STILL_RUNNING",
+  "scope": "Fresh full8Dcheckpoint and terminal/runtime/numeric receipts, unchanged protected code/manuscripts/fullHaudit+finaltables evidence, status/HANDOFF/Obsidian consistency and backup/liveness. H deep acceptance/finalreview/freeze still pending.",
+  "files": {
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/check_20261023T1715Z.json": "44647b8c3778fe6dd8d0302a8d909e0e3fa532f84c789a2a54dafd1216c48b91",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/checkpoint_health_1715.json": "7571af6ccdb63deabbc28932de34e1fef7cbfc9040f3e262ad2385a876fcf1e4",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/D_terminal_revalidation_1715.json": "bcdc70c976eef7725b835dad96de39aa4b4bd538d27712307a68cbfc00d02ff7",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/AMP_numeric_acceptance_1715.json": "1935d854f7c99a9490e5c61f9fce9faa06d6abb45c09b859eaeff325c0b9ef6f",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_deep_health_1715.json": "d4a5d11341b3a3da0eb379718b38525d1d97c1b83a8a204dfac91379b3361776",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/checkpoint_health_1715.py": "304ff2ce61b7a2f8450a180735e843b4a39126f69fda7b7a96b1261add9b8ed8",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/runtime_monitor_1715.py": "9df0e258d9b322eddc2f26e5bfc924c05d680f2d6b89e58bf5a9f3b75aa95676",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/logs/checkpoint_health_1715.log": "859b836a56bfae4d8cff17390073b398845368d5579083cd860fa510bbc89775",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/logs/runtime_monitor_1715.log": "5e40893d1b6e1adaea7689608d85d559e58cf524d4decad0cbde4f4f2f918153",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/status.json": "c70611175a6854d2ea8584cde7fce8d6ab616a5079c290e1b5fe5b96b2686a9f",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/HANDOFF.md": "22a0d5fc06a75e1402aeaedddc139c96154af80e2582c3852384a30efdd37e2c",
+    "/home/z/obsidian/paper/deepfake-detector/新实验设计/20261023/执行状态_20261023_v2.md": "6ef0bdcff9eeb5198285f250de761aebd18c28a1dd0232ca85839c39de508dcb"
+  },
+  "process_liveness": {
+    "200931": true,
+    "3942476": true,
+    "57156": true,
+    "64175": true,
+    "124606": true,
+    "125862": true,
+    "1532179": true,
+    "1532180": true,
+    "1532181": true,
+    "1532182": true
+  },
+  "D_counts": {
+    "complete": 4,
+    "active": 4,
+    "pending": 2
+  },
+  "fresh_full_pinned_epochs_by_run": {
+    "D_dev_clip_vit_b16_lr1e-05_seed1007_e30": 30,
+    "D_dev_clip_vit_b16_lr1e-05_seed1042_e30": 30,
+    "D_dev_dinov2_vit_b14_lr1e-05_seed1007_e30": 30,
+    "D_dev_dinov2_vit_b14_lr1e-05_seed1042_e30": 30,
+    "D_dev_dinov2_vit_b14_lr3e-05_seed1007_e30": 22,
+    "D_dev_dinov2_vit_b14_lr3e-05_seed1042_e30": 21,
+    "D_dev_dinov2_vit_b14_lr5e-05_seed1007_e30": 16,
+    "D_dev_dinov2_vit_b14_lr5e-05_seed1042_e30": 16
+  },
+  "fresh_full_pinned_totals": {
+    "attempts": 155805,
+    "success": 155790,
+    "skips": 15
+  },
+  "live_skip_cutoff": "2026-10-23T17:17:42.419462+00:00",
+  "live_skips": 15,
+  "new_skips_since1638cutoff": 2,
+  "new_skip_positions_zero_based": [
+    16375,
+    16549
+  ],
+  "H_deep_running_pid": 200931,
+  "H_deep_native_session_id": 95551,
+  "H_deep_terminal_report_absent": true,
+  "H_data_frozen": false,
+  "H_GPU_qualification_or_training_started": false,
+  "backup_verified": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/backups/20261023T1715Z",
+  "next_manual_check_utc": "2026-10-23T18:00:00Z",
+  "scientific_results_complete": false,
+  "journal_manuscripts_complete": false
+}

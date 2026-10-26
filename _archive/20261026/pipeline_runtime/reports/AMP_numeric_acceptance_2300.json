@@ -1,0 +1,434 @@
+{
+  "utc": "2026-10-23T23:05:20.451550+00:00",
+  "status": "PASS_DEVELOPMENT_FINAL32_FORMAL1_ISOLATED_SKIP_RECOVERED_NO_MAKEUP",
+  "pinned_cutoff_utc": "2026-10-23T23:02:09.881607+00:00",
+  "live_cutoff_utc": "2026-10-23T23:02:57.995263+00:00",
+  "by_phase": {
+    "development": {
+      "pinned_runs": 10,
+      "pinned_attempts": 239700,
+      "pinned_successful_updates": 239668,
+      "pinned_AMP_skips": 32,
+      "live_attempt_records": 239700,
+      "live_successful_update_records": 239668,
+      "live_AMP_skips": 32,
+      "new_live_skips_since2200": 0
+    },
+    "formal": {
+      "pinned_runs": 4,
+      "pinned_attempts": 44744,
+      "pinned_successful_updates": 44743,
+      "pinned_AMP_skips": 1,
+      "live_attempt_records": 45865,
+      "live_successful_update_records": 45864,
+      "live_AMP_skips": 1,
+      "new_live_skips_since2200": 1
+    }
+  },
+  "combined_pinned_totals": {
+    "attempts": 284444,
+    "successful_updates": 284411,
+    "AMP_skips": 33
+  },
+  "combined_live_AMP_skips": 33,
+  "new_live_skips_since2200": 1,
+  "new_event_evidence": [
+    {
+      "run_id": "D_formal_clip_vit_b16_seed42",
+      "event": {
+        "attempt": 10573,
+        "lr": 6.404682976049279e-06,
+        "loss": 0.02088283095508814,
+        "gradient_norm": null,
+        "gradient_finite": false,
+        "scale_before": 4096.0,
+        "scale_after": 2048.0,
+        "success": false,
+        "skip": true,
+        "epoch": 14
+      },
+      "next_success": {
+        "attempt": 10574,
+        "lr": 6.404058237788396e-06,
+        "loss": 2.4286098778247833e-05,
+        "gradient_norm": 0.01681615082423695,
+        "gradient_finite": true,
+        "scale_before": 2048.0,
+        "scale_after": 2048.0,
+        "success": true,
+        "skip": false,
+        "epoch": 14
+      },
+      "next_event_status": "SUCCESS"
+    }
+  ],
+  "unstarted_formal_runs": 11,
+  "unstarted_formal_scope": "NOT_OBSERVED_not_verifiedzero",
+  "per_run": [
+    {
+      "run_id": "D_dev_clip_vit_b16_lr1e-05_seed1007_e30",
+      "status": "COMPLETE",
+      "pinned_checkpoint_epoch": 30,
+      "pinned_checkpoint_attempts": 23970,
+      "pinned_checkpoint_success": 23966,
+      "pinned_checkpoint_skips": 4,
+      "current_history_epoch_metadata_only": 30,
+      "current_committed_history_attempts": 23970,
+      "current_committed_history_success": 23966,
+      "current_committed_history_skips": 4,
+      "live_records": 23970,
+      "live_successful_update_records": 23966,
+      "live_skips": 4,
+      "new_live_skips_since_previous_cutoff": 0,
+      "skip_positions": [
+        12024,
+        14061,
+        18187,
+        19456
+      ],
+      "max_consecutive_skips": 1
+    },
+    {
+      "run_id": "D_dev_clip_vit_b16_lr1e-05_seed1042_e30",
+      "status": "COMPLETE",
+      "pinned_checkpoint_epoch": 30,
+      "pinned_checkpoint_attempts": 23970,
+      "pinned_checkpoint_success": 23966,
+      "pinned_checkpoint_skips": 4,
+      "current_history_epoch_metadata_only": 30,
+      "current_committed_history_attempts": 23970,
+      "current_committed_history_success": 23966,
+      "current_committed_history_skips": 4,
+      "live_records": 23970,
+      "live_successful_update_records": 23966,
+      "live_skips": 4,
+      "new_live_skips_since_previous_cutoff": 0,
+      "skip_positions": [
+        10860,
+        15251,
+        19357,
+        21601
+      ],
+      "max_consecutive_skips": 1
+    },
+    {
+      "run_id": "D_dev_dinov2_vit_b14_lr1e-05_seed1007_e30",
+      "status": "COMPLETE",
+      "pinned_checkpoint_epoch": 30,
+      "pinned_checkpoint_attempts": 23970,
+      "pinned_checkpoint_success": 23968,
+      "pinned_checkpoint_skips": 2,
+      "current_history_epoch_metadata_only": 30,
+      "current_committed_history_attempts": 23970,
+      "current_committed_history_success": 23968,
+      "current_committed_history_skips": 2,
+      "live_records": 23970,
+      "live_successful_update_records": 23968,
+      "live_skips": 2,
+      "new_live_skips_since_previous_cutoff": 0,
+      "skip_positions": [
+        17450,
+        19979
+      ],
+      "max_consecutive_skips": 1
+    },
+    {
+      "run_id": "D_dev_dinov2_vit_b14_lr1e-05_seed1042_e30",
+      "status": "COMPLETE",
+      "pinned_checkpoint_epoch": 30,
+      "pinned_checkpoint_attempts": 23970,
+      "pinned_checkpoint_success": 23967,
+      "pinned_checkpoint_skips": 3,
+      "current_history_epoch_metadata_only": 30,
+      "current_committed_history_attempts": 23970,
+      "current_committed_history_success": 23967,
+      "current_committed_history_skips": 3,
+      "live_records": 23970,
+      "live_successful_update_records": 23967,
+      "live_skips": 3,
+      "new_live_skips_since_previous_cutoff": 0,
+      "skip_positions": [
+        16851,
+        19231,
+        21371
+      ],
+      "max_consecutive_skips": 1
+    },
+    {
+      "run_id": "D_dev_dinov2_vit_b14_lr3e-05_seed1007_e30",
+      "status": "COMPLETE",
+      "pinned_checkpoint_epoch": 30,
+      "pinned_checkpoint_attempts": 23970,
+      "pinned_checkpoint_success": 23967,
+      "pinned_checkpoint_skips": 3,
+      "current_history_epoch_metadata_only": 30,
+      "current_committed_history_attempts": 23970,
+      "current_committed_history_success": 23967,
+      "current_committed_history_skips": 3,
+      "live_records": 23970,
+      "live_successful_update_records": 23967,
+      "live_skips": 3,
+      "new_live_skips_since_previous_cutoff": 0,
+      "skip_positions": [
+        16375,
+        20685,
+        22214
+      ],
+      "max_consecutive_skips": 1
+    },
+    {
+      "run_id": "D_dev_dinov2_vit_b14_lr3e-05_seed1042_e30",
+      "status": "COMPLETE",
+      "pinned_checkpoint_epoch": 30,
+      "pinned_checkpoint_attempts": 23970,
+      "pinned_checkpoint_success": 23967,
+      "pinned_checkpoint_skips": 3,
+      "current_history_epoch_metadata_only": 30,
+      "current_committed_history_attempts": 23970,
+      "current_committed_history_success": 23967,
+      "current_committed_history_skips": 3,
+      "live_records": 23970,
+      "live_successful_update_records": 23967,
+      "live_skips": 3,
+      "new_live_skips_since_previous_cutoff": 0,
+      "skip_positions": [
+        16549,
+        19435,
+        21534
+      ],
+      "max_consecutive_skips": 1
+    },
+    {
+      "run_id": "D_dev_dinov2_vit_b14_lr5e-05_seed1007_e30",
+      "status": "COMPLETE",
+      "pinned_checkpoint_epoch": 30,
+      "pinned_checkpoint_attempts": 23970,
+      "pinned_checkpoint_success": 23967,
+      "pinned_checkpoint_skips": 3,
+      "current_history_epoch_metadata_only": 30,
+      "current_committed_history_attempts": 23970,
+      "current_committed_history_success": 23967,
+      "current_committed_history_skips": 3,
+      "live_records": 23970,
+      "live_successful_update_records": 23967,
+      "live_skips": 3,
+      "new_live_skips_since_previous_cutoff": 0,
+      "skip_positions": [
+        18026,
+        21105,
+        23504
+      ],
+      "max_consecutive_skips": 1
+    },
+    {
+      "run_id": "D_dev_dinov2_vit_b14_lr5e-05_seed1042_e30",
+      "status": "COMPLETE",
+      "pinned_checkpoint_epoch": 30,
+      "pinned_checkpoint_attempts": 23970,
+      "pinned_checkpoint_success": 23969,
+      "pinned_checkpoint_skips": 1,
+      "current_history_epoch_metadata_only": 30,
+      "current_committed_history_attempts": 23970,
+      "current_committed_history_success": 23969,
+      "current_committed_history_skips": 1,
+      "live_records": 23970,
+      "live_successful_update_records": 23969,
+      "live_skips": 1,
+      "new_live_skips_since_previous_cutoff": 0,
+      "skip_positions": [
+        21447
+      ],
+      "max_consecutive_skips": 1
+    },
+    {
+      "run_id": "D_dev_efficientnet_b0_lr1e-04_seed1007_e30",
+      "status": "COMPLETE",
+      "pinned_checkpoint_epoch": 30,
+      "pinned_checkpoint_attempts": 23970,
+      "pinned_checkpoint_success": 23966,
+      "pinned_checkpoint_skips": 4,
+      "current_history_epoch_metadata_only": 30,
+      "current_committed_history_attempts": 23970,
+      "current_committed_history_success": 23966,
+      "current_committed_history_skips": 4,
+      "live_records": 23970,
+      "live_successful_update_records": 23966,
+      "live_skips": 4,
+      "new_live_skips_since_previous_cutoff": 0,
+      "skip_positions": [
+        15044,
+        17275,
+        20204,
+        22740
+      ],
+      "max_consecutive_skips": 1
+    },
+    {
+      "run_id": "D_dev_efficientnet_b0_lr1e-04_seed1042_e30",
+      "status": "COMPLETE",
+      "pinned_checkpoint_epoch": 30,
+      "pinned_checkpoint_attempts": 23970,
+      "pinned_checkpoint_success": 23965,
+      "pinned_checkpoint_skips": 5,
+      "current_history_epoch_metadata_only": 30,
+      "current_committed_history_attempts": 23970,
+      "current_committed_history_success": 23965,
+      "current_committed_history_skips": 5,
+      "live_records": 23970,
+      "live_successful_update_records": 23965,
+      "live_skips": 5,
+      "new_live_skips_since_previous_cutoff": 0,
+      "skip_positions": [
+        14072,
+        17596,
+        21680,
+        21706,
+        22698
+      ],
+      "max_consecutive_skips": 1
+    },
+    {
+      "run_id": "D_formal_clip_vit_b16_seed7",
+      "status": "RUNNING",
+      "pinned_checkpoint_epoch": 14,
+      "pinned_checkpoint_attempts": 11186,
+      "pinned_checkpoint_success": 11186,
+      "pinned_checkpoint_skips": 0,
+      "current_history_epoch_metadata_only": 14,
+      "current_committed_history_attempts": 11186,
+      "current_committed_history_success": 11186,
+      "current_committed_history_skips": 0,
+      "live_records": 11568,
+      "live_successful_update_records": 11568,
+      "live_skips": 0,
+      "new_live_skips_since_previous_cutoff": 0,
+      "skip_positions": [],
+      "max_consecutive_skips": 0
+    },
+    {
+      "run_id": "D_formal_clip_vit_b16_seed42",
+      "status": "RUNNING",
+      "pinned_checkpoint_epoch": 14,
+      "pinned_checkpoint_attempts": 11186,
+      "pinned_checkpoint_success": 11185,
+      "pinned_checkpoint_skips": 1,
+      "current_history_epoch_metadata_only": 14,
+      "current_committed_history_attempts": 11186,
+      "current_committed_history_success": 11185,
+      "current_committed_history_skips": 1,
+      "live_records": 11409,
+      "live_successful_update_records": 11408,
+      "live_skips": 1,
+      "new_live_skips_since_previous_cutoff": 1,
+      "skip_positions": [
+        10573
+      ],
+      "max_consecutive_skips": 1
+    },
+    {
+      "run_id": "D_formal_clip_vit_b16_seed123",
+      "status": "RUNNING",
+      "pinned_checkpoint_epoch": 14,
+      "pinned_checkpoint_attempts": 11186,
+      "pinned_checkpoint_success": 11186,
+      "pinned_checkpoint_skips": 0,
+      "current_history_epoch_metadata_only": 14,
+      "current_committed_history_attempts": 11186,
+      "current_committed_history_success": 11186,
+      "current_committed_history_skips": 0,
+      "live_records": 11432,
+      "live_successful_update_records": 11432,
+      "live_skips": 0,
+      "new_live_skips_since_previous_cutoff": 0,
+      "skip_positions": [],
+      "max_consecutive_skips": 0
+    },
+    {
+      "run_id": "D_formal_clip_vit_b16_seed2026",
+      "status": "RUNNING",
+      "pinned_checkpoint_epoch": 14,
+      "pinned_checkpoint_attempts": 11186,
+      "pinned_checkpoint_success": 11186,
+      "pinned_checkpoint_skips": 0,
+      "current_history_epoch_metadata_only": 14,
+      "current_committed_history_attempts": 11186,
+      "current_committed_history_success": 11186,
+      "current_committed_history_skips": 0,
+      "live_records": 11456,
+      "live_successful_update_records": 11456,
+      "live_skips": 0,
+      "new_live_skips_since_previous_cutoff": 0,
+      "skip_positions": [],
+      "max_consecutive_skips": 0
+    },
+    {
+      "run_id": "D_formal_clip_vit_b16_seed3407",
+      "status": "NOT_STARTED",
+      "live_records": null,
+      "live_skips": null
+    },
+    {
+      "run_id": "D_formal_dinov2_vit_b14_seed7",
+      "status": "NOT_STARTED",
+      "live_records": null,
+      "live_skips": null
+    },
+    {
+      "run_id": "D_formal_dinov2_vit_b14_seed42",
+      "status": "NOT_STARTED",
+      "live_records": null,
+      "live_skips": null
+    },
+    {
+      "run_id": "D_formal_dinov2_vit_b14_seed123",
+      "status": "NOT_STARTED",
+      "live_records": null,
+      "live_skips": null
+    },
+    {
+      "run_id": "D_formal_dinov2_vit_b14_seed2026",
+      "status": "NOT_STARTED",
+      "live_records": null,
+      "live_skips": null
+    },
+    {
+      "run_id": "D_formal_dinov2_vit_b14_seed3407",
+      "status": "NOT_STARTED",
+      "live_records": null,
+      "live_skips": null
+    },
+    {
+      "run_id": "D_formal_efficientnet_b0_seed7",
+      "status": "NOT_STARTED",
+      "live_records": null,
+      "live_skips": null
+    },
+    {
+      "run_id": "D_formal_efficientnet_b0_seed42",
+      "status": "NOT_STARTED",
+      "live_records": null,
+      "live_skips": null
+    },
+    {
+      "run_id": "D_formal_efficientnet_b0_seed123",
+      "status": "NOT_STARTED",
+      "live_records": null,
+      "live_skips": null
+    },
+    {
+      "run_id": "D_formal_efficientnet_b0_seed2026",
+      "status": "NOT_STARTED",
+      "live_records": null,
+      "live_skips": null
+    },
+    {
+      "run_id": "D_formal_efficientnet_b0_seed3407",
+      "status": "NOT_STARTED",
+      "live_records": null,
+      "live_skips": null
+    }
+  ],
+  "frozen_protocol": "30*799=23970attempts/run,102272draws/epoch,effective128/micro32. LR advances on attempts; Adam advances on successful updates. Formal seed42has11185successvs11186attempts afterepoch14. No makeup/retrain/precision/seed/threshold/testchanges; scalarbackoffandisolatedskipfollowfrozenAMPpolicy. Earlierformalzero is historicalcutoff,notfullcourse.",
+  "runtime_sha256": "bd1d3f12a4a2951bd94e04d7dba31c7aa9639aee21a70764ad82ee025ccb7078",
+  "checkpoint_sha256": "0336f7ab31d33eb31f3c8c238ba1cbed2ec4c8ccadb38c403f7cd9ef384ac51e"
+}

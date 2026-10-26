@@ -1,0 +1,60 @@
+{
+  "utc": "2026-10-25T05:28:59.416820+00:00",
+  "status": "PASS_SYNTHETIC_H_ACTUAL_FROZEN_KERNEL_FORMAT_ONLY",
+  "cases": [
+    {
+      "domain": "source",
+      "aggregation": "mean_logit",
+      "groups": 20,
+      "draws": 2000,
+      "source_bytes": 6752571,
+      "packed_bytes": 642871,
+      "original_raw_sha256": "546ed8d1bf009958505a27acc8ddf40983284a045a23708573366df74f802e2f",
+      "decoded_raw_sha256": "546ed8d1bf009958505a27acc8ddf40983284a045a23708573366df74f802e2f",
+      "point_checks": 4,
+      "exact_all_JSON_values_and_order": true
+    },
+    {
+      "domain": "source",
+      "aggregation": "mean_probability",
+      "groups": 20,
+      "draws": 2000,
+      "source_bytes": 6752569,
+      "packed_bytes": 643058,
+      "original_raw_sha256": "09154782f0172f236e336becb393ebfb8e51d7aa09cf0049ffba044eab61662c",
+      "decoded_raw_sha256": "09154782f0172f236e336becb393ebfb8e51d7aa09cf0049ffba044eab61662c",
+      "point_checks": 4,
+      "exact_all_JSON_values_and_order": true
+    },
+    {
+      "domain": "target",
+      "aggregation": "mean_logit",
+      "groups": 20,
+      "draws": 2000,
+      "source_bytes": 6750285,
+      "packed_bytes": 644709,
+      "original_raw_sha256": "9fe5c65fe0c002198faadb34e4d022d09a560560c26087dd54533eee953ca30b",
+      "decoded_raw_sha256": "9fe5c65fe0c002198faadb34e4d022d09a560560c26087dd54533eee953ca30b",
+      "point_checks": 4,
+      "exact_all_JSON_values_and_order": true
+    },
+    {
+      "domain": "target",
+      "aggregation": "mean_probability",
+      "groups": 20,
+      "draws": 2000,
+      "source_bytes": 6750285,
+      "packed_bytes": 644708,
+      "original_raw_sha256": "d94bc68de464a924e1a2b253be1910a787374badf486c0c845956f698a07f592",
+      "decoded_raw_sha256": "d94bc68de464a924e1a2b253be1910a787374badf486c0c845956f698a07f592",
+      "point_checks": 4,
+      "exact_all_JSON_values_and_order": true
+    }
+  ],
+  "seconds": 10.518180415965617,
+  "peak_RSS_KiB": 214428,
+  "scope": "Synthetic known scores/groups passed through original H kernel at unchanged2000draws/nativeB two-cell comparisons/both aggregations/source4methods and target1method. No real H data/cache/model/target inference; not scientific results or a realH resource estimate.",
+  "real_H_profile_complete": false,
+  "M_production_admitted": false,
+  "capacity_savings_credited": false
+}

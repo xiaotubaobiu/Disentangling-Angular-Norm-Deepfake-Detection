@@ -1,0 +1,79 @@
+{
+  "utc": "2026-10-23T14:17:07.014160+00:00",
+  "scope": "PARTIAL_PREPROCESSING_COVERAGE_ONLY_NOT_FINAL_H_COHORTS",
+  "unique_videos": 7632,
+  "duplicate_lines": 0,
+  "trailing_partial_lines_ignored": 0,
+  "version_ineligible_videos": {
+    "A": 114,
+    "B": 114,
+    "AB": 359
+  },
+  "ineligible_video_reason_counts": {
+    "A": {
+      "no_qualified_face": 108,
+      "insufficient_unique_mothers": 6
+    },
+    "B": {
+      "no_qualified_face": 108,
+      "insufficient_unique_mothers": 6
+    },
+    "AB": {
+      "no_qualified_face": 353,
+      "insufficient_unique_mothers": 6
+    }
+  },
+  "processed_groups": {
+    "FFPP/source/Deepfakes": {
+      "processed": 1000,
+      "A": 1000,
+      "B": 1000,
+      "AB": 997,
+      "common": 997
+    },
+    "FFPP/source/Face2Face": {
+      "processed": 1000,
+      "A": 999,
+      "B": 999,
+      "AB": 995,
+      "common": 995
+    },
+    "FFPP/source/FaceSwap": {
+      "processed": 1000,
+      "A": 999,
+      "B": 999,
+      "AB": 996,
+      "common": 996
+    },
+    "FFPP/source/NeuralTextures": {
+      "processed": 813,
+      "A": 812,
+      "B": 812,
+      "AB": 809,
+      "common": 809
+    },
+    "FFPP/source/real": {
+      "processed": 388,
+      "A": 388,
+      "B": 388,
+      "AB": 386,
+      "common": 386
+    },
+    "DFD/target/DeepFakeDetection": {
+      "processed": 3068,
+      "A": 3027,
+      "B": 3027,
+      "AB": 2831,
+      "common": 2831
+    },
+    "DFD/target/real": {
+      "processed": 363,
+      "A": 293,
+      "B": 293,
+      "AB": 259,
+      "common": 259
+    }
+  },
+  "all_results_preserved": true,
+  "thresholds_and_geometry_changed": false
+}

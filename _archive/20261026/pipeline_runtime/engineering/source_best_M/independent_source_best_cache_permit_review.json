@@ -1,0 +1,257 @@
+{
+  "schema": "INDEPENDENT_M_CACHE_PERMIT_ISSUER_REVIEW_V1",
+  "reviewed_utc": "2026-10-25T18:31:33.304401+00:00",
+  "scope": "tools/source_best_cache_permit.py and its tests, public issue/resume and applicable accepted owner/cache/bridge preflight only; synthetic/tmp CPU evidence",
+  "reviewed_revisions": [
+    {
+      "source_sha256": "e2081e046ddf1192d4fddf20a08822897f486c02453b40606bbc7f793b1b0270",
+      "provided_test_sha256": "05306cc48032ad0653f713aaea0309c13eb0c85d56e4ea582a33252b84048e14",
+      "snapshot": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/review_snapshots/cache_permit_e2081e/source_best_cache_permit.py",
+      "results": "Provided units15PASS. Independent public9 cases:7PASS/2RED. Original source-admission gap reproduced."
+    },
+    {
+      "source_sha256": "d9377f4b6a4c87847e9a58f3ba22cc2b10ed453ba22cb37d9f657277e4fe3e26",
+      "provided_test_sha256": "4d9c10fa3246fff3e413b9309eeb3c8d89f5c774eb33a0a865d62bf7fad57347",
+      "snapshot": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/review_snapshots/source_best_cache_permit_d9377f4b6a4c87847e9a58f3ba22cc2b10ed453ba22cb37d9f657277e4fe3e26.py",
+      "results": "Three precise prepublication regressions PASS; three publication/capacity/phase cases remain RED. Implementation owner changed source after receiving original repro; evidence is attributed to exact revision, not conflated."
+    }
+  ],
+  "executed": [
+    {
+      "log": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_source_best_cache_permit_units.log",
+      "log_sha256": "0c5661ee381b702a7bd0e545d13645b7eb7607392cee213d371ae5452d015ef6",
+      "command": [
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--basetemp",
+        "/tmp/review_cache_permit_units_d2n53qwp",
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests/test_source_best_cache_permit.py"
+      ],
+      "environment": {
+        "CUDA_VISIBLE_DEVICES": "",
+        "OMP_NUM_THREADS": "2",
+        "MKL_NUM_THREADS": "2",
+        "OPENBLAS_NUM_THREADS": "2",
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2:/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests:/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M"
+      },
+      "source_sha256_at_launch": "e2081e046ddf1192d4fddf20a08822897f486c02453b40606bbc7f793b1b0270",
+      "provided_test_sha256_at_launch": "05306cc48032ad0653f713aaea0309c13eb0c85d56e4ea582a33252b84048e14",
+      "result": "15 passed",
+      "exit_code": 0,
+      "pytest_seconds": 1.76
+    },
+    {
+      "log": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_source_best_cache_permit_probes.log",
+      "log_sha256": "58ea95d92fd9553537ed4fc041947d552d56c8d12ca273eb0b56df3b6ff9abaf",
+      "command": [
+        "/usr/bin/time",
+        "-v",
+        "-o",
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_source_best_cache_permit_probes_time.log",
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-s",
+        "-p",
+        "no:cacheprovider",
+        "--basetemp",
+        "/tmp/review_cache_permit_probes_4irawc4i",
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_source_best_cache_permit_probes.py"
+      ],
+      "environment": {
+        "CUDA_VISIBLE_DEVICES": "",
+        "OMP_NUM_THREADS": "2",
+        "MKL_NUM_THREADS": "2",
+        "OPENBLAS_NUM_THREADS": "2",
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2:/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests:/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M"
+      },
+      "source_sha256_at_launch": "e2081e046ddf1192d4fddf20a08822897f486c02453b40606bbc7f793b1b0270",
+      "provided_test_sha256_at_launch": "05306cc48032ad0653f713aaea0309c13eb0c85d56e4ea582a33252b84048e14",
+      "result": "2 failed, 7 passed",
+      "exit_code": 1,
+      "pytest_seconds": 2.38,
+      "time_log": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_source_best_cache_permit_probes_time.log",
+      "time_log_sha256": "93100848ed6185a5013187ad7dd49b1bd4f3ac8871837c39adc369a299c8c1c5"
+    },
+    {
+      "log": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_source_best_cache_permit_publication_probes.log",
+      "log_sha256": "7a9246c8cb859f7c82f7ca651957f12dbc253a0a31281c9b9626d48bd2c97e39",
+      "command": [
+        "/usr/bin/time",
+        "-v",
+        "-o",
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_source_best_cache_permit_publication_probes_time.log",
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-s",
+        "-p",
+        "no:cacheprovider",
+        "--basetemp",
+        "/tmp/review_cache_permit_publication_kpnkqbrj",
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_source_best_cache_permit_publication_probes.py"
+      ],
+      "environment": {
+        "CUDA_VISIBLE_DEVICES": "",
+        "OMP_NUM_THREADS": "2",
+        "MKL_NUM_THREADS": "2",
+        "OPENBLAS_NUM_THREADS": "2",
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2:/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests:/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M"
+      },
+      "source_sha256_at_launch": "d9377f4b6a4c87847e9a58f3ba22cc2b10ed453ba22cb37d9f657277e4fe3e26",
+      "provided_test_sha256_at_launch": "4d9c10fa3246fff3e413b9309eeb3c8d89f5c774eb33a0a865d62bf7fad57347",
+      "result": "3 failed, 3 passed",
+      "exit_code": 1,
+      "pytest_seconds": 1.87,
+      "time_log": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_source_best_cache_permit_publication_probes_time.log",
+      "time_log_sha256": "68967a6c5683316c321d996a252dd60fc7c5d4120c546d66e3cbaa2e3048f95e"
+    }
+  ],
+  "probe_files": {
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_source_best_cache_permit_probes.py": "a1ec825d9a07cb6830b7bc96f5c66cdf3c0c87185d50c020107d1f54cfd18311",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_source_best_cache_permit_publication_probes.py": "c957d9dd4e88a34c0a8e07e7ff7ac5d87afd8d09af9b12b49238b0869425f136"
+  },
+  "positive_public_evidence": {
+    "entry": "Actual m.main --execute --root <tmp> --request <syntheticSHA-bound request> --request-sha <sha>; no assemble-only shortcut",
+    "preflights": "Actual gpu._bridge_gate, qualification.closed_primary_stage, owner.validate_plan(initial=True), analysis.remaining_required and cache._permit for each of exact45 expected endpoints. Unregistered F endpoint separately rejects. No accepted function is stubbed to pass.",
+    "mocks": "Only disk_usage is a synthetic free-space oracle and native_gpu/owner.schedule are replaced by forbidden-call sentinels. All source/stage/queue/qualification/actual-gate files are explicitly synthetic/tmp metadata, not actual accepted project proofs. cache._permit receives its minimal accessed context fields as SimpleNamespace; no model or weight/context construction is claimed.",
+    "budget": "Full30 statistic jobs and45 feature runs, future bound158913789952B including50GiB floor; no feature-byte credit.",
+    "resume": "Same public request returns exactly equal permit/owner refs, hashes and mtimes; interrupted owner-plan publication resumes without rewriting the existing permit; foreign permit collision preserves evidence and refuses."
+  },
+  "closed_finding": {
+    "id": "CPI001",
+    "severity_before": "Important",
+    "file": "tools/source_best_cache_permit.py",
+    "initial_lines": [
+      16,
+      31,
+      44,
+      46
+    ],
+    "title": "Missing source-file-admission hash/exact45 and strict primary-stage preflight before publishing success",
+    "initial_effect": "In e208, one missingD seed42 source record with intactH30, or wrong nested sourceSHA, allowed assemble/publication before exact accepted owner rejected. Both left a PASS_PRODUCTION_CACHE_ADMISSION artifact accepted by real cache._permit.",
+    "status": "CLOSED_FOR_STATIC_SOURCE_AND_PHASE_INPUTS_IN_D937",
+    "fixed_lines": [
+      18,
+      19
+    ],
+    "confirmation": "Current d937 public entry now rejects missing_D_record, wrong_source_SHA and reordered original queue H30 detail before any cache_permit publication. Exact refusal reasons asserted; three testsPASS."
+  },
+  "findings": [
+    {
+      "id": "CPI002",
+      "severity": "Important",
+      "file": "tools/source_best_cache_permit.py",
+      "lines": [
+        40,
+        41,
+        46,
+        48
+      ],
+      "title": "Success permit is published before the owner-plan transaction and final phase/full-budget validation can still fail",
+      "reproductions": [
+        {
+          "case": "Known foreign owner-plan collision; no concurrent filesystem actor required",
+          "action": "Create canonical keyed cache_owner_plan.json containing foreign JSON before invoking public issue.",
+          "actual": "Issuer creates a new valid PASS cache_permit.json, then rejects the preexisting owner plan with append-only permit namespace collision. Foreign JSON is correctly preserved, but newly emitted successful permit is accepted by actual cache._permit.",
+          "test": "test_owner_plan_collision_must_not_publish_new_accepted_permit"
+        },
+        {
+          "case": "Final complete-budget refusal after publication",
+          "action": "Synthetic free-space oracle returns exact full required158913789952B before permit, then158913789951B after permit exists; still above50GiB runtime floor. No actual disk filling is performed.",
+          "actual": "Final owner.validate_plan raises full initial or runtime resource budget failed, while cache._permit still accepts the leftover success permit because its independently bound joint-capacity required_remaining_bytes is50GiB. Caller-visible operation fails, but a consumable authorization document has already committed.",
+          "test": "test_late_capacity_failure_must_not_leave_accepted_success_permit"
+        },
+        {
+          "case": "Strict original phase invalidated during final publication",
+          "action": "A deterministic runtime.publish wrapper reverses the sameH30 queue.detail IDs after owner-plan file publication, before final accepted owner validation.",
+          "actual": "Owner rejects exact original GPU queue terminal/empty occupancy required; the successful permit remains accepted by cache._permit. This proves publication failure semantics; arbitrary hostile-filesystem atomic protection is not claimed.",
+          "test": "test_phase_failure_after_publish_must_not_leave_accepted_success_permit"
+        }
+      ],
+      "evidence_log": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_source_best_cache_permit_publication_probes.log",
+      "expected": "A failed fresh issue must not introduce a publicly consumable success permit before the selected plan, strict phase and full initial budget are accepted. Known foreign collision in either transaction target must be detected before creating the other success artifact. Preserve collision/staging evidence. Dynamic current phase/budget consumers still need their existing checks after issuance.",
+      "recommendation": "Preflight both destination documents/collision conditions before any final success write. Move the complete accepted owner/phase/full-budget validation to a precommit preparation path; reserve the bounded filesystem allocation for issuer files and treat successful permit as the final transaction commit. If final validation can still fail, retained files must be unmistakably nonauthorizing staging/failed evidence, or the commit protocol must make failure leave no new consumable success. Keep exact resume/byte immutability and unchanged accepted owner/cache consumers; do not silently reinterpret failed success files as harmless staging. Record exact behavior if a failure happens after commit.",
+      "grade_reason": "Important because a public call raises the correct safety/budget refusal while leaving positive authorization accepted by the existing low-level consumer. No real permit/GPU/scientific work was issued by this review, so no actual production compromise is claimed."
+    }
+  ],
+  "open_grade_counts": {
+    "Critical": 0,
+    "Important": 1,
+    "Minor": 0
+  },
+  "strengths": [
+    "Four distinct externallySHA-bound actual independent gates, exact input/cache-code linkage, exact source9 qualification groups and D/H storage groups are enforced.",
+    "Full45 feature and30 statistic-job budget uses accepted conservative remaining_required,50GiB runtime reserve and actual free-space preflight; no compression or feature-orphan credit invented.",
+    "Current source file exact45 D15/H30 route/SHA and strict closed-primary-stage validation now precede outputs. Whole-package/issuer/owner code is checked across assembly.",
+    "Public positive and byte-stable resume work with real accepted downstream preflights, not mocked assemble-only success; no GPU or dispatcher starts."
+  ],
+  "coverage_notes": [
+    "Initial provided15 tests cover assemble only with mocked GPU bridge; this review adds public execution and real bridge/owner/cache preflight.",
+    "No actual source tensor or image provenance is revalidated: tiny metadata records exercise issuer applicability and ownership constraints only.",
+    "A failure with no new permit is distinguished from expected partial-plan resume after a valid permit write; known foreign owner-plan collision was specifically tested and remains wrong.",
+    "Provided test source was appended by implementer during review: final observed SHA differs from launched versions and is recorded below; no unexecuted new test revision is described as passing."
+  ],
+  "accepted_code_unchanged": {
+    "tools/source_best_cache_admission.py": "06eda77a7fc41969d003c2f538edab79bc762ca3f5413f47f9a72a4e8b6f23c8",
+    "tools/source_best_owner.py": "2c68dfb05aa0cd28808e7ae14f317225513202b7190151962e184ddf6bf4db5b",
+    "reliability_v2/source_best_cache.py": "4c5494d06f133b962fd22872ac88d22ad9155fcca102e29f0e300cc06a4ff0c7",
+    "reliability_v2/source_best_gpu.py": "f3cac34e1493cd109e336b77f94b087527e97d722f02253880371a7c2caebed5",
+    "reliability_v2/source_best_lease.py": "175075eaa2e3dac44db2dbb0229abeb126058d694267901c6929cd28e0b9e5a9",
+    "reliability_v2/source_best_analysis.py": "0ec974eec85a0a5204b8804707d627fa908a80eb1a4e76cfa81729ce0a875a32",
+    "reliability_v2/source_best_source_qualification.py": "3bc8e60a64226b37817d8142b6b374ad0400bf891c3209ad95329e8ccaa47ab9",
+    "reliability_v2/source_best_runtime.py": "69b3d590d95fd3004c7c64617fbad642526b02862a97f61546d3cd375fc18742"
+  },
+  "worktree_HEAD": "09be61044522c193f12a03b4fbbe666a48d2e95f",
+  "source_sha256_observed_at_report": "6c38937a4e88317a060385ef8a64a5f3f76a9b3fb8250e3d8f09bd14b2c6d750",
+  "test_sha256_observed_at_report": "e320f38c6b6246c43b317cd4dc887ce7d345710541fd608aecdb70648c27be67",
+  "declined_to_judge_before_verdict": [
+    {
+      "behavior": "Actual independent gate validity or realGPU/source45 tensor/image acceptance",
+      "reason": "Caller-supplied accepted proofs are the intended external trust boundary. Synthetic documents test binding; no actual independent acceptance is manufactured or claimed."
+    },
+    {
+      "behavior": "Accepted owner/cache/GPU/source9 implementation redesign or known prior defects",
+      "reason": "These modules are explicitly frozen and unchanged; review concerns the new issuer composition and caller-visible publication outcomes."
+    },
+    {
+      "behavior": "Actual full cache extraction, primary owner, GPU/statistic/F jobs or any liveR locks/PIDs",
+      "reason": "Not authorized or accessed. Temporary issuer locks are only/tmp; no process/PID queries or workers started."
+    },
+    {
+      "behavior": "WholeM scientific/production admission, real17.149GiB/joint disk/temp/RSS budget or budget credit",
+      "reason": "No actual gate set or resource profile admitted. Synthetic500GiB/boundary oracles do not establish real availability."
+    },
+    {
+      "behavior": "Arbitrary hostile concurrent filesystem atomic snapshots or power-loss durability",
+      "reason": "Outside scope; deterministic ordinary publication/collision/failure outcomes are graded, without claiming universal transactional protection."
+    },
+    {
+      "behavior": "Full suite or new owner implementation acceptance",
+      "reason": "Only provided permit unit file and15 independent small synthetic probes were executed."
+    }
+  ],
+  "recommendation": "Request changes for CPI002; keep originalRED evidence. Preserve the working public issue/resume and exact accepted preflights while fixing publication/late-failure behavior before issuing any real permission.",
+  "verdict": "NOT_ACCEPTED_PENDING_ONE_IMPORTANT_PUBLICATION_FIX",
+  "production_admitted": false,
+  "whole_M_admitted": false,
+  "real_budget_credit_bytes": 0,
+  "reviewer_modified_implementation_or_original_tests": false,
+  "real_jobs_started": false,
+  "GPU_used": false,
+  "production_checkout": {
+    "path": "/home/z/workspace/deepfake_detector_publish_20261023",
+    "HEAD": "5ef6d06bf7aeda02a5a11113e4c35a2c9909f215",
+    "git_status_porcelain": "",
+    "clean": true
+  }
+}

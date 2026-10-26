@@ -1,0 +1,19 @@
+{
+  "utc": "2026-10-23T18:52:53.655161+00:00",
+  "status": "PASS_MONITOR_RERUN_AND_FIRST_ACTUAL_CHECKPOINT_VERIFIED_NO_TRAINING_CHANGE",
+  "initial_failure_preserved": {
+    "script": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/runtime_monitor_1845.py",
+    "log": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/logs/runtime_monitor_1845.log"
+  },
+  "root_cause_receipt_sha256": "3571bedfd3fe5868ef6a7e229f22cbf2f53d175d41b2b44e873cf84fa7a1a18c",
+  "fixed_monitor": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/runtime_monitor_1845_v2.py",
+    "sha256": "8bec0525ebed35b96c5a3e51c426b765c5439089c8e9250299efbf53fb2de9f5"
+  },
+  "successful_runtime_receipt": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/check_20261023T1845Z.json",
+    "sha256": "5ce353e31f8bf592fa386922c5257c742371292e0e82efc477c62040c867ccbd"
+  },
+  "resolved_first_real_checkpoint_receipt_sha256": "7510f35faa4500c9e91d44f20acce0c1434d13eb9dc1b3d85a763e4c6c436f6a",
+  "protocol_or_running_configuration_changed": false
+}

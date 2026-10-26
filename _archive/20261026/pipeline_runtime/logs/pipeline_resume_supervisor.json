@@ -1,0 +1,99 @@
+{
+  "status": "PASS",
+  "pid": 3932284,
+  "workers": [
+    {
+      "backbone": "clip_vit_b16",
+      "pid": 3932311,
+      "command": [
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+        "-u",
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/validate_pipeline_resume.py",
+        "worker",
+        "--root",
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023",
+        "--backbone",
+        "clip_vit_b16"
+      ],
+      "log": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/logs/pipeline_resume_clip_vit_b16.log",
+      "idle_check": {
+        "index": 3,
+        "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646",
+        "memory_used_MiB": 0
+      },
+      "status": "PASS",
+      "returncode": 0
+    },
+    {
+      "backbone": "dinov2_vit_b14",
+      "pid": 3933443,
+      "command": [
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+        "-u",
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/validate_pipeline_resume.py",
+        "worker",
+        "--root",
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023",
+        "--backbone",
+        "dinov2_vit_b14"
+      ],
+      "log": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/logs/pipeline_resume_dinov2_vit_b14.log",
+      "idle_check": {
+        "index": 3,
+        "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646",
+        "memory_used_MiB": 0
+      },
+      "status": "PASS",
+      "returncode": 0
+    },
+    {
+      "backbone": "efficientnet_b0",
+      "pid": 3934623,
+      "command": [
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+        "-u",
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/validate_pipeline_resume.py",
+        "worker",
+        "--root",
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023",
+        "--backbone",
+        "efficientnet_b0"
+      ],
+      "log": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/logs/pipeline_resume_efficientnet_b0.log",
+      "idle_check": {
+        "index": 3,
+        "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646",
+        "memory_used_MiB": 0
+      },
+      "status": "PASS",
+      "returncode": 0
+    }
+  ],
+  "training_code_sha256": "336f3097434edf903a5ff402162e29afeca2442ca50f9c7d9883ca60136b8335",
+  "script_sha256": "bfa45114163ec019b96703c0f329e76db3ed44a10f4e65c864c178ee4cef803f",
+  "source_only": true,
+  "target_used": false,
+  "backbones": {
+    "clip_vit_b16": {
+      "status": "PASS",
+      "elapsed_seconds": 32.904340744018555,
+      "peak_memory_bytes": 4451107328,
+      "normalized_source_sha256": "f8c60f0a50e2aa441087671325338c10511aa08cb78fcd840a9e13974734a94e",
+      "FP32_features_sha256": "23ffe76b897153ecb6b6628c53f54b08f6aef6254925add082bb957d6e00db5d"
+    },
+    "dinov2_vit_b14": {
+      "status": "PASS",
+      "elapsed_seconds": 29.803460359573364,
+      "peak_memory_bytes": 4836139520,
+      "normalized_source_sha256": "f8c60f0a50e2aa441087671325338c10511aa08cb78fcd840a9e13974734a94e",
+      "FP32_features_sha256": "2fad3ad4f5aaae80cb8e17b00d3e9051b7e3d11fad148122c65ac9ff47b1b2dc"
+    },
+    "efficientnet_b0": {
+      "status": "PASS",
+      "elapsed_seconds": 10.45568037033081,
+      "peak_memory_bytes": 1620307456,
+      "normalized_source_sha256": "f8c60f0a50e2aa441087671325338c10511aa08cb78fcd840a9e13974734a94e",
+      "FP32_features_sha256": "47679008538a687387fdb30f6c316117b36a0c69b61db1fe9b5baca7f5e57b3f"
+    }
+  }
+}

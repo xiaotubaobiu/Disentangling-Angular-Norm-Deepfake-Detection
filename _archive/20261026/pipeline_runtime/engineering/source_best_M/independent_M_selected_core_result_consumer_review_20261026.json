@@ -1,0 +1,298 @@
+{
+  "schema": "INDEPENDENT_M_SELECTED_CORE_RESULT_CONSUMER_INITIAL_REVIEW_V1",
+  "reviewed_utc": "2026-10-26T06:13:45.079966+00:00",
+  "scope": "Initial read-only review of the public/H M selected-four-core saved-result consumer. Separate reviewer owns D numerical mathematics; this review covers D import/provenance boundary only.",
+  "reviewed_source": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/m_source_best_result_audit.py",
+    "sha256": "3e837268dbd197dfd8ab7264a988b968af93cfe1df9e285ac03fe813c0ac4ab6",
+    "current_at_receipt_sha256": "72f28181f6aef259a9686d35d2848cfb5f9f041f9184389c48e67f21ed24e419"
+  },
+  "reviewed_tests": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests/test_m_source_best_result_audit.py",
+    "sha256": "1eec84de5652715d8e5bd4fef4ec62d539f44a05400de5fa5ee412333a5b7016",
+    "current_at_receipt_sha256": "2ee63ce67d49156af15691291daecb0382c3982c3f3e912dd54833cdf7a0a946"
+  },
+  "companion_D": {
+    "initial_task_sha_prefix": "d85fc70a",
+    "root_reported_separate_fix_sha256": "a7b079965fd34acbf2e974480aa197ded476cbc21f1447aeac523e1c4aab1dd0",
+    "observed_at_private_probe_sha256": "a7b079965fd34acbf2e974480aa197ded476cbc21f1447aeac523e1c4aab1dd0",
+    "current_at_receipt": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/m_source_best_d_numeric.py",
+      "sha256": "a7b079965fd34acbf2e974480aa197ded476cbc21f1447aeac523e1c4aab1dd0",
+      "bytes": 40643
+    },
+    "D_numeric_acceptance_not_judged_here": true
+  },
+  "declined_to_judge": [
+    {
+      "behavior": "D numeric kernel formulas,group/closure correctness and DNUM-001 fix",
+      "reason": "Assigned to parallel_source_review; not duplicated. Actual D source was not executed by our dependency mock."
+    },
+    {
+      "behavior": "Actual M science,source qualification or resource qualification",
+      "reason": "No real M result/producer proof/admission/permit exists for acceptance in this review. All computation and payloads are private synthetic fixtures."
+    },
+    {
+      "behavior": "Fresh model/weight/PNG/feature-dot reconstruction or real6role source-context qualification",
+      "reason": "Outside saved-result consumer review. Only tiny synthetic head arrays/manifests were exercised, never actual cache/model data."
+    },
+    {
+      "behavior": "Whole-output D diagnostic numerics and five-seed conclusions",
+      "reason": "Selected-four-core scope intentionally permits explicit unverified diagnostic numerics; all-output and all-five-seed flags must remainFalse. Source/PDF/figure/paper conclusions are not granted."
+    },
+    {
+      "behavior": "Actual producer/auditor OS resource or shared-slot qualification",
+      "reason": "Unit/probe CPU1,emptyCUDA; real slot never taken. Actual execute AS32 check and stdout lifetime are examined with explicit private slot/resource mocks. This is not a real canary."
+    },
+    {
+      "behavior": "D60 serialized full public positive integration",
+      "reason": "Author explicitly had this pending; this review ran H37 serialized numerical integration and metadata/provenance probes only. Require a fixed-code private D60 positive before claiming D full entry readiness."
+    },
+    {
+      "behavior": "Hostile concurrent filesystem/power-loss security guarantees",
+      "reason": "No such guarantee inferred; source-byte mutation probes are forbidden and were not attempted."
+    }
+  ],
+  "findings": [
+    {
+      "id": "MCORE-001",
+      "severity": "Important",
+      "location": "tools/m_source_best_result_audit.py:135",
+      "additional_locations": [
+        "tools/m_source_best_result_audit.py:480",
+        "tools/m_source_best_result_audit.py:497"
+      ],
+      "problem": "D dependency expected SHA refreshes on use, and audit_numeric imports/executes the D module before checking the original externally fixed dependency pin.",
+      "evidence": {
+        "dependency_api_after_mock": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+        "final_pin_check_still_rejects": true,
+        "import_before_initial_fixed_check": true,
+        "initial_sha256": "a7b079965fd34acbf2e974480aa197ded476cbc21f1447aeac523e1c4aab1dd0",
+        "no_D_source_modified_or_executed": true
+      },
+      "reproduction": "Import frozen3e consumer; capture dependency_pins[D]. Privately mock sha(D) to f*64 and use a fake import loader callback only. dependency_pins changes to f*64; audit_numeric reaches exec_module and returns the fake numerical result. A later Pins.check against the original SHA rejects. No D source was changed or actually executed.",
+      "effect": "No demonstrated false final acceptance: the post-compute initial-pin check remains effective. The defect permits changed/unreviewed dependency code to execute before rejection, and preparation API can refresh its expected digest.",
+      "expected": "Seal the independently reviewed final D source SHA in the initial dependency inventory, validate it before spec.loader.exec_module and before compute, retain after-import/after-compute/final pin checks. Do not seal oldd85; root reported corrected a7b079 pending separate numeric review.",
+      "recommendation": "Capture/declare the accepted D SHA once; dependency_pins must return that immutable expectation. audit_numeric must compare current D bytes to the initially request-bound/accepted digest before import."
+    },
+    {
+      "id": "MCORE-002",
+      "severity": "Important",
+      "location": "tools/m_source_best_result_audit.py:438",
+      "additional_locations": [
+        "tools/m_source_best_result_audit.py:444"
+      ],
+      "problem": "Cache head NPY full-file hashes are re-established from current files rather than rebound to the already fixed complete.head weight/bias SHA declarations.",
+      "evidence": {
+        "actual_head_sha256": "e339869132e2bc540080f52dca5e1fb54b39ff6ade7c10175c489e849d3c6cf9",
+        "consumer_expected_after_read": "e339869132e2bc540080f52dca5e1fb54b39ff6ade7c10175c489e849d3c6cf9",
+        "marker_head_sha256": "0d1908886433bea27833dd68611b5aefdba0d629c71f74f808bc7f551a97df9e",
+        "marker_sha256_unchanged": "3b1031e70bad7e3438cbcf757429c625c206a06cfd2c92a36f37a002a6ed946d",
+        "metadata_chain_still_accepted": true,
+        "private_payload_only": true,
+        "raw_FP32_head_bytes_unchanged": true
+      },
+      "reproduction": "Use only a private six-role metadata fixture. Add standard complete.head weight_file/weight_sha256/bias_file/bias_sha256, rebind all dependent marker/admission/identity/producer/launch/exit JSONs, and confirm baseline. Change one padding space in synthetic head_weight.npy header to a tab; shape,dtype and every raw FP32 head byte stay identical. Original complete/head SHA and external marker SHA remain fixed. metadata_chain still succeeds and pins the changed file SHA.",
+      "effect": "An admitted cache head file can drift from its externally bound complete manifest while the result consumer reports metadata provenance rechecked. The demonstrated numerical head values remain unchanged; this is a file-integrity/provenance failure, not a claim of wrong AUC.",
+      "expected": "Require canonical head filenames and use m.head fixed weight/bias full-file SHAs before any load; retain NPY shape/dtype/exact-length and raw signed-zero-preserving head hash checks.",
+      "recommendation": "Use the existing complete head SHA declarations as Pins.add expectations; never refresh them from sha(hp). Add private padding-only drift regression."
+    },
+    {
+      "id": "MCORE-003",
+      "severity": "Minor",
+      "location": "tools/m_source_best_result_audit.py:343",
+      "additional_locations": [
+        "tools/m_source_best_result_audit.py:339",
+        "tools/m_source_best_result_audit.py:345"
+      ],
+      "problem": "Saved selected-prefix/epoch equality is value-sensitive but not JSON-type-sensitive.",
+      "evidence": {
+        "reported_prefix_source_context_still_correct": true,
+        "saved_bool_aliases_accepted": [
+          "AMP_skips False for0",
+          "selected epoch True for1"
+        ]
+      },
+      "reproduction": "Keep strict source contexts, but change private limitations.source_only_selected_prefix.B.AMP_skips from integer0 toFalse and source_best_epochs.B from integer1 toTrue. check_selection accepts both through Python equality.",
+      "effect": "Malformed saved disclosure types pass. The returned selected_prefix still comes from correct strict context integers, so no incorrect numerical metric or reported selected-count value was demonstrated.",
+      "expected": "Require strict integers for saved epoch/counters and compare saved prefix/epoch structures using typed canonical JSON identity.",
+      "recommendation": "Use type-sensitive canonical equality for saved disclosures and add bool/int alias regressions."
+    }
+  ],
+  "severity_counts": {
+    "Critical": 0,
+    "Important": 2,
+    "Minor": 1
+  },
+  "strengths": [
+    {
+      "location": "tools/m_source_best_result_audit.py:149",
+      "observation": "ReadOnlyArtifacts independently fixes D60/H37 kind inventory,per-asset contexts/manifest SHAs,exact codec members and output namespace; decoding is lazy with no payload retention cache and no sink/output/staging writer."
+    },
+    {
+      "location": "tools/m_source_best_result_audit.py:284",
+      "observation": "H selected native-B4cohorts are independently recomputed by fixed6cd kernel,including source thresholds,point metrics,signedH10-H00,every applicable2000draw/NA/CI. Producer self-check magnitudes are separately bounded/status-checked and explicitly not treated as independent recomputation."
+    },
+    {
+      "location": "tools/m_source_best_result_audit.py:368",
+      "observation": "Saved D frame metadata compares every original manifest column,includingvideo/collision/group/source edges/RGB fields. This protects the caller boundary; D kernel use of group_id is separately reviewed."
+    },
+    {
+      "location": "tools/m_source_best_result_audit.py:488",
+      "observation": "External request SHA is sealed before slot,producer six-role/code/launch/exit/log evidence is rechecked,scoped result flags avoid whole-output/five-seed claims,and final pin checks/emit occur inside mocked original-slot lifetime."
+    }
+  ],
+  "verification": [
+    {
+      "kind": "Frozen author tests rerun independently",
+      "passed": 40,
+      "pytest_seconds": 48.97,
+      "wall_seconds": 49.31,
+      "peak_RSS_KiB": 230724,
+      "exit_code": 0,
+      "log": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_M_selected_core_40.log",
+        "sha256": "af1eaa4e1fa31eea4313d32877c48a7d87a09ce9510a9e9d120b219fe010457b",
+        "bytes": 61
+      },
+      "time_v": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_M_selected_core_40_time.log",
+        "sha256": "3b378ac1b58bcbb6d5569cd569790b2e9550828701b1292c2415c81d9bd00bc1",
+        "bytes": 1064
+      },
+      "command": [
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "-s",
+        "-p",
+        "no:cacheprovider",
+        "--basetemp",
+        "/tmp/review_M_selected_core_zxq5t90a",
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests/test_m_source_best_result_audit.py"
+      ],
+      "notable_coverage": [
+        "H37 serialization to independent8000draw comparison",
+        "negative effect and legitimate numericalNA retained",
+        "metadata/provenance/codec/path/staging negatives",
+        "full savedD manifest-column comparison",
+        "stdout callback inside private non-acquiring slot"
+      ]
+    },
+    {
+      "kind": "Independent tiny private metadata/dependency probes",
+      "exit_code": 0,
+      "wall_seconds": 4.11,
+      "peak_RSS_KiB": 183840,
+      "log": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_M_selected_core_independent_probes.log",
+        "sha256": "9f17dbd65ab303ab4b3d5b380dd32017969dc236bd56d6cbf6c136c07b7541fc",
+        "bytes": 2300
+      },
+      "time_v": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_M_selected_core_independent_probes_time.log",
+        "sha256": "f3741a7635b7eb31c9035d9fbe7c5d55018a47bb43099f56273df05e611f3ea6",
+        "bytes": 812
+      },
+      "command": [
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+        "-B",
+        "-"
+      ],
+      "stdin_harness_sha256": "ccbb9aa777446796415cec1b6ad7fd607fc562ac9000ea4232a890015d796110",
+      "summary": {
+        "actual_payloads_read": false,
+        "findings": {
+          "D_initial_pin": {
+            "dependency_api_after_mock": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+            "final_pin_check_still_rejects": true,
+            "import_before_initial_fixed_check": true,
+            "initial_sha256": "a7b079965fd34acbf2e974480aa197ded476cbc21f1447aeac523e1c4aab1dd0",
+            "no_D_source_modified_or_executed": true
+          },
+          "head_complete_SHA": {
+            "actual_head_sha256": "e339869132e2bc540080f52dca5e1fb54b39ff6ade7c10175c489e849d3c6cf9",
+            "consumer_expected_after_read": "e339869132e2bc540080f52dca5e1fb54b39ff6ade7c10175c489e849d3c6cf9",
+            "marker_head_sha256": "0d1908886433bea27833dd68611b5aefdba0d629c71f74f808bc7f551a97df9e",
+            "marker_sha256_unchanged": "3b1031e70bad7e3438cbcf757429c625c206a06cfd2c92a36f37a002a6ed946d",
+            "metadata_chain_still_accepted": true,
+            "private_payload_only": true,
+            "raw_FP32_head_bytes_unchanged": true
+          },
+          "typed_prefix": {
+            "reported_prefix_source_context_still_correct": true,
+            "saved_bool_aliases_accepted": [
+              "AMP_skips False for0",
+              "selected epoch True for1"
+            ]
+          }
+        },
+        "no_actual_D_import": true,
+        "real_slots": 0,
+        "root": "/tmp/M_consumer_review_probes_706x05u8",
+        "source_byte_mutations": 0
+      }
+    }
+  ],
+  "environment": {
+    "CUDA_VISIBLE_DEVICES": "",
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "entry_location_boundary": {
+    "CODE_rule": "Path(__file__).resolve().parents[1]",
+    "required_actual_entry": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/m_source_best_result_audit.py",
+    "production_invocation": "Keep original W/tools absolute path,Git-reviewed bytes,and externally fixed request+consumer dependency SHAs. A byte snapshot elsewhere is archival readback only.",
+    "do_not_execute_relocated_snapshot_entry": true,
+    "reason": "Relocating to E/qualification_snapshots/entry.py changes CODE and producer33/transport/import paths; do not alter frozen package to accommodate relocation."
+  },
+  "protected_M36": {
+    "ref": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_actual_four_gate_review_preparation.json",
+      "sha256": "016d1b05fda474af90cba388509a788ae2fe35fbb792164cf4bc1d7a082854f0",
+      "bytes": 52734
+    },
+    "count": 36,
+    "current_all_match": true
+  },
+  "protected_old_H_sources": [
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/h_pair_result_audit.py",
+      "sha256": "6cd3bff403cc2f7c27a870d092023e4c8677f5d9386668abbc439829eadaa4e5",
+      "bytes": 44143
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/h_last_matrix_result_audit.py",
+      "sha256": "bb299e512e355fa0a8c9b25f901b1788cee6a2b445a4eb1ddb67b30cb4c3a0e2",
+      "bytes": 25066
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/h_primary_pair_admission_audit.py",
+      "sha256": "845bd8adab8dd95e47cae44543b0cffe2f57bcc99657a623e09529d8e76d7544",
+      "bytes": 22901
+    }
+  ],
+  "protected_F_and_old_metadata_hashes_all_match": true,
+  "implementation_edited": false,
+  "actual_M_payload_or_model_weights_read": false,
+  "private_synthetic_head_and_metadata_exercised": true,
+  "real_CPU_slot_acquired": false,
+  "source_code_byte_mutations_performed": false,
+  "source_code_byte_mutation_probes_attempted": false,
+  "new_agents_or_real_jobs_started": false,
+  "JEV_or_other_paused_projects_touched": false,
+  "actual_results_accepted": false,
+  "production_admitted": false,
+  "resource_qualified": false,
+  "recommendation": "Request changes for MCORE-001/002,with MCORE-003 type hardening. Preserve this3e837 initial review; independently confirm a new frozen consumer+final separately reviewed D dependency before actual auditing.",
+  "verdict": "REQUEST_CHANGES_SELECTED_CORE_CONSUMER_ENGINEERING_ONLY",
+  "remaining_blockers": [
+    "MCORE-001 D initial dependency must be fixed and checked before import/compute",
+    "MCORE-002 original complete head file SHA must be rebound",
+    "Final D numeric review and D60 serialized private integration remain separately pending before D readiness claims"
+  ]
+}

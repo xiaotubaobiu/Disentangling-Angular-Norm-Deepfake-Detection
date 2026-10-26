@@ -1,0 +1,207 @@
+{
+  "schema": "INDEPENDENT_SELECTED_M_STATS_KERNEL_REVIEW_V1",
+  "created_utc": "2026-10-25T12:03:19.780853+00:00",
+  "reviewer": "Independent Senior Reviewer; read-only source review plus bounded synthetic CPU verification",
+  "scope": "New selected-M source_best_stats.py kernel driver and its tests only. No production sink, dispatcher, cache-admission, resource permit, CPU-slot, compact persistence or five-seed summary interface is claimed complete.",
+  "BASE": "0f5d52b6bc1f1d240e49b0eb284f12140761799d",
+  "HEAD": "0f5d52b6bc1f1d240e49b0eb284f12140761799d",
+  "HEAD_parent": "d0d41812480803615ad89d4795e7d8837601e4f3",
+  "original_production_BASE": "5ef6d06bf7aeda02a5a11113e4c35a2c9909f215",
+  "identity_explanation": "The reviewed statistics source is an untracked change on BASE/HEAD. Other untracked lease/GPU modules were outside review. Tests are under the existing ignored tests/ rule.",
+  "source_and_test_sha256": {
+    "reliability_v2/source_best_stats.py": "fd38c045847f35dabb7a7f205484d8c2cd720e110b17b9ae8892fabe18f715be",
+    "tests/test_source_best_stats.py": "8aae370b15d8a25718fa1fd9b883dcaa0648ba3f9b20d916db3dbbcfa8a792cd"
+  },
+  "initial_test_sha256": "4f174f2bfafae571beacaf23d00a06161265d56c3859f494fc57c683e4fcbcb4",
+  "test_change_during_review": "Two tests were appended before the fresh pytest collection: actual 2000 H draws and applicable D CAL200. The source did not change; the completed 15-pass/3-skip run and final review use test SHA8aae370b15d8a25718fa1fd9b883dcaa0648ba3f9b20d916db3dbbcfa8a792cd. No duplicate test-file run was performed.",
+  "worktree": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code",
+  "component_root": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2",
+  "scope_sources": [
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/SPEC.md",
+      "sha256": "88967baf771d1a03bd1c979c229c0cad175f9bc9b97715d03613edfd06797728"
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/PLAN.md",
+      "sha256": "14241a2581a3b8ba46ba911d19669333d190272e2cf6ffc5e02ce9d07d2a6f50"
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/source_best_M_selection_and_resource_gate_20261025T0340.json",
+      "sha256": "c8efb10fe982554902c53e18d43af64e8eddf26b1c517513657a806e40008f88"
+    }
+  ],
+  "strengths": [
+    "Reuses original analysis_d.training_reference/analyze_rank_role/scoring_d/bootstrap_fast and stats_h rather than reimplementing numerical kernels or relaxing scorer thresholds.",
+    "D valid-path calls retain six roles, original FS9+FR12 method metadata, all eight score cells, both aggregations, source TRAIN weighted radius controls, numerical/order controls, 200 CAL repeats at budgets10/20/40/80, normal/closure/RQ4 TEST2000 and frozen seed20261023. Small unavailable n20 cases remain explicitly unavailable.",
+    "H uses native B pixels for both B/AB histories as H00/H10, checks exact same input rows between histories, validates original finite FP32 features/two-row heads, requires source real-only calibration, fixes original four FF and target DFD methods, and calls the original source-only threshold/shared-group TEST kernel with 2000 draws.",
+    "Saved score/cell metrics are actually reread by the test sink and independently recomputed. Existing H saved-metric-corruption regression rejects altered FPR.",
+    "Source-only selection metadata preserves selected epoch/prefix attempt/success/skip counts; H unequal epochs are explicitly descriptive and update_matched_primary_claim is false. No DEV/oracle/common2x2 expansion is emitted.",
+    "Fresh bounded CPU run: 15 passed, 3 skipped in34.77s, exit0. Added reportable H case verifies all2000 saved draws/count mass and added D case checks all200 applicable CAL rows per budget. No actual dataset/checkpoint or GPU work was used."
+  ],
+  "findings": {
+    "Critical": [],
+    "Important": [
+      {
+        "id": "SBST-001",
+        "file": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_stats.py",
+        "lines": "66 and90; independent checks68-69 and90-91",
+        "title": "Primary H comparison and D effect readbacks are ignored, so corrupted effect values can be endorsed alongside passing cell checks",
+        "problem": "emit returns the real persisted/readback value, but H comparisons.csv and D effects.csv returns are discarded. verify_saved_metrics checks only point-cell metrics; no independent comparison/effect row inventory, estimate, direction/sign or NA check is applied to the emitted primary derived tables.",
+        "reproduced_result": "Using existing synthetic fixtures and original temporary CSV I/O, changed persisted/readback H comparisons.estimate from0.0 to123.456 in all4 pools and D effects.delta_correct from0.0 to123.456 in both roles. Both drivers returned normally. H independent cell statuses all PASS; D retained normal PASSED/UNRESOLVED_NUMERIC_ORDERING statuses. This is actual disk write+readback, not a fake returned object.",
+        "impact": "The persisted RQ1 H10-H00 and RQ2/RQ3 D effect values can disagree with independently verified cell metrics, changing signs or hiding negative/NA outcomes without rejection.",
+        "recommendation": "Capture effect/comparison readbacks, independently derive expected differences/interactions from the verified saved metric cells, and require exact complete row identity plus appropriate numerical/NA/sign agreement before successful return. Add failing real-I/O corruption and missing-row cases without changing scorer thresholds.",
+        "evidence_log": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_source_best_stats_repro.log"
+      },
+      {
+        "id": "SBST-002",
+        "file": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_stats.py",
+        "lines": "112-115; original analysis_d._independent_calibration218-220",
+        "title": "CAL readback may lose all target subsets while RQ4 is computed from unsaved in-memory thresholds",
+        "problem": "The driver does not validate the saved calibration row inventory/count/status/recorded subset identity. The reused audit skips non-ok rows and cannot detect omitted rows. The primary RQ4 source and n20 thresholds are then taken from original rows rather than verified saved rows.",
+        "reproduced_result": "On a bounded synthetic80-video target CAL pool, each generated calibration.csv contained802 rows. Removed all800 target_real rows from each actual temporary CSV and returned its true readback. d_driver still returned normally; each independent audit contained only the remaining2 rows, while each primary_n20 payload still recorded calibration_repeats=200 from the unsaved thresholds (TEST status correctly remained insufficient_source_groups in the small fixture).",
+        "impact": "Persisted applicable CAL200 records can silently disappear or be marked unavailable, while the main RQ4 result uses an unpersisted set. The artifact no longer preserves the registered counts or supports reproducible threshold/NA interpretation.",
+        "recommendation": "Validate complete calibration kind/budget/repeat/status/subset inventory against fixed budgets and available pools, preserving all200 applicable rows and unavailable rows. Independently check threshold/subset identity as well as operating metrics. Build primary RQ4 only from the verified saved calibration rows; reject loss or inconsistent NA rather than silently downgrade.",
+        "evidence_log": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_source_best_stats_cal_repro.log"
+      },
+      {
+        "id": "SBST-003",
+        "file": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_stats.py",
+        "lines": "77-87 and104-111; contrast existing H role/domain check43-45",
+        "title": "D tuple keys are not bound to frame role/domain, allowing target CAL to become the source threshold pool",
+        "problem": "D validates only the set of dictionary keys and real-only calibration labels. Unlike H, it never verifies that each frame table role/domain equals the role under which it was supplied. Original scorer checks a single internally consistent role/domain but does not know the enclosing dictionary key.",
+        "reproduced_result": "Kept each synthetic CAL tuple own role/domain/head metadata, shifted synthetic target CAL features to distinguish the thresholds, then exchanged source_cal and target_cal dictionary values. d_driver returned successfully. Saved rq4/source_cal_frame_margins contained role=target_cal/domain=target. Recorded source_real threshold3070.535000085831 equalled the original target threshold, instead of true source threshold510.5349999996834.",
+        "impact": "An assembly mistake between individually qualified tuples can silently introduce target data into the nominal source threshold or mislabel source/target TEST outputs. Independent metric recomputation cannot detect this because it recomputes the wrongly assigned cohort consistently.",
+        "recommendation": "Before any emit or statistical computation, bind each D tuple to the exact expected role/domain for all six roles, retain real-only CAL checks, and reject swapped source/target/train/test tuples. Add source/target CAL and TEST swaps plus role/domain mutation regressions. This is current pure-kernel input consistency, not a demand for an unimplemented production admission API.",
+        "evidence_log": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_source_best_stats_roles_repro.log"
+      }
+    ],
+    "Minor": []
+  },
+  "commands_and_results": [
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_source_best_stats_tests.log",
+      "sha256": "18a2a5a637c182b3bd293706f6b3bf2fc5e59ac745eeca308bf9d345fa5dabc6",
+      "contents": "UTC 2026-10-25T11:56:54.821796+00:00\nCOMMAND ['/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python', '-m', 'pytest', '-q', '-p', 'no:cacheprovider', '/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests/test_source_best_stats.py']\nENV CUDA_VISIBLE_DEVICES= OMP/MKL/OPENBLAS_NUM_THREADS=2 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2\n............s.s..s                                                       [100%]\n15 passed, 3 skipped in 34.77s\n\nEXIT_CODE 0\n"
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_source_best_stats_repro.log",
+      "sha256": "84ba56ba4f921cfae8828508c660914d5ed14607f4c292f3f0fc05993e77af24",
+      "contents": "UTC 2026-10-25T11:58:35.891757+00:00\nCOMMAND ['/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python', '-c', \"import pathlib,tempfile,types,json\\nimport pandas as pd,pytest\\nimport test_source_best_stats as t\\nfrom reliability_v2 import source_best_stats as m,analysis_d as io\\nclass CorruptEffects(t.Sink):\\n def __init__(self,path):super().__init__(path);self.changes=[]\\n def __call__(self,name,kind,value):\\n  restored=super().__call__(name,kind,value)\\n  col='estimate' if name.endswith('comparisons.csv') else 'delta_correct' if name.endswith('effects.csv') else None\\n  if col:\\n   before=float(restored.loc[0,col]);restored.loc[0,col]=123.456\\n   p=self.path/name;io._csv(p,restored);restored=pd.read_csv(p,float_precision='round_trip')\\n   self.values[name]=restored;self.changes.append(dict(name=name,column=col,expected=before,persisted=float(restored.loc[0,col])))\\n  return restored\\nwith tempfile.TemporaryDirectory(prefix='M_stats_reviewer_') as folder:\\n root=pathlib.Path(folder)\\n with pytest.MonkeyPatch.context() as patch:\\n  data,selections=t.h_data(root,patch);sink=CorruptEffects(root/'H')\\n  result=m.h_driver(data,selections,sink)\\n  print('H_RETURNED_SUCCESS',json.dumps(result['source_best_epochs']))\\n  print('H_CORRUPTED_REAL_READBACK',json.dumps(sink.changes,sort_keys=True))\\n  print('H_CELL_CHECK_STATUSES',sorted({r['status'] for k,v in sink.values.items() if k.endswith('independent_saved_score_checks.json') for r in v}))\\n with pytest.MonkeyPatch.context() as patch:\\n  project=t.project.__wrapped__(root/'D_fixture',patch,types.SimpleNamespace(param='D'))\\n  data,selected,freeze=t.d_data(project);sink=CorruptEffects(root/'D')\\n  result=m.d_driver(data,selected,freeze,sink)\\n  print('D_RETURNED_SUCCESS',result['source_best_epoch'])\\n  print('D_CORRUPTED_REAL_READBACK',json.dumps(sink.changes,sort_keys=True))\\n  print('D_RANK_CHECK_STATUSES',sorted({r['status'] for q in sink.values['independent_rank_recomputation.json'] for r in q['cells']}))\\n\"]\nENV CUDA_VISIBLE_DEVICES= OMP/MKL/OPENBLAS_NUM_THREADS=2 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2:/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests\nH_RETURNED_SUCCESS {\"B\": 1, \"AB\": 2}\nH_CORRUPTED_REAL_READBACK [{\"column\": \"estimate\", \"expected\": 0.0, \"name\": \"mean_logit/SOURCE_TEST/all_B/comparisons.csv\", \"persisted\": 123.456}, {\"column\": \"estimate\", \"expected\": 0.0, \"name\": \"mean_logit/TARGET_TEST/all_B/comparisons.csv\", \"persisted\": 123.456}, {\"column\": \"estimate\", \"expected\": 0.0, \"name\": \"mean_probability/SOURCE_TEST/all_B/comparisons.csv\", \"persisted\": 123.456}, {\"column\": \"estimate\", \"expected\": 0.0, \"name\": \"mean_probability/TARGET_TEST/all_B/comparisons.csv\", \"persisted\": 123.456}]\nH_CELL_CHECK_STATUSES ['PASS']\nD_RETURNED_SUCCESS 2\nD_CORRUPTED_REAL_READBACK [{\"column\": \"delta_correct\", \"expected\": 0.0, \"name\": \"source_test/effects.csv\", \"persisted\": 123.456}, {\"column\": \"delta_correct\", \"expected\": 0.0, \"name\": \"target_full/effects.csv\", \"persisted\": 123.456}]\nD_RANK_CHECK_STATUSES ['PASSED', 'UNRESOLVED_NUMERIC_ORDERING']\n\nEXIT_CODE 0\n"
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_source_best_stats_cal_repro.log",
+      "sha256": "8f2528f370bba3676050ce45bc72256c0adba0c28b2b3c21e966b8c0c9b681d1",
+      "contents": "UTC 2026-10-25T11:59:24.994792+00:00\nCOMMAND ['/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python', '-c', \"import pathlib,tempfile,types,json\\nimport numpy as np,pandas as pd,pytest\\nimport test_source_best_stats as t\\nfrom reliability_v2 import source_best_stats as m,analysis_d as io\\nclass DropSavedCAL(t.Sink):\\n def __init__(self,path):super().__init__(path);self.changes=[]\\n def __call__(self,name,kind,value):\\n  restored=super().__call__(name,kind,value)\\n  if name.endswith('/calibration.csv'):\\n   before=len(restored);restored=restored.loc[~restored.calibration_kind.eq('target_real')].copy()\\n   p=self.path/name;io._csv(p,restored);restored=pd.read_csv(p,float_precision='round_trip')\\n   self.values[name]=restored;self.changes.append(dict(name=name,original_rows=before,persisted_rows=len(restored),persisted_target_real_rows=int(restored.calibration_kind.eq('target_real').sum())))\\n  return restored\\nwith tempfile.TemporaryDirectory(prefix='M_stats_CAL_reviewer_') as folder,pytest.MonkeyPatch.context() as patch:\\n root=pathlib.Path(folder);project=t.project.__wrapped__(root/'fixture',patch,types.SimpleNamespace(param='D'))\\n data,selected,freeze=t.d_data(project);original_frame,original_h,w,b=data['target_cal'];frames=[];features=[]\\n for video in range(80):\\n  frame=original_frame.copy();uid='synthetic_target_cal/real/'+str(video);frame['video_uid']=uid;frame['video_id']=uid;frame['group_id']=uid\\n  frame['rgb_sha256']=[f'{uid}/rgb/{n}' for n in range(len(frame))]\\n  features.append(original_h+np.float32(video*.01));frames.append(frame)\\n data['target_cal']=(pd.concat(frames,ignore_index=True),np.concatenate(features),w,b)\\n sink=DropSavedCAL(root/'M');result=m.d_driver(data,selected,freeze,sink)\\n print('D_RETURNED_SUCCESS',result['source_best_epoch'])\\n print('RQ4_CORRUPTED_REAL_READBACK',json.dumps(sink.changes,sort_keys=True))\\n for name,payload in sink.values.items():\\n  if name.endswith('primary_n20_vs_source_bootstrap.json'):\\n   print('PRIMARY_FROM_UNSAVED_THRESHOLDS',name,json.dumps({k:payload[k] for k in ('status','calibration_budget','calibration_repeats') if k in payload},sort_keys=True))\\n print('READBACK_CAL_AUDITS',json.dumps({k:len(v) for k,v in sink.values.items() if k.endswith('independent_calibration_recompute.json')},sort_keys=True))\\n\"]\nENV CUDA_VISIBLE_DEVICES= OMP/MKL/OPENBLAS_NUM_THREADS=2 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2:/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests\nD_RETURNED_SUCCESS 2\nRQ4_CORRUPTED_REAL_READBACK [{\"name\": \"rq4/raw_mean_logit/calibration.csv\", \"original_rows\": 802, \"persisted_rows\": 2, \"persisted_target_real_rows\": 0}, {\"name\": \"rq4/raw_mean_probability/calibration.csv\", \"original_rows\": 802, \"persisted_rows\": 2, \"persisted_target_real_rows\": 0}, {\"name\": \"rq4/l2_mean_logit/calibration.csv\", \"original_rows\": 802, \"persisted_rows\": 2, \"persisted_target_real_rows\": 0}, {\"name\": \"rq4/l2_mean_probability/calibration.csv\", \"original_rows\": 802, \"persisted_rows\": 2, \"persisted_target_real_rows\": 0}]\nPRIMARY_FROM_UNSAVED_THRESHOLDS rq4/raw_mean_logit/primary_n20_vs_source_bootstrap.json {\"calibration_budget\": 20, \"calibration_repeats\": 200, \"status\": \"insufficient_source_groups\"}\nPRIMARY_FROM_UNSAVED_THRESHOLDS rq4/raw_mean_probability/primary_n20_vs_source_bootstrap.json {\"calibration_budget\": 20, \"calibration_repeats\": 200, \"status\": \"insufficient_source_groups\"}\nPRIMARY_FROM_UNSAVED_THRESHOLDS rq4/l2_mean_logit/primary_n20_vs_source_bootstrap.json {\"calibration_budget\": 20, \"calibration_repeats\": 200, \"status\": \"insufficient_source_groups\"}\nPRIMARY_FROM_UNSAVED_THRESHOLDS rq4/l2_mean_probability/primary_n20_vs_source_bootstrap.json {\"calibration_budget\": 20, \"calibration_repeats\": 200, \"status\": \"insufficient_source_groups\"}\nREADBACK_CAL_AUDITS {\"rq4/l2_mean_logit/independent_calibration_recompute.json\": 2, \"rq4/l2_mean_probability/independent_calibration_recompute.json\": 2, \"rq4/raw_mean_logit/independent_calibration_recompute.json\": 2, \"rq4/raw_mean_probability/independent_calibration_recompute.json\": 2}\n\nEXIT_CODE 0\n"
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_source_best_stats_roles_repro.log",
+      "sha256": "7e2b22c32e9a763022f78c0ec83b9a523b8dfe4366bd6b40cebecfd8233ee0c0",
+      "contents": "UTC 2026-10-25T12:00:38.123797+00:00\nCOMMAND ['/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python', '-c', \"import pathlib,tempfile,types,json\\nimport numpy as np,pytest\\nimport test_source_best_stats as t\\nfrom reliability_v2 import source_best_stats as m,scoring_d as score\\nwith tempfile.TemporaryDirectory(prefix='M_stats_roles_reviewer_') as folder,pytest.MonkeyPatch.context() as patch:\\n root=pathlib.Path(folder);project=t.project.__wrapped__(root/'fixture',patch,types.SimpleNamespace(param='D'))\\n data,selected,freeze=t.d_data(project)\\n frame,h,w,b=data['target_cal'];data['target_cal']=(frame,h+np.float32(5),w,b)\\n def threshold(role):\\n  frame,h,w,b=data[role];videos=score.aggregate_videos(score.frame_margins(frame,h,w,b),representation='raw',aggregation='mean_logit')\\n  return float(score.empirical_fpr_threshold(videos.score))\\n true_source=threshold('source_cal');true_target=threshold('target_cal')\\n data['source_cal'],data['target_cal']=data['target_cal'],data['source_cal']\\n sink=t.Sink(root/'M');result=m.d_driver(data,selected,freeze,sink)\\n rows=sink.values['rq4/raw_mean_logit/calibration.csv'];actual=float(rows.loc[rows.calibration_kind.eq('source_real'),'threshold'].item())\\n saved=sink.values['rq4/source_cal_frame_margins.parquet']\\n print('D_RETURNED_SUCCESS',result['source_best_epoch'])\\n print('SOURCE_POOL_FRAME_IDENTITY',json.dumps(dict(role=sorted(saved.role.unique()),domain=sorted(saved.domain.unique()))))\\n print('THRESHOLD_LEAK',json.dumps(dict(true_source_real_threshold=true_source,true_target_real_threshold=true_target,recorded_source_real_threshold=actual,equals_target=actual==true_target,equals_source=actual==true_source),sort_keys=True))\\n\"]\nENV CUDA_VISIBLE_DEVICES= OMP/MKL/OPENBLAS_NUM_THREADS=2 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2:/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests\nD_RETURNED_SUCCESS 2\nSOURCE_POOL_FRAME_IDENTITY {\"role\": [\"target_cal\"], \"domain\": [\"target\"]}\nTHRESHOLD_LEAK {\"equals_source\": false, \"equals_target\": true, \"recorded_source_real_threshold\": 3070.535000085831, \"true_source_real_threshold\": 510.5349999996834, \"true_target_real_threshold\": 3070.535000085831}\n\nEXIT_CODE 0\n"
+    }
+  ],
+  "supporting_source_review": [
+    "Read SPEC/PLAN and the selected-M resource/scope packet; inspected new source/tests with numbered lines. Read original analysis_d.analyze_run, analysis_h.analyze_pair/score_pools/verify_saved_metrics, stats_h source threshold/cohort/comparison functions, scoring_d frame/aggregate/calibration/effects functions, bootstrap_fast three reused bootstrap functions, and original feature/head validation.",
+    "Remote rg executable was absent; a read-only search attempt failed FileNotFoundError before reading data, then Python text/AST reading was used. This did not change any file or scientific gate.",
+    "Fresh unit and reproduction subprocesses used CUDA_VISIBLE_DEVICES empty, OMP_NUM_THREADS=2, MKL_NUM_THREADS=2, OPENBLAS_NUM_THREADS=2 and PYTHONDONTWRITEBYTECODE=1. Tests used only temporary synthetic arrays/images/newly created fixture state; no actual/old weights were reloaded.",
+    "At final recheck, code HEAD remained0f5d52b6bc1f1d240e49b0eb284f12140761799d and the reviewed source remainedfd38c045847f35dabb7a7f205484d8c2cd720e110b17b9ae8892fabe18f715be. Production git HEAD remained5ef6d06bf7aeda02a5a11113e4c35a2c9909f215 with empty git status. No code edits were made."
+  ],
+  "behaviors_considered_but_set_aside_before_verdict": [
+    {
+      "behavior": "Four selected comparisons and D8cell/2aggregation/numerical/radius/order scope",
+      "reason": "Valid-path calls match the original driver and selected-M packet; no extra DEV/oracle/common/F comparison was introduced. Persisted primary-effect verification remains SBST-001."
+    },
+    {
+      "behavior": "H nativeB only, two histories, original4FF/DFD method registry and H10-minus-H00 direction",
+      "reason": "Exact original role mapping and stats_h comparison definition are used, with no H01/H11/common expansion."
+    },
+    {
+      "behavior": "Original source-real thresholds, overlap prevention and no TEST threshold tuning",
+      "reason": "Reused kernels retain real-only and direct CAL/TEST UID-disjoint checks and source-only H calibration. D role-key misbinding is retained as SBST-003, not set aside. Ancestor/provenance qualification remains with prior cache admission."
+    },
+    {
+      "behavior": "FP32 features/head and FP64 promotion before head subtraction",
+      "reason": "_heads calls original finiteness/shape/dtype validation and checks matching head hashes; original frame_margins performs FP64 promotion. No head/scorer thresholds were changed. Exhaustive source-file authority is outside this pure already-qualified-data boundary."
+    },
+    {
+      "behavior": "Separate per-history original heads and unequal best epochs/prefix updates",
+      "reason": "Selections disclose each epoch/attempt/success/skip prefix and descriptor denies matched-update primary claims. No shared-best epoch is manufactured."
+    },
+    {
+      "behavior": "Registered5seeds and no target-driven seed selection",
+      "reason": "Per-endpoint selection rejects unregistered seed values and no target model selection occurs here. Whole-five-seed completeness/denominator summaries are a later interface, not claimed by these per-endpoint kernels."
+    },
+    {
+      "behavior": "Exact FS9+FR12 metadata freeze authority and arbitrary forged selection dictionaries",
+      "reason": "This kernel explicitly consumes already-qualified contexts; independently sealing source files/freeze manifests and producing permits is outside scope. It still must detect inconsistent role-key bindings present in its own tuple inputs, as SBST-003 requires."
+    },
+    {
+      "behavior": "Source TRAIN-only radius reference",
+      "reason": "Only data[train] features/masses feed training_reference; existing target-feature mutation regression passes. Role-key consistency for train still belongs in SBST-003 fix."
+    },
+    {
+      "behavior": "CAL10/20/40/80×200, TEST2000, common resampling seed and multiplicity conservation",
+      "reason": "Constants and calls match frozen rules, and new H actual2000 and D all-budget200 tests pass. Saved CAL missing-row preservation remains SBST-002."
+    },
+    {
+      "behavior": "Numerical NA, negative effects, missing fixed methods and insufficient-group/calibration cases",
+      "reason": "Original kernels and exports retain NA/invalid flags without direction filtering; small unavailable n20 tests pass. Effect/row corruption checks must be added under SBST-001/002; no new scorer gate is proposed."
+    },
+    {
+      "behavior": "Additional stats_h in-memory metadata not emitted by the original analysis_h driver",
+      "reason": "The new driver preserves the original emitted H kernel outputs and adds its own descriptor; reproducing every internal return key is not an independently stated new artifact contract. Future compact sink still must preserve all fields actually passed to emit."
+    },
+    {
+      "behavior": "Frame-margin/control/bootstrap/limitations output readback and exact persistence",
+      "reason": "The pure kernel passes these full original objects to emit; authenticated lossless compact publication/array-reader checks are separately pending. This review finds independently verifiable scientific derived-table gaps, not a hypothetical requirement to reimplement the storage layer."
+    },
+    {
+      "behavior": "JSON conversion of DataFrames, exact count mappings, high-precision ranking objects and NA",
+      "reason": "Test sink uses original IO and real files, including2000-draw preservation. A compact sink must honor the same conversion/value identity but is not implemented or qualified by this module."
+    },
+    {
+      "behavior": "Wrong model/backbone authority, sealed cache identity, target gate, output completion marker and resumed run acceptance",
+      "reason": "Previously qualified source/cache boundaries and future production entry/sink must enforce them. No such interface is claimed complete here, so absence is not a finding against this kernel."
+    },
+    {
+      "behavior": "Compact production sink, actual D/H payload profiles, cacheAdmission/resource/CPUslot/dispatcher, capacity and RSS budgets",
+      "reason": "Explicitly excluded and still pending; no savings, resource permission or production admission is inferred from synthetic kernel tests."
+    },
+    {
+      "behavior": "Full suite, actual datasets/targets, old checkpoint reload, GPU work, original primary owner, F or JEV work",
+      "reason": "Outside delegation and untouched. Only the bounded new test file and three synthetic reproduction scripts were executed; no broad suite/profile/job was duplicated or stopped."
+    },
+    {
+      "behavior": "Ignored test file staging",
+      "reason": "Explicitly reviewed at exact supplied/current hashes. Include it deliberately on integration; no commit was requested or created by this reviewer."
+    }
+  ],
+  "recommendations": [
+    "Perform one TDD fix pass for all three Important findings, observing failures with actual temporary IO before changing the kernel.",
+    "Add complete effect/comparison and CAL-row readback validation, and exact D role/domain bindings, while keeping original scorer/statistical gates unchanged.",
+    "After fixes, bind fresh bounded tests and the required root-owned full-suite evidence to the changed source/test hashes, then obtain independent confirmation.",
+    "Keep production compact sink/cache admission/resource/CPU leases/five-seed reconciliation and final production admission separately pending."
+  ],
+  "verdict": {
+    "pure_statistics_kernel_driver": "request_changes",
+    "critical": 0,
+    "important": 3,
+    "minor": 0,
+    "reason": "Three bounded real-IO/synthetic reproductions show silent wrong primary effects, lost CAL subset records with unsaved-threshold use, and target-derived source threshold through role-key mismatch."
+  },
+  "declined_scope": [
+    "No edits to either code checkout",
+    "No actual dataset/target or old-weight loading",
+    "No GPU/scientific job or subagent spawning",
+    "No full suite/profile duplication",
+    "No original owner/F/JEV changes",
+    "No compact production sink or dispatcher implementation",
+    "No cacheAdmission/resource/CPUslot/production permit claim",
+    "No five-seed summary or whole45 endpoint admission claim"
+  ],
+  "production_admitted": false,
+  "remaining_blockers": [
+    "SBST-001, SBST-002 and SBST-003 require a subsequent root-owned fix and fresh evidence.",
+    "Production sink/cache admission/CPU leases/resources/five-seed reconciliation remain outside current kernel completion."
+  ],
+  "tool_action_status": "All permitted review/read/test/report actions completed; no denial, pending approval or uncertain write outcome. No code was modified."
+}

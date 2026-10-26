@@ -1,0 +1,46 @@
+{
+  "utc": "2026-10-25T15:59:04Z",
+  "scope": "ENGINEERING_PROGRESS_ONLY_NO_ACTUAL_M_GPU_OR_PRODUCTION",
+  "new_components": {
+    "source_best_runtime.py": "69b3d590d95fd3004c7c64617fbad642526b02862a97f61546d3cd375fc18742",
+    "source_best_analysis.py": "0ec974eec85a0a5204b8804707d627fa908a80eb1a4e76cfa81729ce0a875a32",
+    "source_best_source_qualification.py": "3bc8e60a64226b37817d8142b6b374ad0400bf891c3209ad95329e8ccaa47ab9"
+  },
+  "independent_fix_reviews": {
+    "runtime": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_source_best_runtime_fix_confirmation.json",
+      "sha256": "1d334cd0be506d2ca4f5bedbcd4f2e92be4414f7038b86cf0f659d87c6ff7eb6"
+    },
+    "entry": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_source_best_analysis_fix_confirmation.json",
+      "sha256": "09852554dc7b5eaf75fafb4f640413df278e9b59951d6559239909d555d2d2ab"
+    },
+    "source_GPU_worker": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_source_best_source_qualification_fix_confirmation.json",
+      "sha256": "7db33edbb33d4fec21db3c218d6aef7b64361ebd64328d6b45c0fd6eaebf4deb"
+    }
+  },
+  "targeted_tests_passed": 56,
+  "targeted_seconds": 5.6,
+  "independent_public_D60_H37_execute_resume_and_adversarial_tests_passed": 11,
+  "independent_public_seconds": 25.23,
+  "expanded_full_suite_wrapper_pid": 1612350,
+  "expanded_full_suite_running": true,
+  "expanded_full_suite_launch": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_runtime_entry_sourcequal_full_suite_20261025T1550_launch.json",
+  "prior_baseline_passed": 698,
+  "code_and_test_pins_unchanged_during_full_suite": true,
+  "actual_M_source_GPU_qualification_executed": false,
+  "M_production_admitted": false,
+  "real_canary_executed": false,
+  "joint_capacity_admitted": false,
+  "remaining": [
+    "Read existing full-suite terminal and verify pins before committing new3modules+tests; do not duplicate suite",
+    "Finite9-sourceCAL GPU qualification owner/collector and bound plan; execute only after originalH210-role stage+phase release",
+    "Actual source-only9 GPU/cache/header qualification and independent review; only source encoder, full original provenance may CPU-decode fixed targetPNG",
+    "M cache45job finite GPU owner and per-job independent cache admission issuer; existing worker f3 remains unchanged",
+    "Final remaining-write plan and actual resource canary qualification; feature file bytes receive NO arbitrary future-write credit",
+    "M actual30statistics/five-seed summaries and full CN/EN journal integration"
+  ],
+  "known_budget_limitation": "Entry keeps entire feature_cap_bytes conservative; controller must issue a freshly independently justified remaining plan rather than debit foreign/partial feature bytes. No final full-M budget issued.",
+  "production_processes_modified": false
+}

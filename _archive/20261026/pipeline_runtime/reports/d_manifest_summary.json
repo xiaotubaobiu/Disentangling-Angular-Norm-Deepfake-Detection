@@ -1,0 +1,104 @@
+{
+  "status": "COMPLETE_VERIFIED",
+  "utc": "2026-10-23T08:34:28.082056+00:00",
+  "freeze_sha256": "6f30a13cc60778b77653493f78be0535a928879ec93226d139f724eab3c23a67",
+  "build_pid": 3887955,
+  "build_elapsed_seconds": 347.824179649353,
+  "count_unit": "natural video UID, exactly8 distinct RGB frames before train-only canonical merge",
+  "real_fake_counts": [
+    {
+      "role": "dev",
+      "label": 0,
+      "rows": 864,
+      "videos": 108
+    },
+    {
+      "role": "dev",
+      "label": 1,
+      "rows": 17400,
+      "videos": 2175
+    },
+    {
+      "role": "source_cal",
+      "label": 0,
+      "rows": 1120,
+      "videos": 140
+    },
+    {
+      "role": "source_test",
+      "label": 0,
+      "rows": 1120,
+      "videos": 140
+    },
+    {
+      "role": "source_test",
+      "label": 1,
+      "rows": 23072,
+      "videos": 2884
+    },
+    {
+      "role": "target_full",
+      "label": 0,
+      "rows": 1416,
+      "videos": 177
+    },
+    {
+      "role": "target_full",
+      "label": 1,
+      "rows": 103008,
+      "videos": 12876
+    },
+    {
+      "role": "train",
+      "label": 0,
+      "rows": 4888,
+      "videos": 611
+    },
+    {
+      "role": "train",
+      "label": 1,
+      "rows": 97856,
+      "videos": 12232
+    }
+  ],
+  "train_canonical_inputs": 102225,
+  "train_association_rows": 102744,
+  "samples_per_epoch": 102272,
+  "entirely_excluded_natural_videos": 391,
+  "entirely_excluded_reason_counts": {
+    "fewer_than8_distinct_valid_RGB_frames": 93,
+    "released_or_official_source_role_mismatch": 290,
+    "unknown_FF_source_quarantine": 8
+  },
+  "excluded_association_video_IDs": 1367,
+  "association_exclusion_note": "The same natural video may have a disallowed published-role alias and an allowed alias. Exclusion rows are association dispositions;1367 IDs are affected, but only391 unique natural videos are wholly excluded.",
+  "cross_role_components_quarantined": 0,
+  "RGB_label_conflict_components_quarantined": 0,
+  "canonical_sampling_mass": "real0.5; each of21fake methods0.5/21; equal video and frame weights; all contributions retained as method_contributions JSON",
+  "source_pair_partition": {
+    "train_pairs": 306,
+    "dev_pairs": 54,
+    "seed": 20261023
+  },
+  "all21methods_preserved": true,
+  "cdf_scope": {
+    "status": "PROXY_SCOPE_EMPIRICAL_ONLY",
+    "cal_real_videos": 80,
+    "test_real_videos": 97,
+    "test_fake_videos": 4111,
+    "excluded_videos": 8765,
+    "historic_split_sha256": "fa19b5c48ea231ff186b552c12e178803c4e6898b4d6afeb784803c16cefebac",
+    "historic_protocol_sha256": "c9bccbeec85304cc6349c0eeb3e4100d432bfc21104aa70657b815a2a535b855",
+    "cal_candidate_pool": "same prior score-blind80 real candidates, requalified for current fixed8 and full association graph",
+    "isolation": "video UID, all candidate RGB-connected components, conservative id-name token proxy for the entire CAL pool",
+    "ancestor_independence_certified": false,
+    "strict_NP_population_guarantee": false,
+    "unresolved": "Complete generated-parent, donor/driver, audio and YouTube identity ancestry is not available. A filename is a proxy, not authenticated identity."
+  },
+  "cdf_proxy_change_audit": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/d_manifest_cdf_proxy_audit.json",
+  "verification_report": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/d_manifest_independent_verification.json",
+  "limitations": "Known FF filename sources, official source pairs, and full candidate exact RGB components; unknown audio/driver ancestry remains unverified. CDF uses video/content and conservative identity-name proxies only.",
+  "source_file_hash_reuse_scope": "All candidate paths stat-verified against prior successful audit. Metadata equality is freshness evidence, not a cryptographic assertion that bytes never changed between audits.",
+  "original_data_modified": false,
+  "target_scores_used": false
+}

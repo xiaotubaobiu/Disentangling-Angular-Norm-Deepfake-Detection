@@ -1,0 +1,26 @@
+{
+  "utc": "2026-10-25T07:17:02.498379+00:00",
+  "pid": 3260336,
+  "command": [
+    "/usr/bin/time",
+    "-v",
+    "-o",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/actual_D7_HB7_source_checkpoint_validation_time_v.log",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+    "-B",
+    "-u",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/validate_actual_source_checkpoints.py",
+    "--admission",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/actual45_source_file_admission_20261025T0645_v1.json",
+    "--admission-sha",
+    "1bf6f07ce3a4bef89477191124bea16795d277089e1f548c9355588a163e003d",
+    "--report",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/actual_D7_HB7_source_checkpoint_validation.json",
+    "--run-id",
+    "D_formal_clip_vit_b16_seed7",
+    "--run-id",
+    "H_formal_clip_vit_b16_B_seed7"
+  ],
+  "source_sha256": "861736bca921dc705bfb27ffb7104c94adfed521900e9325df0fe29c539b243c",
+  "admission_sha256": "1bf6f07ce3a4bef89477191124bea16795d277089e1f548c9355588a163e003d"
+}

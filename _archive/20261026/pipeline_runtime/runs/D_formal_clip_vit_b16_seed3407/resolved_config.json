@@ -1,0 +1,15 @@
+{
+  "route": "D",
+  "phase": "formal",
+  "backbone": "clip_vit_b16",
+  "seed": 3407,
+  "lr": 1e-05,
+  "epochs": 30,
+  "microbatch": 32,
+  "precision": "AMP",
+  "train_manifest": "data/D/train.parquet",
+  "dev_manifest": "data/D/dev.parquet",
+  "qualification_gate": "qualification/D_gate.json",
+  "recipe_frozen": true,
+  "selection": "frozen_last"
+}

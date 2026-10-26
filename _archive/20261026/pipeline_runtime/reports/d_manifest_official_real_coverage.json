@@ -1,0 +1,30 @@
+{
+  "train": {
+    "official_expected_real_sources": 612,
+    "selected_real_sources": 611,
+    "missing_source_ids": [
+      "281"
+    ],
+    "missing_not_in_any_original_index_or_cal_candidate": [
+      "281"
+    ]
+  },
+  "dev": {
+    "official_expected_real_sources": 108,
+    "selected_real_sources": 108,
+    "missing_source_ids": [],
+    "missing_not_in_any_original_index_or_cal_candidate": []
+  },
+  "source_cal": {
+    "official_expected_real_sources": 140,
+    "selected_real_sources": 140,
+    "missing_source_ids": [],
+    "missing_not_in_any_original_index_or_cal_candidate": []
+  },
+  "source_test": {
+    "official_expected_real_sources": 140,
+    "selected_real_sources": 140,
+    "missing_source_ids": [],
+    "missing_not_in_any_original_index_or_cal_candidate": []
+  }
+}

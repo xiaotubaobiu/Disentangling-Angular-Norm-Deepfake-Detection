@@ -1,0 +1,111 @@
+{
+  "reviewer": "independent_training_review",
+  "utc": "2026-10-23T09:40:01.700334+00:00",
+  "status": "PASS_NO_UNRESOLVED_CRITICAL_OR_IMPORTANT_FINDINGS",
+  "scope": [
+    "reliability_v2/analysis_d.py",
+    "reliability_v2/bootstrap_fast.py",
+    "tests/test_analysis_d.py",
+    "tests/test_bootstrap_fast.py"
+  ],
+  "source_sha256": {
+    "reliability_v2/analysis_d.py": "a1d3be7bd43acb43995768f9167225b066ee9e6691c61c7b8bf28b00de53ba5e",
+    "reliability_v2/bootstrap_fast.py": "4b7c5e88946ea5feb799e2184c84c8c25051a7e0fa2db1713be1baa0d2f2e45c",
+    "tests/test_analysis_d.py": "8eba4256cea2b1c3bfc68687662e0c31f774aeef62ce21d8492b4bac03003bbe",
+    "tests/test_bootstrap_fast.py": "2d3b67e14b570aecec133b57afc0e535a766834629f0da9973d0fe3b20e6643b"
+  },
+  "binding_plan": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/configs/plan_frozen_input.md",
+  "binding_plan_sha256": "b018b01915a62c645fc3718134970cd49dc0651ecfd02792220f3a0086c6594d",
+  "plan_read_in_full": true,
+  "primary_protocol_sections": [
+    3,
+    7,
+    8,
+    9,
+    11
+  ],
+  "critical_findings": [],
+  "important_findings": [],
+  "resolved_findings": [
+    {
+      "severity": "Important",
+      "file": "reliability_v2/analysis_d.py",
+      "lines": "305-323,331,366",
+      "trigger": "A cache tree copied from another valid formal run can pass checks against its own provenance.",
+      "effect_before_fix": "Analysis could label another run's features with the requested live run context.",
+      "resolution": "Explicit expected role/run/current-manifest identity supplied on every load/verify, including dev and all seven completed-analysis reuse checks.",
+      "verified": "Final source reread and synthetic test contract assertions."
+    },
+    {
+      "severity": "Important",
+      "file": "reliability_v2/analysis_d.py",
+      "lines": "401-407",
+      "trigger": "Fewer than twenty target real CAL videos.",
+      "effect_before_fix": "Empty target thresholds reached the operating bootstrap and aborted the full analysis.",
+      "resolution": "Driver writes UNAVAILABLE_CALIBRATION_BUDGET with intervals null and available CAL count."
+    },
+    {
+      "severity": "Important",
+      "file": "reliability_v2/analysis_d.py",
+      "lines": "345-351,409-417",
+      "trigger": "A mandatory numerical control or control-score cell has unresolved high-precision ordering.",
+      "effect_before_fix": "Top-level receipt could omit unresolved controls while subsidiary rows were unavailable.",
+      "resolution": "Numerical audit/control-score ranking_usable false flags propagate into limitations and ANALYSIS_COMPLETE_WITH_NUMERIC_NA."
+    }
+  ],
+  "minor_findings": [
+    {
+      "file": "reliability_v2/analysis_d.py",
+      "lines": "151-173,356-361",
+      "trigger": "Serializing thousands of bootstrap draws with many source groups.",
+      "effect": "Sparse exact multiplicity mappings expand into Python dictionaries and indented JSON; output size and serialization time remain proportional to repeats times groups.",
+      "proposal": "For large production outputs, keep group-name index plus integer multiplicity arrays in a separate compressed array artifact, and save draw metrics plus its hash in JSON. This is a tractability improvement, not a current correctness blocker.",
+      "synthetic_probe": {
+        "groups": 1000,
+        "repeats": 20,
+        "compact_multiplicity_bytes": 101160,
+        "pretty_JSON_bytes": 254072,
+        "serialization_seconds": 0.07435012049973011,
+        "production_scope": "Actual production group counts and storage were not benchmarked."
+      }
+    }
+  ],
+  "verified_properties": {
+    "formal_frozen_recipe_and_current_role_provenance_gated": true,
+    "target_results_do_not_choose_or_modify_training_recipes": true,
+    "original_FP32_head_shared_across_roles": true,
+    "TRAIN_radius_reference_uses_canonical_sampling_weights": true,
+    "FP64_mpmath_rank_order_kept_until_tie_bins_complete": true,
+    "high_precision_CSV_roundtrip_retains_sub_float64_distinctions": true,
+    "all_eight_cells_independent_saved_score_AUC_and_macro_recompute_path_reviewed": true,
+    "RQ4_saved_operating_scores_reloaded_before_calibration_and_independent_recompute": true,
+    "same_pool_AUC_threshold_and_oracle_paths_reviewed": true,
+    "fixed_method_macro_missing_methods_remain_invalid_and_counted": true,
+    "common_source_collision_closure_and_exact_repeated_draw_multiplicities": true,
+    "conditional_resampling_separate_from_200_CAL_subsets_and_training_seeds": true,
+    "unresolved_rank_metrics_and_confidence_intervals_remain_numeric_NA": true,
+    "small_or_concentrated_group_sets_withhold_intervals": true,
+    "unknown_ancestry_scope_and_no_strict_NP_claim_preserved": true
+  },
+  "independent_execution_evidence": {
+    "CPU_only_analysis_no_fixture_tests_passed": 2,
+    "CPU_only_bootstrap_tests_passed": 8,
+    "includes_2000_draw_explicit_materialized_reference": true,
+    "explicit_2000_draw_reference_seconds": 51.59143756981939,
+    "actual_write_scores_read_scores_in_memory_CSV_roundtrip": "PASSED using StringIO and no-write directory stub; synthetic scores differing at 1e-200/1e-210 retained ordering.",
+    "synthetic_extreme_logits_numeric_check": "Four unusable numerical audit rows observed; final propagation branch includes ranking_usable false audit/control rows.",
+    "full_suite_executed_by_reviewer": false,
+    "parent_full_suite_log": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/logs/analysis_round2_full_suite.log",
+    "parent_full_suite_latest_tail_at_review": "........................................................................ [ 63%]\n..........................................                               [100%]\n114 passed in 78.09s (0:01:18)\n",
+    "scientific_evidence_limit": "All execution evidence above uses synthetic fixtures solely for implementation verification. It is not a paper result or a formal-model performance claim."
+  },
+  "operational_boundaries": {
+    "live_training_jobs_touched": false,
+    "GPU_work": false,
+    "schedules_or_automations_created": false,
+    "modules_tests_or_configs_edited": false,
+    "only_persistent_write_by_reviewer": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/analysis_independent_review.json",
+    "production_cache_or_model_analysis_launched": false,
+    "production_gate": "Actual analysis remains gated by new frozen formal checkpoints and all seven verified cache roles."
+  }
+}

@@ -1,0 +1,96 @@
+# D路线：三骨干已验收结果与讨论 / Route D: accepted three-backbone results and discussion
+
+*仅覆盖已验收的15个D正式终点及三份五种子汇总；H正式实验和全文结论仍待完成。本稿不替代完整期刊主稿。 / This draft covers the 15 accepted D formal endpoints and three five-seed summaries. H formal experiments and full-study conclusions remain pending.*
+
+所有值分别在骨干内使用种子7、42、123、2026、3407。AUC以0–1比例报告；归一化效应与交互以百分点报告。表中±为跨五训练种子的样本SD（ddof=1），并非条件TEST置信区间。CAL先在每模型内归约200个共同嵌套子集，再跨五模型汇总。source_test、target_full与RQ4固定target_test保持分开，不把15模型视为IID总体。
+
+Every backbone is summarized separately over seeds 7, 42, 123, 2026 and 3407. AUC is reported on the 0–1 scale; effects and interactions are percentage points. The ± values are sample SD across five training seeds, distinct from conditional TEST confidence intervals. CAL repeats are reduced within each model before aggregation across models. source_test, target_full and the fixed RQ4 target_test remain separate; the 15 models are not pooled as an IID population.
+
+## D1 正常分组四条件 / Four conditions under natural-video grouping
+
+| Backbone | Representation | Aggregation | Source TEST macro AUC | CDF target_full macro AUC | CDF target_full pooled AUC |
+|---|---|---|---:|---:|---:|
+| CLIP ViT-B/16 | raw | mean_logit | 0.999582 ± 0.000159 | 0.291299 ± 0.036949 | 0.296297 ± 0.039619 |
+| CLIP ViT-B/16 | raw | mean_probability | 0.999516 ± 0.000149 | 0.298783 ± 0.036427 | 0.303797 ± 0.038961 |
+| CLIP ViT-B/16 | l2 | mean_logit | 0.999555 ± 0.000143 | 0.405114 ± 0.115057 | 0.409049 ± 0.117439 |
+| CLIP ViT-B/16 | l2 | mean_probability | 0.999552 ± 0.000143 | 0.405144 ± 0.115042 | 0.409080 ± 0.117423 |
+| DINOv2 ViT-B/14 | raw | mean_logit | 0.999656 ± 0.000095 | 0.707721 ± 0.080862 | 0.709934 ± 0.084645 |
+| DINOv2 ViT-B/14 | raw | mean_probability | 0.999592 ± 0.000093 | 0.714017 ± 0.075237 | 0.716150 ± 0.078786 |
+| DINOv2 ViT-B/14 | l2 | mean_logit | 0.999654 ± 0.000089 | 0.742525 ± 0.035583 | 0.745415 ± 0.038028 |
+| DINOv2 ViT-B/14 | l2 | mean_probability | 0.999655 ± 0.000086 | 0.742532 ± 0.035569 | 0.745422 ± 0.038013 |
+| EfficientNet-B0 | raw | mean_logit | 0.999415 ± 0.000094 | 0.707038 ± 0.035017 | 0.702243 ± 0.034976 |
+| EfficientNet-B0 | raw | mean_probability | 0.999357 ± 0.000107 | 0.710660 ± 0.031007 | 0.708642 ± 0.030845 |
+| EfficientNet-B0 | l2 | mean_logit | 0.999319 ± 0.000252 | 0.319945 ± 0.036527 | 0.325260 ± 0.036418 |
+| EfficientNet-B0 | l2 | mean_probability | 0.999316 ± 0.000261 | 0.320316 ± 0.036504 | 0.325646 ± 0.036386 |
+
+## D2 分组与归一化交互 / Grouping-by-normalization interaction
+
+本节交互仅对应CDF的target_full排名队列。 / These interactions concern the CDF target_full ranking cohort only.
+
+Δ为L2减Raw的pooled AUC差；交互为Δcollision−Δcorrect。符号翻转在同seed内按冻结容差1e-10比较，不以总体均值的符号替代。以下效应均为百分点。 / Δ is the L2-minus-Raw pooled AUC difference; interaction is Δcollision−Δcorrect. Reversals are evaluated within the same seed at the frozen 1e-10 tolerance, rather than from the sign of an averaged effect. Effects below are percentage points.
+
+| Backbone | Aggregation | Δ correct (pp) | Δ collision (pp) | Interaction (pp) | Within-seed reversals |
+|---|---|---:|---:|---:|---:|
+| CLIP ViT-B/16 | mean_logit | 11.275 ± 11.244 | 6.576 ± 9.277 | -4.699 ± 6.635 | 0/5 |
+| CLIP ViT-B/16 | mean_probability | 10.528 ± 11.574 | 6.592 ± 9.508 | -3.936 ± 6.660 | 0/5 |
+| DINOv2 ViT-B/14 | mean_logit | 3.548 ± 4.734 | 2.454 ± 4.719 | -1.094 ± 1.547 | 0/5 |
+| DINOv2 ViT-B/14 | mean_probability | 2.927 ± 4.213 | 5.114 ± 3.661 | 2.186 ± 1.471 | 2/5 |
+| EfficientNet-B0 | mean_logit | -37.698 ± 7.070 | -42.351 ± 5.722 | -4.653 ± 2.505 | 0/5 |
+| EfficientNet-B0 | mean_probability | -38.300 ± 6.605 | -30.926 ± 5.820 | 7.373 ± 1.689 | 0/5 |
+
+碰撞分组的method-macro AUC不具备预定单方法身份，三骨干共24个对应汇总单元保留NA；完整错误八格、源域对照、数值机制和逐seed结果保留于原12类汇总表。 / Collision-grouping method-macro AUC lacks the required single-method identity; all24 corresponding summary cells remain NA. The full eight-cell conditions, source controls, numerical diagnostics and per-seed values remain in the 12 complete summary tables.
+
+## D3 固定TEST操作点 / Operating points on the fixed TEST
+
+主比较使用mean-logit，列出Raw/L2及源真实池阈值(n=140)和预定目标真实预算(n=20)。FPR、TPR和pooled BA以百分比报告；其他预算见完整表及mean-logit校准波动图；mean-prob敏感性保留在完整表中。主表采用pooled BA。 / The primary comparison uses mean-logit, both representations, the source-real threshold(n=140) and prespecified target-real budget(n=20). FPR, TPR and pooled BA are percentages. All four budgets are retained in the complete tables and mean-logit calibration figures. Mean-probability sensitivity is retained in the complete tables. The table reports pooled BA.
+
+| Backbone | Representation | Calibration | TEST FPR (%) | TEST TPR (%) | TEST pooled BA (%) |
+|---|---|---|---:|---:|---:|
+| CLIP ViT-B/16 | raw | source_real n=140 | 100.000 ± 0.000 | 100.000 ± 0.000 | 50.000 ± 0.000 |
+| CLIP ViT-B/16 | raw | target_real n=20 | 9.197 ± 3.111 | 3.613 ± 1.129 | 47.208 ± 1.199 |
+| CLIP ViT-B/16 | l2 | source_real n=140 | 100.000 ± 0.000 | 100.000 ± 0.000 | 50.000 ± 0.000 |
+| CLIP ViT-B/16 | l2 | target_real n=20 | 6.537 ± 2.850 | 7.372 ± 4.378 | 50.417 ± 1.934 |
+| DINOv2 ViT-B/14 | raw | source_real n=140 | 100.000 ± 0.000 | 100.000 ± 0.000 | 50.000 ± 0.000 |
+| DINOv2 ViT-B/14 | raw | target_real n=20 | 7.381 ± 4.103 | 29.528 ± 15.690 | 61.073 ± 7.834 |
+| DINOv2 ViT-B/14 | l2 | source_real n=140 | 100.000 ± 0.000 | 100.000 ± 0.000 | 50.000 ± 0.000 |
+| DINOv2 ViT-B/14 | l2 | target_real n=20 | 8.809 ± 1.958 | 36.801 ± 9.099 | 63.996 ± 4.550 |
+| EfficientNet-B0 | raw | source_real n=140 | 100.000 ± 0.000 | 100.000 ± 0.000 | 50.000 ± 0.000 |
+| EfficientNet-B0 | raw | target_real n=20 | 8.235 ± 1.566 | 26.496 ± 4.954 | 59.130 ± 2.099 |
+| EfficientNet-B0 | l2 | source_real n=140 | 100.000 ± 0.000 | 100.000 ± 0.000 | 50.000 ± 0.000 |
+| EfficientNet-B0 | l2 | target_real n=20 | 7.626 ± 1.151 | 4.420 ± 1.591 | 48.397 ± 0.667 |
+
+## 结果 / Results
+
+在正确分组和mean-logit聚合下，推理时L2归一化的平均效应随骨干配置而异。CLIP的CDF target_full macro AUC由0.291299±0.036949变为0.405114±0.115057，DINOv2由0.707721±0.080862变为0.742525±0.035583；EfficientNet-B0则由0.707038±0.035017下降到0.319945±0.036527。相应pooled AUC差分别为+11.275±11.244、+3.548±4.734和−37.698±7.070个百分点。平均增益并不代表所有种子均改善，且未将较低或低于0.5的结果反向计分。
+
+Under natural-video grouping and mean-logit aggregation, the average effect of inference-time L2 normalization depended on the backbone configuration. CDF target_full macro AUC changed from 0.291299 ± 0.036949 to 0.405114 ± 0.115057 for CLIP, and from 0.707721 ± 0.080862 to 0.742525 ± 0.035583 for DINOv2. For EfficientNet-B0, it decreased from 0.707038 ± 0.035017 to 0.319945 ± 0.036527. The corresponding pooled-AUC differences were +11.275 ± 11.244,+3.548 ± 4.734 and −37.698 ± 7.070 percentage points. An average gain does not imply improvement for every seed; low and below-0.5 outcomes were retained without reversing score direction.
+
+mean-logit条件下，三骨干均未在五个种子内观察到分组导致归一化效应异号(各0/5)。mean-prob聚合下，DINOv2的seed7和2026出现异号：正确分组的效应分别为−1.097和−2.039个百分点，碰撞分组变为+1.167和+1.811个百分点。因此该条件为2/5，而其跨种子平均效应在两种分组下均为正。CLIP和EfficientNet-B0在mean-prob下仍为0/5。这一差异要求分别报告聚合方式、分组和逐seed效应。
+
+With mean-logit aggregation, no within-seed sign reversal induced by grouping was observed for any backbone (0/5 each). With mean-probability aggregation, DINOv2 seeds 7 and 2026 reversed sign: effects of −1.097 and −2.039 percentage points under correct grouping became+1.167 and +1.811 under collision grouping. This condition therefore yielded 2/5 reversals even though the mean effects across training seeds were positive under both grouping rules. CLIP and EfficientNet-B0 remained at 0/5 with mean-probability aggregation. Aggregation, grouping and per-seed effects consequently need to be reported separately.
+
+在相同的RQ4固定TEST上，Raw mean-logit的源域真实池阈值在三个骨干上均得到100% FPR、100% TPR和50% pooled BA。n=20目标真实校准后的平均FPR分别为9.197%、7.381%和8.235%，TPR分别为3.613%、29.528%和26.496%，pooled BA分别为47.208%、61.073%和59.130%。这表明操作点发生明显迁移，但不意味着排序被修复或总体误报率得到5%保证。
+
+On the same fixed RQ4 TEST cohort, the Raw mean-logit source-real thresholds yielded 100% FPR, 100% TPR and 50% pooled BA for all three backbones. With n=20 target-real calibration, mean FPR was 9.197%, 7.381% and 8.235%; TPR was 3.613%, 29.528% and 26.496%; and pooled BA was 47.208%, 61.073% and 59.130%, respectively. The operating points changed substantially, but these observations do not establish restored ranking or a population-level5% false-positive guarantee.
+
+## 讨论与边界 / Discussion and limits
+
+固定原分类头下，去除特征半径会把margin从r·a+b改变为a+b；上述结果不支持将L2归一化视为通用的跨域改进。CLIP的平均增益仍未使其target_full macro AUC达到0.5，EfficientNet-B0的平均排序性能明显下降。由于未增加重新拟合的匹配方向分类头，结论限定为固定头的推理干预，不能推断方向特征对任意分类器均不充分。跨骨干配置同时包含初始化与训练配方差异，也不作为架构本身的孤立因果效应。
+
+For the fixed original head, removing feature radius changes the margin from r·a+b to a+b. The results do not support L2 normalization as a universal cross-domain improvement. The average CLIP gain still left target_full macro AUC below 0.5, whereas average ranking performance fell markedly for EfficientNet-B0. Because a refitted matched directional head was not added, the conclusion concerns the fixed-head inference intervention and does not establish that directional features are insufficient for arbitrary classifiers. Backbone configurations also differ in initialization and training recipe; their contrast does not isolate architecture as a causal factor.
+
+分组错误与非线性聚合可共同改变评价中效应的方向或幅度；DINOv2的2/5种子反转在平均后并不可见，不能据平均值宣称该现象普遍存在，也不能用均值未反转否定逐seed观察。条件区间须继续对应预先登记的来源组或代理闭包，方法标签缺失与数值不可报告单元保留NA，不把pointwise区间当作整张多格表的联合保证。
+
+Grouping errors and nonlinear aggregation can jointly alter the direction or magnitude of an evaluated effect. DINOv2's 2/5 seed-level reversals were hidden by averaging. The result does not establish universal reversal, while a non-reversing mean does not negate the per-seed observations. Conditional intervals retain their registered source-group or proxy-closure scope. Missing method identities and numerically unreportable cells remain NA; pointwise intervals are not a simultaneous guarantee for the whole table.
+
+目标真实校准使用重叠、嵌套的有限子集；当n=80使用完整80池时只有一个独特校准集。CAL波动、训练种子SD和条件TEST bootstrap三种不确定性必须分开。n=20也未满足方法节所列59独立单位的非平凡NP保证条件，且CDF来源代理未获独立性认证；本研究据此只报告经验操作点，不声称概率校准或严格总体风险控制。H的匹配预处理历史与目标域检验仍待正式实验完成，D结果不替代该因果比较。
+
+Target-real calibration uses overlapping, nested finite subsets; n=80 reuses the entire 80-video pool and has only one distinct calibration set. CAL variation, training-seed SD and conditional TEST bootstrap uncertainty remain separate. The n=20 budget also does not meet the 59-independent-unit condition discussed in Methods for a nontrivial NP guarantee, and independence of the CDF ancestry proxy is uncertified. These are empirical operating-point results, without a claim of probability calibration or strict population risk control. H's matched preprocessing-history evaluation remains pending; the D results do not substitute for that causal comparison.
+
+## 可复现来源 / Reproducible sources
+
+- CLIP ViT-B/16: `/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/D/clip_vit_b16/five_seed_summary`; completion SHA256 `7b4d811bbe7f946c1d02011d86bf674027808f131ff23c9cc6071c4af3fe7add`.
+- DINOv2 ViT-B/14: `/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/D/dinov2_vit_b14/five_seed_summary`; completion SHA256 `455f9e7e9d2bdf7ac1c01504fb36d1c3b4f6609746b03a82d53b94cdef0f2508`.
+- EfficientNet-B0: `/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/D/efficientnet_b0/five_seed_summary`; completion SHA256 `10970cb5f91ff2b18d6deada96daa7b6a441cd82dbb4044304f89a0bf6394b09`.
+- 原逐seed条件TEST区间和来源代理范围保留在各supporting_artifacts.json；未平均其区间端点。 / Original per-seed TEST intervals and ancestry scopes remain in supporting_artifacts.json; interval endpoints were not averaged.
+- [真实D图件与修正图注](已验收图件_D三骨干_中英.md)已通过独立数值/来源哈希和五张PNG版面验收；包含分角色ECDF、三骨干CAL图、12张完整连接表与矢量SVG。只使用真实输出，保留Raw/L2负结果、NA和不确定性层次。 / [Real D figures and corrected captions](已验收图件_D三骨干_中英.md) passed independent numeric/lineage and five-PNG layout checks, with separate-role ECDFs, three CAL figures, 12 joined tables and SVG assets. Negative Raw/L2 findings, NA cells and the distinct uncertainty levels are retained.

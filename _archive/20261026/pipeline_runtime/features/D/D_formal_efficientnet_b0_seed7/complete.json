@@ -1,0 +1,64 @@
+{
+  "status": "CACHE_COMPLETE",
+  "run_id": "D_formal_efficientnet_b0_seed7",
+  "identity": {
+    "schema": "pipeline-reliability-v2-D-fp32-cache-1",
+    "config_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/configs/execution.json",
+    "config_sha256": "deae26fadc19a09c35ec2eba443e4b1c0ce3abd8ff304b85aa6cc1cb98fca750",
+    "artifact_root": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023",
+    "run_id": "D_formal_efficientnet_b0_seed7",
+    "backbone": "efficientnet_b0",
+    "dimension": 1280,
+    "epochs": 30,
+    "training_identity": {
+      "config": "af29c50f599f8eea451881b72d639feefa6c8061a9f686193c0b45aa241f15dc",
+      "train_manifest": "9d85e421d803f20481eb7720854cdb4369349b97dd5e04f5763dbe851077f496",
+      "dev_manifest": "2c157ce3f30504479e50023ff43c76bdd0a2df8cd7e31a938356a6306b7550bd",
+      "initialization": "7f5810bc96def8f7552d5b7e68d53c4786f81167d28291b21c0d90e1fca14934",
+      "environment": "d3e6f2a2fc50770a2c3c8ab5b913dfa9049111a398c9de72d85baf618b139ebb",
+      "code": "336f3097434edf903a5ff402162e29afeca2442ca50f9c7d9883ca60136b8335",
+      "qualification": "c2a9a09d208d2671b7a123df7ee29e83b8abedcac08d9221d5ad26f3948700aa"
+    },
+    "checkpoint_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_efficientnet_b0_seed7/final.pt",
+    "checkpoint_sha256": "a0b305ff70ba8cd90adb8172b89f80352e7f962fee14156e78dc3f3e960143df",
+    "training_complete_sha256": "81549e012c761b3b00319686d3ac095873cfb916baf26eda9baee807c08666e4",
+    "cache_code_sha256": "8f5814646194c772dcf00f6751a35c2f792dd5f11008e0834fdba4eb5e329761"
+  },
+  "roles": {
+    "train": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/D/D_formal_efficientnet_b0_seed7/train",
+      "rows": 102225,
+      "complete_sha256": "5000fdc540e925af76af9e836da78f410abd43dea7ce97b6202e83dbc75f7677"
+    },
+    "dev": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/D/D_formal_efficientnet_b0_seed7/dev",
+      "rows": 18264,
+      "complete_sha256": "a01955e14e0ba92e6ae49709c52de84a0e0ee63dee7df7eda65c82ca4af2c6a7"
+    },
+    "source_cal": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/D/D_formal_efficientnet_b0_seed7/source_cal",
+      "rows": 1120,
+      "complete_sha256": "62421a395d31a4e7503a1df677c0902af794bfe71075d831bfee7373c273cd28"
+    },
+    "source_test": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/D/D_formal_efficientnet_b0_seed7/source_test",
+      "rows": 24192,
+      "complete_sha256": "1e323f2ebba3c49df7606beb976ce722b2ef30ede782ade3d49b16e32c981f3f"
+    },
+    "target_full": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/D/D_formal_efficientnet_b0_seed7/target_full",
+      "rows": 104424,
+      "complete_sha256": "5fd5249be64b89d275ff0db9a4665d85bb61e286c6d73ebe786dc5341652c576"
+    },
+    "target_cal": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/D/D_formal_efficientnet_b0_seed7/target_cal",
+      "rows": 640,
+      "complete_sha256": "edadda5c12a41983daffd1e9354603c8f136321565787fa3b33f2077ab02ac36"
+    },
+    "target_test": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/D/D_formal_efficientnet_b0_seed7/target_test",
+      "rows": 33664,
+      "complete_sha256": "e8e431d2739fc14d84d6c91f619978cf19f2c408d6c3a7d58d9f57591f5cdccb"
+    }
+  }
+}

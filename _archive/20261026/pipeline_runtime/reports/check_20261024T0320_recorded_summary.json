@@ -1,0 +1,80 @@
+{
+  "utc": "2026-10-24T03:43:28.774322+00:00",
+  "status": "0320_ROUND_COMPLETE_HEALTHY_D_H_COVERAGE_BUG_FIXED_AND_VERIFIED",
+  "D_formal_complete_active_pending": [
+    4,
+    4,
+    7
+  ],
+  "fullCPU_epochs": [
+    17,
+    11,
+    11,
+    11
+  ],
+  "live_metadata_epochs_at0339": [
+    17,
+    13,
+    13,
+    13
+  ],
+  "phase_AMP_development_formal": [
+    32,
+    20
+  ],
+  "AMP_total": 52,
+  "new_skips_since0220": 1,
+  "H_coverage_acceptance": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_coverage_fix_acceptance_20261024T0320.json",
+  "commit": "9047caefa3f78c55ba55b042cc6b62a2853b59c4",
+  "GPUmean0to3_percent": [
+    97.0,
+    80.375,
+    80.375,
+    85.375
+  ],
+  "fresh_capacity_GiB": {
+    "workspace_free_GiB": 404.7842597961426,
+    "Dataset_free_GiB": 2740.966682434082
+  },
+  "HANDOFF": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/HANDOFF.md",
+  "HANDOFF_sha256": "422bb8e58fb7babe08efab05c0fb2ba3466bf4dc1b3e2598021ee6ca3fb9c5d4",
+  "status_sha256": "d4db9a05ec8d0bd7c77685162bb38fed22980f9db955092ed7a62b1a2165ca39",
+  "final_readback": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/check_20261024T0320_final_readback.json",
+  "final_readback_sha256": "d80cf3ca07f348074e3cad3e80701ade43373cc466052ac806aaac949415bc12",
+  "paper_index": "/home/z/obsidian/paper/deepfake-detector/新实验设计/20261023/论文方法与设置准备_v2/最新稿索引_20261024.md",
+  "next_check_utc": "2026-10-24T04:20:00Z",
+  "next_runtime_baseline": "03:39followup52, notinitial03:22baseline51",
+  "new_blockers": [],
+  "remaining": [
+    "D11formalmodels+all15models7rolecaches",
+    "Dfive_seedassemblyimplementationandacceptance",
+    "Hsafehandoff+realGPUqualification+20development/conditionalextensions+30formal+caches",
+    "finalindependentRQstatisticsandcompletebilingualjournalpapers"
+  ],
+  "whole_formal_complete_total": [
+    4,
+    45
+  ],
+  "full_study_and_journal_papers_complete": false,
+  "evidence_sha256": {
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/checkpoint_health_20261024T0320.json": "60ad611f7a27b735a03da77979d002ce7a7e70661b992c93901a7af5cf6078d5",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/checkpoint_health_20261024T0320_combined.json": "820cbc7daccf6821c06ab525686b62dec891f7d2ca6713174636f6d58438da15",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/D_clip3407_new_AMP_recovery_20261024T0320.json": "1f523bdb8b9105e92fc85cce2589e946af31d2a8c5229a632c7a4b39735289a6",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/D_completed_artifact_audit_20261024T0320.json": "07428652eacb7dcc9a992854605ad4989f1c0124ea49335524daca2c3e3a8b19",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/check_20261024T0320Z.json": "277f8448f4822dd399e3ddd9061d06f85fa17ffdffc99920301b225f827e4ece",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/check_20261024T0320_followupZ.json": "e94b9efb025e0684e264c48c6e87156459f3380538ef1e3be62a47ac371d7b8a",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/AMP_numeric_acceptance_20261024T0320.json": "32c8df8f5ec022db2371e8b61b7946fac75eaceb0aaa19e862c0ac56088ce56e",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/AMP_numeric_acceptance_20261024T0320_followup.json": "8534670deb637852452fe432743553f5c653d2296630112206e8e48817cf1f7d",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/immutable_inputs_20261024T0320.json": "fedd28f2a967d646727d0dab837a65ba415e08cbfed14e9e3af9cfeedf0af7e0",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_frozen_coverage_20261024T0320_process.json": "b42486e10c9932d365fbf3739d2ed0336d6de07d6a8faf3750d19c15aff2f011",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_coverage_mismatch_diagnosis_20261024T0320.json": "746cf7a031aaa048d5c7df0e7bbea27d0b942cb7918255d097bf06b945fd78a3",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_coverage_graph_independent_review_20261024T0320.json": "55f57d004eb0e4ae5b4ba389b5125e8e45afacf8fedb3c75436cfe8709361f04",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_coverage_fix_promotion_20261024T0320.json": "c8042d801a9952d0de0bfc6332025635a548bc9e7bdc8159d6d8899046bb724a",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_coverage_fix_acceptance_20261024T0320.json": "4a4b940dde887d2455af4da16eec52b16f2b8e06fabba81e00974098c0e78f01",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_frozen_coverage_repaired_20261024T0320.json": "723103d71743cc00d17632d6e441bbd5db8c58d4bbcb3dd0b4f637dafa4b981d",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_coverage_T1_table_independent_acceptance_20261024T0320.json": "36ece04d80f938d1b988e8e984a8af06b01a0c15ac841469d637347158128cf5",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/manuscript_table_contract_readback_20261024T0320.json": "7f32f47c20df1c23464dc51460dd3d0f14ae9d0a48d9484b0356bc3fb989a4e3",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/stage_progress_and_remaining_20261024T0320.json": "99e53b7ffd3641e3ffcfc5dece12bb0fcd6b72e3ec99cf9cf97e547a4417123c",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/check_20261024T0420_preparation.json": "bfce1bf27e9b9ae972dbc22a4d230f6bf99ace1b980249d369dd529f3af379d4"
+  }
+}

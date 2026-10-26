@@ -1,0 +1,301 @@
+{
+  "schema": "H_SAVED_FIVE_SEED_SUMMARY_INDEPENDENT_NARROW_FIX_CONFIRMATION_V1",
+  "created_utc": "2026-10-26T08:47:44.503107+00:00",
+  "verdict": "PARTIAL_FIX_CONFIRMATION_REQUEST_CHANGES_HSUM003_R1_AND_HSUM004_R1",
+  "recommendation": "REQUEST_CHANGES",
+  "reviewed_source": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/review_snapshots/H_saved_summary_af225_before_writer_reservation_fix/h_saved_five_seed_summary.py",
+    "sha256": "af2252770ae4af97f05d045d2dc818f1b4ce07ca8095d11e8f8861f450ef12ef",
+    "bytes": 42353
+  },
+  "reviewed_tests": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/review_snapshots/H_saved_summary_af225_before_writer_reservation_fix/test_h_saved_five_seed_summary.py",
+    "sha256": "6fdab7a637827510f57219c7d48e110c375d2f78b360289af4a2bf6b6d6024a6",
+    "bytes": 38307
+  },
+  "reviewed_source_original_execution_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/h_saved_five_seed_summary.py",
+  "reviewed_tests_original_execution_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests/test_h_saved_five_seed_summary.py",
+  "current_working_files_at_receipt_unreviewed": {
+    "source": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/h_saved_five_seed_summary.py",
+      "sha256": "c242753c4042f38f616a8d6f9b565e202d031c543a301c9f3797ce28220053e9",
+      "bytes": 43561
+    },
+    "tests": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests/test_h_saved_five_seed_summary.py",
+      "sha256": "f24831342399e0c3d9baf3e93cbdba68f14a5e8aa28ad72069a966cd1c077919",
+      "bytes": 44399
+    }
+  },
+  "version_scope": "All test/probe results below apply only to af225/6fda. The source changed externally after these runs; preserved original-byte snapshots were verified before writing this receipt. c242/91e4 and later revisions are not graded here.",
+  "prior_review": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_H_saved_five_seed_summary_review_20261026.json",
+    "sha256": "2725c564f7e8a937dd14e014292ff2669724d9a1e6f0325ee4b4a580f37b7380",
+    "bytes": 27564
+  },
+  "author_fix_engineering": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/H_saved_five_seed_summary_review_fixes_engineering.json",
+    "sha256": "83023035090bd0d55c11301af45820a55dda4d3d0232c1e9bfae980a5fce34d7",
+    "bytes": 7271
+  },
+  "severity_counts_remaining": {
+    "Critical": 0,
+    "Important": 2,
+    "Minor": 0
+  },
+  "fix_disposition": [
+    {
+      "id": "HSUM001",
+      "status": "CLOSED_FOR_REVIEWED_SCOPE",
+      "effect": "Whole-directory RENAME_NOREPLACE commit removes postcommit cleanup. Injected precommit failure retains all seven staging files and never reports success. Later successful commit retains old evidence. Existing empty output is not overwritten; parent fsync failure returns a durability flag without falsely failing the committed transaction.",
+      "evidence": [
+        "independent old-cleanup/atomic-failure probes",
+        "22 new HSUM targeted tests"
+      ]
+    },
+    {
+      "id": "HSUM002",
+      "status": "CLOSED_FOR_REVIEWED_SCOPE",
+      "effect": "Complete receipt is deterministic from statistical identity and payloads; extra legal-looking slot metadata is rejected. Refreshing a valid budget and changing slot1 to0 reuses byte/SHA/inode/mtime-identical seven files. Slot/budget/lifetime facts remain operational stdout.",
+      "evidence": [
+        "independent legal-slot tamper probe",
+        "independent valid budget/slot refresh probe"
+      ]
+    },
+    {
+      "id": "HSUM003",
+      "status": "PARTIALLY_FIXED_IMPORTANT_RESIDUAL",
+      "effect": "Single-writer logical/block-rounded/allocated/retained-stage accounting and the old16MiB boundary are corrected. Cooperative concurrent publishers can both pass prediction without reserving space; one succeeds after the other retained stage lifts total allocation above16MiB.",
+      "remaining_finding": "HSUM003-R1"
+    },
+    {
+      "id": "HSUM004",
+      "status": "PARTIALLY_FIXED_IMPORTANT_RESIDUAL",
+      "effect": "Exact string-key historical conflicts are rejected without re-reading historical payloads. Canonical-equivalent raw path aliases evade the union conflict check.",
+      "remaining_finding": "HSUM004-R1"
+    },
+    {
+      "id": "HSUM005",
+      "status": "CLOSED_WITHIN_EXTERNAL_REVIEWED_PACKET_CONTRACT",
+      "effect": "The old self-claimed66GiB packet is rejected before any slot. External budget SHA binds accepted full write-plan/review/acceptance refs, code/proof pins, same admission,45features/30full statistical caps, remaining-primary plus independently accepted count=15, and50GiB reserve/H16GiB/M6GiB temporary/log/misc decomposition. Future valid packets may refresh. No M33 dynamic import added. This is protocol validation, not actual live-resource or scientific qualification."
+    }
+  ],
+  "findings": [
+    {
+      "id": "HSUM003-R1",
+      "severity": "Important",
+      "file": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/review_snapshots/H_saved_summary_af225_before_writer_reservation_fix/h_saved_five_seed_summary.py",
+      "original_file": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/h_saved_five_seed_summary.py",
+      "lines": [
+        391,
+        400,
+        401,
+        407,
+        408
+      ],
+      "title": "Cooperative publishers have no atomic namespace reservation",
+      "trigger": "Two normal publish calls for the same output/request, each with9MiB payload, are interleaved: B pauses after prediction before mkdir; A stages and passes its final check; B stages and fails capacity; A then commits successfully.",
+      "observed": {
+        "A_last_checked_bytes": 9469952,
+        "Aresult": {
+          "directory_fsync_confirmed": true,
+          "reused": false
+        },
+        "Berror": "summary allocated namespace/staging peak exceeds16MiB cap",
+        "CPU_affinity_count": 1,
+        "before_A_commit_bytes": 18935808,
+        "declared_cap": 16777216,
+        "final_namespace_allocated_bytes": 18935808,
+        "real_or_synthetic_flock_calls": 0,
+        "second_writer_failed_stage_retained": true,
+        "successful_A_commit_over_namespace_cap": true
+      },
+      "impact": "Successful publication can leave18,935,808B in a namespace whose declared cap is16,777,216B. Counting retained failed stages is necessary but insufficient without mutual reservation across prediction, staging and commit.",
+      "expected_behavior": "A cooperative duplicate publisher must fail before consuming unreserved staging space, or wait under a transaction-wide reservation. Prediction through stage write, retained failure evidence, reentry and atomic publication must share the same exclusion/reservation. Merely adding another non-atomic allocation check does not close the race.",
+      "scope": "Private storage-helper bytes only; no actual summary or scores, no source modification, no hostile external filesystem mutation, no real or synthetic flock."
+    },
+    {
+      "id": "HSUM004-R1",
+      "severity": "Important",
+      "file": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/review_snapshots/H_saved_summary_af225_before_writer_reservation_fix/h_saved_five_seed_summary.py",
+      "original_file": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/h_saved_five_seed_summary.py",
+      "lines": [
+        59,
+        60,
+        62,
+        178,
+        324,
+        325
+      ],
+      "title": "Historical identity union keys raw paths after canonical path normalization",
+      "trigger": "Two accepted private reports pin /data/H/shared_historical.png and /data/H/./shared_historical.png to conflicting SHA values.",
+      "observed": {
+        "accepted_conflicting_SHA_values": [
+          "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        ],
+        "actual_historical_source_read": false,
+        "alias": "/tmp/H5_historical_alias_1be5fjx8/project/data/H/./shared_historical.png",
+        "canonical": "/tmp/H5_historical_alias_1be5fjx8/project/data/H/shared_historical.png",
+        "flock_calls": 0,
+        "same_safe_path": true,
+        "source_mutations_or_copies": 0,
+        "source_sha256": "af2252770ae4af97f05d045d2dc818f1b4ce07ca8095d11e8f8861f450ef12ef",
+        "summary_committed": true
+      },
+      "impact": "safe_path resolves both to the same path, but historical[p] retains different raw strings, allowing conflicting identity for the same historical source across seeds and committing the summary.",
+      "expected_behavior": "Reject noncanonical original path strings before normalization, or use str(safe_path(p)) as the historical union key and compare all canonical-equivalent references. Historical bytes need not be read.",
+      "scope": "Private report/request JSON fixtures only. No historical image exists or is read; no source-code bytes mutated or copied."
+    }
+  ],
+  "independent_execution": [
+    {
+      "kind": "targeted regressions only",
+      "command": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -B -m pytest -q -s -p no:cacheprovider --basetemp /tmp/review_H5_fix_targets_we81e9nn /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests/test_h_saved_five_seed_summary.py -k HSUM",
+      "result": "22 passed,56 deselected in9.78s",
+      "exit_code": 0,
+      "wall_seconds": 9.99,
+      "peak_RSS_KiB": 59264,
+      "log": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_H_saved_summary_fix_targets22.log",
+        "sha256": "474794d75e016fecc959e15ea8df2c02e8f0c2d10cb6bdd9ef580612d6db3835",
+        "bytes": 57
+      },
+      "time": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_H_saved_summary_fix_targets22_time.log",
+        "sha256": "28f406421fe163974c206664909783f02b6f71d3928ec43f1081d0b32f207a9c",
+        "bytes": 1066
+      }
+    },
+    {
+      "kind": "independent five old counterexamples, valid refresh, atomic failure, concurrent reservation",
+      "command": "/usr/bin/time -v -o /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_H5_fix_independent_probes_time.log /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -B -",
+      "stdin_harness_sha256": "0605a6ff42080bafcea7ebcdf76f1e8c044d0a65c81519ca14e53e0655182856",
+      "exit_code": 0,
+      "wall_seconds": 4.57,
+      "peak_RSS_KiB": 53868,
+      "log": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_H5_fix_independent_probes.log",
+        "sha256": "715fbe867d679239ec56a3c3527917d4c88b5978672cbe4691a358f25b24c2ae",
+        "bytes": 1305
+      },
+      "time": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_H5_fix_independent_probes_time.log",
+        "sha256": "d8913bea14c3c7913e8f54739c2a8c9eccafe59c435746110d25f496eefca743",
+        "bytes": 812
+      },
+      "results": {
+        "actual_summary_or_scores_executed": false,
+        "cases": {
+          "HSUM001_old_cleanup": {
+            "committed": true,
+            "postcommit_unlink_calls": 0,
+            "reentry_same_SHA": true
+          },
+          "HSUM002_old_valid_slot_tamper": {
+            "rejected": true
+          },
+          "HSUM003_old_16MiB_boundary": {
+            "rejected_before_stage": true
+          },
+          "HSUM003_residual_concurrent_reservation": {
+            "A_last_checked_bytes": 9469952,
+            "Aresult": {
+              "directory_fsync_confirmed": true,
+              "reused": false
+            },
+            "Berror": "summary allocated namespace/staging peak exceeds16MiB cap",
+            "CPU_affinity_count": 1,
+            "before_A_commit_bytes": 18935808,
+            "declared_cap": 16777216,
+            "final_namespace_allocated_bytes": 18935808,
+            "real_or_synthetic_flock_calls": 0,
+            "second_writer_failed_stage_retained": true,
+            "successful_A_commit_over_namespace_cap": true
+          },
+          "HSUM004_old_conflict": {
+            "rejected_without_historical_read": true
+          },
+          "HSUM005_old_66GiB": {
+            "rejected_before_slot": true
+          },
+          "atomic_failure": {
+            "later_commit_keeps_old_stage": true,
+            "no_false_success": true,
+            "stage7files_preserved": true
+          },
+          "valid_budget_slot_refresh": {
+            "budget_changed": true,
+            "same7files_bytes_SHA_inode_mtime": true,
+            "slot1_to0": true
+          }
+        },
+        "real_or_synthetic_flock_calls": 0,
+        "root": "/tmp/H5_fix_confirmation_gk3sherq",
+        "source_code_mutations_or_copies": 0
+      }
+    },
+    {
+      "kind": "independent canonical historical alias boundary",
+      "command": "/usr/bin/time -v -o /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_H5_fix_historical_alias_probe_time.log /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -B -",
+      "stdin_harness_sha256": "a569221ed859a3372922afcd965ecc618c26e94814b9842a7aedc228a367c4c8",
+      "exit_code": 0,
+      "wall_seconds": 0.9,
+      "log": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_H5_fix_historical_alias_probe.log",
+        "sha256": "a7ea8ee68d4b0b0d8030e61c8a819865ea31d4d812db7f767b22916c9b5d9d91",
+        "bytes": 689
+      },
+      "time": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_H5_fix_historical_alias_probe_time.log",
+        "sha256": "5428b34d2158d23817178d901e56bbdf253a41600245b9798e1387643f63ea9d",
+        "bytes": 808
+      },
+      "results": {
+        "accepted_conflicting_SHA_values": [
+          "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        ],
+        "actual_historical_source_read": false,
+        "alias": "/tmp/H5_historical_alias_1be5fjx8/project/data/H/./shared_historical.png",
+        "canonical": "/tmp/H5_historical_alias_1be5fjx8/project/data/H/shared_historical.png",
+        "flock_calls": 0,
+        "same_safe_path": true,
+        "source_mutations_or_copies": 0,
+        "source_sha256": "af2252770ae4af97f05d045d2dc818f1b4ce07ca8095d11e8f8861f450ef12ef",
+        "summary_committed": true
+      }
+    }
+  ],
+  "execution_environment": {
+    "ssh_alias": "v100",
+    "CUDA_VISIBLE_DEVICES": "",
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "synthetic_slot_mode": "explicit no-lock counting substitute",
+    "concurrency_probe_CPU_affinity_count": 1,
+    "real_or_synthetic_flock_calls": 0
+  },
+  "strengths": [
+    "Deterministic receipt and exact raw-byte reuse separate statistics from runtime facts.",
+    "Atomic no-replace directory publication preserves failed evidence and truthful postcommit outcomes.",
+    "Single-writer allocated-space accounting and full externally reviewed capacity-packet checks are materially stronger."
+  ],
+  "declined_to_judge": [
+    "Actual H5 summary/scientific acceptance: no actual summary or saved metric payload was processed.",
+    "Actual livefree/resource qualification and production admission: no real budget/free/slot execution or permit issued.",
+    "Old56/complete78 suites and old qualifications: deliberately not rerun; only22 new HSUM cases and narrow private probes.",
+    "Models/source_context/weights/PNG/score/draw recomputation: not needed for these metadata/publication fixes and prohibited in this review.",
+    "Power-loss durability beyond truthful returned directory_fsync_confirmed flag and hostile concurrent filesystem protection: no added guarantee.",
+    "Current c242/91e4 writer-reservation revision: observed but not reviewed in this af225 receipt.",
+    "Other Detector components, M36/F4/sealed consumers/live configurations and paused JEV/GLM/MMTT/pair investigation: not modified or requalified."
+  ],
+  "production_admitted": false,
+  "actual_summary_executed": false,
+  "actual_resource_qualified": false,
+  "real_slot_acquired": false,
+  "source_mutations_or_copies": 0,
+  "next_action": "Keep REQUEST_CHANGES. Confirm a separate fixed revision for cooperative publication reservation and canonical historical identity before claiming all five issues closed. Preserve this receipt as the af225 result."
+}

@@ -1,0 +1,301 @@
+{
+  "schema": "INDEPENDENT_M_STATISTIC_CANARY_READINESS_INVENTORY_V1",
+  "utc": "2026-10-26T03:56:39.918421+00:00",
+  "status": "NOT_READY_FORMAL_STATISTIC_CANARY_GATES_AND_FREE_SHARED_SLOT_PENDING",
+  "scope": "Detector-only read-only evidence inventory. This is neither engineering acceptance nor a cache/statistic permit. Existing accepted entry and issuer protocols are reused.",
+  "existing_entry": {
+    "analysis": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_analysis.py",
+      "sha256": "0ec974eec85a0a5204b8804707d627fa908a80eb1a4e76cfa81729ce0a875a32",
+      "bytes": 15665
+    },
+    "cache_job_admission_tool": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/source_best_cache_admission.py",
+      "sha256": "06eda77a7fc41969d003c2f538edab79bc762ca3f5413f47f9a72a4e8b6f23c8",
+      "bytes": 18770
+    },
+    "code_locations": {
+      "qualified_resources": "source_best_analysis.py:73",
+      "statistic_preflight": "source_best_analysis.py:88",
+      "shared_slot_and_exact6": "source_best_analysis.py:102",
+      "output_binding": "source_best_analysis.py:111",
+      "canary_return": "source_best_analysis.py:140",
+      "job_admission": "tools/source_best_cache_admission.py:90"
+    },
+    "new_entry_or_engineering_needed": false,
+    "canary_job_ids": [
+      "D_clip_vit_b16_seed7",
+      "H_clip_vit_b16_seed7"
+    ]
+  },
+  "deduplication": {
+    "scanned_roots": [
+      "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M",
+      "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification"
+    ],
+    "exclusions": "code/snapshot/backups and symlink directories; only regular JSON files at most1MiB parsed",
+    "files": 484,
+    "bytes_read": 6684120,
+    "oversize_excluded": [
+      "qualification/D_result_figures_validation/synthetic_preview_corrected/figures/plot_data.json",
+      "qualification/D_result_figures_validation/synthetic_preview_inputs/figures/plot_data.json"
+    ],
+    "additional_reports_top_level_files": 1237,
+    "additional_reports_top_level_bytes": 38304988,
+    "additional_reports_oversize_excluded_count": 3,
+    "target_schemas_found": [],
+    "target_schemas": [
+      "M_STATISTIC_RESOURCE_AND_FORMAT_ACCEPTANCE_V1",
+      "M_BOUNDED_STATISTIC_CANARY_ADMISSION_V1",
+      "M_PRODUCTION_STATISTIC_ADMISSION_V1",
+      "M_SOURCE_BEST_JOB_CACHE_INDEPENDENT_ADMISSION_V1"
+    ],
+    "statistic_worker_receipt_directory_exists": false,
+    "claim_limited_to_scanned_metadata": true
+  },
+  "reusable_evidence": [
+    {
+      "requirement": "actual_D_transport_accepted",
+      "state": "Existing actual format/byte-transport evidence is reusable; formal M statistic qualification document absent.",
+      "refs": [
+        {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/actual_D_atomic_bundle_profile.json",
+          "sha256": "502c6750eae76c955309f217f58bf9f204e52601d946a28ec31840573ec7bd89",
+          "bytes": 3220
+        },
+        {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_actual_D_atomic_bundle_profile_audit.json",
+          "sha256": "b7e057733846f2619aa25e39c9b699f2c72bf1d1e2b1599d2191a4bed542a202",
+          "bytes": 11640
+        },
+        {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/D/D_formal_clip_vit_b16_seed7/complete.json",
+          "sha256": "9aa7620cb6a65fed4e2bfd08db6ff0bbab649f794e9850d853bf17529ad1b6c6",
+          "bytes": 9906
+        }
+      ],
+      "scope": "OriginalLAST D clip7 normal/closure/RQ4 JSON exact rawSHA/order preservation under bundle3aa; not real M D60 entry resource qualification."
+    },
+    {
+      "requirement": "actual_H_terminal_bound_transport_accepted",
+      "state": "Existing actual H format evidence is final-terminal bound and reusable.",
+      "refs": [
+        {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/actual_H_live_producer_snapshot_profile.json",
+          "sha256": "7ac23a68b2464f42e110bce2b3c531c3303a488791b89b5718f963691c03e726",
+          "bytes": 5477
+        },
+        {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_actual_H_live_snapshot_transport_audit.json",
+          "sha256": "a6931518424cc6d98c646fe7d13eb5ca874ab5222d2427bd86a572a678af4a13",
+          "bytes": 48016
+        },
+        {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/final_actual_H_transport_acceptance_20261025T1350.json",
+          "sha256": "35588ba30c9a93c0b65ff0e9489727ed834386a9dfa83733db82800e4546e2e0",
+          "bytes": 3251
+        },
+        {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed42/complete.json",
+          "sha256": "02d7f66612d2e683ba6b52fbfc7379a74cefa1d180b89b9549f7299ea583d831",
+          "bytes": 12695
+        },
+        {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/H_LAST_clip_seed42_independent_audit.json",
+          "sha256": "7daea9b17a4e9e8aea32cd6e5d500cba564d66d33fdd15ce6dbb9cbc97c31e1e",
+          "bytes": 87212
+        }
+      ],
+      "current_terminal_four_artifact_SHA_bindings_match": true,
+      "artifact_bindings": [
+        {
+          "relative_source": "mean_logit/SOURCE_TEST/all_B/conditional_bootstrap.json",
+          "source_sha256": "ddc4b28fbc134c6fe03a6220699c86f21b3c98f3dc5855203ad9d2028ce27be5",
+          "bundle_complete_sha256": "b118542891392d38971194f7d75843cc776a51b1ccf44dd71f37e495c1dc810a",
+          "draws": 2000
+        },
+        {
+          "relative_source": "mean_logit/TARGET_TEST/all_B/conditional_bootstrap.json",
+          "source_sha256": "90295899175f91bf1e6a779a26574f1ffcc3009d4521fc04b7d33e65fefd1f79",
+          "bundle_complete_sha256": "3c2895e59c7b9b376585fb6e9ddf076c24c59f5db29f5e1a85ca73bf137e9bdc",
+          "draws": 2000
+        },
+        {
+          "relative_source": "mean_probability/SOURCE_TEST/all_B/conditional_bootstrap.json",
+          "source_sha256": "2884b9c456888ea4f5306022ac0e9619c36890f8dfd67d3902ab022a5d9b0c9d",
+          "bundle_complete_sha256": "b4c5c9e599f7758473dfac5188265bee8ef353ef856d93588701ebba620bb867",
+          "draws": 2000
+        },
+        {
+          "relative_source": "mean_probability/TARGET_TEST/all_B/conditional_bootstrap.json",
+          "source_sha256": "f1e1a0e5b39d59c3ad7e8e139494a1b5d8d434f2952f8aa2cc4cf1adc820797c",
+          "bundle_complete_sha256": "fdc3c5be7d12b9505ce6cb75f56e421cf4dbfa401d0fec376d339c407ac63cdb",
+          "draws": 2000
+        }
+      ],
+      "scope": "OriginalLAST H clip42 four native conditional bundles,2000draws,final terminal02d7 and saved-score audit7dae; no reencoding,resampling or M source-best science."
+    },
+    {
+      "requirement": "independent_entry_review_passed",
+      "state": "Existing exact0ec engineering review reusable; not actual entry resource acceptance.",
+      "refs": [
+        {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_source_best_analysis_fix_confirmation.json",
+          "sha256": "09852554dc7b5eaf75fafb4f640413df278e9b59951d6559239909d555d2d2ab",
+          "bytes": 22389
+        },
+        {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_runtime_entry_sourcequal_engineering_acceptance_20261025T1615.json",
+          "sha256": "24ec3e68599322a8636b911a3f2b86ffd1a217c97f54b3d1fca97b58b04ab52e",
+          "bytes": 1071
+        }
+      ],
+      "whole_package33_current_SHA_match": true,
+      "coverage": "Synthetic positive D60/H37 public execute/resume plus reason-matched negative checks; not rerun this round."
+    },
+    {
+      "requirement": "bounded native compact sink contract",
+      "state": "Existing accepted code/format/quota reviews reusable.",
+      "refs": [
+        {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_compact_sink_engineering_acceptance_20261025T1410.json",
+          "sha256": "e6b8958c73e988a7ee669720b48d8e025b81fb4581b1e3891620713dc9a3c7bf",
+          "bytes": 1972
+        },
+        {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_source_best_sink_final_confirmation.json",
+          "sha256": "04a652d4d813c0b37e13627c986107ae508ff710cd484b1fe808f60ed422146f",
+          "bytes": 16922
+        },
+        {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_source_best_sink_science_review.json",
+          "sha256": "3c0cd85c99eb110e3805446468c89adf9a6552d9f73d1c946b483572302a39b9",
+          "bytes": 29486
+        }
+      ],
+      "scope": "Sink9b/stat012 retains D60/H37/CAL200/TEST2000 and explicit decoded/file/allocated persistent/staging bounds; parsed/process RSS remains real-entry canary work."
+    },
+    {
+      "requirement": "same input and full remaining write capacity",
+      "state": "Existing reviewed38b3 full future-write plan reusable as capacity basis; actual per-job output binding still pending.",
+      "refs": [
+        {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/actual_M_cache_input_context_candidate.json",
+          "sha256": "8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a",
+          "bytes": 616
+        },
+        {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/plans/M_detector_resume_remaining_write_plan_20261026T0140_candidate.json",
+          "sha256": "38b3fe99340bc42d18798f36e7b1cff9fe4a4e8a8e6e692cdd5b19fbf5075254",
+          "bytes": 4916
+        },
+        {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_M_detector_resume_capacity_reassessment_20261026.json",
+          "sha256": "cd1bf7de81c1a42ba6c7cd41b13fbae05b0a534716de483f3f33ca7cb93890b6",
+          "bytes": 11083
+        }
+      ]
+    }
+  ],
+  "still_missing": [
+    {
+      "item": "Formal M statistic engineering acceptance",
+      "required": "Externally SHA-bound schema M_STATISTIC_RESOURCE_AND_FORMAT_ACCEPTANCE_V1,statusPASS,same input8d8e,current full33code inventory. Bind existing actual D/H transport+terminal and independent entry review; independently accept the bounded first-two-canary resource plan.",
+      "state": "Absent in scanned metadata. Existing H Q or synthetic acceptance cannot substitute."
+    },
+    {
+      "item": "Independent exact6role job admission for each fixed canary",
+      "required": "Reuse accepted06eda admit_job after a real shared slot is free. Independently revalidate Dclip7 all6 and Hclip7 B/AB3each,source-best head,source/context and current derived snapshots; no all45 global-closure precondition in this entry.",
+      "state": "Formal M_SOURCE_BEST_JOB_CACHE_INDEPENDENT_ADMISSION_V1 proofs absent. Current native6role availability is parent-reported and not independently qualified by this inventory."
+    },
+    {
+      "item": "Bounded canary resource plan and exact output binding",
+      "required": "Specify D/H nine strict sink limits,max_total D1GiB/H256MiB per current plan,per-job temporary<=shared6GiB retained-failure pool,emptyCUDA/qualified2threads,shared slot,live full remaining budget and process resource measurement boundary. Derive canonical static identity/output from admitted contexts and6marker hashes,then bind plan jobs outputs to those exact paths.",
+      "state": "Existing38b3 has all30 output fields null; no independently accepted specific canary plan found. 38b3 is retained immutable capacity evidence,not sufficient as-is for execute line112."
+    },
+    {
+      "item": "Separate two-job statistic canary permit",
+      "required": "schema M_BOUNDED_STATISTIC_CANARY_ADMISSION_V1,statusPASS,same artifact root/input,current33code,exact two registered job_ids,qualification/capacity/cache_permit SHA refs and route limits,four cores and allfive-seed requirement retained.",
+      "state": "Absent. cache-only d4 is not statistic permission."
+    },
+    {
+      "item": "Available real shared CPU slot and fresh start checks",
+      "required": "admit_job and execute use the existing shared two-slot mechanism. Refresh free capacity and exact input/code/permit refs at launch; preserve originals and retained failed staging.",
+      "state": "Parent reports F statistic PIDs806374/806376 occupy both slots. No start/admit_job permitted now; this inventory does not probe/acquire leases."
+    },
+    {
+      "item": "Post-canary actual resource and saved-result acceptance",
+      "required": "After authorized two canaries run, independently audit declared D60/H37 outputs,source/code/marker rebinding,resource measurements and limits before any full30-job statistic permit can set actual_entry_resource_qualified=True.",
+      "state": "Not a prerequisite to the first bounded canaries: their qualification must explicitly keep actual_entry_resource_qualified=False and bounded_canary_resource_plan_independently_accepted=True. No actual canary execution/receipt found."
+    }
+  ],
+  "capacity_snapshot": {
+    "ref": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/plans/M_detector_resume_remaining_write_plan_20261026T0140_candidate.json",
+      "sha256": "38b3fe99340bc42d18798f36e7b1cff9fe4a4e8a8e6e692cdd5b19fbf5075254",
+      "bytes": 4916
+    },
+    "utc": "2026-10-26T03:56:39.918786+00:00",
+    "full_initial_required_bytes": 150215493801,
+    "full_initial_required_GiB": 139.89908043388277,
+    "feature_cap_bytes": 18413684905,
+    "feature_cap_GiB": 17.149080433882773,
+    "full45feature_retained": true,
+    "all30statistic_cap_bytes": 20132659200,
+    "global_M_temporary_bytes": 6442450944,
+    "runtime_floor_bytes": 53687091200,
+    "all30_output_paths_currently_null": true,
+    "live_free_bytes": 151744425984,
+    "live_free_GiB": 141.3230094909668,
+    "nominal_margin_bytes": 1528932183,
+    "snapshot_only_requires_live_recheck": true,
+    "partial_M_feature_credit_bytes": 0,
+    "compression_or_deletion_credit_bytes": 0
+  },
+  "cache_only_permit": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/M_cache_production/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/c79860cc8d06631c2bff337c3349d4ab2a7d58bd9f77c426c9cb869a3cf273af/cache_permit.json",
+    "sha256": "d4b735fda1c4aa5a4932b051fc01cf98770d5abe4c2c3d253a5f0a2820f42714",
+    "bytes": 4271
+  },
+  "not_additional_first_canary_gates": [
+    "No requirement that all45 M feature models be completed before the exact admitted Dclip7/Hclip7 jobs. Pending features keep their full18413684905B bound and receive0byte credit.",
+    "No requirement to first mark actual_entry_resource_qualified=True; bounded canary path explicitly requiresFalse.",
+    "No substitution of original H qualification/statistic acceptances for M statistic engineering acceptance or a separate canary permit."
+  ],
+  "protected_code": {
+    "M36_baseline": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_actual_four_gate_review_preparation.json",
+      "sha256": "016d1b05fda474af90cba388509a788ae2fe35fbb792164cf4bc1d7a082854f0",
+      "bytes": 52734
+    },
+    "M36_count": 36,
+    "current_all_match": true,
+    "whole_package33_current_match": true
+  },
+  "parent_reported_context": {
+    "M_native_role_markers": "106/180 with active workers finalguard at task delegation; not independently recounted here",
+    "Dclip7_native6_ready": true,
+    "Hclip7_native6_ready": true,
+    "active_owner_PID": 825619,
+    "active_F_statistic_PIDs": [
+      806374,
+      806376
+    ],
+    "independently_accepted_primary_H_pairs": "4/15 at delegation; no extra completed-pair budget credit taken"
+  },
+  "actions": {
+    "metadata_only": true,
+    "new_engineering": false,
+    "source_edited": false,
+    "tests_run": false,
+    "models_weights_PNG_large_payload_read": false,
+    "CPU_slot_acquired": false,
+    "locks_or_processes_touched": false,
+    "qualification_issued": false,
+    "permit_issued": false,
+    "production_started": false,
+    "JEV_GLM_MMTT_or_paired_investigation_touched": false
+  },
+  "verdict": "REUSE_EXISTING_ACCEPTED_ENTRY_AND_TRANSPORT_EVIDENCE; FIRST_TWO_CANARIES_NOT_YET_ADMITTED",
+  "production_or_scientific_permission_granted": false
+}

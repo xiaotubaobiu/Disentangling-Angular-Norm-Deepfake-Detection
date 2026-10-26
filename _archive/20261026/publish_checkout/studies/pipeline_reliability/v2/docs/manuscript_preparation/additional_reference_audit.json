@@ -1,0 +1,32 @@
+{
+  "schema": "DeepfakeDetector_v2_additional_primary_reference_audit_V1",
+  "verified_date_UTC": "2026-10-23",
+  "scope": "Three previously missing reference candidates only; no manuscript results or main-master edits.",
+  "entries": [
+    {
+      "key": "dufour2019dfd",
+      "primary_urls": ["https://research.google/blog/contributing-data-to-deepfake-detection-research/", "https://github.com/ondyari/FaceForensics/"],
+      "verified_metadata": "Google Research; Nick Dufour and Andrew Gully; 24 September 2019; institutional dataset announcement, not a peer-reviewed paper.",
+      "supported_use": "DFD origin and incorporation into the FaceForensics benchmark; actors consented to recording. Official hosting README identifies more than 3,000 manipulations from 28 actors.",
+      "limits": "Exact local 363-real/3068-fake counts must cite the frozen local inventory, not this announcement. No identity-independence or full-ancestry certification follows from the citation."
+    },
+    {
+      "key": "guo2021scrfd",
+      "primary_urls": ["https://arxiv.org/abs/2105.04714"],
+      "verified_metadata": "Authors/title/arXiv ID/date and arXiv DOI verified at the author-submitted record. Cite this verified preprint; no unverified conference venue is added.",
+      "supported_use": "SCRFD detector-family attribution.",
+      "limits": "Local ONNX weights, detector threshold, no-upscale resize, template, margins, masks and B/AB redetection protocol require local configuration/hash evidence; the paper does not certify those local choices or identify the manipulated face."
+    },
+    {
+      "key": "tong2018np",
+      "primary_urls": ["https://arxiv.org/abs/1608.03109", "https://arxiv.org/pdf/1608.03109", "https://doi.org/10.1126/sciadv.aao1659"],
+      "verified_metadata": "Author-submitted record supplies Science Advances 4(2), eaao1659 (2018) and DOI. Publisher direct fetch returned HTTP403; accessible author manuscript was read instead.",
+      "supported_use": "The order-statistic approach requires sufficient held-out class-0 data: ceil(log(delta)/log(1-alpha)) gives59 at alpha=delta=.05. The paper explicitly states a within-class iid requirement and distinguishes empirical type-I error from population control.",
+      "locations": "Author PDF p6: order-statistic bound and minimum sample size; pp10-11:59 example and iid limitation.",
+      "limits": "This study's proxy-closure CDF calibration pool does not establish those assumptions. A budget of80 being larger than59 does not establish a population guarantee. Empirical5% calibration and formal NP thresholds remain different rules; frozen thresholds will not be changed to claim a guarantee."
+    }
+  ],
+  "remaining_reference_gap": "Prior conference manuscript publication status, venue and DOI still require verification from its actual record; no publication claim added.",
+  "master_manuscripts_modified": false,
+  "scientific_results_added": false
+}

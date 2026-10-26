@@ -1,0 +1,90 @@
+{
+  "command": [
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+    "-B",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/m_source_best_result_audit.py"
+  ],
+  "cwd": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2",
+  "environment": {
+    "CUDA_VISIBLE_DEVICES": "",
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1"
+  },
+  "exit_code": 0,
+  "result": {
+    "schema": "M_INDEPENDENT_SAVED_RESULT_AUDIT_V1",
+    "status": "PREPARE_ONLY",
+    "production_audit_started": false,
+    "accepted_for_selected_core": false,
+    "scientific_final_acceptance": false,
+    "inventory_counts": {
+      "D": 60,
+      "H": 37
+    },
+    "audited_scope": "SELECTED_FOUR_CORE_ONLY",
+    "core_endpoints": {
+      "RQ1": {
+        "domain": "DFD_TARGET_TEST",
+        "cohort": "all_B",
+        "aggregation": "mean_logit",
+        "comparison": "H10-H00",
+        "source_FF_validation": true,
+        "mean_probability_sensitivity": true
+      },
+      "RQ2": {
+        "role": "target_full",
+        "grouping": "correct",
+        "aggregation": "mean_logit",
+        "metric": "pooled_auc",
+        "comparison": "L2-Raw"
+      },
+      "RQ3": {
+        "role": "target_full",
+        "aggregations": [
+          "mean_logit",
+          "mean_probability"
+        ],
+        "metric": "pooled_auc",
+        "comparison": "delta_collision-delta_correct"
+      },
+      "RQ4": {
+        "role": "target_test",
+        "calibration_budget": 20,
+        "comparison": "target_real-source_real",
+        "metrics": [
+          "fpr",
+          "tpr",
+          "pooled_ba"
+        ],
+        "CAL_repeats": 200,
+        "TEST_repeats": 2000
+      }
+    },
+    "layers": {
+      "training_seeds": [
+        7,
+        42,
+        123,
+        2026,
+        3407
+      ],
+      "CAL_subsets": 200,
+      "conditional_TEST_bootstrap": 2000,
+      "resampling_seed": 20261023,
+      "training_seeds_resampled": false,
+      "intervals": "95% pointwise conditional percentile; no global significance claim",
+      "five_seed_summary_computed_here": false
+    },
+    "required_external_request_schema": "M_INDEPENDENT_SAVED_RESULT_AUDIT_REQUEST_V1",
+    "consumer_dependencies_sha256": {
+      "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/m_source_best_result_audit.py": "72f28181f6aef259a9686d35d2848cfb5f9f041f9184389c48e67f21ed24e419",
+      "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/h_pair_result_audit.py": "6cd3bff403cc2f7c27a870d092023e4c8677f5d9386668abbc439829eadaa4e5",
+      "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/multiplicity_bundle.py": "3aa5debf7d98bd976bc21fa5be2135d34cdfa8e0b91873f356cc8f57e24360c3",
+      "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/multiplicity_codec.py": "1931371915dcbf542b78b79ca433f202e6c6cdf194400985020f105eff92fa73",
+      "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/sensitivity_io.py": "d311923c3e35b8e9ba2fc42dc5ee7e6e46b66ce3c9f2d3a923ea8ccb949be9ce",
+      "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/m_source_best_d_numeric.py": "a7b079965fd34acbf2e974480aa197ded476cbc21f1447aeac523e1c4aab1dd0"
+    }
+  },
+  "stderr": ""
+}

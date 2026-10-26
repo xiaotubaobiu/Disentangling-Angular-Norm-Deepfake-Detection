@@ -1,0 +1,322 @@
+[
+  {
+    "dataset": "FFPP",
+    "domain": "source",
+    "group_id": "group/0",
+    "label": 0,
+    "method": "real",
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_logs/pytest_run3/test_inspect_rejects_stale_or_2/data/H/pixels/0/source.mp4",
+    "role": "TRAIN",
+    "source_graph_certified": true,
+    "source_group": "group/0",
+    "source_ids": [
+      "0"
+    ],
+    "video_id": "0",
+    "video_uid": "fixture/TRAIN/real/0"
+  },
+  {
+    "dataset": "FFPP",
+    "domain": "source",
+    "group_id": "group/1",
+    "label": 1,
+    "method": "Deepfakes",
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_logs/pytest_run3/test_inspect_rejects_stale_or_2/data/H/pixels/1/source.mp4",
+    "role": "TRAIN",
+    "source_graph_certified": true,
+    "source_group": "group/1",
+    "source_ids": [
+      "1"
+    ],
+    "video_id": "1",
+    "video_uid": "fixture/TRAIN/Deepfakes/1"
+  },
+  {
+    "dataset": "FFPP",
+    "domain": "source",
+    "group_id": "group/2",
+    "label": 1,
+    "method": "Face2Face",
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_logs/pytest_run3/test_inspect_rejects_stale_or_2/data/H/pixels/2/source.mp4",
+    "role": "TRAIN",
+    "source_graph_certified": true,
+    "source_group": "group/2",
+    "source_ids": [
+      "2"
+    ],
+    "video_id": "2",
+    "video_uid": "fixture/TRAIN/Face2Face/2"
+  },
+  {
+    "dataset": "FFPP",
+    "domain": "source",
+    "group_id": "group/3",
+    "label": 1,
+    "method": "FaceSwap",
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_logs/pytest_run3/test_inspect_rejects_stale_or_2/data/H/pixels/3/source.mp4",
+    "role": "TRAIN",
+    "source_graph_certified": true,
+    "source_group": "group/3",
+    "source_ids": [
+      "3"
+    ],
+    "video_id": "3",
+    "video_uid": "fixture/TRAIN/FaceSwap/3"
+  },
+  {
+    "dataset": "FFPP",
+    "domain": "source",
+    "group_id": "group/4",
+    "label": 1,
+    "method": "NeuralTextures",
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_logs/pytest_run3/test_inspect_rejects_stale_or_2/data/H/pixels/4/source.mp4",
+    "role": "TRAIN",
+    "source_graph_certified": true,
+    "source_group": "group/4",
+    "source_ids": [
+      "4"
+    ],
+    "video_id": "4",
+    "video_uid": "fixture/TRAIN/NeuralTextures/4"
+  },
+  {
+    "dataset": "FFPP",
+    "domain": "source",
+    "group_id": "group/5",
+    "label": 0,
+    "method": "real",
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_logs/pytest_run3/test_inspect_rejects_stale_or_2/data/H/pixels/5/source.mp4",
+    "role": "DEV",
+    "source_graph_certified": true,
+    "source_group": "group/5",
+    "source_ids": [
+      "5"
+    ],
+    "video_id": "5",
+    "video_uid": "fixture/DEV/real/5"
+  },
+  {
+    "dataset": "FFPP",
+    "domain": "source",
+    "group_id": "group/6",
+    "label": 1,
+    "method": "Deepfakes",
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_logs/pytest_run3/test_inspect_rejects_stale_or_2/data/H/pixels/6/source.mp4",
+    "role": "DEV",
+    "source_graph_certified": true,
+    "source_group": "group/6",
+    "source_ids": [
+      "6"
+    ],
+    "video_id": "6",
+    "video_uid": "fixture/DEV/Deepfakes/6"
+  },
+  {
+    "dataset": "FFPP",
+    "domain": "source",
+    "group_id": "group/7",
+    "label": 1,
+    "method": "Face2Face",
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_logs/pytest_run3/test_inspect_rejects_stale_or_2/data/H/pixels/7/source.mp4",
+    "role": "DEV",
+    "source_graph_certified": true,
+    "source_group": "group/7",
+    "source_ids": [
+      "7"
+    ],
+    "video_id": "7",
+    "video_uid": "fixture/DEV/Face2Face/7"
+  },
+  {
+    "dataset": "FFPP",
+    "domain": "source",
+    "group_id": "group/8",
+    "label": 1,
+    "method": "FaceSwap",
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_logs/pytest_run3/test_inspect_rejects_stale_or_2/data/H/pixels/8/source.mp4",
+    "role": "DEV",
+    "source_graph_certified": true,
+    "source_group": "group/8",
+    "source_ids": [
+      "8"
+    ],
+    "video_id": "8",
+    "video_uid": "fixture/DEV/FaceSwap/8"
+  },
+  {
+    "dataset": "FFPP",
+    "domain": "source",
+    "group_id": "group/9",
+    "label": 1,
+    "method": "NeuralTextures",
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_logs/pytest_run3/test_inspect_rejects_stale_or_2/data/H/pixels/9/source.mp4",
+    "role": "DEV",
+    "source_graph_certified": true,
+    "source_group": "group/9",
+    "source_ids": [
+      "9"
+    ],
+    "video_id": "9",
+    "video_uid": "fixture/DEV/NeuralTextures/9"
+  },
+  {
+    "dataset": "FFPP",
+    "domain": "source",
+    "group_id": "group/10",
+    "label": 0,
+    "method": "real",
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_logs/pytest_run3/test_inspect_rejects_stale_or_2/data/H/pixels/10/source.mp4",
+    "role": "SOURCE_TEST",
+    "source_graph_certified": true,
+    "source_group": "group/10",
+    "source_ids": [
+      "10"
+    ],
+    "video_id": "10",
+    "video_uid": "fixture/SOURCE_TEST/real/10"
+  },
+  {
+    "dataset": "FFPP",
+    "domain": "source",
+    "group_id": "group/11",
+    "label": 1,
+    "method": "Deepfakes",
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_logs/pytest_run3/test_inspect_rejects_stale_or_2/data/H/pixels/11/source.mp4",
+    "role": "SOURCE_TEST",
+    "source_graph_certified": true,
+    "source_group": "group/11",
+    "source_ids": [
+      "11"
+    ],
+    "video_id": "11",
+    "video_uid": "fixture/SOURCE_TEST/Deepfakes/11"
+  },
+  {
+    "dataset": "FFPP",
+    "domain": "source",
+    "group_id": "group/12",
+    "label": 1,
+    "method": "Face2Face",
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_logs/pytest_run3/test_inspect_rejects_stale_or_2/data/H/pixels/12/source.mp4",
+    "role": "SOURCE_TEST",
+    "source_graph_certified": true,
+    "source_group": "group/12",
+    "source_ids": [
+      "12"
+    ],
+    "video_id": "12",
+    "video_uid": "fixture/SOURCE_TEST/Face2Face/12"
+  },
+  {
+    "dataset": "FFPP",
+    "domain": "source",
+    "group_id": "group/13",
+    "label": 1,
+    "method": "FaceSwap",
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_logs/pytest_run3/test_inspect_rejects_stale_or_2/data/H/pixels/13/source.mp4",
+    "role": "SOURCE_TEST",
+    "source_graph_certified": true,
+    "source_group": "group/13",
+    "source_ids": [
+      "13"
+    ],
+    "video_id": "13",
+    "video_uid": "fixture/SOURCE_TEST/FaceSwap/13"
+  },
+  {
+    "dataset": "FFPP",
+    "domain": "source",
+    "group_id": "group/14",
+    "label": 1,
+    "method": "NeuralTextures",
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_logs/pytest_run3/test_inspect_rejects_stale_or_2/data/H/pixels/14/source.mp4",
+    "role": "SOURCE_TEST",
+    "source_graph_certified": true,
+    "source_group": "group/14",
+    "source_ids": [
+      "14"
+    ],
+    "video_id": "14",
+    "video_uid": "fixture/SOURCE_TEST/NeuralTextures/14"
+  },
+  {
+    "dataset": "FFPP",
+    "domain": "source",
+    "group_id": "group/15",
+    "label": 0,
+    "method": "real",
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_logs/pytest_run3/test_inspect_rejects_stale_or_2/data/H/pixels/15/source.mp4",
+    "role": "SOURCE_CAL",
+    "source_graph_certified": true,
+    "source_group": "group/15",
+    "source_ids": [
+      "15"
+    ],
+    "video_id": "15",
+    "video_uid": "fixture/SOURCE_CAL/real/15"
+  },
+  {
+    "dataset": "DFD",
+    "domain": "target",
+    "group_id": "group/16",
+    "label": 0,
+    "method": "real",
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_logs/pytest_run3/test_inspect_rejects_stale_or_2/data/H/pixels/16/source.mp4",
+    "role": "TARGET_TEST",
+    "source_graph_certified": false,
+    "source_group": "group/16",
+    "source_ids": [
+      "16"
+    ],
+    "video_id": "16",
+    "video_uid": "fixture/TARGET_TEST/real/16"
+  },
+  {
+    "dataset": "DFD",
+    "domain": "target",
+    "group_id": "group/17",
+    "label": 1,
+    "method": "DeepFakeDetection",
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_logs/pytest_run3/test_inspect_rejects_stale_or_2/data/H/pixels/17/source.mp4",
+    "role": "TARGET_TEST",
+    "source_graph_certified": false,
+    "source_group": "group/17",
+    "source_ids": [
+      "17"
+    ],
+    "video_id": "17",
+    "video_uid": "fixture/TARGET_TEST/DeepFakeDetection/17"
+  },
+  {
+    "dataset": "FFPP",
+    "domain": "source",
+    "group_id": "group/18",
+    "label": 1,
+    "method": "Deepfakes",
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_logs/pytest_run3/test_inspect_rejects_stale_or_2/data/H/pixels/18/source.mp4",
+    "role": "SOURCE_UNUSED",
+    "source_graph_certified": true,
+    "source_group": "group/18",
+    "source_ids": [
+      "18"
+    ],
+    "video_id": "18",
+    "video_uid": "fixture/SOURCE_UNUSED/Deepfakes/18"
+  },
+  {
+    "dataset": "FFPP",
+    "domain": "source",
+    "group_id": "group/19",
+    "label": 1,
+    "method": "Face2Face",
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_logs/pytest_run3/test_inspect_rejects_stale_or_2/data/H/pixels/19/source.mp4",
+    "role": "SOURCE_UNUSED",
+    "source_graph_certified": true,
+    "source_group": "group/19",
+    "source_ids": [
+      "19"
+    ],
+    "video_id": "19",
+    "video_uid": "fixture/SOURCE_UNUSED/Face2Face/19"
+  }
+]

@@ -1,0 +1,58 @@
+{
+  "utc": "2026-10-25T19:26:20Z",
+  "status": "FIXED9_SOURCE_ONLY_GPU_QUALIFICATION_OWNER_LAUNCHED_NOT_YET_PASSED",
+  "wrapper_pid": 3225046,
+  "command": [
+    "/usr/bin/time",
+    "-v",
+    "-o",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/actual_source9_GPU_qualification_20261025T1925_time_v.log",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+    "-B",
+    "-u",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/source_best_owner.py",
+    "--execute",
+    "--root",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023",
+    "--plan",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/plans/source_gpu9_20261025T1700_candidate/owner_plan.json",
+    "--plan-sha",
+    "195fcb122568d54d0022d05c24b9b3ec5c565dc50e1650eebc969723651bf0aa"
+  ],
+  "owner_plan_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/plans/source_gpu9_20261025T1700_candidate/owner_plan.json",
+  "owner_plan_sha256": "195fcb122568d54d0022d05c24b9b3ec5c565dc50e1650eebc969723651bf0aa",
+  "original_H_stage_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_primary_cache_stage_complete.json",
+  "original_H_stage_sha256": "90bfad1afbdfb8096c41625625e109ea9cf06ceb4f5246e435cc48241646a3ce",
+  "original_H30_operational_cache_complete": true,
+  "original_H_independent_all30_cache_admission_complete": false,
+  "run_ids": [
+    "D_formal_clip_vit_b16_seed7",
+    "D_formal_dinov2_vit_b14_seed7",
+    "D_formal_efficientnet_b0_seed7",
+    "H_formal_clip_vit_b16_B_seed7",
+    "H_formal_clip_vit_b16_AB_seed7",
+    "H_formal_dinov2_vit_b14_B_seed7",
+    "H_formal_dinov2_vit_b14_AB_seed7",
+    "H_formal_efficientnet_b0_B_seed7",
+    "H_formal_efficientnet_b0_AB_seed7"
+  ],
+  "scope": "Nine fixed seed7 SOURCE_CAL-only cases D3architectures andH6architectures/histories; no targetencoder/threshold/testmetric/training",
+  "allowed_physical_GPUs": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "protected_GPUs": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "prior_actual45_CPU_tensor_qualification_repeated": false,
+  "log": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/actual_source9_GPU_qualification_20261025T1925.log",
+  "time_v": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/actual_source9_GPU_qualification_20261025T1925_time_v.log",
+  "free_GiB_at_launch": 155.0660057067871,
+  "source9_qualification_passed": false,
+  "M_cache_or_statistics_production_permit_issued": false
+}

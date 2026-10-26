@@ -1,0 +1,55 @@
+{
+  "schema": "DETECTOR_V2_CHECK_20261026T1230_INTERIM_V1",
+  "observed_utc": "2026-10-26T12:36:00.070566+00:00",
+  "initial_snapshot": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/check_20261026T1230_initial_live_snapshot.json",
+    "sha256": "91ee5fffd7fba76ffa943b5075337838f04667227a8c65c64d628dfa8b2caa58"
+  },
+  "D_actual_numeric_audit_exit": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/M_D_clip_seed7_R1_actual_selected_core_numeric_audit_native_context_R1_20261026T1205_exit.json",
+    "sha256": "649b73bb7a839cf0d6afe0eee7209590cb3ae99741294eac8aec60632a847119"
+  },
+  "actual_audit_failure": "Saved CSV video_id 004 parsed as integer4 by consumer; raw CSV and source frame both004",
+  "actual_diagnostic": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_independent_consumer_actual_RQ4_CSV_leading_zero_diagnostic_20261026T1235.json",
+    "sha256": "61fca684852c1abaee986c691e7e7844c4bdd46322a432d363281f97beada315"
+  },
+  "numeric_acceptance": false,
+  "D_producer_rerun": false,
+  "source_artifacts_changed": false,
+  "isolated_minimal_consumer_fix": "CSV dtype video_id:str only; downstream summary pin only",
+  "RED": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/M_consumer_CSV_lexical_identity_RED_20261026T1235.log",
+    "sha256": "b4386500a16173d43c7d4aeb6044c303057283896bfbf079ee7ac056a53cd346"
+  },
+  "GREEN": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/M_consumer_CSV_lexical_identity_GREEN_20261026T1235.log",
+    "sha256": "af11f7e891dd78ffe36ddb4c41e2c4294e30a315facbbe81348914ceec718b4e"
+  },
+  "tests_passed": 141,
+  "independent_review": "PENDING",
+  "M33_unchanged": true,
+  "M_owner_recovery_executed": false,
+  "M_owner_counts": {
+    "completed": 26,
+    "active_draining": 4,
+    "pending_stopped": 15,
+    "raw_roles": 130
+  },
+  "owner_IO_readonly_evidence": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_owner_draining_workers_readonly_IO_evidence_20261026T1235.json",
+    "sha256": "b8495006a0d977b54bb06164a91b7313a0b6889fcdc5e7ac929b25a29e660cfa"
+  },
+  "H_individual_pairs_independent": 6,
+  "Eff7_source_ledger_checks_started": 34,
+  "H_canary_started": false,
+  "M_full30_permission": false,
+  "capacity": {
+    "free_GiB": 139.50376892089844,
+    "full_remaining_bound_GiB": 137.89908043388277,
+    "physical_SSD_release_bytes": 0
+  },
+  "next_check_utc": "2026-10-26T13:00:00+00:00",
+  "scientific_results_complete": false,
+  "journal_manuscripts_complete": false
+}

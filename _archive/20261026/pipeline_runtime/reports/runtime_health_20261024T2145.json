@@ -1,0 +1,110 @@
+{
+  "utc": "2026-10-24T21:53:58.741752+00:00",
+  "status": "PASS_ORIGINAL_FOUR_GPU_H_FORMAL_RUNNING_FULL_SNAPSHOT_E2_ACCEPTED",
+  "queue_stage": "H_FORMAL_AMP_TRAINING",
+  "queue_owner": 2222605,
+  "active": [
+    {
+      "pid": 2228135,
+      "run_id": "H_formal_clip_vit_b16_B_seed7",
+      "gpu": 0,
+      "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e",
+      "backbone": "clip_vit_b16",
+      "committed_history_epochs": 3,
+      "committed_attempts": 573,
+      "committed_success": 573,
+      "committed_skips": 0,
+      "later_live_complete_update_records": 645,
+      "later_live_skips": 0,
+      "mean_epoch_seconds_in_history": 120.64414842923482,
+      "training_draw_equivalent_per_second": 202.64555155230136
+    },
+    {
+      "pid": 2228136,
+      "run_id": "H_formal_clip_vit_b16_AB_seed7",
+      "gpu": 1,
+      "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+      "backbone": "clip_vit_b16",
+      "committed_history_epochs": 3,
+      "committed_attempts": 573,
+      "committed_success": 573,
+      "committed_skips": 0,
+      "later_live_complete_update_records": 624,
+      "later_live_skips": 0,
+      "mean_epoch_seconds_in_history": 122.0558847586314,
+      "training_draw_equivalent_per_second": 200.30169006882824
+    },
+    {
+      "pid": 2228137,
+      "run_id": "H_formal_clip_vit_b16_B_seed42",
+      "gpu": 2,
+      "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+      "backbone": "clip_vit_b16",
+      "committed_history_epochs": 3,
+      "committed_attempts": 573,
+      "committed_success": 573,
+      "committed_skips": 0,
+      "later_live_complete_update_records": 623,
+      "later_live_skips": 0,
+      "mean_epoch_seconds_in_history": 122.00666769345601,
+      "training_draw_equivalent_per_second": 200.38249107357024
+    },
+    {
+      "pid": 2228138,
+      "run_id": "H_formal_clip_vit_b16_AB_seed42",
+      "gpu": 3,
+      "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646",
+      "backbone": "clip_vit_b16",
+      "committed_history_epochs": 3,
+      "committed_attempts": 573,
+      "committed_success": 573,
+      "committed_skips": 0,
+      "later_live_complete_update_records": 648,
+      "later_live_skips": 0,
+      "mean_epoch_seconds_in_history": 120.96874205271403,
+      "training_draw_equivalent_per_second": 202.10179576263096
+    }
+  ],
+  "H_formal_completed": 0,
+  "H_formal_pending": 26,
+  "H_standard_dev_accepted": 20,
+  "H_dev_attempts": 114600,
+  "H_dev_success": 114600,
+  "H_dev_skips": 0,
+  "formal_complete_study": 15,
+  "formal_total": 45,
+  "GPU_samples": [
+    {
+      "utc": "2026-10-24T21:53:54.123877+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 97, 4932\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 96, 4932\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 97, 4932\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 97, 4932\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-24T21:53:56.260570+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 98, 4932\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 97, 4932\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 98, 4932\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 96, 4932\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-24T21:53:58.372997+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 96, 4932\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 96, 4932\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 96, 4932\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 98, 4932\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    }
+  ],
+  "GPU0_3_mean_util_percent": {
+    "0": 97.0,
+    "1": 96.33333333333333,
+    "2": 97.0,
+    "3": 97.0
+  },
+  "GPU_processes": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 2228135, /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python, 4924\nGPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 2228136, /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python, 4924\nGPU-5df5602a-848e-d944-26cd-aec11b964b45, 2228137, /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python, 4924\nGPU-626ec32f-1401-c959-74b0-db04ed63c646, 2228138, /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python, 4924\nGPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 1532179, VLLM::Worker_TP0, 28152\nGPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 1532180, VLLM::Worker_TP1, 28152\nGPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 1532181, VLLM::Worker_TP2, 28152\nGPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 1532182, VLLM::Worker_TP3, 28152\n",
+  "full_snapshot_report": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_formal_checkpoint_health_20261024T2145.json",
+  "full_snapshot_report_sha256": "29b79409a5f4f7c31c7a74d3874da0d3b9b3765c071c084365c00093414dac18",
+  "latest_history_and_live_scope": "Later committed JSON histories/update logs can exceed E2 full tensor audit; counts are distinct cuts, not all30 totals.",
+  "throughput_clock": "24448 training draws divided by trainer epoch seconds: includes training/sourceDEV/sampling-record work, excludes subsequent checkpoint writes and initial model loading; first epochs not steady-state guarantee.",
+  "capacity_report": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/full_capacity_live_20261024T2145.json",
+  "capacity_report_sha256": "f0961744de419403e0d3771bbbb1e8d8e08eaad32259f17a51da0407ab30f4a3",
+  "protected_input_count": 13,
+  "protected_input_changes": 0,
+  "git_head": "5ef6d06bf7aeda02a5a11113e4c35a2c9909f215",
+  "git_clean": true,
+  "source_best": "HOLD",
+  "cold_release_bytes": 0,
+  "next_check_utc": "2026-10-24T22:15:00Z"
+}

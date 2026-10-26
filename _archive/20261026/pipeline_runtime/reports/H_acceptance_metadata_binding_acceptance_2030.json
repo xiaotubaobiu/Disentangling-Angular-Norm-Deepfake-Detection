@@ -1,0 +1,51 @@
+{
+  "utc": "2026-10-23T20:33:08.164003+00:00",
+  "status": "PASS_NARROW_H_ACCEPTANCE_FIX_319_CPU_TESTS_AND_INDEPENDENT_REVIEW",
+  "Git_previous_HEAD": "a612f24194a0a89f42f0e3bf6dde73a6287ee76d",
+  "Git_HEAD": "aa9166fa68bb57272e497697652c0b591af21ea9",
+  "Git_clean": true,
+  "pushed": false,
+  "changes": [
+    "studies/pipeline_reliability/v2/reliability_v2/qualification_h.py",
+    "studies/pipeline_reliability/v2/tests/test_qualification_h.py"
+  ],
+  "production_change": "Accepted Hfreeze uses shallowmetadata/code/table/review binding; allsixGPUproofs still fullverified. Verification attestation accurately separates these scopes.",
+  "full_CPU_tests": {
+    "started_utc": "2026-10-23T20:26:40.544580+00:00",
+    "completed_utc": "2026-10-23T20:31:28.511584+00:00",
+    "returncode": 0,
+    "command": [
+      "environment/bin/python",
+      "-m",
+      "pytest",
+      "-q"
+    ],
+    "cwd": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2",
+    "CUDA_VISIBLE_DEVICES": "",
+    "log": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/logs/H_acceptance_patch_full_CPU_2030.log",
+    "source_test_sha256_before_and_after": {
+      "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/qualification_h.py": "5c70e9fb2a39bd974b0db278d519a8b7103f9553c3bfee32c7accb311edf0ec0",
+      "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/tests/test_qualification_h.py": "c849dd181756cc156ed94b42009bd02253430ed2f1883847e1d77bb0c8c2f96e"
+    },
+    "source_test_unchanged": true
+  },
+  "full_CPU_log_sha256": "df13bffc2c5cc5312433aad97e3ae4cfe7e587b5d359beb7a7c3425898ffb775",
+  "independent_review": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_acceptance_metadata_binding_independent_review_2020.json",
+  "independent_review_sha256": "766a85473bc79f704e8fcdba7b981c4deaa83ff60e911725824efbb30e3e2ac3",
+  "new_H_bundle_sha256": "639d09df6ae68a36875d376c9176d8d69a1b070ae054d0eb04b2f221c1080ff3",
+  "probe_rebuild_report": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_source_probe_rebuild_2030.json",
+  "probe_rebuild_sha256": "3b87629e32ea907942d0f49e0af5ed7ad3fa0cda033d58a145add19c2feeb3c0",
+  "D_runtime_code_config_or_process_change": false,
+  "frozen_H_data_changed": false,
+  "full_H_data_audit_repeated": false,
+  "H_GPU_qualification_passed": false,
+  "H_resource_override_enabled": false,
+  "failed_test_history_preserved": {
+    "initial_RED_expected": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/logs/H_admission_red_2020.log",
+    "transferred_test_alias_NameError": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/logs/H_acceptance_test_alias_failure_2020.log",
+    "initial_full_suite_318passed_1aliasfailure": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_acceptance_patch_full_CPU_2020.json",
+    "fixed_alias_before_final_full_suite": true
+  },
+  "Git_add_nonzero_outcome_checked": "git add emitted ignored tests-directory warning and nonzero, but both already-tracked intended files were staged. Rechecked index content, clean worktree and staged diff before committing; add not repeated.",
+  "commit_stdout": "[codex/pipeline-reliability-plan-20261023 aa9166f] fix(v2): reuse accepted H data bindings for qualification gate\n 2 files changed, 20 insertions(+), 3 deletions(-)\n"
+}

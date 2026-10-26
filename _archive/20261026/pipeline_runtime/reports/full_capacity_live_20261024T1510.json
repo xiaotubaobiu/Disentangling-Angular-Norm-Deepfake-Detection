@@ -1,0 +1,93 @@
+{
+  "utc": "2026-10-24T15:40:07.148448+00:00",
+  "status": "NORMAL_REMAINING_COVERED_H_GPU_QUALIFICATION_COMPLETE_OOM_BRANCH_CLOSED",
+  "base_projection_sha256": "bd9535c5f151856dc491a40d6fb14cb99468bddee8015d0f37a735347d016bc7",
+  "H_gate_sha256": "a3f120d973ea89d5bd486e6327011b1da83cf3022d83cf05b43bab55e8a8779a",
+  "D_current_outputs": {
+    "D_formal_clip_vit_b16_seed7": {
+      "bytes": 7375372865,
+      "completion_marker": true
+    },
+    "D_formal_clip_vit_b16_seed42": {
+      "bytes": 7375359498,
+      "completion_marker": true
+    },
+    "D_formal_clip_vit_b16_seed123": {
+      "bytes": 7375407105,
+      "completion_marker": true
+    },
+    "D_formal_clip_vit_b16_seed2026": {
+      "bytes": 0,
+      "completion_marker": false
+    },
+    "D_formal_clip_vit_b16_seed3407": {
+      "bytes": 0,
+      "completion_marker": false
+    },
+    "D_formal_dinov2_vit_b14_seed7": {
+      "bytes": 0,
+      "completion_marker": false
+    },
+    "D_formal_dinov2_vit_b14_seed42": {
+      "bytes": 0,
+      "completion_marker": false
+    },
+    "D_formal_dinov2_vit_b14_seed123": {
+      "bytes": 0,
+      "completion_marker": false
+    },
+    "D_formal_dinov2_vit_b14_seed2026": {
+      "bytes": 0,
+      "completion_marker": false
+    },
+    "D_formal_dinov2_vit_b14_seed3407": {
+      "bytes": 0,
+      "completion_marker": false
+    },
+    "D_formal_efficientnet_b0_seed7": {
+      "bytes": 0,
+      "completion_marker": false
+    },
+    "D_formal_efficientnet_b0_seed42": {
+      "bytes": 0,
+      "completion_marker": false
+    },
+    "D_formal_efficientnet_b0_seed123": {
+      "bytes": 0,
+      "completion_marker": false
+    },
+    "D_formal_efficientnet_b0_seed2026": {
+      "bytes": 0,
+      "completion_marker": false
+    },
+    "D_formal_efficientnet_b0_seed3407": {
+      "bytes": 0,
+      "completion_marker": false
+    }
+  },
+  "H_current_run_bytes": 6981092402,
+  "remaining_components": {
+    "D_remaining_analysis": 115964116992,
+    "D_remaining_features": 0,
+    "H_training": 83476940501.52281,
+    "H_qualification": 0,
+    "H_features": 10684596224,
+    "H_pair_analysis": 16106127360,
+    "future_logs_manifests_figures_audits": 17179869184
+  },
+  "normal_remaining_write_bytes": 243411650261.52283,
+  "remaining_conditionals": {
+    "H8_DINO_extension_and_longer_formal_aux": 23610477024.37587,
+    "H30_uniform_FP32_fallback": 53550263095.29912
+  },
+  "temporary_bytes": 17179869184,
+  "reserve_bytes": 53687091200,
+  "free_bytes": 350522707968,
+  "normal_required_bytes": 314278610645.5228,
+  "all_remaining_conditional_required_bytes": 391439350765.1978,
+  "normal_margin_bytes": 36244097322.47717,
+  "remaining_conditional_cold_deficit_bytes": 40916642797.197815,
+  "staged_cold_inventory_bytes": 57722932422,
+  "SSD_cold_release_bytes": 0,
+  "scope": "Metadata-only non-atomic live remaining estimate. Completed qualification closes further OOM attempts. No source-best additional target sensitivity registration invented."
+}

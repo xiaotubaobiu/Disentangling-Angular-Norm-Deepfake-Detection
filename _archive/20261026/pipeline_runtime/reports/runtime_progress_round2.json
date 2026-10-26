@@ -1,0 +1,382 @@
+{
+  "utc": "2026-10-23T09:35:12.233346+00:00",
+  "D_queue": {
+    "owner_pid": 3942476,
+    "stage": "P2_D_STANDARD_DEVELOPMENT",
+    "utc": "2026-10-23T09:34:48.682184+00:00",
+    "active": [
+      {
+        "pid": 3942500,
+        "run_id": "D_dev_clip_vit_b16_lr1e-05_seed1007_e30",
+        "gpu": 0,
+        "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e"
+      },
+      {
+        "pid": 3942501,
+        "run_id": "D_dev_clip_vit_b16_lr1e-05_seed1042_e30",
+        "gpu": 1,
+        "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c"
+      },
+      {
+        "pid": 3942502,
+        "run_id": "D_dev_dinov2_vit_b14_lr1e-05_seed1007_e30",
+        "gpu": 2,
+        "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45"
+      },
+      {
+        "pid": 3942503,
+        "run_id": "D_dev_dinov2_vit_b14_lr1e-05_seed1042_e30",
+        "gpu": 3,
+        "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646"
+      }
+    ],
+    "completed_this_session": [],
+    "detail": {
+      "pending": [
+        "D_dev_dinov2_vit_b14_lr3e-05_seed1007_e30",
+        "D_dev_dinov2_vit_b14_lr3e-05_seed1042_e30",
+        "D_dev_dinov2_vit_b14_lr5e-05_seed1007_e30",
+        "D_dev_dinov2_vit_b14_lr5e-05_seed1042_e30",
+        "D_dev_efficientnet_b0_lr1e-04_seed1007_e30",
+        "D_dev_efficientnet_b0_lr1e-04_seed1042_e30"
+      ]
+    }
+  },
+  "active_history": [
+    {
+      "pid": 3942500,
+      "run_id": "D_dev_clip_vit_b16_lr1e-05_seed1007_e30",
+      "gpu": 0,
+      "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e",
+      "completed_epochs": 4,
+      "latest_epoch": {
+        "epoch": 4,
+        "train_loss": 0.021722114325567466,
+        "attempts": 799,
+        "success": 799,
+        "skip": 0,
+        "draw_count": 102272,
+        "method_counts": {
+          "real": 50983,
+          "inswap": 2390,
+          "sadtalker": 2464,
+          "facevid2vid": 2474,
+          "danet": 2465,
+          "one_shot_free": 2407,
+          "lia": 2416,
+          "uniface": 2428,
+          "simswap": 2401,
+          "blendface": 2450,
+          "MRAA": 2408,
+          "pirender": 2500,
+          "wav2lip": 2400,
+          "facedancer": 2415,
+          "hyperreenact": 2457,
+          "fsgan": 2401,
+          "mobileswap": 2522,
+          "tpsm": 2408,
+          "e4s": 2398,
+          "fomm": 2476,
+          "faceswap": 2455,
+          "mcnet": 2554
+        },
+        "sample_sha256": "017a3bca92a39d565f8d4e7b0f8f06b2d442eed4aad7be52f81bdb0ca4a997db",
+        "augmentation_sha256": "de7171b3502b7d96489685f411f53a14ade9d3046e7a61c8a7496e482aa75b57",
+        "dev": {
+          "macro_auc": 0.9998693578940493,
+          "pooled_auc": 0.9998637718177948,
+          "method_auc": {
+            "MRAA": 1.0,
+            "blendface": 1.0,
+            "danet": 1.0,
+            "e4s": 1.0,
+            "facedancer": 1.0,
+            "faceswap": 0.9972565157750343,
+            "facevid2vid": 1.0,
+            "fomm": 1.0,
+            "fsgan": 1.0,
+            "hyperreenact": 1.0,
+            "inswap": 1.0,
+            "lia": 1.0,
+            "mcnet": 1.0,
+            "mobileswap": 1.0,
+            "one_shot_free": 1.0,
+            "pirender": 1.0,
+            "sadtalker": 1.0,
+            "simswap": 1.0,
+            "tpsm": 1.0,
+            "uniface": 1.0,
+            "wav2lip": 1.0
+          }
+        },
+        "seconds": 512.2245585918427
+      },
+      "training_complete": false
+    },
+    {
+      "pid": 3942501,
+      "run_id": "D_dev_clip_vit_b16_lr1e-05_seed1042_e30",
+      "gpu": 1,
+      "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+      "completed_epochs": 4,
+      "latest_epoch": {
+        "epoch": 4,
+        "train_loss": 0.02437195091511826,
+        "attempts": 799,
+        "success": 799,
+        "skip": 0,
+        "draw_count": 102272,
+        "method_counts": {
+          "real": 51199,
+          "uniface": 2455,
+          "pirender": 2369,
+          "facedancer": 2426,
+          "MRAA": 2379,
+          "lia": 2460,
+          "hyperreenact": 2486,
+          "sadtalker": 2445,
+          "one_shot_free": 2459,
+          "wav2lip": 2408,
+          "fomm": 2393,
+          "mcnet": 2411,
+          "fsgan": 2433,
+          "facevid2vid": 2424,
+          "e4s": 2508,
+          "blendface": 2510,
+          "tpsm": 2430,
+          "danet": 2408,
+          "mobileswap": 2462,
+          "faceswap": 2359,
+          "inswap": 2432,
+          "simswap": 2416
+        },
+        "sample_sha256": "16c722a1a3ab94426333a458db4607eef64d0dfac10d051b721dba6d1877a6f2",
+        "augmentation_sha256": "76f845a3e98ea813b1ff8e8046dff782c687c84147089dc0da384893cb1fb838",
+        "dev": {
+          "macro_auc": 0.9997670955659689,
+          "pooled_auc": 0.999757343550447,
+          "method_auc": {
+            "MRAA": 1.0,
+            "blendface": 0.9998285322359396,
+            "danet": 1.0,
+            "e4s": 1.0,
+            "facedancer": 0.9993141289437586,
+            "faceswap": 0.9960562414266118,
+            "facevid2vid": 1.0,
+            "fomm": 1.0,
+            "fsgan": 1.0,
+            "hyperreenact": 1.0,
+            "inswap": 0.9999101042790364,
+            "lia": 1.0,
+            "mcnet": 1.0,
+            "mobileswap": 1.0,
+            "one_shot_free": 1.0,
+            "pirender": 1.0,
+            "sadtalker": 1.0,
+            "simswap": 1.0,
+            "tpsm": 1.0,
+            "uniface": 1.0,
+            "wav2lip": 1.0
+          }
+        },
+        "seconds": 517.9620580673218
+      },
+      "training_complete": false
+    },
+    {
+      "pid": 3942502,
+      "run_id": "D_dev_dinov2_vit_b14_lr1e-05_seed1007_e30",
+      "gpu": 2,
+      "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+      "completed_epochs": 3,
+      "latest_epoch": {
+        "epoch": 3,
+        "train_loss": 0.030439155411735197,
+        "attempts": 799,
+        "success": 799,
+        "skip": 0,
+        "draw_count": 102272,
+        "method_counts": {
+          "danet": 2481,
+          "lia": 2431,
+          "real": 51185,
+          "wav2lip": 2469,
+          "pirender": 2466,
+          "fsgan": 2468,
+          "blendface": 2475,
+          "sadtalker": 2357,
+          "faceswap": 2472,
+          "facevid2vid": 2401,
+          "facedancer": 2476,
+          "mcnet": 2520,
+          "one_shot_free": 2465,
+          "e4s": 2473,
+          "MRAA": 2416,
+          "hyperreenact": 2399,
+          "simswap": 2355,
+          "mobileswap": 2426,
+          "tpsm": 2373,
+          "uniface": 2317,
+          "inswap": 2469,
+          "fomm": 2378
+        },
+        "sample_sha256": "993b275f700fcd580b5c2ecedc4ef7cab8df1319e665b835cf09076ff689b57c",
+        "augmentation_sha256": "c45fe4556d9407fc73e4a7e7b9462b85e8e32d5771dd1cf83e929f9af77996a1",
+        "dev": {
+          "macro_auc": 0.999848746882188,
+          "pooled_auc": 0.9998424861643253,
+          "method_auc": {
+            "MRAA": 1.0,
+            "blendface": 0.9999142661179699,
+            "danet": 1.0,
+            "e4s": 1.0,
+            "facedancer": 0.9991426611796982,
+            "faceswap": 0.9981995884773662,
+            "facevid2vid": 0.9999142661179699,
+            "fomm": 1.0,
+            "fsgan": 1.0,
+            "hyperreenact": 1.0,
+            "inswap": 0.9999101042790364,
+            "lia": 1.0,
+            "mcnet": 1.0,
+            "mobileswap": 1.0,
+            "one_shot_free": 1.0,
+            "pirender": 1.0,
+            "sadtalker": 1.0,
+            "simswap": 1.0,
+            "tpsm": 1.0,
+            "uniface": 1.0,
+            "wav2lip": 0.9997427983539094
+          }
+        },
+        "seconds": 646.6705961227417
+      },
+      "training_complete": false
+    },
+    {
+      "pid": 3942503,
+      "run_id": "D_dev_dinov2_vit_b14_lr1e-05_seed1042_e30",
+      "gpu": 3,
+      "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646",
+      "completed_epochs": 3,
+      "latest_epoch": {
+        "epoch": 3,
+        "train_loss": 0.03596914247802001,
+        "attempts": 799,
+        "success": 799,
+        "skip": 0,
+        "draw_count": 102272,
+        "method_counts": {
+          "real": 51153,
+          "mcnet": 2411,
+          "wav2lip": 2468,
+          "inswap": 2477,
+          "fomm": 2479,
+          "hyperreenact": 2328,
+          "facevid2vid": 2509,
+          "simswap": 2404,
+          "mobileswap": 2405,
+          "faceswap": 2479,
+          "danet": 2419,
+          "lia": 2521,
+          "pirender": 2501,
+          "one_shot_free": 2437,
+          "fsgan": 2381,
+          "MRAA": 2366,
+          "blendface": 2399,
+          "tpsm": 2485,
+          "facedancer": 2310,
+          "e4s": 2413,
+          "sadtalker": 2469,
+          "uniface": 2458
+        },
+        "sample_sha256": "e92e86806b9787fd5c530daf6cbf7ca04a3ad2608567af53e8865e8e11266a99",
+        "augmentation_sha256": "fc09ad0e3603c175b373cd723bf20608c44c8ba3a9bcaacb3f105110c859b764",
+        "dev": {
+          "macro_auc": 0.9999877523025672,
+          "pooled_auc": 0.9999872286079182,
+          "method_auc": {
+            "MRAA": 1.0,
+            "blendface": 1.0,
+            "danet": 1.0,
+            "e4s": 1.0,
+            "facedancer": 0.9999142661179699,
+            "faceswap": 0.9998285322359396,
+            "facevid2vid": 1.0,
+            "fomm": 1.0,
+            "fsgan": 1.0,
+            "hyperreenact": 1.0,
+            "inswap": 1.0,
+            "lia": 1.0,
+            "mcnet": 1.0,
+            "mobileswap": 1.0,
+            "one_shot_free": 1.0,
+            "pirender": 1.0,
+            "sadtalker": 1.0,
+            "simswap": 1.0,
+            "tpsm": 1.0,
+            "uniface": 1.0,
+            "wav2lip": 1.0
+          }
+        },
+        "seconds": 652.2270936965942
+      },
+      "training_complete": false
+    }
+  ],
+  "H_progress": {
+    "GPU_used": false,
+    "ORT_threads_each": 2,
+    "completed_videos": 1500,
+    "data_frozen": false,
+    "elapsed_seconds": 3333.421241073869,
+    "eta_seconds": 15402.628414588658,
+    "geometry_freeze": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_geometry_frozen.json",
+    "geometry_protocol_sha256": "85a865f0e3343ecaf5b8c0174c8a3f602ec873deeccb03bd1826d617f2a7ae03",
+    "image_root": "/Dataset/deepfake_detection/derived/pipeline_reliability_v2_20261023/H",
+    "pid": 3915880,
+    "status": "RUNNING",
+    "total_videos": 8431,
+    "version_ineligible_video_counts": {
+      "AB": 9
+    },
+    "workers": 4
+  },
+  "gpu_samples": [
+    {
+      "utc": "2026-10-23T09:34:59.785760+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 95, 4932\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 95, 4932\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 78, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 77, 5414\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-23T09:35:01.920963+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 97, 4932\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 97, 4932\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 87, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 85, 5414\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-23T09:35:04.074936+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 94, 4932\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 96, 4932\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 83, 5414\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 75, 5414\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    }
+  ],
+  "disk_usage_bytes": {
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023": {
+      "total": 1475603963904,
+      "used": 926468943872,
+      "free": 474102906880
+    },
+    "/Dataset": {
+      "total": 4000768323584,
+      "used": 896451555328,
+      "free": 3104316768256
+    }
+  },
+  "current_directory_apparent_bytes": {
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023": 26847914999,
+    "/Dataset/deepfake_detection/derived/pipeline_reliability_v2_20261023/H": 9823850320
+  },
+  "budget": {
+    "estimated_working_set_GiB": 200,
+    "reserve_GiB": 50,
+    "workspace_available_exceeds_full_budget_plus_reserve": true
+  },
+  "processes": "    PID     ELAPSED STAT COMMAND\n3915880       55:46 Sl   /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -u -m reliability_v2.geometry_h preprocess-all --workers 4 --threads 2\n3942476       41:41 Ssl  /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -u -m reliability_v2.queue_d --root /home/z/workspace/deepfake_pipeline_reliability_v2_20261023 --code /home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2\n3942500       41:39 Sl   /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -u -m reliability_v2.trainer --config /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/configs/execution.json --run-id D_dev_clip_vit_b16_lr1e-05_seed1007_e30\n3942501       41:39 Sl   /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -u -m reliability_v2.trainer --config /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/configs/execution.json --run-id D_dev_clip_vit_b16_lr1e-05_seed1042_e30\n3942502       41:39 Sl   /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -u -m reliability_v2.trainer --config /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/configs/execution.json --run-id D_dev_dinov2_vit_b14_lr1e-05_seed1007_e30\n3942503       41:39 Sl   /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -u -m reliability_v2.trainer --config /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/configs/execution.json --run-id D_dev_dinov2_vit_b14_lr1e-05_seed1042_e30\n",
+  "protected_compute_apps": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 3942500, 4924\nGPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 3942501, 4924\nGPU-5df5602a-848e-d944-26cd-aec11b964b45, 3942502, 5406\nGPU-626ec32f-1401-c959-74b0-db04ed63c646, 3942503, 5406\nGPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 1532179, 28152\nGPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 1532180, 28152\nGPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 1532181, 28152\nGPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 1532182, 28152\n"
+}

@@ -1,0 +1,569 @@
+{
+  "schema": "H_PIPELINE_INDEPENDENT_CODE_REVIEW_V1",
+  "status": "CODE_REVIEW_COMPLETE_EXECUTION_GATES_PENDING",
+  "reviewer": {
+    "identity": "Codex independent subagent /root/h_pipeline_review",
+    "independent": true
+  },
+  "reviewed_utc": "2026-10-23T11:12:44.297354+00:00",
+  "scope": "Read-only queue/worker/qualification/data code review against full plan_frozen_input.md, plus CPU-only tests. Not a production H data or GPU qualification review.",
+  "source_sha256": {
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/queue_h.py": "a2792361443e64622391fb6ae766ee5e6f887789d662afdfb6d809f9a5ea8176",
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/worker_h.py": "d0219aa52ebb1b6602602d5b09eb5fdfbbb9dc3aeb7b55dbfc0251ced66136f4",
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/qualification_h.py": "4581ece963c8196422b718425f035d1e96b35b35c1e0d29025c7b2065bc23c18",
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/data_h.py": "ad81f65c27d53159e6902bf8a20b0910cd129f75eb0105e5a5a053bcc2d2f45e",
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/trainer.py": "56f0db0634a525a530fb53482732365ebf9693a1f5470b0a95ec0820cc614368",
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/models.py": "5c4adb39314433c5f0d40311d7ada3ad5d30c7b239773be02080be120f5a2e60",
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/queue_d.py": "3db3d1ebb63fbe233fa19116934268ab999be94faaff59fe1f2d52fdbe1949b8",
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/geometry_h.py": "161ac4e837463ff16e7916ca42eeb5d13acc44aab9bcc1c397025b9426ad9532",
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/tests/test_queue_h.py": "e4edad61cc4b64b9a3c50cd08d4daade063c32de793f991c8601d702fbfcb19d",
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/tests/test_worker_h.py": "47facdb0746bae858c0f05d27d328bbcad0fc2339af9320701f990fcf480adde",
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/tests/test_qualification_h.py": "62b26113ddef7b4d3355580c235c9a9f616e27a766dc61331bb5dd04b668005a",
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/tests/test_data_h.py": "f7488203ecc057ecf597faed28497130b733aca1807e0f62d1cfaa019dc51070",
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/docs/h_training_queue_usage.md": "aff7fb4bf0560548ca181ba0cd5d7c7d2930308866bd8bb0ad6ac84b7bdc98a6",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/configs/plan_frozen_input.md": "b018b01915a62c645fc3718134970cd49dc0651ecfd02792220f3a0086c6594d",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/configs/execution.json": "8f12b0285593b30cb4fc8e2d50f125dc7f1c9ea690f36a286e9fdca24f6df1f4",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/configs/base.json": "c3cfc87050677d23f2c8446e2bfdbedd5c0af8f5f15b34b41f3040889a6ba91c",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/configs/requirements.execution.lock.txt": "d3e6f2a2fc50770a2c3c8ab5b913dfa9049111a398c9de72d85baf618b139ebb"
+  },
+  "h_code_bundle_sha256": "b716bfb4a6f31e3ed171db7f6856eb06673a1df9a22e3f936559751eb6647f43",
+  "training_code_sha256": "336f3097434edf903a5ff402162e29afeca2442ca50f9c7d9883ca60136b8335",
+  "D_execution_sha256": "8f12b0285593b30cb4fc8e2d50f125dc7f1c9ea690f36a286e9fdca24f6df1f4",
+  "source_unchanged_during_final_verification": true,
+  "cpu_verification": {
+    "command": [
+      "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+      "-m",
+      "pytest",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "tests/test_queue_h.py",
+      "tests/test_worker_h.py"
+    ],
+    "cwd": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2",
+    "environment": {
+      "CUDA_VISIBLE_DEVICES": "",
+      "OMP_NUM_THREADS": "2",
+      "MKL_NUM_THREADS": "2",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTHONDONTWRITEBYTECODE": "1"
+    },
+    "returncode": 0,
+    "stdout": "..............................                                           [100%]\n30 passed in 4.48s\n",
+    "log_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_pipeline_independent_focused.log",
+    "log_sha256": "0ce5b6fd9289d76ef05d2ffb79f726142cb948bd1ef283925711fc3547bd2b6e",
+    "cuda_initialized": false
+  },
+  "requirement_checks": [
+    {
+      "requirement": "Dedicated H config and source-only accepted gate; exact global header, canonical task, initialization, environment/code/data bindings",
+      "evidence": [
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/worker_h.py",
+          "line": 52,
+          "end_line": 137
+        },
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/queue_h.py",
+          "line": 142,
+          "end_line": 168
+        }
+      ],
+      "status": "VERIFIED_BY_CODE_AND_FOCUSED_CPU_TESTS"
+    },
+    {
+      "requirement": "20 source-only development models; common recipe over two seeds x two histories, last-five source macro-AUC and registered tie rule",
+      "evidence": [
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/queue_h.py",
+          "line": 60,
+          "end_line": 69
+        },
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/queue_h.py",
+          "line": 84,
+          "end_line": 91
+        },
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/queue_h.py",
+          "line": 384,
+          "end_line": 462
+        },
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/queue_d.py",
+          "line": 21,
+          "end_line": 32
+        }
+      ],
+      "status": "VERIFIED_BY_CODE_AND_FOCUSED_CPU_TESTS"
+    },
+    {
+      "requirement": "DINO any-history adjacent-five-epoch extension; fresh 45/60 jobs at selected learning rate; no reopened grid",
+      "evidence": [
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/queue_h.py",
+          "line": 94,
+          "end_line": 97
+        },
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/queue_h.py",
+          "line": 384,
+          "end_line": 462
+        },
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/queue_d.py",
+          "line": 35,
+          "end_line": 40
+        }
+      ],
+      "status": "VERIFIED_BY_CODE_AND_FOCUSED_CPU_TESTS"
+    },
+    {
+      "requirement": "30 formal model registration and frozen-last checkpoint selection",
+      "evidence": [
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/queue_h.py",
+          "line": 72,
+          "end_line": 81
+        },
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/queue_h.py",
+          "line": 384,
+          "end_line": 462
+        },
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/worker_h.py",
+          "line": 52,
+          "end_line": 137
+        },
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/trainer.py",
+          "line": 286,
+          "end_line": 364
+        }
+      ],
+      "status": "VERIFIED_BY_CODE_AND_FOCUSED_CPU_TESTS"
+    },
+    {
+      "requirement": "Fixed attempted-update clocks, paired sample/method/augmentation streams and complete all-five-pair ledger before backbone target gate",
+      "evidence": [
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/trainer.py",
+          "line": 60,
+          "end_line": 77
+        },
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/trainer.py",
+          "line": 80,
+          "end_line": 86
+        },
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/trainer.py",
+          "line": 51,
+          "end_line": 57
+        },
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/queue_h.py",
+          "line": 171,
+          "end_line": 247
+        },
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/queue_h.py",
+          "line": 384,
+          "end_line": 462
+        }
+      ],
+      "status": "VERIFIED_BY_CODE_AND_FOCUSED_CPU_TESTS"
+    },
+    {
+      "requirement": "Different AMP skip positions, including equal counts at different positions, require all ten models of the backbone in uniform source-qualified FP32",
+      "evidence": [
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/queue_h.py",
+          "line": 171,
+          "end_line": 247
+        },
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/queue_h.py",
+          "line": 72,
+          "end_line": 81
+        },
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/queue_h.py",
+          "line": 384,
+          "end_line": 462
+        },
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/worker_h.py",
+          "line": 52,
+          "end_line": 137
+        }
+      ],
+      "status": "VERIFIED_BY_CODE_AND_FOCUSED_CPU_TESTS"
+    },
+    {
+      "requirement": "FP32 nonfinite/skip stops for review; AMP artifacts retained and conditional rerun capacity preflight required",
+      "evidence": [
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/queue_h.py",
+          "line": 171,
+          "end_line": 247
+        },
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/queue_h.py",
+          "line": 110,
+          "end_line": 114
+        },
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/queue_h.py",
+          "line": 384,
+          "end_line": 462
+        },
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/trainer.py",
+          "line": 200,
+          "end_line": 223
+        }
+      ],
+      "status": "VERIFIED_BY_CODE_AND_FOCUSED_CPU_TESTS"
+    },
+    {
+      "requirement": "D P3 cache-complete/no-active gate enforced at queue and executable worker boundaries before H GPU allocation",
+      "evidence": [
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/queue_h.py",
+          "line": 100,
+          "end_line": 107
+        },
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/queue_h.py",
+          "line": 276,
+          "end_line": 285
+        },
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/worker_h.py",
+          "line": 34,
+          "end_line": 49
+        },
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/worker_h.py",
+          "line": 245,
+          "end_line": 265
+        },
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/qualification_h.py",
+          "line": 451,
+          "end_line": 499
+        }
+      ],
+      "status": "VERIFIED_BY_CODE_AND_FOCUSED_CPU_TESTS"
+    },
+    {
+      "requirement": "Fresh physical GPU0-3 UUID mapping plus shared lifetime per-GPU locks/compute-process/memory idle checks; four single-GPU maximum",
+      "evidence": [
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/queue_h.py",
+          "line": 117,
+          "end_line": 126
+        },
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/worker_h.py",
+          "line": 34,
+          "end_line": 49
+        },
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/trainer.py",
+          "line": 173,
+          "end_line": 184
+        },
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/trainer.py",
+          "line": 278,
+          "end_line": 283
+        }
+      ],
+      "status": "VERIFIED_BY_CODE_AND_FOCUSED_CPU_TESTS"
+    },
+    {
+      "requirement": "Restart/duplicate protection, fixed completion artifact inventory, bound pre-training start and authoritative state history; sealed source DEV history selection",
+      "evidence": [
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/queue_h.py",
+          "line": 250,
+          "end_line": 462
+        },
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/queue_h.py",
+          "line": 268,
+          "end_line": 274
+        },
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/worker_h.py",
+          "line": 170,
+          "end_line": 176
+        },
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/worker_h.py",
+          "line": 179,
+          "end_line": 210
+        },
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/worker_h.py",
+          "line": 213,
+          "end_line": 232
+        },
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/worker_h.py",
+          "line": 235,
+          "end_line": 242
+        },
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/worker_h.py",
+          "line": 245,
+          "end_line": 265
+        }
+      ],
+      "status": "VERIFIED_BY_CODE_AND_FOCUSED_CPU_TESTS"
+    },
+    {
+      "requirement": "Missing pre-training start over existing partial/completed artifacts fails closed; no provenance recreation",
+      "evidence": [
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/worker_h.py",
+          "line": 245,
+          "end_line": 265
+        },
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/worker_h.py",
+          "line": 179,
+          "end_line": 210
+        }
+      ],
+      "status": "VERIFIED_BY_CODE_AND_FOCUSED_CPU_TESTS"
+    },
+    {
+      "requirement": "Default H freeze validation is metadata/hash binding; creation/deep mode reconstructs all audited cohorts; actual source TRAIN/DEV PNG bytes rehashed before training/resume",
+      "evidence": [
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/data_h.py",
+          "line": 452,
+          "end_line": 488
+        },
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/worker_h.py",
+          "line": 52,
+          "end_line": 137
+        },
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/worker_h.py",
+          "line": 245,
+          "end_line": 265
+        }
+      ],
+      "status": "VERIFIED_BY_CODE_AND_FOCUSED_CPU_TESTS"
+    },
+    {
+      "requirement": "H qualification source domain matches real geometry domain='source'; AMP and FP32 independently qualified with shared source probes",
+      "evidence": [
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/qualification_h.py",
+          "line": 84,
+          "end_line": 105
+        },
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/qualification_h.py",
+          "line": 125,
+          "end_line": 149
+        },
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/qualification_h.py",
+          "line": 451,
+          "end_line": 499
+        },
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/qualification_h.py",
+          "line": 680,
+          "end_line": 697
+        }
+      ],
+      "status": "VERIFIED_BY_CODE_AND_FOCUSED_CPU_TESTS"
+    },
+    {
+      "requirement": "H code bundle includes unchanged shared queue_d recipe/resource dependencies in addition to H modules; immutable trainer/model hash separate",
+      "evidence": [
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/worker_h.py",
+          "line": 18,
+          "end_line": 21
+        },
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/trainer.py",
+          "line": 271,
+          "end_line": 275
+        }
+      ],
+      "status": "VERIFIED_BY_CODE_AND_FOCUSED_CPU_TESTS"
+    }
+  ],
+  "resolved_findings": [
+    {
+      "id": "HREV-01",
+      "original_priority": "P1",
+      "issue": "Direct worker could bypass D-priority/global-header/physical-UUID checks",
+      "status": "RESOLVED",
+      "evidence": [
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/worker_h.py",
+          "line": 52,
+          "end_line": 137
+        },
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/worker_h.py",
+          "line": 34,
+          "end_line": 49
+        },
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/worker_h.py",
+          "line": 245,
+          "end_line": 265
+        },
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/qualification_h.py",
+          "line": 451,
+          "end_line": 499
+        }
+      ]
+    },
+    {
+      "id": "HREV-02",
+      "original_priority": "P2",
+      "issue": "Shared queue_d recipe/extension/resource dependencies omitted from H code bundle",
+      "status": "RESOLVED",
+      "evidence": [
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/worker_h.py",
+          "line": 18,
+          "end_line": 21
+        }
+      ]
+    },
+    {
+      "id": "HREV-03",
+      "original_priority": "P2",
+      "issue": "Unsealed source DEV history and skip-position artifacts could change without completion verifier rejection",
+      "status": "RESOLVED",
+      "evidence": [
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/worker_h.py",
+          "line": 170,
+          "end_line": 176
+        },
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/worker_h.py",
+          "line": 213,
+          "end_line": 232
+        },
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/worker_h.py",
+          "line": 235,
+          "end_line": 242
+        },
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/queue_h.py",
+          "line": 268,
+          "end_line": 274
+        }
+      ]
+    },
+    {
+      "id": "HREV-04",
+      "original_priority": "P2",
+      "issue": "Noncanonical task ID or wrong pair backbone could be accepted",
+      "status": "RESOLVED",
+      "evidence": [
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/worker_h.py",
+          "line": 52,
+          "end_line": 137
+        },
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/queue_h.py",
+          "line": 171,
+          "end_line": 247
+        }
+      ]
+    },
+    {
+      "id": "HREV-05",
+      "original_priority": "P2",
+      "issue": "Worker could recreate missing pre-training start beside existing training artifacts",
+      "status": "RESOLVED",
+      "evidence": [
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/worker_h.py",
+          "line": 245,
+          "end_line": 265
+        },
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/worker_h.py",
+          "line": 179,
+          "end_line": 210
+        }
+      ]
+    }
+  ],
+  "remaining_critical_or_important_code_findings": [],
+  "execution_authorized_by_this_review": false,
+  "execution_blockers": [
+    "Accepted H data freeze is absent; full pixel/audit reconstruction and independent data review remain required",
+    "Real H AMP/FP32 source qualification gate is absent; CPU tests do not establish GPU qualification",
+    "D retains GPU priority; current stage P2_D_STANDARD_DEVELOPMENT"
+  ],
+  "runtime_snapshot": {
+    "D_stage": "P2_D_STANDARD_DEVELOPMENT",
+    "D_active": [
+      {
+        "pid": 3942500,
+        "run_id": "D_dev_clip_vit_b16_lr1e-05_seed1007_e30",
+        "gpu": 0,
+        "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e"
+      },
+      {
+        "pid": 3942501,
+        "run_id": "D_dev_clip_vit_b16_lr1e-05_seed1042_e30",
+        "gpu": 1,
+        "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c"
+      },
+      {
+        "pid": 3942502,
+        "run_id": "D_dev_dinov2_vit_b14_lr1e-05_seed1007_e30",
+        "gpu": 2,
+        "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45"
+      },
+      {
+        "pid": 3942503,
+        "run_id": "D_dev_dinov2_vit_b14_lr1e-05_seed1042_e30",
+        "gpu": 3,
+        "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646"
+      }
+    ],
+    "process_cmdlines": {
+      "3942476": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -u -m reliability_v2.queue_d --root /home/z/workspace/deepfake_pipeline_reliability_v2_20261023 --code /home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2",
+      "3942500": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -u -m reliability_v2.trainer --config /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/configs/execution.json --run-id D_dev_clip_vit_b16_lr1e-05_seed1007_e30",
+      "3942501": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -u -m reliability_v2.trainer --config /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/configs/execution.json --run-id D_dev_clip_vit_b16_lr1e-05_seed1042_e30",
+      "3942502": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -u -m reliability_v2.trainer --config /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/configs/execution.json --run-id D_dev_dinov2_vit_b14_lr1e-05_seed1007_e30",
+      "3942503": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -u -m reliability_v2.trainer --config /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/configs/execution.json --run-id D_dev_dinov2_vit_b14_lr1e-05_seed1042_e30",
+      "3915880": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -u -m reliability_v2.geometry_h preprocess-all --workers 4 --threads 2"
+    },
+    "H_data_freeze_present": false,
+    "H_source_gate_present": false
+  },
+  "validation_limits": [
+    "No production freeze/gate was created or accepted; no model trained or target score viewed.",
+    "No GPU allocation, service/software/automation operation, production process signal or source/config/test edit was performed by this reviewer.",
+    "Source freeze default is metadata binding; current TRAIN/DEV image bytes are checked by the worker separately.",
+    "Qualification acceptance is deep/full proof validation. Routine validation rehashes proof files up to8MiB and compares all accepted sizes/mtime; large-checkpoint integrity requires deep=True.",
+    "H queue intentionally ends before H target feature-cache export, common2x2/deployment analyses and manuscript integration."
+  ]
+}

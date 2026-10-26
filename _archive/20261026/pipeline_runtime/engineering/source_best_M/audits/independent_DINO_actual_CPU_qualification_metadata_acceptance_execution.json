@@ -1,0 +1,43 @@
+{
+  "schema": "INDEPENDENT_DINO_ACTUAL_CPU_QUALIFICATION_METADATA_ACCEPTANCE_EXECUTION_V1",
+  "utc": "2026-10-25T21:56:57.856825+00:00",
+  "status": "PASS_DINO_OWN_ACTUAL_FUNCTIONAL_QUALIFICATION",
+  "artifacts": {
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/independent_DINO_actual_CPU_qualification_metadata_acceptance.py": "4fde08519e8d2882a02f861cea498b5038288d6cbf54e58c2665184e3a330a72",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/independent_DINO_actual_CPU_qualification_metadata_acceptance.log": "a1b0b2eb512a26a5ec99f120dc1bce5fc5e03d9977d4b29fc0f0d23d861152dc",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/independent_DINO_actual_CPU_qualification_metadata_acceptance_time_v.log": "37f6fa676a339dcedb0b4677d780792ef01d95546edb98bc8dc8a89edc69e867",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/independent_DINO_actual_CPU_qualification_metadata_acceptance_v2.py": "d39cc97fac4be2bac283f85c36745fb860e189fabebeb19d6769fdf389df099a",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/independent_DINO_actual_CPU_qualification_metadata_acceptance_v2.log": "86552193b0f43f9b0de0c84c30848427b86ab94827525c7504eb1ebdcde4a8c1",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/independent_DINO_actual_CPU_qualification_metadata_acceptance_v2_time_v.log": "872028bc1f9fad791bdcaf295e35e95b522765d83eb1e324c6913482dc14a21b",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_parallel_fresh_validation/independent_actual_CPU_parallel_pair_admission_audit_dinov2_vit_b14.json": "0b5b9c1011fa2159066112f0ac5d530b866f168882df76a1ab874b1deb3baa85",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_parallel_CPU_actual_qualification_dinov2_vit_b14.json": "ab853480f704f24d4b080e04f0bcefb81fd31c4426e74aa36a351d7e8925bebe"
+  },
+  "initial_attempt": {
+    "exit_status": 1,
+    "reason": "Reviewer summary print used an invalid numeric-leading keyword; Python parse failed before executing any verification or publishing audit/Q.",
+    "preserved": true
+  },
+  "successful_attempt": {
+    "exit_status": 0,
+    "source_sha256": "d39cc97fac4be2bac283f85c36745fb860e189fabebeb19d6769fdf389df099a",
+    "wall_seconds": 0.24,
+    "peak_RSS_KiB": 72428,
+    "CPU_threads": 1,
+    "CUDA_VISIBLE_DEVICES": "",
+    "compatibility": "Exact accepted bb299e validate_qualification_evidence and pure helpers compiled from AST; own-DINO actual evidence passed; wrong backbone/identity/bool140/receipt/implementation rejected."
+  },
+  "shared_slots_acquired": false,
+  "models_or_PNG_or_feature_chunks_read": false,
+  "production_F_source_modified": false,
+  "old_CLIP_proofs_unchanged": true,
+  "qualification_allowed_backbones": [
+    "dinov2_vit_b14"
+  ],
+  "qualification_allowed_use": [
+    "independent_role_admission",
+    "primary_pair_analysis"
+  ],
+  "formal_DINO_cache_admission_A_created": false,
+  "statistics_or_GPU_launched": false,
+  "scope": "Completed actual own-backbone functional validator qualification; no same-pair speedup, primary analysis resource or scientific outcome admission."
+}

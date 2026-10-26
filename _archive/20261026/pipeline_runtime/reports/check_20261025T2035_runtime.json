@@ -1,0 +1,58 @@
+{
+  "utc": "2026-10-25T20:38:50.575077+00:00",
+  "H_roles": 210,
+  "H_cache_operational_models": 30,
+  "H_independently_admitted_models": 8,
+  "H_independent_primary_pairs": 4,
+  "H_primary_pairs_total": 15,
+  "M_GPU_source_qualification": {
+    "completed": 7,
+    "active": {
+      "H_formal_efficientnet_b0_AB_seed7": {
+        "index": 2,
+        "pid": 3668490,
+        "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45"
+      },
+      "H_formal_efficientnet_b0_B_seed7": {
+        "index": 3,
+        "pid": 3664628,
+        "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646"
+      }
+    },
+    "pending": 0,
+    "failures": {},
+    "status_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_finite_owner/source_qualification/195fcb122568d54d0022d05c24b9b3ec5c565dc50e1650eebc969723651bf0aa/883a623cc487472892444961790070b1/status.json"
+  },
+  "CPU_jobs": {
+    "H_primary_DINO_CPU_qualification_candidate_seed7_slot0_20261025T2030": {
+      "pid": 3672084,
+      "slot": 0,
+      "alive": true,
+      "fresh_ledger_starts": 2,
+      "tail": [
+        "BEGIN_FRESH_ORIGINAL_LEDGER 1 dinov2_vit_b14 AMP models10_no_receipt_reuse",
+        "BEGIN_FRESH_ORIGINAL_LEDGER 2 dinov2_vit_b14 AMP models10_no_receipt_reuse"
+      ],
+      "stdout": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_primary_DINO_CPU_qualification_candidate_seed7_slot0_20261025T2030.log"
+    },
+    "H_primary_admit_clip_seed3407_slot1_20261025T2000": {
+      "pid": 3487041,
+      "slot": 1,
+      "alive": true,
+      "fresh_ledger_starts": 8,
+      "tail": [
+        "BEGIN_FRESH_ORIGINAL_LEDGER 7 clip_vit_b16 AMP models10_no_receipt_reuse",
+        "BEGIN_FRESH_ORIGINAL_LEDGER 8 clip_vit_b16 AMP models10_no_receipt_reuse"
+      ],
+      "stdout": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_primary_admit_clip_seed3407_slot1_20261025T2000.log"
+    }
+  },
+  "free_bytes": 166474407936,
+  "M_initial_remaining_plan_bytes": 165195057321,
+  "M_initial_plan_is_candidate_not_admission": true,
+  "M_production_permit": false,
+  "M_canary": false,
+  "cold_migration_SSD_release_bytes": 0,
+  "GPU4to7_touched": false,
+  "next_check_UTC": "2026-10-25T20:50:00Z"
+}

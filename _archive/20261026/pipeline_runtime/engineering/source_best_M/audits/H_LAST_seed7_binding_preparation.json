@@ -1,0 +1,96 @@
+{
+  "schema": "H_LAST_SEED7_SERIAL_BINDING_PREPARATION_V1",
+  "utc": "2026-10-25T14:05:26.483403+00:00",
+  "status": "PREPARED_92_SYNTHETIC_TESTS_PASS_REAL_SEED7_AUDIT_NOT_STARTED",
+  "source_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/h_pair_result_audit.py",
+  "source_sha256": "6cd3bff403cc2f7c27a870d092023e4c8677f5d9386668abbc439829eadaa4e5",
+  "previous_accepted_source_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/h_pair_result_audit_before_seed7_binding.py",
+  "previous_source_sha256": "12ed094960dc7082215bf6261093d54962ccfb80d557c4ba3e0136baf467b32f",
+  "binding_spec_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/H_LAST_clip_seed7_audit_bindings.json",
+  "binding_spec_sha256": "bde8dbcfb87c665f7ef29507dbb99b34102359711bb73c0c58f7d328a72fd723",
+  "supported_routes": [
+    "Default accepted parallel14 seed42 legacy route",
+    "Explicit externally SHA-bound original serial14 seed7 route"
+  ],
+  "newly_supported_backbones": [
+    "clip_vit_b16"
+  ],
+  "newly_supported_seeds": [
+    7
+  ],
+  "serial_schema_difference": "Serial admission records qualified manifest+original _pair_context identity; no parallel admission pins/ledger list. Separate serial acceptance binds source_report SHA and14marker checks. Actual primary execution supplies110metadata pins and42 exact10-check ledgers.",
+  "root_confirmed_preflight_only": {
+    "primary_execution_sha256": "897ba9f798d948c1a52d5af9a1392b12fde14d93205f828725f7541910ede5eb",
+    "terminal_sha256": "26c5d3774e06b118803619e4a93f3c83d382874a6db90726ff6c171a9411f7a1",
+    "scientific_audit_authorized_by_this_receipt": false
+  },
+  "metadata_proof_SHA_recheck": {
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed7/identity.json": true,
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_clip_seed7_independent_7role_admission_20261025T0750.json": true,
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_clip_seed7_independent_cache_admission_acceptance_20261025T0950.json": true,
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_clip_seed7_independent_7role_admission_launch_20261025T0750.json": true,
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_primary_cache_independent_admission/admit_clip_seed7_20261025T0750.py": true,
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_primary_analysis_clip_vit_b16_seed7_launch_20261025T0950.json": true,
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_primary_analysis_execution_clip_vit_b16_seed7.json": true,
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_primary_cache_continuation/qualified_source_manifest.json": true,
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_parallel_CPU_actual_qualification_clip_vit_b16_20261025T0830.json": true,
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_parallel_fresh_validation/cpu_primary_analysis.py": true
+  },
+  "original56_tests_retained": true,
+  "new_binding_schema_tests": 25,
+  "new_full_mock_chain_tests": 11,
+  "total_tests": 92,
+  "RED_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/H_LAST_seed7_binding_RED.log",
+  "RED_sha256": "a840692c95f4620e071afe6343640221bc96d8d271b339e6a351c2b9f831b444",
+  "GREEN_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/H_LAST_seed7_binding_GREEN_final.log",
+  "GREEN_sha256": "822905c5f11a48594d796839d0975c481580438fd7ecc99552e27b4014e259c4",
+  "test_seconds": 10.199,
+  "wall_seconds": 10.35,
+  "maximum_RSS_KiB": 86188,
+  "AST_changed_existing_functions": [
+    "_execute_owned",
+    "main",
+    "pin_metadata"
+  ],
+  "AST_added_functions": [
+    "load_bindings",
+    "pin_serial7_metadata",
+    "serial7_paths",
+    "validate_serial7_evidence"
+  ],
+  "numerical_kernel_AST_identical": [
+    "close",
+    "parse_rank",
+    "boolean",
+    "source_threshold",
+    "percentile",
+    "read_scores",
+    "identities",
+    "IndependentCell",
+    "terms",
+    "flatten",
+    "prepare",
+    "recompute_cohort",
+    "check_bootstrap",
+    "check_tables"
+  ],
+  "terminal_inventory_slot_and_row_loader_AST_identical": true,
+  "diff_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/H_LAST_seed7_binding.diff",
+  "diff_sha256": "37b5b722820911a9ef43862bb84e42ee519ff88fef5b081eafb6cf59a120762f",
+  "test_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/test_h_pair_seed7_bindings.py",
+  "test_sha256": "c9391dfc7cc653d68eab80aebfb848acbe39098e5f06f75f16f94b1671208e09",
+  "README_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/H_LAST_seed7_binding_README.md",
+  "README_sha256": "cfc7ad944d3a6e72e3909af329b2b72358840ca798fc034a7e6593ff0c62ec94",
+  "actual_execution_template": "CUDA_VISIBLE_DEVICES='' OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 PYTHONDONTWRITEBYTECODE=1 /usr/bin/time -v /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/h_pair_result_audit.py --execute --binding-spec /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/H_LAST_clip_seed7_audit_bindings.json --binding-spec-sha bde8dbcfb87c665f7ef29507dbb99b34102359711bb73c0c58f7d328a72fd723 --terminal-sha <ROOT_CONFIRMED_SEED7_TERMINAL_SHA> --slot <ROOT_SELECTED_FREE_SLOT> --output-name H_LAST_clip_seed7_independent_audit.json",
+  "actual_seed7_audit_started": false,
+  "actual_seed42_audit_repeated": false,
+  "real_CPU_slot_opened": false,
+  "actual_score_or_bootstrap_read": false,
+  "source_context_model_GPU_or_PNG_calls": false,
+  "original_or_F_changed": false,
+  "numeric_kernel_changed": false,
+  "existing_seed42_audit_SHA_unchanged": "7daea9b17a4e9e8aea32cd6e5d500cba564d66d33fdd15ce6dbb9cbc97c31e1e",
+  "scope_limitations_not_new_main_plan_gates": true,
+  "snapshot_reencoded": false,
+  "remaining_gate": "Await root acceptance of fixed code/spec SHA and a separately explicit one-shot seed7 audit authorization with a free shared lifetime CPU slot."
+}

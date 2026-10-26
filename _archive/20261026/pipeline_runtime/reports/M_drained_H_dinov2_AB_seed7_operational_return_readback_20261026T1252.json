@@ -1,0 +1,38 @@
+{
+  "schema": "M_DRAINED_WORKER_OPERATIONAL_RETURN_READBACK_V1",
+  "utc": "2026-10-26T12:52:09.657503+00:00",
+  "run_id": "H_formal_dinov2_vit_b14_AB_seed7",
+  "worker_return": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/c1b83bab4bd34df784afc18bda94777a/H_formal_dinov2_vit_b14_AB_seed7.json",
+    "sha256": "80d382ac8eb9392a363e2396cbde5e739cebbdc5ee0d3f02eb13eb7ecefa9fb0"
+  },
+  "report_status": "ALL_SELECTED_CANDIDATE_ROLES_VERIFIED_REQUIRES_INDEPENDENT_ADMISSION",
+  "phase_owner_pid": 825619,
+  "worker_pid": 2055815,
+  "worker_PID_absent": true,
+  "markers": [
+    {
+      "role": "B/SOURCE_CAL",
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/H_formal_dinov2_vit_b14_AB_seed7/B/SOURCE_CAL/complete.json",
+      "sha256": "77a4b1c2dc95629dd392e41360a5784083aa73cff4e675d35a693fb36793554e",
+      "rows": 1120
+    },
+    {
+      "role": "B/SOURCE_TEST",
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/H_formal_dinov2_vit_b14_AB_seed7/B/SOURCE_TEST/complete.json",
+      "sha256": "bebf13c67f7547c1627409d4caf2ee8a5ba5601bdb4d3d356ef6aca8da9ea283",
+      "rows": 5600
+    },
+    {
+      "role": "B/TARGET_TEST",
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/H_formal_dinov2_vit_b14_AB_seed7/B/TARGET_TEST/complete.json",
+      "sha256": "6a5d081248c97448f6eb9beae786997a6a8654228208a43cc58bc2941605f075",
+      "rows": 26560
+    }
+  ],
+  "elapsed_seconds": 12003.393104853109,
+  "cache_statistic_independent_admission_granted": false,
+  "all_remaining_workers_drained": false,
+  "owner_recovery_executed": false,
+  "scope": "small receipt and marker SHA readback only; no original model/frame requalification or feature-dot recompute"
+}

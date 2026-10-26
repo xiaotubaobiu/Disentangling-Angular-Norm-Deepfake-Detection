@@ -1,0 +1,201 @@
+{
+  "blocking_kernel_findings": [],
+  "code_freeze_scope": "stats_h, coverage_h, and their focused tests; whole-project driver remained under integration",
+  "contract_review": {
+    "coverage": [
+      "Complete candidate inventory includes SOURCE_UNUSED and quarantine before administrative exclusions",
+      "Role/method/label and source-target totals preserve distinct video denominators and all-B/common counts",
+      "Early insufficient_unique_mothers with frames=[] and no version_failures counted once for all A/B/AB failures",
+      "Per-frame failures, multi-face denominators, all-produced versus eligible-only padding and missing metadata checked",
+      "Thirteen active tables independently reconstructed with exact complete mother identities",
+      "Production report calls unchanged validate_h_freeze, binds metadata/table/code hashes, offers no partial-count override",
+      "No score-dependent exclusion, imputation, replacement frames or padding threshold introduced"
+    ],
+    "statistics": [
+      "Raw correctly grouped unique natural videos only; exact UID/label/method/group identity across cells",
+      "H00/H10 deployment or all-four common cohort; no all-B minus common cohort estimate",
+      "Model-specific real-only all-B SOURCE_CAL; empirical FPR<=.05 nextafter boundaries and inclusive score>=threshold",
+      "AB test cells reuse model-specific B-source threshold; fixed defaults 0 or .5",
+      "Same-pool pooled/macro AUC and FPR/TPR/pooled BA/macro TPR/BA plus integer FP/TP",
+      "Fixed missing methods invalidate macros; original mpmath ranks retained; unresolved rank leaves operating metrics available",
+      "All cells, both operating rules and interactions use same integer group multiplicities; invalid draws counted",
+      "Small/concentrated groups yield unavailable intervals; exactly five formal seeds and ddof=1 summaries",
+      "Pointwise conditional inference and proxy ancestry limitations; no seed/calibration-set IID model pooling"
+    ]
+  },
+  "evidence": {
+    "command_log": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/h_kernel_independent_review_logs_20261023/commands.json",
+      "sha256": "7734a6af2a02a40a2286578f957839fdaf50e72a95a3b4bd0b9cab8b06b373e2"
+    },
+    "independent_script": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/h_kernel_independent_review_logs_20261023/review.py",
+      "sha256": "154394f2c51afaae053f805a2095f55070bd47ed19b26cef213cb031888e4c09"
+    },
+    "isolated_check_log": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/h_kernel_independent_review_logs_20261023/isolated_checks.json",
+      "sha256": "e234d2d5742787f0d38a0f8a7fd09d1d722b978123077d3c78c934c7afdedbe0"
+    }
+  },
+  "execution": {
+    "commands": {
+      "frozen_focused_tests": "env CUDA_VISIBLE_DEVICES= OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 MKL_NUM_THREADS=2 NUMEXPR_NUM_THREADS=2 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2 /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -m pytest -q -p no:cacheprovider --basetemp=/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/h_kernel_independent_review_logs_20261023/pytest_temp /home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/tests/test_stats_h.py /home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/tests/test_coverage_h.py",
+      "independent_synthetic_checks": "env CUDA_VISIBLE_DEVICES= OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 MKL_NUM_THREADS=2 NUMEXPR_NUM_THREADS=2 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2 /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/h_kernel_independent_review_logs_20261023/review.py /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/h_kernel_independent_review_logs_20261023/isolated_checks.json"
+    },
+    "cpu_thread_limits": 2,
+    "cuda_visible_devices": "",
+    "pytest_cache_disabled": true,
+    "python_bytecode_disabled": true
+  },
+  "frozen_focused_tests": {
+    "elapsed_seconds": 2.22,
+    "passed": 56,
+    "status": "PASS",
+    "stdout": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/h_kernel_independent_review_logs_20261023/frozen_focused_pytest_stdout.txt",
+      "sha256": "3dcc7387301b0f93a94ed55edeb946b21b575cb4a749a9bfdb0eaa355d4eb0be"
+    },
+    "test_files": [
+      "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/tests/test_stats_h.py",
+      "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/tests/test_coverage_h.py"
+    ]
+  },
+  "gpu_work_performed": false,
+  "independent_checks": [
+    {
+      "detail": {
+        "duplicated_draws": 1971,
+        "explicit_metric_comparisons": 289860,
+        "invalid_macro": 523,
+        "invalid_pooled": 166,
+        "max_absolute_error": 0.0,
+        "negative_effects": 34011,
+        "repeats": 2000,
+        "zero_effects": 49918
+      },
+      "name": "stats_explicit_2000_draws",
+      "seconds": 24.804230893962085,
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "missing_fixed_method_invalidated_macro_without_dropping_rows": true,
+        "original_precision_auc": 1.0,
+        "rank_unresolved_operating_metrics_retained": true
+      },
+      "name": "stats_precision_and_na",
+      "seconds": 0.36191769409924746,
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "float16_float32_extended_float_complex_rejected": true
+      },
+      "name": "stats_fp64_validation",
+      "seconds": 0.011568618938326836,
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "five_seed_ddof_1": true,
+        "small_and_concentrated_group_intervals_unavailable": true
+      },
+      "name": "stats_seed_and_gates",
+      "seconds": 0.11688751727342606,
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "administrative_union_separate": true,
+        "all_13_active_tables_verified": true,
+        "all_B_available": 8,
+        "common_available": 4,
+        "early_failure_counted_in_all_three_versions": true,
+        "missing_invalid_geometry_not_imputed": true,
+        "synthetic_candidates": 12,
+        "toy_counts_are_not_production_counts": true
+      },
+      "name": "coverage_independent_toy",
+      "seconds": 0.01169595681130886,
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "error_type": "HDataGateError",
+        "no_production_coverage_acceptance_claim": true,
+        "reason": "Missing evidence file: /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/data/H/freeze.json",
+        "status": "EXPECTED_REFUSAL"
+      },
+      "name": "production_refuses_unfrozen",
+      "seconds": 0.02617892250418663,
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "cells": 4,
+        "gpu_visibility": "",
+        "groups": 20,
+        "kernel_bootstrap_seconds": 1.5402554720640182,
+        "natural_videos_per_cell": 120,
+        "repeats": 2000,
+        "thread_limit": "2",
+        "wall_seconds": 1.6256882576271892
+      },
+      "name": "profile_2000",
+      "seconds": 1.6303427778184414,
+      "status": "PASS"
+    }
+  ],
+  "limitations": [
+    "Synthetic toy counts do not represent production counts or production data acceptance",
+    "Coverage wrapper successful-path and corruption tests use synthetic accepted-receipt fixtures; the real unchanged gate refuses the actual unfrozen root",
+    "No full project suite was run in this role; parent controls global code freeze and final integration verification",
+    "No training, inference, production data processing, freeze/gate alteration, commit, GPU, process or automation changes"
+  ],
+  "production_full_artifact_audit_performed": false,
+  "production_h_coverage_generated": false,
+  "production_h_data_accepted": false,
+  "production_h_statistics_generated": false,
+  "remaining_blockers": [
+    {
+      "action": "Generate production H coverage or statistical results",
+      "already_completed": "Synthetic kernel review, targeted tests and expected production refusal verified",
+      "denied": false,
+      "outcome_uncertain": false,
+      "reason": "Production H data is not frozen; report_coverage correctly raises HDataGateError for missing freeze.json",
+      "status": "PENDING_DATA_FREEZE",
+      "target": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/data/H/freeze.json"
+    }
+  ],
+  "resolved_findings": [
+    {
+      "issue": "Non-FP64 float16 and extended float operating scores could pass original validation",
+      "resolution": "Implementation owner corrected dtype validation before the module freeze; frozen owner regressions and independent dtype checks passed",
+      "reviewer_source_edits": false
+    }
+  ],
+  "review_scope": [
+    "stats_h pure numerical kernel",
+    "coverage_h pure metadata summary and freeze-bound wrapper",
+    "complete configs/plan_frozen_input.md and immutable scoring_d/bootstrap_fast/analysis_d/geometry_h/data_h interfaces"
+  ],
+  "reviewed_hashes_reverified_at_finalize": true,
+  "reviewed_input_sha256": {
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/analysis_d.py": "a1d3be7bd43acb43995768f9167225b066ee9e6691c61c7b8bf28b00de53ba5e",
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/bootstrap_fast.py": "7eaeaf0973d72cd1def838cf6bc82863c92c75fb35409553332015dec8b0e4e5",
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/coverage_h.py": "a858e384591e2aaadf9232faee2e18c73964a384ec65868f783b5368bb33b7e0",
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/data_h.py": "ad81f65c27d53159e6902bf8a20b0910cd129f75eb0105e5a5a053bcc2d2f45e",
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/geometry_h.py": "161ac4e837463ff16e7916ca42eeb5d13acc44aab9bcc1c397025b9426ad9532",
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/scoring_d.py": "9bddf066fcb8df1b9659d4cfe14aa4febdf850f7cc39c1c0c3d6050864263d1c",
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/stats_h.py": "5627cccc714c2fc59a3dadfed3ddeba32d1488020cfd550ca70d0c9be947dd74",
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/tests/test_coverage_h.py": "6e82ae7c9a5ca4aa665e9152be3b9eaa3d5c3fd2190387bbb588a1c8831527f6",
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/tests/test_stats_h.py": "7ee9fa211adaaa2f6dbde7b78495babe4d4ed27e618000012728b82c37ab2e75",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/configs/plan_frozen_input.md": "b018b01915a62c645fc3718134970cd49dc0651ecfd02792220f3a0086c6594d",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/h_kernel_independent_review_logs_20261023/review.py": "154394f2c51afaae053f805a2095f55070bd47ed19b26cef213cb031888e4c09"
+  },
+  "reviewer": "independent_h_kernel_review_agent",
+  "schema": "H_KERNEL_INDEPENDENT_REVIEW_V1",
+  "source_or_test_edits_performed": false,
+  "status": "PASSED_SYNTHETIC_CPU_KERNEL_REVIEW",
+  "utc": "2026-10-23T11:41:35Z"
+}

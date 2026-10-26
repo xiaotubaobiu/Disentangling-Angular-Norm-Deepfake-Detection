@@ -1,0 +1,12 @@
+{
+  "utc": "2026-10-23T11:54:48.567783+00:00",
+  "status": "PRECISION_VALIDATION_FIX_VERIFIED_IN_FINAL_SOURCE",
+  "prior_implementation_report_sha256": "d9634ef4a65495ca47b3a605d84771f2937ab8c1e7ce3cf69123acd5da827ad5",
+  "prior_tests": 25,
+  "current_targeted_stats_tests": 29,
+  "source_sha256": "5627cccc714c2fc59a3dadfed3ddeba32d1488020cfd550ca70d0c9be947dd74",
+  "test_sha256": "7ee9fa211adaaa2f6dbde7b78495babe4d4ed27e618000012728b82c37ab2e75",
+  "change": "Reject float16/float32/extended floating operating scores; preserve FP64/integer normalization",
+  "final_independent_evidence": "H_kernel_independent_review.json:56focused29stats+27coverage+7independentchecks;289860bruteforcecomparisons maxerror0",
+  "final_full_suite": "318passed354.45s"
+}

@@ -1,0 +1,93 @@
+{
+  "utc": "2026-10-24T19:14:09.530878+00:00",
+  "status": "REGISTERED_PRIMARY_LAST_REMAINING_COVERED_ONLY",
+  "base_live_sha256": "5e3c6d784dcd87370e36cfd9e609f0e36c14d22da6cc5f8c9a5238e061ec48b5",
+  "D_current_outputs": {
+    "D_formal_clip_vit_b16_seed7": {
+      "bytes": 7375372865,
+      "complete": true
+    },
+    "D_formal_clip_vit_b16_seed42": {
+      "bytes": 7375359498,
+      "complete": true
+    },
+    "D_formal_clip_vit_b16_seed123": {
+      "bytes": 7375407105,
+      "complete": true
+    },
+    "D_formal_clip_vit_b16_seed2026": {
+      "bytes": 7375357358,
+      "complete": true
+    },
+    "D_formal_clip_vit_b16_seed3407": {
+      "bytes": 7375407679,
+      "complete": true
+    },
+    "D_formal_dinov2_vit_b14_seed7": {
+      "bytes": 7375350948,
+      "complete": true
+    },
+    "D_formal_dinov2_vit_b14_seed42": {
+      "bytes": 7378886963,
+      "complete": true
+    },
+    "D_formal_dinov2_vit_b14_seed123": {
+      "bytes": 7378221419,
+      "complete": true
+    },
+    "D_formal_dinov2_vit_b14_seed2026": {
+      "bytes": 7378207304,
+      "complete": true
+    },
+    "D_formal_dinov2_vit_b14_seed3407": {
+      "bytes": 7378958869,
+      "complete": true
+    },
+    "D_formal_efficientnet_b0_seed7": {
+      "bytes": 7378533640,
+      "complete": true
+    },
+    "D_formal_efficientnet_b0_seed42": {
+      "bytes": 520352385,
+      "complete": false
+    },
+    "D_formal_efficientnet_b0_seed123": {
+      "bytes": 85207844,
+      "complete": false
+    },
+    "D_formal_efficientnet_b0_seed2026": {
+      "bytes": 0,
+      "complete": false
+    },
+    "D_formal_efficientnet_b0_seed3407": {
+      "bytes": 0,
+      "complete": false
+    }
+  },
+  "H_current_run_bytes": 25987689253,
+  "remaining_components": {
+    "D_remaining_analysis": 38049145435,
+    "D_remaining_features": 0,
+    "H_training": 64470343650.52281,
+    "H_qualification": 0,
+    "H_features": 10684596224,
+    "H_pair_analysis": 16106127360,
+    "future_logs_manifests_figures_audits": 17179869184
+  },
+  "normal_remaining_write_bytes": 146490081853.52283,
+  "temporary_bytes": 17179869184,
+  "reserve_bytes": 53687091200,
+  "normal_required_bytes": 217357042237.52283,
+  "free_bytes": 271792234496,
+  "normal_margin_bytes": 54435192258.47717,
+  "remaining_conditionals": {
+    "H8_DINO_extension_and_longer_formal_aux": 23610477024.37587,
+    "H30_uniform_FP32_fallback": 53550263095.29912
+  },
+  "remaining_conditional_cold_deficit_bytes": 22725547861.197815,
+  "SSD_cold_release_bytes": 0,
+  "source_best_active_budget": null,
+  "compact_unvalidated_storage_savings_counted": false,
+  "volatile_missing_paths": 0,
+  "scope": "Existing verbose production format and registered last primary matrix. No source-best candidates or unvalidated compact estimates used for admission."
+}

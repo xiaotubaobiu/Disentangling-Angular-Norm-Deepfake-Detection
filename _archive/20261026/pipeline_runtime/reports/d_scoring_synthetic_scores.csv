@@ -1,0 +1,29 @@
+domain,role,label,method_id,video_id,video_uid,group_id,member_video_uids,member_group_ids,grouping,representation,aggregation,score,n_frames,n_methods,high_precision_used,ranking_usable,precision_history,rank_score_kind,rank_score_decimal,rank_score_export_digits
+ff,source_test,0,real,a,ff/real/a,g1,"('ff/real/a',)","('g1',)",correct,raw,mean_logit,0.0,8,1,False,True,(),float64,0.0,350
+ff,source_test,0,real,b,ff/real/b,g2,"('ff/real/b',)","('g2',)",correct,raw,mean_logit,2.0,8,1,False,True,(),float64,2.0,350
+ff,source_test,1,m1,x,ff/m1/x,g1,"('ff/m1/x',)","('g1',)",correct,raw,mean_logit,1.0,8,1,False,True,(),float64,1.0,350
+ff,source_test,1,m2,x,ff/m2/x,g2,"('ff/m2/x',)","('g2',)",correct,raw,mean_logit,3.0,8,1,False,True,(),float64,3.0,350
+ff,source_test,0,real,a,ff/real/a,g1,"('ff/real/a',)","('g1',)",correct,raw,mean_probability,0.5,8,1,False,True,(),float64,0.5,350
+ff,source_test,0,real,b,ff/real/b,g2,"('ff/real/b',)","('g2',)",correct,raw,mean_probability,0.8807970779778823,8,1,False,True,(),float64,0.8807970779778823,350
+ff,source_test,1,m1,x,ff/m1/x,g1,"('ff/m1/x',)","('g1',)",correct,raw,mean_probability,0.7310585786300049,8,1,False,True,(),float64,0.7310585786300049,350
+ff,source_test,1,m2,x,ff/m2/x,g2,"('ff/m2/x',)","('g2',)",correct,raw,mean_probability,0.9525741268224334,8,1,False,True,(),float64,0.9525741268224334,350
+ff,source_test,0,real,a,ff/real/a,g1,"('ff/real/a',)","('g1',)",correct,l2,mean_logit,0.0,8,1,False,True,(),float64,0.0,350
+ff,source_test,0,real,b,ff/real/b,g2,"('ff/real/b',)","('g2',)",correct,l2,mean_logit,0.8944271909999159,8,1,False,True,(),float64,0.8944271909999159,350
+ff,source_test,1,m1,x,ff/m1/x,g1,"('ff/m1/x',)","('g1',)",correct,l2,mean_logit,0.7071067811865475,8,1,False,True,(),float64,0.7071067811865475,350
+ff,source_test,1,m2,x,ff/m2/x,g2,"('ff/m2/x',)","('g2',)",correct,l2,mean_logit,0.9486832980505138,8,1,False,True,(),float64,0.9486832980505138,350
+ff,source_test,0,real,a,ff/real/a,g1,"('ff/real/a',)","('g1',)",correct,l2,mean_probability,0.5,8,1,False,True,(),float64,0.5,350
+ff,source_test,0,real,b,ff/real/b,g2,"('ff/real/b',)","('g2',)",correct,l2,mean_probability,0.7098029437568892,8,1,False,True,(),float64,0.7098029437568892,350
+ff,source_test,1,m1,x,ff/m1/x,g1,"('ff/m1/x',)","('g1',)",correct,l2,mean_probability,0.6697615493266569,8,1,False,True,(),float64,0.6697615493266569,350
+ff,source_test,1,m2,x,ff/m2/x,g2,"('ff/m2/x',)","('g2',)",correct,l2,mean_probability,0.7208503015458326,8,1,False,True,(),float64,0.7208503015458326,350
+ff,source_test,0,real,a,ff/real/a,g1,"('ff/real/a',)","('g1',)",collision,raw,mean_logit,0.0,8,1,True,True,"(80, 160)",mpmath,0.0,350
+ff,source_test,0,real,b,ff/real/b,g2,"('ff/real/b',)","('g2',)",collision,raw,mean_logit,2.0,8,1,True,True,"(80, 160)",mpmath,2.0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,350
+ff,source_test,1,collision,x,ff/collision/x,,"('ff/m1/x', 'ff/m2/x')","('g1', 'g2')",collision,raw,mean_logit,2.0,16,2,True,True,"(80, 160)",mpmath,2.0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,350
+ff,source_test,0,real,a,ff/real/a,g1,"('ff/real/a',)","('g1',)",collision,raw,mean_probability,0.5,8,1,False,True,(),float64,0.5,350
+ff,source_test,0,real,b,ff/real/b,g2,"('ff/real/b',)","('g2',)",collision,raw,mean_probability,0.8807970779778823,8,1,False,True,(),float64,0.8807970779778823,350
+ff,source_test,1,collision,x,ff/collision/x,,"('ff/m1/x', 'ff/m2/x')","('g1', 'g2')",collision,raw,mean_probability,0.8418163527262191,16,2,False,True,(),float64,0.8418163527262191,350
+ff,source_test,0,real,a,ff/real/a,g1,"('ff/real/a',)","('g1',)",collision,l2,mean_logit,0.0,8,1,False,True,(),float64,0.0,350
+ff,source_test,0,real,b,ff/real/b,g2,"('ff/real/b',)","('g2',)",collision,l2,mean_logit,0.8944271909999159,8,1,False,True,(),float64,0.8944271909999159,350
+ff,source_test,1,collision,x,ff/collision/x,,"('ff/m1/x', 'ff/m2/x')","('g1', 'g2')",collision,l2,mean_logit,0.8278950396185306,16,2,False,True,(),float64,0.8278950396185306,350
+ff,source_test,0,real,a,ff/real/a,g1,"('ff/real/a',)","('g1',)",collision,l2,mean_probability,0.5,8,1,False,True,(),float64,0.5,350
+ff,source_test,0,real,b,ff/real/b,g2,"('ff/real/b',)","('g2',)",collision,l2,mean_probability,0.7098029437568892,8,1,False,True,(),float64,0.7098029437568892,350
+ff,source_test,1,collision,x,ff/collision/x,,"('ff/m1/x', 'ff/m2/x')","('g1', 'g2')",collision,l2,mean_probability,0.6953059254362448,16,2,False,True,(),float64,0.6953059254362448,350

@@ -1,0 +1,85 @@
+{
+  "status": "IMPLEMENTED_SYNTHETIC_TESTS_AND_INDEPENDENT_CODE_REVIEW_PASSED",
+  "files": {
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/data_h.py": "ad81f65c27d53159e6902bf8a20b0910cd129f75eb0105e5a5a053bcc2d2f45e",
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/tests/test_data_h.py": "f7488203ecc057ecf597faed28497130b733aca1807e0f62d1cfaa019dc51070"
+  },
+  "apis": {
+    "inspect_h_data(root)": "Read-only full source byte/PNG/mask/RGB integrity and complete cohort reconstruction; blockers returned",
+    "freeze_h_data(root, review_path)": "Exclusive data/H/freeze.json after full inspection and external hash-bound independent PASS",
+    "validate_h_freeze(root, *, deep=False)": "Returns original verified FROZEN receipt; default SHALLOW_METADATA_BINDING, deep=True full artifact scan"
+  },
+  "validation_scope": {
+    "default": "Code/review/frozen geometry/source qualification/candidate/full-audit/integrity/content evidence hashes, thirteen table hashes and all processed manifest metadata hashes; no source-video or PNG access",
+    "deep": "Full source byte hash, existing PNG byte/RGB/mask verification and complete candidate graph/cohort/table reconstruction"
+  },
+  "independent_review_contract": {
+    "schema": "H_DATA_INDEPENDENT_REVIEW_V1",
+    "required_status": "PASS",
+    "reviewer": "Nonempty identity and independent=true",
+    "blockers": "Must be empty",
+    "hash_fields": [
+      "candidate_sha256",
+      "full_audit_sha256",
+      "tables_sha256",
+      "geometry_code_sha256",
+      "data_gate_code_sha256",
+      "geometry_protocol_sha256"
+    ],
+    "historical_conflicts_require": "quarantine_disposition=VERIFIED_EXCLUDED_FROM_ALL_ACTIVE_TABLES"
+  },
+  "freeze_receipt_contract": {
+    "schema": "H_DATA_FREEZE_V1",
+    "status": "FROZEN",
+    "tables": "All thirteen exact candidate keys, each path/sha256/rows/videos",
+    "training_draw_count": "ceil(common TRAIN logical mothers/128)*128",
+    "validation_policy": "Explicit freeze/default/deep scopes"
+  },
+  "production_candidate_count": 8431,
+  "test_evidence": {
+    "targeted_result": "........................................................                 [100%]\n56 passed in 86.89s (0:01:26)",
+    "h_gate_tests": 33,
+    "existing_geometry_tests": 23,
+    "gpu_visible": "",
+    "threads": 2,
+    "red_logs": [
+      "reports/data_h_gate_tdd_red.log",
+      "reports/data_h_gate_validation_scope_red.log",
+      "reports/data_h_gate_freeze_summary_red.log",
+      "reports/data_h_gate_unused_count_red.log",
+      "reports/data_h_gate_audit_status_red.log"
+    ],
+    "whole_suite": "Held at parent request; parent owns combined suite after queue/worker upload"
+  },
+  "limitations": [
+    "Default validation does not freshly verify source-video/PNG bytes; training/cache consumers must validate actual input bytes.",
+    "Independent-review identity is an explicit reviewer attestation, not a cryptographic person-identity certificate.",
+    "Production H data freeze and production review were not created or executed.",
+    "Stable artifact files are required during the full scan; no process/config changes were made."
+  ],
+  "geometry_code_sha256": "161ac4e837463ff16e7916ca42eeb5d13acc44aab9bcc1c397025b9426ad9532",
+  "tests_git_ignored": true,
+  "production_source_unused_candidate_count": 560,
+  "code_review": {
+    "schema": "H_DATA_GATE_CODE_REVIEW_V1",
+    "scope": "IMPLEMENTATION_AND_SYNTHETIC_FIXTURES_ONLY",
+    "status": "PASS",
+    "reviewer_agent": "/root/h_data_gate/h_data_review",
+    "reviewed_files": {
+      "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/data_h.py": "ad81f65c27d53159e6902bf8a20b0910cd129f75eb0105e5a5a053bcc2d2f45e",
+      "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/tests/test_data_h.py": "f7488203ecc057ecf597faed28497130b733aca1807e0f62d1cfaa019dc51070"
+    },
+    "remaining_critical": 0,
+    "remaining_important": 0,
+    "remaining_minor": 0,
+    "focused_tests": "5 passed in 19.39s; threads=2; CUDA_VISIBLE_DEVICES empty",
+    "reviewed_behavior": [
+      "Explicit all560SOURCE_UNUSED candidates",
+      "Audit disposition matches reconstructed conflict evidence",
+      "Metadata-only shallow verification and complete deep artifact checks",
+      "All13 exact table reconstruction, ordered pairing, weights, leakage and independent-review bindings"
+    ],
+    "production_hroot_accessed": false,
+    "production_review_or_freeze_authored": false
+  }
+}

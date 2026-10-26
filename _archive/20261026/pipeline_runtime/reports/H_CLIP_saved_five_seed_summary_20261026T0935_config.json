@@ -1,0 +1,55 @@
+{
+  "schema": "H_SAVED_FIVE_SEED_SUMMARY_LAUNCH_V1",
+  "utc": "2026-10-26T09:33:07.837447+00:00",
+  "command": [
+    "/usr/bin/time",
+    "-v",
+    "-o",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_CLIP_saved_five_seed_summary_20261026T0935_time_v.log",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+    "-B",
+    "-u",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/h_saved_five_seed_summary.py",
+    "--execute",
+    "--request",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/H_SAVED_FIVE_SEED_clip_vit_b16_request.json",
+    "--request-sha",
+    "b904035bf5a1304ff76ce2cd9ea1357c9c4fe4f8beeabac0b01007fbe05e07bc",
+    "--budget",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/plans/H_CLIP_saved_summary_actual_operational_budget_20261026T0935.json",
+    "--budget-sha",
+    "4de00943d65f43a9b6f6855d624779ffbadd37141b2e36d9b75d3ec5846cc5e1",
+    "--slot",
+    "0"
+  ],
+  "cwd": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2",
+  "environment": {
+    "CUDA_VISIBLE_DEVICES": "",
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "CPU_slot": 0,
+  "address_space_limit_bytes": 34359738368,
+  "source": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/h_saved_five_seed_summary.py",
+    "sha256": "01e625dc771daa56442364ff49ec8aa819c4ec215b2d467e6ce52621e45d0a57"
+  },
+  "request": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/H_SAVED_FIVE_SEED_clip_vit_b16_request.json",
+    "sha256": "b904035bf5a1304ff76ce2cd9ea1357c9c4fe4f8beeabac0b01007fbe05e07bc"
+  },
+  "budget": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/plans/H_CLIP_saved_summary_actual_operational_budget_20261026T0935.json",
+    "sha256": "4de00943d65f43a9b6f6855d624779ffbadd37141b2e36d9b75d3ec5846cc5e1"
+  },
+  "stdout": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_CLIP_saved_five_seed_summary_20261026T0935.log",
+  "time_v": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_CLIP_saved_five_seed_summary_20261026T0935_time_v.log",
+  "actual_summary_started": true,
+  "M_statistic_started": false,
+  "root_admission_check": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_first_two_actual_job_cache_admissions_acceptance_20261026T0930.json",
+    "sha256": "3ba39cd5b4aee91f012cb68901af81b02a6b653c6be4b650593528304dfae854"
+  }
+}

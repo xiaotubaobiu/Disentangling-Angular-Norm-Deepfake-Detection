@@ -1,0 +1,46 @@
+{
+  "utc": "2026-10-25T19:52:19Z",
+  "H_roles": 210,
+  "H_operational_models": 30,
+  "free_GiB": 155.05411529541016,
+  "audit123": {
+    "wrapper_alive": false,
+    "result": true,
+    "log_tail": "{\"status\": \"SAVED_RESULT_NUMERICS_AND_BOUND_PRIOR_ROLE_ADMISSION_PASS\", \"output\": \"/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/H_LAST_clip_seed123_independent_audit.json\", \"sha256\": \"5b3ab5c2bd1ec7ae94201ff3220d3226b1ea9a07631ba53013ac797bed9b46c2\"}\n"
+  },
+  "audit123_time": "\n\tUser time (seconds): 21.06\n\tSystem time (seconds): 0.60\n\tPercent of CPU this job got: 100%\n\tElapsed (wall clock) time (h:mm:ss or m:ss): 0:21.55\n\tAverage shared text size (kbytes): 0\n\tAverage unshared data size (kbytes): 0\n\tAverage stack size (kbytes): 0\n\tAverage total size (kbytes): 0\n\tMaximum resident set size (kbytes): 225948\n\tAverage resident set size (kbytes): 0\n\tMajor (requiring I/O) page faults: 0\n\tMinor (reclaiming a frame) page faults: 241397\n\tVoluntary context switches: 66\n\tInvoluntary context switches: 31\n\tSwaps: 0\n\tFile system inputs: 0\n\tFile system outputs: 192\n\tSocket messages sent: 0\n\tSocket messages received: 0\n\tSignals delivered: 0\n\tPage size (bytes): 4096\n\tExit status: 0\n",
+  "M_source9": {
+    "owner": 3225047,
+    "completed": 3,
+    "active": {
+      "H_formal_clip_vit_b16_AB_seed7": {
+        "index": 2,
+        "pid": 3249648,
+        "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45"
+      },
+      "H_formal_clip_vit_b16_B_seed7": {
+        "index": 3,
+        "pid": 3225098,
+        "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646"
+      },
+      "H_formal_dinov2_vit_b14_AB_seed7": {
+        "index": 1,
+        "pid": 3256703,
+        "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c"
+      },
+      "H_formal_dinov2_vit_b14_B_seed7": {
+        "index": 0,
+        "pid": 3256578,
+        "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e"
+      }
+    },
+    "pending": 2,
+    "failures": {}
+  },
+  "stat2026": {
+    "alive": true,
+    "ledger": 42,
+    "receipt": false,
+    "last": "BEGIN_PRIMARY_FRESH_LEDGER 42 clip_vit_b16 AMP"
+  }
+}

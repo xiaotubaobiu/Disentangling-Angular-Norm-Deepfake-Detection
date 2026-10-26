@@ -1,0 +1,167 @@
+{
+  "schema": "INDEPENDENT_DETECTOR_M_RESUME_CAPACITY_REASSESSMENT_V1",
+  "utc": "2026-10-26T01:47:47.491816+00:00",
+  "status": "PASS_COMPLETED_PRIMARY_STAGE_FUTURE_WRITE_REASSESSMENT_ONLY",
+  "scope": "Detector-only resume capacity facts; annotation remains paused. No code change,owner start,new production permit or data/scientific admission by this review.",
+  "bindings": {
+    "old_primary_budget": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/full_capacity_check_pre_H_cache_20261025T0555.json",
+      "sha256": "3ce2d435d51895b9cfe53ac2f4bde6df12db244a7a2365c89a3f31b418b502cd"
+    },
+    "new_resume_budget": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/plans/M_detector_resume_remaining_write_plan_20261026T0140_candidate.json",
+      "sha256": "38b3fe99340bc42d18798f36e7b1cff9fe4a4e8a8e6e692cdd5b19fbf5075254"
+    },
+    "new_resume_owner_plan": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/plans/M_detector_resume_finite_owner_plan_20261026T0140_candidate.json",
+      "sha256": "7d86ce010bdd427defbb5b959558ae32ccfbc0fc81b8a6bd36fdc71d733f8303"
+    },
+    "budget_explanation": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_detector_resume_budget_candidate_explanation_20261026T0140.json",
+      "sha256": "7c59e43af6c692c9dec5e1393618c8b4900b566213d743c5e0685db064a01199"
+    },
+    "primary_phase_evidence": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_M_detector_resume_primary_metadata_evidence_20261026.json",
+      "sha256": "3d14a8ad2303fe4c42e967a544baf0f09b5c21476f548e83fd42e7a7435c5938"
+    },
+    "D15_prior_evidence": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_M_detector_resume_D15_prior_receipts_metadata_20261026.json",
+      "sha256": "3ad6c4dc23caeec374cf131b4bcc1f7d3a5dedce1f53c050d5a01e07f94b5f00"
+    },
+    "existing_owner_metadata_preflight": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_detector_resume_existing_owner_metadata_preflight_20261026T0140.json",
+      "sha256": "e506d8fa63c1f32b2fbadba0d4f632484be46402aa2d42343abcdff8fc928444"
+    }
+  },
+  "original_H_cache_phase": {
+    "stage_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_primary_cache_stage_complete.json",
+    "stage_sha256": "90bfad1afbdfb8096c41625625e109ea9cf06ceb4f5246e435cc48241646a3ce",
+    "current_producer_receipts_verified": 30,
+    "aggregate_markers_verified": 30,
+    "explicit_role_markers_verified": 210,
+    "current_code_input_bindings_verified": 31,
+    "independent_cache_admission": false,
+    "capacity_conclusion": "Entire original H extraction stage is closed with retained current metadata; future scheduled original H feature writes may be0 provided no repair/re-extraction is scheduled. This is not a claim that remaining source/cache scientific admission has passed."
+  },
+  "four_completed_primary_pairs": [
+    {
+      "backbone": "clip_vit_b16",
+      "seed": 42,
+      "acceptance_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_first_two_saved_result_independent_acceptance_20261025T1410.json",
+      "acceptance_sha256": "d8fea59b3706811b1299d97224c3826d6775e40e9aad7085e804052ca3cbb365",
+      "audit_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/H_LAST_clip_seed42_independent_audit.json",
+      "audit_sha256": "7daea9b17a4e9e8aea32cd6e5d500cba564d66d33fdd15ce6dbb9cbc97c31e1e",
+      "terminal_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed42/complete.json",
+      "terminal_sha256": "02d7f66612d2e683ba6b52fbfc7379a74cefa1d180b89b9549f7299ea583d831",
+      "status": "ANALYSIS_COMPLETE",
+      "declared_artifact_count": 72,
+      "all_declared_artifact_paths_present": true,
+      "all_payload_hashes_freshly_recomputed": false
+    },
+    {
+      "backbone": "clip_vit_b16",
+      "seed": 7,
+      "acceptance_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_first_two_saved_result_independent_acceptance_20261025T1410.json",
+      "acceptance_sha256": "d8fea59b3706811b1299d97224c3826d6775e40e9aad7085e804052ca3cbb365",
+      "audit_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/H_LAST_clip_seed7_independent_audit.json",
+      "audit_sha256": "aebb55beb1b3411125b7b27ce2fad62808f572843c57585738e719c3d40482df",
+      "terminal_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed7/complete.json",
+      "terminal_sha256": "26c5d3774e06b118803619e4a93f3c83d382874a6db90726ff6c171a9411f7a1",
+      "status": "ANALYSIS_COMPLETE",
+      "declared_artifact_count": 72,
+      "all_declared_artifact_paths_present": true,
+      "all_payload_hashes_freshly_recomputed": false
+    },
+    {
+      "backbone": "clip_vit_b16",
+      "seed": 123,
+      "acceptance_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_clip_seed123_independent_saved_result_acceptance_20261025T1955.json",
+      "acceptance_sha256": "db5e30a04f4c8a4930941bf31f82e1ee120958bca39b15918ba50aee2ab40561",
+      "audit_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/H_LAST_clip_seed123_independent_audit.json",
+      "audit_sha256": "5b3ab5c2bd1ec7ae94201ff3220d3226b1ea9a07631ba53013ac797bed9b46c2",
+      "terminal_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed123/complete.json",
+      "terminal_sha256": "7b39aaa3f7754560041da7d2cae2be73a1271325484ead7edc9a25da8210a2d2",
+      "status": "ANALYSIS_COMPLETE",
+      "declared_artifact_count": 72,
+      "all_declared_artifact_paths_present": true,
+      "all_payload_hashes_freshly_recomputed": false
+    },
+    {
+      "backbone": "clip_vit_b16",
+      "seed": 2026,
+      "acceptance_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_clip_seed2026_independent_saved_result_acceptance_20261025T2000.json",
+      "acceptance_sha256": "71e3e1ac58c72606380d9fe637ab38d926ef7c80db1243e93fecf81a96f1ecd6",
+      "audit_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/H_LAST_clip_seed2026_independent_audit.json",
+      "audit_sha256": "02aba8fa4886dd8b53f2261037d2ed4892f5cfb7bc2aef7753fd16168d55339d",
+      "terminal_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed2026/complete.json",
+      "terminal_sha256": "ec0e96104715aabb1c25001767248b8f858886d174622203e7ad7a1fde0337cc",
+      "status": "ANALYSIS_COMPLETE",
+      "declared_artifact_count": 72,
+      "all_declared_artifact_paths_present": true,
+      "all_payload_hashes_freshly_recomputed": false
+    }
+  ],
+  "budget_math": {
+    "old_primary_required_bytes": 114837553152,
+    "completed_original_H_feature_phase_removed_from_future_writes_bytes": 10684596224,
+    "four_independently_accepted_pair_future_caps_removed_bytes": 4294967296,
+    "remaining_primary_H_pair_cap_bytes": 11811160064,
+    "primary_logs_manifests_figures_audits_retained_bytes": 17179869184,
+    "primary_temporary_peak_retained_bytes": 17179869184,
+    "primary_reserve_retained_bytes": 53687091200,
+    "remaining_primary_required_bytes": 99857989632,
+    "M_temporary_retained_bytes": 6442450944,
+    "M_extra_retained_bytes": 5368709120,
+    "new_base_bytes": 111669149696,
+    "new_base_GiB": 104,
+    "all_M_feature_cap_retained_bytes": 18413684905,
+    "all_M30_statistic_caps_retained_bytes": 20132659200,
+    "required_total_bytes": 150215493801,
+    "required_total_GiB": "139.8990804338827729225158691"
+  },
+  "free_snapshot": {
+    "utc": "2026-10-26T01:43:00.764153+00:00",
+    "bytes": 152061317120,
+    "margin_bytes": 1845823319,
+    "margin_GiB": "1.719056925736367702484130859",
+    "fresh_existing_initial_gate_required_before_launch": true
+  },
+  "prior_D15_reuse_scope": {
+    "input_admission_sha256": "8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a",
+    "models": 15,
+    "roles": 90,
+    "all_prior_worker_receipt_SHAs_and_current_markers_verified": true,
+    "same_cache_only_permit_SHA": "d4b735fda1c4aa5a4932b051fc01cf98770d5abe4c2c3d253a5f0a2820f42714",
+    "only_operational_D_completion_may_be_skipped": true,
+    "H_interrupted_prechecks_or_partial_SOURCE_CAL_do_not_complete_H_models": true,
+    "remaining_model_runs": 30,
+    "M_feature_byte_credit": 0,
+    "M_statistic_byte_credit": 0,
+    "independent_M_data_or_scientific_admission": false
+  },
+  "required_boundaries": [
+    "Original H independent source/cache admission still proceeds as needed; its pending state does not itself schedule new feature writes. Any failure requiring repair/re-extraction must first receive a fresh full capacity check. No automatic repair is included in this0-H-feature future bound.",
+    "Only four accepted primary pair caps are removed;11 full primary pair caps remain. No fifth/active/partial pair credit and no completed M statistics credit.",
+    "Full M45-model feature cap remains,despite retained D90 and reported H6 SOURCE_CAL products. No partial feature-byte,compression,SSD/cold release or deletion credit.",
+    "Keep original primary16GiB temporary and50GiB reserve,M6GiB temporary and5GiB extra,all M30 statistic caps and immutable prior plans. No overwritten old evidence.",
+    "Existing code,cache-only permit,target/source/ownership/native GPU checks and immediate fresh initial free-space gate still apply. This review is not a new permit or statistical production authorization.",
+    "Current210/cache and pair checks were producer/complete/audit metadata bindings and declared artifact existence. No feature payload/weight/PNG/full statistic payload was rescanned; earlier independent pair data acceptance is reused."
+  ],
+  "safe_fallback": "If the fresh initial free check falls below150215493801B,do not start M. Wait for another independently completed primary pair and reissue a reviewed future-write budget,or plan separately verified cold migration/extra capacity;do not lower reserves or take partial M feature credit.",
+  "verdict": {
+    "resume_capacity_basis": "ACCEPTABLE_WITH_STATED_SCOPE_AND_FRESH_GATE",
+    "arithmetic_and_completed_stage_evidence": "PASS",
+    "new_production_permit_issued": false,
+    "scientific_or_data_admission_granted": false
+  },
+  "findings": {
+    "Critical": [],
+    "Important": [],
+    "Minor": []
+  },
+  "implementation_changed": false,
+  "owner_or_worker_started": false,
+  "locks_or_processes_touched": false,
+  "production_authorization_granted_by_this_report": false,
+  "action_status": "Read-only independent review complete; no remaining evidence wait within this stated capacity-fact scope."
+}

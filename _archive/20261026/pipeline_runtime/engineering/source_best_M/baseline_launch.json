@@ -1,0 +1,17 @@
+{
+  "utc": "2026-10-25T03:45:46.348629+00:00",
+  "status": "CLEAN_ISOLATED_FULL_V2_CPU_BASELINE_STARTED",
+  "pid": 2507344,
+  "cwd": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2",
+  "command": [
+    "/usr/bin/time",
+    "-v",
+    "-o",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/baseline_time_v.log",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+    "-B",
+    "-m",
+    "pytest",
+    "-q"
+  ]
+}

@@ -1,0 +1,137 @@
+{
+  "schema": "INDEPENDENT_SOURCE_BEST_OWNER_REVIEW_V1",
+  "utc": "2026-10-25T16:51:39.666504+00:00",
+  "status": "HISTORICAL_THREE_IMPORTANT_OWNER_FIXES_REQUIRED",
+  "scope": "Historical initial23991 finite owner review; root subsequently fixed the tool before this report publication. No real R/GPU/existing-PID operation or production approval.",
+  "reviewed_original_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/source_best_owner.py",
+  "reviewed_snapshot": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/review_snapshots/owner_23991/source_best_owner.py",
+  "reviewed_source_sha256": "23991aa298d068563a1c7db652b6ab9df0ba82d19de3a5f3cec8f4b98f0e8e55",
+  "reviewed_tests_sha256": "40c091ca0283cf6bc78df47cb3462796043f8dd6b4527929de6ab07c40278f65",
+  "later_revisions_excluded": true,
+  "fresh_independent_initial_suite": {
+    "command": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -B -m pytest -q -p no:cacheprovider tests/test_source_best_owner.py",
+    "cwd": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2",
+    "returncode": 0,
+    "stdout": ".....                                                                    [100%]\n5 passed in 1.66s\n",
+    "elapsed_seconds": 2.3451711796224117,
+    "CPU_only": true
+  },
+  "findings": [
+    {
+      "id": "OWNER-001",
+      "severity": "Important",
+      "lines": [
+        37,
+        39,
+        41,
+        47,
+        51,
+        122,
+        123,
+        124
+      ],
+      "title": "Recoverable owner callback exceptions abort without draining active healthy children",
+      "impact": "progress() and other uncaught owner callback exceptions escape schedule; execute_owner only closes log handles. The owner can exit and PDEATHSIG-kill healthy children instead of draining as promised.",
+      "proof": "Real temporary direct children verified inherited PhaseLease. An injected status-storage OSError escaped while2healthy children remained running. The reviewer manually waited both exit0 to clean the fixture.",
+      "fix": "Turn recoverable callback errors into owner failure, stop new dispatch and keep polling/waiting every active child before returning or releasing owner scope."
+    },
+    {
+      "id": "OWNER-002",
+      "severity": "Important",
+      "lines": [
+        63,
+        72,
+        73,
+        74,
+        75,
+        76,
+        107,
+        112,
+        122
+      ],
+      "title": "Owner cache-plan validation omits current GPU-bridge qualification/stage checks",
+      "impact": "A changed/revoked nested bridge qualification is accepted by runtime validate_plan while the accepted worker bridge guard rejects it. New workers will fail safely, but all-resume completion bypasses worker checks and can report operational completion under revoked bridge evidence.",
+      "proof": "Synthetic SHA-bound cache plan with unchanged permit/top4gates and deliberately changed bridge proof: owner validate_plan(initial=False) passed, gpu._bridge_gate rejected. Disk free was a synthetic boundary; no worker/GPU launched. All-resume implication was source-inspected rather than a real45-run launch.",
+      "fix": "Revalidate the accepted complete GPU bridge gate/current primary stage in owner preflight and each guard, including all-resume paths."
+    },
+    {
+      "id": "OWNER-003",
+      "severity": "Important",
+      "lines": [
+        81,
+        82,
+        83,
+        84,
+        85,
+        87,
+        88,
+        107,
+        119
+      ],
+      "title": "Receipt context accepts noncanonical nonce and unverified phase owner/stage",
+      "impact": "A32-character traversal nonce can reference a different directory still inside root. Wrong phase_owner_pid and source-qualification primary_cache_stage_sha256 are ignored even when expected worker PID/nonce match. This weakens current-child and resume provenance. No root escape was observed.",
+      "proof": "verify_return accepted nonce ../+29chars and accepted a hex-nonce receipt with phase_owner_pid=-7 and wrong primary stage while expected PID/nonce/device matched. Only temporary synthetic metadata/marker hashes were used.",
+      "fix": "Require strict lowercase32hex nonce and canonical receipt path; bind typed positive current child/phase-owner identity and current qualification stage. Explicit resumes need equivalent SHA-bound prior context without requiring dead prior PIDs to remain live."
+    },
+    {
+      "id": "OWNER-004",
+      "severity": "Minor",
+      "lines": [
+        25,
+        29,
+        30,
+        35
+      ],
+      "title": "Generic scheduler accepts more than4devices or duplicate physical indices",
+      "impact": "UUID uniqueness and index range alone allow5distinctUUIDs with repeatedindex and5simultaneous starts. Actual idle_devices is constrained by4configured UUIDs and native workers independently protect GPU0-3, so no real protected GPU access was demonstrated.",
+      "proof": "A fake completed-process provider with5UUIDs and indices0,1,2,3,0 started5jobs in the same fill step.",
+      "fix": "Require<=4devices, unique physical indices and UUIDs, and enforce the active cap defensively."
+    }
+  ],
+  "critical_findings": 0,
+  "important_findings": 3,
+  "minor_findings": 1,
+  "direct_child_reproduction": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_source_best_owner_direct_child_probe_23991.py",
+    "sha256": "64d53ccc4bed6a645533ae51b2093e68cb878d389065454684b03b98f5be2deb",
+    "command": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -B /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_source_best_owner_direct_child_probe_23991.py /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/review_snapshots/owner_23991/source_best_owner.py",
+    "latest_returncode": 0,
+    "result": {
+      "escaped_instead_of_terminal_failure": true,
+      "healthy_children_still_running_when_schedule_escaped": 2,
+      "all_temporary_children_manually_drained_exit0": true,
+      "direct_inherited_phase_verification_passed": true
+    },
+    "all_temporary_children_reaped": true
+  },
+  "other_initial_probes": {
+    "revoked_bridge_owner_accepts_worker_rejects": true,
+    "nonhex_traversal_nonce_accepted": true,
+    "wrong_phase_owner_and_stage_accepted": true,
+    "five_device_generic_start_accepted": true
+  },
+  "verified_strengths": [
+    "Exact9source/45cache endpoint lists, input/source admission code-family hashes and primary-stage closure are checked.",
+    "PhaseLease is genuinely inherited through pass_fds by direct children; native GPU workers retain their independent protected-GPU and permit gates.",
+    "Ordinary worker nonzero/verification failures stop new dispatch, preserve pending jobs and drain healthy peers in existing5scheduler tests.",
+    "No-idle/no-active returns finite blocked status; explicit prior receipts are SHA-bound and role marker hashes are rechecked.",
+    "Owner terminal explicitly declines scientific/production qualification; collector remains separate."
+  ],
+  "trust_boundary": "Externally pinned proof/plan files are trust anchors, not cryptographic proof of historical GPU execution by themselves. Independent stage/role collector remains required.",
+  "declined_to_judge": [
+    "Real GPU readiness/performance, actual root source/gate truth and current primary owner health: no real R/GPU/PID controls used.",
+    "Stage collector and scientific/storage acceptance: separate implementation not reviewed here.",
+    "Actual production launch: not authorized by this engineering report."
+  ],
+  "review_actions": {
+    "W_source_modified": false,
+    "core33_source_hotpatched": false,
+    "F_modified": false,
+    "real_R_locks_or_GPU_or_existing_PID_control_used": false,
+    "temporary_phase_children_only": true,
+    "all_owned_children_waited": true
+  },
+  "owner_engineering_accepted_at_initial_review": false,
+  "production_GPU_allowed": false,
+  "production_integration_accepted": false
+}

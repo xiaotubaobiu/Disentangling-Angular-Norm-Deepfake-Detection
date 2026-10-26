@@ -1,0 +1,44 @@
+{
+  "GREEN": {
+    "cases": 81,
+    "exit_code": 0,
+    "includes_original78": true,
+    "seconds": 25.57
+  },
+  "RED": {
+    "cap_bytes": 16777216,
+    "cases": 1,
+    "normal_publishers_each_logical_MiB": 9,
+    "successfully_committed_namespace_bytes": 18935808
+  },
+  "implementation": "Per canonical output, a Linux abstract AF_UNIX datagram bind atomically admits one publisher across threads/processes before any prediction/stage/commit/reentry. No listen,send,receive,daemon,filesystem lock or shared CPU-slot IO. Context closes on success/failure; process exit kernel-releases reservation. Deterministic statistical receipt unchanged in structure; new release-confirmation flag only operational stdout.",
+  "independent_original_counterexample": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_H5_fix_independent_probes.log",
+    "sha256": "715fbe867d679239ec56a3c3527917d4c88b5978672cbe4691a358f25b24c2ae"
+  },
+  "known_unmodified_separate_review_finding": "HSUM004-R1 historical lexical ./ alias conflict reported separately by IO; awaiting root scope decision, historical-map logic was not modified by this single-finding reservation fix.",
+  "logs": {
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/H_saved_five_seed_summary_writer_reservation_GREEN.log": "b74e2262ff5745a9c06b33b04b3fc7a405397f8f91a258aa7337bbc5decd4413",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/H_saved_five_seed_summary_writer_reservation_RED.log": "d65037a81f67fa2f19743188c9331c6b26ecaa8e11a36494591cd0638d8e8665"
+  },
+  "preserved_baseline_directory": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/review_snapshots/H_saved_summary_af225_before_writer_reservation_fix",
+  "schema": "H_SAVED_SUMMARY_ATOMIC_WRITER_RESERVATION_FIX_V1",
+  "scientific_or_production_actions": {
+    "actual_shared_CPU_slot": false,
+    "actual_summary": false,
+    "commit_or_seal": false,
+    "flock": false,
+    "models_pixels_source_context": false,
+    "saved_score_numeric_rerun": false
+  },
+  "source": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/h_saved_five_seed_summary.py",
+    "sha256": "c242753c4042f38f616a8d6f9b565e202d031c543a301c9f3797ce28220053e9"
+  },
+  "status": "SYNTHETIC81_PASS_INDEPENDENT_SINGLE_FINDING_CONFIRMATION_PENDING",
+  "tests": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests/test_h_saved_five_seed_summary.py",
+    "sha256": "91e4c70465b39f545ef80ed678bb31585674f36f473e23201198b51358f29ac6"
+  },
+  "utc": "2026-10-26T08:44:12.631656+00:00"
+}

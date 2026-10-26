@@ -1,0 +1,60 @@
+{
+  "utc": "2026-10-25T19:33:09Z",
+  "owner_pid": 3225047,
+  "wrapper_pid": 3225046,
+  "phase_nonce": "883a623cc487472892444961790070b1",
+  "source9_operational_completed": 3,
+  "source9_active": 4,
+  "source9_pending": 2,
+  "failures": 0,
+  "results": {
+    "D_formal_efficientnet_b0_seed7": {
+      "GPU_executed": true,
+      "rows": 1120,
+      "fresh_forward_rows": 1120,
+      "repeated_forward_FP32_bitwise_equal": true,
+      "phase_native_mutual_exclusion_verified": true,
+      "approved_visible_GPU": "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+      "original_head_sha256": "6d4c70574ea71787f57c0924c0b77388ea00e552b8e6c4d678a26d56382b2310",
+      "source_best_epoch": 14,
+      "seconds": 12.870965496636927,
+      "target_encoder_inference": false,
+      "threshold_or_test_metric_computed": false,
+      "optimizer_updates": 0,
+      "receipt_sha256": "3b704d448bfee274dc454b6a2199bbc016f4e778282176252eb8094483912cab"
+    },
+    "D_formal_dinov2_vit_b14_seed7": {
+      "GPU_executed": true,
+      "rows": 1120,
+      "fresh_forward_rows": 1120,
+      "repeated_forward_FP32_bitwise_equal": true,
+      "phase_native_mutual_exclusion_verified": true,
+      "approved_visible_GPU": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+      "original_head_sha256": "dcd1630283ab8b7a4205ca8eba581f7108065777ee0f03ada5b22f79eb41e30e",
+      "source_best_epoch": 24,
+      "seconds": 50.06892329733819,
+      "target_encoder_inference": false,
+      "threshold_or_test_metric_computed": false,
+      "optimizer_updates": 0,
+      "receipt_sha256": "c8c3c4306dfeb5173044a6d8775603e03f4248a3b9226d0e69e44af259aa4a5f"
+    },
+    "D_formal_clip_vit_b16_seed7": {
+      "GPU_executed": true,
+      "rows": 1120,
+      "fresh_forward_rows": 1120,
+      "repeated_forward_FP32_bitwise_equal": true,
+      "phase_native_mutual_exclusion_verified": true,
+      "approved_visible_GPU": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e",
+      "original_head_sha256": "f209272f9c7c6c357fbb96b330c19dca8e7b9756fb3a48c5e3189bc7d8793056",
+      "source_best_epoch": 23,
+      "seconds": 48.54049377981573,
+      "target_encoder_inference": false,
+      "threshold_or_test_metric_computed": false,
+      "optimizer_updates": 0,
+      "receipt_sha256": "002ed481cb09f4764ef7f3710b82f13ac4b7b09f92d9d7e86b825ab97771e3f9"
+    }
+  },
+  "all9_qualified": false,
+  "independent_source9_collector_accepted": false,
+  "M_production_permit": false
+}

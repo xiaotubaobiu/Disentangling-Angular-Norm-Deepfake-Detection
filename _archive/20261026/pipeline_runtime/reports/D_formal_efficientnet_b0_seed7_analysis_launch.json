@@ -1,0 +1,45 @@
+{
+  "utc": "2026-10-24T18:12:52.021995+00:00",
+  "status": "SLOT1_NEXT_FINITE_D_ANALYSIS_LAUNCHED_ADMISSION_FIRST",
+  "run_id": "D_formal_efficientnet_b0_seed7",
+  "slot": 1,
+  "flock_pid": 2084954,
+  "command": [
+    "/usr/bin/flock",
+    "--nonblock",
+    "--conflict-exit-code",
+    "75",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/D/production_cpu_slot1.lock",
+    "/usr/bin/time",
+    "-v",
+    "-o",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/D_formal_efficientnet_b0_seed7_analysis_time_v.log",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+    "-u",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/analysis_execution_records/D_formal_efficientnet_b0_seed7.command.py"
+  ],
+  "command_source_sha256": "a824318ce71702fcf4b9320cc91877b3f002e84b2d18eda38eb9c06b53c0f63c",
+  "source_template_sha256": "f04ad896cda267f25e1d18dee940688823264bfe8650fb223e094d8818c8e357",
+  "literal_run_record_substitutions": [
+    [
+      "RUN='D_formal_clip_vit_b16_seed7'",
+      "RUN='D_formal_efficientnet_b0_seed7'"
+    ],
+    [
+      "D_first_single_analysis_progress.json",
+      "D_formal_efficientnet_b0_seed7_analysis_progress.json"
+    ],
+    [
+      "D_first_single_analysis_admission.json",
+      "D_formal_efficientnet_b0_seed7_analysis_admission.json"
+    ]
+  ],
+  "stdout_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/D_formal_efficientnet_b0_seed7_analysis.stdout.log",
+  "time_v_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/D_formal_efficientnet_b0_seed7_analysis_time_v.log",
+  "preceding_model_acceptance_sha256": "2a1c074d46254a65c921a107655cd756cf642c1b2ae6d8145903f1c86ddc4d0e",
+  "capacity_snapshot_sha256": "82a97c4f3d67841fa9a94b2dc412facf4074b9dbbdefa5c99fe59790d425af42",
+  "fresh_free_bytes": 281730928640,
+  "scientific_code_changed": false,
+  "calibration_repeats": 200,
+  "test_bootstrap_repeats": 2000
+}

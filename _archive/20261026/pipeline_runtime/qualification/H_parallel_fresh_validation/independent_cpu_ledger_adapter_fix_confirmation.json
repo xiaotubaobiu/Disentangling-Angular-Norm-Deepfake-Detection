@@ -1,0 +1,109 @@
+{
+  "utc": "2026-10-25T08:04:58.290951+00:00",
+  "status": "INDEPENDENT_CPU_ADAPTER_FIX_CONFIRMED_NO_REMAINING_ENGINEERING_REVIEW_BLOCKER",
+  "scope": "Isolated generic scheduling adapter for future NEW CPU processes only; not a production or actual pair-context admission acceptance.",
+  "candidate_sha256": {
+    "cpu_ledger_adapter.py": "c6b98535e5a28123baae595ab1f4b208f1feab43ff4018e740be94366d044287",
+    "tests/test_cpu_ledger_adapter.py": "78cf06c4ad5a8358ecfaeb6668554815f3f483fc0dd6caa7849edf7868d3b64a",
+    "parallel_source.py": "a6133c824913ab3bf361095b415eefc9ef75be39ab32fb49ab62e2656dc2624a",
+    "CPU_ADAPTER_PLAN.md": "3b58fe523831a62f6c0d4bf393aa77602c369c67045e315125591bd547a7fa85"
+  },
+  "historical_review_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_parallel_fresh_validation/independent_cpu_ledger_adapter_review.json",
+  "historical_review_sha256": "49d051d1271ab223a4a3e42d8a09b18f4b036c0e83f057c331206ff98e180891",
+  "historical_review_preserved": true,
+  "reviewed_source_backup_sha256": "0a86f3f8cfe1e304b90534889168432c5e32dafc30b068b72b70c24690c605f7",
+  "original_finding_disposition": {
+    "severity": "Important",
+    "title": "Scope teardown races an active audit and admits overlapping scopes",
+    "disposition": "RESOLVED",
+    "fix_lines": [
+      47,
+      48,
+      49,
+      50,
+      51,
+      52
+    ],
+    "evidence": "Teardown holds the same call_lock as adapted audit calls while checking/restoring the original binding and unregistering. Installation registration remains held until active audit completion. Saved callbacks recheck current binding under call_lock and reject after teardown."
+  },
+  "fresh_independent_combined_suite": {
+    "command": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -B -m pytest -q",
+    "cwd": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_parallel_fresh_validation",
+    "environment": {
+      "CUDA_VISIBLE_DEVICES": "",
+      "OMP_NUM_THREADS": "2",
+      "MKL_NUM_THREADS": "2",
+      "OPENBLAS_NUM_THREADS": "2",
+      "PYTHONDONTWRITEBYTECODE": "1"
+    },
+    "returncode": 0,
+    "stdout": "......................................                                   [100%]\n38 passed in 0.20s\n",
+    "elapsed_seconds": 0.42401403188705444
+  },
+  "independent_bounded_fake_lifecycle_probe": {
+    "returncode": 0,
+    "result": {
+      "scope_waited_for_active_audit": true,
+      "second_scope_rejected_while_active": true,
+      "restored_original_after_join": true,
+      "saved_callback_rejected_after_teardown": true,
+      "saved_callback_did_no_work": true,
+      "peak_fresh_verifiers": 2,
+      "fresh_calls": 20,
+      "successful_results": 2,
+      "scope_receipt_counts": [
+        1,
+        1
+      ],
+      "errors": [],
+      "all_threads_joined": true
+    },
+    "fixtures": "Temporary fake config/reference and injected original/verifier only; no real weights, target data or production processes touched."
+  },
+  "root_TDD_evidence": {
+    "cpu_adapter_teardown_race_RED.log": {
+      "sha256": "4b1c8b60bd37978e8fb71725d588d7829fecbf369b0b5d5c7393766a3271f6b5",
+      "result": "1 failed, 7 deselected in 0.05s; scope exited with fresh audit active"
+    },
+    "cpu_adapter_teardown_race_GREEN.log": {
+      "sha256": "34b3e5eb8b8c4a8c3a8cd1cba03e5d66ea9bedd130891ed170507d2bc270776e",
+      "result": "38 passed in 0.26s"
+    }
+  },
+  "remaining_findings": [],
+  "critical_findings": 0,
+  "important_findings": 0,
+  "minor_findings": 0,
+  "verified_preserved_behaviors": [
+    "Each invocation freshly verifies all ten supplied canonical run IDs through accepted collect_fresh with at most two verifier threads; no cross-invocation source receipts are reused.",
+    "The captured original queue audit consumes every FreshLookup receipt once and exact supported JSON ledger comparison excludes only top-level utc.",
+    "Synchronous worker/ledger errors and supplied pin drift reject; original audit restoration, nested-install rejection and teardown lifecycle now have passing independent evidence."
+  ],
+  "generic_adapter_integration_boundary": {
+    "concrete_entry_implemented_or_reviewed": false,
+    "description": "The generic adapter accepts injected queue, verifier, canonical-ID/reference selectors and pin map. It enforces supplied pins and requires config/reference pins. The future concrete CPU entry must establish exact ORIGINAL functions and complete approved 20-source plus canonical config/registry/freeze/Hgate/recipes/environment/all-three target gates/ledgers; that entry needs inspection and finite actual pair-context equivalence/resource evidence before integration. This boundary is not a missing generic-library feature."
+  },
+  "declined_to_judge": [
+    {
+      "behavior": "Actual canonical pair-context identity, full role PNG byte/RGB validation and finite admission performance",
+      "reason": "Separate actual validation follows this engineering review; reviewer ran only bounded fake tests."
+    },
+    {
+      "behavior": "Concrete future CPU entry and complete approved source/input pin map",
+      "reason": "Entry is not yet written or integrated."
+    },
+    {
+      "behavior": "Production cache integration, target authorization/scoring/export, primary-source changes and running owner or seed7 admission health",
+      "reason": "Outside authorized isolated adapter review; no such launches or changes were made."
+    }
+  ],
+  "review_actions": {
+    "source_modified": false,
+    "real_weights_or_GPU_used": false,
+    "production_or_actual_admission_launched": false,
+    "fake_probe_threads_all_joined": true
+  },
+  "engineering_implementation_review_passed": true,
+  "actual_pair_context_validation_accepted": false,
+  "production_integration_accepted": false
+}

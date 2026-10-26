@@ -1,0 +1,23 @@
+{
+  "utc": "2026-10-25T03:43:09.171913+00:00",
+  "status": "ACTUAL_SEALED_PAIR_INDEPENDENT_CPU_AUDIT_STARTED_ONCE",
+  "time_wrapper_pid": 2458933,
+  "command": [
+    "/usr/bin/time",
+    "-v",
+    "-o",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_DINO_seed2026_terminal_time_v_20261025T0340.log",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+    "-B",
+    "-u",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/audit_H_formal_terminal.py",
+    "--run-id",
+    "H_formal_dinov2_vit_b14_B_seed2026",
+    "--run-id",
+    "H_formal_dinov2_vit_b14_AB_seed2026",
+    "--report",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_DINO_seed2026_terminal_acceptance_20261025T0340.json"
+  ],
+  "auditor_sha256": "b76806a40ee85233123d17efceee8b10f6882600fa74507ff19d603d4685fa02",
+  "GPU_jobs_started": false
+}

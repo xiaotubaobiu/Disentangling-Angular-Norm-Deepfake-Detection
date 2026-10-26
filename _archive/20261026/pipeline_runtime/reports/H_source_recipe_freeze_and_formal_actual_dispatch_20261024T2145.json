@@ -1,0 +1,106 @@
+{
+  "utc": "2026-10-24T21:46:27.692903+00:00",
+  "status": "PASS_INDEPENDENT_SOURCE_ONLY_RECIPE_FREEZE_AND_ACTUAL_ORIGINAL_30AMP_DISPATCH",
+  "source_only_decisions": {
+    "clip_vit_b16": {
+      "lr": 1e-05,
+      "epochs": 30,
+      "last5_fourway_mean": 0.998391780941567,
+      "max_last_window_gain": 0.00032753952310238255,
+      "DINO_extension_triggered": null
+    },
+    "dinov2_vit_b14": {
+      "lr": 1e-05,
+      "epochs": 30,
+      "last5_fourway_mean": 0.9994672023757534,
+      "max_last_window_gain": 0.0003755786531574046,
+      "DINO_extension_triggered": false
+    },
+    "efficientnet_b0": {
+      "lr": 0.0001,
+      "epochs": 30,
+      "last5_fourway_mean": 0.994881649052319,
+      "max_last_window_gain": 0.00012228142195824798,
+      "DINO_extension_triggered": null
+    }
+  },
+  "independent_recomputation": "stdlib statistics.mean and frozen tie/adjacent-window rules; no queue science helper imported",
+  "bound_inputs_sha256": {
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/configs/H_frozen_recipes.json": "c2833d4635edf1fb1ec08468e386c9e394672e19219d837c5f821f6b151eaacd",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/configs/H_execution.json": "ec344230ac000185312eb5cd069c5ef1e3917ddc82b65f466fd8180fccc7ee9c",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/H_run_registry.json": "c8965b2f754fd12ba30bc0a1ee037cb42ba85439c861f27c4d3769a8c6ce1a6f",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/H_dev_clip_vit_b16_B_lr1e-05_seed1007_e30/history.json": "c92b32a0f3a8bab298ff704485dbcdffcde04b6a64290c49a662abc474faa968",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/H_dev_clip_vit_b16_AB_lr1e-05_seed1007_e30/history.json": "052eac7623b22f8003e290ea8768ca29e9c1d6850e754ea03801caf1b6a8047c",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/H_dev_clip_vit_b16_B_lr1e-05_seed1042_e30/history.json": "0e4c1b2921126172a168f863f31ee5d2e61151c2293b9fa704c90e88bd88d203",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/H_dev_clip_vit_b16_AB_lr1e-05_seed1042_e30/history.json": "464a69a24d8fec13d36e9c696237cacf72a94d893034d4dcc61e2244ceb565ab",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/H_dev_dinov2_vit_b14_B_lr1e-05_seed1007_e30/history.json": "17a3fee688391f1c73797a2c26e2325ae93656f31eda5dfc0fed9e9b2ef16092",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/H_dev_dinov2_vit_b14_AB_lr1e-05_seed1007_e30/history.json": "83297bf5cfb2b2b81a1b6733884d57756ef0497f234367864d16cace1b46a754",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/H_dev_dinov2_vit_b14_B_lr1e-05_seed1042_e30/history.json": "1ddb23d450bd5d951f5a92acffd95384739dfa1c2dc2ce4478621cdfe4df78cd",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/H_dev_dinov2_vit_b14_AB_lr1e-05_seed1042_e30/history.json": "efac448745043aebf02d9171e0f01368b85e869e494e4950c5aaed07beae4afc",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/H_dev_dinov2_vit_b14_B_lr3e-05_seed1007_e30/history.json": "cb67779da90cfa3f485fb5262f8dfa08b00cae358d43dd49d039e16ac312219b",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/H_dev_dinov2_vit_b14_AB_lr3e-05_seed1007_e30/history.json": "7dba8905bdec0d43f379ebec3958ba986f59a125c7525799b7b7786f857972a8",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/H_dev_dinov2_vit_b14_B_lr3e-05_seed1042_e30/history.json": "187edfaf2ffea0fd050d6b36a7ffd58081cf34691565b7b19d77a2ef5b0278a7",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/H_dev_dinov2_vit_b14_AB_lr3e-05_seed1042_e30/history.json": "d39a7eddab6bb0c9882af5fbc8b7b471d50a8cc0d41f3659ef21b8d5f3846c1c",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/H_dev_dinov2_vit_b14_B_lr5e-05_seed1007_e30/history.json": "e39f2eb47be3fcc307609a798e99bd227e0fbacdb336a1549998aacbeec05bab",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/H_dev_dinov2_vit_b14_AB_lr5e-05_seed1007_e30/history.json": "b2be9219224f42ada52acda6e46d5fea47824b7719ca9cddae3b4d3dc782d207",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/H_dev_dinov2_vit_b14_B_lr5e-05_seed1042_e30/history.json": "d0fc8882abbcc4caa2e0d61be27300f9a294748437c976b46f3a52ce5f6abc65",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/H_dev_dinov2_vit_b14_AB_lr5e-05_seed1042_e30/history.json": "464be7649792ff8b5302aaad1c272b319b913a3d374629f93ab8a106cfc14c03",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/H_dev_efficientnet_b0_B_lr1e-04_seed1007_e30/history.json": "8aba27f778130e43510c150a12ef84fd3ee77be1d9cec51a593bae2f342f266e",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/H_dev_efficientnet_b0_AB_lr1e-04_seed1007_e30/history.json": "87ff276df6301f1834cc9cd86f194d074429f140283a59e50022016dbfa8cea7",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/H_dev_efficientnet_b0_B_lr1e-04_seed1042_e30/history.json": "d70c7b0cc201d476d4ebd4a9e73c087347558aaaa81887f33bac9d21173ed255",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/H_dev_efficientnet_b0_AB_lr1e-04_seed1042_e30/history.json": "0dc936501f388976de4c9ad2af434387e4f8953125f90f30db1a2391a8c5f51a"
+  },
+  "actual_workers": [
+    {
+      "pid": 2228135,
+      "run_id": "H_formal_clip_vit_b16_B_seed7",
+      "gpu": 0,
+      "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e",
+      "backbone": "clip_vit_b16",
+      "verified_process_command": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -u -m reliability_v2.worker_h --config /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/configs/H_execution.json --run-id H_formal_clip_vit_b16_B_seed7 ",
+      "history_rows": 0
+    },
+    {
+      "pid": 2228136,
+      "run_id": "H_formal_clip_vit_b16_AB_seed7",
+      "gpu": 1,
+      "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+      "backbone": "clip_vit_b16",
+      "verified_process_command": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -u -m reliability_v2.worker_h --config /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/configs/H_execution.json --run-id H_formal_clip_vit_b16_AB_seed7 ",
+      "history_rows": 0
+    },
+    {
+      "pid": 2228137,
+      "run_id": "H_formal_clip_vit_b16_B_seed42",
+      "gpu": 2,
+      "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+      "backbone": "clip_vit_b16",
+      "verified_process_command": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -u -m reliability_v2.worker_h --config /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/configs/H_execution.json --run-id H_formal_clip_vit_b16_B_seed42 ",
+      "history_rows": 0
+    },
+    {
+      "pid": 2228138,
+      "run_id": "H_formal_clip_vit_b16_AB_seed42",
+      "gpu": 3,
+      "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646",
+      "backbone": "clip_vit_b16",
+      "verified_process_command": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -u -m reliability_v2.worker_h --config /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/configs/H_execution.json --run-id H_formal_clip_vit_b16_AB_seed42 ",
+      "history_rows": 0
+    }
+  ],
+  "H_formal_registered": 30,
+  "H_formal_complete": 0,
+  "H_formal_active": 4,
+  "H_formal_pending": 26,
+  "whole_formal_complete": 15,
+  "whole_formal_total": 45,
+  "owner_pid": 2222605,
+  "time_wrapper_pid": 2222604,
+  "formal_attempts_per_model": 5730,
+  "formal_total_attempt_budget": 171900,
+  "target_export_allowed": false,
+  "paired_ledger_and_conditional_FP32_admitted": false,
+  "CPU_and_GPU_current_inventory": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 0, 0\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 0, 0\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 0, 0\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 0, 0\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n",
+  "free_bytes": 230529916928,
+  "training_completion_or_final_performance_claimed": false
+}

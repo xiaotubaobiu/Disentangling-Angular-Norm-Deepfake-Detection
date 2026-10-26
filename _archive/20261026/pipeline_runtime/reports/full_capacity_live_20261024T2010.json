@@ -1,0 +1,98 @@
+{
+  "utc": "2026-10-24T20:22:06.694426+00:00",
+  "status": "REGISTERED_PRIMARY_LAST_REMAINING_COVERED_ONLY",
+  "base_live_sha256": "80ee571784c238a0bcc9aea27161c685d450c07190a2db5fb64aa5b56d06e009",
+  "D_current_outputs": {
+    "D_formal_clip_vit_b16_seed7": {
+      "bytes": 7375372865,
+      "complete": true
+    },
+    "D_formal_clip_vit_b16_seed42": {
+      "bytes": 7375359498,
+      "complete": true
+    },
+    "D_formal_clip_vit_b16_seed123": {
+      "bytes": 7375407105,
+      "complete": true
+    },
+    "D_formal_clip_vit_b16_seed2026": {
+      "bytes": 7375357358,
+      "complete": true
+    },
+    "D_formal_clip_vit_b16_seed3407": {
+      "bytes": 7375407679,
+      "complete": true
+    },
+    "D_formal_dinov2_vit_b14_seed7": {
+      "bytes": 7375350948,
+      "complete": true
+    },
+    "D_formal_dinov2_vit_b14_seed42": {
+      "bytes": 7378886963,
+      "complete": true
+    },
+    "D_formal_dinov2_vit_b14_seed123": {
+      "bytes": 7378221419,
+      "complete": true
+    },
+    "D_formal_dinov2_vit_b14_seed2026": {
+      "bytes": 7378207304,
+      "complete": true
+    },
+    "D_formal_dinov2_vit_b14_seed3407": {
+      "bytes": 7378958869,
+      "complete": true
+    },
+    "D_formal_efficientnet_b0_seed7": {
+      "bytes": 7378533640,
+      "complete": true
+    },
+    "D_formal_efficientnet_b0_seed42": {
+      "bytes": 7378685659,
+      "complete": true
+    },
+    "D_formal_efficientnet_b0_seed123": {
+      "bytes": 7378376841,
+      "complete": true
+    },
+    "D_formal_efficientnet_b0_seed2026": {
+      "bytes": 6532871841,
+      "complete": false
+    },
+    "D_formal_efficientnet_b0_seed3407": {
+      "bytes": 6533211330,
+      "complete": false
+    }
+  },
+  "H_current_run_bytes": 34996901726,
+  "remaining_components": {
+    "D_remaining_analysis": 6261269661,
+    "D_remaining_features": 0,
+    "H_training": 55461131177.52281,
+    "H_qualification": 0,
+    "H_features": 10684596224,
+    "H_pair_analysis": 16106127360,
+    "future_logs_manifests_figures_audits": 17179869184
+  },
+  "normal_remaining_write_bytes": 105692993606.52281,
+  "temporary_bytes": 17179869184,
+  "reserve_bytes": 53687091200,
+  "normal_required_bytes": 176559953990.52283,
+  "free_bytes": 235559198720,
+  "normal_margin_bytes": 58999244729.47717,
+  "remaining_conditionals": {
+    "H8_DINO_extension_and_longer_formal_aux": 23610477024.37587,
+    "H30_uniform_FP32_fallback": 53550263095.29912
+  },
+  "remaining_conditional_cold_deficit_bytes": 18161495390.197815,
+  "SSD_cold_release_bytes": 0,
+  "source_best_active_budget": null,
+  "compact_unvalidated_storage_savings_counted": false,
+  "volatile_missing_paths": 0,
+  "scope": "Existing verbose production format and registered last primary matrix. No source-best candidates or unvalidated compact estimates used for admission.",
+  "H_current_persistent_run_bytes": 34996901726,
+  "H_current_temporary_run_bytes": 0,
+  "H_persistent_training_budget_total_bytes": 90458032903.52281,
+  "H_current_run_bytes_scope": "Persistent run products only; temporary checkpoint replacement files do not reduce future persistent-write requirement.",
+  "D_current_temporary_bytes": 0
+}

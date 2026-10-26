@@ -1,0 +1,256 @@
+{
+  "schema": "INDEPENDENT_SOURCE_BEST_OWNER_FIX_CONFIRMATION_V1",
+  "utc": "2026-10-25T17:00:08.496540+00:00",
+  "status": "FINITE_OWNER_ENGINEERING_FIXES_CONFIRMED_NO_REMAINING_REVIEW_BLOCKER",
+  "scope": "Finite source-qualification/cache owner engineering only; all validation used temporary CPU phase children, fake scheduler processes and synthetic metadata. No real R/GPU/existing-PID operation or production execution.",
+  "source_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/source_best_owner.py",
+  "source_sha256": "2c68dfb05aa0cd28808e7ae14f317225513202b7190151962e184ddf6bf4db5b",
+  "tests_sha256": "334fe3a7026a2465b236ee57d7d278eefb1a87fb182e3a9f1ac1ebdcc334fe2f",
+  "protected_worker_core_sha256": {
+    "source_best_source_qualification.py": "3bc8e60a64226b37817d8142b6b374ad0400bf891c3209ad95329e8ccaa47ab9",
+    "source_best_gpu.py": "f3cac34e1493cd109e336b77f94b087527e97d722f02253880371a7c2caebed5",
+    "source_best_lease.py": "175075eaa2e3dac44db2dbb0229abeb126058d694267901c6929cd28e0b9e5a9",
+    "source_best_cache.py": "4c5494d06f133b962fd22872ac88d22ad9155fcca102e29f0e300cc06a4ff0c7"
+  },
+  "historical_review_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_source_best_owner_review.json",
+  "historical_review_sha256": "172a80acad8a58e2a5fb928f48f589d43af9df564bfd22f1014da7290f2d5c88",
+  "historical_review_preserved": true,
+  "pre_minor_fix_source_sha256": "5ee98738aad0596d197c4ea79bc8f444852e5a0c18c61b361a1601063a5abddb",
+  "original_findings_disposition": [
+    {
+      "id": "OWNER-001",
+      "severity": "Important",
+      "disposition": "RESOLVED",
+      "lines": [
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        47,
+        48,
+        49,
+        56,
+        57,
+        61,
+        62,
+        63,
+        64
+      ],
+      "evidence": "Recoverable progress/wait/poll errors become owner failure and stop dispatch while active children are reaped. Real temporary direct children on5ee987 all passed inherited PhaseLease validation; for each error kind2healthy children completed exit0 and were verified before FAILED return, with pending job untouched. Callback/receipt code is unchanged in final cap-only diff."
+    },
+    {
+      "id": "OWNER-002",
+      "severity": "Important",
+      "disposition": "RESOLVED",
+      "lines": [
+        83,
+        86,
+        87,
+        88,
+        89,
+        121,
+        126,
+        128,
+        138,
+        142
+      ],
+      "evidence": "Owner cache-plan validation now calls the existing full gpu._bridge_gate. The synthetic valid fixture passed and the same fixture with changed nested qualification SHA rejected. All-resume paths still run preflight/in-lease/final guards, so they do not bypass the current bridge check."
+    },
+    {
+      "id": "OWNER-003",
+      "severity": "Important",
+      "disposition": "RESOLVED",
+      "lines": [
+        95,
+        96,
+        97,
+        98,
+        99,
+        102,
+        123,
+        135
+      ],
+      "evidence": "Nonce is lowercase32hex; worker and phase owner IDs are typed positive; current returns and explicit resume references pass expected nonce/PID/phase-owner; source qualification stage is rebound. Positive current-context metadata passed, while wrong owner, wrong stage and traversal nonce rejected."
+    },
+    {
+      "id": "OWNER-004",
+      "severity": "Minor",
+      "disposition": "RESOLVED",
+      "lines": [
+        26,
+        30,
+        32,
+        33,
+        36
+      ],
+      "evidence": "Per-inventory UUID/index uniqueness and count<=4 remain, now supplemented by active physical-index exclusion and hard active<=4 across changing provider inventories. The previous5ee probe reached8active; final source under the same provider scenario completed8unique jobs at peak4 with no simultaneous duplicate index."
+    }
+  ],
+  "fresh_final_scheduler_suite": {
+    "command": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -B -m pytest -q -p no:cacheprovider tests/test_source_best_owner.py",
+    "cwd": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2",
+    "environment": {
+      "CUDA_VISIBLE_DEVICES": "",
+      "OMP_NUM_THREADS": "2",
+      "MKL_NUM_THREADS": "2",
+      "OPENBLAS_NUM_THREADS": "2",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2"
+    },
+    "returncode": 0,
+    "stdout": "...........                                                              [100%]\n11 passed in 1.76s\n",
+    "elapsed_seconds": 2.347150328569114,
+    "tests_use_fake_scheduler_processes": true
+  },
+  "real_direct_child_confirmation_already_completed_on_pre_minor_source": {
+    "source_sha256": "5ee98738aad0596d197c4ea79bc8f444852e5a0c18c61b361a1601063a5abddb",
+    "returncode": 0,
+    "results": {
+      "progress": {
+        "failed_terminal": true,
+        "only_two_original_children_started": true,
+        "both_healthy_verified": true,
+        "pending_never_preserved": true,
+        "all_children_reaped_exit0_before_schedule_return": true,
+        "genuine_direct_inherited_phase_passed": true
+      },
+      "wait": {
+        "failed_terminal": true,
+        "only_two_original_children_started": true,
+        "both_healthy_verified": true,
+        "pending_never_preserved": true,
+        "all_children_reaped_exit0_before_schedule_return": true,
+        "genuine_direct_inherited_phase_passed": true
+      },
+      "poll": {
+        "failed_terminal": true,
+        "only_two_original_children_started": true,
+        "both_healthy_verified": true,
+        "pending_never_preserved": true,
+        "all_children_reaped_exit0_before_schedule_return": true,
+        "genuine_direct_inherited_phase_passed": true
+      }
+    },
+    "all_children_waited_before_return": true,
+    "fixture": "Only /tmp H_pipeline.lock, direct pass_fds CPU children and the accepted worker lease verifier; no native GPU lease/query or production lock.",
+    "materialized_harness_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_source_best_owner_callback_confirmation_5ee987.py",
+    "materialized_harness_sha256": "bb8c2f18a6ea4b0473b9c5d18b262a85771f493785ace35837c818979c25c886",
+    "materialized_after_in_memory_execution": true,
+    "not_rerun_after_cap_only_change_per_parent_instruction": true
+  },
+  "positive_negative_gate_and_receipt_probes_already_completed_on_pre_minor_source": {
+    "source_sha256": "5ee98738aad0596d197c4ea79bc8f444852e5a0c18c61b361a1601063a5abddb",
+    "returncode": 0,
+    "results": {
+      "bridge_gate": {
+        "valid_synthetic_fixture_passes": true,
+        "changed_bridge_qualification_rejected": true,
+        "no_worker_GPU_or_real_capacity_admission": true
+      },
+      "receipt_context": {
+        "valid_current_context_passes": true,
+        "wrong_owner_rejected": true,
+        "wrong_stage_rejected": true,
+        "traversal_nonce_rejected": true
+      }
+    },
+    "fixture": "Only /tmp SHA-bound synthetic plan/gate/receipt/marker files. Disk capacity was a synthetic boundary. No actual permits, cache payload qualification or GPU execution were established."
+  },
+  "fresh_final_dynamic_provider_probe": {
+    "source_sha256": "2c68dfb05aa0cd28808e7ae14f317225513202b7190151962e184ddf6bf4db5b",
+    "returncode": 0,
+    "result": {
+      "terminal": "ALL_REQUESTED_WORKERS_VERIFIED_OPERATIONALLY_ONLY",
+      "peak_active": 4,
+      "starts": 8,
+      "unique_jobs": 8,
+      "duplicate_active_indexes": [],
+      "all_jobs_verified": true,
+      "pending_empty": true,
+      "only_fake_processes_used": true,
+      "no_real_child_or_GPU_or_phase_lock_started": true
+    }
+  },
+  "final_diff_from_real_child_tested_source": [
+    "--- 5ee987",
+    "+++ 2c68dfb",
+    "@@ -27,13 +27,13 @@",
+    "    except Exception as error:",
+    "     if not active:raise",
+    "     failures['__owner__']=str(error)[:2000];available=[]",
+    "-   used={v['device']['uuid'] for v in active.values()}",
+    "+   used={v['device']['uuid'] for v in active.values()};used_indexes={v['device']['index'] for v in active.values()}",
+    "    for device in available:",
+    "-    if not pending or failures:break",
+    "-    if device['uuid'] in used:continue",
+    "+    if not pending or failures or len(active)>=4:break",
+    "+    if device['uuid'] in used or device['index'] in used_indexes:continue",
+    "     run=pending.pop(0)",
+    "     try:",
+    "-     process=start(run,device);active[run]=dict(process=process,device=device);used.add(device['uuid'])",
+    "+     process=start(run,device);active[run]=dict(process=process,device=device);used.add(device['uuid']);used_indexes.add(device['index'])",
+    "     except Exception as error:failures[run]=str(error)[:2000]",
+    "   changed=False",
+    "   for run,item in list(active.items()):"
+  ],
+  "prior_reproduction_artifact": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_source_best_owner_direct_child_probe_23991.py",
+    "sha256": "64d53ccc4bed6a645533ae51b2093e68cb878d389065454684b03b98f5be2deb",
+    "latest_run_on23991_snapshot_exitcode": 0,
+    "initial_progress_bug_reproduced_and_children_manually_drained": true
+  },
+  "root_callback_TDD_evidence": {
+    "RED": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_owner_callback_regression_RED.log",
+      "sha256": "f1eb215f9d7f9db7d5025d9e7f85af6a9cc9074413befa6a75cb6dffb75a182a",
+      "result": "5 failed,5passed in1.81s"
+    },
+    "GREEN_pre_minor": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_owner_callback_regression_GREEN.log",
+      "sha256": "6622cb39373344f7460c04f6794a98ed8d74324109763f6ae63a1147e46e769a",
+      "result": "10passed in1.80s"
+    }
+  },
+  "remaining_findings": [],
+  "critical_findings": 0,
+  "important_findings": 0,
+  "minor_findings": 0,
+  "preserved_boundaries": [
+    "Exact registered9source/45cache job lists and bound owner/worker/input/plan identity remain mandatory.",
+    "The owner acquires the original-named PhaseLease and passes its actual descriptor only to direct children; accepted workers retain their independent native GPU0-3/permit/stage guards.",
+    "No-idle/no-active returns finite BLOCKED; observed failures stop new dispatch, preserve pending jobs, drain healthy children and do not automatically retry.",
+    "Resume requires explicit externally SHA-bound prior receipts plus typed phase nonce/PID/owner context and current marker hashes. Revalidating gates does not infer scientific cache acceptance.",
+    "Terminal receipts remain operational only, scientific_admission=False and M_production_qualified_here=False."
+  ],
+  "trust_boundary": "External plan/proof/explicit resume SHAs are trust anchors. Positive synthetic metadata demonstrates gate control flow, not historical GPU execution authenticity. A separate independent real receipt/role/stage collector must establish actual evidence before issuing any scientific or production gate.",
+  "declined_to_judge": [
+    {
+      "behavior": "Stage collector, actual role payloads and actual source-onlyGPU/cache qualification",
+      "reason": "The collector is separate and no real GPU/cache/source job was run here."
+    },
+    {
+      "behavior": "Real idle GPU availability, throughput, budgets, protected-service health and primary owner state",
+      "reason": "Only temporary/fake resources were used; no real R/device/PID control."
+    },
+    {
+      "behavior": "Production M admission or scientific sensitivity/statistics conclusions",
+      "reason": "Owner remains a non-issuing operational tool and this report supplies engineering evidence only."
+    }
+  ],
+  "review_actions": {
+    "W_or_core33_source_modified": false,
+    "F_modified": false,
+    "real_R_locks_opened": false,
+    "real_GPU_or_nvidia_smi_used": false,
+    "existing_PID_signaled_or_controlled": false,
+    "real_source_weights_or_target_payloads_used": false,
+    "all_owned_temporary_children_reaped": true,
+    "no_new_real_children_after_cap_only_fix": true
+  },
+  "owner_engineering_review_passed": true,
+  "actual_stage_collector_accepted": false,
+  "production_GPU_allowed": false,
+  "production_integration_accepted": false
+}

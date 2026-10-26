@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "backbone": "efficientnet_b0",
+  "microbatch": 32,
+  "effective_batch": 128,
+  "device_uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+  "device_name": "Tesla V100-SXM2-32GB",
+  "training_code_sha256": "336f3097434edf903a5ff402162e29afeca2442ca50f9c7d9883ca60136b8335",
+  "identity": {
+    "code": "336f3097434edf903a5ff402162e29afeca2442ca50f9c7d9883ca60136b8335",
+    "source_probe": "84ea26766037dfd8d5f4fa4f98414a79cae4d959467da1b9eed13488cd8b652c",
+    "weight": "7f5810bc96def8f7552d5b7e68d53c4786f81167d28291b21c0d90e1fca14934",
+    "backbone": "efficientnet_b0",
+    "micro": 32,
+    "epochs": 2,
+    "steps_per_epoch": 1
+  },
+  "peak_memory_bytes": 1620307456,
+  "resume_parameter_optimizer_scaler_rng_byte_exact": true,
+  "resume_FP32_features_byte_exact": true,
+  "changed_identity_rejected": true,
+  "all_trainable_parameters_received_gradients": true,
+  "features_dimension": 1280,
+  "benchmark_steps": 100,
+  "benchmark_seconds": 26.241793394088745,
+  "training_seconds_per128": 0.26241793394088747,
+  "benchmark_scope": "real source inputs preloaded; excludes data IO and DEV evaluation",
+  "elapsed_seconds": 28.4030499458313,
+  "target_used": false
+}

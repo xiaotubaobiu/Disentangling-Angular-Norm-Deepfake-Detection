@@ -1,0 +1,186 @@
+{
+  "author_fix_receipt": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_source_best_five_seed_summary_allocation_fix_engineering_candidate_20261026.json",
+    "sha256": "bb833494e3c2fa8cc59e30124e79626893a2da23bfc394d72ec0cd11459e0b5c"
+  },
+  "findings": [
+    {
+      "id": "M5SUM-003",
+      "independent_evidence": {
+        "cap_bytes": 4194304,
+        "complete_sha256": "f2652709614e169d500345bc8cbf1d3e70bfba8187271aaccf92b2b60732b0e8",
+        "keep_size": {
+          "all_SHA_and_logical_bytes_unchanged": true,
+          "allocated_after_bytes": 4296704,
+          "error": "actual summary allocation cap exceeded; existing files preserved",
+          "fallocate_return": 0,
+          "overcap_files_preserved": true,
+          "reuse_refused": true
+        },
+        "legal_creation_and_reentry_passed": true,
+        "legal_reentry_bytes_and_hashes_unchanged": true,
+        "logical_files_bytes": 402092,
+        "measured_legal_allocation_bytes": 417792,
+        "sparse_and_marker_roundup": {
+          "exact_cap_passed": true,
+          "filesystem_unit": 4096,
+          "guard_charge": 16384,
+          "independent_charge": 16384,
+          "one_byte_less_refused": true,
+          "reserved_charged_bytes": 8192,
+          "reserved_logical_bytes": 4097
+        }
+      },
+      "lines": [
+        445,
+        462,
+        491,
+        508
+      ],
+      "scope": "Actual allocation cap is shared by existing/reuse,precomplete marker reservation,new publication and common final guard.",
+      "status": "CLOSED"
+    }
+  ],
+  "independent_execution_scope": {
+    "actual_shared_CPU_slots_acquired": 0,
+    "old_suites_or_87_tests_rerun": false,
+    "original_models_weights_or_PNGs_read": false,
+    "private_fixture_only": true,
+    "production_summary_executed": false,
+    "real_saved_M_payloads_read": false,
+    "source_byte_mutations": 0,
+    "source_or_tests_modified": false
+  },
+  "independent_probe_result": {
+    "actual_M_payloads_read": false,
+    "actual_slots": 0,
+    "independent_IO": {
+      "cap_bytes": 4194304,
+      "complete_sha256": "f2652709614e169d500345bc8cbf1d3e70bfba8187271aaccf92b2b60732b0e8",
+      "keep_size": {
+        "all_SHA_and_logical_bytes_unchanged": true,
+        "allocated_after_bytes": 4296704,
+        "error": "actual summary allocation cap exceeded; existing files preserved",
+        "fallocate_return": 0,
+        "overcap_files_preserved": true,
+        "reuse_refused": true
+      },
+      "legal_creation_and_reentry_passed": true,
+      "legal_reentry_bytes_and_hashes_unchanged": true,
+      "logical_files_bytes": 402092,
+      "measured_legal_allocation_bytes": 417792,
+      "sparse_and_marker_roundup": {
+        "exact_cap_passed": true,
+        "filesystem_unit": 4096,
+        "guard_charge": 16384,
+        "independent_charge": 16384,
+        "one_byte_less_refused": true,
+        "reserved_charged_bytes": 8192,
+        "reserved_logical_bytes": 4097
+      }
+    },
+    "non_allocation_function_AST_sha256": {
+      "_accepted_resource_codes": "effd7c39ccb2a61764deae240fc0b4dffb3a318cbfbd535e6ca7d42141f1523c",
+      "_actual_slot": "feee6ee23c69e4b4cab3be443b0fb002d8cdab25de0ef55c2d555a4a3bb4ea01",
+      "_canonical_file": "824a86ea365f867b8ea55f4d4dd419d87b77657ceff616bceab00668949b5b0f",
+      "_check_resource_codes": "f5a1a1161148ee6cc05050e8980f0d9ee401863b02c1c7249ab2081a1508dca4",
+      "_csv_bytes": "a9440ffae03638fd813709bd92c1edbdd6826698594d62627b95dcfe262022ba",
+      "_free_bytes": "374e78fa6263ff8fd79b8bddf8f65eb6648595dae139e3c579179f8524214413",
+      "_independent_csv_check": "7de4aa38078c76121f1e2501601da2847f6e2ae4165f2909fb9c4e436077d149",
+      "_load_audit": "fadfdf5b4200fac4148b245521c93b38832e0d815858e0366dae8fce0f815e6f",
+      "_namespace_complete": "4f76de68f6ee02ec229ef54df95e40be1376b7fcb959b8e41e46baee9f39eb19",
+      "_quantile": "e62ff3cc4030080dc50c9bf46e20c723f07795ac7870fd723fc6b24b5c5200fe",
+      "_reference": "a061358cdc40b8af6dbd22217cbff728df86a9adf9596b2745a610c07a4f051c",
+      "_reference_path": "147969aea847f0cdb3bff94c71d24bb9084f1c8a8beb71a746999c9a8342402d",
+      "_remaining_required": "42d2b3082ce1553e8640edf4b478e26fa4d1d7111b030ffb4080a721b21ebb30",
+      "_resource_module": "9bf80dc3e8fbe9a5bbe3402aad4ddf72b34a0f9e5929777132939e9126f16c38",
+      "_row": "88b33164e3206295f71d0a2a7944f650c5ebfcb9863274cea63b11ea7d22fcb0",
+      "_seal_map": "49f6ab774f308fd6e9f3548825eae256fa666c8814dec3f21903e415da6fbd22",
+      "_sha": "ae913c880b3b1a394333511e69f6dd4b4ef1a063d7a097c38905149c5e5e1e92",
+      "_source_role_pins": "287ed21473a95dc984aa394fce5ff3496ebd47f531fb9bc9a29682d5729fb8ad",
+      "_write_new": "994607e4767065b03a6c0809319d03ab093fdeb0b8bf24efd277406da642fa82",
+      "canonical_output": "f5bea0573b710b0c1c5b5c1f49f554d01eb971e773a7794c1422d33cdb89ac8a",
+      "close": "928bd44d82e4b3a16ae30c09cb7935f6bc6017f09abf09cdb40dd0b364880f1a",
+      "dependencies": "5145ec047fdd036dc78b8b58be5e32bd3928fed191a696512572f0c8d8eb72ab",
+      "expected_endpoint_keys": "92ced2f37156f244efd5ab4292389d17c8b2e129ea527edc8d2b715ba4e3a1d4",
+      "extract_core": "4f3ecc48c7a519126975ec737a3e8f0a281cb2478718c9e255b9524f4b3593be",
+      "five_seed_reversal_counts": "b97789027e5a9b6e79be07472c59bd0bb8c3a823fd16eeb4db66fa8a48cee1df",
+      "five_seed_statistics": "535b60fe49683b34b072e16af4216f33f3802e8930a0653b04c83143e032bc3c",
+      "inputs_identity": "4f154bf472ca131c600d68c10b12226e34c10c74aabef069d04f7d92288fd800",
+      "load_accepted_item": "1b288f85a6cc63b113d198a1d0e3c85708d3bc790a8ac11bf814e01bdff663ac",
+      "load_summary_request": "403003be79c803659d19f7bd8cc06ace49ce21125523c5bffb429cd23571250e",
+      "main": "e5153b88fe5d1f7262f2d1be18cd0315df08b7097892553961eb2b84a7f1d3d6",
+      "normal_delta_interval": "216cb8e58a95695f3a9f2f32f9947a42271ca98b9a9349c64280d4fa43b0aeb1",
+      "number": "360591099f519b04cdf5fecab17c6dacf797ccc7c20ba3d4fc8b059e146425e4",
+      "require": "c7bb0047d51e99c67f400e18c7a03f2facad0a8a6e053beeed4e83bcd52fa9e7",
+      "resource_gate": "41169c3a37e3ef6acb964a04778f5287f557d8f7d582eb8453b8738394f6f594",
+      "summarize_rows": "559f0a9cca3d16cc795acfed36b711b88f175035a1f0b901134e0d27bbcf42a2",
+      "validate_audit_report": "0a1efe23f8bfe817a75a09789896fbad7ee9e045391ddd8e0690bea57e2fee96"
+    },
+    "old_suites_or_87_tests_rerun": false,
+    "source_byte_mutations": 0,
+    "source_sha256": "f966e0b08a5cfee2f5c73bfbebd24618455869d95c85a5c1f6718e6dde7439b7",
+    "tests_sha256": "5382f646c2d0fc6329f7de6de933d2fc6392cdd4ce5b72f1044628d5e0539130"
+  },
+  "notes": [
+    "The original KEEP_SIZE counterexample was replayed on a private self-created CSV,not a real result; every file SHA,size and contents stayed unchanged and failed reuse preserved all files.",
+    "Successful private creation and slot0-to-slot1 reuse returned the same complete SHA and identical file bytes.",
+    "4097 marker bytes were conservatively charged8192 on the observed4096-byte fragment filesystem; exact bound passed and one byte less was refused.",
+    "No new p-values,resampling,training-seed CI,core endpoint,source selection or model work was introduced."
+  ],
+  "preserved_prior_fixes": {
+    "M5SUM001": "All original import/qualification/expected SHA functions and module-level constants are AST-identical to the independently confirmed856 candidate. Fixed9bec metadata and all33 code SHAs were read and matched; no import guard was changed.",
+    "M5SUM002": "All original numeric extraction,ddof1,normal paired-draw arithmetic,sign/reversal counting and independent CSV-check functions are AST-identical to856; no count/endpoint algorithm changed.",
+    "joint_budget": "resource_gate and remaining-write/accounting functions are AST-identical; the patch adds no duplicate reserve/peak charge."
+  },
+  "prior_M5SUM001_002_confirmation": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_M_source_best_five_seed_summary_fix_confirmation_20261026.json",
+    "sha256": "0d8b32794eaff60c246b1eb266ca0180061cbec7ae51037cf08741cfa7a53019"
+  },
+  "prior_M5SUM003_finding": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_M_source_best_five_seed_summary_publisher_IO_review_20261026.json",
+    "sha256": "569cb62bf6a45aefe3f58a40de7528803e8bbf102efde011bcbf4f6e8f8bbce2"
+  },
+  "production_admitted": false,
+  "remaining_production_gates": [
+    "Ten actual independently accepted D5/H5 source-best jobs for the selected backbone",
+    "Root's later fresh SHA-bound operational budget/request and explicit production permission",
+    "Actual bounded summary run and downstream scientific/paper review"
+  ],
+  "reviewed_source": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/m_source_best_five_seed_summary.py",
+    "sha256": "f966e0b08a5cfee2f5c73bfbebd24618455869d95c85a5c1f6718e6dde7439b7"
+  },
+  "reviewed_tests": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests/test_m_source_best_five_seed_summary.py",
+    "sha256": "5382f646c2d0fc6329f7de6de933d2fc6392cdd4ce5b72f1044628d5e0539130"
+  },
+  "schema": "INDEPENDENT_M_SOURCE_BEST_FIVE_SEED_SUMMARY_ALLOCATION_FIX_CONFIRMATION_V1",
+  "scientific_final_acceptance": false,
+  "source_comparison_method": "Read-only exact old snapshot was reconstructed by its author from retained exact patch inputs and independently verified to match the original856 SHA. Independent AST comparison found only two new allocation helpers and execute_summary billing changes; after normalizing exactly its three billing sites, execute_summary AST equals old856. This is not a claim that a contemporaneous old source copy existed.",
+  "source_scope_comparison": {
+    "M33_qualification_sha256": "9bec22803f8e7c15918fdb1b4938e028e09a3115a4d23aea89dff1cb89d25571",
+    "added_functions": [
+      "_allocation_bytes",
+      "_allocation_guard"
+    ],
+    "all33_original_source_SHA_unchanged": true,
+    "all_nonfunction_top_level_AST_unchanged": true,
+    "changed_original_functions": [
+      "execute_summary"
+    ],
+    "exact_diff": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/review_snapshots/m_source_best_five_seed_summary_856a926_to_f966e0b_exact.diff",
+      "sha256": "6c3212a7aac55612e250e6dfe5c8089f4f0999c27d9414fd470e969e04095700"
+    },
+    "execute_AST_equal_after_only_three_allocation_guard_site_normalization": true,
+    "old_snapshot": {
+      "origin": "reconstructed from author exact patch; original856 SHA matches",
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/review_snapshots/m_source_best_five_seed_summary_856a926bec16f32c5bfd27dbebdc66ad5e48c0f5ecbc24ace5863f1e1596cb30_reconstructed_exact.py",
+      "sha256": "856a926bec16f32c5bfd27dbebdc66ad5e48c0f5ecbc24ace5863f1e1596cb30"
+    },
+    "unchanged_original_function_count": 36
+  },
+  "status": "M5SUM003_CLOSED_ENGINEERING_ONLY",
+  "timestamp_UTC": "2026-10-26T08:23:44.790777+00:00"
+}

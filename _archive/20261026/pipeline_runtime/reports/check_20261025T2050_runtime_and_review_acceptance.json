@@ -1,0 +1,69 @@
+{
+  "utc": "2026-10-25T21:00:19.997392+00:00",
+  "H_cache_roles": 210,
+  "H_cache_operational_models": 30,
+  "H_independently_admitted_models": 8,
+  "H_independently_accepted_statistical_pairs": 4,
+  "H_total_pairs": 15,
+  "M_source9_completed": 7,
+  "M_source9_active": {
+    "H_formal_efficientnet_b0_AB_seed7": {
+      "index": 2,
+      "pid": 3668490,
+      "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45"
+    },
+    "H_formal_efficientnet_b0_B_seed7": {
+      "index": 3,
+      "pid": 3664628,
+      "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646"
+    }
+  },
+  "M_source9_pending": 0,
+  "M_failures": {},
+  "source_cal_markers_for_active": {
+    "H_formal_efficientnet_b0_AB_seed7": {
+      "marker_exists": true,
+      "worker_terminal_completed": false
+    },
+    "H_formal_efficientnet_b0_B_seed7": {
+      "marker_exists": true,
+      "worker_terminal_completed": false
+    }
+  },
+  "CPU_jobs": {
+    "H_primary_admit_clip_seed3407_slot1_20261025T2000": {
+      "pid": 3487041,
+      "slot": 1,
+      "present": true,
+      "fresh_ledgers_started": 12,
+      "tail": [
+        "BEGIN_FRESH_ORIGINAL_LEDGER 11 clip_vit_b16 AMP models10_no_receipt_reuse",
+        "BEGIN_FRESH_ORIGINAL_LEDGER 12 clip_vit_b16 AMP models10_no_receipt_reuse"
+      ],
+      "time_v_complete": false
+    },
+    "H_primary_DINO_CPU_qualification_candidate_seed7_slot0_20261025T2030": {
+      "pid": 3672084,
+      "slot": 0,
+      "present": true,
+      "fresh_ledgers_started": 7,
+      "tail": [
+        "BEGIN_FRESH_ORIGINAL_LEDGER 6 dinov2_vit_b14 AMP models10_no_receipt_reuse",
+        "BEGIN_FRESH_ORIGINAL_LEDGER 7 dinov2_vit_b14 AMP models10_no_receipt_reuse"
+      ],
+      "time_v_complete": false
+    }
+  },
+  "free_bytes": 166461480960,
+  "required_M_candidate_bytes": 165195057321,
+  "M_candidate_plus_publication_bytes": 165196105897,
+  "capacity_admitted": false,
+  "M_canary": false,
+  "M_production_admitted": false,
+  "H_new_metadata_adapter_engineering_accepted": true,
+  "adapter_isolated_commit": "654e643356c8e3e2b0c4d49b974e0b826dd8c414",
+  "new_adapter_actual_data_admitted": false,
+  "all45_training_accepted": true,
+  "original_or_GPU4to7_changed": false,
+  "next_check_UTC": "2026-10-25T21:10:00Z"
+}

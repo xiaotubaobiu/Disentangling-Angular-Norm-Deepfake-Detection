@@ -1,0 +1,27 @@
+{
+  "utc": "2026-10-23T18:06:51.950691+00:00",
+  "snapshot_of_mutable_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_production_data_freeze_launch.json",
+  "launch": {
+    "utc": "2026-10-23T18:04:20.145754+00:00",
+    "status": "RUNNING",
+    "operation": "data_h.freeze_h_data mandatory full integrity revalidation then exclusive freeze",
+    "pid": 246169,
+    "supervisor_pid": 246168,
+    "CPU_only": true,
+    "OMP_MKL_OPENBLAS_threads": 2,
+    "deep_report_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_production_data_inspection.json",
+    "deep_report_sha256": "c319ee7a6a6ab332b85f5ecd4a0b56bebeedd073228e6d8227ad187a09806b2d",
+    "independent_review": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_production_data_independent_review_1450.json",
+      "sha256": "760a1411084a5ed747710cc1c58f2ead2c69e0df6775345f76346b8db48bf748",
+      "reviewer": {
+        "identity": "Codex independent subagent /root/h_pipeline_review",
+        "independent": true
+      }
+    },
+    "data_gate_code_sha256": "ad81f65c27d53159e6902bf8a20b0910cd129f75eb0105e5a5a053bcc2d2f45e",
+    "does_not_train_or_use_GPU": true,
+    "freeze_created": false
+  },
+  "raw_sha256_at_snapshot": "7ff327dd93939c6be69edb6e81819c9cf9a91e759b274828563329c42e00634f"
+}

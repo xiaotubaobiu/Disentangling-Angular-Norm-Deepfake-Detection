@@ -1,0 +1,51 @@
+{
+  "utc": "2026-10-23T19:36:11.218705+00:00",
+  "status": "PASS_H_PRODUCTION_DATA_FROZEN_CURRENT_BINDINGS_AND_INDEPENDENT_VERIFICATION",
+  "freeze": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/data/H/freeze.json",
+    "sha256": "11ac3398b8bd2b347da24efbe45fb74e890681d2d063933b01a65d5fdba0675d",
+    "utc": "2026-10-23T19:28:05.485814+00:00"
+  },
+  "native_validation_completed_utc": "2026-10-23T19:28:19.511064+00:00",
+  "native_validation_elapsed_seconds": 5039.36531,
+  "OS_returncode": 0,
+  "retired_worker_pid": 246169,
+  "retired_supervisor_pid": 246168,
+  "root_shallow_validation": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_freeze_receipt_validation_1930.json",
+    "sha256": "0c0efc04fd61bc286c5706c85ea0155f5bd8474a2555dd7afda834e26208b8e1"
+  },
+  "independent_verification": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_frozen_independent_verification_1930.json",
+    "sha256": "13e32dff0419b3b33457339f0e14c7fb2e716e32740df0b742ebfc3d230c7443",
+    "status": "PASS"
+  },
+  "candidate_videos": 8431,
+  "SOURCE_UNUSED_videos": 560,
+  "frozen_tables": 13,
+  "frozen_table_rows": 153504,
+  "logical_train_mother_rows": 24424,
+  "TRAIN_draws_per_epoch": 24448,
+  "independent_review_sha256": "760a1411084a5ed747710cc1c58f2ead2c69e0df6775345f76346b8db48bf748",
+  "source_or_PNG_audit_repeated_in_this_check": false,
+  "H_data_frozen": true,
+  "H_GPU_qualification_or_training_started": false,
+  "H_gate_exists": false,
+  "resource_dependency": "Original D_PRIORITY_UNTIL_D_GPU_CACHE_STAGE_COMPLETE, actual free GPU locks and real source GPU numerical/training qualification. Current D P2 standard development still owns all4cards.",
+  "limitations": "DFD complete ancestry/manipulated-face identity not certified; largest-face/filename-proxy-exactRGB closure and label/history-dependent coverage scope retained. No target model score used.",
+  "protected_code_config_plan_master_manuscripts_sha256": {
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/geometry_h.py": "161ac4e837463ff16e7916ca42eeb5d13acc44aab9bcc1c397025b9426ad9532",
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/data_h.py": "ad81f65c27d53159e6902bf8a20b0910cd129f75eb0105e5a5a053bcc2d2f45e",
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/trainer.py": "56f0db0634a525a530fb53482732365ebf9693a1f5470b0a95ec0820cc614368",
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/models.py": "5c4adb39314433c5f0d40311d7ada3ad5d30c7b239773be02080be120f5a2e60",
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/cache_d.py": "8f5814646194c772dcf00f6751a35c2f792dd5f11008e0834fdba4eb5e329761",
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/scoring_d.py": "9bddf066fcb8df1b9659d4cfe14aa4febdf850f7cc39c1c0c3d6050864263d1c",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/configs/execution.json": "8f12b0285593b30cb4fc8e2d50f125dc7f1c9ea690f36a286e9fdca24f6df1f4",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/D_gate.json": "c2a9a09d208d2671b7a123df7ee29e83b8abedcac08d9221d5ad26f3948700aa",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/configs/plan_frozen_input.md": "b018b01915a62c645fc3718134970cd49dc0651ecfd02792220f3a0086c6594d",
+    "/home/z/obsidian/paper/deepfake-detector/新实验设计/20261023/新实验计划_本机适配版.md": "b018b01915a62c645fc3718134970cd49dc0651ecfd02792220f3a0086c6594d",
+    "/home/z/obsidian/paper/deepfake-detector/中文稿.md": "a485eea1bbac50672a98642e0efcbd8b3841296e894ef54059ca241f3ddf6ef2",
+    "/home/z/obsidian/paper/deepfake-detector/英文稿.md": "60274b7a2e1a23b9fc83d07c267e5b61b9b97c01264f12b9c1aa718c29a7cebd"
+  },
+  "next_manual_check_utc": "2026-10-23T20:00:00Z"
+}

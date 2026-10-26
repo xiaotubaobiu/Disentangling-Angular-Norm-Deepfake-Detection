@@ -1,0 +1,87 @@
+{
+  "schema": "M_INDEPENDENT_SAVED_RESULT_AUDIT_LAUNCH_V1",
+  "utc": "2026-10-26T12:05:27.838964+00:00",
+  "job": {
+    "job_id": "D_clip_vit_b16_seed7",
+    "route": "D",
+    "backbone": "clip_vit_b16",
+    "seed": 7,
+    "runs": {
+      "D": "D_formal_clip_vit_b16_seed7"
+    }
+  },
+  "request": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/M_D_clip_seed7_R1_actual_selected_core_numeric_audit_native_context_R1_20261026T1205_request.json",
+    "sha256": "8ef7056d01b1811bc420755f7e3b7ef2442193783107b080e2218ed4ce053c5d"
+  },
+  "entry": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/m_source_best_result_audit.py",
+    "sha256": "85420f856d8b869033642b6c8c90b5917d6205dc088d8a6a2edc05564fb5d8a7"
+  },
+  "CPU_slot": 0,
+  "address_space_limit_bytes": 34359738368,
+  "environment": {
+    "CUDA_VISIBLE_DEVICES": "",
+    "OMP_NUM_THREADS": "2",
+    "MKL_NUM_THREADS": "2",
+    "OPENBLAS_NUM_THREADS": "2",
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "stdout": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/M_D_clip_seed7_R1_actual_selected_core_numeric_audit_native_context_R1_20261026T1205.json",
+  "stderr": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/M_D_clip_seed7_R1_actual_selected_core_numeric_audit_native_context_R1_20261026T1205_stderr.log",
+  "time_v": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/M_D_clip_seed7_R1_actual_selected_core_numeric_audit_native_context_R1_20261026T1205_time_v.log",
+  "cwd": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2",
+  "remaining_capacity_plan": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/plans/M_two_canary_remaining_write_plan_after_H6_20261026_candidate.json",
+    "sha256": "c0f5080192f20203dd63f0133aeeb21afd24807fbf7b1af9119945baa2abef07"
+  },
+  "free_bytes_before_launch": 149800722432,
+  "full_conservative_remaining_budget_bytes": 148068010153,
+  "producer_actual_exit0": true,
+  "producer_complete_sha256": "b503feed80f9a7ef80b6e29cba20c45ce6244e205a48bd48eec077b4aaec5e60",
+  "selected_four_core_only": true,
+  "command": [
+    "/usr/bin/time",
+    "-v",
+    "-o",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/M_D_clip_seed7_R1_actual_selected_core_numeric_audit_native_context_R1_20261026T1205_time_v.log",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+    "-B",
+    "-u",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/m_source_best_result_audit.py",
+    "--execute",
+    "--request",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/M_D_clip_seed7_R1_actual_selected_core_numeric_audit_native_context_R1_20261026T1205_request.json",
+    "--request-sha",
+    "8ef7056d01b1811bc420755f7e3b7ef2442193783107b080e2218ed4ce053c5d",
+    "--slot",
+    "0"
+  ],
+  "engineering_acceptance": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_saved_result_consumer_native_context_fix_engineering_acceptance_20261026T1205.json",
+    "sha256": "4827cc67226f9dde752aaad5c86f110710795672fe26252dccff4b927002882f"
+  },
+  "independent_audit_attempt_number": 2,
+  "prior_failed_independent_audit": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/M_D_clip_seed7_R1_actual_selected_core_numeric_audit_20261026T1155_exit.json",
+    "sha256": "8f96b2f8b1b3bf881dcf1ce63ea81aed28e66a8353ef74642448252a0ba71e55"
+  },
+  "producer_reexecuted": false,
+  "observer_source": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/M_D_clip_seed7_R1_actual_selected_core_numeric_audit_20261026T1155_observer.py",
+    "sha256": "b5dc72db07a473d997ecb4e31215ed23a56e76231e0a42d6f1f133e2b1426f49"
+  },
+  "observer_pid": 3827147,
+  "wrapper_pid": 3827152,
+  "initial_python_child_pid": 3827153,
+  "actual_proc_limit_readback": [
+    {
+      "pid": 3827152,
+      "Max_address_space": "Max address space         34359738368          34359738368          bytes     "
+    },
+    {
+      "pid": 3827153,
+      "Max_address_space": "Max address space         34359738368          34359738368          bytes     "
+    }
+  ]
+}

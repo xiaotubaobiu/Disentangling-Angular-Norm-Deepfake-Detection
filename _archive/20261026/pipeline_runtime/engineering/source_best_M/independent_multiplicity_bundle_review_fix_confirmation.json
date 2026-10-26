@@ -1,0 +1,253 @@
+{
+  "schema": "INDEPENDENT_MULTIPLICITY_BUNDLE_FIX_CONFIRMATION_V1",
+  "reviewed_at_utc": "2026-10-25T08:59:09.476566+00:00",
+  "scope": "Independent confirmation of one root-owned fix pass for MB-001/MB-002 and documented MB-003 ownership boundary, NEW file-codec component only. No source edits, profiles, scientific/model/data/GPU/resource authorization.",
+  "production_admitted": false,
+  "prior_review": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_multiplicity_bundle_review.json",
+    "sha256": "99b669b2a222a83fb896dc3e66af6283774cbe75d290c974a68773dc0575ed38",
+    "preserved": true
+  },
+  "source": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/multiplicity_bundle.py",
+    "sha256": "3aa5debf7d98bd976bc21fa5be2135d34cdfa8e0b91873f356cc8f57e24360c3",
+    "previous_reviewed_sha256": "f59a87c5c968e9462668175b040ae1a05b3a80ca79106dd119ff1ecdc2d6410a"
+  },
+  "tests": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests/test_multiplicity_bundle.py",
+    "sha256": "3d4d6485e8b9a8cd00aeef9d58c0cec4f6e6ac3649254b59a2fe30fe0080fe0e",
+    "previous_reviewed_sha256": "9be648a6b3a314268c18bb122b65a09d153d1f8bf256362f1b1760c817fbb61b"
+  },
+  "unchanged_accepted_dependencies": {
+    "multiplicity_codec.py": "1931371915dcbf542b78b79ca433f202e6c6cdf194400985020f105eff92fa73",
+    "sensitivity_io.py": "d311923c3e35b8e9ba2fc42dc5ee7e6e46b66ce3c9f2d3a923ea8ccb949be9ce"
+  },
+  "checkout": {
+    "BASE_and_HEAD_at_start": "fb6a082673e24493a9b9f85da6e4290554f34490",
+    "HEAD_at_record": "fb6a082673e24493a9b9f85da6e4290554f34490",
+    "status": "?? studies/pipeline_reliability/v2/reliability_v2/multiplicity_bundle.py",
+    "production_HEAD": "5ef6d06bf7aeda02a5a11113e4c35a2c9909f215",
+    "production_status": ""
+  },
+  "executed": {
+    "transport": "PowerShell literal here-string piped to ssh -o BatchMode=yes v100 python3 -, require_escalated prefix ssh; existing environment interpreter used for tests/probes.",
+    "test_runs": 1,
+    "test_command": [
+      "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+      "-m",
+      "pytest",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "--basetemp",
+      "/tmp/bundle_fix_confirmation_tests_hpqvo85b",
+      "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests/test_multiplicity_bundle.py"
+    ],
+    "cwd": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2",
+    "environment_overrides": {
+      "CUDA_VISIBLE_DEVICES": "",
+      "OMP_NUM_THREADS": "2",
+      "MKL_NUM_THREADS": "2",
+      "OPENBLAS_NUM_THREADS": "2",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2"
+    },
+    "test_exit_code": 0,
+    "test_stdout": ".....................................                                    [100%]\n=============================== warnings summary ===============================\nv2/tests/test_multiplicity_bundle.py::test_npz_header_rejected_before_array_load[duplicate_member]\n  /home/z/anaconda3/lib/python3.11/zipfile.py:1550: UserWarning: Duplicate name: 'counts_0.npy'\n    return self._open_to_write(zinfo, force_zip64=force_zip64)\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n37 passed, 1 warning in 7.98s\n",
+    "test_log": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_multiplicity_bundle_fix_tests.log",
+      "sha256": "6b64adadf969ae44593874d511d31e39f4b6afa6236b79a2033b745eaa6ccd66"
+    },
+    "probe_command": [
+      "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+      "-c",
+      "Recorded inline synthetic-only probe script: repeat typed-context read/resume, prior near-1MiB identity boundary and pre-transaction interruption; additionally verify exact-context success, fresh-attempt recovery and nonstring-key rejection."
+    ],
+    "probe_exit_code": 0,
+    "probe_log": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_multiplicity_bundle_fix_edges.log",
+      "sha256": "82894713196d5edb29b1197efc13499b45412bd231034befd6ae0a4a55e5e1d4"
+    },
+    "probe_results": {
+      "root": "/tmp/bundle_fix_confirmation_edges_0jp6jarf",
+      "probes": [
+        {
+          "name": "typed_context_drift",
+          "read_foreign": {
+            "status": "raised",
+            "exception": "ValueError",
+            "message": "bundle context/schema/implementation mismatch"
+          },
+          "resume_foreign": {
+            "status": "raised",
+            "exception": "ValueError",
+            "message": "resume input/context/implementation differs"
+          },
+          "read_exact": {
+            "status": "returned",
+            "value": {
+              "rows": [
+                {
+                  "group_draw_counts": {
+                    "a": 1
+                  }
+                }
+              ]
+            }
+          },
+          "resume_exact": {
+            "status": "returned",
+            "value": {
+              "schema": "M_EXACT_MULTIPLICITY_BUNDLE_V1",
+              "complete_sha256": "60fd2c4ddf6b3a47b1362002aaa92a53ee57323a37cb294e251fa02d1c721793",
+              "raw_json_sha256": "7b2aafc334f3192385c908c61ca5a1b58a6375f481967fb42aa71a97cbdd2589",
+              "raw_json_bytes": 84,
+              "stored_bytes": 2331,
+              "production_admitted": false
+            }
+          }
+        },
+        {
+          "name": "prior_evidence_size_boundary",
+          "write": {
+            "status": "raised",
+            "exception": "ValueError",
+            "message": "canonical JSON byte budget exceeded"
+          },
+          "destination_exists": false
+        },
+        {
+          "name": "ownership_boundary",
+          "interruption": {
+            "status": "raised",
+            "exception": "OSError",
+            "message": "injected transaction-publication failure"
+          },
+          "resume": {
+            "status": "raised",
+            "exception": "ValueError",
+            "message": "foreign directory has no owned transaction"
+          },
+          "children_preserved": true,
+          "children": [
+            "writer.lock"
+          ],
+          "fresh_same_input_write": {
+            "status": "returned",
+            "value": {
+              "schema": "M_EXACT_MULTIPLICITY_BUNDLE_V1",
+              "complete_sha256": "f218bb0adb065e2476ba15b6f6f976edb5e7fafeaf4fd2389bd9e7f6b6fd0da4",
+              "raw_json_sha256": "7b2aafc334f3192385c908c61ca5a1b58a6375f481967fb42aa71a97cbdd2589",
+              "raw_json_bytes": 84,
+              "stored_bytes": 2299,
+              "production_admitted": false
+            }
+          }
+        },
+        {
+          "name": "nonstring_context_keys",
+          "write": {
+            "status": "raised",
+            "exception": "ValueError",
+            "message": "context keys must be strings"
+          },
+          "destination_exists": false
+        }
+      ]
+    },
+    "not_run": [
+      "No full529 or other full suite.",
+      "No actual source45 audit rerun.",
+      "No real-D/H transport profile or actual model/data/scientific calculation.",
+      "No GPU/primary job, automation or agent."
+    ],
+    "mutations": "Only fresh reviewer logs/confirmation JSON and bounded synthetic files under /tmp. Frozen source/tests/dependencies, prior review and production checkout unchanged."
+  },
+  "finding_confirmation": [
+    {
+      "id": "MB-001",
+      "prior_severity": "Important",
+      "status": "FIX_CONFIRMED",
+      "locations": [
+        "multiplicity_bundle.py:38-50",
+        "multiplicity_bundle.py:159-164",
+        "multiplicity_bundle.py:178-179",
+        "multiplicity_bundle.py:185",
+        "multiplicity_bundle.py:201-202",
+        "multiplicity_bundle.py:220"
+      ],
+      "inspection": "Strict JSON context rejects nonstring keys/non-JSON types, serializes sorted keys without losing bool/int/float distinctions, copies the canonical context and compares its SHA at entry/end. Transaction resume uses typed canonical JSON hash/byte identity instead of Python equality. Context key order is explicitly canonicalized and may differ without semantic drift.",
+      "fresh_evidence": "37-test run includes typed read/resume, key-order acceptance and nonstring-key rejection. Independent prior probe now rejects foreign {flag:1,draws:1.0} against stored {flag:true,draws:1}; exact-context read and resume succeed. Independent nonstring-key probe rejects before destination creation."
+    },
+    {
+      "id": "MB-002",
+      "prior_severity": "Important",
+      "status": "FIX_CONFIRMED",
+      "locations": [
+        "multiplicity_bundle.py:52-54",
+        "multiplicity_bundle.py:193-198",
+        "multiplicity_bundle.py:222-224"
+      ],
+      "inspection": "Full transaction and conservative complete evidence share the actual reader min(max_json_bytes,1MiB) cap and are preflighted before destination creation. Conservative component size fields cover normal stored values, and the actual full complete evidence is checked again immediately before publication.",
+      "fresh_evidence": "37-test run covers near-1MiB transaction/complete wrapper cases and a 4096-byte evidence budget. Repeated prior 1,048,552-byte identity probe now raises canonical JSON byte budget exceeded with destination_exists:false, rather than returning an unreadable complete bundle."
+    },
+    {
+      "id": "MB-003",
+      "prior_severity": "Minor",
+      "status": "CLARIFIED_AND_CONFIRMED_FAIL_CLOSED_BOUNDARY",
+      "locations": [
+        "multiplicity_bundle.py:6-8",
+        "multiplicity_bundle.py:188",
+        "test_multiplicity_bundle.py:184-195"
+      ],
+      "inspection": "Public docstring now states ownership begins only after transaction.json publication. Earlier interrupted directory evidence is retained and a fresh attempt namespace is required. Foreign-directory refusal is preserved.",
+      "fresh_evidence": "Regression and repeated prior interruption probe preserve writer.lock evidence and reject resume; a fresh same-input/context destination succeeds. No deletion or overwrite used."
+    }
+  ],
+  "new_findings": [],
+  "carried_forward_limits": [
+    "stored_bytes describes four named logical components and excludes retained failed partials/filesystem allocation overhead; future storage profiling must include actual high-water directory usage.",
+    "Flock protects file writes; preprocessing/encoding happens before acquisition and is not a global CPU or memory admission.",
+    "raw_json_sha256 is the defined canonical input-value serialization, not a promise to preserve arbitrary input-file whitespace/lexical bytes.",
+    "Explicit JSON/cell/array-byte limits do not qualify parsed-object peak RSS or aggregate runtime memory."
+  ],
+  "declined_to_judge": [
+    {
+      "behavior": "Whole-M endpoint/selection/cache context and scientific statistics/seed/draw/NA correctness, H qualification or equal-update claims.",
+      "reason": "File-codec fix confirmation does not implement or authorize these behaviors."
+    },
+    {
+      "behavior": "Re-approval of accepted multiplicity_codec MC-001 or sensitivity_io fixes.",
+      "reason": "Dependencies remain unchanged and were inspected only as bundle dependencies."
+    },
+    {
+      "behavior": "Power-loss durability and hostile concurrent filesystem protection beyond specified path/hash checks.",
+      "reason": "Explicitly excluded scope; no stronger guarantee inferred."
+    },
+    {
+      "behavior": "Full529-suite result, actual source45 audit result, real accepted-D/H transport equivalence, compression savings and parsed-object RSS.",
+      "reason": "Root owns separate tests/audits/profiles; they were not independently rerun or accepted here. Existing old519 result is contextual evidence, not a fixed-code suite result."
+    },
+    {
+      "behavior": "Resource/capacity admission, primary H/cache/CPU ownership, GPU scheduling, production deployment.",
+      "reason": "No such authorization or work is supplied by this component. All later scientific/resource/primary-protection gates remain in force."
+    }
+  ],
+  "recommendation": "Accept the isolated file-codec fix pass for the reviewed findings. MB-001 and MB-002 are resolved on inspected frozen code and fresh independent tests/probes; MB-003 is explicitly documented and tested. Separate full-suite/profile/resource/scientific gates remain required.",
+  "verdict": {
+    "component_fix_confirmation": "ACCEPTED_WITHIN_REVIEW_SCOPE",
+    "MB001": "FIX_CONFIRMED",
+    "MB002": "FIX_CONFIRMED",
+    "MB003": "CLARIFIED_FAIL_CLOSED_BOUNDARY",
+    "new_critical_findings": 0,
+    "new_important_findings": 0,
+    "targeted_result": "37 passed, 1 expected duplicate-member warning in 7.98s",
+    "whole_M": "NOT_ADJUDICATED_OR_PROMOTED",
+    "production_admitted": false
+  },
+  "blockers": {
+    "review_execution": "None. No denied, pending or uncertain action.",
+    "reviewed_findings": "None remaining within this fix-confirmation scope.",
+    "production": "Not admitted; fresh whole suite, real profiles, parsed RSS and remaining scientific/resource gates are separate."
+  }
+}

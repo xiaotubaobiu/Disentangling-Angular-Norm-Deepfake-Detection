@@ -1,0 +1,57 @@
+{
+  "utc": "2026-10-24T12:53:33.174421+00:00",
+  "status": "PASS_TWO_PREPARATION_FIGURES_INDEPENDENT_NUMERIC_AND_PARENT_VISUAL_ACCEPTANCE",
+  "scope": "H preprocessing coverage plus all10DsourceDEV runs; not complete five-figure/journal study delivery.",
+  "source_packet": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/manuscript_figures/pre_result",
+  "source_packet_completion_sha256": "42f4f238981adf6f6b4f823edae04c0b928979471db9d1b1f4b14ce7a990d4af",
+  "source_packet_generation_status_is_historical_snapshot": "TWO_PREPARATION_FIGURES_EXPORTED_RENDER_REVIEW_PENDING",
+  "exporter_sha256": "55717136f071f2cec0962331e850ca2b6df3fb71b9f3cd2d46efdf110ce864f2",
+  "source_HEAD": "5ef6d06bf7aeda02a5a11113e4c35a2c9909f215",
+  "input_hashes_verified": 61,
+  "artifacts_sha256": {
+    "source_development_plot_data.json": "a9ba5d43170c4aea2b75b6d974f93839c9c8186052f6dc932bb8370c5a6b9406",
+    "captions_cn_en.md": "1210616894dea6b24d43a73e9415e776a34d5c593d34255f42927e04a9f9cb1e",
+    "coverage_plot_data.json": "1b5dbb19ed63ce60269a08fd774cc411d0769a7502448b6fb04286621ee3f052",
+    "H_preprocessing_coverage.png": "e9c67401082cfb57954a7841867aade8bf6a00b822f07c34b8e963180bbe617d",
+    "D_source_development_curves.svg": "d7a7a594d24d7edc0ce0e169c92d242dc66b779aa4b0ea163d1c9ba4e7e2611c",
+    "D_source_development_curves.png": "c226e9316c194923953203b8454204ab4a07b3e896736411c150e723f8a12970",
+    "H_preprocessing_coverage.svg": "7dc6a798051d07e71d51fa7bc48c3db036dbfae16f79701e2ad28138546f02e8"
+  },
+  "independent_review": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/pre_result_figures_independent_review_20261024T1230.json",
+  "independent_review_sha256": "25bd38e248375233b6ca7c3078f3bea09b9904de29613c776cb1e9d0381b3a2e",
+  "independent_findings": {
+    "Critical": 0,
+    "Important": 0,
+    "Minor": 0
+  },
+  "visual_acceptance": {
+    "reviewer": "parent/root actual PNG view_image review",
+    "coverage_dimensions": [
+      3660,
+      1380
+    ],
+    "source_DEV_dimensions": [
+      3660,
+      1140
+    ],
+    "coverage_legend_overlap_fixed": true,
+    "no_visible_title_legend_axis_clipping": true,
+    "local_preview_PNG_SHA_matches_primary": true,
+    "reviewer_child_did_not_claim_to_see_PNG": true
+  },
+  "primary_manuscript_packet": "/home/z/obsidian/paper/deepfake-detector/新实验设计/20261023/论文方法与设置准备_v2/20261024_覆盖整合版/figures/pre_result",
+  "mirror_packet": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/manuscript_preparation/20261024_覆盖整合版/figures/pre_result",
+  "packet_copies_byte_identical": true,
+  "first_packet_and_script_preserved": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/backups/20261024T1248Z",
+  "source_DEV_runs": 10,
+  "source_DEV_points": 300,
+  "target_performance_read": false,
+  "H_GPU_qualification_claimed": false,
+  "remaining_plan_figures": [
+    "paired_mother_processing_histories",
+    "formal_score_ECDF",
+    "calibration_variation"
+  ],
+  "five_source_method_illustration_inputs_preselected": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/paper_paired_history_illustration_selection.json",
+  "scientific_or_training_code_changed": false
+}

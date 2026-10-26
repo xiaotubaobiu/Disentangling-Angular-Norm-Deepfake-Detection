@@ -1,0 +1,54 @@
+{
+  "utc": "2026-10-24T14:52:39.969172+00:00",
+  "status": "LAUNCHED_FINITE_ALL7_ADMISSION_BEFORE_ANALYSIS",
+  "run_id": "D_formal_clip_vit_b16_seed42",
+  "flock_pid": 1976081,
+  "command": [
+    "/usr/bin/flock",
+    "--nonblock",
+    "--conflict-exit-code",
+    "75",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/D/production_cpu.lock",
+    "/usr/bin/time",
+    "-v",
+    "-o",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/D_formal_clip_vit_b16_seed42_analysis_time_v.log",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+    "-u",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/analysis_execution_records/D_formal_clip_vit_b16_seed42.command.py"
+  ],
+  "stdout_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/D_formal_clip_vit_b16_seed42_analysis.stdout.log",
+  "time_v_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/D_formal_clip_vit_b16_seed42_analysis_time_v.log",
+  "command_source_sha256": "ef5972ed133d3d92d073967d5aaa95bf76bd088e4a439f3bfcb4cce233403709",
+  "source_template_sha256": "f04ad896cda267f25e1d18dee940688823264bfe8650fb223e094d8818c8e357",
+  "literal_run_record_substitutions": [
+    [
+      "RUN='D_formal_clip_vit_b16_seed7'",
+      "RUN='D_formal_clip_vit_b16_seed42'"
+    ],
+    [
+      "D_first_single_analysis_progress.json",
+      "D_formal_clip_vit_b16_seed42_analysis_progress.json"
+    ],
+    [
+      "D_first_single_analysis_admission.json",
+      "D_formal_clip_vit_b16_seed42_analysis_admission.json"
+    ]
+  ],
+  "scientific_code_unchanged": true,
+  "normal_remaining_and_temporary_and_reserve_required_bytes": 379541131418.6428,
+  "free_bytes_at_launch": 400133390336,
+  "capacity_projection_sha256": "bd9535c5f151856dc491a40d6fb14cb99468bddee8015d0f37a735347d016bc7",
+  "first_complete_acceptance_sha256": "4a1f34967b5a3bb5bdfcffb3fb0af24e5823d51d12fac4e8334a1c09e8d63185",
+  "environment": {
+    "CUDA_VISIBLE_DEVICES": "",
+    "OMP_NUM_THREADS": "2",
+    "MKL_NUM_THREADS": "2",
+    "OPENBLAS_NUM_THREADS": "2",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONPATH": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2"
+  },
+  "calibration_repeats": 200,
+  "test_bootstrap_repeats": 2000,
+  "new_GPU_dispatcher": false
+}

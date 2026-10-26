@@ -1,0 +1,42 @@
+{
+  "utc": "2026-10-25T23:54:25.555271+00:00",
+  "user_pause": true,
+  "no_resume_authorization": true,
+  "M_owner_frozen_before_worker_signals": true,
+  "owner_PID": 3968944,
+  "actions": [
+    {
+      "pid": 574248,
+      "birth_ticks": 472042228,
+      "signal": "SIGINT",
+      "purpose": "User pause; preserve committed cache chunks, Python finally closes lease FD"
+    },
+    {
+      "pid": 575378,
+      "birth_ticks": 472043300,
+      "signal": "SIGINT",
+      "purpose": "User pause; preserve committed cache chunks, Python finally closes lease FD"
+    },
+    {
+      "pid": 584946,
+      "birth_ticks": 472051923,
+      "signal": "SIGINT",
+      "purpose": "User pause; preserve committed cache chunks, Python finally closes lease FD"
+    },
+    {
+      "pid": 654413,
+      "birth_ticks": 472114138,
+      "signal": "SIGINT",
+      "purpose": "User pause; preserve committed cache chunks, Python finally closes lease FD"
+    }
+  ],
+  "previous_status_sha256": "c2fe590200319b44dce4d7e75bb0ec9dc876f0b0fc2be38b6273f377abce5314",
+  "completed_models_retained": 15,
+  "pending_at_pause": 26,
+  "original_status_not_rewritten": true,
+  "no_data_deleted": true,
+  "CPU_children_SIGINT_already_requested": [
+    3921350,
+    730797
+  ]
+}

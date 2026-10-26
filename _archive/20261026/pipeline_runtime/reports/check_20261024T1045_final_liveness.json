@@ -1,0 +1,333 @@
+{
+  "utc": "2026-10-24T10:55:59.380115+00:00",
+  "status": "PASS_SAME4_ACTIVE_POST_TRANSITION_LIVENESS",
+  "active_rows": [
+    {
+      "pid": 745561,
+      "run_id": "D_formal_dinov2_vit_b14_seed3407",
+      "gpu": 3,
+      "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646",
+      "live_records": 19324,
+      "live_success": 19323,
+      "live_skips": 1,
+      "skip_evidence": [
+        {
+          "event": {
+            "attempt": 17477,
+            "lr": 2.2244200724841943e-06,
+            "loss": 0.01654205285012722,
+            "gradient_norm": null,
+            "gradient_finite": false,
+            "scale_before": 32768.0,
+            "scale_after": 16384.0,
+            "success": false,
+            "skip": true,
+            "epoch": 22
+          },
+          "next_success": {
+            "attempt": 17478,
+            "lr": 2.2239236088534637e-06,
+            "loss": 2.767890691757202e-06,
+            "gradient_norm": 0.0014307246767327635,
+            "gradient_finite": true,
+            "scale_before": 16384.0,
+            "scale_after": 16384.0,
+            "success": true,
+            "skip": false,
+            "epoch": 22
+          },
+          "next_event_status": "SUCCESS"
+        }
+      ],
+      "latest_event": {
+        "attempt": 19323,
+        "lr": 1.4117170961162974e-06,
+        "loss": 1.0727904736995697e-05,
+        "gradient_norm": 0.015295020370414315,
+        "gradient_finite": true,
+        "scale_before": 16384.0,
+        "scale_after": 16384.0,
+        "success": true,
+        "skip": false,
+        "epoch": 25
+      },
+      "history_epoch_metadata": 24
+    },
+    {
+      "pid": 835840,
+      "run_id": "D_formal_efficientnet_b0_seed123",
+      "gpu": 2,
+      "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+      "live_records": 18721,
+      "live_success": 18719,
+      "live_skips": 2,
+      "skip_evidence": [
+        {
+          "event": {
+            "attempt": 15982,
+            "lr": 3.0235491963671303e-05,
+            "loss": 0.02372259460389614,
+            "gradient_norm": null,
+            "gradient_finite": false,
+            "scale_before": 16384.0,
+            "scale_after": 8192.0,
+            "success": false,
+            "skip": true,
+            "epoch": 21
+          },
+          "next_success": {
+            "attempt": 15983,
+            "lr": 3.0229803023453395e-05,
+            "loss": 4.403293132781982e-06,
+            "gradient_norm": 0.0006935239699911491,
+            "gradient_finite": true,
+            "scale_before": 8192.0,
+            "scale_after": 8192.0,
+            "success": true,
+            "skip": false,
+            "epoch": 21
+          },
+          "next_event_status": "SUCCESS"
+        },
+        {
+          "event": {
+            "attempt": 18415,
+            "lr": 1.7844025052492647e-05,
+            "loss": 0.031767637468874454,
+            "gradient_norm": null,
+            "gradient_finite": false,
+            "scale_before": 16384.0,
+            "scale_after": 8192.0,
+            "success": false,
+            "skip": true,
+            "epoch": 24
+          },
+          "next_success": {
+            "attempt": 18416,
+            "lr": 1.783962089770689e-05,
+            "loss": 0.00010682549327611923,
+            "gradient_norm": 0.01964103768987112,
+            "gradient_finite": true,
+            "scale_before": 8192.0,
+            "scale_after": 8192.0,
+            "success": true,
+            "skip": false,
+            "epoch": 24
+          },
+          "next_event_status": "SUCCESS"
+        }
+      ],
+      "latest_event": {
+        "attempt": 18720,
+        "lr": 1.6530673680215074e-05,
+        "loss": 0.0001836949959397316,
+        "gradient_norm": 0.01795819418573985,
+        "gradient_finite": true,
+        "scale_before": 8192.0,
+        "scale_after": 8192.0,
+        "success": true,
+        "skip": false,
+        "epoch": 24
+      },
+      "history_epoch_metadata": 23
+    },
+    {
+      "pid": 836451,
+      "run_id": "D_formal_efficientnet_b0_seed2026",
+      "gpu": 1,
+      "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+      "live_records": 19176,
+      "live_success": 19174,
+      "live_skips": 2,
+      "skip_evidence": [
+        {
+          "event": {
+            "attempt": 14198,
+            "lr": 4.0934429365824055e-05,
+            "loss": 0.025232897140085697,
+            "gradient_norm": null,
+            "gradient_finite": false,
+            "scale_before": 16384.0,
+            "scale_after": 8192.0,
+            "success": false,
+            "skip": true,
+            "epoch": 18
+          },
+          "next_success": {
+            "attempt": 14199,
+            "lr": 4.092818283302695e-05,
+            "loss": 3.251340240240097e-05,
+            "gradient_norm": 0.004636861364494062,
+            "gradient_finite": true,
+            "scale_before": 8192.0,
+            "scale_after": 8192.0,
+            "success": true,
+            "skip": false,
+            "epoch": 18
+          },
+          "next_event_status": "SUCCESS"
+        },
+        {
+          "event": {
+            "attempt": 16959,
+            "lr": 2.4888507059061212e-05,
+            "loss": 0.05371994897723198,
+            "gradient_norm": null,
+            "gradient_finite": false,
+            "scale_before": 16384.0,
+            "scale_after": 8192.0,
+            "success": false,
+            "skip": true,
+            "epoch": 22
+          },
+          "next_success": {
+            "attempt": 16960,
+            "lr": 2.4883266747694488e-05,
+            "loss": 1.0774470865726471e-05,
+            "gradient_norm": 0.00234450913437953,
+            "gradient_finite": true,
+            "scale_before": 8192.0,
+            "scale_after": 8192.0,
+            "success": true,
+            "skip": false,
+            "epoch": 22
+          },
+          "next_event_status": "SUCCESS"
+        }
+      ],
+      "latest_event": {
+        "attempt": 19175,
+        "lr": 1.4686385794970656e-05,
+        "loss": 2.9616057872772217e-07,
+        "gradient_norm": 5.663439078335187e-05,
+        "gradient_finite": true,
+        "scale_before": 16384.0,
+        "scale_after": 16384.0,
+        "success": true,
+        "skip": false,
+        "epoch": 24
+      },
+      "history_epoch_metadata": 24
+    },
+    {
+      "pid": 1489240,
+      "run_id": "D_formal_efficientnet_b0_seed3407",
+      "gpu": 0,
+      "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e",
+      "live_records": 1598,
+      "live_success": 1598,
+      "live_skips": 0,
+      "skip_evidence": [],
+      "latest_event": {
+        "attempt": 1597,
+        "lr": 9.972222488567027e-05,
+        "loss": 0.013243980705738068,
+        "gradient_norm": 0.6238206839906548,
+        "gradient_finite": true,
+        "scale_before": 128.0,
+        "scale_after": 128.0,
+        "success": true,
+        "skip": false,
+        "epoch": 2
+      },
+      "history_epoch_metadata": 1
+    }
+  ],
+  "queue": {
+    "owner_pid": 3942476,
+    "stage": "P3_D_FORMAL_TRAINING",
+    "utc": "2026-10-24T10:55:51.833783+00:00",
+    "active": [
+      {
+        "pid": 745561,
+        "run_id": "D_formal_dinov2_vit_b14_seed3407",
+        "gpu": 3,
+        "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646"
+      },
+      {
+        "pid": 835840,
+        "run_id": "D_formal_efficientnet_b0_seed123",
+        "gpu": 2,
+        "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45"
+      },
+      {
+        "pid": 836451,
+        "run_id": "D_formal_efficientnet_b0_seed2026",
+        "gpu": 1,
+        "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c"
+      },
+      {
+        "pid": 1489240,
+        "run_id": "D_formal_efficientnet_b0_seed3407",
+        "gpu": 0,
+        "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e"
+      }
+    ],
+    "completed_this_session": [
+      "D_dev_clip_vit_b16_lr1e-05_seed1007_e30",
+      "D_dev_clip_vit_b16_lr1e-05_seed1042_e30",
+      "D_dev_dinov2_vit_b14_lr1e-05_seed1007_e30",
+      "D_dev_dinov2_vit_b14_lr1e-05_seed1042_e30",
+      "D_dev_dinov2_vit_b14_lr3e-05_seed1007_e30",
+      "D_dev_dinov2_vit_b14_lr3e-05_seed1042_e30",
+      "D_dev_dinov2_vit_b14_lr5e-05_seed1042_e30",
+      "D_dev_dinov2_vit_b14_lr5e-05_seed1007_e30",
+      "D_dev_efficientnet_b0_lr1e-04_seed1007_e30",
+      "D_dev_efficientnet_b0_lr1e-04_seed1042_e30",
+      "D_formal_clip_vit_b16_seed7",
+      "D_formal_clip_vit_b16_seed2026",
+      "D_formal_clip_vit_b16_seed123",
+      "D_formal_clip_vit_b16_seed42",
+      "D_formal_clip_vit_b16_seed3407",
+      "D_formal_dinov2_vit_b14_seed7",
+      "D_formal_dinov2_vit_b14_seed42",
+      "D_formal_dinov2_vit_b14_seed123",
+      "D_formal_efficientnet_b0_seed42",
+      "D_formal_efficientnet_b0_seed7",
+      "D_formal_dinov2_vit_b14_seed2026"
+    ],
+    "detail": {
+      "pending": []
+    }
+  },
+  "GPU_samples": [
+    {
+      "utc": "2026-10-24T10:55:52.516123+00:00",
+      "csv": "0, 0, 2436\n1, 0, 2438\n2, 0, 2438\n3, 84, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-24T10:55:54.610702+00:00",
+      "csv": "0, 27, 2436\n1, 0, 2438\n2, 59, 2438\n3, 83, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-24T10:55:56.733898+00:00",
+      "csv": "0, 10, 2436\n1, 0, 2438\n2, 58, 2438\n3, 75, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-24T10:55:58.866787+00:00",
+      "csv": "0, 36, 2436\n1, 0, 2438\n2, 53, 2438\n3, 82, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n"
+    }
+  ],
+  "GPU_mean0to3": [
+    18.25,
+    0.0,
+    42.5,
+    81.0
+  ],
+  "AMP_development": 32,
+  "AMP_formal": 49,
+  "AMP_total": 81,
+  "new_since1048": 1,
+  "all_live_skip_next_success": true,
+  "capacity": {
+    "workspace_free_GiB": 393.2909469604492,
+    "Dataset_free_GiB": 2612.292060852051
+  },
+  "protected_alive": [
+    true,
+    true,
+    true,
+    true
+  ],
+  "no_training_restart_or_config_change": true
+}

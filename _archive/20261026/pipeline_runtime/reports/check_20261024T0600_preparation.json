@@ -1,0 +1,26 @@
+{
+  "utc": "2026-10-24T05:39:58.620536+00:00",
+  "status": "PASS_READ_ONLY0600_HELPERS_NOT_STARTED",
+  "next_check_utc": "2026-10-24T06:00:00Z",
+  "scripts": [
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/checkpoint_health_20261024T0600.py",
+      "sha256": "eafed449bad3c93aa28dcec6bf410469092daffc1902a830c35d48f267c5b3e2",
+      "syntax": "PASS",
+      "executed": false
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/completion_audit_20261024T0600.py",
+      "sha256": "3dc4db651df5ac4fd9bca142f424a4f2b608c66053761881ddcdb4b929c18451",
+      "syntax": "PASS",
+      "executed": false
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/runtime_monitor_20261024T0600.py",
+      "sha256": "19af24ea81542c200ddefe74c3720000fe754745cc83b06eaf601aedd008fb8f",
+      "syntax": "PASS",
+      "executed": false
+    }
+  ],
+  "supersedes_unstarted0540_reason": "Successorfirstcheckpointalreadyverified05:37withinthisround,no0540runneeded;no schedule created."
+}

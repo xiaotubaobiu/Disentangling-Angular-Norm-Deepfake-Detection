@@ -1,0 +1,137 @@
+{
+  "utc": "2026-10-24T18:10:01.246203+00:00",
+  "status": "PASS_1800_H_LR1_TERMINALS_ACCEPTED_ORIGINAL_LR3_AUTOCONTINUATION_D_ANALYSIS_ADVANCING",
+  "H_completed": 8,
+  "H_active": [
+    {
+      "pid": 2079695,
+      "run_id": "H_dev_dinov2_vit_b14_B_lr3e-05_seed1007_e30",
+      "gpu": 0,
+      "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e",
+      "backbone": "dinov2_vit_b14",
+      "alive": true,
+      "committed_epoch": 1,
+      "committed_attempts": 191,
+      "committed_success": 191,
+      "committed_skips": 0,
+      "live_attempts": 373,
+      "live_success": 373,
+      "live_skips": 0,
+      "skip_recovery": []
+    },
+    {
+      "pid": 2079696,
+      "run_id": "H_dev_dinov2_vit_b14_AB_lr3e-05_seed1007_e30",
+      "gpu": 1,
+      "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+      "backbone": "dinov2_vit_b14",
+      "alive": true,
+      "committed_epoch": 1,
+      "committed_attempts": 191,
+      "committed_success": 191,
+      "committed_skips": 0,
+      "live_attempts": 371,
+      "live_success": 371,
+      "live_skips": 0,
+      "skip_recovery": []
+    },
+    {
+      "pid": 2079697,
+      "run_id": "H_dev_dinov2_vit_b14_B_lr3e-05_seed1042_e30",
+      "gpu": 2,
+      "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+      "backbone": "dinov2_vit_b14",
+      "alive": true,
+      "committed_epoch": 1,
+      "committed_attempts": 191,
+      "committed_success": 191,
+      "committed_skips": 0,
+      "live_attempts": 362,
+      "live_success": 362,
+      "live_skips": 0,
+      "skip_recovery": []
+    },
+    {
+      "pid": 2079698,
+      "run_id": "H_dev_dinov2_vit_b14_AB_lr3e-05_seed1042_e30",
+      "gpu": 3,
+      "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646",
+      "backbone": "dinov2_vit_b14",
+      "alive": true,
+      "committed_epoch": 1,
+      "committed_attempts": 191,
+      "committed_success": 191,
+      "committed_skips": 0,
+      "live_attempts": 365,
+      "live_success": 365,
+      "live_skips": 0,
+      "skip_recovery": []
+    }
+  ],
+  "H_pending": 8,
+  "H_lr1_terminal_acceptance": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_DINO_lr1_terminal_acceptance_20261024T1800.json",
+  "H_lr1_terminal_acceptance_sha256": "6c482a77ff04a235392dc1e17bd866344bf3870f3c3d167c74fa40bb2650a2cd",
+  "H_lr1_four_runs_E30": true,
+  "H_lr1_total_attempts": 22920,
+  "H_lr1_total_success": 22920,
+  "H_lr1_total_skips": 0,
+  "H_lr1_DEV_tables": 120,
+  "H_lr1_DEV_checks": 720,
+  "H_lr1_DEV_max_error": 1.1102230246251565e-16,
+  "H_new_lr3_pair_array_checks": [
+    {
+      "seed": 1007,
+      "new_lr3_common_committed_array_epochs": 1,
+      "all_equal": true
+    },
+    {
+      "seed": 1042,
+      "new_lr3_common_committed_array_epochs": 1,
+      "all_equal": true
+    }
+  ],
+  "D_current_CPU_slots": [
+    {
+      "run_id": "D_formal_dinov2_vit_b14_seed3407",
+      "slot": 0,
+      "pid": 2069915,
+      "status": "PRODUCTION_ANALYSIS_RUNNING",
+      "analysis_result_status": null,
+      "alive": true
+    },
+    {
+      "run_id": "D_formal_dinov2_vit_b14_seed2026",
+      "slot": 1,
+      "pid": 2064755,
+      "status": "PRODUCTION_ANALYSIS_TERMINAL",
+      "analysis_result_status": "ANALYSIS_COMPLETE",
+      "alive": false
+    }
+  ],
+  "D2026_audit_launch": {
+    "utc": "2026-10-24T18:10:00.930710+00:00",
+    "run_id": "D_formal_dinov2_vit_b14_seed2026",
+    "supervisor_pid": 2082620,
+    "source_analysis_pid": 2064755,
+    "actual_analysis_elapsed": "35:43.60",
+    "supervisor_command_sha256": "806b9dbce4e5c6126af19056d1a4813ee1bcde691d90b4b286e723f45fde202b",
+    "status": "FINITE_INDEPENDENT_AUDITS_RUNNING_NOT_YET_ACCEPTED"
+  },
+  "D_individual_independent_accepted_at_start": 8,
+  "GPU_csv": "0, 80 %, 5414 MiB\n1, 86 %, 5414 MiB\n2, 81 %, 5414 MiB\n3, 76 %, 5414 MiB\n4, 0 %, 28156 MiB\n5, 0 %, 28156 MiB\n6, 0 %, 28156 MiB\n7, 0 %, 28156 MiB\n",
+  "protected_compute_csv": "2079695, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 5406 MiB\n2079696, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 5406 MiB\n2079697, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 5406 MiB\n2079698, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 5406 MiB\n1532179, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 28152 MiB\n1532180, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 28152 MiB\n1532181, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 28152 MiB\n1532182, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 28152 MiB\n",
+  "protected_inputs_verified": 13,
+  "repo_clean": true,
+  "source_best_parent_hold": true,
+  "source_best_scope_packet_json_sha256": "cbeb9003ddcb3fbdae6211a5cc38ca915ebde1d44406e4e76956a629ef4f57d1",
+  "source_best_scope_packet_md_sha256": "8e98b6e92650ff9757fa57923f2b44746a54ab2e3caa84df54ccce1b5ee584e4",
+  "source_best_executed": false,
+  "registered_formal_models": 45,
+  "D_formal_training_complete": 15,
+  "H_formal_training_complete": 0,
+  "cold_SSD_release_bytes": 0,
+  "workspace_free_bytes": 282184159232,
+  "Dataset_free_bytes": 2674188767232,
+  "papers_complete": false,
+  "next_recommended_check_utc": "2026-10-24T18:20:00Z"
+}

@@ -1,0 +1,57 @@
+{
+  "schema": "pipeline-reliability-v2-D-fp32-cache-1",
+  "status": "CACHE_COMPLETE",
+  "identity": {
+    "schema": "pipeline-reliability-v2-D-fp32-cache-1",
+    "config_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/configs/execution.json",
+    "config_sha256": "deae26fadc19a09c35ec2eba443e4b1c0ce3abd8ff304b85aa6cc1cb98fca750",
+    "artifact_root": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023",
+    "run_id": "D_formal_dinov2_vit_b14_seed3407",
+    "backbone": "dinov2_vit_b14",
+    "dimension": 768,
+    "epochs": 30,
+    "training_identity": {
+      "config": "c3ab24e8109434b8c8747d1a58d239ee97f8c4be8b67a44d241108e01c1753cb",
+      "train_manifest": "9d85e421d803f20481eb7720854cdb4369349b97dd5e04f5763dbe851077f496",
+      "dev_manifest": "2c157ce3f30504479e50023ff43c76bdd0a2df8cd7e31a938356a6306b7550bd",
+      "initialization": "0b8b82f85de91b424aded121c7e1dcc2b7bc6d0adeea651bf73a13307fad8c73",
+      "environment": "d3e6f2a2fc50770a2c3c8ab5b913dfa9049111a398c9de72d85baf618b139ebb",
+      "code": "336f3097434edf903a5ff402162e29afeca2442ca50f9c7d9883ca60136b8335",
+      "qualification": "c2a9a09d208d2671b7a123df7ee29e83b8abedcac08d9221d5ad26f3948700aa"
+    },
+    "checkpoint_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_dinov2_vit_b14_seed3407/final.pt",
+    "checkpoint_sha256": "9ed24c7a7d323d97fcacb54526e92f94fe05e1a4d1a92a4d7462587cc1c0468f",
+    "training_complete_sha256": "771309aa4b64a68f2626d0276965ba35cfb8473ec3a01bf328a921c384e791ff",
+    "cache_code_sha256": "8f5814646194c772dcf00f6751a35c2f792dd5f11008e0834fdba4eb5e329761",
+    "role": "source_cal",
+    "source_manifest_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/data/D/source_cal.parquet",
+    "source_manifest_sha256": "5acc4b7e2d28c6ff9bf437ed2316f35b4473441a38c0871bcca092ead1d4ecc7"
+  },
+  "rows": 1120,
+  "dimension": 768,
+  "precision": "FP32",
+  "autocast": false,
+  "epsilon": 1e-12,
+  "zero_norm_count": 0,
+  "chunk_rows": 4096,
+  "cached_manifest_sha256": "5acc4b7e2d28c6ff9bf437ed2316f35b4473441a38c0871bcca092ead1d4ecc7",
+  "head": {
+    "weight_file": "head_weight.npy",
+    "weight_sha256": "262287e58a391c1c8fff5b6dde350af6f14ae078796221c285d73074e8e0b154",
+    "bias_file": "head_bias.npy",
+    "bias_sha256": "50a7bed6b0cb2489b45c55ca3271be8842caf2af14a1f3f56a4f483f9a224e66"
+  },
+  "chunks": [
+    {
+      "file": "chunk_000000.npy",
+      "start": 0,
+      "rows": 1120,
+      "dimension": 768,
+      "dtype": "float32",
+      "identity_sha256": "d73538ee83a6c6de7ee05a813f30d5cb8b3a115291d12a41d6df312950dbe573",
+      "row_sha256": "70fdfa9bc4a15fa7bee15eb914c179928932891ea62874e1c90ecdc7f3693e38",
+      "zero_norm_count": 0,
+      "sha256": "9345a297d9a0152f6de6e2e0d8cbdb392b7bf741e8354593f85bd991f2193407"
+    }
+  ]
+}

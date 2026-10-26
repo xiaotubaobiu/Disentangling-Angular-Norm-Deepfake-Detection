@@ -1,0 +1,56 @@
+{
+  "schema": "H_SAVED_SUMMARY_OPERATIONAL_BUDGET_V1",
+  "root": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023",
+  "status": "VERIFIED_FULL_REMAINING_PRIMARY_WITH_PEAKS_RESERVE",
+  "utc": "2026-10-26T09:33:07.806697+00:00",
+  "capacity_evidence": {
+    "plan": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/plans/M_two_canary_remaining_write_plan_after_H6_20261026_candidate.json",
+      "sha256": "c0f5080192f20203dd63f0133aeeb21afd24807fbf7b1af9119945baa2abef07"
+    },
+    "acceptance": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_remaining_after_H6_capacity_acceptance_20261026.json",
+      "sha256": "d78bc0f1a35d954564581110f835bb4781351343dcf9ea97e5436339a36d668a"
+    },
+    "independent_review": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_M_capacity_after_H6_reassessment_20261026.json",
+      "sha256": "a5fcdd16ef564117dbe8df1da72cfbdf3dad8185327885fb1afe2bd645531210"
+    }
+  },
+  "evidence": [
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/plans/M_two_canary_remaining_write_plan_after_H6_20261026_candidate.json",
+      "sha256": "c0f5080192f20203dd63f0133aeeb21afd24807fbf7b1af9119945baa2abef07"
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_remaining_after_H6_capacity_acceptance_20261026.json",
+      "sha256": "d78bc0f1a35d954564581110f835bb4781351343dcf9ea97e5436339a36d668a"
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_M_capacity_after_H6_reassessment_20261026.json",
+      "sha256": "a5fcdd16ef564117dbe8df1da72cfbdf3dad8185327885fb1afe2bd645531210"
+    }
+  ],
+  "decomposition_bytes": {
+    "remaining_H_primary9_full_caps": 9663676416,
+    "primary_logs_manifests_figures_audits": 17179869184,
+    "primary_temporary_peak": 17179869184,
+    "primary_reserve": 53687091200,
+    "M_temporary": 6442450944,
+    "M_extra": 5368709120,
+    "all_M45_feature_cap": 18413684905,
+    "all_M30_statistic_caps": 20132659200
+  },
+  "full_remaining_with_peaks_reserve_bytes": 148068010153,
+  "reserve_already_included_bytes": 53687091200,
+  "primary_temporary_already_included_bytes": 17179869184,
+  "M_temporary_already_included_bytes": 6442450944,
+  "all_M45_feature_cap_bytes": 18413684905,
+  "all_M30_statistic_caps_bytes": 20132659200,
+  "summary_output_cap_covered_bytes": 16777216,
+  "summary_cap_already_included": true,
+  "unverified_compression_credit_bytes": 0,
+  "partial_feature_credit_bytes": 0,
+  "live_free_bytes_at_issue": 150887821312,
+  "actual_statistic_permission_issued": false
+}

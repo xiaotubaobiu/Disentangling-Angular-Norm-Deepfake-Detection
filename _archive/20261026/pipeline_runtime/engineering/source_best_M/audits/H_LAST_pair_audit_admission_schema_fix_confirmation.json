@@ -1,0 +1,79 @@
+{
+  "schema": "H_LAST_PAIR_INDEPENDENT_AUDITOR_ADMISSION_SCHEMA_FIX_V1",
+  "utc": "2026-10-25T13:48:03.382431+00:00",
+  "status": "AUDITOR_SCHEMA_FIX_56_SYNTHETIC_TESTS_PASS_NO_REAL_RETRY",
+  "cause": "Auditor wrongly required all_source_completions_fresh is True. SHA-pinned original producer writes typed integer140 after exact14 ledgers each with10 fresh source checks; accepted admission is not scientifically deficient.",
+  "original_source_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/h_pair_result_audit_before_admission_schema_fix.py",
+  "original_source_sha256": "f75bccc7db5554b3fef9f05353ab6f228906a926e76bdd7d5315c35675bf9738",
+  "new_source_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/h_pair_result_audit.py",
+  "new_source_sha256": "12ed094960dc7082215bf6261093d54962ccfb80d557c4ba3e0136baf467b32f",
+  "exact_actual_admission_shape_read_only": {
+    "total_type": "int",
+    "total_value": 140,
+    "list_type": "list",
+    "list_len": 14,
+    "per_row_count_types": [
+      "int"
+    ],
+    "per_row_counts": [
+      10
+    ],
+    "per_row_backbones": [
+      "clip_vit_b16"
+    ],
+    "per_row_precision": [
+      "AMP"
+    ],
+    "reference_sha256": [
+      "ac721584a4a505b52574de7b39a10ce9eed0709a459c9600f05719e721800872"
+    ],
+    "expected_identity_reference_sha256": "ac721584a4a505b52574de7b39a10ce9eed0709a459c9600f05719e721800872",
+    "per_row_exact_original_flags": [
+      true
+    ],
+    "per_row_cross_reuse": [
+      false
+    ]
+  },
+  "accepted_admission_sha256": "3e6c6366089ac131804e26d260e40f7af7c0bac92c87ee2b763d8a507c8c48f7",
+  "producer_source": "qualification/H_parallel_fresh_validation/cpu_ledger_admission.py:83-84",
+  "red": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/H_LAST_pair_audit_admission_schema_RED.log",
+    "sha256": "cba5a5cf35ecc201b28f1e1e069c4284e52525295492043e3da2b444c02a4d3b",
+    "cases": 12,
+    "failures": 2,
+    "observed": [
+      "Valid actual-shaped typed140/14times10 wrongly rejected",
+      "BooleanTrue wrongly accepted"
+    ]
+  },
+  "green": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/H_LAST_pair_audit_admission_schema_GREEN.log",
+    "sha256": "7171a96e6c381b02848eb83323e6dc7881ea26e11a5cb1b3d37c5bc7b571cbc9",
+    "original_tests": 44,
+    "new_tests": 12,
+    "total_tests": 56,
+    "passed": true,
+    "test_seconds": 10.385,
+    "wall_seconds": 10.55,
+    "peak_RSS_KiB": 86076,
+    "CPU_threads": 1,
+    "CUDA_VISIBLE_DEVICES": ""
+  },
+  "fix": "Require strict built-in int140; strict list14; each row strict built-in int10; total sum140; exact accepted identity backbone,precision,referenceledgerSHA and literalTrue exact-original flag; literalFalse aggregate/per-row cross-invocation reuse. Existing code/input/admission/header checks remain.",
+  "AST_changed_functions": [
+    "pin_metadata"
+  ],
+  "all_other_functions_and_numeric_kernels_AST_identical": true,
+  "diff_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/H_LAST_pair_audit_admission_schema.diff",
+  "diff_sha256": "365e9f1b07658166b35da150b7f198947a3d39b57d98b7f3c236c75e45c510b5",
+  "failed_actual_attempt_preserved": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/H_LAST_clip_seed42_independent_audit_failed_attempt.json",
+  "failed_actual_attempt_sha256": "7cf80ca22aca6f50acdc08ee11e59d54ee15e81a9662784a8a1834e5a14f8ef1",
+  "production_or_F_changed": false,
+  "producer_or_admission_evidence_changed": false,
+  "real_retry_executed": false,
+  "real_CPU_slot_opened_during_fix": false,
+  "snapshot_promoted": false,
+  "scientific_results_accepted": false,
+  "pending": "Await root separate explicit authorization for one new actual audit attempt using newly SHA-pinned corrected auditor; slot1 has not been reopened."
+}

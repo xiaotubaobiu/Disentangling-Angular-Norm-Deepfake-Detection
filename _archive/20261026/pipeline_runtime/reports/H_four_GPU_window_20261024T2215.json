@@ -1,0 +1,519 @@
+{
+  "utc": "2026-10-24T22:23:38.432408+00:00",
+  "status": "OBSERVED_FOUR_GPU_WINDOW_INCLUDING_ROUND_END_SUBMISSIONS",
+  "sample_count": 12,
+  "requested_gap_seconds": 3,
+  "GPU0_3_mean_util_percent": {
+    "0": 96.5,
+    "1": 65.5,
+    "2": 73.25,
+    "3": 96.08333333333333
+  },
+  "samples": [
+    {
+      "utc": "2026-10-24T22:22:58.034694+00:00",
+      "GPU_csv": "0, 95, 4932\n1, 99, 4932\n2, 100, 4932\n3, 97, 4932\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n",
+      "phase": [
+        {
+          "gpu": 0,
+          "pid": 2228135,
+          "history_epochs": 17,
+          "latest_log": "epoch_18_updates.jsonl",
+          "latest_complete_records": 52,
+          "temporary_files": [],
+          "wchan": "0"
+        },
+        {
+          "gpu": 1,
+          "pid": 2228136,
+          "history_epochs": 16,
+          "latest_log": "epoch_17_updates.jsonl",
+          "latest_complete_records": 191,
+          "temporary_files": [],
+          "wchan": "0"
+        },
+        {
+          "gpu": 2,
+          "pid": 2228137,
+          "history_epochs": 16,
+          "latest_log": "epoch_17_updates.jsonl",
+          "latest_complete_records": 191,
+          "temporary_files": [],
+          "wchan": "0"
+        },
+        {
+          "gpu": 3,
+          "pid": 2228138,
+          "history_epochs": 17,
+          "latest_log": "epoch_18_updates.jsonl",
+          "latest_complete_records": 35,
+          "temporary_files": [],
+          "wchan": "futex_wait_queue_me"
+        }
+      ]
+    },
+    {
+      "utc": "2026-10-24T22:23:01.179536+00:00",
+      "GPU_csv": "0, 96, 4932\n1, 100, 4932\n2, 99, 4932\n3, 98, 4932\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n",
+      "phase": [
+        {
+          "gpu": 0,
+          "pid": 2228135,
+          "history_epochs": 17,
+          "latest_log": "epoch_18_updates.jsonl",
+          "latest_complete_records": 58,
+          "temporary_files": [],
+          "wchan": "0"
+        },
+        {
+          "gpu": 1,
+          "pid": 2228136,
+          "history_epochs": 16,
+          "latest_log": "epoch_17_updates.jsonl",
+          "latest_complete_records": 191,
+          "temporary_files": [],
+          "wchan": "0"
+        },
+        {
+          "gpu": 2,
+          "pid": 2228137,
+          "history_epochs": 16,
+          "latest_log": "epoch_17_updates.jsonl",
+          "latest_complete_records": 191,
+          "temporary_files": [],
+          "wchan": "0"
+        },
+        {
+          "gpu": 3,
+          "pid": 2228138,
+          "history_epochs": 17,
+          "latest_log": "epoch_18_updates.jsonl",
+          "latest_complete_records": 41,
+          "temporary_files": [],
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "utc": "2026-10-24T22:23:04.320293+00:00",
+      "GPU_csv": "0, 98, 4932\n1, 99, 4932\n2, 99, 4932\n3, 96, 4932\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n",
+      "phase": [
+        {
+          "gpu": 0,
+          "pid": 2228135,
+          "history_epochs": 17,
+          "latest_log": "epoch_18_updates.jsonl",
+          "latest_complete_records": 64,
+          "temporary_files": [],
+          "wchan": "0"
+        },
+        {
+          "gpu": 1,
+          "pid": 2228136,
+          "history_epochs": 16,
+          "latest_log": "epoch_17_updates.jsonl",
+          "latest_complete_records": 191,
+          "temporary_files": [],
+          "wchan": "0"
+        },
+        {
+          "gpu": 2,
+          "pid": 2228137,
+          "history_epochs": 16,
+          "latest_log": "epoch_17_updates.jsonl",
+          "latest_complete_records": 191,
+          "temporary_files": [],
+          "wchan": "0"
+        },
+        {
+          "gpu": 3,
+          "pid": 2228138,
+          "history_epochs": 17,
+          "latest_log": "epoch_18_updates.jsonl",
+          "latest_complete_records": 48,
+          "temporary_files": [],
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "utc": "2026-10-24T22:23:07.465427+00:00",
+      "GPU_csv": "0, 97, 4932\n1, 100, 4932\n2, 100, 4932\n3, 96, 4932\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n",
+      "phase": [
+        {
+          "gpu": 0,
+          "pid": 2228135,
+          "history_epochs": 17,
+          "latest_log": "epoch_18_updates.jsonl",
+          "latest_complete_records": 71,
+          "temporary_files": [],
+          "wchan": "0"
+        },
+        {
+          "gpu": 1,
+          "pid": 2228136,
+          "history_epochs": 16,
+          "latest_log": "epoch_17_updates.jsonl",
+          "latest_complete_records": 191,
+          "temporary_files": [],
+          "wchan": "0"
+        },
+        {
+          "gpu": 2,
+          "pid": 2228137,
+          "history_epochs": 16,
+          "latest_log": "epoch_17_updates.jsonl",
+          "latest_complete_records": 191,
+          "temporary_files": [],
+          "wchan": "0"
+        },
+        {
+          "gpu": 3,
+          "pid": 2228138,
+          "history_epochs": 17,
+          "latest_log": "epoch_18_updates.jsonl",
+          "latest_complete_records": 54,
+          "temporary_files": [],
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "utc": "2026-10-24T22:23:16.429814+00:00",
+      "GPU_csv": "0, 98, 4932\n1, 0, 4932\n2, 0, 4932\n3, 98, 4932\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n",
+      "phase": [
+        {
+          "gpu": 0,
+          "pid": 2228135,
+          "history_epochs": 17,
+          "latest_log": "epoch_18_updates.jsonl",
+          "latest_complete_records": 77,
+          "temporary_files": [],
+          "wchan": "futex_wait_queue_me"
+        },
+        {
+          "gpu": 1,
+          "pid": 2228136,
+          "history_epochs": 16,
+          "latest_log": "epoch_17_updates.jsonl",
+          "latest_complete_records": 191,
+          "temporary_files": [],
+          "wchan": "0"
+        },
+        {
+          "gpu": 2,
+          "pid": 2228137,
+          "history_epochs": 17,
+          "latest_log": "epoch_17_updates.jsonl",
+          "latest_complete_records": 191,
+          "temporary_files": [],
+          "wchan": "0"
+        },
+        {
+          "gpu": 3,
+          "pid": 2228138,
+          "history_epochs": 17,
+          "latest_log": "epoch_18_updates.jsonl",
+          "latest_complete_records": 73,
+          "temporary_files": [],
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "utc": "2026-10-24T22:23:19.586783+00:00",
+      "GPU_csv": "0, 95, 4932\n1, 0, 4932\n2, 0, 4932\n3, 95, 4932\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n",
+      "phase": [
+        {
+          "gpu": 0,
+          "pid": 2228135,
+          "history_epochs": 17,
+          "latest_log": "epoch_18_updates.jsonl",
+          "latest_complete_records": 96,
+          "temporary_files": [],
+          "wchan": "futex_wait_queue_me"
+        },
+        {
+          "gpu": 1,
+          "pid": 2228136,
+          "history_epochs": 17,
+          "latest_log": "epoch_17_updates.jsonl",
+          "latest_complete_records": 191,
+          "temporary_files": [],
+          "wchan": "0"
+        },
+        {
+          "gpu": 2,
+          "pid": 2228137,
+          "history_epochs": 17,
+          "latest_log": "epoch_17_updates.jsonl",
+          "latest_complete_records": 191,
+          "temporary_files": [],
+          "wchan": "0"
+        },
+        {
+          "gpu": 3,
+          "pid": 2228138,
+          "history_epochs": 17,
+          "latest_log": "epoch_18_updates.jsonl",
+          "latest_complete_records": 79,
+          "temporary_files": [],
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "utc": "2026-10-24T22:23:22.691839+00:00",
+      "GPU_csv": "0, 98, 4932\n1, 0, 4932\n2, 0, 4932\n3, 96, 4932\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n",
+      "phase": [
+        {
+          "gpu": 0,
+          "pid": 2228135,
+          "history_epochs": 17,
+          "latest_log": "epoch_18_updates.jsonl",
+          "latest_complete_records": 102,
+          "temporary_files": [],
+          "wchan": "0"
+        },
+        {
+          "gpu": 1,
+          "pid": 2228136,
+          "history_epochs": 17,
+          "latest_log": "epoch_17_updates.jsonl",
+          "latest_complete_records": 191,
+          "temporary_files": [],
+          "wchan": "0"
+        },
+        {
+          "gpu": 2,
+          "pid": 2228137,
+          "history_epochs": 17,
+          "latest_log": "epoch_17_updates.jsonl",
+          "latest_complete_records": 191,
+          "temporary_files": [],
+          "wchan": "0"
+        },
+        {
+          "gpu": 3,
+          "pid": 2228138,
+          "history_epochs": 17,
+          "latest_log": "epoch_18_updates.jsonl",
+          "latest_complete_records": 85,
+          "temporary_files": [],
+          "wchan": "futex_wait_queue_me"
+        }
+      ]
+    },
+    {
+      "utc": "2026-10-24T22:23:25.812042+00:00",
+      "GPU_csv": "0, 96, 4932\n1, 0, 4932\n2, 95, 4932\n3, 95, 4932\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n",
+      "phase": [
+        {
+          "gpu": 0,
+          "pid": 2228135,
+          "history_epochs": 17,
+          "latest_log": "epoch_18_updates.jsonl",
+          "latest_complete_records": 109,
+          "temporary_files": [],
+          "wchan": "0"
+        },
+        {
+          "gpu": 1,
+          "pid": 2228136,
+          "history_epochs": 17,
+          "latest_log": "epoch_18_updates.jsonl",
+          "latest_complete_records": 0,
+          "temporary_files": [],
+          "wchan": "futex_wait_queue_me"
+        },
+        {
+          "gpu": 2,
+          "pid": 2228137,
+          "history_epochs": 17,
+          "latest_log": "epoch_18_updates.jsonl",
+          "latest_complete_records": 1,
+          "temporary_files": [],
+          "wchan": "0"
+        },
+        {
+          "gpu": 3,
+          "pid": 2228138,
+          "history_epochs": 17,
+          "latest_log": "epoch_18_updates.jsonl",
+          "latest_complete_records": 92,
+          "temporary_files": [],
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "utc": "2026-10-24T22:23:28.992732+00:00",
+      "GPU_csv": "0, 96, 4932\n1, 96, 4932\n2, 98, 4932\n3, 96, 4932\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n",
+      "phase": [
+        {
+          "gpu": 0,
+          "pid": 2228135,
+          "history_epochs": 17,
+          "latest_log": "epoch_18_updates.jsonl",
+          "latest_complete_records": 115,
+          "temporary_files": [],
+          "wchan": "0"
+        },
+        {
+          "gpu": 1,
+          "pid": 2228136,
+          "history_epochs": 17,
+          "latest_log": "epoch_18_updates.jsonl",
+          "latest_complete_records": 5,
+          "temporary_files": [],
+          "wchan": "0"
+        },
+        {
+          "gpu": 2,
+          "pid": 2228137,
+          "history_epochs": 17,
+          "latest_log": "epoch_18_updates.jsonl",
+          "latest_complete_records": 7,
+          "temporary_files": [],
+          "wchan": "0"
+        },
+        {
+          "gpu": 3,
+          "pid": 2228138,
+          "history_epochs": 17,
+          "latest_log": "epoch_18_updates.jsonl",
+          "latest_complete_records": 98,
+          "temporary_files": [],
+          "wchan": "0"
+        }
+      ]
+    },
+    {
+      "utc": "2026-10-24T22:23:32.141865+00:00",
+      "GPU_csv": "0, 96, 4932\n1, 96, 4932\n2, 96, 4932\n3, 92, 4932\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n",
+      "phase": [
+        {
+          "gpu": 0,
+          "pid": 2228135,
+          "history_epochs": 17,
+          "latest_log": "epoch_18_updates.jsonl",
+          "latest_complete_records": 122,
+          "temporary_files": [],
+          "wchan": "0"
+        },
+        {
+          "gpu": 1,
+          "pid": 2228136,
+          "history_epochs": 17,
+          "latest_log": "epoch_18_updates.jsonl",
+          "latest_complete_records": 12,
+          "temporary_files": [],
+          "wchan": "0"
+        },
+        {
+          "gpu": 2,
+          "pid": 2228137,
+          "history_epochs": 17,
+          "latest_log": "epoch_18_updates.jsonl",
+          "latest_complete_records": 14,
+          "temporary_files": [],
+          "wchan": "0"
+        },
+        {
+          "gpu": 3,
+          "pid": 2228138,
+          "history_epochs": 17,
+          "latest_log": "epoch_18_updates.jsonl",
+          "latest_complete_records": 105,
+          "temporary_files": [],
+          "wchan": "futex_wait_queue_me"
+        }
+      ]
+    },
+    {
+      "utc": "2026-10-24T22:23:35.286380+00:00",
+      "GPU_csv": "0, 96, 4932\n1, 98, 4932\n2, 96, 4932\n3, 96, 4932\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n",
+      "phase": [
+        {
+          "gpu": 0,
+          "pid": 2228135,
+          "history_epochs": 17,
+          "latest_log": "epoch_18_updates.jsonl",
+          "latest_complete_records": 128,
+          "temporary_files": [],
+          "wchan": "futex_wait_queue_me"
+        },
+        {
+          "gpu": 1,
+          "pid": 2228136,
+          "history_epochs": 17,
+          "latest_log": "epoch_18_updates.jsonl",
+          "latest_complete_records": 18,
+          "temporary_files": [],
+          "wchan": "0"
+        },
+        {
+          "gpu": 2,
+          "pid": 2228137,
+          "history_epochs": 17,
+          "latest_log": "epoch_18_updates.jsonl",
+          "latest_complete_records": 20,
+          "temporary_files": [],
+          "wchan": "futex_wait_queue_me"
+        },
+        {
+          "gpu": 3,
+          "pid": 2228138,
+          "history_epochs": 17,
+          "latest_log": "epoch_18_updates.jsonl",
+          "latest_complete_records": 111,
+          "temporary_files": [],
+          "wchan": "futex_wait_queue_me"
+        }
+      ]
+    },
+    {
+      "utc": "2026-10-24T22:23:38.431558+00:00",
+      "GPU_csv": "0, 97, 4932\n1, 98, 4932\n2, 96, 4932\n3, 98, 4932\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n",
+      "phase": [
+        {
+          "gpu": 0,
+          "pid": 2228135,
+          "history_epochs": 17,
+          "latest_log": "epoch_18_updates.jsonl",
+          "latest_complete_records": 135,
+          "temporary_files": [],
+          "wchan": "futex_wait_queue_me"
+        },
+        {
+          "gpu": 1,
+          "pid": 2228136,
+          "history_epochs": 17,
+          "latest_log": "epoch_18_updates.jsonl",
+          "latest_complete_records": 25,
+          "temporary_files": [],
+          "wchan": "futex_wait_queue_me"
+        },
+        {
+          "gpu": 2,
+          "pid": 2228137,
+          "history_epochs": 17,
+          "latest_log": "epoch_18_updates.jsonl",
+          "latest_complete_records": 26,
+          "temporary_files": [],
+          "wchan": "0"
+        },
+        {
+          "gpu": 3,
+          "pid": 2228138,
+          "history_epochs": 17,
+          "latest_log": "epoch_18_updates.jsonl",
+          "latest_complete_records": 118,
+          "temporary_files": [],
+          "wchan": "0"
+        }
+      ]
+    }
+  ],
+  "scope": "Direct point samples spanning35seconds approximately, not full-epoch or whole-run average. Per-run phase/temp/wchan recorded for context; temporal overlap is not a proven causal diagnosis. No intervention or training change."
+}

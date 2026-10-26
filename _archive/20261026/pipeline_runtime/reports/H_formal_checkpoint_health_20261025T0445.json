@@ -1,0 +1,408 @@
+{
+  "utc": "2026-10-25T04:48:58.453073+00:00",
+  "status": "PASS_SELECTED_H_FORMAL_ATOMIC_SNAPSHOTS_AND_AVAILABLE_PAIRED_STREAMS",
+  "source_only": true,
+  "queue_snapshot_utc": "2026-10-25T04:48:42.844835+00:00",
+  "queue_owner_pid": 2222605,
+  "active_formal_run_ids": [
+    "H_formal_efficientnet_b0_B_seed123",
+    "H_formal_efficientnet_b0_AB_seed123",
+    "H_formal_efficientnet_b0_B_seed2026",
+    "H_formal_efficientnet_b0_AB_seed2026"
+  ],
+  "records": [
+    {
+      "snapshot_epoch": 28,
+      "snapshot_attempts": 5348,
+      "snapshot_successful_updates": 5348,
+      "snapshot_AMP_skips": 0,
+      "skip_recovery_within_snapshot": [],
+      "finite_model_optimizer_best_tensors": 1359,
+      "optimizer_parameter_states": 213,
+      "optimizer_step_min": 5348,
+      "optimizer_step_max": 5348,
+      "scaler_scale": 512.0,
+      "scheduler_clock": "attempt_count",
+      "python_numpy_cpu_torch_RNG_restore_to_local_generators": true,
+      "saved_CUDA_RNG_count": 1,
+      "CUDA_RNG_restored_on_GPU_in_this_audit": false,
+      "CUDA_RNG_sha256": "1bded396a44739d0630508cd737db53656cc1608c87003755a627bfc17592231",
+      "mean_committed_epoch_seconds": 67.69507284675326,
+      "registered_epochs": 30,
+      "backbone_dimension": 1280,
+      "frozen_train_draws_per_epoch": 24448,
+      "frozen_attempts_per_epoch": 191,
+      "status": "PASS_COMPLETE_ATOMIC_CHECKPOINT_CPU_SNAPSHOT",
+      "run_id": "H_formal_efficientnet_b0_B_seed123",
+      "backbone": "efficientnet_b0",
+      "history": "B",
+      "seed": 123,
+      "precision": "AMP",
+      "pid": 2824817,
+      "matching_worker_command_at_check": true,
+      "selected_from_active_status": true,
+      "state_sha256": "efd22f23eb3d4eaae70a721175c3a1c27cdf7e6b451bc793a129a13fc27e8fd6",
+      "state_inode_at_open": 52323435,
+      "state_bytes": 64955278,
+      "path_still_same_inode": true,
+      "identity_sha256": "f422516b4e6f670f6b41147d3aff226c9dace92ce68cf5444cce8e0aec70dad8",
+      "source_recipe_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/configs/H_frozen_recipes.json",
+      "source_recipe_sha256": "c2833d4635edf1fb1ec08468e386c9e394672e19219d837c5f821f6b151eaacd",
+      "H_data_freeze_sha256": "11ac3398b8bd2b347da24efbe45fb74e890681d2d063933b01a65d5fdba0675d",
+      "h_code_bundle_sha256": "639d09df6ae68a36875d376c9176d8d69a1b070ae054d0eb04b2f221c1080ff3"
+    },
+    {
+      "snapshot_epoch": 21,
+      "snapshot_attempts": 4011,
+      "snapshot_successful_updates": 4011,
+      "snapshot_AMP_skips": 0,
+      "skip_recovery_within_snapshot": [],
+      "finite_model_optimizer_best_tensors": 1359,
+      "optimizer_parameter_states": 213,
+      "optimizer_step_min": 4011,
+      "optimizer_step_max": 4011,
+      "scaler_scale": 512.0,
+      "scheduler_clock": "attempt_count",
+      "python_numpy_cpu_torch_RNG_restore_to_local_generators": true,
+      "saved_CUDA_RNG_count": 1,
+      "CUDA_RNG_restored_on_GPU_in_this_audit": false,
+      "CUDA_RNG_sha256": "1663ac7af7d85c7a3e56c0f27676d2d1331e574cce08a165a98629779923f5cd",
+      "mean_committed_epoch_seconds": 69.41121671313331,
+      "registered_epochs": 30,
+      "backbone_dimension": 1280,
+      "frozen_train_draws_per_epoch": 24448,
+      "frozen_attempts_per_epoch": 191,
+      "status": "PASS_COMPLETE_ATOMIC_CHECKPOINT_CPU_SNAPSHOT",
+      "run_id": "H_formal_efficientnet_b0_AB_seed123",
+      "backbone": "efficientnet_b0",
+      "history": "AB",
+      "seed": 123,
+      "precision": "AMP",
+      "pid": 2859110,
+      "matching_worker_command_at_check": true,
+      "selected_from_active_status": true,
+      "state_sha256": "b25d4d300c8ed289ac71038f669caa9ab2fbdf7246acabef40a2a1ce69f03e90",
+      "state_inode_at_open": 52323434,
+      "state_bytes": 64952078,
+      "path_still_same_inode": true,
+      "identity_sha256": "ee77d0c3ff2d4de92189f948117d4addc3980d986cda447c32121add3fae35f1",
+      "source_recipe_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/configs/H_frozen_recipes.json",
+      "source_recipe_sha256": "c2833d4635edf1fb1ec08468e386c9e394672e19219d837c5f821f6b151eaacd",
+      "H_data_freeze_sha256": "11ac3398b8bd2b347da24efbe45fb74e890681d2d063933b01a65d5fdba0675d",
+      "h_code_bundle_sha256": "639d09df6ae68a36875d376c9176d8d69a1b070ae054d0eb04b2f221c1080ff3"
+    },
+    {
+      "snapshot_epoch": 6,
+      "snapshot_attempts": 1146,
+      "snapshot_successful_updates": 1146,
+      "snapshot_AMP_skips": 0,
+      "skip_recovery_within_snapshot": [],
+      "finite_model_optimizer_best_tensors": 1359,
+      "optimizer_parameter_states": 213,
+      "optimizer_step_min": 1146,
+      "optimizer_step_max": 1146,
+      "scaler_scale": 128.0,
+      "scheduler_clock": "attempt_count",
+      "python_numpy_cpu_torch_RNG_restore_to_local_generators": true,
+      "saved_CUDA_RNG_count": 1,
+      "CUDA_RNG_restored_on_GPU_in_this_audit": false,
+      "CUDA_RNG_sha256": "9eb59a9a3c0219d1cd5db1b8bf60e9adb61e7bd065179e9f943950ad54242f2f",
+      "mean_committed_epoch_seconds": 69.37588556607564,
+      "registered_epochs": 30,
+      "backbone_dimension": 1280,
+      "frozen_train_draws_per_epoch": 24448,
+      "frozen_attempts_per_epoch": 191,
+      "status": "PASS_COMPLETE_ATOMIC_CHECKPOINT_CPU_SNAPSHOT",
+      "run_id": "H_formal_efficientnet_b0_B_seed2026",
+      "backbone": "efficientnet_b0",
+      "history": "B",
+      "seed": 2026,
+      "precision": "AMP",
+      "pid": 3035483,
+      "matching_worker_command_at_check": true,
+      "selected_from_active_status": true,
+      "state_sha256": "4d0c2189b5defcf170bc4b5cf4108e1edd1b6ef50b45ae8a81ce03ef8b184774",
+      "state_inode_at_open": 52323449,
+      "state_bytes": 64945038,
+      "path_still_same_inode": true,
+      "identity_sha256": "66e347ba17f06fe8f8614392b0ab283caa89ef365c38cfb31a8a115e8269c58c",
+      "source_recipe_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/configs/H_frozen_recipes.json",
+      "source_recipe_sha256": "c2833d4635edf1fb1ec08468e386c9e394672e19219d837c5f821f6b151eaacd",
+      "H_data_freeze_sha256": "11ac3398b8bd2b347da24efbe45fb74e890681d2d063933b01a65d5fdba0675d",
+      "h_code_bundle_sha256": "639d09df6ae68a36875d376c9176d8d69a1b070ae054d0eb04b2f221c1080ff3"
+    },
+    {
+      "snapshot_epoch": 6,
+      "snapshot_attempts": 1146,
+      "snapshot_successful_updates": 1146,
+      "snapshot_AMP_skips": 0,
+      "skip_recovery_within_snapshot": [],
+      "finite_model_optimizer_best_tensors": 1359,
+      "optimizer_parameter_states": 213,
+      "optimizer_step_min": 1146,
+      "optimizer_step_max": 1146,
+      "scaler_scale": 128.0,
+      "scheduler_clock": "attempt_count",
+      "python_numpy_cpu_torch_RNG_restore_to_local_generators": true,
+      "saved_CUDA_RNG_count": 1,
+      "CUDA_RNG_restored_on_GPU_in_this_audit": false,
+      "CUDA_RNG_sha256": "9eb59a9a3c0219d1cd5db1b8bf60e9adb61e7bd065179e9f943950ad54242f2f",
+      "mean_committed_epoch_seconds": 65.07496134440105,
+      "registered_epochs": 30,
+      "backbone_dimension": 1280,
+      "frozen_train_draws_per_epoch": 24448,
+      "frozen_attempts_per_epoch": 191,
+      "status": "PASS_COMPLETE_ATOMIC_CHECKPOINT_CPU_SNAPSHOT",
+      "run_id": "H_formal_efficientnet_b0_AB_seed2026",
+      "backbone": "efficientnet_b0",
+      "history": "AB",
+      "seed": 2026,
+      "precision": "AMP",
+      "pid": 3035484,
+      "matching_worker_command_at_check": true,
+      "selected_from_active_status": true,
+      "state_sha256": "074edfa1a07f0adda2c19cd3d3b222db36d36131328a8db8ea09a13f23d71981",
+      "state_inode_at_open": 52323444,
+      "state_bytes": 64945038,
+      "path_still_same_inode": true,
+      "identity_sha256": "d567e522d7944b982cb3eb77581fa0a7b370a5a6c4b16a12e02425a43b8be5d5",
+      "source_recipe_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/configs/H_frozen_recipes.json",
+      "source_recipe_sha256": "c2833d4635edf1fb1ec08468e386c9e394672e19219d837c5f821f6b151eaacd",
+      "H_data_freeze_sha256": "11ac3398b8bd2b347da24efbe45fb74e890681d2d063933b01a65d5fdba0675d",
+      "h_code_bundle_sha256": "639d09df6ae68a36875d376c9176d8d69a1b070ae054d0eb04b2f221c1080ff3"
+    }
+  ],
+  "paired_streams": [
+    {
+      "backbone": "efficientnet_b0",
+      "seed": 123,
+      "B_run": "H_formal_efficientnet_b0_B_seed123",
+      "AB_run": "H_formal_efficientnet_b0_AB_seed123",
+      "common_snapshot_epochs_checked": 21,
+      "samples_methods_augmentations_and_actual_mother_sequence_equal": true,
+      "same_successful_update_stream_in_common_snapshot": true,
+      "hashes": [
+        {
+          "epoch": 1,
+          "samples_sha256": "409ead944d060df3fd8ead7b884699942197a063051d28a0f0182b0b4e0ba1cb",
+          "methods_sha256": "7590101c3426dd36ac27e83d9273c73faeea1146096db62442e661e07060503f",
+          "augmentations_sha256": "4fedff583fec2db907c86117542129788610e3805fda4d24c8f1a8fcd0509e28"
+        },
+        {
+          "epoch": 2,
+          "samples_sha256": "a63d7eb406f4f116a6580b358061ba631f6b7b78c1c29cab15bd592fffbf0523",
+          "methods_sha256": "c9c917d05cea7317fd476b87321a3204e85ac9afa1880ceaef60639a19fe4227",
+          "augmentations_sha256": "cc247de0300220bd2a4f22a0e9899ae6b84c13b61423f118cc9e467800bf8b9c"
+        },
+        {
+          "epoch": 3,
+          "samples_sha256": "5655baf780566e1c446d99adc3073d210e6a92cf7d343f4bd79527b6474b9cb5",
+          "methods_sha256": "f7fb0a5b700ed13455c905cebea43e3d69ab613b8c5759886745e314d867ff10",
+          "augmentations_sha256": "8794848f3a466284142ae4e17ba29c1255173f288cd460b482ba0bfdca1d92c8"
+        },
+        {
+          "epoch": 4,
+          "samples_sha256": "10580532693aabbd5e832ed4297871ad426ffef0c688cbff5ad220ca3a6b2980",
+          "methods_sha256": "7e3f9adfde992e8741da8cb347a287860ed994ea93d6c25a45de249c32423eb1",
+          "augmentations_sha256": "b23c5258fb3f609c7b5d83af3f80458c03d0d4b52b3c3bb041754c2303de6c76"
+        },
+        {
+          "epoch": 5,
+          "samples_sha256": "f936f42551df4b6bd7a6f1c6962429ffaeb48f1025aa8a283d5c600e074d9adc",
+          "methods_sha256": "40ff796296f547dccfe2c5b4a03d1b33fe06d6332e51f1e82269e6f858cf9bfa",
+          "augmentations_sha256": "6c8c9cbb3bc6849ab2b0ebc00bdef4b1056cf3a890145c483f6be78219654608"
+        },
+        {
+          "epoch": 6,
+          "samples_sha256": "293486d1deeac0251ce34c92654c76b15c92736396412e5279c9945b6ad467f0",
+          "methods_sha256": "6b8631de396e65e2f99c037b77994059540b78542b994598aa15c180cfbc55fc",
+          "augmentations_sha256": "d278b6dd278c44a08fab02c0622a4367908e13f21a4edcb2947e43b6b4aea271"
+        },
+        {
+          "epoch": 7,
+          "samples_sha256": "3f565eccf7704e0d1af5143909d1292ae4761366d09cebff0ed8288256a490f3",
+          "methods_sha256": "df38d4d997b5460e261fb4905cb184cce33636c964563b02da9c441279d8ae32",
+          "augmentations_sha256": "4d510c69d80400ba23435989ff5dd81a1a267ef3cd325327343c984b36b29bea"
+        },
+        {
+          "epoch": 8,
+          "samples_sha256": "ca0613cc3c5b812c74da2031e3e2c5fbf5719abae7ebe9066be22a2675ed6aa1",
+          "methods_sha256": "a54b106acb0fe71e1da4df2b77acab9c6d1f7e09b93c4cd1d6657032018ad614",
+          "augmentations_sha256": "477394e6dbb9c94011fc405e592964088e0f64a5ac01a5ec036e927e028386c5"
+        },
+        {
+          "epoch": 9,
+          "samples_sha256": "e53c77df313f213861a21b0dcd7ab5241d6fa5b38556a5d6970566f792dbcbc1",
+          "methods_sha256": "b891b18f0650dff6d87bffc17d31cf8e79f845f3cac180ffca07a441f4bf4737",
+          "augmentations_sha256": "9340ebe855cb8241b0c70108dae42ea5de71057c0216ec50c7bbeda85f7d2619"
+        },
+        {
+          "epoch": 10,
+          "samples_sha256": "4e97ea829c04ce71cc113e411c29d10937c95b2e4edbe91730d6272fb995a990",
+          "methods_sha256": "1b2846f0f1d23de66623d1c90cdcc9c23193cbdea24151aee9b850e320866a8d",
+          "augmentations_sha256": "ff161ffe452144127a0662746ca5da34261031dffe68461b37eff18cdb781537"
+        },
+        {
+          "epoch": 11,
+          "samples_sha256": "47f0e52987e7298fa3af95bbfdef3c00866dfdf4a6fd48d1342d9d2e8adecbbb",
+          "methods_sha256": "b0b103f765f4b53d25853ef9e611adf9fd48ad3dffd3f056c72101e6dda54373",
+          "augmentations_sha256": "9b55adac4accbeb58140d1962b3d3ed04a6da336232a397c4cb67908963fff51"
+        },
+        {
+          "epoch": 12,
+          "samples_sha256": "2e8fc718173167422b264bf4346a05c979ca3df7a80d3ee181dc50b840128d1b",
+          "methods_sha256": "2cb8c2e5c43d5844c7c6716cf9f5a4c48643a889cd36da1ba191ff3b875f4bcc",
+          "augmentations_sha256": "06dae1dfc342e28addf7d55866eb7b1b7236570965dc963e29c677dbd9be8c1b"
+        },
+        {
+          "epoch": 13,
+          "samples_sha256": "258760778087fd5f85596aa64a9b47a7b1bcf375b580115cbcbd129fdb083f90",
+          "methods_sha256": "82de40109b0a0b80c6a54aaca02af4ba758e5d75cb2bb471927a284762214340",
+          "augmentations_sha256": "44abd6d4bebf25099be7121ae3440a0552a51279e4a74c3384a275c86a796078"
+        },
+        {
+          "epoch": 14,
+          "samples_sha256": "2dc6b0513b43cba3ae6936148dcfb7b0c10db983e7a8397240b92bad83b9bb97",
+          "methods_sha256": "62bf54cec43e5d13f5f863b50ac42765087f91e6ea09447698278293e4b148f8",
+          "augmentations_sha256": "cc723ff21b702ecf735383aba54cab797d070747cea1b7a5fce1b8c67ceca5c4"
+        },
+        {
+          "epoch": 15,
+          "samples_sha256": "b6ad5f1b7a6a5511b5716b6d10d0f130dac2473a95973009b122ddf59473a725",
+          "methods_sha256": "ee8fbaae5ab8ad255438cb4e9b0d63ee68b901bb41081a517495da12c5980993",
+          "augmentations_sha256": "cf808d823e14c6c67db9aad72a29d3df8f891e27e6d33f1e3782a624efc0cf2c"
+        },
+        {
+          "epoch": 16,
+          "samples_sha256": "7f42f4aa80933fb64ba1093b8da93b7dc6f231162c6a1dbec4578cf03c0cdd18",
+          "methods_sha256": "a9c740e17929e94b8b1846a922b17c03fcc193a5b73fb52797ba3a47aa1f67f0",
+          "augmentations_sha256": "76a5cb6721a1779c1350ad24c3f681f15eb3b49d71e564116ea4d5acf97f9bab"
+        },
+        {
+          "epoch": 17,
+          "samples_sha256": "f3020a8546d7006e56877f104b93013af8e6a863b084314b328b11c4602dba65",
+          "methods_sha256": "bc4c20a7a22132ce1059dc6f37f8320719508f7fe99d9f253f3d38af623c4e66",
+          "augmentations_sha256": "63d7e4735edad07e743dd81840cd6ceff4f32d39b09407ec58b64b51372abd7a"
+        },
+        {
+          "epoch": 18,
+          "samples_sha256": "90eded32a279a7d8ab86abb0d7b746e56548778520f73eb2816569aac5f85164",
+          "methods_sha256": "7e944728b6ac55f0a04b74ff6d0e933866035eb102ba81662fb031872e7f6a38",
+          "augmentations_sha256": "f4786258abb117a9029aaf47eb2902467cced0ff17d331c34825ed8a7065e78f"
+        },
+        {
+          "epoch": 19,
+          "samples_sha256": "119c00222291c1406b56da3283a1cefa0de978b1325166c7f06dc402fb68d961",
+          "methods_sha256": "6ac1e9684c817dbaeea6bbe4f8b855e89f70d916e55da9979f522cca055e493c",
+          "augmentations_sha256": "86d65454438be780a07aad80b93bb12cd82f5cf75ed317ef49ed2041782f33b9"
+        },
+        {
+          "epoch": 20,
+          "samples_sha256": "4a9664bec329828843cbcb93f307801e344201b081db677392842516b602d336",
+          "methods_sha256": "1bbbb2af8c92593dfb9ea8111d09182b8e082f47416e5a69eec4fd74043c512c",
+          "augmentations_sha256": "fcead0edd7d1f755ea07676922d40b0d370f4229f68db03f5251eb91ec92b5ff"
+        },
+        {
+          "epoch": 21,
+          "samples_sha256": "33a0c39d5bad1270872a24b8429254d6a39a23182ade7f0673f5b497035852cb",
+          "methods_sha256": "badbac68f179b7c6d22c73e6aad23882154cf02bc7b3a76c3c303a697593f0ef",
+          "augmentations_sha256": "f1fcbc305e23659d79e8075ce3f4641fdd04d8d255a14202f328a99917c32ed9"
+        }
+      ]
+    },
+    {
+      "backbone": "efficientnet_b0",
+      "seed": 2026,
+      "B_run": "H_formal_efficientnet_b0_B_seed2026",
+      "AB_run": "H_formal_efficientnet_b0_AB_seed2026",
+      "common_snapshot_epochs_checked": 6,
+      "samples_methods_augmentations_and_actual_mother_sequence_equal": true,
+      "same_successful_update_stream_in_common_snapshot": true,
+      "hashes": [
+        {
+          "epoch": 1,
+          "samples_sha256": "b6c76b425d9991cc072364114f0cb01ed49cb11682300b7f1fb9f6c72e1e4ad2",
+          "methods_sha256": "8c77bb424bdb784b7dcec82ae17d23789eb3a142fbb39f0f4092e55c6ec69c6c",
+          "augmentations_sha256": "f84b5950b254f6ed4c15fb4810c8d04f6511867d06a5316fe41b7e8c635434f3"
+        },
+        {
+          "epoch": 2,
+          "samples_sha256": "9171e20f595277110a403c103553a1f80b6062386f7f48f4a79f4bcea1c68143",
+          "methods_sha256": "2ef35ef56d02b0bc0fcb9364378867524d598e88907acd89deb08ad6c99d31c0",
+          "augmentations_sha256": "53c2e31e0bf94ebee06c1c59402b5f2596f4c55cffad21b60a16d6eb38f95918"
+        },
+        {
+          "epoch": 3,
+          "samples_sha256": "97dec02e20e95f0c27817e505b592569cbb02f89c4a2388a44f742a862505fa3",
+          "methods_sha256": "8b89dccff2c07dd1cd7f8e32f822333bff8d09ea23137b194777c4f64f0643ef",
+          "augmentations_sha256": "fca57a57baef765648870242ea86a8d03e1954ca93295a490640c7244dd2228c"
+        },
+        {
+          "epoch": 4,
+          "samples_sha256": "a76aeeea615eeeebdca3dad5251f95069a79fe6f79e1c9796e4169f8ab9fb537",
+          "methods_sha256": "e0892a7732af140ef09f99566a8cc93fac0fd15c26cfeae19ff2d67b4586d39d",
+          "augmentations_sha256": "36d43be1cc2616665b7f9f024337b666f246ccc6a66fcb810eaddaee12818045"
+        },
+        {
+          "epoch": 5,
+          "samples_sha256": "bb25a90e493c6f9177fa0f61900880bfa25c7a0cc5caa57ecef97acd6adba50c",
+          "methods_sha256": "f21bce67af8aa29963d0973bacb45489014260a2270fb80d9f620a4d0d076d83",
+          "augmentations_sha256": "07ff258d60ea51396434199a7a02e0ab114419b75129b1cd8de83a33d228ac7c"
+        },
+        {
+          "epoch": 6,
+          "samples_sha256": "a4d9edebde5a5b8af153b42a7d56aa0eb6e41a7016ca747119ff35eb247bc510",
+          "methods_sha256": "c1c573c11ac276638bde6ad53c080d51a3b0245afb761d508c74e1b854282d3c",
+          "augmentations_sha256": "7a78716753f71d1b9f1089fff2056188e79b7edcde0bf08e8747fab54cd845e5"
+        }
+      ]
+    }
+  ],
+  "pending_pair_states": [],
+  "observed_pair_update_asymmetries": [],
+  "H_formal_observed_snapshots": {
+    "unique_models": 4,
+    "attempts": 11651,
+    "successful_updates": 11651,
+    "AMP_skips": 0,
+    "scope": "only selected unique committed formal checkpoints at separate times; not all30 or terminal totals"
+  },
+  "H_completed_standard_development": {
+    "model_count": 20,
+    "attempts": 114600,
+    "successful_updates": 114600,
+    "AMP_skips": 0,
+    "evidence": "five previously accepted standard-development terminal receipts; not a new checkpoint audit",
+    "receipt_sha256": {
+      "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_first4_terminal_acceptance_20261024T1630.json": "a59d0c4ed879f50c20dfe831f5243fb30f9052c455da2e4814282bfa54e25406",
+      "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_DINO_lr1_terminal_acceptance_20261024T1800.json": "6c482a77ff04a235392dc1e17bd866344bf3870f3c3d167c74fa40bb2650a2cd",
+      "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_DINO_lr3_terminal_acceptance_20261024T1925.json": "b9b273e4f8649bc84b460cb86d606ca4a524fcf10390552a35d0d80913e7d05d",
+      "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_DINO_lr5_terminal_acceptance_20261024T2010.json": "2823215f2ec0b3011557f29c2a31b1e35c95e7fdcb658d23d5b54efa104d00b9",
+      "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_EfficientNet_terminal_acceptance_20261024T2045.json": "eae9e20655cdea337cacadca660bf52bbc0ac82f0d6b696d296fc697a30b6c4c"
+    }
+  },
+  "D_completed_receipt_context": {
+    "by_phase": {
+      "development": {
+        "models": 10,
+        "attempts": 239700,
+        "successful_updates": 239668,
+        "AMP_skips": 32
+      },
+      "formal": {
+        "models": 15,
+        "attempts": 359550,
+        "successful_updates": 359493,
+        "AMP_skips": 57
+      }
+    },
+    "total_AMP_skips": 89,
+    "evidence": "D completion-receipt metadata only; no D checkpoint or AMP kernel re-audit in this script"
+  },
+  "audit_seconds": 4.043825555592775,
+  "CUDA_initialized": false,
+  "production_processes_restarted": false,
+  "target_export_qualification_claimed": false,
+  "whole_formal_training_complete_claimed": false,
+  "scope": "Atomic open-inode snapshots; paths can advance during audit. Only checkpoint-committed epochs are read. Local CPU generators are restored; CUDA RNG is only verified/hashed without GPU restore. Paired checks cover each observed seed at common committed epochs. Early0 skips do not imply whole-training0. All5 terminal paired ledgers and any uniformFP32 capacity admission remain future root-owned gates."
+}

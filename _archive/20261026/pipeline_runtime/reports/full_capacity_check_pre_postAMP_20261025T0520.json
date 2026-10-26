@@ -1,0 +1,41 @@
+{
+  "schema": "FULL_REMAINING_PRIMARY_CAPACITY_V2",
+  "utc": "2026-10-25T05:37:38.038273+00:00",
+  "status": "REGISTERED_PRIMARY_REMAINING_COVERED",
+  "base_live_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/full_capacity_check_close_20261025T0445.json",
+  "base_live_sha256": "c0e544387a31911dca6b2f8f5186ada12ce7bafd6890db95f3e420c57c0676a6",
+  "D_individual_complete_count": 15,
+  "D_remaining_analysis": 0,
+  "H_current_persistent_run_bytes": 86705633610,
+  "H_current_temporary_run_bytes": 0,
+  "H_persistent_training_budget_total_bytes": 86705633610,
+  "remaining_components": {
+    "D_remaining_analysis": 0,
+    "D_remaining_features": 0,
+    "H_training": 0,
+    "H_qualification": 0,
+    "H_features": 10684596224,
+    "H_pair_analysis": 16106127360,
+    "future_logs_manifests_figures_audits": 17179869184
+  },
+  "normal_remaining_write_bytes": 43970592768,
+  "temporary_bytes": 17179869184,
+  "reserve_bytes": 53687091200,
+  "normal_required_bytes": 114837553152,
+  "free_bytes": 177871814656,
+  "normal_margin_bytes": 63034261504,
+  "remaining_conditionals": {
+    "H8_DINO_extension_and_longer_formal_aux": 0,
+    "H30_uniform_FP32_fallback": 53550263095.29912
+  },
+  "remaining_conditional_cold_deficit_bytes": 0,
+  "SSD_cold_release_bytes": 0,
+  "source_best_active_budget": null,
+  "compact_unvalidated_storage_savings_counted": false,
+  "volatile_missing_paths": 0,
+  "scope": "Original verbose primary matrix, actual persistent H products subtracted only. H formal30 and effective7role caches+15pair analyses all budgeted. 16GiB extra temporary peak and50GiB reserve. Conditional FP32 not admitted by primary budget; fresh all-remaining budget required before conditional launch.",
+  "H_source_recipe_frozen_sha256": "c2833d4635edf1fb1ec08468e386c9e394672e19219d837c5f821f6b151eaacd",
+  "H_primary_AMP_training_terminal_models": 30,
+  "H_primary_AMP_training_complete": true,
+  "training_budget_basis": "Actual closed20development+30formalAMP files; all30sealed independentlyaccepted. No futureAMP training; any conditionalFP32 requires separate full branch admission."
+}

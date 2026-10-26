@@ -1,0 +1,814 @@
+{
+  "common_B_AB": false,
+  "decode": {
+    "candidate_count": 32,
+    "candidate_decode_failure_timestamps": [],
+    "decode_seconds": 6.230913603678346,
+    "duration_seconds": 17.125,
+    "selected_frames": [
+      {
+        "frame_index": 0,
+        "rgb_sha256": "d3d2b8838119d8f5f77595c1433cb584f0a1a8118167ea7ca9c1d30979a7caad",
+        "timestamp_seconds": 0.0
+      },
+      {
+        "frame_index": 53,
+        "rgb_sha256": "4201d6f7d5ac9145a88059345d5b002f04653d4cbfd60973542ce2df4ba58848",
+        "timestamp_seconds": 2.208333333333333
+      },
+      {
+        "frame_index": 119,
+        "rgb_sha256": "5d1403b6e361ad4ce6778ff4cceb82ca5fb4dcb70bad81339aba9a3d93de3f05",
+        "timestamp_seconds": 4.958333333333333
+      },
+      {
+        "frame_index": 172,
+        "rgb_sha256": "983dba6c45f84ab41124f056994541222cd2586cf01576596ce118d49a601a2a",
+        "timestamp_seconds": 7.166666666666666
+      },
+      {
+        "frame_index": 238,
+        "rgb_sha256": "0128a23118103d851d0daf569a69c7a1c431dfc1083839d26e274cdd40878650",
+        "timestamp_seconds": 9.916666666666666
+      },
+      {
+        "frame_index": 291,
+        "rgb_sha256": "bbc6741c6b34a0f6f979c5873c18053f20a361dd5af72e1800db631f2873efd5",
+        "timestamp_seconds": 12.125
+      },
+      {
+        "frame_index": 357,
+        "rgb_sha256": "17ff8246431972e732162930160ccc22be8ef8dbfdb7ef405a068006d84b71c1",
+        "timestamp_seconds": 14.875
+      },
+      {
+        "frame_index": 410,
+        "rgb_sha256": "2721324990e16389fe8ff4c089014e8bfc53327fdcc3115c373aa87a61107192",
+        "timestamp_seconds": 17.083333333333332
+      }
+    ],
+    "strategy": "uniform_time_candidates_32",
+    "unique_candidate_rgb": 32
+  },
+  "elapsed_seconds": 8.682390690781176,
+  "eligible": {
+    "A": true,
+    "AB": false,
+    "B": true
+  },
+  "frames": [
+    {
+      "A": {
+        "byte_sha256": "e1538c53900d40005510726240da77caa5d505d06d92ef2dc41493c5d88ad95f",
+        "input_rgb_sha256": "d3d2b8838119d8f5f77595c1433cb584f0a1a8118167ea7ca9c1d30979a7caad",
+        "mask_byte_sha256": "849588744d056373b6d3352d9982a361b126b36fa4cb622fd2e44a146ae5c835",
+        "mask_bytes": 502,
+        "mask_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry/images/TRAIN/NeuralTextures/805_011/000/A_mask.png",
+        "matrix": [
+          [
+            0.816629249260694,
+            -0.029708364347982297,
+            -373.05632965265636
+          ],
+          [
+            0.029708364347982297,
+            0.816629249260694,
+            -42.396327594142505
+          ]
+        ],
+        "ok": true,
+        "padding_ratio": 0.0,
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry/images/TRAIN/NeuralTextures/805_011/000/A.png",
+        "png_bytes": 96564,
+        "rgb_sha256": "b3e0c3c82fc9423fffe48d0b68f4458697983ab9aa1d8c0c33b2fbdc4c8ff1fc"
+      },
+      "AB": {
+        "ok": false,
+        "reason": "no_qualified_face"
+      },
+      "B": {
+        "byte_sha256": "79c596a85b20c6df318a8fe26a54d29ff936910388df94fd5cfec36fe15c4b94",
+        "input_rgb_sha256": "d3d2b8838119d8f5f77595c1433cb584f0a1a8118167ea7ca9c1d30979a7caad",
+        "mask_byte_sha256": "9177adb1a3417cbf8b145d81f33af2b09e28edea1aca7a09cd4a7aa458f93bf7",
+        "mask_bytes": 618,
+        "mask_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry/images/TRAIN/NeuralTextures/805_011/000/B_mask.png",
+        "matrix": [
+          [
+            0.6837944791987994,
+            0.0,
+            -312.8060924634695
+          ],
+          [
+            0.0,
+            0.6837944791987994,
+            -29.632380054388904
+          ]
+        ],
+        "ok": true,
+        "padding_ratio": 0.0,
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry/images/TRAIN/NeuralTextures/805_011/000/B.png",
+        "png_bytes": 79674,
+        "rgb_sha256": "505ac283bbcf73861518d8c54c77857cdc4f7ed8cfa1eac9f362bb9e382a31d0"
+      },
+      "mother_index": 0,
+      "mother_rgb_sha256": "d3d2b8838119d8f5f77595c1433cb584f0a1a8118167ea7ca9c1d30979a7caad",
+      "mother_timestamp": 0.0,
+      "original_detection": {
+        "bbox": [
+          511.7943878173828,
+          97.20130157470703,
+          729.2395935058594,
+          315.5905075073242
+        ],
+        "landmarks": [
+          [
+            572.6627960205078,
+            183.89121532440186
+          ],
+          [
+            666.4395561218262,
+            181.84282207489014
+          ],
+          [
+            621.3724899291992,
+            224.5012969970703
+          ],
+          [
+            582.4834861755371,
+            263.87396240234375
+          ],
+          [
+            665.765209197998,
+            261.5286102294922
+          ]
+        ],
+        "multiface": false,
+        "qualified_face_count": 1,
+        "score": 0.7672873735427856
+      }
+    },
+    {
+      "A": {
+        "byte_sha256": "ef98299b177e45d02f676b4cc11134a41610615a53f01aaaa441ed16cba6bbc2",
+        "input_rgb_sha256": "4201d6f7d5ac9145a88059345d5b002f04653d4cbfd60973542ce2df4ba58848",
+        "mask_byte_sha256": "849588744d056373b6d3352d9982a361b126b36fa4cb622fd2e44a146ae5c835",
+        "mask_bytes": 502,
+        "mask_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry/images/TRAIN/NeuralTextures/805_011/001/A_mask.png",
+        "matrix": [
+          [
+            0.7920271332830158,
+            -0.08341802355812433,
+            -335.34249251490127
+          ],
+          [
+            0.08341802355812433,
+            0.7920271332830158,
+            -99.97058687112639
+          ]
+        ],
+        "ok": true,
+        "padding_ratio": 0.0,
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry/images/TRAIN/NeuralTextures/805_011/001/A.png",
+        "png_bytes": 106747,
+        "rgb_sha256": "a42f308d401b8a4ae3bca96edb468fdb48f17237d220ec699f9fca3fc2522fe0"
+      },
+      "AB": {
+        "ok": false,
+        "reason": "no_qualified_face"
+      },
+      "B": {
+        "byte_sha256": "e6bf6828077ab3d8761a9554b3ab15c7da55b2e09666371ce80581067e90079a",
+        "input_rgb_sha256": "4201d6f7d5ac9145a88059345d5b002f04653d4cbfd60973542ce2df4ba58848",
+        "mask_byte_sha256": "9177adb1a3417cbf8b145d81f33af2b09e28edea1aca7a09cd4a7aa458f93bf7",
+        "mask_bytes": 618,
+        "mask_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry/images/TRAIN/NeuralTextures/805_011/001/B_mask.png",
+        "matrix": [
+          [
+            0.6686377959189018,
+            0.0,
+            -296.88652388715764
+          ],
+          [
+            0.0,
+            0.6686377959189018,
+            -50.36031641164428
+          ]
+        ],
+        "ok": true,
+        "padding_ratio": 0.0,
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry/images/TRAIN/NeuralTextures/805_011/001/B.png",
+        "png_bytes": 85883,
+        "rgb_sha256": "7fb14c831946f3cceb5ac36d9f2219ad067aa54e6379ba952fe93813b54a06b0"
+      },
+      "mother_index": 53,
+      "mother_rgb_sha256": "4201d6f7d5ac9145a88059345d5b002f04653d4cbfd60973542ce2df4ba58848",
+      "mother_timestamp": 2.208333333333333,
+      "original_detection": {
+        "bbox": [
+          500.5990905761719,
+          130.4049072265625,
+          720.9487380981445,
+          353.7445602416992
+        ],
+        "landmarks": [
+          [
+            559.9956741333008,
+            223.82762908935547
+          ],
+          [
+            655.5175628662109,
+            214.57786178588867
+          ],
+          [
+            612.4056005477905,
+            270.32616424560547
+          ],
+          [
+            575.1153030395508,
+            303.740779876709
+          ],
+          [
+            660.0570831298828,
+            295.2755889892578
+          ]
+        ],
+        "multiface": false,
+        "qualified_face_count": 1,
+        "score": 0.801384687423706
+      }
+    },
+    {
+      "A": {
+        "byte_sha256": "6817464c298d7f03697389ee3df4461a67dc9d2dc26ce70c3ee25e14fceb5e72",
+        "input_rgb_sha256": "5d1403b6e361ad4ce6778ff4cceb82ca5fb4dcb70bad81339aba9a3d93de3f05",
+        "mask_byte_sha256": "849588744d056373b6d3352d9982a361b126b36fa4cb622fd2e44a146ae5c835",
+        "mask_bytes": 502,
+        "mask_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry/images/TRAIN/NeuralTextures/805_011/002/A_mask.png",
+        "matrix": [
+          [
+            0.7975177293629814,
+            -0.06911441317458866,
+            -336.18617170749945
+          ],
+          [
+            0.06911441317458866,
+            0.7975177293629814,
+            -98.26670895895971
+          ]
+        ],
+        "ok": true,
+        "padding_ratio": 0.0,
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry/images/TRAIN/NeuralTextures/805_011/002/A.png",
+        "png_bytes": 105652,
+        "rgb_sha256": "f235c34f10837c505f169d30605d493621b2177b54b5875f0f5d040a80e9bf34"
+      },
+      "AB": {
+        "ok": false,
+        "reason": "no_qualified_face"
+      },
+      "B": {
+        "byte_sha256": "3d5646b43bc454053241144df055384896909cf246649f672c43cf4f1e63f647",
+        "input_rgb_sha256": "5d1403b6e361ad4ce6778ff4cceb82ca5fb4dcb70bad81339aba9a3d93de3f05",
+        "mask_byte_sha256": "9177adb1a3417cbf8b145d81f33af2b09e28edea1aca7a09cd4a7aa458f93bf7",
+        "mask_bytes": 618,
+        "mask_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry/images/TRAIN/NeuralTextures/805_011/002/B_mask.png",
+        "matrix": [
+          [
+            0.6563314364520979,
+            0.0,
+            -287.0828326285123
+          ],
+          [
+            0.0,
+            0.6563314364520979,
+            -51.28242684264052
+          ]
+        ],
+        "ok": true,
+        "padding_ratio": 0.0,
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry/images/TRAIN/NeuralTextures/805_011/002/B.png",
+        "png_bytes": 85663,
+        "rgb_sha256": "326b05603e00776a451e17442eda9500c41a2f1cffe462280b995f1f9607a861"
+      },
+      "mother_index": 119,
+      "mother_rgb_sha256": "5d1403b6e361ad4ce6778ff4cceb82ca5fb4dcb70bad81339aba9a3d93de3f05",
+      "mother_timestamp": 4.958333333333333,
+      "original_detection": {
+        "bbox": [
+          498.0231018066406,
+          134.25497436523438,
+          716.5548095703125,
+          361.7822952270508
+        ],
+        "landmarks": [
+          [
+            554.3358154296875,
+            231.52420806884766
+          ],
+          [
+            649.338924407959,
+            223.78326416015625
+          ],
+          [
+            603.6079258918762,
+            277.80919456481934
+          ],
+          [
+            566.7770767211914,
+            309.92415618896484
+          ],
+          [
+            653.1028175354004,
+            303.0721740722656
+          ]
+        ],
+        "multiface": false,
+        "qualified_face_count": 1,
+        "score": 0.8604897260665894
+      }
+    },
+    {
+      "A": {
+        "byte_sha256": "f4c9b7c31f5053c62b73667536077c84af125be60572ad690c2ff101f8d4bb6f",
+        "input_rgb_sha256": "983dba6c45f84ab41124f056994541222cd2586cf01576596ce118d49a601a2a",
+        "mask_byte_sha256": "849588744d056373b6d3352d9982a361b126b36fa4cb622fd2e44a146ae5c835",
+        "mask_bytes": 502,
+        "mask_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry/images/TRAIN/NeuralTextures/805_011/003/A_mask.png",
+        "matrix": [
+          [
+            0.7870857286638122,
+            -0.04428053864785397,
+            -339.30092324273335
+          ],
+          [
+            0.04428053864785397,
+            0.7870857286638122,
+            -69.90424149529589
+          ]
+        ],
+        "ok": true,
+        "padding_ratio": 0.0,
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry/images/TRAIN/NeuralTextures/805_011/003/A.png",
+        "png_bytes": 103841,
+        "rgb_sha256": "1f8c00bdaf4f8fc1a1cc9a81d476ae79773d2425fcb7e50af39c092c173c99b7"
+      },
+      "AB": {
+        "ok": false,
+        "reason": "no_qualified_face"
+      },
+      "B": {
+        "byte_sha256": "2232bca1f3fec6b520675e23b707680baa81058b3f580342140ecc0c7c39c65c",
+        "input_rgb_sha256": "983dba6c45f84ab41124f056994541222cd2586cf01576596ce118d49a601a2a",
+        "mask_byte_sha256": "9177adb1a3417cbf8b145d81f33af2b09e28edea1aca7a09cd4a7aa458f93bf7",
+        "mask_bytes": 618,
+        "mask_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry/images/TRAIN/NeuralTextures/805_011/003/B_mask.png",
+        "matrix": [
+          [
+            0.6716913121511505,
+            0.0,
+            -298.22735987767584
+          ],
+          [
+            0.0,
+            0.6716913121511505,
+            -49.4278721636079
+          ]
+        ],
+        "ok": true,
+        "padding_ratio": 0.0,
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry/images/TRAIN/NeuralTextures/805_011/003/B.png",
+        "png_bytes": 84964,
+        "rgb_sha256": "2499a810623ab310d38286bca9de7a43fd16f919b19cb501c0cd8dccb9637960"
+      },
+      "mother_index": 172,
+      "mother_rgb_sha256": "983dba6c45f84ab41124f056994541222cd2586cf01576596ce118d49a601a2a",
+      "mother_timestamp": 7.166666666666666,
+      "original_detection": {
+        "bbox": [
+          500.18914794921875,
+          128.42388153076172,
+          719.7979278564453,
+          350.74822998046875
+        ],
+        "landmarks": [
+          [
+            558.1692352294922,
+            212.49897575378418
+          ],
+          [
+            652.7817115783691,
+            207.66854858398438
+          ],
+          [
+            606.8010658025742,
+            259.007568359375
+          ],
+          [
+            572.5938262939453,
+            301.97884368896484
+          ],
+          [
+            650.4506912231445,
+            297.37146759033203
+          ]
+        ],
+        "multiface": false,
+        "qualified_face_count": 1,
+        "score": 0.8208904266357422
+      }
+    },
+    {
+      "A": {
+        "byte_sha256": "00d535822cddfebfa630b36447b0cc55fdd5f770dd32410f837efdcfb370a975",
+        "input_rgb_sha256": "0128a23118103d851d0daf569a69c7a1c431dfc1083839d26e274cdd40878650",
+        "mask_byte_sha256": "849588744d056373b6d3352d9982a361b126b36fa4cb622fd2e44a146ae5c835",
+        "mask_bytes": 502,
+        "mask_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry/images/TRAIN/NeuralTextures/805_011/004/A_mask.png",
+        "matrix": [
+          [
+            0.795142233331363,
+            0.04023599683358725,
+            -380.5690230870383
+          ],
+          [
+            -0.04023599683358725,
+            0.795142233331363,
+            -2.878768673698277
+          ]
+        ],
+        "ok": true,
+        "padding_ratio": 0.0,
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry/images/TRAIN/NeuralTextures/805_011/004/A.png",
+        "png_bytes": 103469,
+        "rgb_sha256": "5cf376e62ed269f74d4194cbeabc8014ee05144f3724b6bec7309e8b8f3cc8d3"
+      },
+      "AB": {
+        "ok": false,
+        "reason": "no_qualified_face"
+      },
+      "B": {
+        "byte_sha256": "1c241442aa2c3d7a61dc4fa9ca6f71b8d0eaeb1a5145752c949d474fb7b931f6",
+        "input_rgb_sha256": "0128a23118103d851d0daf569a69c7a1c431dfc1083839d26e274cdd40878650",
+        "mask_byte_sha256": "9177adb1a3417cbf8b145d81f33af2b09e28edea1aca7a09cd4a7aa458f93bf7",
+        "mask_bytes": 618,
+        "mask_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry/images/TRAIN/NeuralTextures/805_011/004/B_mask.png",
+        "matrix": [
+          [
+            0.6389904899651508,
+            0.0,
+            -287.61825860354725
+          ],
+          [
+            0.0,
+            0.6389904899651508,
+            -30.3802155739063
+          ]
+        ],
+        "ok": true,
+        "padding_ratio": 0.0,
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry/images/TRAIN/NeuralTextures/805_011/004/B.png",
+        "png_bytes": 83558,
+        "rgb_sha256": "34f5ea877f5a369170af14bb629ed1d497e837d458ce1b138d67448eb4953975"
+      },
+      "mother_index": 238,
+      "mother_rgb_sha256": "0128a23118103d851d0daf569a69c7a1c431dfc1083839d26e274cdd40878650",
+      "mother_timestamp": 9.916666666666666,
+      "original_detection": {
+        "bbox": [
+          515.6622161865234,
+          105.18708801269531,
+          733.5528030395508,
+          338.88905334472656
+        ],
+        "landmarks": [
+          [
+            582.0823440551758,
+            189.8320541381836
+          ],
+          [
+            676.3875885009766,
+            193.09777450561523
+          ],
+          [
+            630.9845294952393,
+            231.31820583343506
+          ],
+          [
+            585.4383087158203,
+            277.4192695617676
+          ],
+          [
+            664.0757026672363,
+            280.612735748291
+          ]
+        ],
+        "multiface": false,
+        "qualified_face_count": 1,
+        "score": 0.8343639969825745
+      }
+    },
+    {
+      "A": {
+        "byte_sha256": "dbd2b7aa672c8bac41b4b8decdea6d9f5c6e489abfbd1b42d047fd3d59e884d7",
+        "input_rgb_sha256": "bbc6741c6b34a0f6f979c5873c18053f20a361dd5af72e1800db631f2873efd5",
+        "mask_byte_sha256": "849588744d056373b6d3352d9982a361b126b36fa4cb622fd2e44a146ae5c835",
+        "mask_bytes": 502,
+        "mask_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry/images/TRAIN/NeuralTextures/805_011/005/A_mask.png",
+        "matrix": [
+          [
+            0.7655529113031614,
+            -0.19308798095096336,
+            -253.18962265509776
+          ],
+          [
+            0.19308798095096336,
+            0.7655529113031614,
+            -149.90476047378849
+          ]
+        ],
+        "ok": true,
+        "padding_ratio": 0.0,
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry/images/TRAIN/NeuralTextures/805_011/005/A.png",
+        "png_bytes": 100046,
+        "rgb_sha256": "be2c02099c7e6474cfb25daf6ba5fa71e90d687abfefec3c60238731e1268e8a"
+      },
+      "AB": {
+        "ok": false,
+        "reason": "no_qualified_face"
+      },
+      "B": {
+        "byte_sha256": "cbfbd10ca838b88d03172aa7deeca975fcd8e4d931db8c14a05077e161ce7d4b",
+        "input_rgb_sha256": "bbc6741c6b34a0f6f979c5873c18053f20a361dd5af72e1800db631f2873efd5",
+        "mask_byte_sha256": "9177adb1a3417cbf8b145d81f33af2b09e28edea1aca7a09cd4a7aa458f93bf7",
+        "mask_bytes": 618,
+        "mask_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry/images/TRAIN/NeuralTextures/805_011/005/B_mask.png",
+        "matrix": [
+          [
+            0.6335699046285079,
+            0.0,
+            -253.4396825306398
+          ],
+          [
+            0.0,
+            0.6335699046285079,
+            -40.481617057992565
+          ]
+        ],
+        "ok": true,
+        "padding_ratio": 0.0,
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry/images/TRAIN/NeuralTextures/805_011/005/B.png",
+        "png_bytes": 83123,
+        "rgb_sha256": "07c2aba409ee581261e9e2d3cf84bc743fed6e96b4ca2172c69c9e15f75b81f9"
+      },
+      "mother_index": 291,
+      "mother_rgb_sha256": "bbc6741c6b34a0f6f979c5873c18053f20a361dd5af72e1800db631f2873efd5",
+      "mother_timestamp": 12.125,
+      "original_detection": {
+        "bbox": [
+          464.26461029052734,
+          122.03065490722656,
+          687.7461776733398,
+          357.7320861816406
+        ],
+        "landmarks": [
+          [
+            509.3512191772461,
+            227.8962516784668
+          ],
+          [
+            599.6326313018799,
+            206.38650512695312
+          ],
+          [
+            554.5043029785156,
+            264.4667739868164
+          ],
+          [
+            537.9910469055176,
+            311.2524948120117
+          ],
+          [
+            616.879280090332,
+            292.0224838256836
+          ]
+        ],
+        "multiface": false,
+        "qualified_face_count": 1,
+        "score": 0.8013066053390503
+      }
+    },
+    {
+      "A": {
+        "byte_sha256": "a3e999cd9fb9ef49bc3b3d84858978ba2009622764d214eacd42e4d15b16af2d",
+        "input_rgb_sha256": "17ff8246431972e732162930160ccc22be8ef8dbfdb7ef405a068006d84b71c1",
+        "mask_byte_sha256": "849588744d056373b6d3352d9982a361b126b36fa4cb622fd2e44a146ae5c835",
+        "mask_bytes": 502,
+        "mask_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry/images/TRAIN/NeuralTextures/805_011/006/A_mask.png",
+        "matrix": [
+          [
+            0.808994214496127,
+            -0.11165598188563308,
+            -320.17047492650556
+          ],
+          [
+            0.11165598188563308,
+            0.808994214496127,
+            -120.30262438639204
+          ]
+        ],
+        "ok": true,
+        "padding_ratio": 0.0,
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry/images/TRAIN/NeuralTextures/805_011/006/A.png",
+        "png_bytes": 103571,
+        "rgb_sha256": "06d10f81d7a5d0c6155c94c570a684c0022cd653251708180779b1f33cb21c9c"
+      },
+      "AB": {
+        "ok": false,
+        "reason": "no_qualified_face"
+      },
+      "B": {
+        "byte_sha256": "e8f3765c3f11eaed64ccf76f37e3fd15b407fac61f6e56b2d6fddf70a78b79c5",
+        "input_rgb_sha256": "17ff8246431972e732162930160ccc22be8ef8dbfdb7ef405a068006d84b71c1",
+        "mask_byte_sha256": "9177adb1a3417cbf8b145d81f33af2b09e28edea1aca7a09cd4a7aa458f93bf7",
+        "mask_bytes": 618,
+        "mask_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry/images/TRAIN/NeuralTextures/805_011/006/B_mask.png",
+        "matrix": [
+          [
+            0.6456983421998259,
+            0.0,
+            -269.98069591946705
+          ],
+          [
+            0.0,
+            0.6456983421998259,
+            -41.33194569823772
+          ]
+        ],
+        "ok": true,
+        "padding_ratio": 0.0,
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry/images/TRAIN/NeuralTextures/805_011/006/B.png",
+        "png_bytes": 83864,
+        "rgb_sha256": "c25d81104b47604309ac89c74d582e8c5d1d198a870306c92d358ab175956842"
+      },
+      "mother_index": 357,
+      "mother_rgb_sha256": "17ff8246431972e732162930160ccc22be8ef8dbfdb7ef405a068006d84b71c1",
+      "mother_timestamp": 14.875,
+      "original_detection": {
+        "bbox": [
+          480.8258285522461,
+          121.05541229248047,
+          700.7807235717773,
+          352.3295593261719
+        ],
+        "landmarks": [
+          [
+            537.879280090332,
+            226.06248950958252
+          ],
+          [
+            630.5481910705566,
+            214.96385383605957
+          ],
+          [
+            589.1702880859375,
+            270.2837448120117
+          ],
+          [
+            557.6038932800293,
+            306.9284133911133
+          ],
+          [
+            636.4478340148926,
+            296.2082290649414
+          ]
+        ],
+        "multiface": false,
+        "qualified_face_count": 1,
+        "score": 0.7549195289611816
+      }
+    },
+    {
+      "A": {
+        "byte_sha256": "3984fda7c24d65866f1335f53bd49289191af062eff5dc0dca351bfd44a4b620",
+        "input_rgb_sha256": "2721324990e16389fe8ff4c089014e8bfc53327fdcc3115c373aa87a61107192",
+        "mask_byte_sha256": "849588744d056373b6d3352d9982a361b126b36fa4cb622fd2e44a146ae5c835",
+        "mask_bytes": 502,
+        "mask_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry/images/TRAIN/NeuralTextures/805_011/007/A_mask.png",
+        "matrix": [
+          [
+            0.7556167164371789,
+            -0.17265091732525661,
+            -270.87395476584544
+          ],
+          [
+            0.17265091732525661,
+            0.7556167164371789,
+            -154.21562867435543
+          ]
+        ],
+        "ok": true,
+        "padding_ratio": 0.0,
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry/images/TRAIN/NeuralTextures/805_011/007/A.png",
+        "png_bytes": 109716,
+        "rgb_sha256": "319b77137e5f437dbfd9dbe4520afca5ca800789ee3b6ac84ba0be53d735b6c4"
+      },
+      "AB": {
+        "ok": false,
+        "reason": "no_qualified_face"
+      },
+      "B": {
+        "byte_sha256": "91237559824df34c1aeb1cc531d46df7535ee8ba843378a9be267129eed2875c",
+        "input_rgb_sha256": "2721324990e16389fe8ff4c089014e8bfc53327fdcc3115c373aa87a61107192",
+        "mask_byte_sha256": "9177adb1a3417cbf8b145d81f33af2b09e28edea1aca7a09cd4a7aa458f93bf7",
+        "mask_bytes": 618,
+        "mask_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry/images/TRAIN/NeuralTextures/805_011/007/B_mask.png",
+        "matrix": [
+          [
+            0.622329052084221,
+            0.0,
+            -251.5809189572558
+          ],
+          [
+            0.0,
+            0.622329052084221,
+            -49.14291228378082
+          ]
+        ],
+        "ok": true,
+        "padding_ratio": 0.0,
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry/images/TRAIN/NeuralTextures/805_011/007/B.png",
+        "png_bytes": 86844,
+        "rgb_sha256": "80f53850de019b0a50bfd4eaed57ad692c3f90ab55d0b2b77d551b2d81b24729"
+      },
+      "mother_index": 410,
+      "mother_rgb_sha256": "2721324990e16389fe8ff4c089014e8bfc53327fdcc3115c373aa87a61107192",
+      "mother_timestamp": 17.083333333333332,
+      "original_detection": {
+        "bbox": [
+          472.84254455566406,
+          138.1523895263672,
+          694.0029296875,
+          378.11119079589844
+        ],
+        "landmarks": [
+          [
+            533.9999732971191,
+            240.1245641708374
+          ],
+          [
+            625.9513397216797,
+            222.38601684570312
+          ],
+          [
+            591.4928302764893,
+            287.2736301422119
+          ],
+          [
+            565.2695226669312,
+            329.31553649902344
+          ],
+          [
+            641.0768356323242,
+            312.94052505493164
+          ]
+        ],
+        "multiface": false,
+        "qualified_face_count": 1,
+        "score": 0.8412220478057861
+      }
+    }
+  ],
+  "processing_seconds": 2.4441445004194975,
+  "protocol_sha256": "9a6182364c3cebfac4f9c8fef9e576b645590df231e0dfe7ca42e1732949f86a",
+  "version_failures": {
+    "A": [],
+    "AB": [
+      "0:no_qualified_face",
+      "1:no_qualified_face",
+      "2:no_qualified_face",
+      "3:no_qualified_face",
+      "4:no_qualified_face",
+      "5:no_qualified_face",
+      "6:no_qualified_face",
+      "7:no_qualified_face"
+    ],
+    "B": []
+  },
+  "video": {
+    "dataset": "FFPP",
+    "domain": "source",
+    "label": 1,
+    "method": "NeuralTextures",
+    "path": "/Dataset/deepfake_detection/FaceForensics++/manipulated_sequences/NeuralTextures/c23/videos/805_011.mp4",
+    "role": "TRAIN",
+    "source_evidence": "official_ffpp_pair_and_filename",
+    "source_group": "FFPP/pair/011_805",
+    "source_ids": [
+      "805",
+      "011"
+    ],
+    "video_id": "805_011",
+    "video_uid": "FFPP/source/NeuralTextures/805_011"
+  },
+  "video_byte_sha256": "ba30eeb904be768bb79ed71e2c9777b2a6e1251b19d476034af49d6c674954bd"
+}

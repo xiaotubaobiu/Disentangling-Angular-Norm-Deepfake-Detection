@@ -1,0 +1,122 @@
+{
+  "utc": "2026-10-24T08:43:31.373523+00:00",
+  "status": "PASS_FINAL_MODULE_REAL_REGISTRY_WAITING_AND_PREMATURE_RUN_REFUSED_WITHOUT_OUTPUT",
+  "backbone_status": [
+    {
+      "status": "WAITING_D_FORMAL_ANALYSES",
+      "backbone": "clip_vit_b16",
+      "expected_training_seeds": 5,
+      "analysis_markers_present": 0,
+      "runs": [
+        {
+          "seed": 7,
+          "run_id": "D_formal_clip_vit_b16_seed7",
+          "analysis_marker_present": false
+        },
+        {
+          "seed": 42,
+          "run_id": "D_formal_clip_vit_b16_seed42",
+          "analysis_marker_present": false
+        },
+        {
+          "seed": 123,
+          "run_id": "D_formal_clip_vit_b16_seed123",
+          "analysis_marker_present": false
+        },
+        {
+          "seed": 2026,
+          "run_id": "D_formal_clip_vit_b16_seed2026",
+          "analysis_marker_present": false
+        },
+        {
+          "seed": 3407,
+          "run_id": "D_formal_clip_vit_b16_seed3407",
+          "analysis_marker_present": false
+        }
+      ],
+      "marker_only": true,
+      "GPU_launch_attempted": false,
+      "limitation": "Inventory only; run verifies all current cache and analysis provenance."
+    },
+    {
+      "status": "WAITING_D_FORMAL_ANALYSES",
+      "backbone": "dinov2_vit_b14",
+      "expected_training_seeds": 5,
+      "analysis_markers_present": 0,
+      "runs": [
+        {
+          "seed": 7,
+          "run_id": "D_formal_dinov2_vit_b14_seed7",
+          "analysis_marker_present": false
+        },
+        {
+          "seed": 42,
+          "run_id": "D_formal_dinov2_vit_b14_seed42",
+          "analysis_marker_present": false
+        },
+        {
+          "seed": 123,
+          "run_id": "D_formal_dinov2_vit_b14_seed123",
+          "analysis_marker_present": false
+        },
+        {
+          "seed": 2026,
+          "run_id": "D_formal_dinov2_vit_b14_seed2026",
+          "analysis_marker_present": false
+        },
+        {
+          "seed": 3407,
+          "run_id": "D_formal_dinov2_vit_b14_seed3407",
+          "analysis_marker_present": false
+        }
+      ],
+      "marker_only": true,
+      "GPU_launch_attempted": false,
+      "limitation": "Inventory only; run verifies all current cache and analysis provenance."
+    },
+    {
+      "status": "WAITING_D_FORMAL_ANALYSES",
+      "backbone": "efficientnet_b0",
+      "expected_training_seeds": 5,
+      "analysis_markers_present": 0,
+      "runs": [
+        {
+          "seed": 7,
+          "run_id": "D_formal_efficientnet_b0_seed7",
+          "analysis_marker_present": false
+        },
+        {
+          "seed": 42,
+          "run_id": "D_formal_efficientnet_b0_seed42",
+          "analysis_marker_present": false
+        },
+        {
+          "seed": 123,
+          "run_id": "D_formal_efficientnet_b0_seed123",
+          "analysis_marker_present": false
+        },
+        {
+          "seed": 2026,
+          "run_id": "D_formal_efficientnet_b0_seed2026",
+          "analysis_marker_present": false
+        },
+        {
+          "seed": 3407,
+          "run_id": "D_formal_efficientnet_b0_seed3407",
+          "analysis_marker_present": false
+        }
+      ],
+      "marker_only": true,
+      "GPU_launch_attempted": false,
+      "limitation": "Inventory only; run verifies all current cache and analysis provenance."
+    }
+  ],
+  "run_guard": {
+    "returncode": 1,
+    "stderr_tail": "ce/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/summary_d.py\", line 396, in main\n    result=summary_status(args.config,args.backbone) if args.action=='status' else summarize_backbone(args.config,args.backbone)\n                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/summary_d.py\", line 350, in summarize_backbone\n    accepted={seed:_accept(config_path,root,run,backbone,seed) for seed,run in runs.items()}\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/summary_d.py\", line 350, in <dictcomp>\n    accepted={seed:_accept(config_path,root,run,backbone,seed) for seed,run in runs.items()}\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/summary_d.py\", line 206, in _accept\n    if not marker.exists() and not marker.is_symlink():raise ValueError('incomplete D analyses; all five registered seeds required')\n                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: incomplete D analyses; all five registered seeds required\n"
+  },
+  "production_analysis_tree_unchanged": true,
+  "GPU_tasks_launched": false,
+  "real_result_rows_claimed": false,
+  "module_sha256": "489330049b8b95c74db9bb3d191a38f7e7190107788144ff6c07aaec9946db93"
+}

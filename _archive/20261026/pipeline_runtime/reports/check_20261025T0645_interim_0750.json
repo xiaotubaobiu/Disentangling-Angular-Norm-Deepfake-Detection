@@ -1,0 +1,50 @@
+{
+  "utc": "2026-10-25T07:50:52Z",
+  "H_raw_role_markers": 28,
+  "H_aggregate_markers": 4,
+  "H_independently_admitted_models": 0,
+  "owner_pid": 3219035,
+  "active": [
+    {
+      "pid": 3366166,
+      "run_id": "H_formal_clip_vit_b16_B_seed123",
+      "gpu": 0,
+      "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e",
+      "backbone": "clip_vit_b16"
+    },
+    {
+      "pid": 3367035,
+      "run_id": "H_formal_clip_vit_b16_AB_seed123",
+      "gpu": 1,
+      "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+      "backbone": "clip_vit_b16"
+    },
+    {
+      "pid": 3367036,
+      "run_id": "H_formal_clip_vit_b16_B_seed2026",
+      "gpu": 3,
+      "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646",
+      "backbone": "clip_vit_b16"
+    },
+    {
+      "pid": 3367087,
+      "run_id": "H_formal_clip_vit_b16_AB_seed2026",
+      "gpu": 2,
+      "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+      "backbone": "clip_vit_b16"
+    }
+  ],
+  "completed_this_session": [
+    "H_formal_clip_vit_b16_B_seed7",
+    "H_formal_clip_vit_b16_AB_seed7",
+    "H_formal_clip_vit_b16_AB_seed42",
+    "H_formal_clip_vit_b16_B_seed42"
+  ],
+  "pending_count": 22,
+  "free_GiB_at_0750": 164.80547714233398,
+  "M_actual_D_source_files_passed": 15,
+  "M_H_source_file_staging_pending": "canonical namespace preload guard fix/review; no target inference",
+  "full_previous_suite": "489 passed; bridge-review 3 RED regressions confirmed",
+  "cold_SSD_released_bytes": 0,
+  "next_check_utc": "2026-10-25T08:15:00Z"
+}

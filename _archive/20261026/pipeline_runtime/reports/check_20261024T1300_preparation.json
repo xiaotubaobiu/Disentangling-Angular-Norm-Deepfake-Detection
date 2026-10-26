@@ -1,0 +1,32 @@
+{
+  "utc": "2026-10-24T12:38:32.556184+00:00",
+  "status": "SYNTAX_AND_HASH_PREPARED_NOT_LAUNCHED",
+  "scripts": [
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/checkpoint_health_20261024T1300.py",
+      "sha256": "02256a9e826cdd9cd3488f3b1d0e68cc894666fbd789dfe7e3479a8c9e0b3f8c",
+      "syntax": "PASS",
+      "launched": false
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/checkpoint_active_focus_20261024T1300.py",
+      "sha256": "5ac7db9b3d84cc6d0b4da0c52786157d271585ee993915d6e8be6e676416a2c9",
+      "syntax": "PASS",
+      "launched": false
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/completion_audit_20261024T1300.py",
+      "sha256": "bed467731facff4d7136de531bd78acf1aeeb07ea4c42d3a3d08dbff4e6da125",
+      "syntax": "PASS",
+      "launched": false
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/runtime_monitor_20261024T1300.py",
+      "sha256": "68aaef7fc198709b11f64f64cdc60d06020ff3dff42536366c042718ad610248",
+      "syntax": "PASS",
+      "launched": false
+    }
+  ],
+  "nominal_next": "2026-10-24T13:00:00Z",
+  "phase_guard": "Check stage before starting; trainer-only assertions are invalid if original owner has entered cache phase."
+}

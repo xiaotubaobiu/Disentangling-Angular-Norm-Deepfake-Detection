@@ -1,0 +1,90 @@
+{
+  "utc": "2026-10-23T16:41:11.881244+00:00",
+  "status": "PASS_GPU0_EPOCH20_PROGRESS_AFTER_BOUNDARY_PREPARATION",
+  "main_window_gpu0_util_percent": 0,
+  "main_window_gpu0_committed_epoch": 19,
+  "following_sample": [
+    {
+      "utc": "2026-10-23T16:40:56.778965+00:00",
+      "csv": "0, 87, 5414\n1, 82, 5414\n2, 93, 5414\n3, 85, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-23T16:40:58.888914+00:00",
+      "csv": "0, 79, 5414\n1, 83, 5414\n2, 93, 5414\n3, 83, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-23T16:41:01.049316+00:00",
+      "csv": "0, 84, 5414\n1, 84, 5414\n2, 92, 5414\n3, 83, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-23T16:41:03.185157+00:00",
+      "csv": "0, 83, 5414\n1, 87, 5414\n2, 93, 5414\n3, 78, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-23T16:41:05.317172+00:00",
+      "csv": "0, 75, 5414\n1, 87, 5414\n2, 92, 5414\n3, 82, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-23T16:41:07.445962+00:00",
+      "csv": "0, 81, 5414\n1, 76, 5414\n2, 89, 5414\n3, 83, 5414\n4, 30, 28156\n5, 0, 28156\n6, 6, 28156\n7, 24, 28156\n"
+    },
+    {
+      "utc": "2026-10-23T16:41:09.593238+00:00",
+      "csv": "0, 86, 5414\n1, 81, 5414\n2, 93, 5414\n3, 75, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-23T16:41:11.703116+00:00",
+      "csv": "0, 87, 5414\n1, 82, 5414\n2, 93, 5414\n3, 83, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n"
+    }
+  ],
+  "GPU_mean_util_percent": [
+    82.75,
+    82.75,
+    92.25,
+    81.5
+  ],
+  "current_worker_events": [
+    {
+      "pid": 57156,
+      "run_id": "D_dev_dinov2_vit_b14_lr3e-05_seed1007_e30",
+      "gpu": 0,
+      "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e",
+      "latest_epoch": 20,
+      "latest_attempt_zero_based": 15410,
+      "latest_success": true,
+      "epoch_log": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_dev_dinov2_vit_b14_lr3e-05_seed1007_e30/epoch_20_updates.jsonl"
+    },
+    {
+      "pid": 64175,
+      "run_id": "D_dev_dinov2_vit_b14_lr3e-05_seed1042_e30",
+      "gpu": 1,
+      "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+      "latest_epoch": 19,
+      "latest_attempt_zero_based": 14841,
+      "latest_success": true,
+      "epoch_log": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_dev_dinov2_vit_b14_lr3e-05_seed1042_e30/epoch_19_updates.jsonl"
+    },
+    {
+      "pid": 124606,
+      "run_id": "D_dev_dinov2_vit_b14_lr5e-05_seed1007_e30",
+      "gpu": 2,
+      "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+      "latest_epoch": 13,
+      "latest_attempt_zero_based": 10386,
+      "latest_success": true,
+      "epoch_log": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_dev_dinov2_vit_b14_lr5e-05_seed1007_e30/epoch_13_updates.jsonl"
+    },
+    {
+      "pid": 125862,
+      "run_id": "D_dev_dinov2_vit_b14_lr5e-05_seed1042_e30",
+      "gpu": 3,
+      "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646",
+      "latest_epoch": 14,
+      "latest_attempt_zero_based": 10432,
+      "latest_success": true,
+      "epoch_log": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_dev_dinov2_vit_b14_lr5e-05_seed1042_e30/epoch_14_updates.jsonl"
+    }
+  ],
+  "GPU0_epoch20_arrays_present": true,
+  "scope": "Read-only followup; no restart or manual dispatch. Epoch19 history and checkpoint completed before the main sample. GPU0 then prepared epoch20 arrays and resumed updates. No stall repair required."
+}

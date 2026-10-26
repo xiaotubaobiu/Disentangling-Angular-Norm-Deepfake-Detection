@@ -1,0 +1,74 @@
+{
+  "status": "PASSED_SYNTHETIC_INTEGRATION_AND_LIVE_READINESS_ONLY",
+  "utc": "2026-10-23T09:40:21.010633+00:00",
+  "full_suite_tests": 114,
+  "full_suite_seconds": 78.09,
+  "CPU_only": true,
+  "CUDA_VISIBLE_DEVICES": "",
+  "OMP_MKL_OPENBLAS_threads": 2,
+  "scientific_model_or_target_evaluation": false,
+  "test_log_sha256": "91ad720dc8850d8a9b6e7f88bb949c00f33bca7535a5f490596d1b7f626a8f30",
+  "code_and_test_sha256": {
+    "reliability_v2/analysis_d.py": "a1d3be7bd43acb43995768f9167225b066ee9e6691c61c7b8bf28b00de53ba5e",
+    "reliability_v2/bootstrap_fast.py": "4b7c5e88946ea5feb799e2184c84c8c25051a7e0fa2db1713be1baa0d2f2e45c",
+    "tests/test_analysis_d.py": "8eba4256cea2b1c3bfc68687662e0c31f774aeef62ce21d8492b4bac03003bbe",
+    "tests/test_bootstrap_fast.py": "2d3b67e14b570aecec133b57afc0e535a766834629f0da9973d0fe3b20e6643b"
+  },
+  "protected_code_sha256_unchanged": {
+    "trainer.py": "56f0db0634a525a530fb53482732365ebf9693a1f5470b0a95ec0820cc614368",
+    "models.py": "5c4adb39314433c5f0d40311d7ada3ad5d30c7b239773be02080be120f5a2e60",
+    "cache_d.py": "8f5814646194c772dcf00f6751a35c2f792dd5f11008e0834fdba4eb5e329761",
+    "scoring_d.py": "9bddf066fcb8df1b9659d4cfe14aa4febdf850f7cc39c1c0c3d6050864263d1c"
+  },
+  "training_bundle_sha256": "336f3097434edf903a5ff402162e29afeca2442ca50f9c7d9883ca60136b8335",
+  "live_readiness": {
+    "status": "WAITING_FORMAL_CACHES",
+    "expected_formal_runs": 15,
+    "formal_registered": 0,
+    "formal_caches_complete": 0,
+    "cache_complete_run_ids": [],
+    "marker_only": true,
+    "limitation": "Markers are inventory only; analyze_run fully verifies live formal/cache provenance before use."
+  },
+  "independent_review_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/analysis_independent_review.json",
+  "capabilities": [
+    "new frozen formal run and explicit expected role identity",
+    "seven frozen manifests and all role caches verified",
+    "canonical sampling-weighted TRAIN radius",
+    "eight cell saved-score independent integer concordance and macro recomputation",
+    "high precision decimal serialization plus numerical NA propagation",
+    "fixed TEST empirical CAL operating counts and actual oracle vertices",
+    "200 common nested CAL subsets and 2000 conditional source/closure bootstraps",
+    "unavailable budget and missing-method NA",
+    "completed artifact hash and live cache reuse verification"
+  ],
+  "limitations": [
+    "No formal model/cache available yet; all outcome tests/profile synthetic.",
+    "Driver handles one formal model; final five-seed assembly/H analysis/full figures/papers remain pending.",
+    "Large sparse draw multiplicities expand during JSON serialization; production write size not kernel-profile memory.",
+    "CDF/DFD complete ancestry not certified."
+  ],
+  "final_code_commit": "b2a47da0a4ed84e3c946205c768754feb13cd72b",
+  "format_only_post_test_addendum": [
+    {
+      "path": "reliability_v2/bootstrap_fast.py",
+      "old_sha256": "4b7c5e88946ea5feb799e2184c84c8c25051a7e0fa2db1713be1baa0d2f2e45c",
+      "final_sha256": "7eaeaf0973d72cd1def838cf6bc82863c92c75fb35409553332015dec8b0e4e5",
+      "Python_AST_identical": true,
+      "change": "remove trailing CRLF-only blank line at EOF"
+    },
+    {
+      "path": "tests/test_bootstrap_fast.py",
+      "old_sha256": "2d3b67e14b570aecec133b57afc0e535a766834629f0da9973d0fe3b20e6643b",
+      "final_sha256": "ff3c09989fd9cca47ad4df90748631d81797919cbe445d09aae49fc92ecad646",
+      "Python_AST_identical": true,
+      "change": "remove trailing CRLF-only blank line at EOF"
+    }
+  ],
+  "final_file_sha256": {
+    "reliability_v2/analysis_d.py": "a1d3be7bd43acb43995768f9167225b066ee9e6691c61c7b8bf28b00de53ba5e",
+    "reliability_v2/bootstrap_fast.py": "7eaeaf0973d72cd1def838cf6bc82863c92c75fb35409553332015dec8b0e4e5",
+    "tests/test_analysis_d.py": "8eba4256cea2b1c3bfc68687662e0c31f774aeef62ce21d8492b4bac03003bbe",
+    "tests/test_bootstrap_fast.py": "ff3c09989fd9cca47ad4df90748631d81797919cbe445d09aae49fc92ecad646"
+  }
+}

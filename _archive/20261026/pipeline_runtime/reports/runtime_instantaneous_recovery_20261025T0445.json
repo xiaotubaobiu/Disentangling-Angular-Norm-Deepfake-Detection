@@ -1,0 +1,201 @@
+{
+  "utc": "2026-10-25T05:04:38.416253+00:00",
+  "status": "READONLY_CURRENT_QUEUE_PROCESS_HISTORY_AND_INSTANTANEOUS_GPU",
+  "queue_snapshot": {
+    "owner_pid": 2222605,
+    "stage": "H_FORMAL_AMP_TRAINING",
+    "utc": "2026-10-25T05:04:28.125855+00:00",
+    "active": [
+      {
+        "pid": 3035483,
+        "run_id": "H_formal_efficientnet_b0_B_seed2026",
+        "gpu": 1,
+        "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+        "backbone": "efficientnet_b0"
+      },
+      {
+        "pid": 3035484,
+        "run_id": "H_formal_efficientnet_b0_AB_seed2026",
+        "gpu": 2,
+        "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+        "backbone": "efficientnet_b0"
+      },
+      {
+        "pid": 3061634,
+        "run_id": "H_formal_efficientnet_b0_B_seed3407",
+        "gpu": 0,
+        "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e",
+        "backbone": "efficientnet_b0"
+      },
+      {
+        "pid": 3086577,
+        "run_id": "H_formal_efficientnet_b0_AB_seed3407",
+        "gpu": 3,
+        "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646",
+        "backbone": "efficientnet_b0"
+      }
+    ],
+    "completed_this_session": [
+      "H_formal_clip_vit_b16_B_seed7",
+      "H_formal_clip_vit_b16_AB_seed42",
+      "H_formal_clip_vit_b16_AB_seed7",
+      "H_formal_clip_vit_b16_B_seed42",
+      "H_formal_clip_vit_b16_B_seed123",
+      "H_formal_clip_vit_b16_AB_seed123",
+      "H_formal_clip_vit_b16_AB_seed2026",
+      "H_formal_clip_vit_b16_B_seed2026",
+      "H_formal_clip_vit_b16_B_seed3407",
+      "H_formal_clip_vit_b16_AB_seed3407",
+      "H_formal_dinov2_vit_b14_B_seed7",
+      "H_formal_dinov2_vit_b14_AB_seed7",
+      "H_formal_dinov2_vit_b14_B_seed42",
+      "H_formal_dinov2_vit_b14_AB_seed42",
+      "H_formal_dinov2_vit_b14_B_seed123",
+      "H_formal_dinov2_vit_b14_AB_seed123",
+      "H_formal_dinov2_vit_b14_B_seed2026",
+      "H_formal_dinov2_vit_b14_AB_seed2026",
+      "H_formal_dinov2_vit_b14_B_seed3407",
+      "H_formal_dinov2_vit_b14_AB_seed3407",
+      "H_formal_efficientnet_b0_B_seed7",
+      "H_formal_efficientnet_b0_AB_seed7",
+      "H_formal_efficientnet_b0_B_seed42",
+      "H_formal_efficientnet_b0_AB_seed42",
+      "H_formal_efficientnet_b0_B_seed123",
+      "H_formal_efficientnet_b0_AB_seed123"
+    ],
+    "detail": {
+      "pending": [],
+      "requested_stage": "H_FORMAL_AMP_TRAINING",
+      "capacity": {
+        "allowed": true,
+        "free_bytes": 178506641408,
+        "required_bytes": 53687091200,
+        "reserve_GiB": 50,
+        "initial_working_set_estimate_GiB": 0,
+        "additional_conditional_bytes": 0
+      }
+    },
+    "resource_policy": "D_PRIORITY; idle GPU0-3 only; global lifetime locks"
+  },
+  "active_observation": [
+    {
+      "pid": 3035483,
+      "run_id": "H_formal_efficientnet_b0_B_seed2026",
+      "gpu": 1,
+      "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+      "backbone": "efficientnet_b0",
+      "process_alive_and_matches": true,
+      "history_epochs": 19,
+      "history_attempts": 3629,
+      "history_success": 3629,
+      "history_skips": 0,
+      "recent5_draw_equivalent_per_second": 342.3465814494273,
+      "live_complete_update_events": 3718,
+      "live_skip_events": 0,
+      "partial_inflight_json_lines": 0
+    },
+    {
+      "pid": 3035484,
+      "run_id": "H_formal_efficientnet_b0_AB_seed2026",
+      "gpu": 2,
+      "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+      "backbone": "efficientnet_b0",
+      "process_alive_and_matches": true,
+      "history_epochs": 20,
+      "history_attempts": 3820,
+      "history_success": 3820,
+      "history_skips": 0,
+      "recent5_draw_equivalent_per_second": 344.5571832086294,
+      "live_complete_update_events": 3877,
+      "live_skip_events": 0,
+      "partial_inflight_json_lines": 0
+    },
+    {
+      "pid": 3061634,
+      "run_id": "H_formal_efficientnet_b0_B_seed3407",
+      "gpu": 0,
+      "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e",
+      "backbone": "efficientnet_b0",
+      "process_alive_and_matches": true,
+      "history_epochs": 9,
+      "history_attempts": 1719,
+      "history_success": 1719,
+      "history_skips": 0,
+      "recent5_draw_equivalent_per_second": 315.3825388634705,
+      "live_complete_update_events": 1901,
+      "live_skip_events": 0,
+      "partial_inflight_json_lines": 0
+    },
+    {
+      "pid": 3086577,
+      "run_id": "H_formal_efficientnet_b0_AB_seed3407",
+      "gpu": 3,
+      "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646",
+      "backbone": "efficientnet_b0",
+      "process_alive_and_matches": true,
+      "history_epochs": 1,
+      "history_attempts": 191,
+      "history_success": 191,
+      "history_skips": 0,
+      "recent5_draw_equivalent_per_second": 377.17950142556174,
+      "live_complete_update_events": 191,
+      "live_skip_events": 0,
+      "partial_inflight_json_lines": 0
+    }
+  ],
+  "scope": "Instant GPU reading only; no accepted 0445 mean window. Existing observer failed after normal B123 PID exit; no training failure inferred.",
+  "GPU_instantaneous": [
+    [
+      0,
+      56,
+      2438,
+      32768
+    ],
+    [
+      1,
+      57,
+      2438,
+      32768
+    ],
+    [
+      2,
+      61,
+      2438,
+      32768
+    ],
+    [
+      3,
+      0,
+      2438,
+      32768
+    ],
+    [
+      4,
+      0,
+      28156,
+      32768
+    ],
+    [
+      5,
+      0,
+      28156,
+      32768
+    ],
+    [
+      6,
+      0,
+      28156,
+      32768
+    ],
+    [
+      7,
+      0,
+      28156,
+      32768
+    ]
+  ],
+  "GPU_instantaneous_utc": "2026-10-25T05:04:38.572281+00:00",
+  "protected_gpu_processes": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 3061634, /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python\nGPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 3035483, /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python\nGPU-5df5602a-848e-d944-26cd-aec11b964b45, 3035484, /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python\nGPU-626ec32f-1401-c959-74b0-db04ed63c646, 3086577, /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python\nGPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 1532179, VLLM::Worker_TP0\nGPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 1532180, VLLM::Worker_TP1\nGPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 1532181, VLLM::Worker_TP2\nGPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 1532182, VLLM::Worker_TP3\n",
+  "target_export_allowed": false,
+  "effective_runs": {}
+}

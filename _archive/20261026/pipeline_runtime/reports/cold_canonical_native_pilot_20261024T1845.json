@@ -1,0 +1,57 @@
+{
+  "utc": "2026-10-24T19:09:53.193772+00:00",
+  "status": "PASS_CANONICAL_NATIVE_READER_AND_FAILURE_ROLLBACK",
+  "run_id": "D_formal_efficientnet_b0_seed3407",
+  "SSD_released_bytes": 0,
+  "canonical_path_restored": true,
+  "evidence_retained": true,
+  "selected": [
+    {
+      "relative": "runs/D_formal_efficientnet_b0_seed3407/state.pt",
+      "bytes": 64973518,
+      "mtime_ns": 1792847943920426409,
+      "source_inode": 52309870,
+      "sha256": "f89b3c296628eb30fd740690ba45adda4fee9b6ef1cbc7a67c7f824c875a89fd",
+      "staged_path": "/Dataset/deepfake_detector_v2_cold_20261023/staged_copies/runs/D_formal_efficientnet_b0_seed3407/state.pt",
+      "source": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_efficientnet_b0_seed3407/state.pt",
+      "backup": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_efficientnet_b0_seed3407/.state.pt.coldpilot.original.20261024T1845",
+      "alias": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_efficientnet_b0_seed3407/.state.pt.coldpilot.alias.20261024T1845",
+      "original_inode": 52309870,
+      "original_nlink": 1,
+      "cold_mtime_ns": 1792847943920426400
+    },
+    {
+      "relative": "runs/D_formal_efficientnet_b0_seed3407/epoch_01_methods.npy",
+      "bytes": 26181760,
+      "mtime_ns": 1792838763220221819,
+      "source_inode": 52309483,
+      "sha256": "2932ba6d726d03c18f7d83ceb64f00ae64b7519fe40dca05583119de09a92342",
+      "staged_path": "/Dataset/deepfake_detector_v2_cold_20261023/staged_copies/runs/D_formal_efficientnet_b0_seed3407/epoch_01_methods.npy",
+      "source": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_efficientnet_b0_seed3407/epoch_01_methods.npy",
+      "backup": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_efficientnet_b0_seed3407/.epoch_01_methods.npy.coldpilot.original.20261024T1845",
+      "alias": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_efficientnet_b0_seed3407/.epoch_01_methods.npy.coldpilot.alias.20261024T1845",
+      "original_inode": 52309483,
+      "original_nlink": 1,
+      "cold_mtime_ns": 1792838763220221800
+    }
+  ],
+  "native_checks": [
+    {
+      "status": "PASS_ACTUAL_CANONICAL_NATIVE_CONTEXT_LOAD_STATE_AND_NPY",
+      "epoch": 30,
+      "attempts": 23970,
+      "success": 23967,
+      "skips": 3,
+      "optimizer_states": 213,
+      "methods_rows": 102272,
+      "methods_dtype": "<U64",
+      "CPU_model_optimizer_scaler_restored": true,
+      "CUDA_initialized": false,
+      "CUDA_RNG_restored_on_GPU": false
+    }
+  ],
+  "rollback_injected_failure": "PASS",
+  "primary_weights_unchanged": true,
+  "mtime_compatibility": "Auxiliary state/npy native readers use verified bytes; original nanosecond timestamps restored exactly on SSD. Qualification and final/source-best paths excluded from migration.",
+  "seconds": 3.283848986029625
+}

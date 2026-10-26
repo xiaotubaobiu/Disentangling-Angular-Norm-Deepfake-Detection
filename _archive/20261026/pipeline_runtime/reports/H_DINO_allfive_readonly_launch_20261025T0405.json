@@ -1,0 +1,27 @@
+{
+  "utc": "2026-10-25T04:11:43.399669+00:00",
+  "status": "ALL10_DINO_INDEPENDENT_TERMINALS_ACCEPTED_ORIGINAL_DEFAULT_FRESH_ALLFIVE_SOURCE_ONLY_AUDIT_STARTED",
+  "time_wrapper_pid": 2779649,
+  "command": [
+    "/usr/bin/time",
+    "-v",
+    "-o",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_DINO_allfive_readonly_time_v_20261025T0405.log",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+    "-B",
+    "-u",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_DINO_allfive_readonly_20261025T0405.command.py"
+  ],
+  "caller_sha256": "ab9244670f0aea177204ecf380cef27b6b9d902ef42a5000e4007dc7cddb522f",
+  "original_CLIP_caller_sha256": "052476b49a579d03cf39a88c22930bc5ef27eb46055ec0a620a8da520098c2b0",
+  "independent_terminal_reports": [
+    "H_DINO_seed7_terminal_acceptance_20261025T0120.json",
+    "H_DINO_seed42_terminal_acceptance_20261025T0225.json",
+    "H_DINO_seed123_terminal_acceptance_20261025T0245.json",
+    "H_DINO_seed2026_terminal_acceptance_20261025T0340.json",
+    "H_DINO_seed3407_terminal_acceptance_20261025T0405.json"
+  ],
+  "verify_override_supplied": false,
+  "target_gate_or_registry_written": false,
+  "GPU_or_FP32_jobs_started": false
+}

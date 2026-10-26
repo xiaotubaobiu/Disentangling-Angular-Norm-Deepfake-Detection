@@ -1,0 +1,117 @@
+{
+  "utc": "2026-10-24T11:51:57.735416+00:00",
+  "status": "NO_SUPPORTED_INTERIM_OWNER_HANDOFF_NO_GPU_ATTEMPT",
+  "action_requested": "Use released GPU1/2 for already planned H source qualification or D feature cache through the existing owner only",
+  "action_state": "NOT_STARTED_UNSUPPORTED_CURRENT_OWNER_INTERFACE",
+  "current_owner_pid": 3942476,
+  "current_stage": "P3_D_FORMAL_TRAINING",
+  "active": [
+    {
+      "pid": 745561,
+      "run_id": "D_formal_dinov2_vit_b14_seed3407",
+      "gpu": 3,
+      "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646"
+    },
+    {
+      "pid": 1489240,
+      "run_id": "D_formal_efficientnet_b0_seed3407",
+      "gpu": 0,
+      "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e"
+    }
+  ],
+  "source_sha256": {
+    "queue_d.py": "3db3d1ebb63fbe233fa19116934268ab999be94faaff59fe1f2d52fdbe1949b8",
+    "trainer.py": "56f0db0634a525a530fb53482732365ebf9693a1f5470b0a95ec0820cc614368",
+    "cache_d.py": "8f5814646194c772dcf00f6751a35c2f792dd5f11008e0834fdba4eb5e329761",
+    "queue_h.py": "a2792361443e64622391fb6ae766ee5e6f887789d662afdfb6d809f9a5ea8176",
+    "worker_h.py": "d0219aa52ebb1b6602602d5b09eb5fdfbbb9dc3aeb7b55dbfc0251ced66136f4",
+    "qualification_h.py": "5c70e9fb2a39bd974b0db278d519a8b7103f9553c3bfee32c7accb311edf0ec0"
+  },
+  "source_unchanged_a612f24_to_HEAD_queue_and_cache": true,
+  "static_interface_checks": {
+    "CLI_flags": [
+      "--root",
+      "--code"
+    ],
+    "signal_handler_calls": [],
+    "config_read_in_constructor_then_memory_only": true,
+    "status_files_are_output_only": true,
+    "batch_pending_empty_does_not_allow_owner_to_return_while_jobs_active": true,
+    "whole_formal_train_barrier_line": 201,
+    "cache_stage_call_line": 210,
+    "queue_lock_owner_lifetime_lines": [
+      222,
+      223,
+      225,
+      230
+    ],
+    "shared_atomic_dispatch_to_child_lease": false
+  },
+  "existing_H_gate": {
+    "queue_h_lines": [
+      100,
+      105,
+      106
+    ],
+    "required_D_stage": "P3_D_CACHE_COMPLETE_ANALYSIS_PENDING",
+    "requires_no_D_active": true,
+    "worker_guard_lines": [
+      34,
+      47,
+      48
+    ],
+    "qualification_direct_CLI_guard_lines": [
+      468,
+      471,
+      472
+    ]
+  },
+  "prior_race_evidence_reused_not_reexecuted": {
+    "old_root_decision": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_resource_admission_root_decision_2020.json",
+      "sha256": "f98f4a51e2939f9bdd660c07f6e316533713cc81cad0998d1cf80dcdeedba9c4"
+    },
+    "old_independent_review": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_resource_admission_design_review_2020.json",
+      "sha256": "507dd5db210e8a9eb76a06386c386752034c46131a75102a099ed8338ff2487c"
+    },
+    "current_cache_contract": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/D_cache_transition_contract_current.json",
+      "sha256": "27f973d62f440bca7d91f28fdcdeb5d226b606833a985ea5eb0f4ee584058fac"
+    },
+    "latest_runtime": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/check_20261024T1140Z.json",
+      "sha256": "003d31e205e123b9c029ccec67203ef20a12b3cc052da66eb845a30a7706db28"
+    }
+  },
+  "idle_GPU1_2_since_actual_terminal_utc": {
+    "GPU1": "2026-10-24T11:38:39.064525+00:00",
+    "GPU2": "2026-10-24T11:41:06.974880+00:00"
+  },
+  "training_barrier_estimate_only": {
+    "Eff3407_metadata_epoch": 10,
+    "history_sha256": "359c6fde1264d17ec0fed1be91c88609911631b4a448a084e450c6106623bfea",
+    "last3_committed_DEV_intervals_seconds": [
+      483.426540851593,
+      295.4690046310425,
+      283.08606028556824
+    ],
+    "point_utc": "2026-10-24T13:46:11.401037+00:00",
+    "recent_interval_sensitivity_utc": [
+      "2026-10-24T13:22:33.244871+00:00",
+      "2026-10-24T14:29:20.054483+00:00"
+    ],
+    "not_confidence_interval": true,
+    "not_completion_or_H_admission_proof": true
+  },
+  "current_blocker": "Current immutable owner has no cooperative lease/handoff endpoint. Starting outside its interface would bypass the phase barrier and repeat an unsafe admission pattern. Editing config/status/lock path or signaling it is not a supported handoff.",
+  "available_safe_path": "Preserve current owner. It automatically starts all15x7 D caches after its final training job completes. H qualification starts only after D cache terminal, no D workers, owner/kernel leases released and UUIDs truly idle.",
+  "future_candidate_scope": "Prepare reusable requirements and tests only; no code patch, runtime control, resource lease acquisition or H GPU launch in this check.",
+  "no_process_signal_or_restart": true,
+  "no_production_lock_acquisition": true,
+  "no_new_dispatcher": true,
+  "no_rejected_admission_retry": true,
+  "no_scientific_protocol_change": true,
+  "future_requirements_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/proposals/next_owner_safe_handoff_requirements_20261024.md",
+  "future_requirements_sha256": "d97bd1d8b26a27fc26492b6e917f15e4146e0002c820c9778be64b1a1e748139"
+}

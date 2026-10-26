@@ -1,0 +1,53 @@
+{
+  "schema": "M_FUTURE_WRITE_REASSESSMENT_AFTER_TWO_MORE_COMPLETED_PRIMARY_PAIRS_CANDIDATE_V1",
+  "status": "CANDIDATE_NOT_YET_INDEPENDENTLY_REVIEWED_NOT_A_PERMIT",
+  "utc": "2026-10-26T07:22:17.877722+00:00",
+  "old_capacity_independent_acceptance": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_M_detector_resume_capacity_reassessment_20261026.json",
+    "sha256": "cd1bf7de81c1a42ba6c7cd41b13fbae05b0a534716de483f3f33ca7cb93890b6"
+  },
+  "old_plan": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/plans/M_two_canary_full_remaining_write_plan_20261026T0430.json",
+    "sha256": "278bb2d21adaba76e0653f36fc4926a1eed1756bf2a0d119076d827225d4df78"
+  },
+  "new_plan": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/plans/M_two_canary_remaining_write_plan_after_H6_20261026_candidate.json",
+    "sha256": "c0f5080192f20203dd63f0133aeeb21afd24807fbf7b1af9119945baa2abef07"
+  },
+  "new_primary_result_acceptance": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_resumed_CLIP3407_DINO7_independent_saved_result_acceptance_20261026.json",
+    "sha256": "69a0b5d61b6201e4f3eafc4654e350a7678d57abbf26ae3be8d28566ffa7191d"
+  },
+  "newly_closed_primary_pair_count": 2,
+  "per_primary_pair_future_cap_bytes": 1073741824,
+  "only_newly_completed_primary_future_writes_reduced_bytes": 2147483648,
+  "base_bytes": 109521666048,
+  "preserved_breakdown_bytes": {
+    "remaining_H_primary9_full_caps": 9663676416,
+    "primary_logs_manifests_figures_audits": 17179869184,
+    "primary_temporary_peak": 17179869184,
+    "primary_reserve": 53687091200,
+    "M_temporary": 6442450944,
+    "M_extra": 5368709120,
+    "all_M45_feature_cap": 18413684905,
+    "all_M30_statistic_caps": 20132659200
+  },
+  "required_total_bytes": 148068010153,
+  "free_snapshot_bytes": 151100395520,
+  "physical_SSD_release_bytes": 0,
+  "partial_M_feature_credit_bytes": 0,
+  "M_statistic_credit_bytes": 0,
+  "original_H_feature_repairs_scheduled": false,
+  "unchanged_fields": [
+    "schema",
+    "input_admission_sha256",
+    "runtime_floor_bytes",
+    "global_M_temporary_bytes",
+    "feature_cap_bytes",
+    "feature_runs",
+    "jobs"
+  ],
+  "summary_small_output_budget_included_in_existing_logs_figures_audits_or_M_extra": true,
+  "new_GPU_or_statistic_permission_issued": false,
+  "running_owner_or_configuration_changed": false
+}

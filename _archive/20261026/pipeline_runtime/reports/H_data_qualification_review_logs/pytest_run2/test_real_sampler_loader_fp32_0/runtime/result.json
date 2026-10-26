@@ -1,0 +1,65 @@
+{
+  "status": "PASS",
+  "identity": {
+    "config": "c",
+    "data": "d",
+    "code": "s",
+    "initialization": "w"
+  },
+  "precision": "FP32",
+  "microbatch": 32,
+  "effective_batch": 128,
+  "loader_workers": 4,
+  "epochs": 2,
+  "attempts_per_epoch": 1,
+  "continuous_attempts": 2,
+  "resumed_attempts": 2,
+  "all_trainable_parameters_received_gradients": true,
+  "resume_parameter_optimizer_scaler_rng_byte_exact": true,
+  "resume_FP32_features_byte_exact": true,
+  "epoch2_sampler_methods_augmentations_batches_byte_exact": true,
+  "features_dimension": 512,
+  "changed_identity_fields_rejected": [
+    "config",
+    "data",
+    "code",
+    "initialization"
+  ],
+  "state_comparisons": {
+    "model": "51d208984bbab31ef94ddaedfcff55a0d95c839b8513f70a2d87b04aacebff7b",
+    "optimizer": "7238c35157e06003eaf2027518fdc3d69fa6a2379ee5dcd48c9c3190856ecf7a",
+    "scaler": "b483a4ba291c44c6b495f929cc54f7a5839495ee03a91f02ef1b6fac535cd3ed",
+    "python_rng": "cd3225d337a081afafd2a30d34b319532aea12b22dd336dd14a0f00d70ff20d6",
+    "numpy_rng": "b2db43d98684fdd29e15cc1c0e44bb68944fbb89ea71be9f2de7e9b852847672",
+    "torch_rng": "5047698a4a625c0e89c1aacb53ac305e40257528e188d01d50fdb8845a8a7060",
+    "cuda_rng": "b483a4ba291c44c6b495f929cc54f7a5839495ee03a91f02ef1b6fac535cd3ed",
+    "epoch": "e7241ec5f90173f04b3ed1900c76d62b57dbfc5a3481161769d009c5361fb6cb",
+    "attempts": "e7241ec5f90173f04b3ed1900c76d62b57dbfc5a3481161769d009c5361fb6cb",
+    "scheduler_clock": "920413256267cd1c39b711e712b0b98879666792c36d2ecef1f057cbe5d0d36a",
+    "identity": "f09be9f825713851627c45574bf606cc0b4481b44fad8358b9c74625963db3be",
+    "history": "64353a5e0d1d459a4b8b5ffdb1a7fd1e409dc5c4149f7cc729ae153c14d772bc"
+  },
+  "source_metrics": {
+    "dev": {
+      "macro_auc": 1.0,
+      "pooled_auc": 1.0,
+      "method_auc": {
+        "Deepfakes": 1.0,
+        "Face2Face": 1.0,
+        "FaceSwap": 1.0,
+        "NeuralTextures": 1.0
+      }
+    },
+    "source_cal": {
+      "threshold": -0.6352700583225456,
+      "alpha": 0.05,
+      "videos": 2,
+      "false_positives": 0,
+      "empirical_fpr": 0.0,
+      "rule": "score>=threshold",
+      "auc_called": false
+    }
+  },
+  "initialization_model_sha256": "d5a6b673fbdfa2adc6eec0dda2aaceadee620aa746bba044d5abb433877c3623",
+  "target_used": false
+}

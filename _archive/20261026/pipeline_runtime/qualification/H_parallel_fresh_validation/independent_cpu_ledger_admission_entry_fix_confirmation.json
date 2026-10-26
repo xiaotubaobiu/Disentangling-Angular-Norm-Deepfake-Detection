@@ -1,0 +1,114 @@
+{
+  "utc": "2026-10-25T08:11:49.629940+00:00",
+  "status": "INDEPENDENT_CPU_ADMISSION_ENTRY_FIX_CONFIRMED_NO_REMAINING_ENGINEERING_REVIEW_BLOCKER",
+  "scope": "Concrete new finite CPU-only entry using original full pair-context with scheduling-only fresh source parallelism; this report permits no performance or production acceptance claim.",
+  "candidate_sha256": {
+    "cpu_ledger_admission.py": "bd202e85a4990f9246b96a7081815d07cf364041e5d3498f49bfe41d8779b213",
+    "tests/test_cpu_ledger_admission_entry.py": "85886ffcd7f80975e79fca0e4d1ddf1e4e8a01209978b08caa09cb83578d38d1",
+    "cpu_ledger_adapter.py": "c6b98535e5a28123baae595ab1f4b208f1feab43ff4018e740be94366d044287",
+    "parallel_source.py": "a6133c824913ab3bf361095b415eefc9ef75be39ab32fb49ab62e2656dc2624a"
+  },
+  "historical_review_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_parallel_fresh_validation/independent_cpu_ledger_admission_entry_review.json",
+  "historical_review_sha256": "e938fa4f397f65bd69c8b35ccfc989d71e25a2e2f53a45d08641895b016e2ade",
+  "historical_review_preserved": true,
+  "historical_source_backup_sha256": "f0585af97d977700aadbcc26002c306b90732a4aaf3e920c55a4184d22aa82c5",
+  "original_finding_disposition": {
+    "severity": "Important",
+    "title": "Pinned acceptance report is not used to enforce its accepted canonical proof hashes",
+    "disposition": "RESOLVED",
+    "fix_lines": [
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      50,
+      51,
+      52,
+      53,
+      54
+    ],
+    "evidence": "The SHA-pinned original all-three acceptance report supplies mandatory expected values for the exact 37 canonical paths: registry, 30 seals, three gates and three ledgers. Those expectations seed pins and are checked before scientific imports. Existing pin conflicts are rejected, and later live dependency discovery does not overwrite accepted expected values."
+  },
+  "fresh_independent_combined_suite": {
+    "command": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -B -m pytest -q",
+    "cwd": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_parallel_fresh_validation",
+    "environment": {
+      "CUDA_VISIBLE_DEVICES": "",
+      "OMP_NUM_THREADS": "2",
+      "MKL_NUM_THREADS": "2",
+      "OPENBLAS_NUM_THREADS": "2",
+      "PYTHONDONTWRITEBYTECODE": "1"
+    },
+    "returncode": 0,
+    "stdout": ".............................................                            [100%]\n45 passed in 0.23s\n",
+    "elapsed_seconds": 0.46427966468036175
+  },
+  "independent_read_only_probes": {
+    "returncode": 0,
+    "result": {
+      "metadata_only_pin_count": 107,
+      "all37_expected_accepted_proofs_enforced": true,
+      "original_DINO_gate_mismatch_probe_rejected": true,
+      "gate_error": "canonical CPU admission pinned inputs changed",
+      "missing_other_backbone_seal_rejected": true,
+      "missing_seal_error": "exact accepted all3 registry/gate/ledger/30seal snapshot required",
+      "no_scientific_import": true,
+      "files_modified": false
+    },
+    "method": "Normal metadata-only input_pins readback, then in-memory digest override for the original DINO gate mismatch and in-memory accepted JSON parse with one EfficientNet completion seal removed. No file changes and no scientific modules imported."
+  },
+  "root_TDD_evidence": {
+    "cpu_admission_accepted_proofs_RED.log": {
+      "sha256": "4c16cd991e94158b6475b393a90104e889d2f1cff157bdacf3d6e894f4a74392",
+      "result": "2 failed, 5 deselected in 0.04s; both regressions did not raise"
+    },
+    "cpu_admission_accepted_proofs_GREEN.log": {
+      "sha256": "898d6d15b06ef1f20c0c8be6a0769802c81a496d910f76662ab7de50746c2444",
+      "result": "45 passed in 0.24s"
+    }
+  },
+  "remaining_findings": [],
+  "critical_findings": 0,
+  "important_findings": 0,
+  "minor_findings": 0,
+  "preserved_boundary_checks": [
+    "Exact reviewed helper/adapter hashes and qualified 20-source manifest remain pinned.",
+    "Default entry is inert; actual invocation requires a bounded CPU environment, canonical roots and no preimported reliability_v2 modules.",
+    "The exact selected effective ten runs feed ORIGINAL worker_h.verify_run_completion fresh on every ledger; reviewed adapter restoration and concurrency safeguards remain unchanged.",
+    "The entry still calls ORIGINAL analysis_h._pair_context, preserving its two histories by seven roles, full original cache validation, PNG byte/decoded RGB, checkpoint/head/chunk and provenance checks.",
+    "Progress output only counts ledger starts and does not replace a verifier call. A report still requires fourteen successful ledger records, fourteen cache completion markers and 140 fresh source completions, then atomic no-overwrite publication."
+  ],
+  "declined_to_judge": [
+    {
+      "behavior": "Actual canonical original pair-context result and 14-role/140-source completion success",
+      "reason": "No actual admission was launched. The separate finite run must provide evidence of its full returned identity and validation result."
+    },
+    {
+      "behavior": "Capacity, memory/I/O admission, throughput, speedup and baseline equivalence measurement",
+      "reason": "Metadata readback and bounded unit/probe tests do not measure the real workload or concurrent-resource impact."
+    },
+    {
+      "behavior": "Production scoring/cache-owner integration, target export authority changes and original seed7 process outcome",
+      "reason": "Outside isolated engineering review; no such launch, source edit or live-owner change was made."
+    }
+  ],
+  "review_actions": {
+    "source_or_proof_files_modified": false,
+    "real_weights_or_GPU_used": false,
+    "scientific_modules_imported_by_metadata_probes": false,
+    "actual_admission_or_scoring_launched": false,
+    "live_owner_or_git_state_modified": false
+  },
+  "engineering_entry_review_passed": true,
+  "actual_pair_context_validation_accepted": false,
+  "capacity_or_throughput_accepted": false,
+  "production_integration_accepted": false
+}

@@ -1,0 +1,43 @@
+{
+  "schema": "M_EXACT_MULTIPLICITY_BUNDLE_V1",
+  "identity": {
+    "artifact": "target_full/closure_bootstrap.json",
+    "kind": "json",
+    "sink_identity_sha256": "d907cc4be3e46ec40bca910d5330e125d2bca88dbacf5e0622e5a3a3280a68e6"
+  },
+  "raw_json_sha256": "1bf25e0cfc56b6ea082d9778dcd5326609365b0244e687935cbb6b6aaab65af0",
+  "raw_json_bytes": 227592735,
+  "implementation_sha256": {
+    "multiplicity_codec.py": "1931371915dcbf542b78b79ca433f202e6c6cdf194400985020f105eff92fa73",
+    "sensitivity_io.py": "d311923c3e35b8e9ba2fc42dc5ee7e6e46b66ce3c9f2d3a923ea8ccb949be9ce",
+    "multiplicity_bundle.py": "3aa5debf7d98bd976bc21fa5be2135d34cdfa8e0b91873f356cc8f57e24360c3"
+  },
+  "metadata": {
+    "compressed_sha256": "14959183407e2c50dd1ff0619f57393299ab5d000e056e3b3f2dc07f6d58d20f",
+    "uncompressed_sha256": "4e0d11b224eaf139e0f223b0b015222e24a8a2ec736de6a7bfbf83394123cded",
+    "compressed_bytes": 1486074,
+    "uncompressed_bytes": 5008579
+  },
+  "npz": {
+    "sha256": "37cef939f57fb4258e88fcaccc7167f038c61e1009c6ae1193d014b62e5228fd",
+    "bytes": 4298324
+  },
+  "array_specs": {
+    "counts_0": {
+      "dtype": "<u4",
+      "shape": [
+        2000,
+        2027
+      ],
+      "bytes": 16216000
+    },
+    "order_0": {
+      "dtype": "<i4",
+      "shape": [
+        2000,
+        2027
+      ],
+      "bytes": 16216000
+    }
+  }
+}

@@ -1,0 +1,244 @@
+{
+  "schema": "MANUSCRIPT_ACCEPTED_H_CLIP_FIVE_SEED_PARTIAL_INTEGRATION_V1",
+  "utc": "2026-10-26T09:47:03.064058+00:00",
+  "independent_summary_audit": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/H_CLIP_five_seed_saved_summary_actual_independent_audit_20261026.json",
+    "sha256": "7603b1dd884b7f89adff896ce191f52faa7a79b3ab569ad0123628ebfd5e8cd1"
+  },
+  "root_summary_acceptance": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/H_CLIP_five_seed_summary_root_acceptance_20261026T0940.json",
+    "sha256": "865bc327275f7ec75896f3aaa21746e0a4b7685ff1a7fffb81c0ef0f678baded"
+  },
+  "source_tables": {
+    "five_seed_metrics.csv": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/five_seed_saved_result_summary/five_seed_metrics.csv",
+      "sha256": "599435e1fb7c81b1421073259bbcae9211143c0fa8467e22d0ecab91b0d2b4f6"
+    },
+    "five_seed_comparisons.csv": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/five_seed_saved_result_summary/five_seed_comparisons.csv",
+      "sha256": "eab8ce134dbe87613ff0e0329c28e338ea62cc0c7cc1c48b15e8a6511b38c1f8"
+    }
+  },
+  "scope": "CLIP original LAST five-seed primary native B deployment mean_logit only; no other backbone or M result asserted",
+  "numeric_rows_full_precision": {
+    "SOURCE_TEST": {
+      "H00_auc": {
+        "backbone": "clip_vit_b16",
+        "domain": "SOURCE_TEST",
+        "cohort": "all_B",
+        "aggregation": "mean_logit",
+        "cell": "H00",
+        "threshold_kind": "default",
+        "metric": "pooled_auc",
+        "n_seeds": "5",
+        "expected_seeds": "(7, 42, 123, 2026, 3407)",
+        "n_valid_seeds": "5",
+        "complete_five_seeds": "True",
+        "all_estimates_available": "True",
+        "estimate_mean": "0.9934311224489796",
+        "estimate_sample_sd": "0.0010397951047442146",
+        "n_positive": "5",
+        "n_negative": "0",
+        "n_zero_within_tolerance": "0",
+        "status": "ok",
+        "model_count": "5",
+        "inference_scope": "descriptive_across_five_training_seeds"
+      },
+      "H10_auc": {
+        "backbone": "clip_vit_b16",
+        "domain": "SOURCE_TEST",
+        "cohort": "all_B",
+        "aggregation": "mean_logit",
+        "cell": "H10",
+        "threshold_kind": "default",
+        "metric": "pooled_auc",
+        "n_seeds": "5",
+        "expected_seeds": "(7, 42, 123, 2026, 3407)",
+        "n_valid_seeds": "5",
+        "complete_five_seeds": "True",
+        "all_estimates_available": "True",
+        "estimate_mean": "0.9912040816326531",
+        "estimate_sample_sd": "0.00035019666337699574",
+        "n_positive": "5",
+        "n_negative": "0",
+        "n_zero_within_tolerance": "0",
+        "status": "ok",
+        "model_count": "5",
+        "inference_scope": "descriptive_across_five_training_seeds"
+      },
+      "delta_auc": {
+        "backbone": "clip_vit_b16",
+        "domain": "SOURCE_TEST",
+        "cohort": "all_B",
+        "aggregation": "mean_logit",
+        "comparison": "H10-H00",
+        "threshold_kind": "default",
+        "metric": "pooled_auc",
+        "n_seeds": "5",
+        "expected_seeds": "(7, 42, 123, 2026, 3407)",
+        "n_valid_seeds": "5",
+        "complete_five_seeds": "True",
+        "all_estimates_available": "True",
+        "estimate_mean": "-0.002227040816326542",
+        "estimate_sample_sd": "0.000761982579237923",
+        "n_positive": "0",
+        "n_negative": "5",
+        "n_zero_within_tolerance": "0",
+        "status": "ok",
+        "model_count": "5",
+        "inference_scope": "descriptive_across_five_training_seeds"
+      },
+      "delta_ba_source_real": {
+        "backbone": "clip_vit_b16",
+        "domain": "SOURCE_TEST",
+        "cohort": "all_B",
+        "aggregation": "mean_logit",
+        "comparison": "H10-H00",
+        "threshold_kind": "source_real",
+        "metric": "pooled_ba",
+        "n_seeds": "5",
+        "expected_seeds": "(7, 42, 123, 2026, 3407)",
+        "n_valid_seeds": "5",
+        "complete_five_seeds": "True",
+        "all_estimates_available": "True",
+        "estimate_mean": "-0.010357142857142888",
+        "estimate_sample_sd": "0.012917146688469083",
+        "n_positive": "2",
+        "n_negative": "3",
+        "n_zero_within_tolerance": "0",
+        "status": "ok",
+        "model_count": "5",
+        "inference_scope": "descriptive_across_five_training_seeds"
+      }
+    },
+    "TARGET_TEST": {
+      "H00_auc": {
+        "backbone": "clip_vit_b16",
+        "domain": "TARGET_TEST",
+        "cohort": "all_B",
+        "aggregation": "mean_logit",
+        "cell": "H00",
+        "threshold_kind": "default",
+        "metric": "pooled_auc",
+        "n_seeds": "5",
+        "expected_seeds": "(7, 42, 123, 2026, 3407)",
+        "n_valid_seeds": "5",
+        "complete_five_seeds": "True",
+        "all_estimates_available": "True",
+        "estimate_mean": "0.9006504598544837",
+        "estimate_sample_sd": "0.007949090247225035",
+        "n_positive": "5",
+        "n_negative": "0",
+        "n_zero_within_tolerance": "0",
+        "status": "ok",
+        "model_count": "5",
+        "inference_scope": "descriptive_across_five_training_seeds"
+      },
+      "H10_auc": {
+        "backbone": "clip_vit_b16",
+        "domain": "TARGET_TEST",
+        "cohort": "all_B",
+        "aggregation": "mean_logit",
+        "cell": "H10",
+        "threshold_kind": "default",
+        "metric": "pooled_auc",
+        "n_seeds": "5",
+        "expected_seeds": "(7, 42, 123, 2026, 3407)",
+        "n_valid_seeds": "5",
+        "complete_five_seeds": "True",
+        "all_estimates_available": "True",
+        "estimate_mean": "0.8825631884146211",
+        "estimate_sample_sd": "0.016193340249915474",
+        "n_positive": "5",
+        "n_negative": "0",
+        "n_zero_within_tolerance": "0",
+        "status": "ok",
+        "model_count": "5",
+        "inference_scope": "descriptive_across_five_training_seeds"
+      },
+      "delta_auc": {
+        "backbone": "clip_vit_b16",
+        "domain": "TARGET_TEST",
+        "cohort": "all_B",
+        "aggregation": "mean_logit",
+        "comparison": "H10-H00",
+        "threshold_kind": "default",
+        "metric": "pooled_auc",
+        "n_seeds": "5",
+        "expected_seeds": "(7, 42, 123, 2026, 3407)",
+        "n_valid_seeds": "5",
+        "complete_five_seeds": "True",
+        "all_estimates_available": "True",
+        "estimate_mean": "-0.01808727143986264",
+        "estimate_sample_sd": "0.010993741168266543",
+        "n_positive": "0",
+        "n_negative": "5",
+        "n_zero_within_tolerance": "0",
+        "status": "ok",
+        "model_count": "5",
+        "inference_scope": "descriptive_across_five_training_seeds"
+      },
+      "delta_ba_source_real": {
+        "backbone": "clip_vit_b16",
+        "domain": "TARGET_TEST",
+        "cohort": "all_B",
+        "aggregation": "mean_logit",
+        "comparison": "H10-H00",
+        "threshold_kind": "source_real",
+        "metric": "pooled_ba",
+        "n_seeds": "5",
+        "expected_seeds": "(7, 42, 123, 2026, 3407)",
+        "n_valid_seeds": "5",
+        "complete_five_seeds": "True",
+        "all_estimates_available": "True",
+        "estimate_mean": "-0.04120943364103054",
+        "estimate_sample_sd": "0.017471685558150808",
+        "n_positive": "0",
+        "n_negative": "5",
+        "n_zero_within_tolerance": "0",
+        "status": "ok",
+        "model_count": "5",
+        "inference_scope": "descriptive_across_five_training_seeds"
+      }
+    }
+  },
+  "global_study_or_papers_complete": false,
+  "files": [
+    {
+      "main": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/manuscript_preparation/20261024_覆盖整合版/期刊论文整合稿_中文.md",
+      "mirror": "/home/z/obsidian/paper/deepfake-detector/新实验设计/20261023/论文方法与设置准备_v2/20261024_覆盖整合版/期刊论文整合稿_中文.md",
+      "before_sha256": "b42c8dc2740089d1bab4f3353a1f93704813a44a3513a2c83d3585863b6ccc9b",
+      "after_sha256": "678d9a62fb8cc2a7af81805de6fc1e163572dcfc79f5856b7f419ba06492d750",
+      "backup": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/backups/20261026T0945_H_CLIP_partial_期刊论文整合稿_中文.md",
+        "sha256": "b42c8dc2740089d1bab4f3353a1f93704813a44a3513a2c83d3585863b6ccc9b"
+      },
+      "PENDING_count": 4
+    },
+    {
+      "main": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/manuscript_preparation/20261024_覆盖整合版/journal_manuscript_integrated_en.md",
+      "mirror": "/home/z/obsidian/paper/deepfake-detector/新实验设计/20261023/论文方法与设置准备_v2/20261024_覆盖整合版/journal_manuscript_integrated_en.md",
+      "before_sha256": "8509129d3e3c3aab0131fcf89ad8aa27927d75ae952d58d28254e60e1f691845",
+      "after_sha256": "ca09644e1a1e7ea8a0691a48051f4f54eac2af56d24cd4ab1993b5fa1c07c350",
+      "backup": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/backups/20261026T0945_H_CLIP_partial_journal_manuscript_integrated_en.md",
+        "sha256": "8509129d3e3c3aab0131fcf89ad8aa27927d75ae952d58d28254e60e1f691845"
+      },
+      "PENDING_count": 4
+    }
+  ],
+  "asset_index_update": {
+    "main": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/manuscript_preparation/20261024_覆盖整合版/附录A_复现资产索引.json",
+      "sha256": "fa4853eeb5703ac9fccf19e725d533eeae45a2a72fa984d4f80a980ff08b552d"
+    },
+    "mirror": {
+      "path": "/home/z/obsidian/paper/deepfake-detector/新实验设计/20261023/论文方法与设置准备_v2/20261024_覆盖整合版/附录A_复现资产索引.json",
+      "sha256": "fa4853eeb5703ac9fccf19e725d533eeae45a2a72fa984d4f80a980ff08b552d"
+    },
+    "backup": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/backups/20261026T0945_H_CLIP_partial_附录A_复现资产索引.json",
+      "sha256": "559b415c2b682b1b618c2ffbf8d52a89ffaf7694e63e799d9baa6ca44a218b67"
+    }
+  }
+}

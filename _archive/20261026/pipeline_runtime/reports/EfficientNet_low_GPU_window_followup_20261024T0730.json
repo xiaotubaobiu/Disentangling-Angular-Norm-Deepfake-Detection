@@ -1,0 +1,115 @@
+{
+  "utc": "2026-10-24T07:37:06.204347+00:00",
+  "status": "PASS_EFFICIENTNET_LOW_WINDOW_RESOLVED_WITH_FRESH_GPU_AND_LOG_PROGRESS",
+  "prior_receipt": "reports/check_20261024T0730Z.json",
+  "prior_GPUmeans": [
+    78.625,
+    30.75,
+    0.0,
+    79.375
+  ],
+  "prior_both_EfficientNet_live_records": 10387,
+  "prior_records_equal13x799": true,
+  "before": [
+    {
+      "pid": 746133,
+      "run_id": "D_formal_efficientnet_b0_seed7",
+      "gpu": 1,
+      "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+      "utc": "2026-10-24T07:36:51.148717+00:00",
+      "CPU_ticks": 416298,
+      "state": "S",
+      "metadata_epoch": 13,
+      "log": "epoch_14_updates.jsonl",
+      "log_age_seconds": 0.03426170349121094,
+      "latest_attempt": 10757,
+      "latest_live_epoch": 14
+    },
+    {
+      "pid": 746134,
+      "run_id": "D_formal_efficientnet_b0_seed42",
+      "gpu": 2,
+      "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+      "utc": "2026-10-24T07:36:51.149534+00:00",
+      "CPU_ticks": 416030,
+      "state": "S",
+      "metadata_epoch": 13,
+      "log": "epoch_14_updates.jsonl",
+      "log_age_seconds": 0.0950162410736084,
+      "latest_attempt": 10900,
+      "latest_live_epoch": 14
+    }
+  ],
+  "after": [
+    {
+      "pid": 746133,
+      "run_id": "D_formal_efficientnet_b0_seed7",
+      "gpu": 1,
+      "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+      "utc": "2026-10-24T07:37:06.200978+00:00",
+      "CPU_ticks": 418089,
+      "state": "S",
+      "metadata_epoch": 13,
+      "log": "epoch_14_updates.jsonl",
+      "log_age_seconds": 0.043184518814086914,
+      "latest_attempt": 10814,
+      "latest_live_epoch": 14
+    },
+    {
+      "pid": 746134,
+      "run_id": "D_formal_efficientnet_b0_seed42",
+      "gpu": 2,
+      "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+      "utc": "2026-10-24T07:37:06.203093+00:00",
+      "CPU_ticks": 417794,
+      "state": "S",
+      "metadata_epoch": 13,
+      "log": "epoch_14_updates.jsonl",
+      "log_age_seconds": 0.1572582721710205,
+      "latest_attempt": 10955,
+      "latest_live_epoch": 14
+    }
+  ],
+  "GPU0to3_mean_percent": [
+    82.125,
+    59.5,
+    57.5,
+    83.25
+  ],
+  "samples": [
+    {
+      "utc": "2026-10-24T07:36:51.149836+00:00",
+      "csv": "0, 86, 5414\n1, 55, 2436\n2, 59, 2436\n3, 85, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-24T07:36:53.279914+00:00",
+      "csv": "0, 85, 5414\n1, 63, 2436\n2, 50, 2436\n3, 79, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-24T07:36:55.418167+00:00",
+      "csv": "0, 77, 5414\n1, 58, 2436\n2, 63, 2436\n3, 85, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-24T07:36:57.545471+00:00",
+      "csv": "0, 76, 5414\n1, 61, 2436\n2, 52, 2436\n3, 82, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-24T07:36:59.693088+00:00",
+      "csv": "0, 83, 5414\n1, 55, 2436\n2, 59, 2436\n3, 83, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-24T07:37:01.827403+00:00",
+      "csv": "0, 83, 5414\n1, 58, 2436\n2, 58, 2436\n3, 79, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-24T07:37:03.958242+00:00",
+      "csv": "0, 86, 5414\n1, 62, 2436\n2, 59, 2436\n3, 86, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-24T07:37:06.066957+00:00",
+      "csv": "0, 81, 5414\n1, 64, 2436\n2, 60, 2436\n3, 87, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n"
+    }
+  ],
+  "specific_cause_of_prior_low_window": "NOT_ESTABLISHED; aligned with complete13epoch attempt count, no restart or IO diagnosis inferred",
+  "training_or_protocol_change": false
+}

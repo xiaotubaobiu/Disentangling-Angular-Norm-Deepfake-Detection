@@ -1,0 +1,17 @@
+grouping,representation,aggregation,scale,precision_history,stable,ranking_usable,triggered,reason,negative_control_order_preserved,auc_high_precision
+correct,raw,scaled_mean_logit,0.1,[],True,True,False,no_numeric_trigger,True,
+correct,raw,scaled_mean_logit,1.0,[],True,True,False,no_numeric_trigger,True,
+correct,raw,mean_probability,,[],True,True,False,no_numeric_trigger,,0.75
+correct,raw,sigmoid_mean_logit,,[],True,True,False,no_numeric_trigger,True,0.75
+correct,l2,scaled_mean_logit,0.1,[],True,True,False,no_numeric_trigger,True,
+correct,l2,scaled_mean_logit,1.0,[],True,True,False,no_numeric_trigger,True,
+correct,l2,mean_probability,,[],True,True,False,no_numeric_trigger,,0.75
+correct,l2,sigmoid_mean_logit,,[],True,True,False,no_numeric_trigger,True,0.75
+collision,raw,scaled_mean_logit,0.1,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,True,
+collision,raw,scaled_mean_logit,1.0,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,True,
+collision,raw,mean_probability,,[],True,True,False,no_numeric_trigger,,0.5
+collision,raw,sigmoid_mean_logit,,"[80, 160]",True,True,True,ties_or_endpoints_or_forced,True,0.75
+collision,l2,scaled_mean_logit,0.1,[],True,True,False,no_numeric_trigger,True,
+collision,l2,scaled_mean_logit,1.0,[],True,True,False,no_numeric_trigger,True,
+collision,l2,mean_probability,,[],True,True,False,no_numeric_trigger,,0.5
+collision,l2,sigmoid_mean_logit,,[],True,True,False,no_numeric_trigger,True,0.5

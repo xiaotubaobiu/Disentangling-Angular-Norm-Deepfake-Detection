@@ -1,0 +1,83 @@
+{
+  "schema": "H_IMPLEMENTATION_ACCEPTANCE_V1",
+  "status": "IMPLEMENTED_CPU_VERIFIED_INDEPENDENTLY_REVIEWED_RUNTIME_PENDING",
+  "utc": "2026-10-23T11:17:07.875133+00:00",
+  "commit": "8afedc7c1c2b491a757b5a9bf2e3b157b832901a",
+  "training_bundle_sha256": "336f3097434edf903a5ff402162e29afeca2442ca50f9c7d9883ca60136b8335",
+  "H_bundle_sha256": "5b5b101bcaabd73f4818bd9de03425d5c3898c21fcf0181fb28f39f6e5e4f295",
+  "source_sha256": {
+    "reliability_v2/data_h.py": "ad81f65c27d53159e6902bf8a20b0910cd129f75eb0105e5a5a053bcc2d2f45e",
+    "reliability_v2/qualification_h.py": "b356d2ff1be89476821927abdb3145d2c8989724eb465d3b01b5c0f091060c1d",
+    "reliability_v2/queue_h.py": "a2792361443e64622391fb6ae766ee5e6f887789d662afdfb6d809f9a5ea8176",
+    "reliability_v2/worker_h.py": "d0219aa52ebb1b6602602d5b09eb5fdfbbb9dc3aeb7b55dbfc0251ced66136f4",
+    "tests/test_data_h.py": "f7488203ecc057ecf597faed28497130b733aca1807e0f62d1cfaa019dc51070",
+    "tests/test_qualification_h.py": "d05579014e956b71be625f301d1483af0fba7738484db5b54d706091763a7623",
+    "tests/test_queue_h.py": "e4edad61cc4b64b9a3c50cd08d4daade063c32de793f991c8601d702fbfcb19d",
+    "tests/test_worker_h.py": "47facdb0746bae858c0f05d27d328bbcad0fc2339af9320701f990fcf480adde",
+    "docs/h_training_queue_usage.md": "aff7fb4bf0560548ca181ba0cd5d7c7d2930308866bd8bb0ad6ac84b7bdc98a6",
+    "docs/manuscript_preparation/verified_additional_references.bib": "659cf218aa821d389063c407d3876e5ddb3d93b18d04034da3b8deb274ebf255",
+    "docs/manuscript_preparation/additional_reference_audit.json": "cf828ec429350e94fb4402a0d1bd8e015c386c57f4a552b8a910c0254f21f366"
+  },
+  "evidence_sha256": {
+    "reports/H_implementation_full_suite_final.log": "8070343dc4a74a48f3059dede66751dd87bf61ed644f76620b25062040205c9d",
+    "reports/H_worker_missing_start_red.log": "b65d7a4f6cd1e21bf20630f71661e9671f5e346da99336e2ace5d682b6b7d477",
+    "reports/H_qualification_post_format_tests.log": "abee51dca50cc36ceae794283e203887ff2d2e23cd3ed063249b81a7a723956d",
+    "reports/H_pipeline_independent_review.json": "f4f3aaac885e89a5bf438093b7d1db216ddf115dde92ecea900e431e4f46d8a7",
+    "reports/H_data_qualification_independent_review.json": "1ebcf8da2f842b5710ee893efedf282c1373b1e6cbd66a1ac5c81d7580cd2e07",
+    "reports/H_format_only_addendum.json": "995a447281ce99bd05ba1fe6d2ad4e92b56fcdbae8c68774ccaeb40c4d92979c",
+    "reports/qualification_h_implementation.json": "5e9f409cf55e0ed7fe71f53478e577d5f0c8c8df33696683b965c03d03fb0334",
+    "reports/qualification_h_source_geometry_integration.json": "af7dd96d555f41ff7dc29cb0ab7acfe49ccffb986343d437047935d0ac3c66dc",
+    "reports/data_h_gate_implementation.json": "3371c06d5b24beef728a1f9facbdea184146eca38f6b6250e5c699d98d922a2f",
+    "reports/H_pipeline_independent_format_review_addendum.json": "2f736dbb1c3b9cd9f790fd39362c756998610a084f29d81c979e212b7dd11cb5"
+  },
+  "CPU_full_suite": {
+    "passed": 199,
+    "seconds": 184.99,
+    "scope": "CPU-only synthetic/unit/integration tests; no production pretrained H GPU qualification"
+  },
+  "actual_source_integration": "10B videos/80PNG byte+RGB/schema checked; all10 legacyABversions ineligible and excluded, not repaired/accepted",
+  "formatting_only_followup": "Two EOF-only changes; old/newbytes and identicalAST bound in addendum;22qualifier tests repeated on finalbytes",
+  "readiness": {
+    "standard_development_models": 20,
+    "formal_models": 30,
+    "maximum_additional_DINO_models": 8,
+    "maximum_conditional_FP32_formal_reruns": 30,
+    "H_freeze_present": false,
+    "H_gate_present": false,
+    "D_priority": {
+      "ready": false,
+      "reason": "D_QUEUE_HAS_PRIORITY",
+      "D_stage": "P2_D_STANDARD_DEVELOPMENT",
+      "D_owner_pid": 3942476
+    },
+    "GPU_launch_attempted": false,
+    "modifies_D_configuration": false,
+    "next": "full H pixels + fresh audited freeze, then H qualification on D-priority-approved idle devices"
+  },
+  "production_H_run_ids": [],
+  "production_H_freeze_created": false,
+  "production_H_gate_created": false,
+  "D_config_modified": false,
+  "D_H_existing_processes_restarted": false,
+  "registered_counts": {
+    "standard_development": 20,
+    "formal": 30,
+    "maximum_extra_DINO_development": 8,
+    "maximum_conditional_FP32_formal_reruns": 30
+  },
+  "capacity_policy": "Initial>200GiB+50GiB; later50GiBreserve; conditionalFP32additional1.2xretained10AMPmodelbytes",
+  "scheduling": "Hqualification/trainingwaitDgpu/cacheterminalstatusandfreshidleGPU0-3physicalUUID/compute/memory/lifetime-lockchecks;noGPU4-7",
+  "pending": [
+    "Finishall8431Hpixels",
+    "FreshrepairedfullcandidateauditwithSOURCE_UNUSED",
+    "Independentproductiondata/cohortreviewthenfreeze",
+    "Dgpu/cachequeuecompletion",
+    "RealsourceAMP+FP32qualificationsixjobsbothhistories",
+    "H20developmentconditional8DINO+30formalconditionaluniformFP32",
+    "Htargetcache/scoringandallB/common2x2analysis",
+    "FormalDanalysis/fiveseedtables/figures",
+    "FullCN/ENpapersandmasterreadback"
+  ],
+  "scientific_results_complete": false,
+  "journal_manuscripts_complete": false
+}

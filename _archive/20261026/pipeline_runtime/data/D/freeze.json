@@ -1,0 +1,978 @@
+{
+  "status": "FROZEN",
+  "protocol": "D_FS9_FR12_full_association_rebuild_20261023_v2",
+  "utc": "2026-10-23T08:31:57.878478+00:00",
+  "pid": 3887955,
+  "method_registry": {
+    "FS9": [
+      "fsgan",
+      "faceswap",
+      "simswap",
+      "inswap",
+      "blendface",
+      "uniface",
+      "mobileswap",
+      "e4s",
+      "facedancer"
+    ],
+    "FR12": [
+      "fomm",
+      "facevid2vid",
+      "wav2lip",
+      "MRAA",
+      "one_shot_free",
+      "pirender",
+      "tpsm",
+      "lia",
+      "danet",
+      "sadtalker",
+      "mcnet",
+      "hyperreenact"
+    ]
+  },
+  "method_count": 21,
+  "manifest_sha256": {
+    "audit_metadata.parquet": "ea6ebaf217cb51d14cb6130e493f9018525ddd48425523a10a5e00890cd51db2",
+    "audit_receipt.json": "cb0d17bc92dcc1f2ebf70f88d2933106533adc7fdfee4fa1c0f2e7d822a1f012",
+    "cdf_calibration_scope.json": "16609d5a05013d89f92201928907f9d21b15e6bafe980e3220d836dbe30854e1",
+    "counts.csv": "717a39de6a18beccdff3b335019420bd1d529893fbf36e6974c9a6a008c7a71c",
+    "dev.parquet": "2c157ce3f30504479e50023ff43c76bdd0a2df8cd7e31a938356a6306b7550bd",
+    "exclusions.parquet": "b5f2dbda3d9482f2d784438254aa81e456c13b347cd659dce7a9c38488bb23df",
+    "full_associations.parquet": "7cf1988add470e6f5205e96b91ef98f1c317df0fe2642ed313ebe51f64a5385a",
+    "qualification_source.parquet": "64ab6605201278e46d92782ff02a08139a0ac2da0401b4b76b161f5cf06f526f",
+    "real_index_provenance.parquet": "b68b8bddbbc6d072a36bbcfd4bcc836ea229d140aab4f2b8613bb48864c22dcc",
+    "selected_associations.parquet": "fc49f03e15576b0154d1276d04a6d61338b7dc83737b96f6e81e75cb5ba03879",
+    "source_cal.parquet": "5acc4b7e2d28c6ff9bf437ed2316f35b4473441a38c0871bcca092ead1d4ecc7",
+    "source_pair_partition.json": "4a2298429077eb27bf6363209297f58979ed4fa9b5798ab75234080e01809026",
+    "source_test.parquet": "316559639a981ca7e508864853579846bef4ed6bfec727e03755164988dc6f6a",
+    "target_cal.parquet": "42728e3d17735787b49a3e8907e6072da56add1547202103bf594504fa9c9850",
+    "target_calibration_exclusions.parquet": "5bc69dc8c1226469ab241cfd978c13d2aeea9be3699d80317c3fec928f4f8ae1",
+    "target_full.parquet": "bf1ee5585c245a4c318195816342096be14e94a9f070a10759ea7f48469be229",
+    "target_test.parquet": "4ee912e318397814ab2d780570e45762c4cd497dde984b5bdf09578e8a813c19",
+    "train.parquet": "9d85e421d803f20481eb7720854cdb4369349b97dd5e04f5763dbe851077f496",
+    "training_associations.parquet": "d556ec522d75ee443b3febee9a09ed8e2dfca229d2cc12cde81e3d939b6170f3",
+    "unknown_source_index_audit.json": "dd37965ed6e2b06acf235d53a6d12fd1382fe9d28932f836ff40d966032d1775",
+    "video_identity.parquet": "494742184ababe0d27a72761cd2668bd9245363bc95c383cc6500e7e220dbc21"
+  },
+  "original_indices_sha256": {
+    "/Dataset/deepfake_detection/DF40_all/dataset_json_update/fsgan_ff.json": "6012101b257b500e043c1540d8adee7a18ea0367e6fc19ce40d28514c655cb45",
+    "/Dataset/deepfake_detection/DF40_all/dataset_json_update/fsgan_cdf.json": "428f8675d7fa85539870f86012bd2a20c09ffdccaced3e4c9abe0522268aa2d3",
+    "/Dataset/deepfake_detection/DF40_all/dataset_json_update/faceswap_ff.json": "8178df67cf78fcc80d8e6bfdb71b775f0e653bc2f148ba92e533001e1ec988fb",
+    "/Dataset/deepfake_detection/DF40_all/dataset_json_update/faceswap_cdf.json": "75bac529c8703e9b00299508cb3f588b69171075247aafa588545542dc17480c",
+    "/Dataset/deepfake_detection/DF40_all/dataset_json_update/simswap_ff.json": "026b043b0ae258746864b5f9193a9fa4461265d23851ce83fb073e67693324ac",
+    "/Dataset/deepfake_detection/DF40_all/dataset_json_update/simswap_cdf.json": "40baa7db11d15298978328167a051c34b499597078cb387db2420fb940625d6b",
+    "/Dataset/deepfake_detection/DF40_all/dataset_json_update/inswap_ff.json": "82b7b0430444b84f3b51f63b77b8341054f1d3b00d018617e57ed20a611b639a",
+    "/Dataset/deepfake_detection/DF40_all/dataset_json_update/inswap_cdf.json": "7237eac8b8ed392bdb4224338d91539aea19d4aca252a5b7f7bd802ce96a9a23",
+    "/Dataset/deepfake_detection/DF40_all/dataset_json_update/blendface_ff.json": "0dcf7f8f37c0417005d1f8f7b93519152a833d8d80e18fc013bc8765632815c2",
+    "/Dataset/deepfake_detection/DF40_all/dataset_json_update/blendface_cdf.json": "b106a4e9260a338fe5769e37093ae9909c3b966bf25133de8e5557b4560a312f",
+    "/Dataset/deepfake_detection/DF40_all/dataset_json_update/uniface_ff.json": "46b9b174fd211c394728f149e59bf99d751bb82708984b45635481184151f73c",
+    "/Dataset/deepfake_detection/DF40_all/dataset_json_update/uniface_cdf.json": "dbb3cec003a3abbcd4d52b456517ba090e262da9560f2683fb940b0f0dfe1c54",
+    "/Dataset/deepfake_detection/DF40_all/dataset_json_update/mobileswap_ff.json": "7ae2310b0c1215e001c0952abd830802d2da7dff9b9cc48536675987df242c5a",
+    "/Dataset/deepfake_detection/DF40_all/dataset_json_update/mobileswap_cdf.json": "a57963abe33a137979ede8a10d8fa33dc8c99bcf8f861ca138b7fbd9808bfc2f",
+    "/Dataset/deepfake_detection/DF40_all/dataset_json_update/e4s_ff.json": "2dbde2769a75b2bfcbf7ce56c70117dfac56ad1ae426bc1f78f63198b8634a7f",
+    "/Dataset/deepfake_detection/DF40_all/dataset_json_update/e4s_cdf.json": "57c85770f7ce275c977fb716202d5342942cbd908bf10e83f34da6389219159f",
+    "/Dataset/deepfake_detection/DF40_all/dataset_json_update/facedancer_ff.json": "e297535d51de2a8cd1b31a62836d33919aa7c66d3b0f6ce2b465ddac78a876dd",
+    "/Dataset/deepfake_detection/DF40_all/dataset_json_update/facedancer_cdf.json": "02c4f410a4cd04393a9d395da6481fa8f49122823ab59d13fdce9999fc18ce30",
+    "/Dataset/deepfake_detection/DF40_all/dataset_json_update/fomm_ff.json": "252a8f56b96a1636848ad98ebe86e8231191e8589eee27c696091337f5e253ef",
+    "/Dataset/deepfake_detection/DF40_all/dataset_json_update/fomm_cdf.json": "699cd79b44ae9c5346ddca5ac9418c81079687290f23f9fb57bd926f1539daed",
+    "/Dataset/deepfake_detection/DF40_all/dataset_json_update/facevid2vid_ff.json": "6ff53906413e92a45d8c8da02ce9e42d008e0ef795d75417f88696e43f5caab1",
+    "/Dataset/deepfake_detection/DF40_all/dataset_json_update/facevid2vid_cdf.json": "36173cdee73b93107a4a0e5f99b50cf66ed21680433d2810f405253c89a2795a",
+    "/Dataset/deepfake_detection/DF40_all/dataset_json_update/wav2lip_ff.json": "da977c9d4372e3d5bd634da8c0fc454e1c56d5b6add7f26feab9a9e011f94445",
+    "/Dataset/deepfake_detection/DF40_all/dataset_json_update/wav2lip_cdf.json": "d639c8c95516a535b8118d3e2b01cdd7487b4a5c54ebeee827be6e71c7c67753",
+    "/Dataset/deepfake_detection/DF40_all/dataset_json_update/MRAA_ff.json": "23cda4d4126753d9188023ff347d7d5436d1aa9ea304ec23c107e04476463333",
+    "/Dataset/deepfake_detection/DF40_all/dataset_json_update/MRAA_cdf.json": "983d0425265c28b40c3283fe69a39db621277f219f64245e8f83d6aefe058ac0",
+    "/Dataset/deepfake_detection/DF40_all/dataset_json_update/one_shot_free_ff.json": "c309f4627b33ad6a283febafb24ec361de35295e5c75a68895650aa1b75268ea",
+    "/Dataset/deepfake_detection/DF40_all/dataset_json_update/one_shot_free_cdf.json": "03f533c9bc497d5d748062b79d0bd32b4ae6125d68d93610f1e2324730a538fa",
+    "/Dataset/deepfake_detection/DF40_all/dataset_json_update/pirender_ff.json": "4f32f8b2db265e21f41474ef39c687a772977def5d27a1b1c4fdb103aa2833c0",
+    "/Dataset/deepfake_detection/DF40_all/dataset_json_update/pirender_cdf.json": "9a27a07618be1d1f27dd11023eb9a18969394e68141a7dc7b856434afdf516c9",
+    "/Dataset/deepfake_detection/DF40_all/dataset_json_update/tpsm_ff.json": "d28787b5a9688648929f874dd34deb71c2b13b8b812b7f6bd833a119154e4cdd",
+    "/Dataset/deepfake_detection/DF40_all/dataset_json_update/tpsm_cdf.json": "cf1e267ab925c3b7b51fce725135291aef9475a3ab78461c5c9582e8f407198b",
+    "/Dataset/deepfake_detection/DF40_all/dataset_json_update/lia_ff.json": "786b6d41cb71c48f34024d89a81e77e61552f38f396f5879907f92b84c1fa9ad",
+    "/Dataset/deepfake_detection/DF40_all/dataset_json_update/lia_cdf.json": "23c9314405240c17358d45cd35bd0c9386ae00dce5f7c6b0866a853c9e1c63a3",
+    "/Dataset/deepfake_detection/DF40_all/dataset_json_update/danet_ff.json": "9de22e7bc5e627732b4cfefb3d24c30c7a1777064cf765fef92343566d4cf46d",
+    "/Dataset/deepfake_detection/DF40_all/dataset_json_update/danet_cdf.json": "d7ac09dd43e982a304cc37f490ccfd406033ccc7f7961be7ef127ddc930a5267",
+    "/Dataset/deepfake_detection/DF40_all/dataset_json_update/sadtalker_ff.json": "c99f1f339298603ca562f96edbf1c5471c1c5d55b72f381e3c5b12ccb419ea9e",
+    "/Dataset/deepfake_detection/DF40_all/dataset_json_update/sadtalker_cdf.json": "105346dd1ee51e0f8c8843a6d827a1bf7e3fc7773b104d0c0e8f8e0bf7046ebb",
+    "/Dataset/deepfake_detection/DF40_all/dataset_json_update/mcnet_ff.json": "cc8ec5da9a223f61863309244d0e07a030e5452b16f8f59bbce7a9835d0b18c8",
+    "/Dataset/deepfake_detection/DF40_all/dataset_json_update/mcnet_cdf.json": "e479c1919b37a80c8b8c8b13b2e864358f0d6b66e6af4cc41a7056dea2da666f",
+    "/Dataset/deepfake_detection/DF40_all/dataset_json_update/hyperreenact_ff.json": "93b70dce00a248ae48f4a8f282101704c0bf3a1ca16aeb98e5070f39ac959ece",
+    "/Dataset/deepfake_detection/DF40_all/dataset_json_update/hyperreenact_cdf.json": "524abf92935c4a7774569c47ac1a9133ce154cd3aadab6d8f1c2e5d2a7efa788"
+  },
+  "official_split_sha256": {
+    "train": "e59386911255e6fb0a79a7808ec2210536b8c0474268342694c4bca766d1b347",
+    "val": "b48cc511f66938e05356aaa9c67e150b1e3638c355db3d745225b0022884b36e",
+    "test": "886f5a0da623c25820692e0d8dc33d197ddb1db527a7f1cfcb9bcbca60fe4f40"
+  },
+  "code_sha256": "7d37fda956a5b5d0d9a4281a24b5967507ce28b892dd3a01486ec05280277cd1",
+  "canonical_train_inputs": 102225,
+  "training_association_rows": 102744,
+  "samples_per_epoch": 102272,
+  "sampling_method_probability": {
+    "MRAA": 0.023809523809523808,
+    "blendface": 0.023809523809523808,
+    "danet": 0.023809523809523808,
+    "e4s": 0.023809523809523808,
+    "facedancer": 0.023809523809523808,
+    "faceswap": 0.023809523809523808,
+    "facevid2vid": 0.023809523809523805,
+    "fomm": 0.023809523809523808,
+    "fsgan": 0.023809523809523805,
+    "hyperreenact": 0.023809523809523808,
+    "inswap": 0.023809523809523808,
+    "lia": 0.023809523809523808,
+    "mcnet": 0.023809523809523808,
+    "mobileswap": 0.023809523809523808,
+    "one_shot_free": 0.023809523809523808,
+    "pirender": 0.023809523809523808,
+    "real": 0.5,
+    "sadtalker": 0.023809523809523808,
+    "simswap": 0.023809523809523808,
+    "tpsm": 0.023809523809523808,
+    "uniface": 0.023809523809523808,
+    "wav2lip": 0.023809523809523805
+  },
+  "source_pair_partition": {
+    "train_pairs": 306,
+    "dev_pairs": 54,
+    "seed": 20261023
+  },
+  "counts": [
+    {
+      "role": "dev",
+      "method_id": "MRAA",
+      "label": 1,
+      "rows": 856,
+      "videos": 107,
+      "unique_RGB": 856,
+      "groups": 54
+    },
+    {
+      "role": "dev",
+      "method_id": "blendface",
+      "label": 1,
+      "rows": 864,
+      "videos": 108,
+      "unique_RGB": 864,
+      "groups": 54
+    },
+    {
+      "role": "dev",
+      "method_id": "danet",
+      "label": 1,
+      "rows": 856,
+      "videos": 107,
+      "unique_RGB": 856,
+      "groups": 54
+    },
+    {
+      "role": "dev",
+      "method_id": "e4s",
+      "label": 1,
+      "rows": 864,
+      "videos": 108,
+      "unique_RGB": 864,
+      "groups": 54
+    },
+    {
+      "role": "dev",
+      "method_id": "facedancer",
+      "label": 1,
+      "rows": 864,
+      "videos": 108,
+      "unique_RGB": 864,
+      "groups": 54
+    },
+    {
+      "role": "dev",
+      "method_id": "faceswap",
+      "label": 1,
+      "rows": 864,
+      "videos": 108,
+      "unique_RGB": 864,
+      "groups": 54
+    },
+    {
+      "role": "dev",
+      "method_id": "facevid2vid",
+      "label": 1,
+      "rows": 864,
+      "videos": 108,
+      "unique_RGB": 864,
+      "groups": 54
+    },
+    {
+      "role": "dev",
+      "method_id": "fomm",
+      "label": 1,
+      "rows": 864,
+      "videos": 108,
+      "unique_RGB": 864,
+      "groups": 54
+    },
+    {
+      "role": "dev",
+      "method_id": "fsgan",
+      "label": 1,
+      "rows": 848,
+      "videos": 106,
+      "unique_RGB": 848,
+      "groups": 53
+    },
+    {
+      "role": "dev",
+      "method_id": "hyperreenact",
+      "label": 1,
+      "rows": 688,
+      "videos": 86,
+      "unique_RGB": 688,
+      "groups": 54
+    },
+    {
+      "role": "dev",
+      "method_id": "inswap",
+      "label": 1,
+      "rows": 824,
+      "videos": 103,
+      "unique_RGB": 824,
+      "groups": 52
+    },
+    {
+      "role": "dev",
+      "method_id": "lia",
+      "label": 1,
+      "rows": 864,
+      "videos": 108,
+      "unique_RGB": 864,
+      "groups": 54
+    },
+    {
+      "role": "dev",
+      "method_id": "mcnet",
+      "label": 1,
+      "rows": 856,
+      "videos": 107,
+      "unique_RGB": 856,
+      "groups": 54
+    },
+    {
+      "role": "dev",
+      "method_id": "mobileswap",
+      "label": 1,
+      "rows": 864,
+      "videos": 108,
+      "unique_RGB": 864,
+      "groups": 54
+    },
+    {
+      "role": "dev",
+      "method_id": "one_shot_free",
+      "label": 1,
+      "rows": 864,
+      "videos": 108,
+      "unique_RGB": 864,
+      "groups": 54
+    },
+    {
+      "role": "dev",
+      "method_id": "pirender",
+      "label": 1,
+      "rows": 864,
+      "videos": 108,
+      "unique_RGB": 864,
+      "groups": 54
+    },
+    {
+      "role": "dev",
+      "method_id": "real",
+      "label": 0,
+      "rows": 864,
+      "videos": 108,
+      "unique_RGB": 864,
+      "groups": 54
+    },
+    {
+      "role": "dev",
+      "method_id": "sadtalker",
+      "label": 1,
+      "rows": 848,
+      "videos": 106,
+      "unique_RGB": 848,
+      "groups": 54
+    },
+    {
+      "role": "dev",
+      "method_id": "simswap",
+      "label": 1,
+      "rows": 864,
+      "videos": 108,
+      "unique_RGB": 864,
+      "groups": 54
+    },
+    {
+      "role": "dev",
+      "method_id": "tpsm",
+      "label": 1,
+      "rows": 864,
+      "videos": 108,
+      "unique_RGB": 864,
+      "groups": 54
+    },
+    {
+      "role": "dev",
+      "method_id": "uniface",
+      "label": 1,
+      "rows": 392,
+      "videos": 49,
+      "unique_RGB": 392,
+      "groups": 36
+    },
+    {
+      "role": "dev",
+      "method_id": "wav2lip",
+      "label": 1,
+      "rows": 864,
+      "videos": 108,
+      "unique_RGB": 864,
+      "groups": 54
+    },
+    {
+      "role": "source_cal",
+      "method_id": "real",
+      "label": 0,
+      "rows": 1120,
+      "videos": 140,
+      "unique_RGB": 1120,
+      "groups": 70
+    },
+    {
+      "role": "source_test",
+      "method_id": "MRAA",
+      "label": 1,
+      "rows": 1120,
+      "videos": 140,
+      "unique_RGB": 1120,
+      "groups": 70
+    },
+    {
+      "role": "source_test",
+      "method_id": "blendface",
+      "label": 1,
+      "rows": 1120,
+      "videos": 140,
+      "unique_RGB": 1120,
+      "groups": 70
+    },
+    {
+      "role": "source_test",
+      "method_id": "danet",
+      "label": 1,
+      "rows": 1120,
+      "videos": 140,
+      "unique_RGB": 1120,
+      "groups": 70
+    },
+    {
+      "role": "source_test",
+      "method_id": "e4s",
+      "label": 1,
+      "rows": 920,
+      "videos": 115,
+      "unique_RGB": 920,
+      "groups": 58
+    },
+    {
+      "role": "source_test",
+      "method_id": "facedancer",
+      "label": 1,
+      "rows": 1120,
+      "videos": 140,
+      "unique_RGB": 1120,
+      "groups": 70
+    },
+    {
+      "role": "source_test",
+      "method_id": "faceswap",
+      "label": 1,
+      "rows": 1120,
+      "videos": 140,
+      "unique_RGB": 1120,
+      "groups": 70
+    },
+    {
+      "role": "source_test",
+      "method_id": "facevid2vid",
+      "label": 1,
+      "rows": 1120,
+      "videos": 140,
+      "unique_RGB": 1120,
+      "groups": 70
+    },
+    {
+      "role": "source_test",
+      "method_id": "fomm",
+      "label": 1,
+      "rows": 1120,
+      "videos": 140,
+      "unique_RGB": 1120,
+      "groups": 70
+    },
+    {
+      "role": "source_test",
+      "method_id": "fsgan",
+      "label": 1,
+      "rows": 1120,
+      "videos": 140,
+      "unique_RGB": 1120,
+      "groups": 70
+    },
+    {
+      "role": "source_test",
+      "method_id": "hyperreenact",
+      "label": 1,
+      "rows": 1120,
+      "videos": 140,
+      "unique_RGB": 1120,
+      "groups": 70
+    },
+    {
+      "role": "source_test",
+      "method_id": "inswap",
+      "label": 1,
+      "rows": 944,
+      "videos": 118,
+      "unique_RGB": 944,
+      "groups": 68
+    },
+    {
+      "role": "source_test",
+      "method_id": "lia",
+      "label": 1,
+      "rows": 1120,
+      "videos": 140,
+      "unique_RGB": 1120,
+      "groups": 70
+    },
+    {
+      "role": "source_test",
+      "method_id": "mcnet",
+      "label": 1,
+      "rows": 1120,
+      "videos": 140,
+      "unique_RGB": 1120,
+      "groups": 70
+    },
+    {
+      "role": "source_test",
+      "method_id": "mobileswap",
+      "label": 1,
+      "rows": 1120,
+      "videos": 140,
+      "unique_RGB": 1120,
+      "groups": 70
+    },
+    {
+      "role": "source_test",
+      "method_id": "one_shot_free",
+      "label": 1,
+      "rows": 1120,
+      "videos": 140,
+      "unique_RGB": 1120,
+      "groups": 70
+    },
+    {
+      "role": "source_test",
+      "method_id": "pirender",
+      "label": 1,
+      "rows": 1120,
+      "videos": 140,
+      "unique_RGB": 1120,
+      "groups": 70
+    },
+    {
+      "role": "source_test",
+      "method_id": "real",
+      "label": 0,
+      "rows": 1120,
+      "videos": 140,
+      "unique_RGB": 1120,
+      "groups": 70
+    },
+    {
+      "role": "source_test",
+      "method_id": "sadtalker",
+      "label": 1,
+      "rows": 1048,
+      "videos": 131,
+      "unique_RGB": 1048,
+      "groups": 70
+    },
+    {
+      "role": "source_test",
+      "method_id": "simswap",
+      "label": 1,
+      "rows": 1120,
+      "videos": 140,
+      "unique_RGB": 1120,
+      "groups": 70
+    },
+    {
+      "role": "source_test",
+      "method_id": "tpsm",
+      "label": 1,
+      "rows": 1120,
+      "videos": 140,
+      "unique_RGB": 1120,
+      "groups": 70
+    },
+    {
+      "role": "source_test",
+      "method_id": "uniface",
+      "label": 1,
+      "rows": 1120,
+      "videos": 140,
+      "unique_RGB": 1120,
+      "groups": 70
+    },
+    {
+      "role": "source_test",
+      "method_id": "wav2lip",
+      "label": 1,
+      "rows": 1120,
+      "videos": 140,
+      "unique_RGB": 1120,
+      "groups": 70
+    },
+    {
+      "role": "target_full",
+      "method_id": "MRAA",
+      "label": 1,
+      "rows": 5168,
+      "videos": 646,
+      "unique_RGB": 5168,
+      "groups": 646
+    },
+    {
+      "role": "target_full",
+      "method_id": "blendface",
+      "label": 1,
+      "rows": 5096,
+      "videos": 637,
+      "unique_RGB": 5065,
+      "groups": 627
+    },
+    {
+      "role": "target_full",
+      "method_id": "danet",
+      "label": 1,
+      "rows": 5144,
+      "videos": 643,
+      "unique_RGB": 5144,
+      "groups": 643
+    },
+    {
+      "role": "target_full",
+      "method_id": "e4s",
+      "label": 1,
+      "rows": 2336,
+      "videos": 292,
+      "unique_RGB": 2336,
+      "groups": 292
+    },
+    {
+      "role": "target_full",
+      "method_id": "facedancer",
+      "label": 1,
+      "rows": 5160,
+      "videos": 645,
+      "unique_RGB": 5150,
+      "groups": 635
+    },
+    {
+      "role": "target_full",
+      "method_id": "faceswap",
+      "label": 1,
+      "rows": 5064,
+      "videos": 633,
+      "unique_RGB": 4996,
+      "groups": 622
+    },
+    {
+      "role": "target_full",
+      "method_id": "facevid2vid",
+      "label": 1,
+      "rows": 5088,
+      "videos": 636,
+      "unique_RGB": 5088,
+      "groups": 636
+    },
+    {
+      "role": "target_full",
+      "method_id": "fomm",
+      "label": 1,
+      "rows": 5176,
+      "videos": 647,
+      "unique_RGB": 5176,
+      "groups": 647
+    },
+    {
+      "role": "target_full",
+      "method_id": "fsgan",
+      "label": 1,
+      "rows": 4928,
+      "videos": 616,
+      "unique_RGB": 4731,
+      "groups": 554
+    },
+    {
+      "role": "target_full",
+      "method_id": "hyperreenact",
+      "label": 1,
+      "rows": 5128,
+      "videos": 641,
+      "unique_RGB": 5128,
+      "groups": 641
+    },
+    {
+      "role": "target_full",
+      "method_id": "inswap",
+      "label": 1,
+      "rows": 3376,
+      "videos": 422,
+      "unique_RGB": 3366,
+      "groups": 415
+    },
+    {
+      "role": "target_full",
+      "method_id": "lia",
+      "label": 1,
+      "rows": 5120,
+      "videos": 640,
+      "unique_RGB": 5120,
+      "groups": 640
+    },
+    {
+      "role": "target_full",
+      "method_id": "mcnet",
+      "label": 1,
+      "rows": 5136,
+      "videos": 642,
+      "unique_RGB": 5136,
+      "groups": 642
+    },
+    {
+      "role": "target_full",
+      "method_id": "mobileswap",
+      "label": 1,
+      "rows": 5080,
+      "videos": 635,
+      "unique_RGB": 5018,
+      "groups": 624
+    },
+    {
+      "role": "target_full",
+      "method_id": "one_shot_free",
+      "label": 1,
+      "rows": 5176,
+      "videos": 647,
+      "unique_RGB": 5176,
+      "groups": 647
+    },
+    {
+      "role": "target_full",
+      "method_id": "pirender",
+      "label": 1,
+      "rows": 5088,
+      "videos": 636,
+      "unique_RGB": 5088,
+      "groups": 636
+    },
+    {
+      "role": "target_full",
+      "method_id": "real",
+      "label": 0,
+      "rows": 1416,
+      "videos": 177,
+      "unique_RGB": 1416,
+      "groups": 177
+    },
+    {
+      "role": "target_full",
+      "method_id": "sadtalker",
+      "label": 1,
+      "rows": 5168,
+      "videos": 646,
+      "unique_RGB": 5168,
+      "groups": 646
+    },
+    {
+      "role": "target_full",
+      "method_id": "simswap",
+      "label": 1,
+      "rows": 5104,
+      "videos": 638,
+      "unique_RGB": 5077,
+      "groups": 629
+    },
+    {
+      "role": "target_full",
+      "method_id": "tpsm",
+      "label": 1,
+      "rows": 5160,
+      "videos": 645,
+      "unique_RGB": 5160,
+      "groups": 645
+    },
+    {
+      "role": "target_full",
+      "method_id": "uniface",
+      "label": 1,
+      "rows": 5008,
+      "videos": 626,
+      "unique_RGB": 4982,
+      "groups": 616
+    },
+    {
+      "role": "target_full",
+      "method_id": "wav2lip",
+      "label": 1,
+      "rows": 5304,
+      "videos": 663,
+      "unique_RGB": 5284,
+      "groups": 653
+    },
+    {
+      "role": "train",
+      "method_id": "MRAA",
+      "label": 1,
+      "rows": 4872,
+      "videos": 609,
+      "unique_RGB": 4872,
+      "groups": 306
+    },
+    {
+      "role": "train",
+      "method_id": "blendface",
+      "label": 1,
+      "rows": 4824,
+      "videos": 603,
+      "unique_RGB": 4824,
+      "groups": 305
+    },
+    {
+      "role": "train",
+      "method_id": "danet",
+      "label": 1,
+      "rows": 4864,
+      "videos": 608,
+      "unique_RGB": 4864,
+      "groups": 306
+    },
+    {
+      "role": "train",
+      "method_id": "e4s",
+      "label": 1,
+      "rows": 4872,
+      "videos": 609,
+      "unique_RGB": 4872,
+      "groups": 305
+    },
+    {
+      "role": "train",
+      "method_id": "facedancer",
+      "label": 1,
+      "rows": 4864,
+      "videos": 608,
+      "unique_RGB": 4864,
+      "groups": 305
+    },
+    {
+      "role": "train",
+      "method_id": "faceswap",
+      "label": 1,
+      "rows": 4896,
+      "videos": 612,
+      "unique_RGB": 4896,
+      "groups": 306
+    },
+    {
+      "role": "train",
+      "method_id": "facevid2vid",
+      "label": 1,
+      "rows": 4856,
+      "videos": 607,
+      "unique_RGB": 4856,
+      "groups": 306
+    },
+    {
+      "role": "train",
+      "method_id": "fomm",
+      "label": 1,
+      "rows": 4880,
+      "videos": 610,
+      "unique_RGB": 4880,
+      "groups": 306
+    },
+    {
+      "role": "train",
+      "method_id": "fsgan",
+      "label": 1,
+      "rows": 4640,
+      "videos": 580,
+      "unique_RGB": 4640,
+      "groups": 290
+    },
+    {
+      "role": "train",
+      "method_id": "hyperreenact",
+      "label": 1,
+      "rows": 4008,
+      "videos": 501,
+      "unique_RGB": 4008,
+      "groups": 306
+    },
+    {
+      "role": "train",
+      "method_id": "inswap",
+      "label": 1,
+      "rows": 4480,
+      "videos": 560,
+      "unique_RGB": 4480,
+      "groups": 300
+    },
+    {
+      "role": "train",
+      "method_id": "lia",
+      "label": 1,
+      "rows": 4872,
+      "videos": 609,
+      "unique_RGB": 4872,
+      "groups": 306
+    },
+    {
+      "role": "train",
+      "method_id": "mcnet",
+      "label": 1,
+      "rows": 4880,
+      "videos": 610,
+      "unique_RGB": 4880,
+      "groups": 306
+    },
+    {
+      "role": "train",
+      "method_id": "mobileswap",
+      "label": 1,
+      "rows": 4880,
+      "videos": 610,
+      "unique_RGB": 4880,
+      "groups": 305
+    },
+    {
+      "role": "train",
+      "method_id": "one_shot_free",
+      "label": 1,
+      "rows": 4880,
+      "videos": 610,
+      "unique_RGB": 4880,
+      "groups": 306
+    },
+    {
+      "role": "train",
+      "method_id": "pirender",
+      "label": 1,
+      "rows": 4872,
+      "videos": 609,
+      "unique_RGB": 4872,
+      "groups": 306
+    },
+    {
+      "role": "train",
+      "method_id": "real",
+      "label": 0,
+      "rows": 4888,
+      "videos": 611,
+      "unique_RGB": 4888,
+      "groups": 306
+    },
+    {
+      "role": "train",
+      "method_id": "sadtalker",
+      "label": 1,
+      "rows": 4680,
+      "videos": 585,
+      "unique_RGB": 4680,
+      "groups": 306
+    },
+    {
+      "role": "train",
+      "method_id": "simswap",
+      "label": 1,
+      "rows": 4840,
+      "videos": 605,
+      "unique_RGB": 4840,
+      "groups": 305
+    },
+    {
+      "role": "train",
+      "method_id": "tpsm",
+      "label": 1,
+      "rows": 4888,
+      "videos": 611,
+      "unique_RGB": 4888,
+      "groups": 306
+    },
+    {
+      "role": "train",
+      "method_id": "uniface",
+      "label": 1,
+      "rows": 2152,
+      "videos": 269,
+      "unique_RGB": 2152,
+      "groups": 214
+    },
+    {
+      "role": "train",
+      "method_id": "wav2lip",
+      "label": 1,
+      "rows": 4856,
+      "videos": 607,
+      "unique_RGB": 4856,
+      "groups": 306
+    }
+  ],
+  "exclusion_video_counts": {
+    "fewer_than8_distinct_valid_RGB_frames": 93,
+    "released_or_official_source_role_mismatch": 1266,
+    "unknown_FF_source_quarantine": 8
+  },
+  "unresolved_source_index_videos": 8,
+  "cache_audit": {
+    "candidate_unique_paths": 1034481,
+    "metadata_fresh_cached": 1034481,
+    "fresh_rehashed": 0,
+    "hash_protocol": "SHA256(bytes); RGB=SHA256(ASCII(width x height :RGB:)+PIL.convert(RGB).tobytes())",
+    "scope": "All candidate paths stat-verified against prior successful audit. Metadata equality is freshness evidence, not a cryptographic assertion that bytes never changed between audits.",
+    "prior_manifest_sha256": "7a7fc257ccab2bf9be06f4c78fa26f51ee286fb5cb2f8f7998739ebbc1c3b456",
+    "prior_audit_summary_sha256": "934c1f387861e1a7ed784de8328455a56387835a49197d239b6b111b43823d14",
+    "prior_audit_code_sha256": "58108c4dfae8d905d322dfbf7d5da1ae6ef09f8d60c9f252b3d36dfd0e11574e",
+    "elapsed_seconds": 214.69270658493042
+  },
+  "cdf_calibration_scope": {
+    "status": "PROXY_SCOPE_EMPIRICAL_ONLY",
+    "cal_real_videos": 80,
+    "test_real_videos": 97,
+    "test_fake_videos": 4111,
+    "excluded_videos": 8765,
+    "historic_split_sha256": "fa19b5c48ea231ff186b552c12e178803c4e6898b4d6afeb784803c16cefebac",
+    "historic_protocol_sha256": "c9bccbeec85304cc6349c0eeb3e4100d432bfc21104aa70657b815a2a535b855",
+    "cal_candidate_pool": "same prior score-blind80 real candidates, requalified for current fixed8 and full association graph",
+    "isolation": "video UID, all candidate RGB-connected components, conservative id-name token proxy for the entire CAL pool",
+    "ancestor_independence_certified": false,
+    "strict_NP_population_guarantee": false,
+    "unresolved": "Complete generated-parent, donor/driver, audio and YouTube identity ancestry is not available. A filename is a proxy, not authenticated identity."
+  },
+  "independence_scope": "Known FF filename sources, official source pairs, and full candidate exact RGB components; unknown audio/driver ancestry remains unverified. CDF uses video/content and conservative identity-name proxies only.",
+  "source_validation_and_test_disjoint": true,
+  "target_scores_used": false,
+  "original_data_modified": false,
+  "elapsed_seconds": 347.824179649353
+}

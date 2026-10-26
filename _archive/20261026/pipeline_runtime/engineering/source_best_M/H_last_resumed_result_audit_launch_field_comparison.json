@@ -1,0 +1,124 @@
+{
+  "schema": "IMMUTABLE_PRIMARY_LAUNCH_FIELD_COMPARISON_V1",
+  "utc": "2026-10-26T04:12:57.903156+00:00",
+  "cases": [
+    {
+      "backbone": "clip_vit_b16",
+      "seed": 3407,
+      "prior_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_primary_analysis_clip_vit_b16_seed3407_20261025T2125_launch.json",
+      "prior_exists": false,
+      "current_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_primary_analysis_clip_vit_b16_seed3407_resume_20261026T013643Z_launch.json",
+      "current_sha256": "0d3a89013786d51824a4b8679f3e2ee57c0678c2370faef330c487591b6cf91b"
+    },
+    {
+      "backbone": "dinov2_vit_b14",
+      "seed": 7,
+      "prior_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_primary_analysis_dinov2_vit_b14_seed7_20261025T235215Z_launch.json",
+      "prior_exists": true,
+      "current_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_primary_analysis_dinov2_vit_b14_seed7_resume_20261026T013643Z_launch.json",
+      "current_sha256": "ea89f76b78671e6f942862d4247dd9524d61a8332151db9992a4ed6bb83ea113",
+      "prior_sha256": "d27067693b0987568f47982d0ac1f41b94ffa63f1554821faade7dd81eea8733",
+      "only_prior_keys": [
+        "M_statistics_started",
+        "environment"
+      ],
+      "only_resume_keys": [
+        "resume_authorization",
+        "unfinished_partial_identity_preserved"
+      ],
+      "changed": {
+        "command": {
+          "prior": [
+            "/usr/bin/time",
+            "-v",
+            "-o",
+            "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_primary_analysis_dinov2_vit_b14_seed7_20261025T235215Z_time_v.log",
+            "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+            "-B",
+            "-u",
+            "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_parallel_fresh_validation/cpu_primary_analysis.py",
+            "--execute",
+            "--backbone",
+            "dinov2_vit_b14",
+            "--seed",
+            "7",
+            "--slot",
+            "0",
+            "--qualification",
+            "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_parallel_CPU_actual_qualification_dinov2_vit_b14.json",
+            "--qualification-sha",
+            "ab853480f704f24d4b080e04f0bcefb81fd31c4426e74aa36a351d7e8925bebe",
+            "--admission",
+            "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_dinov2_vit_b14_seed7_independent_7role_parallel_candidate_20261025T0645.json",
+            "--admission-sha",
+            "ff866b5a2504fa56d0c447b4ae2b23dba20af297a272331978dd13ee0ba050c8"
+          ],
+          "resume": [
+            "/usr/bin/time",
+            "-v",
+            "-o",
+            "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_primary_analysis_dinov2_vit_b14_seed7_resume_20261026T013643Z_time_v.log",
+            "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+            "-B",
+            "-u",
+            "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_parallel_fresh_validation/cpu_primary_analysis.py",
+            "--execute",
+            "--backbone",
+            "dinov2_vit_b14",
+            "--seed",
+            "7",
+            "--slot",
+            "0",
+            "--qualification",
+            "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_parallel_CPU_actual_qualification_dinov2_vit_b14.json",
+            "--qualification-sha",
+            "ab853480f704f24d4b080e04f0bcefb81fd31c4426e74aa36a351d7e8925bebe",
+            "--admission",
+            "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_dinov2_vit_b14_seed7_independent_7role_parallel_candidate_20261025T0645.json",
+            "--admission-sha",
+            "ff866b5a2504fa56d0c447b4ae2b23dba20af297a272331978dd13ee0ba050c8"
+          ]
+        },
+        "pid": {
+          "prior": 730796,
+          "resume": 806375
+        },
+        "status": {
+          "prior": "LAUNCHED_ORIGINAL_PRIMARY_H_PAIR_STATISTICS_AFTER_INDEPENDENT_CACHE_ADMISSION",
+          "resume": "RESUMED_ORIGINAL_PRIMARY_H_PAIR_STATISTICS_FROM_UNFINISHED_USER_PAUSE"
+        },
+        "stdout": {
+          "prior": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_primary_analysis_dinov2_vit_b14_seed7_20261025T235215Z.log",
+          "resume": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_primary_analysis_dinov2_vit_b14_seed7_resume_20261026T013643Z.log"
+        },
+        "time_v": {
+          "prior": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_primary_analysis_dinov2_vit_b14_seed7_20261025T235215Z_time_v.log",
+          "resume": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_primary_analysis_dinov2_vit_b14_seed7_resume_20261026T013643Z_time_v.log"
+        },
+        "utc": {
+          "prior": "2026-10-25T23:52:15.494507+00:00",
+          "resume": "2026-10-26T01:36:43.813539+00:00"
+        }
+      },
+      "unchanged_keys": [
+        "CPU_slot",
+        "GPUs_allowed",
+        "admission_sha256",
+        "backbone",
+        "bootstrap_repeats",
+        "entry",
+        "entry_sha256",
+        "expected_fresh_original_ledger_invocations",
+        "independent_cache_audit",
+        "independent_cache_audit_sha256",
+        "independent_numeric_bootstrap_acceptance_pending",
+        "original_F_unchanged",
+        "qualification_sha256",
+        "resume_existing_terminal",
+        "seed"
+      ]
+    }
+  ],
+  "source_or_records_modified": false,
+  "result_payloads_read": false
+}

@@ -1,0 +1,142 @@
+{
+  "code_sha256": "04c9c149b056fe794d70fda35e27cee91a690133cc8d98a9905a64ac3d9c591e",
+  "common_B_AB_videos": 10,
+  "decode_seconds": 54.19637092389166,
+  "detections": 160,
+  "detector_calls": 160,
+  "detector_seconds": 22.197986159473658,
+  "elapsed_seconds": 79.11010021530092,
+  "expected_mothers_before_exclusions": 67448,
+  "extrapolation_note": "source10-cell sample only; no target images inspected; includes A/B/AB PNG and masks, excludes manifests",
+  "ffpp_dfd_candidate_videos": 8431,
+  "multiface_detections": 4,
+  "per_cell": 1,
+  "png_storage_extrapolation_bytes": 14202915715.300001,
+  "protocol_sha256": "85a865f0e3343ecaf5b8c0174c8a3f602ec873deeccb03bd1826d617f2a7ae03",
+  "results": [
+    {
+      "eligible": {
+        "A": true,
+        "AB": true,
+        "B": true
+      },
+      "manifest": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry_accepted/images/DEV/Deepfakes/017_803/manifest.json",
+      "video_uid": "FFPP/source/Deepfakes/017_803"
+    },
+    {
+      "eligible": {
+        "A": true,
+        "AB": true,
+        "B": true
+      },
+      "manifest": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry_accepted/images/DEV/Face2Face/531_549/manifest.json",
+      "video_uid": "FFPP/source/Face2Face/531_549"
+    },
+    {
+      "eligible": {
+        "A": true,
+        "AB": true,
+        "B": true
+      },
+      "manifest": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry_accepted/images/DEV/FaceSwap/043_110/manifest.json",
+      "video_uid": "FFPP/source/FaceSwap/043_110"
+    },
+    {
+      "eligible": {
+        "A": true,
+        "AB": true,
+        "B": true
+      },
+      "manifest": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry_accepted/images/DEV/NeuralTextures/753_789/manifest.json",
+      "video_uid": "FFPP/source/NeuralTextures/753_789"
+    },
+    {
+      "eligible": {
+        "A": true,
+        "AB": true,
+        "B": true
+      },
+      "manifest": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry_accepted/images/DEV/real/013/manifest.json",
+      "video_uid": "FFPP/source/real/013"
+    },
+    {
+      "eligible": {
+        "A": true,
+        "AB": true,
+        "B": true
+      },
+      "manifest": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry_accepted/images/TRAIN/Deepfakes/320_328/manifest.json",
+      "video_uid": "FFPP/source/Deepfakes/320_328"
+    },
+    {
+      "eligible": {
+        "A": true,
+        "AB": true,
+        "B": true
+      },
+      "manifest": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry_accepted/images/TRAIN/Face2Face/882_952/manifest.json",
+      "video_uid": "FFPP/source/Face2Face/882_952"
+    },
+    {
+      "eligible": {
+        "A": true,
+        "AB": true,
+        "B": true
+      },
+      "manifest": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry_accepted/images/TRAIN/FaceSwap/056_996/manifest.json",
+      "video_uid": "FFPP/source/FaceSwap/056_996"
+    },
+    {
+      "eligible": {
+        "A": true,
+        "AB": true,
+        "B": true
+      },
+      "manifest": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry_accepted/images/TRAIN/NeuralTextures/805_011/manifest.json",
+      "video_uid": "FFPP/source/NeuralTextures/805_011"
+    },
+    {
+      "eligible": {
+        "A": true,
+        "AB": true,
+        "B": true
+      },
+      "manifest": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_source_geometry_accepted/images/TRAIN/real/969/manifest.json",
+      "video_uid": "FFPP/source/real/969"
+    }
+  ],
+  "roles": {
+    "DEV": 5,
+    "TRAIN": 5
+  },
+  "status": "SOURCE_QUALIFIED",
+  "target_tuning": false,
+  "target_videos_decoded_or_detected": 0,
+  "versions": {
+    "A": {
+      "eligible_videos": 10,
+      "mask_bytes": 43774,
+      "padding_max": 0.1317596435546875,
+      "padding_mean": 0.007251739501953125,
+      "png_bytes": 6982960,
+      "successful_frames": 80
+    },
+    "AB": {
+      "eligible_videos": 10,
+      "mask_bytes": 47299,
+      "padding_max": 0.4240274234693877,
+      "padding_mean": 0.3506046217315051,
+      "png_bytes": 4179438,
+      "successful_frames": 80
+    },
+    "B": {
+      "eligible_videos": 10,
+      "mask_bytes": 49400,
+      "padding_max": 0.125,
+      "padding_mean": 0.01183035714285714,
+      "png_bytes": 5543192,
+      "successful_frames": 80
+    }
+  },
+  "videos": 10
+}

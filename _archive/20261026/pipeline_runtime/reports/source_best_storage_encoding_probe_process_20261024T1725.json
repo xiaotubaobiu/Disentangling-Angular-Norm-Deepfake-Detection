@@ -1,0 +1,7 @@
+{
+  "utc": "2026-10-24T17:24:29.403889+00:00",
+  "returncode": 0,
+  "stdout": "{\"utc\": \"2026-10-24T17:24:29.375721+00:00\", \"status\": \"PASS_LOSSLESS_EXISTING_LAST_RESAMPLING_ENCODING_FEASIBILITY_ONLY\", \"source\": \"/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/D/D_formal_clip_vit_b16_seed7/source_test/normal_bootstrap_raw_mean_logit.json\", \"source_sha256\": \"74a9a738d2cd7fb8aae04eddfec77e752a84e057b871b1739d430ec2eec1c572\", \"original_bytes\": 7895350, \"compressed_counts_and_all_remaining_fields_bytes\": 898024, \"ratio_original_to_compact\": 8.791914247280696, \"repeats_preserved\": 2000, \"ordered_groups\": 70, \"all_140000_group_counts_and_key_presence_verified\": true, \"all_metric_values_NA_flags_metadata_and_intervals_exactly_reconstructed\": true, \"source_bytes_unchanged\": true, \"no_secondary_checkpoint_inference_or_new_bootstrap\": true, \"source_best_experiment_started\": false, \"limitation\": \"One existing last SOURCE_TEST normal-bootstrap schema only. Full normal/closure/RQ4/H schema equivalence, shared-cohort identity and actual resource profiling are required before production adoption. No shared counts may cross nonidentical cohort/group/seed identities.\"}\n",
+  "stderr": "",
+  "scope": "Existing accepted last-result serialization feasibility only; not source-best experiment."
+}

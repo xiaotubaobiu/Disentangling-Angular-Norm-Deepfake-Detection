@@ -1,0 +1,72 @@
+{
+  "utc": "2026-10-26T13:45:58.106403+00:00",
+  "HANDOFF_head": "## 13:15轮闭合（2026-10-26T13:18:37.264206+00:00）：H仍必要源预检，M三在途有读取/角色推进，未满足恢复门槛\n\nH source-best CLIP seed7 canary原PID4064147仍在原CPU槽0，/proc/locks确认inode52325275由其独占，真实AS32GiB限制沿用现有launch。当前R状态、CPU累计jiffies['55519', '9117']，逻辑读取rchar85854278032B、HW",
+  "H_PID": 4064147,
+  "H_alive": true,
+  "H_exit": null,
+  "H_log_tail": "",
+  "H_output_exists": false,
+  "H_receipts": 0,
+  "H_complete": false,
+  "H_CPU_jiffies": [
+    "102443",
+    "18186"
+  ],
+  "H_io": [
+    "rchar: 200134344815",
+    "wchar: 0",
+    "syscr: 3449577",
+    "syscw: 0",
+    "read_bytes: 4248084480"
+  ],
+  "H_memory": [
+    "State:\tR (running)",
+    "VmPeak:\t 5684664 kB",
+    "VmHWM:\t 1007652 kB",
+    "VmRSS:\t  662028 kB"
+  ],
+  "M_owner_alive": true,
+  "M_counts": {
+    "completed": 27,
+    "active": 3,
+    "pending": 15
+  },
+  "M_failures": {
+    "__owner__": "exclusive original phase lease required"
+  },
+  "M_active": {
+    "H_formal_dinov2_vit_b14_AB_seed42": {
+      "index": 2,
+      "pid": 2839835,
+      "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+      "alive": true
+    },
+    "H_formal_dinov2_vit_b14_B_seed123": {
+      "index": 3,
+      "pid": 3089908,
+      "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646",
+      "alive": true
+    },
+    "H_formal_dinov2_vit_b14_B_seed42": {
+      "index": 1,
+      "pid": 2784327,
+      "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+      "alive": true
+    }
+  },
+  "M_phase_lock": [
+    "81: FLOCK  ADVISORY  WRITE 825619 fd:01:51809676 0 EOF"
+  ],
+  "M_roles": 134,
+  "Eff7_PID_alive": true,
+  "Eff7_source_checks_started": 41,
+  "Eff7_exit": null,
+  "Eff7_log_tail": "BEGIN_PRIMARY_FRESH_LEDGER 28 efficientnet_b0 AMP\nBEGIN_PRIMARY_FRESH_LEDGER 29 efficientnet_b0 AMP\nBEGIN_PRIMARY_FRESH_LEDGER 30 efficientnet_b0 AMP\nBEGIN_PRIMARY_FRESH_LEDGER 31 efficientnet_b0 AMP\nBEGIN_PRIMARY_FRESH_LEDGER 32 efficientnet_b0 AMP\nBEGIN_PRIMARY_FRESH_LEDGER 33 efficientnet_b0 AMP\nBEGIN_PRIMARY_FRESH_LEDGER 34 efficientnet_b0 AMP\nBEGIN_PRIMARY_FRESH_LEDGER 35 efficientnet_b0 AMP\nBEGIN_PRIMARY_FRESH_LEDGER 36 efficientnet_b0 AMP\nBEGIN_PRIMARY_FRESH_LEDGER 37 efficientnet_b0 AMP\nBEGIN_PRIMARY_FRESH_LEDGER 38 efficientnet_b0 AMP\nBEGIN_PRIMARY_FRESH_LEDGER 39 efficientnet_b0 AMP\nBEGIN_PRIMARY_FRESH_LEDGER 40 efficientnet_b0 AMP\nBEGIN_PRIMARY_FRESH_LEDGER 41 efficientnet_b0 AMP\n",
+  "free_bytes": 149721350144,
+  "GPU0_3": [
+    "0, 0 %, 0 MiB",
+    "1, 0 %, 1238 MiB",
+    "2, 0 %, 1238 MiB",
+    "3, 0 %, 1238 MiB"
+  ]
+}

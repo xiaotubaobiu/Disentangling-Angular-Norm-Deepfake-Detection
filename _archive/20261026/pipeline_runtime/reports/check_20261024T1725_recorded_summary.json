@@ -1,0 +1,142 @@
+{
+  "utc": "2026-10-24T17:46:16.663451+00:00",
+  "status": "PASS_1725_MAIN_SUPERVISION_SOURCE_BEST_DECISION_PACKET_PREPARED_ONLY",
+  "D_individual_analysis_accepted": 8,
+  "DINO42_acceptance_sha256": "0cb0e9f4fb5cb120e65269c9c6155ca3edf418c5867b0a8b3e5714cf0d218b35",
+  "DINO123_acceptance_sha256": "50a7ed9f4351f850b5a488694a5cf2e9e11f8a4129564be6a0f4e60073291db3",
+  "D_CPU_slots": [
+    {
+      "run_id": "D_formal_dinov2_vit_b14_seed3407",
+      "slot": 0,
+      "pid": 2069915,
+      "status": "PRODUCTION_ANALYSIS_RUNNING",
+      "roles": [
+        "train",
+        "dev",
+        "source_cal",
+        "source_test",
+        "target_full",
+        "target_cal",
+        "target_test"
+      ],
+      "admission_passed_utc": "2026-10-24T17:43:56.625263+00:00",
+      "alive": true
+    },
+    {
+      "run_id": "D_formal_dinov2_vit_b14_seed2026",
+      "slot": 1,
+      "pid": 2064755,
+      "status": "PRODUCTION_ANALYSIS_RUNNING",
+      "roles": [
+        "train",
+        "dev",
+        "source_cal",
+        "source_test",
+        "target_full",
+        "target_cal",
+        "target_test"
+      ],
+      "admission_passed_utc": "2026-10-24T17:35:16.206243+00:00",
+      "alive": true
+    }
+  ],
+  "H_completed": 4,
+  "H_active": [
+    {
+      "pid": 2035767,
+      "run_id": "H_dev_dinov2_vit_b14_B_lr1e-05_seed1007_e30",
+      "gpu": 0,
+      "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e",
+      "backbone": "dinov2_vit_b14"
+    },
+    {
+      "pid": 2035768,
+      "run_id": "H_dev_dinov2_vit_b14_AB_lr1e-05_seed1007_e30",
+      "gpu": 2,
+      "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+      "backbone": "dinov2_vit_b14"
+    },
+    {
+      "pid": 2035769,
+      "run_id": "H_dev_dinov2_vit_b14_B_lr1e-05_seed1042_e30",
+      "gpu": 3,
+      "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646",
+      "backbone": "dinov2_vit_b14"
+    },
+    {
+      "pid": 2036656,
+      "run_id": "H_dev_dinov2_vit_b14_AB_lr1e-05_seed1042_e30",
+      "gpu": 1,
+      "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+      "backbone": "dinov2_vit_b14"
+    }
+  ],
+  "H_pending": 12,
+  "H_full_checkpoint_sha256": "51f21f2cae3c27327414237c0ab23e89da30a34314ace3755010deb50605113b",
+  "H_full_epochs": {
+    "H_dev_dinov2_vit_b14_B_lr1e-05_seed1007_e30": 19,
+    "H_dev_dinov2_vit_b14_AB_lr1e-05_seed1007_e30": 19,
+    "H_dev_dinov2_vit_b14_B_lr1e-05_seed1042_e30": 19,
+    "H_dev_dinov2_vit_b14_AB_lr1e-05_seed1042_e30": 18
+  },
+  "H_full_attempts": 14325,
+  "H_full_success": 14325,
+  "H_full_AMP_skips": 0,
+  "H_latest_log_cutoff": "2026-10-24T17:42:01.977268+00:00",
+  "H_latest_committed_epochs": {
+    "H_dev_dinov2_vit_b14_B_lr1e-05_seed1007_e30": 22,
+    "H_dev_dinov2_vit_b14_AB_lr1e-05_seed1007_e30": 22,
+    "H_dev_dinov2_vit_b14_B_lr1e-05_seed1042_e30": 22,
+    "H_dev_dinov2_vit_b14_AB_lr1e-05_seed1042_e30": 22
+  },
+  "H_latest_live_AMP_skips": {
+    "H_dev_dinov2_vit_b14_B_lr1e-05_seed1007_e30": 0,
+    "H_dev_dinov2_vit_b14_AB_lr1e-05_seed1007_e30": 0,
+    "H_dev_dinov2_vit_b14_B_lr1e-05_seed1042_e30": 0,
+    "H_dev_dinov2_vit_b14_AB_lr1e-05_seed1042_e30": 0
+  },
+  "H_mean_GPU_shortwindow": [
+    82.33333333333333,
+    84.0,
+    83.66666666666667,
+    82.66666666666667
+  ],
+  "source_best_packet_json": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/source_best_scope_decision_packet.json",
+  "source_best_packet_json_sha256": "4fe49b0b245cec033c619f047aed4e31cb4d74727e0f6ea830140d766bede798",
+  "source_best_packet_md": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/source_best_scope_decision_packet.md",
+  "source_best_packet_md_sha256": "c3ec0e3804c9b52d4ac171849e5d500575ff7a7b4af7d2eee9b7822b06200de2",
+  "source_best_original_does_not_explicitly_register_45_extra_exports": true,
+  "source_best_candidates_selected": false,
+  "source_best_parent_hold": true,
+  "source_best_secondary_inference_started": false,
+  "source_best_new_training_started": false,
+  "source_best_user_question_sent": false,
+  "M_naive_planning_GiB": 169,
+  "F_naive_planning_GiB": 175.9508056640625,
+  "M_F_compact_engineering_drafts_GiB_NOT_ADMITTED": [
+    37,
+    55
+  ],
+  "lossless_encoding_probe_on_existing_last_only_sha256": "6cb96ba432f3f838b585c9cfeb2b81996d1ed9f09312b8c50ae0087da3504b32",
+  "cold_readonly_diagnosis_sha256": "969dcbea3734bf62bb3523b93cc56a28e0f372915f46e7a9a94362973d1f8b04",
+  "cold_actual_canonical_migration_completed": false,
+  "cold_source_originals_retained": true,
+  "SSD_cold_release_bytes": 0,
+  "workspace_free_GiB": 282.6365165710449,
+  "normal_primary_remaining_with_temporary_and_reserve_GiB": 238.31671477996076,
+  "normal_margin_GiB": 44.31980179108416,
+  "registered_primary_worst_conditional_cold_gap_GiB": 27.541737356407396,
+  "formal_training_complete": 15,
+  "formal_training_total": 45,
+  "H_formal_started": 0,
+  "full_study_or_papers_complete": false,
+  "next_recommended_check_utc": "2026-10-24T18:00:00Z",
+  "primary_execution_blockers": [],
+  "held_action": {
+    "target": "All additional source-best target inference/statistical experiment registration",
+    "status": "PARENT_HOLD_PENDING_LATER_CONSOLIDATED_USER_SCOPE_DECISION",
+    "reason": "Latest plan only states sensitivity principle; candidates specify omitted details but are not authorization.",
+    "denied_by_tool": false,
+    "attempted": false
+  }
+}

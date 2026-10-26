@@ -1,0 +1,28 @@
+{
+  "status": "SINGLE_EXPLICITLY_AUTHORIZED_H_LAST_SEED42_RESULT_AUDIT_LAUNCHED",
+  "utc": "2026-10-25T13:44:11.691475+00:00",
+  "time_wrapper_pid": 750745,
+  "audit_pid": 750748,
+  "CPU_slot": 1,
+  "nonblocking_lifetime_flock_implemented_by_SHA_bound_entry": true,
+  "entry": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/h_pair_result_audit.py",
+  "entry_sha256": "f75bccc7db5554b3fef9f05353ab6f228906a926e76bdd7d5315c35675bf9738",
+  "terminal_sha256": "02d7f66612d2e683ba6b52fbfc7379a74cefa1d180b89b9549f7299ea583d831",
+  "log": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/H_LAST_clip_seed42_independent_audit_20261025T134411Z.log",
+  "time_v": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/H_LAST_clip_seed42_independent_audit_20261025T134411Z.time_v.log",
+  "output": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/H_LAST_clip_seed42_independent_audit.json",
+  "CUDA_VISIBLE_DEVICES": "",
+  "threads": 1,
+  "automatic_retries": 0,
+  "argv": [
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/h_pair_result_audit.py",
+    "--execute",
+    "--terminal-sha",
+    "02d7f66612d2e683ba6b52fbfc7379a74cefa1d180b89b9549f7299ea583d831",
+    "--slot",
+    "1",
+    "--output-name",
+    "H_LAST_clip_seed42_independent_audit.json"
+  ]
+}

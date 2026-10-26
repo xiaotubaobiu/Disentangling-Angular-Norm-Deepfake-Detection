@@ -1,0 +1,83 @@
+{
+  "utc": "2026-10-25T12:38:07.221575+00:00",
+  "status": "PASS_FOUR_ACTUAL_H_NATIVE_PAYLOAD_SNAPSHOT_ATOMIC_ORDERED_JSON_TRANSPORT_ONLY",
+  "producer_scope": "Still-running accepted primary LAST H pair; final pair/source revalidation/metrics audit remain pending",
+  "results": [
+    {
+      "relative_source": "mean_logit/SOURCE_TEST/all_B/conditional_bootstrap.json",
+      "raw_bytes": 9662637,
+      "receipt": {
+        "schema": "M_EXACT_MULTIPLICITY_BUNDLE_V1",
+        "complete_sha256": "b118542891392d38971194f7d75843cc776a51b1ccf44dd71f37e495c1dc810a",
+        "raw_json_sha256": "ddc4b28fbc134c6fe03a6220699c86f21b3c98f3dc5855203ad9d2028ce27be5",
+        "raw_json_bytes": 9662637,
+        "stored_bytes": 930434,
+        "production_admitted": false
+      },
+      "all_original_fields_NA_count_maps_key_order_and_2000_draws_preserved": true
+    },
+    {
+      "relative_source": "mean_logit/TARGET_TEST/all_B/conditional_bootstrap.json",
+      "raw_bytes": 9693024,
+      "receipt": {
+        "schema": "M_EXACT_MULTIPLICITY_BUNDLE_V1",
+        "complete_sha256": "3c2895e59c7b9b376585fb6e9ddf076c24c59f5db29f5e1a85ca73bf137e9bdc",
+        "raw_json_sha256": "90295899175f91bf1e6a779a26574f1ffcc3009d4521fc04b7d33e65fefd1f79",
+        "raw_json_bytes": 9693024,
+        "stored_bytes": 1179504,
+        "production_admitted": false
+      },
+      "all_original_fields_NA_count_maps_key_order_and_2000_draws_preserved": true
+    },
+    {
+      "relative_source": "mean_probability/SOURCE_TEST/all_B/conditional_bootstrap.json",
+      "raw_bytes": 9662695,
+      "receipt": {
+        "schema": "M_EXACT_MULTIPLICITY_BUNDLE_V1",
+        "complete_sha256": "b4c5c9e599f7758473dfac5188265bee8ef353ef856d93588701ebba620bb867",
+        "raw_json_sha256": "2884b9c456888ea4f5306022ac0e9619c36890f8dfd67d3902ab022a5d9b0c9d",
+        "raw_json_bytes": 9662695,
+        "stored_bytes": 929764,
+        "production_admitted": false
+      },
+      "all_original_fields_NA_count_maps_key_order_and_2000_draws_preserved": true
+    },
+    {
+      "relative_source": "mean_probability/TARGET_TEST/all_B/conditional_bootstrap.json",
+      "raw_bytes": 9692259,
+      "receipt": {
+        "schema": "M_EXACT_MULTIPLICITY_BUNDLE_V1",
+        "complete_sha256": "fdc3c5be7d12b9505ce6cb75f56e421cf4dbfa401d0fec376d339c407ac63cdb",
+        "raw_json_sha256": "f1e1a0e5b39d59c3ad7e8e139494a1b5d8d434f2952f8aa2cc4cf1adc820797c",
+        "raw_json_bytes": 9692259,
+        "stored_bytes": 1177447,
+        "production_admitted": false
+      },
+      "all_original_fields_NA_count_maps_key_order_and_2000_draws_preserved": true
+    }
+  ],
+  "input_sha256": {
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed42/identity.json": "b0200cf4495865f7fd716ce4f0b7666a4afe6690b8dcc9e85335ba5d8b34fb1f",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/multiplicity_bundle.py": "3aa5debf7d98bd976bc21fa5be2135d34cdfa8e0b91873f356cc8f57e24360c3",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_primary_analysis_clip_vit_b16_seed42_launch_20261025T0830.json": "cb63d1f452ef8240c3af9fbaa49780528078a1c43ddcbc303d86fbd316f1f3ec",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_clip_vit_b16_seed42_independent_7role_parallel_candidate_20261025T0645.json": "3e6c6366089ac131804e26d260e40f7af7c0bac92c87ee2b763d8a507c8c48f7",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_parallel_fresh_validation/independent_actual_CPU_parallel_pair_admission_audit.json": "a7d29d89b9dcfc9fea48c6e6488e1632273fd3980a907161ed3e7de045165bf3",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/profile_actual_H_live_producer_snapshot.py": "a546a85129d150dc267d4b2c3ceae9d8f08f1737fe8ea48381a9ebfb094c1359",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed42/mean_logit/SOURCE_TEST/all_B/conditional_bootstrap.json": "ddc4b28fbc134c6fe03a6220699c86f21b3c98f3dc5855203ad9d2028ce27be5",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed42/mean_logit/TARGET_TEST/all_B/conditional_bootstrap.json": "90295899175f91bf1e6a779a26574f1ffcc3009d4521fc04b7d33e65fefd1f79",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed42/mean_probability/SOURCE_TEST/all_B/conditional_bootstrap.json": "2884b9c456888ea4f5306022ac0e9619c36890f8dfd67d3902ab022a5d9b0c9d",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/H/clip_vit_b16/seed42/mean_probability/TARGET_TEST/all_B/conditional_bootstrap.json": "f1e1a0e5b39d59c3ad7e8e139494a1b5d8d434f2952f8aa2cc4cf1adc820797c"
+  },
+  "raw_bytes": 38710615,
+  "stored_bytes": 4217149,
+  "seconds": 15.918831685557961,
+  "peak_RSS_KiB": 83556,
+  "primary_pair_terminal_accepted": false,
+  "source_best_results_generated": false,
+  "final_real_H_transport_admission": false,
+  "joint_M_budget_admitted": false,
+  "compression_capacity_credit_bytes": 0,
+  "M_production_admitted": false,
+  "source_originals_mutated": false,
+  "next_gate": "After actual primary pair terminal+independent scientific acceptance, match its four artifact SHA and identity to this snapshot; independently re-read these existing bundles and promote measurement without re-encoding or resampling."
+}

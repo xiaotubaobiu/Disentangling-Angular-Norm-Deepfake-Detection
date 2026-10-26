@@ -1,0 +1,106 @@
+{
+  "utc": "2026-10-24T16:56:18.663438+00:00",
+  "status": "PASS_1630_SUPERVISION_H_FIRST4_TERMINAL_AND_CLIP_REAL_FIVE_SEED_SUMMARY_ACCEPTED",
+  "H_first4_terminal_acceptance_sha256": "a59d0c4ed879f50c20dfe831f5243fb30f9052c455da2e4814282bfa54e25406",
+  "H_first4_dev_completed": 4,
+  "H_active": [
+    {
+      "pid": 2035767,
+      "run_id": "H_dev_dinov2_vit_b14_B_lr1e-05_seed1007_e30",
+      "gpu": 0,
+      "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e",
+      "backbone": "dinov2_vit_b14"
+    },
+    {
+      "pid": 2035768,
+      "run_id": "H_dev_dinov2_vit_b14_AB_lr1e-05_seed1007_e30",
+      "gpu": 2,
+      "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+      "backbone": "dinov2_vit_b14"
+    },
+    {
+      "pid": 2035769,
+      "run_id": "H_dev_dinov2_vit_b14_B_lr1e-05_seed1042_e30",
+      "gpu": 3,
+      "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646",
+      "backbone": "dinov2_vit_b14"
+    },
+    {
+      "pid": 2036656,
+      "run_id": "H_dev_dinov2_vit_b14_AB_lr1e-05_seed1042_e30",
+      "gpu": 1,
+      "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+      "backbone": "dinov2_vit_b14"
+    }
+  ],
+  "H_pending": 12,
+  "H_formal_started": 0,
+  "D_individual_analysis_accepted": 5,
+  "CLIP_real_summary_complete": true,
+  "CLIP_real_summary_independently_accepted": true,
+  "CLIP_independent_field_checks": 48476,
+  "CLIP_independent_max_error": 4.547473508864641e-13,
+  "CLIP_independent_acceptance": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/clip_vit_b16_five_seed_summary_independent_acceptance_20261024T1630.json",
+  "CLIP_independent_acceptance_sha256": "a459978674827294f73e524e56a1c04518cb12a04b51eb5c8aae1f242576f6e9",
+  "CLIP_summary_actual_elapsed": "22:41.39",
+  "CLIP_summary_peak_RSS_KiB": 953544,
+  "D_auditor_tests": 14,
+  "D_CPU_slots": [
+    {
+      "run_id": "D_formal_dinov2_vit_b14_seed7",
+      "slot": 0,
+      "pid": 2023271,
+      "status": "PRODUCTION_ANALYSIS_TERMINAL",
+      "roles_admitted": [
+        "train",
+        "dev",
+        "source_cal",
+        "source_test",
+        "target_full",
+        "target_cal",
+        "target_test"
+      ]
+    },
+    {
+      "run_id": "D_formal_dinov2_vit_b14_seed42",
+      "slot": 1,
+      "pid": 2042841,
+      "status": "PRODUCTION_ANALYSIS_RUNNING",
+      "roles_admitted": [
+        "train",
+        "dev",
+        "source_cal",
+        "source_test",
+        "target_full",
+        "target_cal",
+        "target_test"
+      ]
+    }
+  ],
+  "cold_copy_all793_dual_SHA_complete": true,
+  "cold_recoverability_receipt_sha256": "aa7c728eda20690db32f4e0f033d9c696afcd4d3034d41e456609861cdf6bacf",
+  "cold_target_mtime_differing_files": 789,
+  "cold_target_mtime_delta_ns_range": [
+    -99,
+    0
+  ],
+  "SSD_cold_release_bytes": 0,
+  "forward_canonical_migration_compatibility_pending": true,
+  "primary_last_budget_receipt_sha256": "cae7c95056cd9a60e2042f12936a745947bcde33f680a5f224a069f0c0aca614",
+  "primary_last_normal_required_GiB": 260.89739577707167,
+  "workspace_free_GiB": 296.03479766845703,
+  "source_best_extra_scope_and_budget_pending": true,
+  "CLIP_bilingual_material": "/home/z/obsidian/paper/deepfake-detector/新实验设计/20261023/论文方法与设置准备_v2/20261024_覆盖整合版/已验收结果_CLIP五种子_中英.md",
+  "CLIP_bilingual_material_sha256": "bc1747706728ea23192d00ae0d10c735a3c3e106c7ab5350bd0a9128b5f4da71",
+  "CLIP_manuscript_backfill_receipt_sha256": "b9cb780bcbf85b590e5eb464851984220aa762adf88b1db77b838a1af8d8fde7",
+  "formal_training_completed": 15,
+  "formal_training_total": 45,
+  "papers_complete": false,
+  "actual_permission_or_execution_blockers": [],
+  "resolved_audit_failures": [
+    "CSV missing_methods list literal versus JSON list",
+    "Auditor expected_seeds tuple-string versus registered list descriptor"
+  ],
+  "producer_outputs_changed_for_audit": false,
+  "next_recommended_check_utc": "2026-10-24T17:00:00Z"
+}

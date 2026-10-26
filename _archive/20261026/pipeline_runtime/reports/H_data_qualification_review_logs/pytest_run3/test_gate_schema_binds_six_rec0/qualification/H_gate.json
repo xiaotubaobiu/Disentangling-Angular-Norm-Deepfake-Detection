@@ -1,0 +1,136 @@
+{
+  "status": "PASS",
+  "approved_routes": [
+    "H"
+  ],
+  "source_only": true,
+  "target_used": false,
+  "schema": "H_SOURCE_QUALIFICATION_V1",
+  "training_code_sha256": "336f3097434edf903a5ff402162e29afeca2442ca50f9c7d9883ca60136b8335",
+  "qualification_code_sha256": "80f111b27dcbe682f4a7bdae1541669fb3c240f5c774fbd48bda70daf32137bb",
+  "h_code_bundle_sha256": "h_bundle_fixture",
+  "H_data_freeze_sha256": "332b72810180c1d0b7cc511e34770bca0b581205654cbc891e8392cb96be2bca",
+  "architecture_gate_sha256": "79b3f621d394afd6546fc9fa0d204b0c5014ebcfcf7fe744d79092e6a6b49ea9",
+  "base_config_sha256": "21fe1b27edf57fdfab7f052b5aff6305681eb895d1195d0a0e32911540ab7f8d",
+  "environment_sha256": "51e7c324653b7546a2aab3c27bd8e62cfa3d332c6d95c57b53fa8dbb93bd8bd6",
+  "probe_receipt_sha256": "d33d8dde17bdfb3aa09542ef98c1e9eda63f95bcd1473f278278de178dd23157",
+  "backbones": {
+    "clip_vit_b16": {
+      "microbatch": 32,
+      "fp32_microbatch": 32,
+      "precisions": {
+        "AMP": {
+          "microbatch": 32,
+          "receipt": "qualification/H/clip_vit_b16/AMP/micro32/receipt.json",
+          "receipt_sha256": "fa4726e3777082d9ad73584722b622e0e87882cca41c71d056305e7f2506f70c",
+          "oom_failures": []
+        },
+        "FP32": {
+          "microbatch": 32,
+          "receipt": "qualification/H/clip_vit_b16/FP32/micro32/receipt.json",
+          "receipt_sha256": "3eaf1e84a04d7083093fd4a4a49d54c618e1acd5e9f075c974a2789ad0294d13",
+          "oom_failures": []
+        }
+      }
+    },
+    "dinov2_vit_b14": {
+      "microbatch": 32,
+      "fp32_microbatch": 32,
+      "precisions": {
+        "AMP": {
+          "microbatch": 32,
+          "receipt": "qualification/H/dinov2_vit_b14/AMP/micro32/receipt.json",
+          "receipt_sha256": "0569892ec5a3566912c47a4b7b91aa71c7eb1919a7f1b21537a538f4eeac1478",
+          "oom_failures": []
+        },
+        "FP32": {
+          "microbatch": 32,
+          "receipt": "qualification/H/dinov2_vit_b14/FP32/micro32/receipt.json",
+          "receipt_sha256": "8fb45d6eccc810d37d34fa56919f80f405abd42c77d89c703f0e4047e30e1706",
+          "oom_failures": []
+        }
+      }
+    },
+    "efficientnet_b0": {
+      "microbatch": 32,
+      "fp32_microbatch": 32,
+      "precisions": {
+        "AMP": {
+          "microbatch": 32,
+          "receipt": "qualification/H/efficientnet_b0/AMP/micro32/receipt.json",
+          "receipt_sha256": "ac0fe660b0dd803fee409560fdde49c2e97315fe5e1444d56e10609a3865d9e2",
+          "oom_failures": []
+        },
+        "FP32": {
+          "microbatch": 32,
+          "receipt": "qualification/H/efficientnet_b0/FP32/micro32/receipt.json",
+          "receipt_sha256": "c4a360799ce3c6df62c5fb3e543af144ce90964fb1962860c20651084a90ddd5",
+          "oom_failures": []
+        }
+      }
+    }
+  },
+  "accepted_evidence_stats": {
+    "qualification/H/clip_vit_b16/AMP/micro32/receipt.json": {
+      "checkpoint.pt": {
+        "size": 28,
+        "mtime_ns": 1792753254096696683
+      },
+      "receipt.json": {
+        "size": 40,
+        "mtime_ns": 1792753254092696687
+      }
+    },
+    "qualification/H/clip_vit_b16/FP32/micro32/receipt.json": {
+      "checkpoint.pt": {
+        "size": 28,
+        "mtime_ns": 1792753254096696683
+      },
+      "receipt.json": {
+        "size": 41,
+        "mtime_ns": 1792753254096696683
+      }
+    },
+    "qualification/H/dinov2_vit_b14/AMP/micro32/receipt.json": {
+      "checkpoint.pt": {
+        "size": 28,
+        "mtime_ns": 1792753254096696683
+      },
+      "receipt.json": {
+        "size": 42,
+        "mtime_ns": 1792753254096696683
+      }
+    },
+    "qualification/H/dinov2_vit_b14/FP32/micro32/receipt.json": {
+      "checkpoint.pt": {
+        "size": 28,
+        "mtime_ns": 1792753254096696683
+      },
+      "receipt.json": {
+        "size": 43,
+        "mtime_ns": 1792753254096696683
+      }
+    },
+    "qualification/H/efficientnet_b0/AMP/micro32/receipt.json": {
+      "checkpoint.pt": {
+        "size": 28,
+        "mtime_ns": 1792753254096696683
+      },
+      "receipt.json": {
+        "size": 43,
+        "mtime_ns": 1792753254096696683
+      }
+    },
+    "qualification/H/efficientnet_b0/FP32/micro32/receipt.json": {
+      "checkpoint.pt": {
+        "size": 28,
+        "mtime_ns": 1792753254096696683
+      },
+      "receipt.json": {
+        "size": 44,
+        "mtime_ns": 1792753254096696683
+      }
+    }
+  },
+  "acceptance_verification": "fresh_cryptographic_full_evidence_and_deep_H_freeze"
+}

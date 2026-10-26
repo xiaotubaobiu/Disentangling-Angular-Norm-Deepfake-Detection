@@ -1,0 +1,117 @@
+{
+  "utc": "2026-10-23T10:35:08.519798+00:00",
+  "scope": "PARTIAL_PREPROCESSING_COVERAGE_ONLY_NOT_FINAL_H_COHORTS",
+  "jsonl_lines": 2777,
+  "unique_videos": 2777,
+  "duplicate_lines": 0,
+  "trailing_partial_lines_ignored": 0,
+  "version_ineligible_videos": {
+    "A": 20,
+    "B": 20,
+    "AB": 66
+  },
+  "ineligible_video_reason_counts": {
+    "A": {
+      "no_qualified_face": 20
+    },
+    "B": {
+      "no_qualified_face": 20
+    },
+    "AB": {
+      "no_qualified_face": 66
+    }
+  },
+  "processed_groups": {
+    "FFPP/source/Deepfakes": {
+      "processed": 388,
+      "A": 388,
+      "B": 388,
+      "AB": 387,
+      "common": 387
+    },
+    "FFPP/source/Face2Face": {
+      "processed": 388,
+      "A": 387,
+      "B": 387,
+      "AB": 385,
+      "common": 385
+    },
+    "FFPP/source/FaceSwap": {
+      "processed": 388,
+      "A": 387,
+      "B": 387,
+      "AB": 385,
+      "common": 385
+    },
+    "FFPP/source/NeuralTextures": {
+      "processed": 388,
+      "A": 387,
+      "B": 387,
+      "AB": 385,
+      "common": 385
+    },
+    "FFPP/source/real": {
+      "processed": 388,
+      "A": 388,
+      "B": 388,
+      "AB": 386,
+      "common": 386
+    },
+    "DFD/target/DeepFakeDetection": {
+      "processed": 837,
+      "A": 820,
+      "B": 820,
+      "AB": 783,
+      "common": 783
+    }
+  },
+  "examples": [
+    {
+      "video_uid": "FFPP/source/Deepfakes/869_780",
+      "manifest": "/Dataset/deepfake_detection/derived/pipeline_reliability_v2_20261023/H/FFPP/DEV/Deepfakes/869_780/manifest.json",
+      "reasons": {
+        "AB": [
+          "no_qualified_face"
+        ]
+      }
+    },
+    {
+      "video_uid": "FFPP/source/Face2Face/869_780",
+      "manifest": "/Dataset/deepfake_detection/derived/pipeline_reliability_v2_20261023/H/FFPP/DEV/Face2Face/869_780/manifest.json",
+      "reasons": {
+        "AB": [
+          "no_qualified_face"
+        ]
+      }
+    },
+    {
+      "video_uid": "FFPP/source/FaceSwap/869_780",
+      "manifest": "/Dataset/deepfake_detection/derived/pipeline_reliability_v2_20261023/H/FFPP/DEV/FaceSwap/869_780/manifest.json",
+      "reasons": {
+        "AB": [
+          "no_qualified_face"
+        ]
+      }
+    },
+    {
+      "video_uid": "FFPP/source/NeuralTextures/869_780",
+      "manifest": "/Dataset/deepfake_detection/derived/pipeline_reliability_v2_20261023/H/FFPP/DEV/NeuralTextures/869_780/manifest.json",
+      "reasons": {
+        "AB": [
+          "no_qualified_face"
+        ]
+      }
+    },
+    {
+      "video_uid": "FFPP/source/real/869",
+      "manifest": "/Dataset/deepfake_detection/derived/pipeline_reliability_v2_20261023/H/FFPP/DEV/real/869/manifest.json",
+      "reasons": {
+        "AB": [
+          "no_qualified_face"
+        ]
+      }
+    }
+  ],
+  "all_results_preserved": true,
+  "thresholds_and_geometry_changed": false
+}

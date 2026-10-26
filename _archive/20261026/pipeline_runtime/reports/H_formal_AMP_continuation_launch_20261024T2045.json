@@ -1,0 +1,42 @@
+{
+  "utc": "2026-10-24T21:38:10.948025+00:00",
+  "status": "REAL_POSTSTANDARD_ADMISSION_PROCESS_LAUNCHED_TRAINING_NOT_YET_CONFIRMED",
+  "pid": 2222604,
+  "argv": [
+    "/usr/bin/time",
+    "-v",
+    "-o",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_formal_AMP_continuation_time_v_20261024T2045.log",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+    "-B",
+    "-u",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/continue_H_formal_AMP.py",
+    "--budget",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/full_capacity_live_20261024T2045.json",
+    "--budget-sha",
+    "e6d4cb2594c9cafb77630e99a550ec9815a96d1f91ad7762b986c7ecd2fa2c4a",
+    "--execute"
+  ],
+  "wrapper_sha256": "3955e3299f1bcdc2529cb196af17902df376ec2eaf685560cd08aba41b10dadc",
+  "capacity_snapshot_sha256": "e6d4cb2594c9cafb77630e99a550ec9815a96d1f91ad7762b986c7ecd2fa2c4a",
+  "independent_review_sha256": "62c862b58e1e3eb40b08a5a2e321bc28ffe8c38ab9767c7b57216abe1245fc70",
+  "log": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_formal_AMP_continuation_20261024T2045.log",
+  "time_v": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_formal_AMP_continuation_time_v_20261024T2045.log",
+  "allowed_gpus": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "protected_gpus": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "formal_batch_size": 30,
+  "source_best": "HOLD",
+  "conditional_FP32_admitted": false,
+  "target_export_allowed": false,
+  "completion_boundary": "STOP_AFTER30FORMAL_AMP_BEFORE_INDEPENDENT_TERMINAL_PAIRED_LEDGER_CAPACITY_AND_TARGET_GATE_REVIEW"
+}

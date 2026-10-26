@@ -1,0 +1,42 @@
+{
+  "utc": "2026-10-25T18:32:19Z",
+  "H_roles": 202,
+  "H_operational_models": 28,
+  "active": [
+    {
+      "pid": 2501313,
+      "run_id": "H_formal_efficientnet_b0_B_seed3407",
+      "gpu": 0,
+      "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e",
+      "backbone": "efficientnet_b0"
+    },
+    {
+      "pid": 2531627,
+      "run_id": "H_formal_efficientnet_b0_AB_seed3407",
+      "gpu": 1,
+      "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+      "backbone": "efficientnet_b0"
+    }
+  ],
+  "pending": [],
+  "stats": {
+    "123": {
+      "pid": 1477519,
+      "alive": true,
+      "ledger_starts": 31,
+      "last": "BEGIN_PRIMARY_FRESH_LEDGER 31 clip_vit_b16 AMP"
+    },
+    "2026": {
+      "pid": 1592783,
+      "alive": true,
+      "ledger_starts": 28,
+      "last": "BEGIN_PRIMARY_FRESH_LEDGER 28 clip_vit_b16 AMP"
+    }
+  },
+  "free_GiB": 155.8348617553711,
+  "original_phase_receipt_exists": false,
+  "M_GPU_qualification": false,
+  "M_canary": false,
+  "M_joint_admitted": false,
+  "next_check": "2026-10-25T19:00:00Z"
+}

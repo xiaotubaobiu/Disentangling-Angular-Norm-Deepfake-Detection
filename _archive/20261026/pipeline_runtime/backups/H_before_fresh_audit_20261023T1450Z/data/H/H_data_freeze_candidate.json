@@ -1,0 +1,132 @@
+{
+  "candidate_videos": 8431,
+  "code_sha256": "161ac4e837463ff16e7916ca42eeb5d13acc44aab9bcc1c397025b9426ad9532",
+  "coverage_report": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/data/H/H_coverage_by_role_method.json",
+  "data_frozen": false,
+  "geometry_protocol_sha256": "85a865f0e3343ecaf5b8c0174c8a3f602ec873deeccb03bd1826d617f2a7ae03",
+  "quarantined_group_count": 0,
+  "status": "AUDIT_COMPLETE_READY_FOR_H_DATA_FREEZE_REVIEW",
+  "tables": {
+    "AB/dev": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/data/H/AB/dev.parquet",
+      "rows": 4280,
+      "sha256": "79ed06833df1a0186417bcdb99bf71dc8b3f92ffc7ddaf1c132757c1cc51b2c9",
+      "videos": 535
+    },
+    "AB/train": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/data/H/AB/train.parquet",
+      "rows": 24424,
+      "sha256": "479dc70ff6293e6d057367ac57d1ea9718f6887170190c1acf43ba33ecaf9bdc",
+      "videos": 3053
+    },
+    "B/SOURCE_CAL": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/data/H/B/SOURCE_CAL.parquet",
+      "rows": 1120,
+      "sha256": "ef6e76c5e9767fde921003c4c8237ab6bdc73d5311f67876cf0c1452ce597a95",
+      "videos": 140
+    },
+    "B/SOURCE_TEST": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/data/H/B/SOURCE_TEST.parquet",
+      "rows": 5600,
+      "sha256": "9e2f8840fa10531d50f4982f4fa3f4643581181a3b9320291442536f25aa0a70",
+      "videos": 700
+    },
+    "B/TARGET_TEST": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/data/H/B/TARGET_TEST.parquet",
+      "rows": 26560,
+      "sha256": "1374241086076705389d75448ebe0844f78dcfc73d5ce78c133570166edee7ca",
+      "videos": 3320
+    },
+    "B/dev": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/data/H/B/dev.parquet",
+      "rows": 4280,
+      "sha256": "fe4715d80a9cfd6d3b235ad3aba90a3e1558146992709972eae4e496b236965a",
+      "videos": 535
+    },
+    "B/train": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/data/H/B/train.parquet",
+      "rows": 24424,
+      "sha256": "7786508838d9e3ea2cba19fa29fe1d49b75c5ad432610552a1ef59d324519d0f",
+      "videos": 3053
+    },
+    "common/AB/SOURCE_CAL": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/data/H/common/AB/SOURCE_CAL.parquet",
+      "rows": 1120,
+      "sha256": "26435a70549cc4be781782b8b4cd6bf5c7255d691dcec6a2541ee68919d6c13b",
+      "videos": 140
+    },
+    "common/AB/SOURCE_TEST": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/data/H/common/AB/SOURCE_TEST.parquet",
+      "rows": 5568,
+      "sha256": "0a2a80cf7b1679c4f0b452da463e9f93820454631e44cc2b72e0859c2901ee96",
+      "videos": 696
+    },
+    "common/AB/TARGET_TEST": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/data/H/common/AB/TARGET_TEST.parquet",
+      "rows": 24720,
+      "sha256": "b6552dc83f2018a6477da855aca66f335db4d554dc547b592880319c52a22a4a",
+      "videos": 3090
+    },
+    "common/B/SOURCE_CAL": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/data/H/common/B/SOURCE_CAL.parquet",
+      "rows": 1120,
+      "sha256": "ef6e76c5e9767fde921003c4c8237ab6bdc73d5311f67876cf0c1452ce597a95",
+      "videos": 140
+    },
+    "common/B/SOURCE_TEST": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/data/H/common/B/SOURCE_TEST.parquet",
+      "rows": 5568,
+      "sha256": "c6176ad08ab1cc2945cbd1a235cf0120bec2b0e94876c608eaf18e4d5a85c88f",
+      "videos": 696
+    },
+    "common/B/TARGET_TEST": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/data/H/common/B/TARGET_TEST.parquet",
+      "rows": 24720,
+      "sha256": "cb0b0d68a2b462597f2c564406f9487fc914526f57cc7d6d0ea794216e0c1fa1",
+      "videos": 3090
+    }
+  },
+  "target_performance_used": false,
+  "training": {
+    "DEV": {
+      "draw_count": 4352,
+      "logical_mother_rows": 4280,
+      "method_probability": {
+        "Deepfakes": 0.12499999999999796,
+        "Face2Face": 0.12499999999999796,
+        "FaceSwap": 0.12499999999999796,
+        "NeuralTextures": 0.12499999999999796,
+        "real": 0.49999999999999184
+      },
+      "paired_mother_ids_identical": true,
+      "sampling_mass": 0.9999999999999669,
+      "video_counts": {
+        "Deepfakes": 107,
+        "Face2Face": 107,
+        "FaceSwap": 107,
+        "NeuralTextures": 107,
+        "real": 107
+      }
+    },
+    "TRAIN": {
+      "draw_count": 24448,
+      "logical_mother_rows": 24424,
+      "method_probability": {
+        "Deepfakes": 0.1249999999999985,
+        "Face2Face": 0.1249999999999985,
+        "FaceSwap": 0.12499999999998823,
+        "NeuralTextures": 0.12499999999998823,
+        "real": 0.4999999999999529
+      },
+      "paired_mother_ids_identical": true,
+      "sampling_mass": 1.0000000000003044,
+      "video_counts": {
+        "Deepfakes": 610,
+        "Face2Face": 610,
+        "FaceSwap": 611,
+        "NeuralTextures": 611,
+        "real": 611
+      }
+    }
+  }
+}

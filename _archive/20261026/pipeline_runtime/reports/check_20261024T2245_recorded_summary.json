@@ -1,0 +1,191 @@
+{
+  "utc": "2026-10-24T22:58:29.427014+00:00",
+  "status": "PASS_H_FIRST4_FORMAL_TERMINAL_INDEPENDENT_ACCEPTANCE_AND_ORIGINAL_FOUR_GPU_SUCCESSORS",
+  "H_formal_independently_accepted": 4,
+  "H_formal_running": 4,
+  "H_formal_pending": 22,
+  "D_formal_independently_accepted": 15,
+  "whole_formal_terminal_accepted_count": 19,
+  "whole_formal_total": 45,
+  "accepted_count_scope": "15 D primary plus4 H AMP terminal artifacts. H final effective precision/all5-pair target export gate remains pending.",
+  "H_terminal_totals": {
+    "models": 4,
+    "attempts": 22920,
+    "successful_updates": 22920,
+    "AMP_skips": 0
+  },
+  "H_terminal_source_DEV_AUC_checks": 720,
+  "H_terminal_source_DEV_max_error": 1.1102230246251565e-16,
+  "H_terminal_full_E30_pairs": [
+    {
+      "seed": 7,
+      "common_epochs": 30,
+      "same_successful_update_stream": true
+    },
+    {
+      "seed": 42,
+      "common_epochs": 30,
+      "same_successful_update_stream": true
+    }
+  ],
+  "H_terminal_resource": {
+    "elapsed": "2:58.50",
+    "peak_RSS_KiB": 2635520,
+    "swap": 0,
+    "exit": 0
+  },
+  "H_successor_complete_atomic_snapshots": [
+    {
+      "run_id": "H_formal_clip_vit_b16_B_seed123",
+      "snapshot_epoch": 2,
+      "snapshot_attempts": 382,
+      "snapshot_successful_updates": 382,
+      "snapshot_AMP_skips": 0
+    },
+    {
+      "run_id": "H_formal_clip_vit_b16_AB_seed123",
+      "snapshot_epoch": 2,
+      "snapshot_attempts": 382,
+      "snapshot_successful_updates": 382,
+      "snapshot_AMP_skips": 0
+    },
+    {
+      "run_id": "H_formal_clip_vit_b16_B_seed2026",
+      "snapshot_epoch": 1,
+      "snapshot_attempts": 191,
+      "snapshot_successful_updates": 191,
+      "snapshot_AMP_skips": 0
+    },
+    {
+      "run_id": "H_formal_clip_vit_b16_AB_seed2026",
+      "snapshot_epoch": 1,
+      "snapshot_attempts": 191,
+      "snapshot_successful_updates": 191,
+      "snapshot_AMP_skips": 0
+    }
+  ],
+  "H_successor_resource": {
+    "elapsed": "0:21.39",
+    "peak_RSS_KiB": 1955784,
+    "swap": 0,
+    "exit": 0
+  },
+  "later_active_observation": [
+    {
+      "pid": 2270152,
+      "run_id": "H_formal_clip_vit_b16_B_seed123",
+      "gpu": 0,
+      "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e",
+      "backbone": "clip_vit_b16",
+      "committed_epochs": 2,
+      "committed_attempts": 382,
+      "committed_success": 382,
+      "committed_AMP_skips": 0,
+      "live_complete_records": 573,
+      "live_AMP_skips": 0,
+      "recent_draw_equivalent_per_second": 203.37669732272866
+    },
+    {
+      "pid": 2270153,
+      "run_id": "H_formal_clip_vit_b16_AB_seed123",
+      "gpu": 3,
+      "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646",
+      "backbone": "clip_vit_b16",
+      "committed_epochs": 2,
+      "committed_attempts": 382,
+      "committed_success": 382,
+      "committed_AMP_skips": 0,
+      "live_complete_records": 573,
+      "live_AMP_skips": 0,
+      "recent_draw_equivalent_per_second": 201.2983665569487
+    },
+    {
+      "pid": 2270880,
+      "run_id": "H_formal_clip_vit_b16_B_seed2026",
+      "gpu": 1,
+      "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+      "backbone": "clip_vit_b16",
+      "committed_epochs": 2,
+      "committed_attempts": 382,
+      "committed_success": 382,
+      "committed_AMP_skips": 0,
+      "live_complete_records": 437,
+      "live_AMP_skips": 0,
+      "recent_draw_equivalent_per_second": 198.8862482967154
+    },
+    {
+      "pid": 2270881,
+      "run_id": "H_formal_clip_vit_b16_AB_seed2026",
+      "gpu": 2,
+      "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+      "backbone": "clip_vit_b16",
+      "committed_epochs": 2,
+      "committed_attempts": 382,
+      "committed_success": 382,
+      "committed_AMP_skips": 0,
+      "live_complete_records": 453,
+      "live_AMP_skips": 0,
+      "recent_draw_equivalent_per_second": 201.23859877642684
+    }
+  ],
+  "actual_PID_evidence": "    PID    PPID STAT ELAPSED %CPU COMMAND\n1532179 1532010 Sl   1338569  8.7 VLLM::Worker_TP0\n1532180 1532010 Sl   1338569  7.5 VLLM::Worker_TP1\n1532181 1532010 Sl   1338569  7.5 VLLM::Worker_TP2\n1532182 1532010 Sl   1338569  7.5 VLLM::Worker_TP3\n2222605 2222604 Sl      4819 10.3 /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -B -u /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/continue_H_formal_AMP.py --budget /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/full_capacity_live_20261024T2045.json --budget-sha e6d4cb2594c9cafb77630e99a550ec9815a96d1f91ad7762b986c7ecd2fa2c4a --execute\n2270152 2222605 Rl       435  101 /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -u -m reliability_v2.worker_h --config /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/configs/H_execution.json --run-id H_formal_clip_vit_b16_B_seed123\n2270153 2222605 Rl       435  101 /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -u -m reliability_v2.worker_h --config /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/configs/H_execution.json --run-id H_formal_clip_vit_b16_AB_seed123\n2270880 2222605 Rl       362 99.4 /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -u -m reliability_v2.worker_h --config /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/configs/H_execution.json --run-id H_formal_clip_vit_b16_B_seed2026\n2270881 2222605 Sl       362 99.6 /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -u -m reliability_v2.worker_h --config /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/configs/H_execution.json --run-id H_formal_clip_vit_b16_AB_seed2026\n",
+  "actual_GPU_point_csv": "0, 4, 4932\n1, 98, 4932\n2, 97, 4932\n3, 99, 4932\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n",
+  "H_dev_final": {
+    "attempts": 114600,
+    "success": 114600,
+    "AMP_skips": 0
+  },
+  "D_dev_AMP_skips": 32,
+  "D_formal_AMP_skips": 57,
+  "capacity": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/full_capacity_post_handoff_20261024T2245.json",
+    "free_GiB": 199.71879959106445,
+    "required_including_16temporary_50reserve_GiB": 140.95420414537455,
+    "margin_GiB": 58.764595445689906,
+    "conditional_FP32_requires_fresh_all_remaining_admission": true
+  },
+  "protected13_inputs_unchanged": true,
+  "evidence_sha256": {
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_CLIP_first4_terminal_acceptance_20261024T2245.json": "40234accf5d04f5703363b9d1cbba96131f9621d13dd3d6e2cc5b13a3ee357e5",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_formal_checkpoint_health_successors_20261024T2245.json": "b6c406be3983e92127d2c12b4c568911bcd698799ac4a940e0c8943d7caa74bf",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/runtime_health_20261024T2245.json": "cc4b517d99401bd26fd789beee6c6c6bc8a3d3a03af9cde72227e9e2681ae90b",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/runtime_handoff_followup_20261024T2245.json": "ed6c90b59c74686f480b206e13222b2ecb0c0e01a7b513f73d848e727b3ee885",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/full_capacity_post_handoff_20261024T2245.json": "c36cbc44625b3dd3a768953079a441b5b1e8b235768e3fb1c8890136eee03b58",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_actual_microbatch_appendix_bilingual_readback_20261024T2245.json": "f363164e7c2eab7669c17d34ad2da66245191793ae7e420498a261b8f6409785",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/manuscript_ready_sections_citation_resolution_20261024T2245.json": "4c681cc14b0ba5b7cc58454f2c068dbe3c234d5bf82a5e87137ab488193a5f56"
+  },
+  "manuscript_reference_assembly": {
+    "canonical_bibliographies": [
+      {
+        "path": "/home/z/obsidian/paper/deepfake-detector/参考文献/references.bib",
+        "sha256": "0672e9847f09d97d056de5f784660ffacb07b258f6657144a42b4df05304b757"
+      },
+      {
+        "path": "/home/z/obsidian/paper/deepfake-detector/新实验设计/20261023/论文方法与设置准备_v2/20261024_覆盖整合版/references_addendum_20261024.bib",
+        "sha256": "88f357b51a1f6d32ff15e38ddb174991e96909474ba624f9ba4968ba326efa8a"
+      }
+    ],
+    "unique_entries": 23,
+    "ready_section_unique_citations": 16,
+    "ready_sections": 12,
+    "missing_keys": [],
+    "historical_additional_bib_superseded": true
+  },
+  "source_best_HOLD": true,
+  "SSD_cold_release_bytes": 0,
+  "unmodified_training_protocol": true,
+  "no_restart_or_duplicate_dispatch": true,
+  "GPU4_7_unchanged": true,
+  "scientific_results_complete": false,
+  "journal_manuscripts_complete": false,
+  "remaining": [
+    "H26 formal terminals and allfive paired ledgers",
+    "conditional uniform whole-backbone FP32 only if ledger rule requires and budget admits",
+    "30 effective H models x7roles caches",
+    "15 H pair analyses and3 five-seed summaries plus figures",
+    "complete CN/EN journal manuscript assembly and final result/citation/visual readback",
+    "source-best decision remains HOLD, separate pending user scope"
+  ],
+  "next_check_UTC": "2026-10-24T23:20:00+00:00",
+  "next_check": "Keep original owner and four workers; verify actual full checkpoints, paired streams and AMP recovery with distinct snapshot/live cuts, capacity. Do not repeat first4 accepted audit or unchanged data audits."
+}

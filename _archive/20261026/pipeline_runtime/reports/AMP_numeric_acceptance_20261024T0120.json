@@ -1,0 +1,122 @@
+{
+  "utc": "2026-10-24T01:32:50.015692+00:00",
+  "status": "PASS_DEVELOPMENT32_COMPLETED_FORMAL19_NEW_ACTIVE_FIRST_EPOCH0",
+  "development_final": {
+    "models": 10,
+    "AMP_skips": 32
+  },
+  "completed_formal_final": {
+    "models": 4,
+    "attempts": 95880,
+    "successful_updates": 95861,
+    "AMP_skips": 19,
+    "per_model": [
+      {
+        "run_id": "D_formal_clip_vit_b16_seed7",
+        "success": 23965,
+        "skip": 5
+      },
+      {
+        "run_id": "D_formal_clip_vit_b16_seed42",
+        "success": 23965,
+        "skip": 5
+      },
+      {
+        "run_id": "D_formal_clip_vit_b16_seed123",
+        "success": 23966,
+        "skip": 4
+      },
+      {
+        "run_id": "D_formal_clip_vit_b16_seed2026",
+        "success": 23965,
+        "skip": 5
+      }
+    ]
+  },
+  "new_active_formal_pinned": {
+    "models": 4,
+    "attempts": 3196,
+    "successful_updates": 3196,
+    "AMP_skips": 0,
+    "checkpoint_epochs": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "cutoff_utc": "2026-10-24T01:28:52.016566+00:00"
+  },
+  "combined_pinned_totals": {
+    "attempts": 338776,
+    "successful_updates": 338725,
+    "AMP_skips": 51
+  },
+  "runtime_live_cutoff_utc": "2026-10-24T01:23:29.316342+00:00",
+  "formal_live_AMP_skips": 19,
+  "combined_live_AMP_skips": 51,
+  "new_live_skips_since0100": 2,
+  "new_event_evidence": [
+    {
+      "run_id": "D_formal_clip_vit_b16_seed7",
+      "event": {
+        "attempt": 23349,
+        "lr": 5.167740871403087e-07,
+        "loss": 0.006493577733635902,
+        "gradient_norm": null,
+        "gradient_finite": false,
+        "scale_before": 8192.0,
+        "scale_after": 4096.0,
+        "success": false,
+        "skip": true,
+        "epoch": 30
+      },
+      "next_success": {
+        "attempt": 23350,
+        "lr": 5.16720052560252e-07,
+        "loss": 1.0095536708831787e-06,
+        "gradient_norm": 4.3402495678705616e-05,
+        "gradient_finite": true,
+        "scale_before": 4096.0,
+        "scale_after": 4096.0,
+        "success": true,
+        "skip": false,
+        "epoch": 30
+      },
+      "next_event_status": "SUCCESS"
+    },
+    {
+      "run_id": "D_formal_clip_vit_b16_seed42",
+      "event": {
+        "attempt": 23908,
+        "lr": 5.001624682438106e-07,
+        "loss": 0.005222758278250694,
+        "gradient_norm": null,
+        "gradient_finite": false,
+        "scale_before": 8192.0,
+        "scale_after": 4096.0,
+        "success": false,
+        "skip": true,
+        "epoch": 30
+      },
+      "next_success": {
+        "attempt": 23909,
+        "lr": 5.001571851078049e-07,
+        "loss": 4.284083843231201e-07,
+        "gradient_norm": 1.8954163299920747e-05,
+        "gradient_finite": true,
+        "scale_before": 4096.0,
+        "scale_after": 4096.0,
+        "success": true,
+        "skip": false,
+        "epoch": 30
+      },
+      "next_event_status": "SUCCESS"
+    }
+  ],
+  "unstarted_formal_models": 7,
+  "unstarted_formal_scope": "NOT_OBSERVED_not_verifiedzero",
+  "frozen_protocol": "30*799=23970attempts,102272draws/epoch,effective128/micro32,attemptLR/successAdam. No makeup/retrain/precision/seed/threshold/testchange. Currentfirstepochzerosarenotwholecoursezero.",
+  "runtime_sha256": "73cef4cff9fbb02c3fe072e1e48f14f2bff06987476d08a98ce9d79d577ce040",
+  "completed_checkpoint_sha256": "7d1e2d9187a3c31e0c4ed505c6a19faf117800d073b7c720afdd918f79deea2a",
+  "new_active_checkpoint_sha256": "e9c6cd86065c9b0ccd2fc35696f132b66f6c21015fb79e360ec8283ec1c2eb67"
+}

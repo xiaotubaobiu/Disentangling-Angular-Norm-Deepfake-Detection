@@ -1,0 +1,77 @@
+{
+  "status": "PASS",
+  "identity": {
+    "schema": "H_SOURCE_QUALIFICATION_V1",
+    "training_code_sha256": "336f3097434edf903a5ff402162e29afeca2442ca50f9c7d9883ca60136b8335",
+    "qualification_code_sha256": "80f111b27dcbe682f4a7bdae1541669fb3c240f5c774fbd48bda70daf32137bb",
+    "h_code_bundle_sha256": "h_bundle_fixture",
+    "H_data_freeze_sha256": "b732f7313a89ef6d62846880ade0790ee47498c7151ad52bf911cbc334ba53a3",
+    "architecture_gate_sha256": "79b3f621d394afd6546fc9fa0d204b0c5014ebcfcf7fe744d79092e6a6b49ea9",
+    "base_config_sha256": "d803da4cd2ca8bf9e86acc21d7f700cce298bc8f6a1035b5e39f074d66e6f1ac",
+    "environment_sha256": "51e7c324653b7546a2aab3c27bd8e62cfa3d332c6d95c57b53fa8dbb93bd8bd6",
+    "config": "856d45efead4d1f0249850668051237f2823567b3b339c6a14bfd418b8137666",
+    "data": "dcbdd2dadaadf9e5212893b996d02dd5b433d2c62c7d897355ba31abaa465784",
+    "code": "336f3097434edf903a5ff402162e29afeca2442ca50f9c7d9883ca60136b8335",
+    "initialization": "b2becf4a9e1b41b6fc413d2cff76b80b1bb6c63879c409b1f958a67640c35abd",
+    "backbone": "clip_vit_b16",
+    "microbatch": 32,
+    "precision": "FP32",
+    "history": "AB"
+  },
+  "precision": "FP32",
+  "microbatch": 32,
+  "effective_batch": 128,
+  "loader_workers": 4,
+  "epochs": 2,
+  "attempts_per_epoch": 1,
+  "continuous_attempts": 2,
+  "resumed_attempts": 2,
+  "all_trainable_parameters_received_gradients": true,
+  "resume_parameter_optimizer_scaler_rng_byte_exact": true,
+  "resume_FP32_features_byte_exact": true,
+  "epoch2_sampler_methods_augmentations_batches_byte_exact": true,
+  "features_dimension": 512,
+  "changed_identity_fields_rejected": [
+    "config",
+    "data",
+    "code",
+    "initialization"
+  ],
+  "state_comparisons": {
+    "model": "608f97481a15f8af91355629bdc575e637eef3d7865d012d54f7c027d4968e01",
+    "optimizer": "a11b2de67f4e4a58b84b0ab1b51c45773c501272604fe1ffed56d65de186a742",
+    "scaler": "b483a4ba291c44c6b495f929cc54f7a5839495ee03a91f02ef1b6fac535cd3ed",
+    "python_rng": "cd3225d337a081afafd2a30d34b319532aea12b22dd336dd14a0f00d70ff20d6",
+    "numpy_rng": "b2db43d98684fdd29e15cc1c0e44bb68944fbb89ea71be9f2de7e9b852847672",
+    "torch_rng": "5047698a4a625c0e89c1aacb53ac305e40257528e188d01d50fdb8845a8a7060",
+    "cuda_rng": "b483a4ba291c44c6b495f929cc54f7a5839495ee03a91f02ef1b6fac535cd3ed",
+    "epoch": "e7241ec5f90173f04b3ed1900c76d62b57dbfc5a3481161769d009c5361fb6cb",
+    "attempts": "e7241ec5f90173f04b3ed1900c76d62b57dbfc5a3481161769d009c5361fb6cb",
+    "scheduler_clock": "920413256267cd1c39b711e712b0b98879666792c36d2ecef1f057cbe5d0d36a",
+    "identity": "13f0a36f907146b69bd9a9f27e38110a309b140f292f5c374062ab3536eaeb8b",
+    "history": "db683e068bc3f70d3761ff672e87d1bdaf2b4ffe4c9fc976de3acbefd586feb2"
+  },
+  "source_metrics": {
+    "dev": {
+      "macro_auc": 1.0,
+      "pooled_auc": 1.0,
+      "method_auc": {
+        "Deepfakes": 1.0,
+        "Face2Face": 1.0,
+        "FaceSwap": 1.0,
+        "NeuralTextures": 1.0
+      }
+    },
+    "source_cal": {
+      "threshold": -0.4210791856781097,
+      "alpha": 0.05,
+      "videos": 2,
+      "false_positives": 0,
+      "empirical_fpr": 0.0,
+      "rule": "score>=threshold",
+      "auc_called": false
+    }
+  },
+  "initialization_model_sha256": "d5a6b673fbdfa2adc6eec0dda2aaceadee620aa746bba044d5abb433877c3623",
+  "target_used": false
+}

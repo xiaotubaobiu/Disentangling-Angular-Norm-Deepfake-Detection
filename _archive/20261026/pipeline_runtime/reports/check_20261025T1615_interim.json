@@ -1,0 +1,49 @@
+{
+  "utc": "2026-10-25T16:44:58Z",
+  "formal_training_accepted": 45,
+  "H_roles": 171,
+  "H_operational_models": 24,
+  "H_independent_models": 8,
+  "H_statistics_independent_pairs": 2,
+  "H_statistics_running_pairs": 2,
+  "H_owner_alive": true,
+  "H_active": [
+    {
+      "pid": 1755049,
+      "run_id": "H_formal_efficientnet_b0_B_seed123",
+      "gpu": 0,
+      "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e",
+      "backbone": "efficientnet_b0"
+    },
+    {
+      "pid": 1774333,
+      "run_id": "H_formal_efficientnet_b0_AB_seed123",
+      "gpu": 1,
+      "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+      "backbone": "efficientnet_b0"
+    },
+    {
+      "pid": 1797600,
+      "run_id": "H_formal_efficientnet_b0_B_seed2026",
+      "gpu": 3,
+      "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646",
+      "backbone": "efficientnet_b0"
+    },
+    {
+      "pid": 1828203,
+      "run_id": "H_formal_efficientnet_b0_AB_seed2026",
+      "gpu": 2,
+      "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+      "backbone": "efficientnet_b0"
+    }
+  ],
+  "H_pending": 2,
+  "free_GiB": 158.19889450073242,
+  "M_754_suite_accepted_commit": "c915e513b4cfeb6f02bdfe039492a39b19c727e5",
+  "M_owner_new_tests_passed": 5,
+  "M_owner_independent_review_in_progress": true,
+  "M_cache_issuer_implementation_in_targeted_test": true,
+  "M_real_GPU_qualification": false,
+  "M_production_admitted": false,
+  "next_check": "2026-10-25T16:45:00Z"
+}

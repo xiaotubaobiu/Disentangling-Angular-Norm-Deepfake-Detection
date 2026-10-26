@@ -1,0 +1,769 @@
+{
+  "schema": "M_ACTUAL_FOUR_GATE_REVIEW_PREPARATION_V1",
+  "status": "PREPARATION_ONLY_NO_GATE_OR_PERMIT",
+  "prepared_utc": "2026-10-25T20:52:00.043527+00:00",
+  "artifact_root": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023",
+  "requested_output_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_actual_four_gate_review_preparation.json",
+  "A_alias": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits",
+  "H_acceptance_actual_location": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/final_actual_H_transport_acceptance_20261025T1350.json",
+    "sha256": "35588ba30c9a93c0b65ff0e9489727ed834386a9dfa83733db82800e4546e2e0",
+    "bytes": 3251
+  },
+  "scope": "Bounded JSON/code metadata only. No slot/lock/PID/process/model/GPU/cache payload/NPY/Parquet/PNG/checkpoint access, no worker wait, no gate or production issue.",
+  "input_ref": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/actual_M_cache_input_context_candidate.json",
+    "sha256": "8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a"
+  },
+  "initial_plan_ref": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/plans/M_initial_remaining_write_plan_20261025T1815_candidate.json",
+    "sha256": "8d97d65cd9e1eb10c912460e31ac2539a8e37d971ab61a113702e381207e5d4d"
+  },
+  "small_immutable_metadata_bindings": [
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/actual_M_cache_input_context_candidate.json",
+      "sha256": "8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a",
+      "bytes": 616
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/plans/M_initial_remaining_write_plan_20261025T1815_candidate.json",
+      "sha256": "8d97d65cd9e1eb10c912460e31ac2539a8e37d971ab61a113702e381207e5d4d",
+      "bytes": 4916
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/actual45_source_file_admission_20261025T0645_v3_canonical_review_fixed.json",
+      "sha256": "75bea6831981b70fec53a84254f85d307d8d9fbf6a221d74c8da4abf805a8e85",
+      "bytes": 18066
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_M_initial_remaining_write_plan_candidate_review.json",
+      "sha256": "6c8bbb499615810b045a3e5c5a8a268416cc543018851aa40b26308e6fd0ca01",
+      "bytes": 15567
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/actual_source9_GPU_qualification_launch_20261025T1925.json",
+      "sha256": "d7c744615186d201d06072c52ef8ca535a8510dbd5a9c9e1fd7a5c6784f9b13e",
+      "bytes": 2719
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/plans/source_gpu9_20261025T1700_candidate/owner_plan.json",
+      "sha256": "195fcb122568d54d0022d05c24b9b3ec5c565dc50e1650eebc969723651bf0aa",
+      "bytes": 2841
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/plans/source_gpu9_20261025T1700_candidate/qualification_plan.json",
+      "sha256": "bbab4879ba2144c61ed69160f6283a6576ca583ab1e2eab29d2070a64c2805dd",
+      "bytes": 3113
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_only_GPU_qualification/883a623cc487472892444961790070b1/D_formal_clip_vit_b16_seed7.json",
+      "sha256": "002ed481cb09f4764ef7f3710b82f13ac4b7b09f92d9d7e86b825ab97771e3f9",
+      "bytes": 2668
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_clip_vit_b16_seed7/source_cal/complete.json",
+      "sha256": "d5aadc166a688481f5ec3f8034f8d11dcf5c2e63ac21cb75550ac0f52a31bc41",
+      "bytes": 3648
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_only_GPU_qualification/883a623cc487472892444961790070b1/D_formal_dinov2_vit_b14_seed7.json",
+      "sha256": "c8c3c4306dfeb5173044a6d8775603e03f4248a3b9226d0e69e44af259aa4a5f",
+      "bytes": 2670
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_dinov2_vit_b14_seed7/source_cal/complete.json",
+      "sha256": "1cebdd4d27a90dbe836170148455627349395dfb3ff875e44dba4351158a27b2",
+      "bytes": 3659
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_only_GPU_qualification/883a623cc487472892444961790070b1/D_formal_efficientnet_b0_seed7.json",
+      "sha256": "3b704d448bfee274dc454b6a2199bbc016f4e778282176252eb8094483912cab",
+      "bytes": 2672
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_efficientnet_b0_seed7/source_cal/complete.json",
+      "sha256": "fb33260ea9c6dcf17e1afa648af6f85ec52b39b7c15efd6399676035732e8acb",
+      "bytes": 3669
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_only_GPU_qualification/883a623cc487472892444961790070b1/H_formal_clip_vit_b16_AB_seed7.json",
+      "sha256": "7391802205a514fc99a648a130990fa327f4c0350c30a3e67690aec0ccb7c9ef",
+      "bytes": 2674
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/H_formal_clip_vit_b16_AB_seed7/B/SOURCE_CAL/complete.json",
+      "sha256": "de71a6ba4f2c3014d8f938d5044e522091d5c3a4a29a284ff3f00cce68574544",
+      "bytes": 5369
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_only_GPU_qualification/883a623cc487472892444961790070b1/H_formal_clip_vit_b16_B_seed7.json",
+      "sha256": "279c04a3efb6a423a57291dd52342b27b21483f3d974f3742ae28b6212005325",
+      "bytes": 2672
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/H_formal_clip_vit_b16_B_seed7/B/SOURCE_CAL/complete.json",
+      "sha256": "8dff27cd4a3036b4297628c247d283c2b7e22b002bd45309be181ea12765a236",
+      "bytes": 5362
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_only_GPU_qualification/883a623cc487472892444961790070b1/H_formal_dinov2_vit_b14_AB_seed7.json",
+      "sha256": "fde908f22095746315928b3c3d7e3bec23e152babcc8ae1acccd31a0907792c8",
+      "bytes": 2675
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/H_formal_dinov2_vit_b14_AB_seed7/B/SOURCE_CAL/complete.json",
+      "sha256": "77a4b1c2dc95629dd392e41360a5784083aa73cff4e675d35a693fb36793554e",
+      "bytes": 5402
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_only_GPU_qualification/883a623cc487472892444961790070b1/H_formal_dinov2_vit_b14_B_seed7.json",
+      "sha256": "20e7fee606e7f6e84261323a4e140ad7678260a0f06fcaba9a1f09e6a11bd4ed",
+      "bytes": 2674
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/H_formal_dinov2_vit_b14_B_seed7/B/SOURCE_CAL/complete.json",
+      "sha256": "6e20df9b3d094bd17f2817a1d2b310744ce236919f6f49860e0f72c7bb5ca7a0",
+      "bytes": 5397
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/actual_D_atomic_bundle_profile.json",
+      "sha256": "502c6750eae76c955309f217f58bf9f204e52601d946a28ec31840573ec7bd89",
+      "bytes": 3220
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_actual_D_atomic_bundle_profile_audit.json",
+      "sha256": "b7e057733846f2619aa25e39c9b699f2c72bf1d1e2b1599d2191a4bed542a202",
+      "bytes": 11640
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/actual_H_live_producer_snapshot_profile.json",
+      "sha256": "7ac23a68b2464f42e110bce2b3c531c3303a488791b89b5718f963691c03e726",
+      "bytes": 5477
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_actual_H_live_snapshot_transport_audit.json",
+      "sha256": "a6931518424cc6d98c646fe7d13eb5ca874ab5222d2427bd86a572a678af4a13",
+      "bytes": 48016
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/final_actual_H_transport_acceptance_20261025T1350.json",
+      "sha256": "35588ba30c9a93c0b65ff0e9489727ed834386a9dfa83733db82800e4546e2e0",
+      "bytes": 3251
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/actual45_source_checkpoint_validation_canonical_review_fixed.json",
+      "sha256": "4faa53e6e33241f6f1e9eaf8d270029cde173f9c126e5117a715d3d5842208aa",
+      "bytes": 617335
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_actual45_source_checkpoint_validation_audit.json",
+      "sha256": "4105402e34a6ab30bc31defb8deb7909cf2bd88e15fd48a13b193d6ed49e8a67",
+      "bytes": 132022
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_primary_cache_stage_complete.json",
+      "sha256": "90bfad1afbdfb8096c41625625e109ea9cf06ceb4f5246e435cc48241646a3ce",
+      "bytes": 7323
+    }
+  ],
+  "fixed_code_sha256": {
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/analysis_d.py": "a1d3be7bd43acb43995768f9167225b066ee9e6691c61c7b8bf28b00de53ba5e",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/analysis_h.py": "051226f11737615bb3546ae1a301d621fd662943dc1c849e18085e610c865383",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/bootstrap_fast.py": "7eaeaf0973d72cd1def838cf6bc82863c92c75fb35409553332015dec8b0e4e5",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/cache_d.py": "8f5814646194c772dcf00f6751a35c2f792dd5f11008e0834fdba4eb5e329761",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/cache_h.py": "9119200359f8d696f1366e6c0137bca533c63089c32e505971e69f84ebaf40fb",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/coverage_h.py": "f1b684903d2486107dc1ba2312502b7f34a66636b196662b0a3566a159475f9d",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/data_d.py": "7d37fda956a5b5d0d9a4281a24b5967507ce28b892dd3a01486ec05280277cd1",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/data_h.py": "ad81f65c27d53159e6902bf8a20b0910cd129f75eb0105e5a5a053bcc2d2f45e",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/geometry_h.py": "161ac4e837463ff16e7916ca42eeb5d13acc44aab9bcc1c397025b9426ad9532",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/models.py": "5c4adb39314433c5f0d40311d7ada3ad5d30c7b239773be02080be120f5a2e60",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/multiplicity_bundle.py": "3aa5debf7d98bd976bc21fa5be2135d34cdfa8e0b91873f356cc8f57e24360c3",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/multiplicity_codec.py": "1931371915dcbf542b78b79ca433f202e6c6cdf194400985020f105eff92fa73",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/qualification_h.py": "5c70e9fb2a39bd974b0db278d519a8b7103f9553c3bfee32c7accb311edf0ec0",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/qualify.py": "5e8b6e856f2396bf15fa4e464cb8228a043864bc7b0e90dfcbd9d20f847b06eb",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/queue_d.py": "3db3d1ebb63fbe233fa19116934268ab999be94faaff59fe1f2d52fdbe1949b8",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/queue_h.py": "a2792361443e64622391fb6ae766ee5e6f887789d662afdfb6d809f9a5ea8176",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/scoring_d.py": "9bddf066fcb8df1b9659d4cfe14aa4febdf850f7cc39c1c0c3d6050864263d1c",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/sensitivity_io.py": "d311923c3e35b8e9ba2fc42dc5ee7e6e46b66ce3c9f2d3a923ea8ccb949be9ce",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_analysis.py": "0ec974eec85a0a5204b8804707d627fa908a80eb1a4e76cfa81729ce0a875a32",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_cache.py": "4c5494d06f133b962fd22872ac88d22ad9155fcca102e29f0e300cc06a4ff0c7",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_files.py": "9745e0181aa4da0a8fa53b73066e2b47f400d0e824df77d20c7e097fa082c908",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_gpu.py": "f3cac34e1493cd109e336b77f94b087527e97d722f02253880371a7c2caebed5",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_lease.py": "175075eaa2e3dac44db2dbb0229abeb126058d694267901c6929cd28e0b9e5a9",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_policy.py": "e407059ce2def098ff46fd0ebf7e61c40f4ab5c81b39608925d501b6e3c07b39",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_runtime.py": "69b3d590d95fd3004c7c64617fbad642526b02862a97f61546d3cd375fc18742",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_sink.py": "9b638a05738061fce9fb4537b6076c118b579631c8852452d4f894fa55a581f0",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_source_qualification.py": "3bc8e60a64226b37817d8142b6b374ad0400bf891c3209ad95329e8ccaa47ab9",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_stats.py": "012d5147f8f1bbb63dae6b1aff730e71459a359ead332c754e734ce525ca7a47",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/stats_h.py": "5627cccc714c2fc59a3dadfed3ddeba32d1488020cfd550ca70d0c9be947dd74",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/summary_d.py": "489330049b8b95c74db9bb3d191a38f7e7190107788144ff6c07aaec9946db93",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/trainer.py": "56f0db0634a525a530fb53482732365ebf9693a1f5470b0a95ec0820cc614368",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/worker_h.py": "d0219aa52ebb1b6602602d5b09eb5fdfbbb9dc3aeb7b55dbfc0251ced66136f4",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/source_best_owner.py": "2c68dfb05aa0cd28808e7ae14f317225513202b7190151962e184ddf6bf4db5b",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/source_best_cache_admission.py": "06eda77a7fc41969d003c2f538edab79bc762ca3f5413f47f9a72a4e8b6f23c8",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/source_best_cache_permit.py": "6c38937a4e88317a060385ef8a64a5f3f76a9b3fb8250e3d8f09bd14b2c6d750"
+  },
+  "active_package_py_count": 33,
+  "fixed_inventory": {
+    "source9_run_ids": [
+      "D_formal_clip_vit_b16_seed7",
+      "D_formal_dinov2_vit_b14_seed7",
+      "D_formal_efficientnet_b0_seed7",
+      "H_formal_clip_vit_b16_B_seed7",
+      "H_formal_clip_vit_b16_AB_seed7",
+      "H_formal_dinov2_vit_b14_B_seed7",
+      "H_formal_dinov2_vit_b14_AB_seed7",
+      "H_formal_efficientnet_b0_B_seed7",
+      "H_formal_efficientnet_b0_AB_seed7"
+    ],
+    "D3_run_ids": [
+      "D_formal_clip_vit_b16_seed7",
+      "D_formal_dinov2_vit_b14_seed7",
+      "D_formal_efficientnet_b0_seed7"
+    ],
+    "H6_run_ids": [
+      "H_formal_clip_vit_b16_B_seed7",
+      "H_formal_clip_vit_b16_AB_seed7",
+      "H_formal_dinov2_vit_b14_B_seed7",
+      "H_formal_dinov2_vit_b14_AB_seed7",
+      "H_formal_efficientnet_b0_B_seed7",
+      "H_formal_efficientnet_b0_AB_seed7"
+    ],
+    "feature_runs": [
+      "D_formal_clip_vit_b16_seed7",
+      "D_formal_clip_vit_b16_seed42",
+      "D_formal_clip_vit_b16_seed123",
+      "D_formal_clip_vit_b16_seed2026",
+      "D_formal_clip_vit_b16_seed3407",
+      "D_formal_dinov2_vit_b14_seed7",
+      "D_formal_dinov2_vit_b14_seed42",
+      "D_formal_dinov2_vit_b14_seed123",
+      "D_formal_dinov2_vit_b14_seed2026",
+      "D_formal_dinov2_vit_b14_seed3407",
+      "D_formal_efficientnet_b0_seed7",
+      "D_formal_efficientnet_b0_seed42",
+      "D_formal_efficientnet_b0_seed123",
+      "D_formal_efficientnet_b0_seed2026",
+      "D_formal_efficientnet_b0_seed3407",
+      "H_formal_clip_vit_b16_B_seed7",
+      "H_formal_clip_vit_b16_AB_seed7",
+      "H_formal_clip_vit_b16_B_seed42",
+      "H_formal_clip_vit_b16_AB_seed42",
+      "H_formal_clip_vit_b16_B_seed123",
+      "H_formal_clip_vit_b16_AB_seed123",
+      "H_formal_clip_vit_b16_B_seed2026",
+      "H_formal_clip_vit_b16_AB_seed2026",
+      "H_formal_clip_vit_b16_B_seed3407",
+      "H_formal_clip_vit_b16_AB_seed3407",
+      "H_formal_dinov2_vit_b14_B_seed7",
+      "H_formal_dinov2_vit_b14_AB_seed7",
+      "H_formal_dinov2_vit_b14_B_seed42",
+      "H_formal_dinov2_vit_b14_AB_seed42",
+      "H_formal_dinov2_vit_b14_B_seed123",
+      "H_formal_dinov2_vit_b14_AB_seed123",
+      "H_formal_dinov2_vit_b14_B_seed2026",
+      "H_formal_dinov2_vit_b14_AB_seed2026",
+      "H_formal_dinov2_vit_b14_B_seed3407",
+      "H_formal_dinov2_vit_b14_AB_seed3407",
+      "H_formal_efficientnet_b0_B_seed7",
+      "H_formal_efficientnet_b0_AB_seed7",
+      "H_formal_efficientnet_b0_B_seed42",
+      "H_formal_efficientnet_b0_AB_seed42",
+      "H_formal_efficientnet_b0_B_seed123",
+      "H_formal_efficientnet_b0_AB_seed123",
+      "H_formal_efficientnet_b0_B_seed2026",
+      "H_formal_efficientnet_b0_AB_seed2026",
+      "H_formal_efficientnet_b0_B_seed3407",
+      "H_formal_efficientnet_b0_AB_seed3407"
+    ],
+    "job_ids": [
+      "D_clip_vit_b16_seed7",
+      "D_clip_vit_b16_seed42",
+      "D_clip_vit_b16_seed123",
+      "D_clip_vit_b16_seed2026",
+      "D_clip_vit_b16_seed3407",
+      "D_dinov2_vit_b14_seed7",
+      "D_dinov2_vit_b14_seed42",
+      "D_dinov2_vit_b14_seed123",
+      "D_dinov2_vit_b14_seed2026",
+      "D_dinov2_vit_b14_seed3407",
+      "D_efficientnet_b0_seed7",
+      "D_efficientnet_b0_seed42",
+      "D_efficientnet_b0_seed123",
+      "D_efficientnet_b0_seed2026",
+      "D_efficientnet_b0_seed3407",
+      "H_clip_vit_b16_seed7",
+      "H_clip_vit_b16_seed42",
+      "H_clip_vit_b16_seed123",
+      "H_clip_vit_b16_seed2026",
+      "H_clip_vit_b16_seed3407",
+      "H_dinov2_vit_b14_seed7",
+      "H_dinov2_vit_b14_seed42",
+      "H_dinov2_vit_b14_seed123",
+      "H_dinov2_vit_b14_seed2026",
+      "H_dinov2_vit_b14_seed3407",
+      "H_efficientnet_b0_seed7",
+      "H_efficientnet_b0_seed42",
+      "H_efficientnet_b0_seed123",
+      "H_efficientnet_b0_seed2026",
+      "H_efficientnet_b0_seed3407"
+    ],
+    "roles_by_route": {
+      "D": [
+        "train",
+        "source_cal",
+        "source_test",
+        "target_full",
+        "target_cal",
+        "target_test"
+      ],
+      "H": [
+        "B/SOURCE_CAL",
+        "B/SOURCE_TEST",
+        "B/TARGET_TEST"
+      ]
+    },
+    "source9_roles_only": {
+      "D": "source_cal",
+      "H": "B/SOURCE_CAL"
+    },
+    "full_cache_model_count": 45,
+    "full_cache_role_count": 180
+  },
+  "source9_observed_metadata": {
+    "observed_utc": "2026-10-25T20:52:00.043422+00:00",
+    "status_snapshot": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_finite_owner/source_qualification/195fcb122568d54d0022d05c24b9b3ec5c565dc50e1650eebc969723651bf0aa/883a623cc487472892444961790070b1/status.json",
+      "sha256": "677ff5787cfc12b4a60ec0d1fde51e2ae7d5663f7d20076634502309b1b138a8",
+      "bytes": 2781
+    },
+    "completed_run_ids": [
+      "D_formal_clip_vit_b16_seed7",
+      "D_formal_dinov2_vit_b14_seed7",
+      "D_formal_efficientnet_b0_seed7",
+      "H_formal_clip_vit_b16_AB_seed7",
+      "H_formal_clip_vit_b16_B_seed7",
+      "H_formal_dinov2_vit_b14_AB_seed7",
+      "H_formal_dinov2_vit_b14_B_seed7"
+    ],
+    "active_run_ids": [
+      "H_formal_efficientnet_b0_AB_seed7",
+      "H_formal_efficientnet_b0_B_seed7"
+    ],
+    "pending": [],
+    "failures": [],
+    "completed_count": 7,
+    "active_count": 2,
+    "owner_terminal_present": false,
+    "collector_bridge_present": false,
+    "worker_receipts_and_complete_metadata": [
+      {
+        "run_id": "D_formal_clip_vit_b16_seed7",
+        "receipt": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_only_GPU_qualification/883a623cc487472892444961790070b1/D_formal_clip_vit_b16_seed7.json",
+          "sha256": "002ed481cb09f4764ef7f3710b82f13ac4b7b09f92d9d7e86b825ab97771e3f9",
+          "bytes": 2668
+        },
+        "complete_marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_clip_vit_b16_seed7/source_cal/complete.json",
+          "sha256": "d5aadc166a688481f5ec3f8034f8d11dcf5c2e63ac21cb75550ac0f52a31bc41",
+          "bytes": 3648
+        },
+        "source_role": "source_cal",
+        "rows": 1120,
+        "dimension": 512,
+        "original_head_sha256": "f209272f9c7c6c357fbb96b330c19dca8e7b9756fb3a48c5e3189bc7d8793056",
+        "checkpoint_sha256": "838828ed26fc905b04fb4b92ab3cfe1138fc2e3a7defb164232c71725770ce6f",
+        "source_best_epoch": 23,
+        "GPU_forward_metadata_consistent": true,
+        "raw_head_NPY_and_payload_opened": false,
+        "source_or_image_revalidation_performed": false
+      },
+      {
+        "run_id": "D_formal_dinov2_vit_b14_seed7",
+        "receipt": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_only_GPU_qualification/883a623cc487472892444961790070b1/D_formal_dinov2_vit_b14_seed7.json",
+          "sha256": "c8c3c4306dfeb5173044a6d8775603e03f4248a3b9226d0e69e44af259aa4a5f",
+          "bytes": 2670
+        },
+        "complete_marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_dinov2_vit_b14_seed7/source_cal/complete.json",
+          "sha256": "1cebdd4d27a90dbe836170148455627349395dfb3ff875e44dba4351158a27b2",
+          "bytes": 3659
+        },
+        "source_role": "source_cal",
+        "rows": 1120,
+        "dimension": 768,
+        "original_head_sha256": "dcd1630283ab8b7a4205ca8eba581f7108065777ee0f03ada5b22f79eb41e30e",
+        "checkpoint_sha256": "d780983736ef621de269d8a5db88bb50198455d833f2dfae801a9724e06c3c7b",
+        "source_best_epoch": 24,
+        "GPU_forward_metadata_consistent": true,
+        "raw_head_NPY_and_payload_opened": false,
+        "source_or_image_revalidation_performed": false
+      },
+      {
+        "run_id": "D_formal_efficientnet_b0_seed7",
+        "receipt": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_only_GPU_qualification/883a623cc487472892444961790070b1/D_formal_efficientnet_b0_seed7.json",
+          "sha256": "3b704d448bfee274dc454b6a2199bbc016f4e778282176252eb8094483912cab",
+          "bytes": 2672
+        },
+        "complete_marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_efficientnet_b0_seed7/source_cal/complete.json",
+          "sha256": "fb33260ea9c6dcf17e1afa648af6f85ec52b39b7c15efd6399676035732e8acb",
+          "bytes": 3669
+        },
+        "source_role": "source_cal",
+        "rows": 1120,
+        "dimension": 1280,
+        "original_head_sha256": "6d4c70574ea71787f57c0924c0b77388ea00e552b8e6c4d678a26d56382b2310",
+        "checkpoint_sha256": "19e41ff80a6369b493189d30a33a2b780c017fb77ac072434daf37a41ba65fa5",
+        "source_best_epoch": 14,
+        "GPU_forward_metadata_consistent": true,
+        "raw_head_NPY_and_payload_opened": false,
+        "source_or_image_revalidation_performed": false
+      },
+      {
+        "run_id": "H_formal_clip_vit_b16_AB_seed7",
+        "receipt": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_only_GPU_qualification/883a623cc487472892444961790070b1/H_formal_clip_vit_b16_AB_seed7.json",
+          "sha256": "7391802205a514fc99a648a130990fa327f4c0350c30a3e67690aec0ccb7c9ef",
+          "bytes": 2674
+        },
+        "complete_marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/H_formal_clip_vit_b16_AB_seed7/B/SOURCE_CAL/complete.json",
+          "sha256": "de71a6ba4f2c3014d8f938d5044e522091d5c3a4a29a284ff3f00cce68574544",
+          "bytes": 5369
+        },
+        "source_role": "B/SOURCE_CAL",
+        "rows": 1120,
+        "dimension": 512,
+        "original_head_sha256": "23d9a32b5529e1537bcc3e43e5f7fadaf524b7fa3b31139d694e04a12f15dc1f",
+        "checkpoint_sha256": "24520fae85d4eaa6d8f0c1bbf13380609eb3774e0215230dcc38f79d9f55e907",
+        "source_best_epoch": 23,
+        "GPU_forward_metadata_consistent": true,
+        "raw_head_NPY_and_payload_opened": false,
+        "source_or_image_revalidation_performed": false
+      },
+      {
+        "run_id": "H_formal_clip_vit_b16_B_seed7",
+        "receipt": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_only_GPU_qualification/883a623cc487472892444961790070b1/H_formal_clip_vit_b16_B_seed7.json",
+          "sha256": "279c04a3efb6a423a57291dd52342b27b21483f3d974f3742ae28b6212005325",
+          "bytes": 2672
+        },
+        "complete_marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/H_formal_clip_vit_b16_B_seed7/B/SOURCE_CAL/complete.json",
+          "sha256": "8dff27cd4a3036b4297628c247d283c2b7e22b002bd45309be181ea12765a236",
+          "bytes": 5362
+        },
+        "source_role": "B/SOURCE_CAL",
+        "rows": 1120,
+        "dimension": 512,
+        "original_head_sha256": "a9666923303ec51a8f037d37004a85247947e32c21e49ebbc984bc0a4be902fe",
+        "checkpoint_sha256": "db829a80f63c36472aa9554aa1b5bc3f5102a423432a70082d35062375c600c3",
+        "source_best_epoch": 17,
+        "GPU_forward_metadata_consistent": true,
+        "raw_head_NPY_and_payload_opened": false,
+        "source_or_image_revalidation_performed": false
+      },
+      {
+        "run_id": "H_formal_dinov2_vit_b14_AB_seed7",
+        "receipt": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_only_GPU_qualification/883a623cc487472892444961790070b1/H_formal_dinov2_vit_b14_AB_seed7.json",
+          "sha256": "fde908f22095746315928b3c3d7e3bec23e152babcc8ae1acccd31a0907792c8",
+          "bytes": 2675
+        },
+        "complete_marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/H_formal_dinov2_vit_b14_AB_seed7/B/SOURCE_CAL/complete.json",
+          "sha256": "77a4b1c2dc95629dd392e41360a5784083aa73cff4e675d35a693fb36793554e",
+          "bytes": 5402
+        },
+        "source_role": "B/SOURCE_CAL",
+        "rows": 1120,
+        "dimension": 768,
+        "original_head_sha256": "b1c8625678ba86d8b823448f1cc04fa9b17e6bd05867a654aa9ddc1f86163c55",
+        "checkpoint_sha256": "48a8cbf48ba8a093b18f6ab4ed3968cf4f99542e9d78e9120b655a69ce805d25",
+        "source_best_epoch": 23,
+        "GPU_forward_metadata_consistent": true,
+        "raw_head_NPY_and_payload_opened": false,
+        "source_or_image_revalidation_performed": false
+      },
+      {
+        "run_id": "H_formal_dinov2_vit_b14_B_seed7",
+        "receipt": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_only_GPU_qualification/883a623cc487472892444961790070b1/H_formal_dinov2_vit_b14_B_seed7.json",
+          "sha256": "20e7fee606e7f6e84261323a4e140ad7678260a0f06fcaba9a1f09e6a11bd4ed",
+          "bytes": 2674
+        },
+        "complete_marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/H_formal_dinov2_vit_b14_B_seed7/B/SOURCE_CAL/complete.json",
+          "sha256": "6e20df9b3d094bd17f2817a1d2b310744ce236919f6f49860e0f72c7bb5ca7a0",
+          "bytes": 5397
+        },
+        "source_role": "B/SOURCE_CAL",
+        "rows": 1120,
+        "dimension": 768,
+        "original_head_sha256": "ee71a07f46dbf08325df8a21eee9ac31f17ced15abcea7177fb27665237f4d4b",
+        "checkpoint_sha256": "81617b8df32d6e0a61c98e0ac1c3aa4d252e92ab2ac672b638b90d07395fd720",
+        "source_best_epoch": 23,
+        "GPU_forward_metadata_consistent": true,
+        "raw_head_NPY_and_payload_opened": false,
+        "source_or_image_revalidation_performed": false
+      }
+    ],
+    "raw_payload_or_original_head_bytes_revalidated": false,
+    "independent_source9_acceptance": false
+  },
+  "future_completion_paths": {
+    "source9_owner_terminal": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_finite_owner/source_qualification/195fcb122568d54d0022d05c24b9b3ec5c565dc50e1650eebc969723651bf0aa/883a623cc487472892444961790070b1/complete.json",
+    "source9_collector_bridge": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/M_source_only_GPU_bridge/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/accepted.json"
+  },
+  "reusable_evidence": {
+    "source45_metadata_and_existing_audits": [
+      {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/actual45_source_checkpoint_validation_canonical_review_fixed.json",
+        "sha256": "4faa53e6e33241f6f1e9eaf8d270029cde173f9c126e5117a715d3d5842208aa",
+        "metadata_read_now": true,
+        "weights_or_images_followed": false,
+        "metadata_schema": null,
+        "metadata_status": "PASS_SELECTED_ACTUAL_SOURCE_CHECKPOINT_BYTES_TENSORS_AND_ORIGINAL_FP32_HEADS_ONLY"
+      },
+      {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_actual45_source_checkpoint_validation_audit.json",
+        "sha256": "4105402e34a6ab30bc31defb8deb7909cf2bd88e15fd48a13b193d6ed49e8a67",
+        "metadata_read_now": true,
+        "weights_or_images_followed": false,
+        "metadata_schema": "INDEPENDENT_ACTUAL45_SOURCE_CHECKPOINT_AUDIT_V1",
+        "metadata_status": "PASS_INDEPENDENT_D15_H30_SOURCE_SELECTION_FILES_FINITE_CPU_TENSORS_AND_ORIGINAL_FP32_HEADS_ONLY"
+      }
+    ],
+    "D_transport": {
+      "profile": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/actual_D_atomic_bundle_profile.json",
+        "sha256": "502c6750eae76c955309f217f58bf9f204e52601d946a28ec31840573ec7bd89",
+        "bytes": 3220
+      },
+      "independent_audit": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_actual_D_atomic_bundle_profile_audit.json",
+        "sha256": "b7e057733846f2619aa25e39c9b699f2c72bf1d1e2b1599d2191a4bed542a202",
+        "bytes": 11640
+      },
+      "scope": "Three existing original-LAST D clip seed7 normal/closure/RQ4 native JSON bundles; exact ordered originalJSON rawSHA/fields/precision/NA/draw preservation only; no reencoding needed",
+      "bundle_code_sha256": "3aa5debf7d98bd976bc21fa5be2135d34cdfa8e0b91873f356cc8f57e24360c3",
+      "source_complete_sha256": "9aa7620cb6a65fed4e2bfd08db6ff0bbab649f794e9850d853bf17529ad1b6c6",
+      "raw_original_bytes": 1937202279,
+      "stored_bytes": 53309440,
+      "source_best_statistics_or_full_driver_resources_qualified": false
+    },
+    "H_transport": {
+      "snapshot": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/actual_H_live_producer_snapshot_profile.json",
+        "sha256": "7ac23a68b2464f42e110bce2b3c531c3303a488791b89b5718f963691c03e726",
+        "bytes": 5477
+      },
+      "independent_transport_audit": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_actual_H_live_snapshot_transport_audit.json",
+        "sha256": "a6931518424cc6d98c646fe7d13eb5ca874ab5222d2427bd86a572a678af4a13",
+        "bytes": 48016
+      },
+      "final_terminal_transport_acceptance": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/final_actual_H_transport_acceptance_20261025T1350.json",
+        "sha256": "35588ba30c9a93c0b65ff0e9489727ed834386a9dfa83733db82800e4546e2e0",
+        "bytes": 3251
+      },
+      "scope": "Four actual original-LAST H clip seed42 native mean_logit/mean_probability source/target conditional tables; existing exact bundles matched final terminal+science acceptance; preserve allNA/count maps/keyorder and2000 draws without reencoding/resampling",
+      "raw_bytes": 38710615,
+      "stored_bytes": 4217149,
+      "source_terminal_sha256": "02d7f66612d2e683ba6b52fbfc7379a74cefa1d180b89b9549f7299ea583d831",
+      "independent_scientific_audit_sha256": "7daea9b17a4e9e8aea32cd6e5d500cba564d66d33fdd15ce6dbb9cbc97c31e1e",
+      "four_snapshot_artifact_and_bundle_SHA_matches": true,
+      "source_best_statistics_or_all_architecture_resource_qualified": false
+    },
+    "initial_arithmetic_audit": {
+      "reference": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_M_initial_remaining_write_plan_candidate_review.json",
+        "sha256": "6c8bbb499615810b045a3e5c5a8a268416cc543018851aa40b26308e6fd0ca01",
+        "bytes": 15567
+      },
+      "scope": "Arithmetic,45/180 feature bound,30 job caps and retained original primary budget only; explicitly candidate and not capacity/live/production acceptance"
+    }
+  },
+  "four_gate_acceptance_checklist": [
+    {
+      "gate_id": "cache_qualification",
+      "state": "PENDING_SOURCE9_TERMINAL_COLLECTOR_AND_INDEPENDENT_REVIEW",
+      "issuer_contract": "Future separate document must identify this gate and actual independent acceptance; same exact inputSHA/cache4c; exact ordered9 run_ids and same qualification ref as bridge and both storage gate documents. Preparation never writes such a document.",
+      "required_evidence": [
+        "Original finite-owner canonical complete.json with exact9 completed refs, no active/pending/failures, same owner195f plan/phase nonce and original H210 stage90bf; wrapper completion/exit evidence and released native phase ownership.",
+        "Rebind all9 actual worker receipts with accepted owner.verify_return: direct producer context/nonce/code/qualification-plan/input; realGPU and phase mutual exclusion; bitwise repeated FP32 forward; source-only role; complete accepted rows versus fresh_forward_rows; zero optimizer updates/no target/threshold/testmetric.",
+        "Use accepted collector06eda source-qualification mode only after a shared CPU slot is available. It rechecks canonical sourceCAL cache/head/manifest/Npy/chunk checksums and final derived snapshot, source-best epoch/checkpoint/head equality, then final owner/stage/code binding. External SHA-bind resulting canonical bridge accepted.json.",
+        "Independent review of the final producer+collector graph, source45 existing audits and current33 package/owner2c/collector06eda/issuer6c. Do not rerun the45 original tensors or any sourcePNG just to recreate existing accepted evidence."
+      ],
+      "present_now": "Only partial7 receipt/complete-marker metadata read; no raw head/chunk bytes checked, no terminal or collector acceptance by this preparation."
+    },
+    {
+      "gate_id": "actual_D_storage",
+      "state": "PENDING_D3_CURRENT_INPUT_STORAGE_REBIND",
+      "issuer_contract": "Future separate actual independent storage document must routeD, exact orderedD3 source9 runs, cache4c/currentinput, and qualification ref equal the final source9 bridge.",
+      "required_evidence": [
+        "All3 sourceCAL cache identities and actual rawFP32 head/header/chunk layout/rows/dimensions512,768,1280 must match their actualGPU receipt, original source-best checkpoint/head/epoch and source manifest. Fresh collector/checksum binding requires its qualified free CPU slot.",
+        "Reuse existing3 actual D byte-exact transport schemas plus independent audit, bundle3aa and accepted sink9b/statistics implementation contracts. Link those historical format proofs explicitly rather than relabeling their originalLAST producer as M source-best.",
+        "Keep driver D60, per-artifact/decoded bounds, append-only namespace/resume/temporary and persistent quota contracts. Existing file-profile RSS/size is evidence for those files, not a guarantee for whole source-best statistic driver."
+      ],
+      "reusable_transport_refs": [
+        {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/actual_D_atomic_bundle_profile.json",
+          "sha256": "502c6750eae76c955309f217f58bf9f204e52601d946a28ec31840573ec7bd89",
+          "bytes": 3220
+        },
+        {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_actual_D_atomic_bundle_profile_audit.json",
+          "sha256": "b7e057733846f2619aa25e39c9b699f2c72bf1d1e2b1599d2191a4bed542a202",
+          "bytes": 11640
+        }
+      ],
+      "not_required_before_cache_only_permission": "Do not manufacture a target source-best statistical output or rerun a new experiment merely to prove unchanged JSON codec compatibility."
+    },
+    {
+      "gate_id": "actual_H_storage",
+      "state": "PENDING_H6_CURRENT_INPUT_STORAGE_REBIND",
+      "issuer_contract": "Future separate actual independent storage document must routeH, exact orderedH6 B/AB source9 runs, cache4c/currentinput, and qualification ref equal the final source9 bridge.",
+      "required_evidence": [
+        "All6 B/AB model sourceCAL caches must retain their own canonical run/head/checkpoint/epoch and rawFP32 shape/bytes. Common B/SOURCE_CAL manifest may be shared; B/AB trained heads and checkpoint identities may not be substituted. No epoch equality is treated as matched successful updates.",
+        "Reuse the existing four H native bundle transports, exact current artifactSHA/bundle completeSHA links, independent audit and final H terminal transport acceptance35588ba3. That receipt is physically E top-level, not A=E/audits; do not move it.",
+        "Preserve mean_logit/probability, source/target, full ordered fields/precision strings/NA/count maps/2000 draws and original files. This is actual H format evidence from originalLAST seed42, not a source-best scientific result or resource canary for every architecture.",
+        "Keep H37 full sink inventory, bounded decode and fail-staging/namespace quota contracts; independent public actualentry resource qualification remains separate."
+      ],
+      "reusable_transport_refs": [
+        {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/actual_H_live_producer_snapshot_profile.json",
+          "sha256": "7ac23a68b2464f42e110bce2b3c531c3303a488791b89b5718f963691c03e726",
+          "bytes": 5477
+        },
+        {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_actual_H_live_snapshot_transport_audit.json",
+          "sha256": "a6931518424cc6d98c646fe7d13eb5ca874ab5222d2427bd86a572a678af4a13",
+          "bytes": 48016
+        },
+        {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/final_actual_H_transport_acceptance_20261025T1350.json",
+          "sha256": "35588ba30c9a93c0b65ff0e9489727ed834386a9dfa83733db82800e4546e2e0",
+          "bytes": 3251
+        }
+      ]
+    },
+    {
+      "gate_id": "joint_capacity",
+      "state": "PENDING_INDEPENDENT_LIVE_FULL_BUDGET_ACCEPTANCE",
+      "issuer_contract": "Future distinct same-input/cache4c actual independent document must bind initial_remaining_plan exactly to8d97d65c and initial_required_remaining_bytes at least the accepted complete current remaining bound. Its runtime required_remaining_bytes must retain at least50GiB and match the accepted runtime floor.",
+      "required_evidence": [
+        "Retain complete45 features/180 role plus provenance bound18413684905B and all30 job caps, all5 seeds, D15×1GiB/H15×256MiB. Initial plan output paths are allNone; no orphan/partial/feature/compression/SSD-release credit.",
+        "Reuse candidate arithmetic6c8bbb only for math; re-evaluate accepted remaining_required on current retained staging/pool metadata and verify retainedM temporary pool<=6GiB without deleting failed evidence. Preserve original primary future43970592768B +16GiB original temp +50GiB floor, plusM6GiB temp+5GiB allowance in base126648713216B.",
+        "At actual issuance rebind all inputs/gates/code and live free capacity after prepared owner-plan write. Need at least max(current full remaining, independently accepted initial_required_remaining_bytes)+1MiB publication margin; nominal threshold165196105897B. This observation is no reservation and can become stale.",
+        "Accepted issuer6c publishes permit last and the real owner preflight repeats complete initial budget/phase before actual cache dispatch. Cache lower-level runtime floor by itself is not new independent whole-budget qualification."
+      ],
+      "snapshot_only_live_free": {
+        "utc": "2026-10-25T20:52:00.043422+00:00",
+        "free_bytes": 166461902848,
+        "required_initial_bytes": 165195057321,
+        "required_plus_publication_bytes": 165196105897,
+        "reservation_made": false,
+        "headroom_to_publication_bytes": 1265796951
+      }
+    }
+  ],
+  "shared_four_gate_rules": [
+    "Four distinct immutable paths, correct separate gate names, actual independent evidence, exact current input8d8e25e7 and cache4c; no copying one JSON into four labels.",
+    "All cache/storage gates must share the exact final source9 qualification ref, plus bridge GPU/lease/cache source hashes and canonical original H primary stage.",
+    "Existing originalLAST D/H transport proofs and arithmetic candidate retain their original false M admission flags. Only separately reviewed future wrappers can state their precise applicability; preparation does not issue them.",
+    "GPU source9 is all9 fixed seed7 architectures/histories, not completed45/180 production caches. Subsequent owner45 completion/format closure and each D6/H2x3 independent cache admission remain separate."
+  ],
+  "initial_budget": {
+    "required_initial_bytes": 165195057321,
+    "required_plus_publication_bytes": 165196105897,
+    "base_future_and_reserve_bytes": 126648713216,
+    "feature_cap_bytes": 18413684905,
+    "all30_statistic_cap_bytes": 20132659200,
+    "runtime_floor_bytes": 53687091200,
+    "global_M_temporary_bytes": 6442450944,
+    "candidate_arithmetic_only": true,
+    "live_observation": {
+      "utc": "2026-10-25T20:52:00.043422+00:00",
+      "free_bytes": 166461902848,
+      "required_initial_bytes": 165195057321,
+      "required_plus_publication_bytes": 165196105897,
+      "reservation_made": false,
+      "headroom_to_publication_bytes": 1265796951
+    },
+    "retained_pool_inventory_checked": false,
+    "capacity_reserved": false,
+    "feature_credit_bytes": 0,
+    "compression_credit_bytes": 0,
+    "SSD_release_credit_bytes": 0
+  },
+  "resource_canary_boundary": {
+    "cache_only_gate": "Source9 actual rawFP32 producer+format evidence and the complete conservative cache+statistics+primary budget can support review of a cache-only45-owner permission; no statistics permission is implied. Do not require source-best statistical outputs before the cache data they need can exist.",
+    "later_canary": "After applicable exact independently admitted D6/H2x3 source-best caches, same-input full budget, existing actualformat/code qualification and an independently accepted bounded canary plan, use only existing planned D_clip_vit_b16_seed7 and H_clip_vit_b16_seed7 through the actual public CPU entry.200CAL/2000TEST sampling remains unchanged; no extra experiments or substitutes.",
+    "before_full30_statistics": "Full30 statistic permission requires independent real public-entry canary resource acceptance for RSS/AS,allocated persistent output,retained temporary peaks/shared6GiB pool,CPU slot exclusion,resume and complete D60/H37 inventory; synthetic tests or historical codec ratios do not set actual_entry_resource_qualified.",
+    "today": "Both original shared CPU slots are occupied by H as supplied by parent. No slot is acquired/probed and no canary/heavy collector runs. This preparation does not wait for GPU workers.",
+    "no_future_credit": "Only a separately accepted complete45/180 owned-format closure can support a later new statistic-only remaining-feature plan; initial full feature bound stays unchanged now."
+  },
+  "minimal_metadata_entry": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_actual_four_gate_metadata_precheck.py",
+    "sha256": "b322c899d01961028474747fb34a48124b0956aa3b6d4fac27e88cc9657c1072",
+    "command": [
+      "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+      "-B",
+      "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_actual_four_gate_metadata_precheck.py",
+      "--review",
+      "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_actual_four_gate_review_preparation.json",
+      "--review-sha",
+      "<external SHA256 of this preparation file>"
+    ],
+    "environment": {
+      "CUDA_VISIBLE_DEVICES": "",
+      "OMP_NUM_THREADS": "2",
+      "MKL_NUM_THREADS": "2",
+      "OPENBLAS_NUM_THREADS": "2",
+      "PYTHONDONTWRITEBYTECODE": "1"
+    },
+    "behavior": "Stdlib-only bounded<=1MiB metadata/code reads, pinned SHA/input/inventory/arithmetic checks and livefree metadata. It only reports preparation/pending state even if terminal/collector later exists; cannot issue gates/permits or mark production accepted. No reliability_v2 import, locks, slots, PID query, heavy payload or GPU work."
+  },
+  "future_validation_entry_not_executed": {
+    "accepted_collector": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/source_best_cache_admission.py",
+    "mode": "source-qualification",
+    "prerequisites": [
+      "all9 owner terminal and independent SHA",
+      "a genuinely available original CPU slot chosen by operator",
+      "normal qualified emptyCUDA/two-thread environment"
+    ],
+    "afterwards": "Independently audit resulting bridge and raw source-only cache evidence; prepare four separately reviewed gate documents. Accepted issuer assemble/publicissue is outside this preparation authorization and cannot run until those real gates and current full budget are accepted."
+  },
+  "missing_evidence_now": [
+    "Final two H EffB B/AB sourceGPU returns and exact9 owner terminal+successful wrapper close.",
+    "SHA-bound source9 collector bridge and independent current-input D3/H6 raw-head/header/role/payload ownership checks; current inspection was JSON metadata only.",
+    "Four distinct current-input actual independently accepted wrapper gates linking the reusable existing D/H transport proofs to final source9 qualification, without promoting originalLAST results into M science.",
+    "Fresh independent complete remaining-write/staging/livecapacity acceptance including1MiB publication allocation; current arithmetic audit and livefree snapshot are not that acceptance.",
+    "For later statistic/fullM permission: applicable independent D6/H2x3 cache admission, bounded real public D/H canaries and independent output/resource/scientific acceptance, with original CPU slots available."
+  ],
+  "declined_to_judge": [
+    "No active worker health/PID/GPU/lock inspection, waiting, scheduling or termination.",
+    "No original45 tensor/weight/sourcePNG validation rerun.",
+    "No raw head/NPY/Parquet/cache chunk or bootstrap JSON/bundle payload opened/redecoded.",
+    "No new source-best statistics, training, F expansion, parameter/sampling reduction, matched-update claim, cleanup or deletion.",
+    "No whole-M/scientific/resource/production qualification is awarded."
+  ],
+  "verdict": "PREPARATION_ONLY_REAL_EVIDENCE_INCOMPLETE_NO_ADMISSION",
+  "four_actual_gates_written": false,
+  "gate_or_permit_issued": false,
+  "CPU_slot_taken": false,
+  "heavy_payload_validation_performed": false,
+  "implementation_changed": false,
+  "source_originals_changed": false,
+  "M_production_cache_admission": false,
+  "production_admitted": false,
+  "whole_M_admitted": false,
+  "real_budget_credit_bytes": 0
+}

@@ -1,0 +1,232 @@
+{
+  "utc": "2026-10-25T00:01:02.551652+00:00",
+  "status": "ORIGINAL_H_OWNER_MIXED_CLIP_DINO_SUCCESSORS_LIVE",
+  "queue": {
+    "owner_pid": 2222605,
+    "stage": "H_FORMAL_AMP_TRAINING",
+    "utc": "2026-10-25T00:00:59.596983+00:00",
+    "active": [
+      {
+        "pid": 2306754,
+        "run_id": "H_formal_clip_vit_b16_B_seed3407",
+        "gpu": 0,
+        "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e",
+        "backbone": "clip_vit_b16"
+      },
+      {
+        "pid": 2307917,
+        "run_id": "H_formal_clip_vit_b16_AB_seed3407",
+        "gpu": 3,
+        "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646",
+        "backbone": "clip_vit_b16"
+      },
+      {
+        "pid": 2308162,
+        "run_id": "H_formal_dinov2_vit_b14_B_seed7",
+        "gpu": 2,
+        "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+        "backbone": "dinov2_vit_b14"
+      },
+      {
+        "pid": 2308384,
+        "run_id": "H_formal_dinov2_vit_b14_AB_seed7",
+        "gpu": 1,
+        "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+        "backbone": "dinov2_vit_b14"
+      }
+    ],
+    "completed_this_session": [
+      "H_formal_clip_vit_b16_B_seed7",
+      "H_formal_clip_vit_b16_AB_seed42",
+      "H_formal_clip_vit_b16_AB_seed7",
+      "H_formal_clip_vit_b16_B_seed42",
+      "H_formal_clip_vit_b16_B_seed123",
+      "H_formal_clip_vit_b16_AB_seed123",
+      "H_formal_clip_vit_b16_AB_seed2026",
+      "H_formal_clip_vit_b16_B_seed2026"
+    ],
+    "detail": {
+      "pending": [
+        "H_formal_dinov2_vit_b14_B_seed42",
+        "H_formal_dinov2_vit_b14_AB_seed42",
+        "H_formal_dinov2_vit_b14_B_seed123",
+        "H_formal_dinov2_vit_b14_AB_seed123",
+        "H_formal_dinov2_vit_b14_B_seed2026",
+        "H_formal_dinov2_vit_b14_AB_seed2026",
+        "H_formal_dinov2_vit_b14_B_seed3407",
+        "H_formal_dinov2_vit_b14_AB_seed3407",
+        "H_formal_efficientnet_b0_B_seed7",
+        "H_formal_efficientnet_b0_AB_seed7",
+        "H_formal_efficientnet_b0_B_seed42",
+        "H_formal_efficientnet_b0_AB_seed42",
+        "H_formal_efficientnet_b0_B_seed123",
+        "H_formal_efficientnet_b0_AB_seed123",
+        "H_formal_efficientnet_b0_B_seed2026",
+        "H_formal_efficientnet_b0_AB_seed2026",
+        "H_formal_efficientnet_b0_B_seed3407",
+        "H_formal_efficientnet_b0_AB_seed3407"
+      ],
+      "requested_stage": "H_FORMAL_AMP_TRAINING",
+      "capacity": {
+        "allowed": true,
+        "free_bytes": 208776024064,
+        "required_bytes": 53687091200,
+        "reserve_GiB": 50,
+        "initial_working_set_estimate_GiB": 0,
+        "additional_conditional_bytes": 0
+      }
+    },
+    "resource_policy": "D_PRIORITY; idle GPU0-3 only; global lifetime locks"
+  },
+  "active_observation": [
+    {
+      "pid": 2306754,
+      "run_id": "H_formal_clip_vit_b16_B_seed3407",
+      "gpu": 0,
+      "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e",
+      "backbone": "clip_vit_b16",
+      "committed_epochs": 2,
+      "committed_attempts": 382,
+      "committed_success": 382,
+      "committed_AMP_skips": 0,
+      "live_complete_records": 382,
+      "live_AMP_skips": 0,
+      "state_exists": true,
+      "recent_draw_equivalent_per_second": 203.84585211387716
+    },
+    {
+      "pid": 2307917,
+      "run_id": "H_formal_clip_vit_b16_AB_seed3407",
+      "gpu": 3,
+      "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646",
+      "backbone": "clip_vit_b16",
+      "committed_epochs": 1,
+      "committed_attempts": 191,
+      "committed_success": 191,
+      "committed_AMP_skips": 0,
+      "live_complete_records": 352,
+      "live_AMP_skips": 0,
+      "state_exists": true,
+      "recent_draw_equivalent_per_second": 202.06419879364717
+    },
+    {
+      "pid": 2308162,
+      "run_id": "H_formal_dinov2_vit_b14_B_seed7",
+      "gpu": 2,
+      "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+      "backbone": "dinov2_vit_b14",
+      "committed_epochs": 0,
+      "committed_attempts": 0,
+      "committed_success": 0,
+      "committed_AMP_skips": 0,
+      "live_complete_records": 191,
+      "live_AMP_skips": 0,
+      "state_exists": false,
+      "recent_draw_equivalent_per_second": null
+    },
+    {
+      "pid": 2308384,
+      "run_id": "H_formal_dinov2_vit_b14_AB_seed7",
+      "gpu": 1,
+      "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+      "backbone": "dinov2_vit_b14",
+      "committed_epochs": 0,
+      "committed_attempts": 0,
+      "committed_success": 0,
+      "committed_AMP_skips": 0,
+      "live_complete_records": 152,
+      "live_AMP_skips": 0,
+      "state_exists": false,
+      "recent_draw_equivalent_per_second": null
+    }
+  ],
+  "actual_PID_evidence": "    PID    PPID STAT ELAPSED %CPU   RSS COMMAND\n1532179 1532010 Sl   1342322  8.7 616968 VLLM::Worker_TP0\n1532180 1532010 Sl   1342322  7.5 652596 VLLM::Worker_TP1\n1532181 1532010 Sl   1342322  7.5 686792 VLLM::Worker_TP2\n1532182 1532010 Sl   1342322  7.5 673680 VLLM::Worker_TP3\n2222605 2222604 Sl      8572  6.7 602652 /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -B -u /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/continue_H_formal_AMP.py --budget /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/full_capacity_live_20261024T2045.json --budget-sha e6d4cb2594c9cafb77630e99a550ec9815a96d1f91ad7762b986c7ecd2fa2c4a --execute\n2306754 2222605 Rl       332 96.7 3984164 /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -u -m reliability_v2.worker_h --config /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/configs/H_execution.json --run-id H_formal_clip_vit_b16_B_seed3407\n2307917 2222605 Rl       289 96.5 3551572 /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -u -m reliability_v2.worker_h --config /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/configs/H_execution.json --run-id H_formal_clip_vit_b16_AB_seed3407\n2308162 2222605 Sl       227  107 3087768 /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -u -m reliability_v2.worker_h --config /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/configs/H_execution.json --run-id H_formal_dinov2_vit_b14_B_seed7\n2308384 2222605 Sl       186 99.6 2700152 /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -u -m reliability_v2.worker_h --config /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/configs/H_execution.json --run-id H_formal_dinov2_vit_b14_AB_seed7\n",
+  "GPU_samples": [
+    {
+      "utc": "2026-10-25T00:00:30.376379+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 96, 4932\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 86, 5330\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 82, 5330\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 96, 4932\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T00:00:32.516616+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 95, 4932\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 77, 5330\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 79, 5330\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 98, 4932\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T00:00:34.635739+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 100, 4932\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 77, 5330\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 83, 5330\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 97, 4932\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T00:00:36.767474+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 99, 4932\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 84, 5330\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 83, 5330\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 96, 4932\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 100, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 95, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 85, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 100, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T00:00:38.899048+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 100, 4932\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 83, 5330\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 77, 5330\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 98, 4932\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T00:00:41.052055+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 99, 4932\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 79, 5330\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 83, 5330\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 98, 4932\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T00:00:43.149003+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 100, 4932\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 83, 5330\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 91, 5332\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 98, 4932\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T00:00:45.304480+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 100, 4932\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 84, 5330\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 93, 5332\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 96, 4932\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T00:00:47.437437+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 100, 4932\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 80, 5330\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 93, 5332\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 96, 4932\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T00:00:49.580053+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 7, 4932\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 83, 5330\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 93, 5332\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 98, 4932\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T00:00:51.710440+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 0, 4932\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 86, 5330\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 86, 5332\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 94, 4932\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T00:00:53.822181+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 0, 4932\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 84, 5330\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 93, 5332\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 98, 4932\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T00:00:55.968121+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 0, 4932\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 80, 5330\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 93, 5332\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 95, 4932\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T00:00:58.100406+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 0, 4932\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 83, 5330\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 87, 5332\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 96, 4932\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T00:01:00.218631+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 0, 4932\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 82, 5330\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 93, 5332\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 98, 4932\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-25T00:01:02.311708+00:00",
+      "csv": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 0, 4932\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 86, 5330\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 93, 5332\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 98, 4932\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 0, 28156\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 0, 28156\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 0, 28156\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 0, 28156\n"
+    }
+  ],
+  "GPU0_3_mean_util_percent": {
+    "0": 56.0,
+    "1": 82.3125,
+    "2": 87.625,
+    "3": 96.875
+  },
+  "GPU_window_scope": "16 points about34seconds posthandoff, initialization/phase limited; not wholeepochmean",
+  "second4_terminal_audit_present": false,
+  "second4_terminal_audit_sha256": null,
+  "terminal_audit_timev": "",
+  "capacity_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/full_capacity_post_handoff_20261024T2350.json",
+  "capacity_sha256": "96938f9d1c44059cb70c9674b0fbab461933021dea9927e9b665859c498d991c",
+  "free_GiB": 194.4318084716797,
+  "required_GiB": 135.67121741783137,
+  "margin_GiB": 58.760591053848316,
+  "H_formal_sealed": 8,
+  "H_formal_running": 4,
+  "H_formal_pending": 18,
+  "scientific_effective_precision_target_gate_still_pending": true,
+  "cold_release_bytes": 0,
+  "source_best_HOLD": true,
+  "no_worker_restarted": true
+}

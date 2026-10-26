@@ -1,0 +1,69 @@
+{
+  "schema": "H_FORMAL_CHECKPOINT_HEALTH_PREPARATION_V1",
+  "utc": "2026-10-24T21:50:17.160465+00:00",
+  "status": "PREPARED_STATIC_COMPILE_AND16_SYNTHETIC_PROTOCOL_CHECKS_PASS_NOT_EXECUTED",
+  "script": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_formal_checkpoint_health_20261024T2145.py",
+  "script_sha256": "c59bd1514efa1892027bab7910d25ff6a3057efaae82d3aff988e85a12058cc6",
+  "template": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_EfficientNet_checkpoint_health_20261024T2045.py",
+  "template_sha256": "0ca818a08182108e2fc7d839baed40beb233920400ca4f0c7ea42661c98692a0",
+  "template_modified_by_preparer": false,
+  "production_report": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_formal_checkpoint_health_20261024T2145.json",
+  "files_sha256": {
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_formal_checkpoint_health_20261024T2145.py": "c59bd1514efa1892027bab7910d25ff6a3057efaae82d3aff988e85a12058cc6",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_formal_checkpoint_health_20261024T2145_validation/test_protocol.py": "5636e1340e0d8f0bf927a4a9ade9bd9b5f411714dc51831e68ab56a1b6a58c89",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_formal_checkpoint_health_20261024T2145_validation/RED.log": "76c7cd507f01da76749bde9423c8d6324f93d9f87319692c777a2f35eaf097b6",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_formal_checkpoint_health_20261024T2145_validation/GREEN.log": "537d247c9ad917c7b3d607279c51c0bc6bc017b328514a92fcb23ce5e8050c74",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_formal_checkpoint_health_20261024T2145_validation/RED_recipe.log": "69e5ef43def19130dfe29c3692d48ecbe2f62235a6948ce916de556f5bededdb",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_formal_checkpoint_health_20261024T2145_validation/GREEN_final.log": "fc9a7674e905aab5d278ceefca689c852d361084548f69eee310cf389bd066a1",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_formal_checkpoint_health_20261024T2145_validation/RED_recipe_chain.log": "b06a8ac316a32ac5bc169b75a9ee0b3891c3a006fccd9761835953757116552d",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_formal_checkpoint_health_20261024T2145_validation/GREEN_16_final.log": "ad0f24d37d92753d9bbb554960651025a24763a60ffe61a3cf5416adfbc59702"
+  },
+  "tests": 16,
+  "test_seconds": 0.133,
+  "TDD": [
+    "13 initial absence RED ->13 GREEN",
+    "Frozen-recipe flag missing RED ->14 GREEN",
+    "Physical recipe bytes/epochs/bundle/freeze chain absent RED ->16 GREEN"
+  ],
+  "static_compile_pass": true,
+  "no_audit_main_executed": true,
+  "no_actual_formal_state_loaded": true,
+  "no_production_report_created_by_preparer": true,
+  "no_GPU_or_process_signal_or_production_lock": true,
+  "protocol_checks": [
+    "Dynamic status formal tasks/PIDs, no development seed assumption",
+    "CLIP512/DINO768/EfficientNet1280 classifier dimensions",
+    "Registered epochs/draws and128 effective batch derive attempt budget",
+    "Atomic open-inode CPU checkpoint load/hash/fstat",
+    "Full committed history/update events, per-epoch success/skip and global attempt_count",
+    "CPU finite model/best/Adam plus successful-update Adam clock",
+    "Loss/gradient/AMP scale chain and pending/recovered skip positions",
+    "Local Python/NumPy/CPU torch RNG restoration; saved CUDA RNG hashed without GPU restore",
+    "Per(bb,seed) common committed sample/method/augmentation arrays and actual mother ordering",
+    "Recipe physical SHA -> task, epochs/lr, source/shared flags, header/task/recipe Hfreeze+Hbundle, actual Hfreeze byte SHA",
+    "H standard114600/0, D receipt counts and formal snapshot totals separated",
+    "Existing report refusal and exclusive final x creation"
+  ],
+  "scope": [
+    "CPU atomic committed snapshots only; not independent terminal/H GPU/target-export qualification.",
+    "If no active formal runs or first committed state is absent, no successful report is written.",
+    "Existing inactive partner checkpoint can be included when queue shifts seeds; missing partner is explicitly pending.",
+    "Pairs are checked only through their minimum committed epoch; current path may advance to a newer inode during audit.",
+    "AMP paired skip asymmetry is flagged for source/terminal review; no FP32 launch or target gate.",
+    "No new Adam/RNG restoration on GPU, sourceDEV metric kernel recomputation, model inference, cache or training.",
+    "D89 context is read from completed D receipt metadata on actual audit, not a new D checkpoint audit.",
+    "Early0 skips never imply full-stage0; all5 terminal paired ledgers remain later gates."
+  ],
+  "runtime_env": {
+    "CUDA_VISIBLE_DEVICES": "",
+    "OMP_NUM_THREADS": "2",
+    "MKL_NUM_THREADS": "2",
+    "OPENBLAS_NUM_THREADS": "2"
+  },
+  "root_future_argv": [
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+    "-u",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_formal_checkpoint_health_20261024T2145.py"
+  ],
+  "future_command_executed": false
+}

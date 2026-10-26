@@ -1,0 +1,45 @@
+{
+  "schema": "M_EXACT_MULTIPLICITY_BUNDLE_V1",
+  "identity": {
+    "scope": "ENGINEERING_TRANSPORT_ONLY_ACCEPTED_LAST_D_PAYLOAD",
+    "source_best_results": false,
+    "source_complete_sha256": "9aa7620cb6a65fed4e2bfd08db6ff0bbab649f794e9850d853bf17529ad1b6c6",
+    "source_relative": "rq4/l2_mean_logit/primary_n20_vs_source_bootstrap.json",
+    "source_sha256": "fddb0d25ec692186b698a1256057e13de733240f552cb016f8fd0760ef572277"
+  },
+  "raw_json_sha256": "fddb0d25ec692186b698a1256057e13de733240f552cb016f8fd0760ef572277",
+  "raw_json_bytes": 420626525,
+  "implementation_sha256": {
+    "multiplicity_codec.py": "1931371915dcbf542b78b79ca433f202e6c6cdf194400985020f105eff92fa73",
+    "sensitivity_io.py": "d311923c3e35b8e9ba2fc42dc5ee7e6e46b66ce3c9f2d3a923ea8ccb949be9ce",
+    "multiplicity_bundle.py": "3aa5debf7d98bd976bc21fa5be2135d34cdfa8e0b91873f356cc8f57e24360c3"
+  },
+  "metadata": {
+    "compressed_sha256": "a0e04102744e2255b47de93fbaffab8e682a106f11d01aa02885d1aace47af5f",
+    "uncompressed_sha256": "8c7244abfb7d95b06328f1617d9097199af0c5a7f736204ac816ce344f80f1f6",
+    "compressed_bytes": 540847,
+    "uncompressed_bytes": 1967440
+  },
+  "npz": {
+    "sha256": "d36663ead3c68f3aaa3ac34e6c21e0eb20eac5fd751d523011ab5eb6803266d5",
+    "bytes": 11666116
+  },
+  "array_specs": {
+    "counts_0": {
+      "dtype": "<u4",
+      "shape": [
+        2000,
+        4196
+      ],
+      "bytes": 33568000
+    },
+    "order_0": {
+      "dtype": "<i4",
+      "shape": [
+        2000,
+        4196
+      ],
+      "bytes": 33568000
+    }
+  }
+}

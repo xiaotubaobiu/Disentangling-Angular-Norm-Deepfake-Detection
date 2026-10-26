@@ -1,0 +1,22 @@
+{
+  "utc": "2026-10-25T15:49:03Z",
+  "status": "LAUNCHED_ORIGINAL_PRIMARY_H_PAIR_STATISTICS_AFTER_INDEPENDENT_CACHE_ADMISSION",
+  "pid": 1592782,
+  "backbone": "clip_vit_b16",
+  "seed": 2026,
+  "CPU_slot": 0,
+  "entry": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_parallel_fresh_validation/cpu_primary_analysis.py",
+  "entry_sha256": "c081c6ffeb14dc6bb0219851fd3fd11df25b28d2eed26ac4b7e06ef1e6e4c6ce",
+  "independent_cache_audit": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/H_CLIP_seed2026_parallel_cache_admission_independent_audit.json",
+  "independent_cache_audit_sha256": "9b4c16812d81d5a8d47601221c0dfbb4ef06b4571f29aed8a809f2cc4a6fc965",
+  "admission_sha256": "b308e4e85e690a3f8f7dd6dc700202dc76b0247f40d82134e6ee287a6dad3c36",
+  "qualification_sha256": "0ae309b3366de860cbd77f539c24a05aae3ec1180dbbd84bbbff95ed3111d7f7",
+  "stdout": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_primary_analysis_clip_vit_b16_seed2026_20261025T1550.log",
+  "time_v": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_primary_analysis_clip_vit_b16_seed2026_time_v_20261025T1550.log",
+  "bootstrap_repeats": 2000,
+  "GPUs_allowed": false,
+  "original_F_unchanged": true,
+  "M_statistics_started": false,
+  "independent_final_metric_audit_pending": true,
+  "free_bytes": 170715357184
+}

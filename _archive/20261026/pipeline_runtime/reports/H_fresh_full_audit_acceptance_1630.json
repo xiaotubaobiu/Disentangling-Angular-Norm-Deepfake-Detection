@@ -1,0 +1,171 @@
+{
+  "utc": "2026-10-23T16:41:11.897822+00:00",
+  "status": "PASS_FRESH_FULL_AUDIT_AND_INDEPENDENT_FINAL_TABLES_DEEP_PENDING",
+  "fresh_audit_pid_retired": 152000,
+  "fresh_audit_returncode": 0,
+  "fresh_audit_ended_utc": "2026-10-23T16:19:06.955422+00:00",
+  "full_audit_sha256": "8a1036f077a42756690a643f0eda3ff543dca27c06ad4a011d9759f5dadf2d04",
+  "fresh_audit_elapsed_seconds": 5187.800972697325,
+  "candidate_videos": 8431,
+  "source_video_byte_hashes_verified": 8431,
+  "existing_PNGs_decoded_and_verified": 469882,
+  "verified_PNG_bytes": 76483825411,
+  "source_videos_redecoded": 0,
+  "detector_calls": 0,
+  "tables": {
+    "AB/dev": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/data/H/AB/dev.parquet",
+      "rows": 4280,
+      "sha256": "dce5270caa914f81666212664367a275674ee7329009934a559a603942064810",
+      "videos": 535
+    },
+    "AB/train": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/data/H/AB/train.parquet",
+      "rows": 24424,
+      "sha256": "65053ccbd5cd2c4a3a11fe027a187400f032341fd58fda4c9488afe6f64d57cd",
+      "videos": 3053
+    },
+    "B/SOURCE_CAL": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/data/H/B/SOURCE_CAL.parquet",
+      "rows": 1120,
+      "sha256": "ec5b6b09eb23b954d2f03a2f3655566ef40934edb38177d135d3fa2bbbbb7fcf",
+      "videos": 140
+    },
+    "B/SOURCE_TEST": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/data/H/B/SOURCE_TEST.parquet",
+      "rows": 5600,
+      "sha256": "d578629220661cf274b442f8dd3a062ead67821f184d8e7a8c3dcd8ef8ee9326",
+      "videos": 700
+    },
+    "B/TARGET_TEST": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/data/H/B/TARGET_TEST.parquet",
+      "rows": 26560,
+      "sha256": "1c0308e13b774097187bdf771b28e5ad6d84aa21ca6b25e97bf857a7b27fe836",
+      "videos": 3320
+    },
+    "B/dev": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/data/H/B/dev.parquet",
+      "rows": 4280,
+      "sha256": "b2123f15ddfa445599f93e31cc56c7a8f52818d58a6c934ddce1f79d228a77dc",
+      "videos": 535
+    },
+    "B/train": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/data/H/B/train.parquet",
+      "rows": 24424,
+      "sha256": "24c26b34fdeb30457a0dd9589292b0c4c990dcefe2ffb1ac68823744b006d29c",
+      "videos": 3053
+    },
+    "common/AB/SOURCE_CAL": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/data/H/common/AB/SOURCE_CAL.parquet",
+      "rows": 1120,
+      "sha256": "d0264bfeabde5e3ae993e5f3563a8d47142bf00eb4e7f6aeb5833de05a524006",
+      "videos": 140
+    },
+    "common/AB/SOURCE_TEST": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/data/H/common/AB/SOURCE_TEST.parquet",
+      "rows": 5568,
+      "sha256": "2c770c2a43bda519c78442bd3b384a11e4debc3119e6d6563a244dbb133bae5e",
+      "videos": 696
+    },
+    "common/AB/TARGET_TEST": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/data/H/common/AB/TARGET_TEST.parquet",
+      "rows": 24720,
+      "sha256": "509407b56f7f5ad09b96c0398bc7814bca677f8710576714835c20e8e6502caa",
+      "videos": 3090
+    },
+    "common/B/SOURCE_CAL": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/data/H/common/B/SOURCE_CAL.parquet",
+      "rows": 1120,
+      "sha256": "ec5b6b09eb23b954d2f03a2f3655566ef40934edb38177d135d3fa2bbbbb7fcf",
+      "videos": 140
+    },
+    "common/B/SOURCE_TEST": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/data/H/common/B/SOURCE_TEST.parquet",
+      "rows": 5568,
+      "sha256": "ed896ebbdff0b01aa9fbfd818d8aaee74597fbbcb3d6eb6a81fcb66afca06dee",
+      "videos": 696
+    },
+    "common/B/TARGET_TEST": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/data/H/common/B/TARGET_TEST.parquet",
+      "rows": 24720,
+      "sha256": "75831dbf196cef20c43ba7cb76a985b8eafbaaf3f998a7438afbabc8200c7a2a",
+      "videos": 3090
+    }
+  },
+  "final_rows_independently_compared": 153504,
+  "all_13_ordered_rows_mothers_weights_and_content_hashes_match": true,
+  "final_graph_equals_independent_BFS": true,
+  "graph_counts": {
+    "unique_RGB_hashes": 268393,
+    "RGB_group_edges": 4,
+    "source_group_components": 549,
+    "cross_role_RGB_conflicts": 0,
+    "label_RGB_conflicts": 0,
+    "source_group_role_conflicts": 0,
+    "quarantined_videos": 0,
+    "quarantined_groups": 0
+  },
+  "failure_ledger_preserved": {
+    "A": 114,
+    "B": 114,
+    "AB": 360,
+    "A_B_reasons": {
+      "no_qualified_face": 108,
+      "insufficient_unique_mothers": 6
+    },
+    "AB_reasons": {
+      "no_qualified_face": 354,
+      "insufficient_unique_mothers": 6
+    }
+  },
+  "old_raw_manifests_and_tables_backup": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/backups/H_before_fresh_audit_20261023T1450Z",
+  "only_old_shared_table_schema_change": "Added content_sha256; original ordered shared columns and UID cohorts unchanged",
+  "artifacts_sha256": {
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/data/H/H_full_candidate_audit_receipt.json": "8a1036f077a42756690a643f0eda3ff543dca27c06ad4a011d9759f5dadf2d04",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/data/H/H_artifact_integrity_receipt.json": "d5c8db8002a6a2d7cb1fda8130dcd2cd31e4a296601eda0590a1738e50b261ff",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/data/H/H_data_freeze_candidate.json": "6b8990a36c5c8dc3e9837a0866d0a92e646ec14964d309ad04342ac2d6790512",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/data/H/H_content_source_audit.json": "78179fd35c457635f14767b1521422143a2920010a7fdc9c7ce61b8b8364a5e2",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/data/H/H_final_source_groups.json": "2d3771eb89152699f4773dd3e3a0cbb38559cd39a89d877b25a73c10956591f9",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/data/H/H_coverage_by_role_method.json": "6d828d3484e822aa7313ef63632df81dbf66bd2ae842e214aee80f38310e882f",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_fresh_full_audit_launch_1450.json": "cc58b715b017350228c8a8d392104f1dbda2267d84bf665f9a0ae1ff2d536780",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/logs/H_fresh_full_audit_1450.log": "cd12b13935ebb406147a3fecd81eded6d6c424612ae716136d7b8dcd99b6e5df",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_production_data_final_tables_review_1630.json": "a85cc529ac53bba1ad44ff510d5594d4c060c12fc5b139c88a61aac0eb4cf1d0",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_production_data_final_tables_method_1630.json": "6f3656442876292fb0c54b0aae65547a366cd94be5cd04d08bee4dafa2e5aa44"
+  },
+  "protected_code_config_plan_manuscripts_sha256": {
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/geometry_h.py": "161ac4e837463ff16e7916ca42eeb5d13acc44aab9bcc1c397025b9426ad9532",
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/data_h.py": "ad81f65c27d53159e6902bf8a20b0910cd129f75eb0105e5a5a053bcc2d2f45e",
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/trainer.py": "56f0db0634a525a530fb53482732365ebf9693a1f5470b0a95ec0820cc614368",
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/models.py": "5c4adb39314433c5f0d40311d7ada3ad5d30c7b239773be02080be120f5a2e60",
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/cache_d.py": "8f5814646194c772dcf00f6751a35c2f792dd5f11008e0834fdba4eb5e329761",
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/scoring_d.py": "9bddf066fcb8df1b9659d4cfe14aa4febdf850f7cc39c1c0c3d6050864263d1c",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/configs/execution.json": "8f12b0285593b30cb4fc8e2d50f125dc7f1c9ea690f36a286e9fdca24f6df1f4",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/D_gate.json": "c2a9a09d208d2671b7a123df7ee29e83b8abedcac08d9221d5ad26f3948700aa",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/configs/plan_frozen_input.md": "b018b01915a62c645fc3718134970cd49dc0651ecfd02792220f3a0086c6594d",
+    "/home/z/obsidian/paper/deepfake-detector/新实验设计/20261023/新实验计划_本机适配版.md": "b018b01915a62c645fc3718134970cd49dc0651ecfd02792220f3a0086c6594d",
+    "/home/z/obsidian/paper/deepfake-detector/中文稿.md": "a485eea1bbac50672a98642e0efcbd8b3841296e894ef54059ca241f3ddf6ef2",
+    "/home/z/obsidian/paper/deepfake-detector/英文稿.md": "60274b7a2e1a23b9fc83d07c267e5b61b9b97c01264f12b9c1aa718c29a7cebd"
+  },
+  "git_head": "a612f24194a0a89f42f0e3bf6dde73a6287ee76d",
+  "git_clean": true,
+  "deep_inspection": {
+    "status": "RUNNING",
+    "pid": 200931,
+    "launch_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_production_data_inspection_launch.json",
+    "native_session_id": 95551,
+    "progress_percentage": null,
+    "reason_no_percentage": "Frozen inspect_h_data emits no per-video progress",
+    "ETA": "Not measurable from this inspector; preceding fresh full audit took86.46min, not a guaranteed deep duration"
+  },
+  "independent_production_review_status": "PENDING_ACTUAL_DEEP_REPORT_AND_BINDING_VERIFICATION",
+  "H_data_frozen": false,
+  "H_GPU_qualification_or_training_started": false,
+  "next_manual_check_utc": "2026-10-23T17:15:00Z",
+  "remaining_sequence": [
+    "Existing PID200931 completes READY_FOR_INDEPENDENT_REVIEW with no blockers",
+    "Resume h_pipeline_review for genuine H_DATA_INDEPENDENT_REVIEW_V1 PASS/FAIL binding actual deep report and current identities",
+    "Only after genuine PASS call freeze_h_data which performs its own mandatory deep validation; preserve failures",
+    "H real GPU qualification waits accepted frozen H data plus D terminal GPU/cache priority and shared locks"
+  ],
+  "scope": "Stage acceptance of completed fresh audit and final-table independent review only. Not H production freeze, GPU qualification, formal experiment completion or manuscript completion."
+}

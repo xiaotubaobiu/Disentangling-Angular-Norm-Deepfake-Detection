@@ -1,0 +1,30 @@
+{
+  "verified_utc": "2026-10-07T12:23:12.307214+00:00",
+  "scope": "derived from unchanged corrected full audit and selected association manifest",
+  "real_video_selection": [
+    {
+      "role": "train",
+      "eligible_real_videos": 719,
+      "selected_real_videos": 719,
+      "omitted_units": []
+    },
+    {
+      "role": "ff_test",
+      "eligible_real_videos": 140,
+      "selected_real_videos": 140,
+      "omitted_units": []
+    },
+    {
+      "role": "cdf_test",
+      "eligible_real_videos": 178,
+      "selected_real_videos": 177,
+      "omitted_units": [
+        {
+          "domain": "cdf",
+          "video_id": "id10_0001",
+          "distinct_RGB": 3
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,187 @@
+{
+  "schema": "INDEPENDENT_SOURCE_BEST_SOURCE_QUALIFICATION_FIX_CONFIRMATION_V1",
+  "created_utc": "2026-10-25T15:51:55.953624+00:00",
+  "scope": "Read-only independent SQ-001 fix confirmation at3bc only; source-only worker API and synthetic/mock evidence. No actual source GPU qualification,owner/permit issuer/aggregate result or production/scientific admission.",
+  "BASE": "58e006881e58386dab708f8b65f608ae6225a290",
+  "HEAD": "58e006881e58386dab708f8b65f608ae6225a290",
+  "source": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_source_qualification.py",
+    "sha256": "3bc8e60a64226b37817d8142b6b374ad0400bf891c3209ad95329e8ccaa47ab9"
+  },
+  "tests": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests/test_source_best_source_qualification.py",
+    "sha256": "0566939c7d942c9c5b0288b2ddc8e985260c60510d17163414eabf91bc876c9b"
+  },
+  "prior_source": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/review_snapshots/source_best_source_qualification_1ec95cef7f267e13417e0d0d26d3a7d67d963bc8d9b1f7911565ae15784741cc.py",
+    "sha256": "1ec95cef7f267e13417e0d0d26d3a7d67d963bc8d9b1f7911565ae15784741cc"
+  },
+  "prior_review": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_source_best_source_qualification_review.json",
+    "sha256": "65590abbed618b6becd66ee1a14c7a9348e4ab88374f911fb00df20625294b31"
+  },
+  "reviewed_diff": "--- 1ec_initial_review\n+++ 3bc_bitwise_fix\n@@ -3,7 +3,8 @@\n The public GPU worker requires inherited genuine phase/native leases after the\n original210-role stage. It never forwards a target input, selects a threshold,\n trains or declares the45-model M evaluation complete. Full original provenance\n-validation may read frozen target hashes, exactly as cache.prepare_context does.\n+validation may read and CPU-decode frozen target PNGs for byte/RGB hashes,\n+exactly as cache.prepare_context does; this is not zero target-pixel access.\n \"\"\"\n from pathlib import Path\n import fcntl,json,os,resource,shutil,time\n@@ -19,6 +20,15 @@\n def codes():\n  return {str(Path(m.__file__)):sf.digest(m.__file__) for m in (cache,sf,lease,gpu,trainer)}|{str(Path(__file__)):sf.digest(__file__)}\n \n+def tensor_bits_equal(a,b):\n+ if a.dtype!=b.dtype or a.shape!=b.shape:return False\n+ x=a.detach().cpu().contiguous().reshape(-1).view(torch.uint8)\n+ y=b.detach().cpu().contiguous().reshape(-1).view(torch.uint8)\n+ return torch.equal(x,y)\n+def array_bits_equal(a,b):\n+ a,b=np.asarray(a),np.asarray(b)\n+ return a.dtype==b.dtype and a.shape==b.shape and a.tobytes(order='C')==b.tobytes(order='C')\n+\n def source_calibration_forward(context,device,guard):\n  \"\"\"Low-level source-only exact FP32 transport test; CPU form is synthetic QA.\"\"\"\n  guard(True);context.check(full=True);route=context.source['route'];role='source_cal' if route=='D' else 'B/SOURCE_CAL';require(role in context.roles,'frozen source calibration role required')\n@@ -28,20 +38,20 @@\n  sf._tensor_check(checkpoint['model'],2*1024**3);w=checkpoint['model']['classifier.weight'].detach().cpu().numpy().copy();b=checkpoint['model']['classifier.bias'].detach().cpu().numpy().copy()\n  require(cache._head_hash(w,b,context.base['dimension'])==context.base['original_head_sha256'],'selected original FP32 head mismatch')\n  trainer.policy();task=context.task;config=context.config;model=cache._build_model(task['backbone'],config['backbones'][task['backbone']]['weight_path']);model.load_state_dict(checkpoint['model'],strict=True)\n- for name,value in model.state_dict().items():require(torch.equal(value.cpu(),checkpoint['model'][name]),'model parameter bytes differ after strict source-state load')\n+ for name,value in model.state_dict().items():require(tensor_bits_equal(value,checkpoint['model'][name]),'model parameter bytes differ after strict source-state load')\n  model=model.to(device=device,dtype=torch.float32).eval();batch=config.get('cache_batch_size',task['microbatch']);workers=config.get('cache_workers',config.get('workers',4));all_h=[]\n  require(type(batch) is int and batch>0 and type(workers) is int and workers>=0,'original loader configuration required')\n  with torch.inference_mode(),torch.autocast(device_type=torch.device(device).type,enabled=False):\n   for x,_ in trainer.loader(frame,task['backbone'],batch,workers=workers):\n    guard(False);x=x.to(device=device,dtype=torch.float32);a=model.encoder(x);reference=model.encoder(x)\n-   require(a.dtype==torch.float32 and a.shape==(len(x),context.base['dimension']) and bool(torch.isfinite(a).all()) and torch.equal(a,reference),'fresh repeated rawFP32 encoder outputs must be finite and bitwise equal')\n+   require(a.dtype==torch.float32 and a.shape==(len(x),context.base['dimension']) and bool(torch.isfinite(a).all()) and tensor_bits_equal(a,reference),'fresh repeated rawFP32 encoder outputs must be finite and bitwise equal')\n    all_h.append(a.detach().cpu().numpy().copy());guard(False)\n  h=np.concatenate(all_h);require(h.shape==(len(frame),context.base['dimension']) and h.nbytes<=64*1024**2,'bounded complete source-only feature matrix required')\n  guard(True)\n  def batches(offset):\n   for i in range(offset,len(h),batch):yield h[i:i+batch]\n  cache.write_role(context,role,w,b,batches);meta,saved_frame,saved,saved_w,saved_b=cache.load_role(context,role)\n- require(np.array_equal(saved,h) and np.array_equal(saved_w,w) and np.array_equal(saved_b,b),'actual source cache/head exact bit readback failed')\n+ require(array_bits_equal(saved,h) and array_bits_equal(saved_w,w) and array_bits_equal(saved_b,b),'actual source cache/head exact bit readback failed')\n  context.check(full=True);guard(True)\n  return dict(parent_run_id=context.base['parent_run_id'],source_role=role,rows=len(frame),fresh_forward_rows=len(h),FP32_feature_bytes=h.nbytes,original_head_sha256=context.source['head_sha256'],source_best_epoch=context.source['best']['epoch'],checkpoint_sha256=context.source['checkpoint_sha256'],source_only_cache_complete_sha256=sf.digest(cache.role_path(context,role)/'complete.json'),repeated_forward_FP32_bitwise_equal=True,target_encoder_inference=False,threshold_or_test_metric_computed=False,optimizer_updates=0,GPU_executed=torch.device(device).type=='cuda')\n ",
+  "unchanged_public_gate_AST": {
+    "qualification_runs": {
+      "AST_identical": true,
+      "AST_sha256": "f4c22085263af01817da8b1cb952bb3b0514faef2d0761a220f14756f8923212"
+    },
+    "codes": {
+      "AST_identical": true,
+      "AST_sha256": "14a6e362f41a96bb163b3fb7ba4a15950bfe67e8bd0faa23cde528aae4b7ae11"
+    },
+    "_plan": {
+      "AST_identical": true,
+      "AST_sha256": "8a95ff88f67e998207656299a99ae7fc639709f01c72b52d2f1465b0911f96c0"
+    },
+    "closed_primary_stage": {
+      "AST_identical": true,
+      "AST_sha256": "f75e2f1526aba1aaec94bf855eeae2279fd542e3156c191b3321956726e84eab"
+    },
+    "_contended_probe": {
+      "AST_identical": true,
+      "AST_sha256": "d0f15d3ecb9bae43709ba113b614d11c27d9c0022d8f072b6e7492c5d1171d48"
+    },
+    "qualification_worker": {
+      "AST_identical": true,
+      "AST_sha256": "c2aed03ee05cf7bed8113e8297ed42afd576079de662115cc082c16c526343b6"
+    }
+  },
+  "strengths": [
+    "tensor_bits_equal rejects dtype or shape differences and compares detached CPU contiguous flattened uint8 views; signed zeros and scalar state buffers are correctly distinguished/supported.",
+    "array_bits_equal checks exact dtype/shape and C-order bytes, replacing value-equality checks for fresh feature/cache and both original head arrays.",
+    "Strict source-state load comparison,repeat-forward comparison and saved h/w/b readback all use the byte helpers. Existing finite FP32 expected-shape checks remain,so a matching reference also has the required dtype/shape and finite raw values.",
+    "Public9-run/source-CAL scope,minimum416 rows,reviewed proof/budget plan,original30/210 stage metadata,inherited/native lease and contention probes are AST-unchanged. Fresh full source forwarding still precedes complete-cache reuse.",
+    "Module disclosure now explicitly states original full provenance may read and CPU-decode frozen target PNGs for byte/RGB hashes; it no longer suggests zero target-pixel access."
+  ],
+  "finding_confirmation": {
+    "id": "SQ-001",
+    "status": "CLOSED_IN_REVIEWED_WORKER_SCOPE",
+    "locations": {
+      "tensor_helper_line": 23,
+      "array_helper_line": 28,
+      "source_forward_line": 32
+    },
+    "reason": "Same dtype,shape and raw logical-element bytes are now required for state/fresh pair/cache/head comparisons; the three original observed false-success cases reject on the fixed source.",
+    "independent_results": [
+      "Complete current qualification test file:24 passed in4.69s,exit0. It includes original18 and6 D/H×3 regression cases.",
+      "Authenticated exact original3-case RED script was rerun unchanged:3 tests OK in0.683s,exit0; old1ec run was3 failures/exit1. No redefinition of the old expectation was used.",
+      "12 tiny helper probes passed:equal copies,dtype/shape rejection,signed-zero rejection,scalar int64/bool state support and noncontiguous logical-byte equality for tensor/NumPy cases.",
+      "A synthetic post-strict-load encoder-state dtype change was rejected with model-parameter-bytes error before any encoder call; forward count remained0."
+    ],
+    "source_freshness": "All independent runs logged3bc before and after; final source/test/old-snapshot hashes were rechecked when writing this report."
+  },
+  "findings": {
+    "Critical": [],
+    "Important": [],
+    "Minor": []
+  },
+  "precise_bitwise_definition": {
+    "Tensor": "Exact dtype and logical shape,then raw bytes of detached CPU contiguous reshape(-1).view(uint8). Physical storage layout,padding,strides and device placement are not compared; logical element bit patterns are.",
+    "NumPy": "Exact dtype and logical shape plus tobytes(order=C). Logical row/key position is preserved; storage-stride differences with the same C-order element bytes do not cause a false mismatch.",
+    "finiteness": "Helpers are byte predicates,not standalone finite-value validators. Existing source _tensor_check and fresh-output finite FP32 checks still provide that requirement.",
+    "reference": "First output must be finite FP32 at expected shape; helper equality forces second output to have the same dtype,shape and bits. The former second-FP64 loophole is closed.",
+    "resume": "Fresh complete source computation still runs before cache.write_role. Existing complete data is not overwritten/adopted merely on equal numeric values; raw fresh/cache bit mismatch now rejects."
+  },
+  "commands_and_results": [
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_source_best_source_qualification_fix_tests.log",
+      "sha256": "8823b40839f30983e7fa7dd829606d05a0cbe790ea1957971ba0fe8b549fd2e7",
+      "contents": "UTC 2026-10-25T15:49:05.705066+00:00\nSOURCE_SHA256 3bc8e60a64226b37817d8142b6b374ad0400bf891c3209ad95329e8ccaa47ab9\nCOMMAND ['/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python', '-m', 'pytest', '-q', '-p', 'no:cacheprovider', '/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests/test_source_best_source_qualification.py']\nENV CUDA_VISIBLE_DEVICES= OMP/MKL/OPENBLAS_NUM_THREADS=2 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2:/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests\n........................                                                 [100%]\n24 passed in 4.69s\n\nEXIT_CODE 0\nSOURCE_SHA256_AFTER 3bc8e60a64226b37817d8142b6b374ad0400bf891c3209ad95329e8ccaa47ab9\n"
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_source_best_source_qualification_fix_repro.log",
+      "sha256": "2a544781ea652413d50fd88edf8a11b35b3a41652337b7603c6c9f48456cce03",
+      "contents": "UTC 2026-10-25T15:49:11.024905+00:00\nSOURCE_SHA256 3bc8e60a64226b37817d8142b6b374ad0400bf891c3209ad95329e8ccaa47ab9\nORIGINAL_RED_LOG_SHA256 5e5d73790c05a74d55f704833ebd47ca271f2762acb7f8058406149a1abd3e9a\nAUTHENTICATED_ORIGINAL_REPRODUCTION_RERUN True\nCOMMAND ['/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python', '-c', \"import contextlib,pathlib,tempfile,types,unittest\\nimport torch,pytest\\nfrom test_source_best_cache import project\\nfrom reliability_v2 import source_best_source_qualification as q,source_best_cache as cache\\n@contextlib.contextmanager\\ndef fixture(mode):\\n with tempfile.TemporaryDirectory(prefix='M_source_qual_RED_') as folder,pytest.MonkeyPatch.context() as patch:\\n  p=project.__wrapped__(pathlib.Path(folder),patch,types.SimpleNamespace(param='D'));c=cache.prepare_context(p['root'],p['admission'],p['admission_sha'],p['run']);original=cache._build_model\\n  def build(*args):\\n   model=original(*args);forward=model.encoder.forward;count=[0]\\n   def changed(x):\\n    out=forward(x).clone();count[0]+=1\\n    if mode[0]=='alternate':out[0,0]=-0. if count[0]%2==0 else 0.\\n    elif mode[0]=='reference_f64':\\n     if count[0]%2==0:out=out.double()\\n    else:out[0,0]=-0. if mode[0]=='negative' else 0.\\n    return out\\n   model.encoder.forward=changed;return model\\n  patch.setattr(cache,'_build_model',build);yield c\\nclass BitwiseRequirements(unittest.TestCase):\\n def test_signed_zero_difference_between_fresh_forwards_must_reject(self):\\n  with fixture(['alternate']) as c:\\n   with self.assertRaises(ValueError):q.source_calibration_forward(c,'cpu',lambda full=False:None)\\n def test_second_forward_non_FP32_dtype_must_reject(self):\\n  with fixture(['reference_f64']) as c:\\n   with self.assertRaises(ValueError):q.source_calibration_forward(c,'cpu',lambda full=False:None)\\n def test_fresh_positive_zero_cannot_match_existing_negative_zero_cache(self):\\n  mode=['negative']\\n  with fixture(mode) as c:\\n   q.source_calibration_forward(c,'cpu',lambda full=False:None);mode[0]='positive'\\n   with self.assertRaises(ValueError):q.source_calibration_forward(c,'cpu',lambda full=False:None)\\nunittest.main(verbosity=2)\\n\"]\nENV CUDA_VISIBLE_DEVICES= OMP/MKL/OPENBLAS_NUM_THREADS=2 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2:/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests\ntest_fresh_positive_zero_cannot_match_existing_negative_zero_cache (__main__.BitwiseRequirements.test_fresh_positive_zero_cannot_match_existing_negative_zero_cache) ... ok\ntest_second_forward_non_FP32_dtype_must_reject (__main__.BitwiseRequirements.test_second_forward_non_FP32_dtype_must_reject) ... ok\ntest_signed_zero_difference_between_fresh_forwards_must_reject (__main__.BitwiseRequirements.test_signed_zero_difference_between_fresh_forwards_must_reject) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.683s\n\nOK\n\nEXIT_CODE 0\nSOURCE_SHA256_AFTER 3bc8e60a64226b37817d8142b6b374ad0400bf891c3209ad95329e8ccaa47ab9\n"
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_source_best_source_qualification_fix_state_probes.log",
+      "sha256": "e73cbf67f4a7b30c97f2e5d732f624cd802299da83345a56ced9ac9b7e70cfcb",
+      "contents": "UTC 2026-10-25T15:50:21.072023+00:00\nSOURCE_SHA256 3bc8e60a64226b37817d8142b6b374ad0400bf891c3209ad95329e8ccaa47ab9\nCOMMAND ['/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python', '-c', \"import pathlib,tempfile,types\\nimport numpy as np,torch,pytest\\nfrom test_source_best_cache import project\\nfrom reliability_v2 import source_best_source_qualification as q,source_best_cache as cache\\nchecks={}\\na=torch.arange(6,dtype=torch.float32).reshape(2,3)\\nchecks['tensor_equal_copy']=q.tensor_bits_equal(a,a.clone())\\nchecks['tensor_dtype_rejected']=not q.tensor_bits_equal(a,a.double())\\nchecks['tensor_shape_rejected']=not q.tensor_bits_equal(a,a.reshape(6))\\nchecks['tensor_signed_zero_rejected']=not q.tensor_bits_equal(torch.tensor([0.]),torch.tensor([-0.]))\\nchecks['scalar_int64_state_supported']=q.tensor_bits_equal(torch.tensor(7,dtype=torch.int64),torch.tensor(7,dtype=torch.int64))\\nchecks['scalar_bool_state_supported']=q.tensor_bits_equal(torch.tensor(True),torch.tensor(True))\\nchecks['noncontiguous_logical_bytes_supported']=q.tensor_bits_equal(a.T,a.T.contiguous())\\nb=np.arange(6,dtype=np.float32).reshape(2,3)\\nchecks['array_equal_copy']=q.array_bits_equal(b,b.copy())\\nchecks['array_dtype_rejected']=not q.array_bits_equal(b,b.astype(np.float64))\\nchecks['array_shape_rejected']=not q.array_bits_equal(b,b.reshape(6))\\nchecks['array_signed_zero_rejected']=not q.array_bits_equal(np.array([0.],np.float32),np.array([-0.],np.float32))\\nchecks['array_noncontiguous_logical_bytes_supported']=q.array_bits_equal(b.T,b.T.copy())\\nfor name,ok in checks.items():\\n if not ok:raise AssertionError(name)\\n print('PASS',name)\\nwith tempfile.TemporaryDirectory(prefix='M_source_qual_state_fix_') as folder,pytest.MonkeyPatch.context() as patch:\\n p=project.__wrapped__(pathlib.Path(folder),patch,types.SimpleNamespace(param='D'));c=cache.prepare_context(p['root'],p['admission'],p['admission_sha'],p['run']);original=cache._build_model;calls=[0]\\n def build(*args):\\n  model=original(*args);load=model.load_state_dict\\n  def changed(*args,**kwargs):\\n   result=load(*args,**kwargs);model.encoder.gain.data=model.encoder.gain.data.double();return result\\n  model.load_state_dict=changed;forward=model.encoder.forward\\n  def count(x):calls[0]+=1;return forward(x)\\n  model.encoder.forward=count;return model\\n patch.setattr(cache,'_build_model',build)\\n try:q.source_calibration_forward(c,'cpu',lambda full=False:None)\\n except ValueError as error:\\n  if 'parameter bytes' not in str(error):raise\\n  assert calls[0]==0;print('PASS strict_state_dtype_change_rejected_before_encoder',str(error))\\n else:raise AssertionError('Post-load state dtype change accepted')\\nprint('ALL_HELPER_AND_STATE_PROBES_PASS')\\n\"]\nENV CUDA_VISIBLE_DEVICES= OMP/MKL/OPENBLAS_NUM_THREADS=2 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2:/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests\nPASS tensor_equal_copy\nPASS tensor_dtype_rejected\nPASS tensor_shape_rejected\nPASS tensor_signed_zero_rejected\nPASS scalar_int64_state_supported\nPASS scalar_bool_state_supported\nPASS noncontiguous_logical_bytes_supported\nPASS array_equal_copy\nPASS array_dtype_rejected\nPASS array_shape_rejected\nPASS array_signed_zero_rejected\nPASS array_noncontiguous_logical_bytes_supported\nPASS strict_state_dtype_change_rejected_before_encoder model parameter bytes differ after strict source-state load\nALL_HELPER_AND_STATE_PROBES_PASS\n\nEXIT_CODE 0\nSOURCE_SHA256_AFTER 3bc8e60a64226b37817d8142b6b374ad0400bf891c3209ad95329e8ccaa47ab9\n"
+    }
+  ],
+  "root_evidence_read": [
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_source_qualification_bits_RED.log",
+      "sha256": "403ae0eeda7356973eea2fb1170b2f84a9782fb38e7724c28b57e22a9e774f3c",
+      "observed_tail": "6 failed,18 deselected in3.34s on1ec: D/H×signed_zero,second_dtype,cache_signed_zero"
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_runtime_entry_sourcequal_targeted_GREEN.log",
+      "sha256": "77bef697e8f780762f2f97a639e5108c6197d1d4729737133abf9418848c3a74",
+      "contents": "........................................................                 [100%]\n56 passed in 5.60s\n",
+      "qualification": "Root56 targeted cases read only; independent reviewer reran only qualification24 plus authenticated3 and tiny probes,not runtime/entry suites."
+    }
+  ],
+  "behaviors_considered_but_set_aside_before_verdict": [
+    {
+      "behavior": "Original signed-zero fresh pair and cache-resume differences",
+      "reason": "Both rootD/H regression cases and unchanged independent original negative cases now reject. SQ-001 is closed."
+    },
+    {
+      "behavior": "Reference dtype and shape mismatch",
+      "reason": "Exact helper dtype/shape guards are exercised; original reference-FP64 failure now passes as rejection. No permissive numeric cast is used before comparison."
+    },
+    {
+      "behavior": "Scalar integer/bool state and noncontiguous tensors",
+      "reason": "Flatten-before-byte-view supports scalar buffers and contiguous logical comparison supports equivalent noncontiguous inputs; explicit positive probes passed."
+    },
+    {
+      "behavior": "Post-load state dtype drift",
+      "reason": "Synthetic actual worker flow rejects it before first encoder invocation,confirming the helper is wired into state validation rather than only a detached unit helper."
+    },
+    {
+      "behavior": "Head hash and cache identity",
+      "reason": "Accepted original source/cache head hashing remains unchanged,and strict readback h/w/b byte checks are added. No weakened source-state or original-head check was found."
+    },
+    {
+      "behavior": "Full source table and existing complete shortcut",
+      "reason": "Control flow still computes all fresh source rows before write_role; accepted role verifier binds saved manifest identity. Actual GPU416-row execution has not occurred."
+    },
+    {
+      "behavior": "Fixed9 IDs,original30/210 terminal metadata and queue-empty gate",
+      "reason": "All public gate functions are AST-identical. Stage return/mutual exclusion is not recast as independent physical210-cache admission; empty original bindings remains allowed by clarified design."
+    },
+    {
+      "behavior": "Native0-3 ownership,inherited phase,actual contention probes and parent death",
+      "reason": "AST-identical accepted helper calls remain. No real R lock,PID or GPU was touched; genuine runtime behavior is not certified by mocks."
+    },
+    {
+      "behavior": "Target provenance byte/RGB reads",
+      "reason": "Now documented explicitly. Original H full-context validation may CPU-decode fixed target PNGs to verify frozen hashes,but source-only encoder/threshold/metric scope remains unchanged."
+    },
+    {
+      "behavior": "Old45 source proof reuse and pinned remaining-primary/additional allowance",
+      "reason": "Unchanged reviewed plan/capsule bindings remain; no all45 checkpoint reload or actual capacity qualification was performed here."
+    },
+    {
+      "behavior": "Old1ec qualification receipts or actual cache adoption",
+      "reason": "New code pin requires a reviewed3bc plan; this report does not upgrade old evidence. Fresh strict cache readback is still required,even for a structurally complete role."
+    },
+    {
+      "behavior": "Root56 targeted runtime/entry evidence and expanded full suite",
+      "reason": "Read as root evidence only; independent review did not duplicate unrelated suites. Required full integration validation remains root-owned."
+    },
+    {
+      "behavior": "Actual source-GPU9-case qualification,owner/permit issuer/aggregator,primary/F/JEV work and production",
+      "reason": "Not implemented/executed/admitted by this fix confirmation. No actual R/GPU/old weights/locks/PIDs or original artifacts were accessed by the probes."
+    }
+  ],
+  "recommendations": [
+    "Accept SQ-001 as fixed for the pinned pure worker API after required root-owned integration checks.",
+    "Keep actual GPU qualification blocked until a reviewed owner/plan/permit and genuine inherited/native lease execution plus independent9-result acceptance exist.",
+    "Preserve explicit target-provenance I/O disclosure and separate cache/statistics/resource/scientific production gates."
+  ],
+  "verdict": {
+    "SQ-001": "FIX_CONFIRMED",
+    "remaining_findings_in_reviewed_fix_scope": 0,
+    "qualification": "Pure candidate worker correctness confirmation only; no actual GPU or production authorization."
+  },
+  "actual_GPU_qualification_admitted": false,
+  "production_admitted": false,
+  "remaining_blockers": [
+    "Required root-owned integration/full-suite acceptance.",
+    "Reviewed owner/qualification plan/permit and genuine9-case source GPU run plus independent aggregate acceptance are still absent."
+  ],
+  "action_status": "Requested independent fix confirmation completed; no W edits,real R locks/PIDs/GPU calls,old actual weights,actual cache/statistics work,denial,pending approval or uncertain report write."
+}

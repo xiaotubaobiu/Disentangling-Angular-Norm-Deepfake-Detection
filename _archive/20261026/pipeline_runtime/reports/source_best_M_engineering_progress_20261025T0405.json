@@ -1,0 +1,66 @@
+{
+  "utc": "2026-10-25T04:06:55.985882+00:00",
+  "status": "PRIMARY_0340_CLOSED_0405_AUDIT_PENDING_SELECTED_M_ENGINEERING_IN_PROGRESS",
+  "formal_independent_acceptances": 33,
+  "H_independent_acceptances": 18,
+  "H_original_queue_completed_markers": 20,
+  "H_original_queue_active": [
+    {
+      "pid": 2430766,
+      "run_id": "H_formal_efficientnet_b0_B_seed7",
+      "gpu": 0,
+      "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e",
+      "backbone": "efficientnet_b0"
+    },
+    {
+      "pid": 2446718,
+      "run_id": "H_formal_efficientnet_b0_AB_seed7",
+      "gpu": 3,
+      "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646",
+      "backbone": "efficientnet_b0"
+    },
+    {
+      "pid": 2745535,
+      "run_id": "H_formal_efficientnet_b0_B_seed42",
+      "gpu": 1,
+      "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+      "backbone": "efficientnet_b0"
+    },
+    {
+      "pid": 2745536,
+      "run_id": "H_formal_efficientnet_b0_AB_seed42",
+      "gpu": 2,
+      "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+      "backbone": "efficientnet_b0"
+    }
+  ],
+  "H_original_queue_pending": 6,
+  "check0405_launch": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/check_20261025T0405_launch.json",
+  "check0405_launch_sha256": "e54bdc27991f0bfd84e43d602ce13d436233af6d9e258d968be1880f0e0d9ec5",
+  "source_best_scope": "M_SELECTED_ONLY_FOUR_CORE_COMPARISONS_NO_F_NO_NEW_TRAINING",
+  "M_baseline": "356passed in575.22s",
+  "M_original_targeted": "20RED_then20GREEN",
+  "M_postchange_full_suite": "376test run still in progress; do not restart",
+  "M_full_suite_pid": 2675511,
+  "M_review": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_io_review.json",
+  "M_review_sha256": "43c055eefd0e2027b1031b26e626ab5c22f00c9b59f65e1d0c5e9a0a0471933c",
+  "M_review_status": "3Important findings, each10-case RED reproduced; no fix applied yet while first whole-suite remains unchanged",
+  "M_storage_profile": {
+    "original_bytes": 7107748669,
+    "compressed_bytes": 3558242496,
+    "ratio": 1.9975447645825655,
+    "all29_raw_SHA_equal": true,
+    "source_originals_preserved": true
+  },
+  "M_storage_conclusion": "General gzip alone provides only about2x on large target/RQ4 JSON; no full-M budget admission. Structural integer multiplicities/presence encoding remains required for further validation, including real H schemas.",
+  "M_next": [
+    "Read existing376 full-suite/time_v, do not duplicate it",
+    "Apply one TDD fix pass for postcommit cleanup receipt, explicit incremental raw inflation budget, finite exponent parser; update caller tests and run30 targeted plus fresh whole386 suite",
+    "Complete/review explicit source-best endpoint/cache and M-only statistics drivers; do not replace incomplete H models or promote before final H gate",
+    "Validate structural multiplicity encoding across normal/closure/RQ4/H and actual combined budgets before M production"
+  ],
+  "M_production_admitted": false,
+  "M_target_exports_started": false,
+  "cold_SSD_release_bytes": 0,
+  "next_primary_check_utc": "2026-10-25T04:10:00Z"
+}

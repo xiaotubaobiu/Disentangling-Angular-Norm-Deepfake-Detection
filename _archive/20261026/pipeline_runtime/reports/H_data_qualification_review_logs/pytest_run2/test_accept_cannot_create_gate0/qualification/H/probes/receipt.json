@@ -1,0 +1,83 @@
+{
+  "status": "PROBES_READY",
+  "binding": {
+    "schema": "H_SOURCE_QUALIFICATION_V1",
+    "training_code_sha256": "336f3097434edf903a5ff402162e29afeca2442ca50f9c7d9883ca60136b8335",
+    "qualification_code_sha256": "80f111b27dcbe682f4a7bdae1541669fb3c240f5c774fbd48bda70daf32137bb",
+    "h_code_bundle_sha256": "h_bundle_fixture",
+    "H_data_freeze_sha256": "708a2210c0925d5498f09fcda5e06ca3465387318e35795d60ddab44af0dfd55",
+    "architecture_gate_sha256": "79b3f621d394afd6546fc9fa0d204b0c5014ebcfcf7fe744d79092e6a6b49ea9",
+    "base_config_sha256": "5d87bb6d74bfa6b7b754b693fd302b772df0ee65ebd2fecda350c68ed5a468d4",
+    "environment_sha256": "51e7c324653b7546a2aab3c27bd8e62cfa3d332c6d95c57b53fa8dbb93bd8bd6"
+  },
+  "tables": {
+    "B/train": {
+      "path": "qualification/H/probes/B_train.parquet",
+      "sha256": "f8f3f5781373ad357462b9d65b0af65c5316c19695580493a0b5314ffd78d48f",
+      "rows": 128,
+      "videos": 16
+    },
+    "AB/train": {
+      "path": "qualification/H/probes/AB_train.parquet",
+      "sha256": "ad29a720010c16850a6a7d7703f4b38d047c13887f78d23661d479e5c926337e",
+      "rows": 128,
+      "videos": 16
+    },
+    "B/dev": {
+      "path": "qualification/H/probes/B_dev.parquet",
+      "sha256": "a968cfbfb7509053e6f802a1146491dce5cd2fd688beedc823a0687c4a427ecc",
+      "rows": 48,
+      "videos": 6
+    },
+    "AB/dev": {
+      "path": "qualification/H/probes/AB_dev.parquet",
+      "sha256": "a0674ec6be88fad5d940736a88159b8bbc7fbfe5418b539219b02b5618398b15",
+      "rows": 48,
+      "videos": 6
+    },
+    "B/SOURCE_CAL": {
+      "path": "qualification/H/probes/B_SOURCE_CAL.parquet",
+      "sha256": "63857df42965e686f970104a4477195347d0f52452df9b58448f68d1989b8ba1",
+      "rows": 16,
+      "videos": 2
+    }
+  },
+  "source_only": true,
+  "target_used": false,
+  "accepted_source_tables": {
+    "B/train": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_logs/pytest_run2/test_accept_cannot_create_gate0/data/H/B_TRAIN.parquet",
+      "sha256": "3d544bfae402be14ffeaa46a5b63f4f0079c867c0636e60f0d21908d6b3048b1",
+      "rows": 128,
+      "videos": 16
+    },
+    "AB/train": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_logs/pytest_run2/test_accept_cannot_create_gate0/data/H/AB_TRAIN.parquet",
+      "sha256": "f9d556befb765e4f1dd15fb98456cc525b60b4d025b09177608b6d5b21621720",
+      "rows": 128,
+      "videos": 16
+    },
+    "B/dev": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_logs/pytest_run2/test_accept_cannot_create_gate0/data/H/B_DEV.parquet",
+      "sha256": "d1bc35560bb4eafdf1d506ab25efb1a570175d90712e4f80202c444bb6c940c3",
+      "rows": 128,
+      "videos": 16
+    },
+    "AB/dev": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_logs/pytest_run2/test_accept_cannot_create_gate0/data/H/AB_DEV.parquet",
+      "sha256": "af7b4dbcaf5cfaafb650b2ea769a9cd805c1ad6741b99fb4a083fbc04da38bea",
+      "rows": 128,
+      "videos": 16
+    },
+    "B/SOURCE_CAL": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_logs/pytest_run2/test_accept_cannot_create_gate0/data/H/B_SOURCE_CAL.parquet",
+      "sha256": "63857df42965e686f970104a4477195347d0f52452df9b58448f68d1989b8ba1",
+      "rows": 16,
+      "videos": 2
+    }
+  },
+  "effective_batch": 128,
+  "loader_workers": 4,
+  "probe_draw_count": 128,
+  "training_draw_count": 128
+}

@@ -1,0 +1,77 @@
+{
+  "status": "PASS",
+  "identity": {
+    "schema": "H_SOURCE_QUALIFICATION_V1",
+    "training_code_sha256": "336f3097434edf903a5ff402162e29afeca2442ca50f9c7d9883ca60136b8335",
+    "qualification_code_sha256": "5c70e9fb2a39bd974b0db278d519a8b7103f9553c3bfee32c7accb311edf0ec0",
+    "h_code_bundle_sha256": "639d09df6ae68a36875d376c9176d8d69a1b070ae054d0eb04b2f221c1080ff3",
+    "H_data_freeze_sha256": "11ac3398b8bd2b347da24efbe45fb74e890681d2d063933b01a65d5fdba0675d",
+    "architecture_gate_sha256": "e3073c7d08e81f8e7cb173bdb1e5c526d78d8ca05a30e26980fc1beb3901fe85",
+    "base_config_sha256": "c3cfc87050677d23f2c8446e2bfdbedd5c0af8f5f15b34b41f3040889a6ba91c",
+    "environment_sha256": "d3e6f2a2fc50770a2c3c8ab5b913dfa9049111a398c9de72d85baf618b139ebb",
+    "config": "c11005d8f75ecb42edd4daad642997f4c573b5b127b28311e193e2c249717165",
+    "data": "523221bb94af988618b5415d2894ef9650d47918d8f026d8567e0fbec4e27ce7",
+    "code": "336f3097434edf903a5ff402162e29afeca2442ca50f9c7d9883ca60136b8335",
+    "initialization": "0b8b82f85de91b424aded121c7e1dcc2b7bc6d0adeea651bf73a13307fad8c73",
+    "backbone": "dinov2_vit_b14",
+    "microbatch": 32,
+    "precision": "AMP",
+    "history": "AB"
+  },
+  "precision": "AMP",
+  "microbatch": 32,
+  "effective_batch": 128,
+  "loader_workers": 4,
+  "epochs": 2,
+  "attempts_per_epoch": 1,
+  "continuous_attempts": 2,
+  "resumed_attempts": 2,
+  "all_trainable_parameters_received_gradients": true,
+  "resume_parameter_optimizer_scaler_rng_byte_exact": true,
+  "resume_FP32_features_byte_exact": true,
+  "epoch2_sampler_methods_augmentations_batches_byte_exact": true,
+  "features_dimension": 768,
+  "changed_identity_fields_rejected": [
+    "config",
+    "data",
+    "code",
+    "initialization"
+  ],
+  "state_comparisons": {
+    "model": "8507307f8b22bd3deb43f330a067c96e21bd5bc26aca9547c64f3c7412db69f9",
+    "optimizer": "e0afb98c19badedaaa6d7f240018a44f61eef69de21cb25ce297e054dbf20c1a",
+    "scaler": "a5a6434fbc82c42bbcb93d00e50e58924532abefba9522a48c6dd16739fc206f",
+    "python_rng": "cd3225d337a081afafd2a30d34b319532aea12b22dd336dd14a0f00d70ff20d6",
+    "numpy_rng": "b2db43d98684fdd29e15cc1c0e44bb68944fbb89ea71be9f2de7e9b852847672",
+    "torch_rng": "5a38a70596ad9b6255074dc05f71f99cea5ff78547409a20fc84f71c2f4ae9a5",
+    "cuda_rng": "7d18f6761fb3b0366a54e74f94127595646a689e1664a31136e8f2643ac6aba3",
+    "epoch": "e7241ec5f90173f04b3ed1900c76d62b57dbfc5a3481161769d009c5361fb6cb",
+    "attempts": "e7241ec5f90173f04b3ed1900c76d62b57dbfc5a3481161769d009c5361fb6cb",
+    "scheduler_clock": "920413256267cd1c39b711e712b0b98879666792c36d2ecef1f057cbe5d0d36a",
+    "identity": "9fc0c3d27917b540320108e4436f4dee2071c63d9635d821a13f01691f17f540",
+    "history": "99ce56c24cfede88a69e16f65494b52fd2915ed679cc54f9487f5aea30ea113b"
+  },
+  "source_metrics": {
+    "dev": {
+      "macro_auc": 0.0,
+      "pooled_auc": 0.0,
+      "method_auc": {
+        "Deepfakes": 0.0,
+        "Face2Face": 0.0,
+        "FaceSwap": 0.0,
+        "NeuralTextures": 0.0
+      }
+    },
+    "source_cal": {
+      "threshold": -4.749506315376006,
+      "alpha": 0.05,
+      "videos": 8,
+      "false_positives": 0,
+      "empirical_fpr": 0.0,
+      "rule": "score>=threshold",
+      "auc_called": false
+    }
+  },
+  "initialization_model_sha256": "37af752841ffea2a5d801a7a7b55ec0b19766be4eed7d70c479c95264a4b2c25",
+  "target_used": false
+}

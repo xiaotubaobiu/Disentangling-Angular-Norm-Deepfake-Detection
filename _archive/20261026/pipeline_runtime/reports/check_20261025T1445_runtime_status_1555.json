@@ -1,0 +1,70 @@
+{
+  "utc": "2026-10-25T15:57:13Z",
+  "H_roles": 162,
+  "H_operational_models": 20,
+  "H_independently_admitted_models": 8,
+  "H_independently_admitted_pairs": 4,
+  "H_statistic_independent_accepted_pairs": 2,
+  "H_statistic_running_pairs": 2,
+  "H_statistic_waiting_pairs": 11,
+  "formal_training_accepted": 45,
+  "H_owner_pid": 3219035,
+  "H_owner_alive": true,
+  "active": [
+    {
+      "pid": 1229851,
+      "run_id": "H_formal_efficientnet_b0_B_seed7",
+      "gpu": 0,
+      "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e",
+      "backbone": "efficientnet_b0"
+    },
+    {
+      "pid": 1236589,
+      "run_id": "H_formal_efficientnet_b0_AB_seed7",
+      "gpu": 1,
+      "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+      "backbone": "efficientnet_b0"
+    },
+    {
+      "pid": 1250299,
+      "run_id": "H_formal_efficientnet_b0_B_seed42",
+      "gpu": 3,
+      "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646",
+      "backbone": "efficientnet_b0"
+    },
+    {
+      "pid": 1275314,
+      "run_id": "H_formal_efficientnet_b0_AB_seed42",
+      "gpu": 2,
+      "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+      "backbone": "efficientnet_b0"
+    }
+  ],
+  "pending_GPU_models": 6,
+  "statistics": [
+    {
+      "seed": 123,
+      "wrapper_pid": 1477518,
+      "wrapper_alive": true,
+      "last_lines": [
+        "BEGIN_PRIMARY_FRESH_LEDGER 4 clip_vit_b16 AMP",
+        "BEGIN_PRIMARY_FRESH_LEDGER 5 clip_vit_b16 AMP"
+      ],
+      "terminal_exists": false
+    },
+    {
+      "seed": 2026,
+      "wrapper_pid": 1592782,
+      "wrapper_alive": true,
+      "last_lines": [
+        "BEGIN_PRIMARY_FRESH_LEDGER 1 clip_vit_b16 AMP",
+        "BEGIN_PRIMARY_FRESH_LEDGER 2 clip_vit_b16 AMP"
+      ],
+      "terminal_exists": false
+    }
+  ],
+  "free_GiB": 158.80757904052734,
+  "GPU_snapshot": "0, 0, 876\n1, 0, 876\n2, 0, 876\n3, 0, 876\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n",
+  "production_failure_detected": false,
+  "next_check": "2026-10-25T16:15:00Z"
+}

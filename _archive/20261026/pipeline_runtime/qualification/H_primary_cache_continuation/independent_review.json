@@ -1,0 +1,67 @@
+{
+  "schema": "INDEPENDENT_H_PRIMARY_CACHE_CONTINUATION_REVIEW_V1",
+  "utc": "2026-10-25T05:37:25.087602+00:00",
+  "reviewer": "independent post_amp_qualification_review subagent",
+  "status": "CHANGES_REQUIRED_TWO_IMPORTANT_FINDINGS",
+  "production_execution_performed": false,
+  "source_sha256": "c413f8a59af452d28d749d7a782a4e9aa01799c493a9101c7557cc1de80edb13",
+  "test_sha256_reviewed": "635836ed0c5278abe983a99422943d250eb2a01a875be3b4902b2fe47599e118",
+  "current_test_sha256": "11ca4bab1bc4ab31ec993742c1476ce86354a3f17f2292b1732fd5d52895e472",
+  "findings": [
+    {
+      "id": "CACHE-1",
+      "severity": "Important",
+      "title": "Admission trusts arbitrary cache extractor bytes instead of the qualified original version",
+      "location": "cache_continuation.py:52-58,76-80",
+      "explanation": "bindings hashes cache_h.py as it exists at admission but compares only queue_h.py against a fixed expected source version. An unqualified or accidentally changed cache_h.py is admitted into expected bindings and imported/executed by the worker. cache_d.py helpers and other extraction safety dependencies are absent from dispatch bindings. The original cache implementation self-hashes cache_h/cache_d into output provenance; that records the version and does not establish that it is the independently qualified version.",
+      "reproduction": "Temporary SCIENCE used exact pinned queue_h.py plus arbitrary cache_h.py contents. bindings(root) returned successfully and bound the arbitrary hash. No import/execution of that fake source occurred.",
+      "impact": "The promise to invoke unchanged original extract and preserve original cache validation/resource-lock behavior is not enforced at the staging boundary.",
+      "requested_change": "Pin the qualified extractor and required helper/resource code to independently verified exact expected SHA values (or an accepted fixed source manifest), include them in bindings, and reject drift at admission, before each launch, and before worker import. Add negative tests for pre-admission and post-admission cache/helper source drift."
+    },
+    {
+      "id": "CACHE-2",
+      "severity": "Important",
+      "title": "Budget identity is not rechecked before each dispatch",
+      "location": "cache_continuation.py:89-100",
+      "explanation": "_devices checks sha(budget)==budget_sha once, then inherited batch can call _launch for each returned GPU. _launch rechecks other bindings and free bytes but never rechecks the budget hash, so a change between device discovery and any launch is accepted. This violates the declared fresh full pins before every launch contract.",
+      "reproduction": "With temporary fake queue/resources/Popen, _devices passed for a valid budget; the budget was modified before _launch; _launch still invoked fake Popen. Independent reproduction exit0.",
+      "impact": "A worker can be dispatched after its approved immutable budget evidence changed. The conservative numeric floor remains, but the required admission identity gate no longer holds.",
+      "requested_change": "Recheck sha(budget)==budget_sha inside _launch immediately before Popen along with bindings/free capacity, and test mutation after _devices but before _launch (including a later launch from the same device list)."
+    }
+  ],
+  "strengths": [
+    "Global canonical all3 effective registry/order and original owner exit/no matching training/cache workers are required before controller handoff.",
+    "Execute acquires original nonblocking H_pipeline.lock and repeats preflight under ownership before queue construction.",
+    "Queue reuses original batch and calls original _devices, preserving original physical idle0-3/D-priority selection. Worker calls original extract cuda path, which owns lifetime GPU lock in reviewed original source.",
+    "Per-invocation nonce receipt and aggregate/all7 marker hashes prevent existing markers alone from bypassing original extractor invocation.",
+    "Operational result explicitly disclaims independent scientific/cache admission; no new training or M task dispatch is added.",
+    "Immutable full required capacity amount is retained without optimistic completed-write subtraction."
+  ],
+  "verification": {
+    "pytest_command": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -B -m pytest -q -p no:cacheprovider /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_primary_cache_continuation/test_cache_continuation.py",
+    "environment": {
+      "CUDA_VISIBLE_DEVICES": "",
+      "OMP_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTHONDONTWRITEBYTECODE": "1"
+    },
+    "result": "14 passed in0.03s",
+    "exit_code": 0,
+    "independent_reproductions_exit_code": 0,
+    "independent_repro_log": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_primary_cache_continuation/independent_repro.log",
+    "original_cache_h_sha256": "9119200359f8d696f1366e6c0137bca533c63089c32e505971e69f84ebaf40fb",
+    "original_trainer_sha256": "56f0db0634a525a530fb53482732365ebf9693a1f5470b0a95ec0820cc614368",
+    "latest_test_sha256": "11ca4bab1bc4ab31ec993742c1476ce86354a3f17f2292b1732fd5d52895e472",
+    "latest_test_output": ".................                                                        [100%]\n17 passed in 0.04s",
+    "latest_test_exit_code": 0
+  },
+  "runtime_observation": {
+    "owner2222605_exists": false,
+    "H_stage": "H_FORMAL_AMP_COMPLETE_INDEPENDENT_TERMINAL_AND_PAIRED_LEDGER_REVIEW_REQUIRED",
+    "H_active": [],
+    "target_export_allowed": false,
+    "controller_executed": false
+  },
+  "remaining_blockers": "Resolve CACHE-1 and CACHE-2 with regression evidence and re-review. Production must also wait for final canonical effective registry, old finite owner exit, no matching worker, original shared lock, fresh full primary budget and repeated admission. No production execution occurred."
+}

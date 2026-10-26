@@ -1,0 +1,50 @@
+{
+  "utc": "2026-10-23T14:18:39.154364+00:00",
+  "status": "WAITING_PIXEL_COMPLETION_NO_FULL_AUDIT_RUN",
+  "candidate_videos": 8431,
+  "role_counts": {
+    "DEV": 540,
+    "SOURCE_CAL": 140,
+    "SOURCE_TEST": 700,
+    "SOURCE_UNUSED": 560,
+    "TARGET_TEST": 3431,
+    "TRAIN": 3060
+  },
+  "candidate_sha256": "cb3e5af0b5a415cfdd62d2987519d19f6cc78e48ea79016d43fdaca5b9f96951",
+  "geometry_code_sha256": "161ac4e837463ff16e7916ca42eeb5d13acc44aab9bcc1c397025b9426ad9532",
+  "data_gate_code_sha256": "ad81f65c27d53159e6902bf8a20b0910cd129f75eb0105e5a5a053bcc2d2f45e",
+  "progress": {
+    "GPU_used": false,
+    "ORT_threads_each": 2,
+    "completed_videos": 7670,
+    "data_frozen": false,
+    "elapsed_seconds": 20340.76383247599,
+    "eta_seconds": 2018.1644428310597,
+    "geometry_freeze": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_geometry_frozen.json",
+    "geometry_protocol_sha256": "85a865f0e3343ecaf5b8c0174c8a3f602ec873deeccb03bd1826d617f2a7ae03",
+    "image_root": "/Dataset/deepfake_detection/derived/pipeline_reliability_v2_20261023/H",
+    "pid": 3915880,
+    "status": "RUNNING",
+    "total_videos": 8431,
+    "version_ineligible_video_counts": {
+      "A": 114,
+      "AB": 359,
+      "B": 114
+    },
+    "workers": 4
+  },
+  "pixel_owner_alive": true,
+  "full_processed_manifest_list_present": false,
+  "freeze_present": false,
+  "GPU_gate_present": false,
+  "preconditions_for_fresh_audit": [
+    "All8431candidatepixels complete including560SOURCE_UNUSED",
+    "Pixel owner and old finalizer no longer writing; preserve all existing old audit artifacts for comparison",
+    "Processed manifest paths cover unique complete8431UIDs",
+    "Launch current repaired geometry code in a NEW bounded CPU-only process",
+    "After full audit, independently reconstruct cohort graph/quarantine and13tables, bind explicit production review; only then freeze"
+  ],
+  "independent_review_schema": "H_DATA_INDEPENDENT_REVIEW_V1; reviewer identity+independent true;status PASS;blockers [];exact candidate/full-audit/13table/geometry/data-gate/protocol hashes;historicalconflicts require VERIFIED_EXCLUDED_FROM_ALL_ACTIVE_TABLES",
+  "no_training_or_freeze_started": true,
+  "scope": "Preflight of existing metadata/entrypoints only; does not accept data or review partially processed cohorts"
+}

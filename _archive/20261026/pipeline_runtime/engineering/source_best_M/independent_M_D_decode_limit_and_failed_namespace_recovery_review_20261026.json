@@ -1,0 +1,308 @@
+{
+  "schema": "INDEPENDENT_M_D_DECODE_LIMIT_AND_FAILED_NAMESPACE_RECOVERY_REVIEW_V1",
+  "utc": "2026-10-26T10:19:31.985264+00:00",
+  "status": "PASS_MINIMAL_RESOURCE_REVISION_AND_REVERSIBLE_RECOVERY_PLAN_WITH_CONDITIONS",
+  "bindings": {
+    "proposal": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/plans/M_two_canary_D_decode_limit_minimal_revision_proposal_20261026T1010.json",
+      "sha256": "702522c989eaec73257399a5c2cf86c7e38a9f09bd93d98a4c078d40e70212ce"
+    },
+    "old_qualification": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_statistic_canary_engineering_acceptance_20261026T0430.json",
+      "sha256": "9bec22803f8e7c15918fdb1b4938e028e09a3115a4d23aea89dff1cb89d25571"
+    },
+    "old_permit": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_bounded_two_job_statistic_canary_permit_20261026T0935.json",
+      "sha256": "acc82da837e41e8f7faeeaf83b4868e3bd30a0cab4f2c105db4b4dcfa26702fe"
+    },
+    "failed_exit": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_D_clip_seed7_actual_statistic_canary_20261026T0940_exit.json",
+      "sha256": "ee070ab9b739f3350397e20c1152f459dc9cc18b7a5da9b82675d49d20a7e0b9"
+    },
+    "failed_stdout": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_D_clip_seed7_actual_statistic_canary_20261026T0940.log",
+      "sha256": "65dd9655558a619b9f2e561b7e3f3ac8dc5e037be738e4a944045f5a94277bc6"
+    },
+    "failed_GNUtime": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_D_clip_seed7_actual_statistic_canary_20261026T0940_time_v.log",
+      "sha256": "f6a744994bc31fd7c52d2ae066afaf6b04b35ad5e45e8591e35172a2e9aa44cc"
+    },
+    "failure_measurement": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_first_D_canary_Parquet_decode_failure_measurement_20261026T1005.json",
+      "sha256": "e43cfc22ee8392f820e0b5c8f8d177907db783edaa334b94a30388f2939ac790"
+    },
+    "actual_readonly_decode_probe": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_D_failed_target_Parquet_D2GiB_decode_probe_20261026T1010.json",
+      "sha256": "e2d5659228b266779de77d4c0fdaed33a21934904bc08800b4d0bb67e65ee40f"
+    },
+    "actual_probe_GNUtime": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_D_failed_target_Parquet_D2GiB_decode_probe_20261026T1010_time_v.log",
+      "sha256": "0494aba86206e3e02fe63d76bba924364c9e1e49b73857c6f0e61fe9aa60f053"
+    },
+    "failed_launch": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_D_clip_seed7_actual_statistic_canary_20261026T0940_launch.json",
+      "sha256": "966197891dec12aec8593a4ed8d302d44566126132d6c1bfb9ae7007c9341e8b"
+    },
+    "unchanged_full_remaining_write_plan": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/plans/M_two_canary_remaining_write_plan_after_H6_20261026_candidate.json",
+      "sha256": "c0f5080192f20203dd63f0133aeeb21afd24807fbf7b1af9119945baa2abef07"
+    },
+    "existing_root_capacity_acceptance": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_remaining_after_H6_capacity_acceptance_20261026.json",
+      "sha256": "d78bc0f1a35d954564581110f835bb4781351343dcf9ea97e5436339a36d668a"
+    },
+    "independent_H6_capacity_review": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_M_capacity_after_H6_reassessment_20261026.json",
+      "sha256": "a5fcdd16ef564117dbe8df1da72cfbdf3dad8185327885fb1afe2bd645531210"
+    }
+  },
+  "current33_package_code_sha256": {
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/multiplicity_codec.py": "1931371915dcbf542b78b79ca433f202e6c6cdf194400985020f105eff92fa73",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_analysis.py": "0ec974eec85a0a5204b8804707d627fa908a80eb1a4e76cfa81729ce0a875a32",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/data_h.py": "ad81f65c27d53159e6902bf8a20b0910cd129f75eb0105e5a5a053bcc2d2f45e",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/trainer.py": "56f0db0634a525a530fb53482732365ebf9693a1f5470b0a95ec0820cc614368",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/summary_d.py": "489330049b8b95c74db9bb3d191a38f7e7190107788144ff6c07aaec9946db93",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/cache_d.py": "8f5814646194c772dcf00f6751a35c2f792dd5f11008e0834fdba4eb5e329761",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_runtime.py": "69b3d590d95fd3004c7c64617fbad642526b02862a97f61546d3cd375fc18742",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/qualify.py": "5e8b6e856f2396bf15fa4e464cb8228a043864bc7b0e90dfcbd9d20f847b06eb",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_files.py": "9745e0181aa4da0a8fa53b73066e2b47f400d0e824df77d20c7e097fa082c908",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/geometry_h.py": "161ac4e837463ff16e7916ca42eeb5d13acc44aab9bcc1c397025b9426ad9532",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/models.py": "5c4adb39314433c5f0d40311d7ada3ad5d30c7b239773be02080be120f5a2e60",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/queue_h.py": "a2792361443e64622391fb6ae766ee5e6f887789d662afdfb6d809f9a5ea8176",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_gpu.py": "f3cac34e1493cd109e336b77f94b087527e97d722f02253880371a7c2caebed5",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/queue_d.py": "3db3d1ebb63fbe233fa19116934268ab999be94faaff59fe1f2d52fdbe1949b8",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/worker_h.py": "d0219aa52ebb1b6602602d5b09eb5fdfbbb9dc3aeb7b55dbfc0251ced66136f4",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/coverage_h.py": "f1b684903d2486107dc1ba2312502b7f34a66636b196662b0a3566a159475f9d",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/sensitivity_io.py": "d311923c3e35b8e9ba2fc42dc5ee7e6e46b66ce3c9f2d3a923ea8ccb949be9ce",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_stats.py": "012d5147f8f1bbb63dae6b1aff730e71459a359ead332c754e734ce525ca7a47",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_lease.py": "175075eaa2e3dac44db2dbb0229abeb126058d694267901c6929cd28e0b9e5a9",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/stats_h.py": "5627cccc714c2fc59a3dadfed3ddeba32d1488020cfd550ca70d0c9be947dd74",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/analysis_h.py": "051226f11737615bb3546ae1a301d621fd662943dc1c849e18085e610c865383",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/scoring_d.py": "9bddf066fcb8df1b9659d4cfe14aa4febdf850f7cc39c1c0c3d6050864263d1c",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_policy.py": "e407059ce2def098ff46fd0ebf7e61c40f4ab5c81b39608925d501b6e3c07b39",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/bootstrap_fast.py": "7eaeaf0973d72cd1def838cf6bc82863c92c75fb35409553332015dec8b0e4e5",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/data_d.py": "7d37fda956a5b5d0d9a4281a24b5967507ce28b892dd3a01486ec05280277cd1",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/qualification_h.py": "5c70e9fb2a39bd974b0db278d519a8b7103f9553c3bfee32c7accb311edf0ec0",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/cache_h.py": "9119200359f8d696f1366e6c0137bca533c63089c32e505971e69f84ebaf40fb",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/multiplicity_bundle.py": "3aa5debf7d98bd976bc21fa5be2135d34cdfa8e0b91873f356cc8f57e24360c3",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_cache.py": "4c5494d06f133b962fd22872ac88d22ad9155fcca102e29f0e300cc06a4ff0c7",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/analysis_d.py": "a1d3be7bd43acb43995768f9167225b066ee9e6691c61c7b8bf28b00de53ba5e",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_source_qualification.py": "3bc8e60a64226b37817d8142b6b374ad0400bf891c3209ad95329e8ccaa47ab9",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_sink.py": "9b638a05738061fce9fb4537b6076c118b579631c8852452d4f894fa55a581f0"
+  },
+  "all33_source_files_unchanged": true,
+  "only_resource_change": "D.max_decoded_bytes 536870912 ->2147483648; all otherD and allH caps unchanged",
+  "old_limits": {
+    "D": {
+      "max_total_bytes": 1073741824,
+      "max_temporary_bytes": 4294967296,
+      "max_artifact_bytes": 1073741824,
+      "max_json_bytes": 2147483648,
+      "max_json_array_bytes": 536870912,
+      "max_json_cells": 67108864,
+      "max_bundle_members": 64,
+      "max_table_rows": 1000000,
+      "max_decoded_bytes": 536870912
+    },
+    "H": {
+      "max_total_bytes": 268435456,
+      "max_temporary_bytes": 2147483648,
+      "max_artifact_bytes": 268435456,
+      "max_json_bytes": 268435456,
+      "max_json_array_bytes": 134217728,
+      "max_json_cells": 16777216,
+      "max_bundle_members": 64,
+      "max_table_rows": 1000000,
+      "max_decoded_bytes": 268435456
+    }
+  },
+  "proposed_limits": {
+    "D": {
+      "max_total_bytes": 1073741824,
+      "max_temporary_bytes": 4294967296,
+      "max_artifact_bytes": 1073741824,
+      "max_json_bytes": 2147483648,
+      "max_json_array_bytes": 536870912,
+      "max_json_cells": 67108864,
+      "max_bundle_members": 64,
+      "max_table_rows": 1000000,
+      "max_decoded_bytes": 2147483648
+    },
+    "H": {
+      "max_total_bytes": 268435456,
+      "max_temporary_bytes": 2147483648,
+      "max_artifact_bytes": 268435456,
+      "max_json_bytes": 268435456,
+      "max_json_array_bytes": 134217728,
+      "max_json_cells": 16777216,
+      "max_bundle_members": 64,
+      "max_table_rows": 1000000,
+      "max_decoded_bytes": 268435456
+    }
+  },
+  "footer_guard_independent_metadata_check": {
+    "independently_read_footer_only_no_table_decode": true,
+    "rows": 104424,
+    "columns": 40,
+    "rowgroups": 51,
+    "footer_serialized_bytes": 264473,
+    "total_uncompressed_column_bytes": 97031984,
+    "num_values": 4176960,
+    "registered_compression": [
+      "UNCOMPRESSED"
+    ],
+    "registered_encodings": [
+      "PLAIN",
+      "RLE"
+    ],
+    "base_bytes": 535490368,
+    "formula": "4096 + rows*(columns*128+8) + sum(4*column.total_uncompressed_size +128*column.num_values)",
+    "bound_bytes": 1458269184,
+    "old_limit_bytes": 536870912,
+    "new_limit_bytes": 2147483648,
+    "new_guard_margin_bytes": 689214464,
+    "same_stat_dev_inode_size_mtime_pre_post_footer": true
+  },
+  "actual_decoder_probe_reused": {
+    "status": "PASS_OLD_GUARD_REPRODUCED_NEW_GUARD_DECODES_SAME_REAL_PARQUET",
+    "old_guard_error": "Parquet decoded-table budget exceeded",
+    "Arrow_pandas_Arrow_all_columns_values_nulls_equal": true,
+    "source_SHA_before_after_equal": true,
+    "pandas_deep_memory_bytes": 240753822,
+    "peak_RSS_KiB": 920616,
+    "GNU_time_exit": 0,
+    "AS_cap_bytes": 34359738368,
+    "new_decode_bound_is_not_a_peak_RSS_limit": true,
+    "no_full_D_resource_qualification_inferred": true
+  },
+  "actual_failed_canary": {
+    "exit_code": 1,
+    "wait_return_observed": true,
+    "original_wrapper_and_child_true_exit_observed_field": false,
+    "current_observer_wrapper_child_PIDs_absent": [
+      2456792,
+      2456862,
+      2456864
+    ],
+    "GNU_time_exit": 1,
+    "peak_RSS_KiB": 2395068,
+    "failed_at": "target_full/frame_margins.parquet decode guard",
+    "partial_receipts": 16,
+    "declared_D_inventory": 60,
+    "full_or_scientific_acceptance": false
+  },
+  "recovery_current_snapshot": {
+    "source": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/source_best_M/f2245c70bde16847e0f0a13d8b6d93e15cdd1356772e69ba2302e26ff0fcc8aa/D_clip_vit_b16_seed7",
+    "archive_target": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/failure_archive/M_statistic_D_clip_vit_b16_seed7_20261026T1002_512MiB_decode/f2245c70bde16847e0f0a13d8b6d93e15cdd1356772e69ba2302e26ff0fcc8aa/D_clip_vit_b16_seed7",
+    "source_same_device_as_artifact_root": true,
+    "archive_target_absent": true,
+    "no_complete_marker": true,
+    "file_count": 63,
+    "directory_count": 18,
+    "all_paths_sizes_and_allocated_blocks_match_proposal": true,
+    "file_allocated_bytes": 159821824,
+    "directory_allocated_bytes": 73728,
+    "namespace_allocated_bytes": 159895552,
+    "staging_charge_bytes": 97304576,
+    "live_temporary_claims": 0,
+    "claim_release_bindings": [
+      {
+        "claim_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/source_best_M/.resource_claims/28d27971fd6b49289a2e711ede503fba.json",
+        "claim_sha256": "586f89fe1349ad342d607bc54810966221e6deef2ee386e8894e7dcbbe9f44a4",
+        "release_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/source_best_M/.resource_claims/28d27971fd6b49289a2e711ede503fba.released.json",
+        "release_sha256": "0e70ee652c8942c151f594d90708348215f7d4def5755cdc7a1277105113bae6",
+        "pid": 2456864,
+        "released": true,
+        "process_absent": true
+      }
+    ],
+    "small_identity_source_bytes_SHA_verified": true,
+    "all63_current_payload_SHAs_independently_rehashed": false,
+    "payload_SHA_scope": "Proposal binds all63 expected hashes and the actual stage decode probe verified stageSHA before/after. This review used path/size/block/type metadata and footer only for large files; root must freshly check every63 SHA immediately before and after actual rename.",
+    "physical_SSD_release_bytes": 0,
+    "failed_archive_or_partial_output_future_credit_bytes": 0
+  },
+  "allocation_subtotal_clarification": {
+    "severity": "Minor",
+    "proposal_field": "recovery.retained_total_allocated_bytes",
+    "proposal_value_is_file_subtotal_only": 159821824,
+    "directories_extra_bytes": 73728,
+    "correct_whole_namespace_bytes": 159895552,
+    "root_confirmed_final_archive_receipt_will_split_file_directory_total": true,
+    "capacity_effect": "Current filesystem free already includes all file/directory allocation; no future reserve is reduced and no credit is taken."
+  },
+  "capacity": {
+    "required_remaining_bytes": 148068010153,
+    "required_remaining_GiB": "137.8990804338827729225158691",
+    "fresh_free_snapshot_bytes": 150642819072,
+    "fresh_margin_bytes": 2574808919,
+    "entire_feature45_cap_bytes": 18413684905,
+    "entire_statistic30_caps_bytes": 20132659200,
+    "base_future_and_reserve_bytes": 109521666048,
+    "primary_temporary_bytes": 17179869184,
+    "primary_logs_figures_audits_bytes": 17179869184,
+    "primary_reserve_bytes": 53687091200,
+    "M_temporary_future_bytes": 6442450944,
+    "M_extra_future_bytes": 5368709120,
+    "all_failed_residue_already_consumes_free_and_no_reserve_credit_taken": true,
+    "MemTotal_bytes": 405106864128,
+    "MemAvailable_bytes": 383882375168,
+    "AS_limit_unchanged_bytes": 34359738368
+  },
+  "protected_work_readonly_snapshot": {
+    "M_owner825619_alive": true,
+    "Eff7_slot1": [
+      {
+        "pid": 1747331,
+        "slot": 1,
+        "command": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -B -u /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_parallel_fresh_validation/cpu_primary_analysis.py --execute --backbone efficientnet_b0 --seed 7 --slot 1 --qualification /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_parallel_CPU_actual_qualification_efficientnet_b0.json --qualification-sha fc1106633391cdf2b5bfaaad1c4e5b25e6c9adbd53e26a08793da3cd5540c772 --admission /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_efficientnet_b0_seed7_independent_7role_parallel_candidate_20261025T0645.json --admission-sha 1c54480fe43637e8711feb563f4f327479e4f36b45c5dd12b593eff1193dae2e "
+      }
+    ],
+    "no_gpu_cache_namespace_touched": true,
+    "GPU4_to7_untouched": true
+  },
+  "mandatory_before_archive_and_retry": [
+    "Freshly recheck failed observer/wrapper/child PIDs and live claims remain absent, source has no top-level complete, source/target are exact canonical paths and same filesystem, target is absent; stop if any precondition changes.",
+    "Archive only the exact failed D_clip_vit_b16_seed7 directory with a same-filesystem atomic no-overwrite rename (fail on existing target). Keep all63 files and18 directories, receipt/partial/staging evidence; never delete or overwrite any child.",
+    "Fresh pre/post inventory must prove exact paths, all63 byteSHA, file types/sizes and directory/file/namespace allocated totals; fsync affected parent directories and publish a bound archive receipt. No current review claim that this action has happened.",
+    "Restore only exact archived directory into an absent canonical path after all hashes match; never overwrite a later retry namespace. Global append-only claim/release evidence and original failure/q/permit/logs remain immutable outside moved directory.",
+    "Issue a distinct SHA-bound resource qualification and revised two-canary permit retaining prior format/code evidence while explicitly superseding only theD decoded limit. Old512MiB static resource acceptance is not evidence for2GiB. Full30 remains held.",
+    "Keep statistical identityf224 and frozen data/head/threshold/CAL200/TEST2000/seed20261023 unchanged. Sink claim includes limits: the512MiB namespace cannot be edited or reused with2GiB; only a full new execution at the absent canonical path after preservation is proposed.",
+    "Immediately before retry use unchanged full148068010153B remaining-write bound with50GiB reserve,16GiB primary temp,6GiB Mtemp,5GiB Mextra and all30 output caps; no failed archive/partial feature credit or claimed SSD release.",
+    "Use original shared CPUslot0 only when free, emptyCUDA/CPU2 and external32GiBAS. H canary is sequential only after fullD actual resource/independent numerical acceptance. Any later cap failure stops and preserves evidence; no draw reduction or unreviewed namespace retry."
+  ],
+  "scope_limits": [
+    "This is a bounded read-limit and reversible recovery-plan review, not actual archive execution, a new permit, fullD/H resource qualification or scientific result acceptance.",
+    "Only footer metadata was independently opened on the97MB stagedParquet. No repeated table decode, models/weights/PNG/parquet feature data or2000draw scientific computation; no CPUslot was acquired and no process controlled.",
+    "The observed single-file probe confirms current real transport can decode under the frozen2GiB guard; it does not guarantee every laterD artifact or wholeD process fits all caps.",
+    "No source, cache, owner, gate, registry or existing artifact was modified; JEV/non-Detector work remains paused."
+  ],
+  "review_commands_and_results": [
+    {
+      "command": "Read-only small JSON/log/source-pin/proc/stat inventories and direct single-limit comparison",
+      "result": "All boundrefs match;33package pins match; D onlydecoded change; allHcaps preserved;3failedPIDs absent and original claim released."
+    },
+    {
+      "command": "CPU1 emptyCUDA runtime -B - [pyarrow.ParquetFile.metadata only, independent integer footer formula]",
+      "exit_code": 0,
+      "result": "No table decode; footer264473B, exact1458269184B guard bound, onlyregisteredUNCOMPRESSED/PLAIN+RLE; metadata fingerprint unchanged."
+    },
+    {
+      "command": "Read-only namespace allocation reconciliation",
+      "result": "63files+18dirs exact; proposal total clarified as file subtotal. Initial inspection script had a missingstdlib import, then path-key schema assumptions were corrected; these inspections performed no writes or actions."
+    }
+  ],
+  "findings": {
+    "Critical": [],
+    "Important": [],
+    "Minor": [
+      "Proposal allocation total is files-only subtotal; corrected whole namespace159895552B is explicitly retained in this review and must be used in final archive evidence."
+    ]
+  },
+  "new_qualification_or_permit_issued": false,
+  "archive_executed": false,
+  "retry_started": false,
+  "actual_full_D_resource_qualified": false,
+  "scientific_acceptance_granted": false
+}

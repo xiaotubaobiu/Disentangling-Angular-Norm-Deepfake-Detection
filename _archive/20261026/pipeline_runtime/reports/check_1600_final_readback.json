@@ -1,0 +1,36 @@
+{
+  "utc": "2026-10-23T16:08:31.329052+00:00",
+  "status": "PASS_FULL_D_RECOVERY_AND_STAGE_READBACK_H_STILL_RUNNING",
+  "scope": "Fresh1600fullcheckpoint/terminal/runtimeproofhashes,status/HANDOFF/Obsidianconsistency,backups,unchangedprotectedcode/manuscripts,owned/protectedprocessliveness.NoHfullacceptanceorfrozenresultclaim.",
+  "files": {
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/check_20261023T1600Z.json": "a87557515d4d100f83c9ed1e88370f32fb793cc900a7b7f7612692852fd10095",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/checkpoint_health_1600.json": "fec2bf8da6aca4b02c122ef926ee0d624412e585d79f5bf4fdeb4da07bc3f5c3",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/D_terminal_revalidation_1600.json": "e2f39d21fbdb98761164ccb85b3b75b20a793e4acc9deb39de30ab902601e363",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/status.json": "c0b4edad846eebef05b52b28910e5feee75634139a406158d4738d88cf2b73ed",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/HANDOFF.md": "7538bc2c4eb26a16d6d35658793559a3fbec91420e1862f261180edeed9ee6a9",
+    "/home/z/obsidian/paper/deepfake-detector/新实验设计/20261023/执行状态_20261023_v2.md": "d478bb916ad321b9e520686b5600ba53e9f0359490c1c9c265939908f34e3a6a"
+  },
+  "process_liveness": {
+    "152000": true,
+    "151882": true,
+    "3942476": true,
+    "57156": true,
+    "64175": true,
+    "124606": true,
+    "125862": true,
+    "1532179": true,
+    "1532180": true,
+    "1532181": true,
+    "1532182": true
+  },
+  "latest_actual_audit_log_progress": {
+    "stage": "existing_PNG_integrity",
+    "verified_videos": 6900,
+    "total_videos": 8431
+  },
+  "report_audit_cutoff": "2026-10-23T16:04:52.979060+00:00",
+  "H_data_frozen": false,
+  "next_manual_check_utc": "2026-10-23T16:30:00Z",
+  "scientific_results_complete": false,
+  "journal_manuscripts_complete": false
+}

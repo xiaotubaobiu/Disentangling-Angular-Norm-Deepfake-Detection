@@ -1,0 +1,162 @@
+{
+  "utc": "2026-10-24T06:11:50.056087+00:00",
+  "status": "PASS_READBACK_CURRENT4DINO_CPU_PROOFS_BINDINGS_AND_RUNTIME_NO_RESTART",
+  "D_formal_complete_active_pending": [
+    5,
+    4,
+    6
+  ],
+  "whole_formal_complete_total": [
+    5,
+    45
+  ],
+  "fresh_full_CPU_current_runs": [
+    {
+      "run_id": "D_formal_dinov2_vit_b14_seed7",
+      "checkpoint_epoch": 27,
+      "attempts": 21573,
+      "successful_updates": 21571,
+      "AMP_skips": 2
+    },
+    {
+      "run_id": "D_formal_dinov2_vit_b14_seed42",
+      "checkpoint_epoch": 27,
+      "attempts": 21573,
+      "successful_updates": 21572,
+      "AMP_skips": 1
+    },
+    {
+      "run_id": "D_formal_dinov2_vit_b14_seed123",
+      "checkpoint_epoch": 27,
+      "attempts": 21573,
+      "successful_updates": 21571,
+      "AMP_skips": 2
+    },
+    {
+      "run_id": "D_formal_dinov2_vit_b14_seed2026",
+      "checkpoint_epoch": 3,
+      "attempts": 2397,
+      "successful_updates": 2397,
+      "AMP_skips": 0
+    }
+  ],
+  "unchanged_terminal_full_proofs_inherited": 15,
+  "all_CPU_proofs_count": 19,
+  "pinned_totals": {
+    "attempts": 426666,
+    "success": 426607,
+    "skips": 59
+  },
+  "checkpoint_cutoffs_utc": {
+    "D_dev_clip_vit_b16_lr1e-05_seed1007_e30": "2026-10-24T05:27:19.539310+00:00",
+    "D_dev_clip_vit_b16_lr1e-05_seed1042_e30": "2026-10-24T05:27:19.539310+00:00",
+    "D_dev_dinov2_vit_b14_lr1e-05_seed1007_e30": "2026-10-24T05:27:19.539310+00:00",
+    "D_dev_dinov2_vit_b14_lr1e-05_seed1042_e30": "2026-10-24T05:27:19.539310+00:00",
+    "D_dev_dinov2_vit_b14_lr3e-05_seed1007_e30": "2026-10-24T05:27:19.539310+00:00",
+    "D_dev_dinov2_vit_b14_lr3e-05_seed1042_e30": "2026-10-24T05:27:19.539310+00:00",
+    "D_dev_dinov2_vit_b14_lr5e-05_seed1007_e30": "2026-10-24T05:27:19.539310+00:00",
+    "D_dev_dinov2_vit_b14_lr5e-05_seed1042_e30": "2026-10-24T05:27:19.539310+00:00",
+    "D_dev_efficientnet_b0_lr1e-04_seed1007_e30": "2026-10-24T05:27:19.539310+00:00",
+    "D_dev_efficientnet_b0_lr1e-04_seed1042_e30": "2026-10-24T05:27:19.539310+00:00",
+    "D_formal_clip_vit_b16_seed7": "2026-10-24T05:27:19.539310+00:00",
+    "D_formal_clip_vit_b16_seed42": "2026-10-24T05:27:19.539310+00:00",
+    "D_formal_clip_vit_b16_seed123": "2026-10-24T05:27:19.539310+00:00",
+    "D_formal_clip_vit_b16_seed2026": "2026-10-24T05:27:19.539310+00:00",
+    "D_formal_clip_vit_b16_seed3407": "2026-10-24T05:27:19.539310+00:00",
+    "D_formal_dinov2_vit_b14_seed7": "2026-10-24T06:05:33.782396+00:00",
+    "D_formal_dinov2_vit_b14_seed42": "2026-10-24T06:05:38.847882+00:00",
+    "D_formal_dinov2_vit_b14_seed123": "2026-10-24T06:05:43.668596+00:00",
+    "D_formal_dinov2_vit_b14_seed2026": "2026-10-24T06:05:48.372053+00:00"
+  },
+  "AMP_development_formal_live_total": [
+    32,
+    27,
+    59
+  ],
+  "new_live_AMP_since0525_followup": 0,
+  "all59_immediate_success_pairs_verified": true,
+  "runtime_live_cutoff": "2026-10-24T06:07:14.234150+00:00",
+  "fresh_active_roots_metadata_only": [
+    {
+      "pid": 457172,
+      "run_id": "D_formal_dinov2_vit_b14_seed7",
+      "gpu": 3,
+      "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646",
+      "metadata_history_epoch": 27,
+      "CPU_ticks": 2310907
+    },
+    {
+      "pid": 457712,
+      "run_id": "D_formal_dinov2_vit_b14_seed42",
+      "gpu": 2,
+      "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+      "metadata_history_epoch": 27,
+      "CPU_ticks": 2297472
+    },
+    {
+      "pid": 458602,
+      "run_id": "D_formal_dinov2_vit_b14_seed123",
+      "gpu": 1,
+      "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+      "metadata_history_epoch": 27,
+      "CPU_ticks": 2275502
+    },
+    {
+      "pid": 711439,
+      "run_id": "D_formal_dinov2_vit_b14_seed2026",
+      "gpu": 0,
+      "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e",
+      "metadata_history_epoch": 4,
+      "CPU_ticks": 358919
+    }
+  ],
+  "original_owner": 3942476,
+  "GPUmean0to3_percent": [
+    92.75,
+    81.875,
+    79.5,
+    76.625
+  ],
+  "GPU_sampling_cutoff": "2026-10-24T06:07:14.234150+00:00",
+  "fresh_capacity_GiB": {
+    "workspace_free_GiB": 401.2111053466797,
+    "Dataset_free_GiB": 2740.961799621582
+  },
+  "budget_pass": true,
+  "protected4to7_alive": true,
+  "H_GPU_started": false,
+  "unsafe_H_admission_retried": false,
+  "Git_HEAD": "9047caefa3f78c55ba55b042cc6b62a2853b59c4",
+  "git_clean": true,
+  "protected_protocol_data_master_and_references_unchanged": true,
+  "unchanged_CLIP_full_audit_repeated": false,
+  "new_terminal_metric_tables_recomputed": 0,
+  "cumulative_accepted_source_DEV_metric_checks": 10350,
+  "reference_addendum_primary_and_mirror_readback": "PASS",
+  "publisher_access_limitations_handled_without_metadata_fabrication": [
+    {
+      "url": "https://www.science.org/doi/10.1126/sciadv.aao1659",
+      "result": "HTTP403; author journal PDF plus arXiv journal reference read successfully"
+    },
+    {
+      "url": "https://openreview.net/forum?id=RhB1AdoFfGE",
+      "result": "Browser verification challenge; preprint entry used explicitly; official author repository confirms ICLR2022 acceptance"
+    }
+  ],
+  "status_sha256": "c9a2e7e4af569c0e578ef45152661e196c095bdb97f851d9b6f1ab9fc74d50db",
+  "HANDOFF_sha256": "a7f0c8cfc8d594bc41210536cde1b9c598f6102b9e6f841fa7c6568690ca8a77",
+  "Obsidian_status_sha256": "4d97d94472af043fe37e1d77a84bf878f5ee1195fd1a6afbb94f08e6773702f6",
+  "evidence_sha256": {
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/checkpoint_health_20261024T0600.json": "3e719aeb07ce7692d7fab17e8319fa9e63d48c97ee0b451160995baac803f71c",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/D_completed_artifact_audit_20261024T0600.json": "2c07df2980fc0a58fc440efd2b223f295cf3e25e999e95408930dbea7b5952c2",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/check_20261024T0600Z.json": "37466e88d689c226de3809ff46a26aac557260d112dab3b343602ba1ef45b776",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/AMP_numeric_acceptance_20261024T0600.json": "2b9ef8568e67ec848f0f17fedc96749c9eeff1123edacc271899c510643df6a8",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/D_active_formal_ETA_20261024T0600.json": "c947e98d9922798eb8cbfea2ddb244cf20dbded88595d216767d95455ace3c47",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/immutable_inputs_20261024T0600.json": "7c7007e6281204290a8ac86c3b73566ed3edad61b75e0a26f867abb51f01110c",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/manuscript_primary_reference_addendum_20261024T0600.json": "44a368997b5bb199beea4dfe0f8cf6088776e4df18d35e31719714d30f52170b",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/check_20261024T0630_preparation.json": "b4ca3f3c05ebbcc0b4f860f240c13f2c0c28f8d4973018eb7ee552876341eacf"
+  },
+  "next_check_utc": "2026-10-24T06:30:00Z",
+  "new_blockers": [],
+  "full_study_and_journal_papers_complete": false
+}

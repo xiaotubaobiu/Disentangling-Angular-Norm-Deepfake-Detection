@@ -1,0 +1,69 @@
+{
+  "status": "READ_ONLY_H_COVERAGE_MISMATCH_FIELD_DIAGNOSIS",
+  "table": "B/TARGET_TEST",
+  "actual_rows": 26560,
+  "expected_rows": 26560,
+  "matching_mother_id_sets": true,
+  "differing_fields_counts": {
+    "group_id": 8
+  },
+  "examples": [
+    {
+      "mother_id": "DFD/target/real/16__walking_and_outside_surprised/mother/000/fabf788aa015c91fc6b7f162ebb2d3b7515214f1714a9235208c093773a13eb9",
+      "fields": {
+        "group_id": {
+          "table": "DFD/proxy/070b39cae2589ad60c74",
+          "manifest_expected": "DFD/proxy/fe04ad2dd14abaf3302a"
+        }
+      }
+    },
+    {
+      "mother_id": "DFD/target/real/16__walking_and_outside_surprised/mother/001/aad6a5705c5cfcd01a97aecc80363c65ab8ce87add38d6f4040cd17f6dba29d1",
+      "fields": {
+        "group_id": {
+          "table": "DFD/proxy/070b39cae2589ad60c74",
+          "manifest_expected": "DFD/proxy/fe04ad2dd14abaf3302a"
+        }
+      }
+    },
+    {
+      "mother_id": "DFD/target/real/16__walking_and_outside_surprised/mother/002/547fe4b91671fbb3996e751b6de138ca43bd4758bc0375406428067fb4c6b80d",
+      "fields": {
+        "group_id": {
+          "table": "DFD/proxy/070b39cae2589ad60c74",
+          "manifest_expected": "DFD/proxy/fe04ad2dd14abaf3302a"
+        }
+      }
+    },
+    {
+      "mother_id": "DFD/target/real/16__walking_and_outside_surprised/mother/003/e1768327715cf252a992273c224b6d2420106c1e5eeafb923b9ec3b42b1595cb",
+      "fields": {
+        "group_id": {
+          "table": "DFD/proxy/070b39cae2589ad60c74",
+          "manifest_expected": "DFD/proxy/fe04ad2dd14abaf3302a"
+        }
+      }
+    },
+    {
+      "mother_id": "DFD/target/real/16__walking_and_outside_surprised/mother/004/46dda825c652c0c56f5bb90598f0bce2eb8e6b42555565c26eb4bbc0d3c995b3",
+      "fields": {
+        "group_id": {
+          "table": "DFD/proxy/070b39cae2589ad60c74",
+          "manifest_expected": "DFD/proxy/fe04ad2dd14abaf3302a"
+        }
+      }
+    },
+    {
+      "mother_id": "DFD/target/real/16__walking_and_outside_surprised/mother/005/93da7af9003c389e0f39bdafd2c0dea96f9e1092f97b741659ef5ebdac4bffa5",
+      "fields": {
+        "group_id": {
+          "table": "DFD/proxy/070b39cae2589ad60c74",
+          "manifest_expected": "DFD/proxy/fe04ad2dd14abaf3302a"
+        }
+      }
+    }
+  ],
+  "frozen_input_changed": false,
+  "model_scores_used": false,
+  "table_sha256": "1c0308e13b774097187bdf771b28e5ad6d84aa21ca6b25e97bf857a7b27fe836"
+}

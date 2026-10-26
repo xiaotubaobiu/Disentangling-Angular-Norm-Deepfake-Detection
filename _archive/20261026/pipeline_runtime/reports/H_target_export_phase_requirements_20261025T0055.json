@@ -1,0 +1,27 @@
+{
+  "utc": "2026-10-25T00:58:11.802199+00:00",
+  "status": "GLOBAL_EFFECTIVE_REGISTRY_AND_RESOURCE_PHASE_PENDING_NOT_ATTEMPTED",
+  "action": "cache_h.extract for any H formal target role",
+  "code": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/cache_h.py",
+  "source_sha256": "9119200359f8d696f1366e6c0137bca533c63089c32e505971e69f84ebaf40fb",
+  "required_function": "_target_authorization",
+  "function_start_line": 84,
+  "required_registry_status": "H_FORMAL_COMPLETE_TARGET_CACHE_PENDING",
+  "required_effective_backbones": [
+    "clip_vit_b16",
+    "dinov2_vit_b14",
+    "efficientnet_b0"
+  ],
+  "required_target_export_allowed": true,
+  "current_registry_sha256": "c8965b2f754fd12ba30bc0a1ee037cb42ba85439c861f27c4d3769a8c6ce1a6f",
+  "current_effective_runs": {},
+  "current_target_export_allowed": false,
+  "current_training_owner": 2222605,
+  "CLIP_allfive_source_ledger_suffices_alone": false,
+  "CPU_source_ledger_can_be_checked_after_CLIP10_independent_terminals": true,
+  "qualification_gate_written": false,
+  "registry_changed": false,
+  "GPU_export_attempted": false,
+  "permission_denied": false,
+  "scope": "Frozen cache authorization explicitly requires final effective registry for allthree backbones plus fresh selected-backbone allfive source ledger. Current owner continues formal30 AMP. No partial-registry workaround, phase bypass or competing GPU dispatch."
+}

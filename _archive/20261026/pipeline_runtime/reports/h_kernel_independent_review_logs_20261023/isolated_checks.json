@@ -1,0 +1,103 @@
+{
+  "checks": [
+    {
+      "detail": {
+        "duplicated_draws": 1971,
+        "explicit_metric_comparisons": 289860,
+        "invalid_macro": 523,
+        "invalid_pooled": 166,
+        "max_absolute_error": 0.0,
+        "negative_effects": 34011,
+        "repeats": 2000,
+        "zero_effects": 49918
+      },
+      "name": "stats_explicit_2000_draws",
+      "seconds": 24.804230893962085,
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "missing_fixed_method_invalidated_macro_without_dropping_rows": true,
+        "original_precision_auc": 1.0,
+        "rank_unresolved_operating_metrics_retained": true
+      },
+      "name": "stats_precision_and_na",
+      "seconds": 0.36191769409924746,
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "float16_float32_extended_float_complex_rejected": true
+      },
+      "name": "stats_fp64_validation",
+      "seconds": 0.011568618938326836,
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "five_seed_ddof_1": true,
+        "small_and_concentrated_group_intervals_unavailable": true
+      },
+      "name": "stats_seed_and_gates",
+      "seconds": 0.11688751727342606,
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "administrative_union_separate": true,
+        "all_13_active_tables_verified": true,
+        "all_B_available": 8,
+        "common_available": 4,
+        "early_failure_counted_in_all_three_versions": true,
+        "missing_invalid_geometry_not_imputed": true,
+        "synthetic_candidates": 12,
+        "toy_counts_are_not_production_counts": true
+      },
+      "name": "coverage_independent_toy",
+      "seconds": 0.01169595681130886,
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "error_type": "HDataGateError",
+        "no_production_coverage_acceptance_claim": true,
+        "reason": "Missing evidence file: /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/data/H/freeze.json",
+        "status": "EXPECTED_REFUSAL"
+      },
+      "name": "production_refuses_unfrozen",
+      "seconds": 0.02617892250418663,
+      "status": "PASS"
+    },
+    {
+      "detail": {
+        "cells": 4,
+        "gpu_visibility": "",
+        "groups": 20,
+        "kernel_bootstrap_seconds": 1.5402554720640182,
+        "natural_videos_per_cell": 120,
+        "repeats": 2000,
+        "thread_limit": "2",
+        "wall_seconds": 1.6256882576271892
+      },
+      "name": "profile_2000",
+      "seconds": 1.6303427778184414,
+      "status": "PASS"
+    }
+  ],
+  "code_and_plan_sha256": {
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/analysis_d.py": "a1d3be7bd43acb43995768f9167225b066ee9e6691c61c7b8bf28b00de53ba5e",
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/bootstrap_fast.py": "7eaeaf0973d72cd1def838cf6bc82863c92c75fb35409553332015dec8b0e4e5",
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/coverage_h.py": "a858e384591e2aaadf9232faee2e18c73964a384ec65868f783b5368bb33b7e0",
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/data_h.py": "ad81f65c27d53159e6902bf8a20b0910cd129f75eb0105e5a5a053bcc2d2f45e",
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/geometry_h.py": "161ac4e837463ff16e7916ca42eeb5d13acc44aab9bcc1c397025b9426ad9532",
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/scoring_d.py": "9bddf066fcb8df1b9659d4cfe14aa4febdf850f7cc39c1c0c3d6050864263d1c",
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/stats_h.py": "5627cccc714c2fc59a3dadfed3ddeba32d1488020cfd550ca70d0c9be947dd74",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/configs/plan_frozen_input.md": "b018b01915a62c645fc3718134970cd49dc0651ecfd02792220f3a0086c6594d",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/h_kernel_independent_review_logs_20261023/review.py": "154394f2c51afaae053f805a2095f55070bd47ed19b26cef213cb031888e4c09"
+  },
+  "gpu_work_performed": false,
+  "schema": "H_KERNEL_ISOLATED_REVIEW_V1",
+  "scope": "synthetic_CPU_kernels_only; production_H_data_unfrozen",
+  "status": "PASS",
+  "utc": "2026-10-23T11:39:17Z"
+}

@@ -1,0 +1,42 @@
+{
+  "schema": "M_SOURCE_CAL_ONLY_GPU_QUALIFICATION_PLAN_V1",
+  "artifact_root": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023",
+  "input_admission_sha256": "8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a",
+  "code_sha256": {
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_cache.py": "4c5494d06f133b962fd22872ac88d22ad9155fcca102e29f0e300cc06a4ff0c7",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_files.py": "9745e0181aa4da0a8fa53b73066e2b47f400d0e824df77d20c7e097fa082c908",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_lease.py": "175075eaa2e3dac44db2dbb0229abeb126058d694267901c6929cd28e0b9e5a9",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_gpu.py": "f3cac34e1493cd109e336b77f94b087527e97d722f02253880371a7c2caebed5",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/trainer.py": "56f0db0634a525a530fb53482732365ebf9693a1f5470b0a95ec0820cc614368",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_source_qualification.py": "3bc8e60a64226b37817d8142b6b374ad0400bf891c3209ad95329e8ccaa47ab9"
+  },
+  "target_encoder_inference_authorized": false,
+  "run_ids": [
+    "D_formal_clip_vit_b16_seed7",
+    "D_formal_dinov2_vit_b14_seed7",
+    "D_formal_efficientnet_b0_seed7",
+    "H_formal_clip_vit_b16_B_seed7",
+    "H_formal_clip_vit_b16_AB_seed7",
+    "H_formal_dinov2_vit_b14_B_seed7",
+    "H_formal_dinov2_vit_b14_AB_seed7",
+    "H_formal_efficientnet_b0_B_seed7",
+    "H_formal_efficientnet_b0_AB_seed7"
+  ],
+  "minimum_source_probe_rows": 416,
+  "actual45_source_result": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/actual45_source_checkpoint_validation_canonical_review_fixed.json",
+    "sha256": "4faa53e6e33241f6f1e9eaf8d270029cde173f9c126e5117a715d3d5842208aa"
+  },
+  "independent_actual45_source_result": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_actual45_source_checkpoint_validation_audit.json",
+    "sha256": "4105402e34a6ab30bc31defb8deb7909cf2bd88e15fd48a13b193d6ed49e8a67"
+  },
+  "primary_remaining_budget": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/full_capacity_check_pre_H_cache_20261025T0555.json",
+    "sha256": "3ce2d435d51895b9cfe53ac2f4bde6df12db244a7a2365c89a3f31b418b502cd"
+  },
+  "source_only_max_additional_write_bytes": 1073741824,
+  "minimum_free_bytes": 115911294976,
+  "actual_GPU_executed": false,
+  "full_M_production_permit_issued": false
+}

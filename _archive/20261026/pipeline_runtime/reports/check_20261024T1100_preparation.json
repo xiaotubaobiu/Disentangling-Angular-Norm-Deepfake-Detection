@@ -1,0 +1,15 @@
+{
+  "utc": "2026-10-24T10:52:44.347035+00:00",
+  "status": "SYNTAX_HASH_PREPARED_NOT_STARTED",
+  "scripts_sha256": {
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/checkpoint_health_20261024T1100.py": "4f984a46407ad39bba57a7330f3c1e360b9d6079731763e4b9d51e4d8f806362",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/checkpoint_active_focus_20261024T1100.py": "a3c5c56e300facedf3685b52542945b30a7c2c6ed798fbb99015b12d3a510d84",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/completion_audit_20261024T1100.py": "e5cad5b39d972e44744d4aa9237103f7ec93c460e97b7f1c8ab4822031469545",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/runtime_monitor_20261024T1100.py": "c793b7b262ae8faa3993934178ac8146861ccb10fc861b630052459e69fefbb6"
+  },
+  "CPU_only": true,
+  "next_check": "2026-10-24T11:00:00Z",
+  "baseline_runtime": "check_20261024T1045Z.json",
+  "baseline_checkpoint": "checkpoint_health_20261024T1045.json",
+  "required_followup": "Eff3407 newautomaticGPU0successor missing frominitial1045CPsnapshot; verifyfirstcomplete state ifnotalreadyacceptedtargetedfollowup. NoHcompetition."
+}

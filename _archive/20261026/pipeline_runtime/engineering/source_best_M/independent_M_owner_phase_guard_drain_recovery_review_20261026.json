@@ -1,0 +1,1999 @@
+{
+  "schema": "INDEPENDENT_M_OWNER_PHASE_GUARD_DRAIN_RECOVERY_REVIEW_V1",
+  "created_utc": "2026-10-26T11:33:10.767972+00:00",
+  "verdict": "CONDITIONAL_ORIGINAL_IMPLEMENTATION_RECOVERY_ROUTE_CONFIRMED_WAIT_FOR_NATURAL_DRAIN",
+  "root_cause": "UNRESOLVED_HISTORICAL_PHASE_GUARD_FAILURE",
+  "concise_outcome": "Current phase lock is positively observed held by825619 and inherited by the four live workers. The original owner has latched an owner guard failure and stops dispatch while draining. There is no in-place recovery interface. Only after natural drain, terminal/true-exit evidence and release can a separately SHA-bound plan resume the same45 endpoints using final completed receipts and accepted C0 full budget. No new plan or recovery process has been produced here.",
+  "observation": {
+    "phase": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/H_pipeline.lock",
+      "device": 64769,
+      "inode": 51809676,
+      "mode": "0o100664",
+      "size": 0,
+      "proc_locks_rows": [
+        "69: FLOCK  ADVISORY  WRITE 825619 fd:01:51809676 0 EOF"
+      ],
+      "processes": [
+        {
+          "pid": 825618,
+          "present": true,
+          "start_ticks": 472924282,
+          "cmdline": "/usr/bin/time -v -o /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/actual_M_cache45_GPU_owner_resume_20261026T014845Z_time_v.log /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -B -u /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/source_best_owner.py --execute --root /home/z/workspace/deepfake_pipeline_reliability_v2_20261023 --plan /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/plans/M_detector_resume_finite_owner_plan_20261026T0140_candidate.json --plan-sha 7d86ce010bdd427defbb5b959558ae32ccfbc0fc81b8a6bd36fdc71d733f8303 ",
+          "status": {
+            "Name": "time",
+            "State": "S (sleeping)",
+            "PPid": "1",
+            "VmRSS": "1060 kB",
+            "Threads": "1"
+          },
+          "fd5": null
+        },
+        {
+          "pid": 825619,
+          "present": true,
+          "start_ticks": 472924282,
+          "cmdline": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -B -u /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/source_best_owner.py --execute --root /home/z/workspace/deepfake_pipeline_reliability_v2_20261023 --plan /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/plans/M_detector_resume_finite_owner_plan_20261026T0140_candidate.json --plan-sha 7d86ce010bdd427defbb5b959558ae32ccfbc0fc81b8a6bd36fdc71d733f8303 ",
+          "status": {
+            "Name": "python",
+            "State": "S (sleeping)",
+            "PPid": "825618",
+            "VmRSS": "438276 kB",
+            "Threads": "4"
+          },
+          "fd5": {
+            "target": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/H_pipeline.lock",
+            "device": 64769,
+            "inode": 51809676,
+            "fdinfo": "pos:\t0\nflags:\t02504002\nmnt_id:\t134\nino:\t51809676\nlock:\t1: FLOCK  ADVISORY  WRITE 825619 fd:01:51809676 0 EOF\n"
+          }
+        },
+        {
+          "pid": 2055815,
+          "present": true,
+          "start_ticks": 475399120,
+          "cmdline": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -B -u /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/source_best_owner.py --worker --root /home/z/workspace/deepfake_pipeline_reliability_v2_20261023 --plan /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/plans/M_detector_resume_finite_owner_plan_20261026T0140_candidate.json --plan-sha 7d86ce010bdd427defbb5b959558ae32ccfbc0fc81b8a6bd36fdc71d733f8303 --run-id H_formal_dinov2_vit_b14_AB_seed7 --phase-proof {\"schema\":\"M_INHERITED_PHASE_LEASE_V1\",\"artifact_root\":\"/home/z/workspace/deepfake_pipeline_reliability_v2_20261023\",\"owner_pid\":825619,\"owner_start_ticks\":472924282,\"owner_fd\":5,\"device\":64769,\"inode\":51809676,\"nonce\":\"c1b83bab4bd34df784afc18bda94777a\"} --phase-fd 5 ",
+          "status": {
+            "Name": "python",
+            "State": "R (running)",
+            "PPid": "825619",
+            "VmRSS": "2129680 kB",
+            "Threads": "8"
+          },
+          "fd5": {
+            "target": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/H_pipeline.lock",
+            "device": 64769,
+            "inode": 51809676,
+            "fdinfo": "pos:\t0\nflags:\t0504002\nmnt_id:\t134\nino:\t51809676\nlock:\t1: FLOCK  ADVISORY  WRITE 825619 fd:01:51809676 0 EOF\n"
+          }
+        },
+        {
+          "pid": 2784327,
+          "present": true,
+          "start_ticks": 475982205,
+          "cmdline": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -B -u /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/source_best_owner.py --worker --root /home/z/workspace/deepfake_pipeline_reliability_v2_20261023 --plan /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/plans/M_detector_resume_finite_owner_plan_20261026T0140_candidate.json --plan-sha 7d86ce010bdd427defbb5b959558ae32ccfbc0fc81b8a6bd36fdc71d733f8303 --run-id H_formal_dinov2_vit_b14_B_seed42 --phase-proof {\"schema\":\"M_INHERITED_PHASE_LEASE_V1\",\"artifact_root\":\"/home/z/workspace/deepfake_pipeline_reliability_v2_20261023\",\"owner_pid\":825619,\"owner_start_ticks\":472924282,\"owner_fd\":5,\"device\":64769,\"inode\":51809676,\"nonce\":\"c1b83bab4bd34df784afc18bda94777a\"} --phase-fd 5 ",
+          "status": {
+            "Name": "python",
+            "State": "S (sleeping)",
+            "PPid": "825619",
+            "VmRSS": "663872 kB",
+            "Threads": "8"
+          },
+          "fd5": {
+            "target": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/H_pipeline.lock",
+            "device": 64769,
+            "inode": 51809676,
+            "fdinfo": "pos:\t0\nflags:\t0504002\nmnt_id:\t134\nino:\t51809676\nlock:\t1: FLOCK  ADVISORY  WRITE 825619 fd:01:51809676 0 EOF\n"
+          }
+        },
+        {
+          "pid": 2839835,
+          "present": true,
+          "start_ticks": 476021126,
+          "cmdline": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -B -u /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/source_best_owner.py --worker --root /home/z/workspace/deepfake_pipeline_reliability_v2_20261023 --plan /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/plans/M_detector_resume_finite_owner_plan_20261026T0140_candidate.json --plan-sha 7d86ce010bdd427defbb5b959558ae32ccfbc0fc81b8a6bd36fdc71d733f8303 --run-id H_formal_dinov2_vit_b14_AB_seed42 --phase-proof {\"schema\":\"M_INHERITED_PHASE_LEASE_V1\",\"artifact_root\":\"/home/z/workspace/deepfake_pipeline_reliability_v2_20261023\",\"owner_pid\":825619,\"owner_start_ticks\":472924282,\"owner_fd\":5,\"device\":64769,\"inode\":51809676,\"nonce\":\"c1b83bab4bd34df784afc18bda94777a\"} --phase-fd 5 ",
+          "status": {
+            "Name": "python",
+            "State": "S (sleeping)",
+            "PPid": "825619",
+            "VmRSS": "656524 kB",
+            "Threads": "8"
+          },
+          "fd5": {
+            "target": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/H_pipeline.lock",
+            "device": 64769,
+            "inode": 51809676,
+            "fdinfo": "pos:\t0\nflags:\t0504002\nmnt_id:\t134\nino:\t51809676\nlock:\t1: FLOCK  ADVISORY  WRITE 825619 fd:01:51809676 0 EOF\n"
+          }
+        },
+        {
+          "pid": 3089908,
+          "present": true,
+          "start_ticks": 476178945,
+          "cmdline": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -B -u /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/source_best_owner.py --worker --root /home/z/workspace/deepfake_pipeline_reliability_v2_20261023 --plan /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/plans/M_detector_resume_finite_owner_plan_20261026T0140_candidate.json --plan-sha 7d86ce010bdd427defbb5b959558ae32ccfbc0fc81b8a6bd36fdc71d733f8303 --run-id H_formal_dinov2_vit_b14_B_seed123 --phase-proof {\"schema\":\"M_INHERITED_PHASE_LEASE_V1\",\"artifact_root\":\"/home/z/workspace/deepfake_pipeline_reliability_v2_20261023\",\"owner_pid\":825619,\"owner_start_ticks\":472924282,\"owner_fd\":5,\"device\":64769,\"inode\":51809676,\"nonce\":\"c1b83bab4bd34df784afc18bda94777a\"} --phase-fd 5 ",
+          "status": {
+            "Name": "python",
+            "State": "S (sleeping)",
+            "PPid": "825619",
+            "VmRSS": "673212 kB",
+            "Threads": "8"
+          },
+          "fd5": {
+            "target": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/H_pipeline.lock",
+            "device": 64769,
+            "inode": 51809676,
+            "fdinfo": "pos:\t0\nflags:\t0504002\nmnt_id:\t134\nino:\t51809676\nlock:\t1: FLOCK  ADVISORY  WRITE 825619 fd:01:51809676 0 EOF\n"
+          }
+        }
+      ]
+    },
+    "current_phase_lease_positively_observed": true,
+    "current_actual_lock_loss_demonstrated": false,
+    "state": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_finite_owner/cache/7d86ce010bdd427defbb5b959558ae32ccfbc0fc81b8a6bd36fdc71d733f8303/c1b83bab4bd34df784afc18bda94777a/status.json",
+      "sha256": "3431f4e0ea499d17771386a3284043724a64c10acaaa30f8077a50899e64c2a5",
+      "bytes": 8877,
+      "raw_utf8": "{\"active\":{\"H_formal_dinov2_vit_b14_AB_seed42\":{\"index\":2,\"pid\":2839835,\"uuid\":\"GPU-5df5602a-848e-d944-26cd-aec11b964b45\"},\"H_formal_dinov2_vit_b14_AB_seed7\":{\"index\":0,\"pid\":2055815,\"uuid\":\"GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e\"},\"H_formal_dinov2_vit_b14_B_seed123\":{\"index\":3,\"pid\":3089908,\"uuid\":\"GPU-626ec32f-1401-c959-74b0-db04ed63c646\"},\"H_formal_dinov2_vit_b14_B_seed42\":{\"index\":1,\"pid\":2784327,\"uuid\":\"GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c\"}},\"artifact_root\":\"/home/z/workspace/deepfake_pipeline_reliability_v2_20261023\",\"completed\":{\"D_formal_clip_vit_b16_seed123\":{\"path\":\"/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/66074608f8814b518c6ecda7da6a7cdb/D_formal_clip_vit_b16_seed123.json\",\"sha256\":\"07652f13bf8c98b885bfd3eb5678f756af1ec2131aa288c52b6f9886538739e3\"},\"D_formal_clip_vit_b16_seed2026\":{\"path\":\"/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/66074608f8814b518c6ecda7da6a7cdb/D_formal_clip_vit_b16_seed2026.json\",\"sha256\":\"21bba254f22ce109b82d7dd8fd56acbf100acee33c9ead03ee3a362c32325107\"},\"D_formal_clip_vit_b16_seed3407\":{\"path\":\"/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/66074608f8814b518c6ecda7da6a7cdb/D_formal_clip_vit_b16_seed3407.json\",\"sha256\":\"4877f87e11096d6c91b19d28d4e38061bf87786b2b5072f68249f69ed23d8fdc\"},\"D_formal_clip_vit_b16_seed42\":{\"path\":\"/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/66074608f8814b518c6ecda7da6a7cdb/D_formal_clip_vit_b16_seed42.json\",\"sha256\":\"9d428aef3d0819cfac5686cfdbd134c8b4a8932047e4d6378b066c754156fdf4\"},\"D_formal_clip_vit_b16_seed7\":{\"path\":\"/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/66074608f8814b518c6ecda7da6a7cdb/D_formal_clip_vit_b16_seed7.json\",\"sha256\":\"636fe93a76438f10c27e00a2b883f5615b151d6f446e0f5590e5f9a138b0b10d\"},\"D_formal_dinov2_vit_b14_seed123\":{\"path\":\"/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/66074608f8814b518c6ecda7da6a7cdb/D_formal_dinov2_vit_b14_seed123.json\",\"sha256\":\"2391602f1431ab8b90eab840112a1b0e7ee95a2b438a1a0ef63e43776f4db8d8\"},\"D_formal_dinov2_vit_b14_seed2026\":{\"path\":\"/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/66074608f8814b518c6ecda7da6a7cdb/D_formal_dinov2_vit_b14_seed2026.json\",\"sha256\":\"2c48fae7c8c7be1c53a499320277c7ff8450eb7dcaefbbfba29b5740daa407c1\"},\"D_formal_dinov2_vit_b14_seed3407\":{\"path\":\"/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/66074608f8814b518c6ecda7da6a7cdb/D_formal_dinov2_vit_b14_seed3407.json\",\"sha256\":\"30c89f8265cc4d1ecacd90fcb424757c1f0a792283d5fb6fdf781845f5e90eef\"},\"D_formal_dinov2_vit_b14_seed42\":{\"path\":\"/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/66074608f8814b518c6ecda7da6a7cdb/D_formal_dinov2_vit_b14_seed42.json\",\"sha256\":\"272c72437be64961f829ef83f9b9fbc733d96867fdd60473e667e15386ae7c03\"},\"D_formal_dinov2_vit_b14_seed7\":{\"path\":\"/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/66074608f8814b518c6ecda7da6a7cdb/D_formal_dinov2_vit_b14_seed7.json\",\"sha256\":\"30e086eb7122f7106b00fa4bbf93683d5a198d52a71dcdc9692bfb1491f92c18\"},\"D_formal_efficientnet_b0_seed123\":{\"path\":\"/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/66074608f8814b518c6ecda7da6a7cdb/D_formal_efficientnet_b0_seed123.json\",\"sha256\":\"84c4cce1442970db18bb7177f79d76977d9f03084ae8ca2fee8d3501a8876d6b\"},\"D_formal_efficientnet_b0_seed2026\":{\"path\":\"/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/66074608f8814b518c6ecda7da6a7cdb/D_formal_efficientnet_b0_seed2026.json\",\"sha256\":\"89ebd17e0765a0514d4d491914264464f580f4180837c7989a68b5ee56348cc4\"},\"D_formal_efficientnet_b0_seed3407\":{\"path\":\"/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/66074608f8814b518c6ecda7da6a7cdb/D_formal_efficientnet_b0_seed3407.json\",\"sha256\":\"543316a99865af8e35c7705c73057229b55c9f3e37e0570b430d9473a1d3f2dd\"},\"D_formal_efficientnet_b0_seed42\":{\"path\":\"/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/66074608f8814b518c6ecda7da6a7cdb/D_formal_efficientnet_b0_seed42.json\",\"sha256\":\"d64ff2c554b74edbd8876894bc248239d2ecf8c57344f53810b2ec2614267202\"},\"D_formal_efficientnet_b0_seed7\":{\"path\":\"/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/66074608f8814b518c6ecda7da6a7cdb/D_formal_efficientnet_b0_seed7.json\",\"sha256\":\"af3cf004f0ceea055c3bff1e0aa6f9f3aa2a6af40c02417cb80b1c065f927558\"},\"H_formal_clip_vit_b16_AB_seed123\":{\"path\":\"/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/c1b83bab4bd34df784afc18bda94777a/H_formal_clip_vit_b16_AB_seed123.json\",\"sha256\":\"6d742541e1a3c714efae8b95e8e288e0de22f0207662fad1b2abf6441678a03d\"},\"H_formal_clip_vit_b16_AB_seed2026\":{\"path\":\"/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/c1b83bab4bd34df784afc18bda94777a/H_formal_clip_vit_b16_AB_seed2026.json\",\"sha256\":\"f12e5cd18f90a8e65d108516db2fd0f067a726322551076ecc057ad8cdb05a00\"},\"H_formal_clip_vit_b16_AB_seed3407\":{\"path\":\"/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/c1b83bab4bd34df784afc18bda94777a/H_formal_clip_vit_b16_AB_seed3407.json\",\"sha256\":\"1c391eb1fa6a5b0ea241d842cf4360cce930493ab5d8d735d3cae2d9ef45d10e\"},\"H_formal_clip_vit_b16_AB_seed42\":{\"path\":\"/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/c1b83bab4bd34df784afc18bda94777a/H_formal_clip_vit_b16_AB_seed42.json\",\"sha256\":\"a3aa40b1b47029d00c5168a2738bdb8785503e4ca6f3d4245b4dbea06cf460fc\"},\"H_formal_clip_vit_b16_AB_seed7\":{\"path\":\"/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/c1b83bab4bd34df784afc18bda94777a/H_formal_clip_vit_b16_AB_seed7.json\",\"sha256\":\"d7d5ab6da3fa14fd8deabc1e58e14b3be9dfff630aa539bf4771d51ca7b80e82\"},\"H_formal_clip_vit_b16_B_seed123\":{\"path\":\"/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/c1b83bab4bd34df784afc18bda94777a/H_formal_clip_vit_b16_B_seed123.json\",\"sha256\":\"11f01262ec01bcedaf56e2dc67493f3fb08208535eda524f668e83cccac2f7c3\"},\"H_formal_clip_vit_b16_B_seed2026\":{\"path\":\"/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/c1b83bab4bd34df784afc18bda94777a/H_formal_clip_vit_b16_B_seed2026.json\",\"sha256\":\"e9f7838169008799323a06d822d1314803437b021fcb3084550df341e49747fe\"},\"H_formal_clip_vit_b16_B_seed3407\":{\"path\":\"/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/c1b83bab4bd34df784afc18bda94777a/H_formal_clip_vit_b16_B_seed3407.json\",\"sha256\":\"f1e0519c9e483faf27bdc3646cb74ba11e0991e50552e5f6066b88e1825d6c61\"},\"H_formal_clip_vit_b16_B_seed42\":{\"path\":\"/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/c1b83bab4bd34df784afc18bda94777a/H_formal_clip_vit_b16_B_seed42.json\",\"sha256\":\"30ab9420ac6564e2aa55874858f3aa7083a943b655b726d778bf61d9852eff7e\"},\"H_formal_clip_vit_b16_B_seed7\":{\"path\":\"/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/c1b83bab4bd34df784afc18bda94777a/H_formal_clip_vit_b16_B_seed7.json\",\"sha256\":\"43e46197c90e861b1ed92dd8d8cebbabdf86949cc93390b600f3532c59befee6\"},\"H_formal_dinov2_vit_b14_B_seed7\":{\"path\":\"/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/c1b83bab4bd34df784afc18bda94777a/H_formal_dinov2_vit_b14_B_seed7.json\",\"sha256\":\"ac99d00652f1da2f42a4969d586fb880034f9ef507c2d0d56390ba23f3969191\"}},\"failures\":{\"__owner__\":\"exclusive original phase lease required\"},\"mode\":\"cache\",\"owner_pid\":825619,\"owner_plan_sha256\":\"7d86ce010bdd427defbb5b959558ae32ccfbc0fc81b8a6bd36fdc71d733f8303\",\"owner_start_ticks\":472924282,\"pending\":[\"H_formal_dinov2_vit_b14_AB_seed123\",\"H_formal_dinov2_vit_b14_B_seed2026\",\"H_formal_dinov2_vit_b14_AB_seed2026\",\"H_formal_dinov2_vit_b14_B_seed3407\",\"H_formal_dinov2_vit_b14_AB_seed3407\",\"H_formal_efficientnet_b0_B_seed7\",\"H_formal_efficientnet_b0_AB_seed7\",\"H_formal_efficientnet_b0_B_seed42\",\"H_formal_efficientnet_b0_AB_seed42\",\"H_formal_efficientnet_b0_B_seed123\",\"H_formal_efficientnet_b0_AB_seed123\",\"H_formal_efficientnet_b0_B_seed2026\",\"H_formal_efficientnet_b0_AB_seed2026\",\"H_formal_efficientnet_b0_B_seed3407\",\"H_formal_efficientnet_b0_AB_seed3407\"],\"phase_nonce\":\"c1b83bab4bd34df784afc18bda94777a\",\"primary_cache_stage_sha256\":\"90bfad1afbdfb8096c41625625e109ea9cf06ceb4f5246e435cc48241646a3ce\",\"schema\":\"M_FINITE_OWNER_PROGRESS_V1\",\"scientific_admission\":false,\"seconds\":35063.79253852647}\n",
+      "mtime_ns": 1793014390609400885,
+      "observation_utc": "2026-10-26T11:33:10.720948+00:00"
+    },
+    "counts": {
+      "completed": 26,
+      "active": 4,
+      "pending": 15
+    },
+    "failures": {
+      "__owner__": "exclusive original phase lease required"
+    },
+    "terminal_exists": false,
+    "owner_stdout_size": 0,
+    "owner_time_v_size": 0,
+    "approved_GPU0_3_lock_metadata": [
+      {
+        "index": 2,
+        "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+        "run": "H_formal_dinov2_vit_b14_AB_seed42",
+        "worker_pid": 2839835,
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/gpu_locks/GPU-5df5602a-848e-d944-26cd-aec11b964b45.lock",
+        "device": 64769,
+        "inode": 51909972,
+        "proc_locks_rows": [
+          "39: FLOCK  ADVISORY  WRITE 2839835 fd:01:51909972 0 EOF"
+        ]
+      },
+      {
+        "index": 0,
+        "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e",
+        "run": "H_formal_dinov2_vit_b14_AB_seed7",
+        "worker_pid": 2055815,
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/gpu_locks/GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e.lock",
+        "device": 64769,
+        "inode": 51909974,
+        "proc_locks_rows": [
+          "56: FLOCK  ADVISORY  WRITE 2055815 fd:01:51909974 0 EOF"
+        ]
+      },
+      {
+        "index": 3,
+        "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646",
+        "run": "H_formal_dinov2_vit_b14_B_seed123",
+        "worker_pid": 3089908,
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/gpu_locks/GPU-626ec32f-1401-c959-74b0-db04ed63c646.lock",
+        "device": 64769,
+        "inode": 51909991,
+        "proc_locks_rows": []
+      },
+      {
+        "index": 1,
+        "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+        "run": "H_formal_dinov2_vit_b14_B_seed42",
+        "worker_pid": 2784327,
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/gpu_locks/GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c.lock",
+        "device": 64769,
+        "inode": 51909973,
+        "proc_locks_rows": [
+          "44: FLOCK  ADVISORY  WRITE 2784327 fd:01:51909973 0 EOF"
+        ]
+      }
+    ],
+    "worker_log_tails": [
+      {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_finite_owner/cache/7d86ce010bdd427defbb5b959558ae32ccfbc0fc81b8a6bd36fdc71d733f8303/c1b83bab4bd34df784afc18bda94777a/H_formal_dinov2_vit_b14_AB_seed42.log",
+        "bytes": 0,
+        "tail_utf8": ""
+      },
+      {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_finite_owner/cache/7d86ce010bdd427defbb5b959558ae32ccfbc0fc81b8a6bd36fdc71d733f8303/c1b83bab4bd34df784afc18bda94777a/H_formal_dinov2_vit_b14_AB_seed42.stderr.log",
+        "bytes": 0,
+        "tail_utf8": ""
+      },
+      {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_finite_owner/cache/7d86ce010bdd427defbb5b959558ae32ccfbc0fc81b8a6bd36fdc71d733f8303/c1b83bab4bd34df784afc18bda94777a/H_formal_dinov2_vit_b14_AB_seed7.log",
+        "bytes": 0,
+        "tail_utf8": ""
+      },
+      {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_finite_owner/cache/7d86ce010bdd427defbb5b959558ae32ccfbc0fc81b8a6bd36fdc71d733f8303/c1b83bab4bd34df784afc18bda94777a/H_formal_dinov2_vit_b14_AB_seed7.stderr.log",
+        "bytes": 0,
+        "tail_utf8": ""
+      },
+      {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_finite_owner/cache/7d86ce010bdd427defbb5b959558ae32ccfbc0fc81b8a6bd36fdc71d733f8303/c1b83bab4bd34df784afc18bda94777a/H_formal_dinov2_vit_b14_B_seed123.log",
+        "bytes": 0,
+        "tail_utf8": ""
+      },
+      {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_finite_owner/cache/7d86ce010bdd427defbb5b959558ae32ccfbc0fc81b8a6bd36fdc71d733f8303/c1b83bab4bd34df784afc18bda94777a/H_formal_dinov2_vit_b14_B_seed123.stderr.log",
+        "bytes": 0,
+        "tail_utf8": ""
+      },
+      {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_finite_owner/cache/7d86ce010bdd427defbb5b959558ae32ccfbc0fc81b8a6bd36fdc71d733f8303/c1b83bab4bd34df784afc18bda94777a/H_formal_dinov2_vit_b14_B_seed42.log",
+        "bytes": 0,
+        "tail_utf8": ""
+      },
+      {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_finite_owner/cache/7d86ce010bdd427defbb5b959558ae32ccfbc0fc81b8a6bd36fdc71d733f8303/c1b83bab4bd34df784afc18bda94777a/H_formal_dinov2_vit_b14_B_seed42.stderr.log",
+        "bytes": 0,
+        "tail_utf8": ""
+      }
+    ]
+  },
+  "history": {
+    "parent_reported_first_fault_observed_UTC": "2026-10-26T11:15:00Z",
+    "parent_reported_last_known_fault_free_UTC": "2026-10-26T10:52:00Z",
+    "independent_first_read_UTC": "2026-10-26T11:25:22.630438Z",
+    "independent_first_read_phase_lock_positive": true,
+    "independent_first_read_completed_active_pending": [
+      26,
+      4,
+      15
+    ],
+    "causal_limits": "No trace captured the failing _held evaluation. Current /proc/locks and fdinfo prove only the current observation. Neither an actual historical unlock nor a missing/transient proc row or parse race is established. Do not call this proved lock loss or proved false alarm."
+  },
+  "source_refs": {
+    "owner": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/source_best_owner.py",
+      "sha256": "2c68dfb05aa0cd28808e7ae14f317225513202b7190151962e184ddf6bf4db5b",
+      "bytes": 15752
+    },
+    "worker_family": {
+      "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_cache.py": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_cache.py",
+        "sha256": "4c5494d06f133b962fd22872ac88d22ad9155fcca102e29f0e300cc06a4ff0c7",
+        "bytes": 27481
+      },
+      "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_gpu.py": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_gpu.py",
+        "sha256": "f3cac34e1493cd109e336b77f94b087527e97d722f02253880371a7c2caebed5",
+        "bytes": 8551
+      },
+      "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_lease.py": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_lease.py",
+        "sha256": "175075eaa2e3dac44db2dbb0229abeb126058d694267901c6929cd28e0b9e5a9",
+        "bytes": 7201
+      }
+    },
+    "analysis": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_analysis.py",
+      "sha256": "0ec974eec85a0a5204b8804707d627fa908a80eb1a4e76cfa81729ce0a875a32",
+      "bytes": 15665
+    },
+    "runtime": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_runtime.py",
+      "sha256": "69b3d590d95fd3004c7c64617fbad642526b02862a97f61546d3cd375fc18742",
+      "bytes": 6626
+    }
+  },
+  "original_plan": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/plans/M_detector_resume_finite_owner_plan_20261026T0140_candidate.json",
+    "sha256": "7d86ce010bdd427defbb5b959558ae32ccfbc0fc81b8a6bd36fdc71d733f8303",
+    "bytes": 10466
+  },
+  "input": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/actual_M_cache_input_context_candidate.json",
+    "sha256": "8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a",
+    "bytes": 616
+  },
+  "cache_permit": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/M_cache_production/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/c79860cc8d06631c2bff337c3349d4ab2a7d58bd9f77c426c9cb869a3cf273af/cache_permit.json",
+    "sha256": "d4b735fda1c4aa5a4932b051fc01cf98770d5abe4c2c3d253a5f0a2820f42714",
+    "bytes": 4271
+  },
+  "confirmed_code_boundaries": [
+    {
+      "file": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_lease.py",
+      "lines": [
+        36,
+        38,
+        40,
+        43,
+        44,
+        58,
+        60
+      ],
+      "effect": "_held scans /proc/locks for exact FLOCK ADVISORY WRITE ownerPID/dev/inode; PhaseLease.check raises the observed message if no matching row. The error does not record the underlying scan or establish why it failed."
+    },
+    {
+      "file": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/source_best_owner.py",
+      "lines": [
+        24,
+        27,
+        29,
+        32,
+        39,
+        51,
+        54,
+        56,
+        59
+      ],
+      "effect": "schedule failures is a sticky local dictionary. On device/owner guard error with active children it records __owner__, launches no further jobs, continues poll/wait/verify_return and progress until children finish. Editing status cannot clear this local latch."
+    },
+    {
+      "file": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/source_best_owner.py",
+      "lines": [
+        119,
+        122,
+        123,
+        125,
+        126,
+        127,
+        128,
+        149,
+        156
+      ],
+      "effect": "Existing recovery route is a fresh original --execute invocation with a SHA-bound plan and explicit resume_receipts; no online clear/reload/resume CLI exists. Initial validate_plan occurs before lease and again inside it."
+    },
+    {
+      "file": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_lease.py",
+      "lines": [
+        64,
+        65,
+        67,
+        75,
+        76,
+        78,
+        87
+      ],
+      "effect": "Owner close never explicitly unlocks inherited descriptions; direct workers arm parent-death SIGKILL. Do not terminate/restart the owner while healthy direct children remain."
+    },
+    {
+      "file": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/source_best_owner.py",
+      "lines": [
+        59,
+        138,
+        141,
+        142,
+        157
+      ],
+      "effect": "After a guard fault a successful terminal publish can still carry FAILED_WORKER_REQUIRES_REPAIR_NO_RETRY with pending jobs and process exit0. The final guard can instead prevent complete.json and raise a nonzero wrapper exit. Preserve actual status/terminal/exception/true-exit chain; never fabricate success or a terminal marker."
+    },
+    {
+      "file": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/source_best_owner.py",
+      "lines": [
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        107,
+        108,
+        109,
+        110,
+        111
+      ],
+      "effect": "Cache-mode verify_return is bounded receipt and complete-marker verification with SHA/input/run/phase/PID/code/permit/exact-role bindings. It does not recompute source weights, PNG, feature payloads or scientific results."
+    },
+    {
+      "file": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/source_best_owner.py",
+      "lines": [
+        77,
+        79,
+        82,
+        83,
+        86,
+        87,
+        88,
+        89,
+        90,
+        92
+      ],
+      "effect": "A future original owner must still validate exact45 endpoints, input/source/closed-primary-stage/worker-source/permit/gates/bridge and initial remaining_required budget; recurring guard retains50GiB floor. No gate is bypassed by this review."
+    }
+  ],
+  "metadata_validation": {
+    "command": "CUDA_VISIBLE_DEVICES= OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 PYTHONDONTWRITEBYTECODE=1 /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -B - [read-only import of frozen owner; call only verify_return for26 existing completed refs]",
+    "exit_code": 0,
+    "stderr": "",
+    "captured_stdout_sha256": "af72309023643df1234608bd30ac7f98a1131d9b8a895e6e3fdff7a585ddca35",
+    "result": {
+      "exact_original_verify_return_called": true,
+      "receipt_count": 26,
+      "accepted": [
+        {
+          "run": "D_formal_clip_vit_b16_seed123",
+          "ref": {
+            "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/66074608f8814b518c6ecda7da6a7cdb/D_formal_clip_vit_b16_seed123.json",
+            "sha256": "07652f13bf8c98b885bfd3eb5678f756af1ec2131aa288c52b6f9886538739e3"
+          },
+          "phase_nonce": "66074608f8814b518c6ecda7da6a7cdb",
+          "worker_pid": 3969368,
+          "phase_owner_pid": 3968944
+        },
+        {
+          "run": "D_formal_clip_vit_b16_seed2026",
+          "ref": {
+            "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/66074608f8814b518c6ecda7da6a7cdb/D_formal_clip_vit_b16_seed2026.json",
+            "sha256": "21bba254f22ce109b82d7dd8fd56acbf100acee33c9ead03ee3a362c32325107"
+          },
+          "phase_nonce": "66074608f8814b518c6ecda7da6a7cdb",
+          "worker_pid": 3969369,
+          "phase_owner_pid": 3968944
+        },
+        {
+          "run": "D_formal_clip_vit_b16_seed3407",
+          "ref": {
+            "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/66074608f8814b518c6ecda7da6a7cdb/D_formal_clip_vit_b16_seed3407.json",
+            "sha256": "4877f87e11096d6c91b19d28d4e38061bf87786b2b5072f68249f69ed23d8fdc"
+          },
+          "phase_nonce": "66074608f8814b518c6ecda7da6a7cdb",
+          "worker_pid": 19008,
+          "phase_owner_pid": 3968944
+        },
+        {
+          "run": "D_formal_clip_vit_b16_seed42",
+          "ref": {
+            "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/66074608f8814b518c6ecda7da6a7cdb/D_formal_clip_vit_b16_seed42.json",
+            "sha256": "9d428aef3d0819cfac5686cfdbd134c8b4a8932047e4d6378b066c754156fdf4"
+          },
+          "phase_nonce": "66074608f8814b518c6ecda7da6a7cdb",
+          "worker_pid": 3969366,
+          "phase_owner_pid": 3968944
+        },
+        {
+          "run": "D_formal_clip_vit_b16_seed7",
+          "ref": {
+            "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/66074608f8814b518c6ecda7da6a7cdb/D_formal_clip_vit_b16_seed7.json",
+            "sha256": "636fe93a76438f10c27e00a2b883f5615b151d6f446e0f5590e5f9a138b0b10d"
+          },
+          "phase_nonce": "66074608f8814b518c6ecda7da6a7cdb",
+          "worker_pid": 3969365,
+          "phase_owner_pid": 3968944
+        },
+        {
+          "run": "D_formal_dinov2_vit_b14_seed123",
+          "ref": {
+            "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/66074608f8814b518c6ecda7da6a7cdb/D_formal_dinov2_vit_b14_seed123.json",
+            "sha256": "2391602f1431ab8b90eab840112a1b0e7ee95a2b438a1a0ef63e43776f4db8d8"
+          },
+          "phase_nonce": "66074608f8814b518c6ecda7da6a7cdb",
+          "worker_pid": 25027,
+          "phase_owner_pid": 3968944
+        },
+        {
+          "run": "D_formal_dinov2_vit_b14_seed2026",
+          "ref": {
+            "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/66074608f8814b518c6ecda7da6a7cdb/D_formal_dinov2_vit_b14_seed2026.json",
+            "sha256": "2c48fae7c8c7be1c53a499320277c7ff8450eb7dcaefbbfba29b5740daa407c1"
+          },
+          "phase_nonce": "66074608f8814b518c6ecda7da6a7cdb",
+          "worker_pid": 260518,
+          "phase_owner_pid": 3968944
+        },
+        {
+          "run": "D_formal_dinov2_vit_b14_seed3407",
+          "ref": {
+            "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/66074608f8814b518c6ecda7da6a7cdb/D_formal_dinov2_vit_b14_seed3407.json",
+            "sha256": "30c89f8265cc4d1ecacd90fcb424757c1f0a792283d5fb6fdf781845f5e90eef"
+          },
+          "phase_nonce": "66074608f8814b518c6ecda7da6a7cdb",
+          "worker_pid": 303138,
+          "phase_owner_pid": 3968944
+        },
+        {
+          "run": "D_formal_dinov2_vit_b14_seed42",
+          "ref": {
+            "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/66074608f8814b518c6ecda7da6a7cdb/D_formal_dinov2_vit_b14_seed42.json",
+            "sha256": "272c72437be64961f829ef83f9b9fbc733d96867fdd60473e667e15386ae7c03"
+          },
+          "phase_nonce": "66074608f8814b518c6ecda7da6a7cdb",
+          "worker_pid": 25026,
+          "phase_owner_pid": 3968944
+        },
+        {
+          "run": "D_formal_dinov2_vit_b14_seed7",
+          "ref": {
+            "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/66074608f8814b518c6ecda7da6a7cdb/D_formal_dinov2_vit_b14_seed7.json",
+            "sha256": "30e086eb7122f7106b00fa4bbf93683d5a198d52a71dcdc9692bfb1491f92c18"
+          },
+          "phase_nonce": "66074608f8814b518c6ecda7da6a7cdb",
+          "worker_pid": 25025,
+          "phase_owner_pid": 3968944
+        },
+        {
+          "run": "D_formal_efficientnet_b0_seed123",
+          "ref": {
+            "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/66074608f8814b518c6ecda7da6a7cdb/D_formal_efficientnet_b0_seed123.json",
+            "sha256": "84c4cce1442970db18bb7177f79d76977d9f03084ae8ca2fee8d3501a8876d6b"
+          },
+          "phase_nonce": "66074608f8814b518c6ecda7da6a7cdb",
+          "worker_pid": 438670,
+          "phase_owner_pid": 3968944
+        },
+        {
+          "run": "D_formal_efficientnet_b0_seed2026",
+          "ref": {
+            "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/66074608f8814b518c6ecda7da6a7cdb/D_formal_efficientnet_b0_seed2026.json",
+            "sha256": "89ebd17e0765a0514d4d491914264464f580f4180837c7989a68b5ee56348cc4"
+          },
+          "phase_nonce": "66074608f8814b518c6ecda7da6a7cdb",
+          "worker_pid": 439561,
+          "phase_owner_pid": 3968944
+        },
+        {
+          "run": "D_formal_efficientnet_b0_seed3407",
+          "ref": {
+            "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/66074608f8814b518c6ecda7da6a7cdb/D_formal_efficientnet_b0_seed3407.json",
+            "sha256": "543316a99865af8e35c7705c73057229b55c9f3e37e0570b430d9473a1d3f2dd"
+          },
+          "phase_nonce": "66074608f8814b518c6ecda7da6a7cdb",
+          "worker_pid": 532111,
+          "phase_owner_pid": 3968944
+        },
+        {
+          "run": "D_formal_efficientnet_b0_seed42",
+          "ref": {
+            "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/66074608f8814b518c6ecda7da6a7cdb/D_formal_efficientnet_b0_seed42.json",
+            "sha256": "d64ff2c554b74edbd8876894bc248239d2ecf8c57344f53810b2ec2614267202"
+          },
+          "phase_nonce": "66074608f8814b518c6ecda7da6a7cdb",
+          "worker_pid": 307319,
+          "phase_owner_pid": 3968944
+        },
+        {
+          "run": "D_formal_efficientnet_b0_seed7",
+          "ref": {
+            "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/66074608f8814b518c6ecda7da6a7cdb/D_formal_efficientnet_b0_seed7.json",
+            "sha256": "af3cf004f0ceea055c3bff1e0aa6f9f3aa2a6af40c02417cb80b1c065f927558"
+          },
+          "phase_nonce": "66074608f8814b518c6ecda7da6a7cdb",
+          "worker_pid": 307317,
+          "phase_owner_pid": 3968944
+        },
+        {
+          "run": "H_formal_clip_vit_b16_AB_seed123",
+          "ref": {
+            "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/c1b83bab4bd34df784afc18bda94777a/H_formal_clip_vit_b16_AB_seed123.json",
+            "sha256": "6d742541e1a3c714efae8b95e8e288e0de22f0207662fad1b2abf6441678a03d"
+          },
+          "phase_nonce": "c1b83bab4bd34df784afc18bda94777a",
+          "worker_pid": 962135,
+          "phase_owner_pid": 825619
+        },
+        {
+          "run": "H_formal_clip_vit_b16_AB_seed2026",
+          "ref": {
+            "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/c1b83bab4bd34df784afc18bda94777a/H_formal_clip_vit_b16_AB_seed2026.json",
+            "sha256": "f12e5cd18f90a8e65d108516db2fd0f067a726322551076ecc057ad8cdb05a00"
+          },
+          "phase_nonce": "c1b83bab4bd34df784afc18bda94777a",
+          "worker_pid": 1020197,
+          "phase_owner_pid": 825619
+        },
+        {
+          "run": "H_formal_clip_vit_b16_AB_seed3407",
+          "ref": {
+            "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/c1b83bab4bd34df784afc18bda94777a/H_formal_clip_vit_b16_AB_seed3407.json",
+            "sha256": "1c391eb1fa6a5b0ea241d842cf4360cce930493ab5d8d735d3cae2d9ef45d10e"
+          },
+          "phase_nonce": "c1b83bab4bd34df784afc18bda94777a",
+          "worker_pid": 1763003,
+          "phase_owner_pid": 825619
+        },
+        {
+          "run": "H_formal_clip_vit_b16_AB_seed42",
+          "ref": {
+            "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/c1b83bab4bd34df784afc18bda94777a/H_formal_clip_vit_b16_AB_seed42.json",
+            "sha256": "a3aa40b1b47029d00c5168a2738bdb8785503e4ca6f3d4245b4dbea06cf460fc"
+          },
+          "phase_nonce": "c1b83bab4bd34df784afc18bda94777a",
+          "worker_pid": 825634,
+          "phase_owner_pid": 825619
+        },
+        {
+          "run": "H_formal_clip_vit_b16_AB_seed7",
+          "ref": {
+            "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/c1b83bab4bd34df784afc18bda94777a/H_formal_clip_vit_b16_AB_seed7.json",
+            "sha256": "d7d5ab6da3fa14fd8deabc1e58e14b3be9dfff630aa539bf4771d51ca7b80e82"
+          },
+          "phase_nonce": "c1b83bab4bd34df784afc18bda94777a",
+          "worker_pid": 825630,
+          "phase_owner_pid": 825619
+        },
+        {
+          "run": "H_formal_clip_vit_b16_B_seed123",
+          "ref": {
+            "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/c1b83bab4bd34df784afc18bda94777a/H_formal_clip_vit_b16_B_seed123.json",
+            "sha256": "11f01262ec01bcedaf56e2dc67493f3fb08208535eda524f668e83cccac2f7c3"
+          },
+          "phase_nonce": "c1b83bab4bd34df784afc18bda94777a",
+          "worker_pid": 959032,
+          "phase_owner_pid": 825619
+        },
+        {
+          "run": "H_formal_clip_vit_b16_B_seed2026",
+          "ref": {
+            "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/c1b83bab4bd34df784afc18bda94777a/H_formal_clip_vit_b16_B_seed2026.json",
+            "sha256": "e9f7838169008799323a06d822d1314803437b021fcb3084550df341e49747fe"
+          },
+          "phase_nonce": "c1b83bab4bd34df784afc18bda94777a",
+          "worker_pid": 1017869,
+          "phase_owner_pid": 825619
+        },
+        {
+          "run": "H_formal_clip_vit_b16_B_seed3407",
+          "ref": {
+            "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/c1b83bab4bd34df784afc18bda94777a/H_formal_clip_vit_b16_B_seed3407.json",
+            "sha256": "f1e0519c9e483faf27bdc3646cb74ba11e0991e50552e5f6066b88e1825d6c61"
+          },
+          "phase_nonce": "c1b83bab4bd34df784afc18bda94777a",
+          "worker_pid": 1698503,
+          "phase_owner_pid": 825619
+        },
+        {
+          "run": "H_formal_clip_vit_b16_B_seed42",
+          "ref": {
+            "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/c1b83bab4bd34df784afc18bda94777a/H_formal_clip_vit_b16_B_seed42.json",
+            "sha256": "30ab9420ac6564e2aa55874858f3aa7083a943b655b726d778bf61d9852eff7e"
+          },
+          "phase_nonce": "c1b83bab4bd34df784afc18bda94777a",
+          "worker_pid": 825633,
+          "phase_owner_pid": 825619
+        },
+        {
+          "run": "H_formal_clip_vit_b16_B_seed7",
+          "ref": {
+            "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/c1b83bab4bd34df784afc18bda94777a/H_formal_clip_vit_b16_B_seed7.json",
+            "sha256": "43e46197c90e861b1ed92dd8d8cebbabdf86949cc93390b600f3532c59befee6"
+          },
+          "phase_nonce": "c1b83bab4bd34df784afc18bda94777a",
+          "worker_pid": 825629,
+          "phase_owner_pid": 825619
+        },
+        {
+          "run": "H_formal_dinov2_vit_b14_B_seed7",
+          "ref": {
+            "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_best_workers/c1b83bab4bd34df784afc18bda94777a/H_formal_dinov2_vit_b14_B_seed7.json",
+            "sha256": "ac99d00652f1da2f42a4969d586fb880034f9ef507c2d0d56390ba23f3969191"
+          },
+          "phase_nonce": "c1b83bab4bd34df784afc18bda94777a",
+          "worker_pid": 1764583,
+          "phase_owner_pid": 825619
+        }
+      ],
+      "phase_lease_or_gpu_or_worker_entry_called": false,
+      "validate_plan_or_remaining_required_called": false
+    },
+    "phase_counts": {
+      "66074608f8814b518c6ecda7da6a7cdb": 15,
+      "c1b83bab4bd34df784afc18bda94777a": 11
+    },
+    "marker_count": 123,
+    "markers": [
+      {
+        "run": "D_formal_clip_vit_b16_seed123",
+        "role": "source_cal",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_clip_vit_b16_seed123/source_cal/complete.json",
+          "sha256": "114f478adaecb62e2e77ab1eca67f20742a94e92705fe72e4a8b0033e2257e05",
+          "bytes": 3653
+        }
+      },
+      {
+        "run": "D_formal_clip_vit_b16_seed123",
+        "role": "source_test",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_clip_vit_b16_seed123/source_test/complete.json",
+          "sha256": "6b505910a28748a1c75b9ebe12a23fb5328e948945346b7ce6fcbb596f4282bb",
+          "bytes": 5401
+        }
+      },
+      {
+        "run": "D_formal_clip_vit_b16_seed123",
+        "role": "target_cal",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_clip_vit_b16_seed123/target_cal/complete.json",
+          "sha256": "8c0d5ff689510adfe7a3b254493403a8a1d237dde8d636809f0f0fd9be86b2d4",
+          "bytes": 3649
+        }
+      },
+      {
+        "run": "D_formal_clip_vit_b16_seed123",
+        "role": "target_full",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_clip_vit_b16_seed123/target_full/complete.json",
+          "sha256": "c1b73e7f8688cbfbcd5376c5f83d9356b899ac4c8e1c6ba4242fde394accdb6b",
+          "bytes": 12385
+        }
+      },
+      {
+        "run": "D_formal_clip_vit_b16_seed123",
+        "role": "target_test",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_clip_vit_b16_seed123/target_test/complete.json",
+          "sha256": "36fd5ea44297de3591572941b4899e62b1a7610c7865b736407d9abdd2960624",
+          "bytes": 6447
+        }
+      },
+      {
+        "run": "D_formal_clip_vit_b16_seed123",
+        "role": "train",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_clip_vit_b16_seed123/train/complete.json",
+          "sha256": "af022ce3997327c8bfffbbe760cc6e7c60a3d574c6365728ed2d9b317e8a942e",
+          "bytes": 12023
+        }
+      },
+      {
+        "run": "D_formal_clip_vit_b16_seed2026",
+        "role": "source_cal",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_clip_vit_b16_seed2026/source_cal/complete.json",
+          "sha256": "87d27d75a4c6d31333207c45a2849f47f1ca085ea92804e8d7bf954d5ca21b8a",
+          "bytes": 3663
+        }
+      },
+      {
+        "run": "D_formal_clip_vit_b16_seed2026",
+        "role": "source_test",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_clip_vit_b16_seed2026/source_test/complete.json",
+          "sha256": "21cb833576f01061aa340782ce8acc5f848f5957949a9cdd4223feda874e6bd8",
+          "bytes": 5411
+        }
+      },
+      {
+        "run": "D_formal_clip_vit_b16_seed2026",
+        "role": "target_cal",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_clip_vit_b16_seed2026/target_cal/complete.json",
+          "sha256": "c912dd9e64263b666cd2b7e44a1e8a4c6c04e5bfb837cac5dbb32c888492be4c",
+          "bytes": 3659
+        }
+      },
+      {
+        "run": "D_formal_clip_vit_b16_seed2026",
+        "role": "target_full",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_clip_vit_b16_seed2026/target_full/complete.json",
+          "sha256": "da332d44159b7c3d59ed7c53d12f9a7d7ce49afd1e25857367f55ccb61b75c26",
+          "bytes": 12395
+        }
+      },
+      {
+        "run": "D_formal_clip_vit_b16_seed2026",
+        "role": "target_test",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_clip_vit_b16_seed2026/target_test/complete.json",
+          "sha256": "ee86d9936a77e7636cacce000acf195406ac6a120eff08992b8f312d19d36e66",
+          "bytes": 6457
+        }
+      },
+      {
+        "run": "D_formal_clip_vit_b16_seed2026",
+        "role": "train",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_clip_vit_b16_seed2026/train/complete.json",
+          "sha256": "f1185d66f46aa8864ed071974cffb8df8eb535349ce3f6109cd41fd1cc7e1c93",
+          "bytes": 12033
+        }
+      },
+      {
+        "run": "D_formal_clip_vit_b16_seed3407",
+        "role": "source_cal",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_clip_vit_b16_seed3407/source_cal/complete.json",
+          "sha256": "77fa7ea6f76dfece0d990d104d245227db515bbc6682ab4ff16513ba535cc4eb",
+          "bytes": 3663
+        }
+      },
+      {
+        "run": "D_formal_clip_vit_b16_seed3407",
+        "role": "source_test",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_clip_vit_b16_seed3407/source_test/complete.json",
+          "sha256": "99f27a80ae5211cb22c149572469b49282144862471a6aabc7ea7175aa354ae8",
+          "bytes": 5411
+        }
+      },
+      {
+        "run": "D_formal_clip_vit_b16_seed3407",
+        "role": "target_cal",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_clip_vit_b16_seed3407/target_cal/complete.json",
+          "sha256": "685df40245f782eb6f8e2f0a2e4ca14aebb8ff7e30533a797b9a6e0cf1d6c708",
+          "bytes": 3659
+        }
+      },
+      {
+        "run": "D_formal_clip_vit_b16_seed3407",
+        "role": "target_full",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_clip_vit_b16_seed3407/target_full/complete.json",
+          "sha256": "91fa926e8faab47bda0a20a1719525c801569e69e4e1060f130cb770e1b3af20",
+          "bytes": 12395
+        }
+      },
+      {
+        "run": "D_formal_clip_vit_b16_seed3407",
+        "role": "target_test",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_clip_vit_b16_seed3407/target_test/complete.json",
+          "sha256": "471e6c5dd64d0720cac881a49606c001c43841bace71135f224ed8376c71b542",
+          "bytes": 6457
+        }
+      },
+      {
+        "run": "D_formal_clip_vit_b16_seed3407",
+        "role": "train",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_clip_vit_b16_seed3407/train/complete.json",
+          "sha256": "ec5a6518445a8e442f418cbf3aa3ecb5b59164b40070c0d29851feece8717251",
+          "bytes": 12033
+        }
+      },
+      {
+        "run": "D_formal_clip_vit_b16_seed42",
+        "role": "source_cal",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_clip_vit_b16_seed42/source_cal/complete.json",
+          "sha256": "09d0eb0cee09649b6754e550a8a48dc73b59390586165eda9a60d7357f174a12",
+          "bytes": 3648
+        }
+      },
+      {
+        "run": "D_formal_clip_vit_b16_seed42",
+        "role": "source_test",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_clip_vit_b16_seed42/source_test/complete.json",
+          "sha256": "c6b723b76efdfe7e3c1a42cd0e5e53aa4bf23432c6e139443690409fba1260fb",
+          "bytes": 5396
+        }
+      },
+      {
+        "run": "D_formal_clip_vit_b16_seed42",
+        "role": "target_cal",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_clip_vit_b16_seed42/target_cal/complete.json",
+          "sha256": "f3f04b608b587faa9c96354194c006584b8341a8040265267edf4722f0285833",
+          "bytes": 3644
+        }
+      },
+      {
+        "run": "D_formal_clip_vit_b16_seed42",
+        "role": "target_full",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_clip_vit_b16_seed42/target_full/complete.json",
+          "sha256": "cc96c74f68ec03371f9d37fd90605446508862d63a174439bfa2c4cc43cb723c",
+          "bytes": 12380
+        }
+      },
+      {
+        "run": "D_formal_clip_vit_b16_seed42",
+        "role": "target_test",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_clip_vit_b16_seed42/target_test/complete.json",
+          "sha256": "fd98654cc4a4df8d388e811d435c72ed98e1e05ad60b8bc419c3e75ffaaaa237",
+          "bytes": 6442
+        }
+      },
+      {
+        "run": "D_formal_clip_vit_b16_seed42",
+        "role": "train",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_clip_vit_b16_seed42/train/complete.json",
+          "sha256": "ace265ed5368eadc8b5833c04e740b2b52b8e342c0bfbb124d1aac3a61b75653",
+          "bytes": 12018
+        }
+      },
+      {
+        "run": "D_formal_clip_vit_b16_seed7",
+        "role": "source_cal",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_clip_vit_b16_seed7/source_cal/complete.json",
+          "sha256": "d5aadc166a688481f5ec3f8034f8d11dcf5c2e63ac21cb75550ac0f52a31bc41",
+          "bytes": 3648
+        }
+      },
+      {
+        "run": "D_formal_clip_vit_b16_seed7",
+        "role": "source_test",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_clip_vit_b16_seed7/source_test/complete.json",
+          "sha256": "53de5ed26d4250aab2fc23f32b9642ff2f21d6b0580022e42f0f27b8a25375b5",
+          "bytes": 5396
+        }
+      },
+      {
+        "run": "D_formal_clip_vit_b16_seed7",
+        "role": "target_cal",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_clip_vit_b16_seed7/target_cal/complete.json",
+          "sha256": "d3edec7768c1794ff88ba4c5b7e251f39d51f72063707fa39abf9e50c75ea716",
+          "bytes": 3644
+        }
+      },
+      {
+        "run": "D_formal_clip_vit_b16_seed7",
+        "role": "target_full",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_clip_vit_b16_seed7/target_full/complete.json",
+          "sha256": "cb1ca6c5ee566f9ad29c884e0943d1e4e29d2ca961a44bdd71eeb703bcecf937",
+          "bytes": 12380
+        }
+      },
+      {
+        "run": "D_formal_clip_vit_b16_seed7",
+        "role": "target_test",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_clip_vit_b16_seed7/target_test/complete.json",
+          "sha256": "258a4f490d5bdb22cfc00de13c2c041a46245b7cc9943cfd29791cf8b073551a",
+          "bytes": 6442
+        }
+      },
+      {
+        "run": "D_formal_clip_vit_b16_seed7",
+        "role": "train",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_clip_vit_b16_seed7/train/complete.json",
+          "sha256": "a31aa6f1d319e65361e9d9e4e596160b063aff64fdb9c38caae07e79543388ac",
+          "bytes": 12018
+        }
+      },
+      {
+        "run": "D_formal_dinov2_vit_b14_seed123",
+        "role": "source_cal",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_dinov2_vit_b14_seed123/source_cal/complete.json",
+          "sha256": "a2c516afbdec7fbb0e26e639506e233c373134898ed733b8a2aa9bd63e2ae1b6",
+          "bytes": 3655
+        }
+      },
+      {
+        "run": "D_formal_dinov2_vit_b14_seed123",
+        "role": "source_test",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_dinov2_vit_b14_seed123/source_test/complete.json",
+          "sha256": "7c0a64830b8a1ff657e6ec05bd01df85072372ce6eea1a8725617e636bdda83b",
+          "bytes": 5403
+        }
+      },
+      {
+        "run": "D_formal_dinov2_vit_b14_seed123",
+        "role": "target_cal",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_dinov2_vit_b14_seed123/target_cal/complete.json",
+          "sha256": "949a6e70430b0e3dd6cb09b8b7332eb4354fd0db39081fe6d934d8d077d34e54",
+          "bytes": 3651
+        }
+      },
+      {
+        "run": "D_formal_dinov2_vit_b14_seed123",
+        "role": "target_full",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_dinov2_vit_b14_seed123/target_full/complete.json",
+          "sha256": "de60f2bf0803e81ac248db0ab19e15f95763902bc331adda19fa5e01b30156eb",
+          "bytes": 12387
+        }
+      },
+      {
+        "run": "D_formal_dinov2_vit_b14_seed123",
+        "role": "target_test",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_dinov2_vit_b14_seed123/target_test/complete.json",
+          "sha256": "580ddd27d99197be49c8a27a70dd5fbe9eaceb1ee5611a3808a1b989dea5925c",
+          "bytes": 6449
+        }
+      },
+      {
+        "run": "D_formal_dinov2_vit_b14_seed123",
+        "role": "train",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_dinov2_vit_b14_seed123/train/complete.json",
+          "sha256": "f310bd69907744949e272e6098bc35d79128f877117db1fd9fb02d9982e8eebf",
+          "bytes": 12025
+        }
+      },
+      {
+        "run": "D_formal_dinov2_vit_b14_seed2026",
+        "role": "source_cal",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_dinov2_vit_b14_seed2026/source_cal/complete.json",
+          "sha256": "847e9dcb66ab1a558da881c60306ff39c99bcafa6cec1ca61e5a5556223aadb4",
+          "bytes": 3660
+        }
+      },
+      {
+        "run": "D_formal_dinov2_vit_b14_seed2026",
+        "role": "source_test",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_dinov2_vit_b14_seed2026/source_test/complete.json",
+          "sha256": "0e1b723d2febf5f9fb0e43d77bec1cdc6abc5d3d805bf0df108313a8f5f0f572",
+          "bytes": 5408
+        }
+      },
+      {
+        "run": "D_formal_dinov2_vit_b14_seed2026",
+        "role": "target_cal",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_dinov2_vit_b14_seed2026/target_cal/complete.json",
+          "sha256": "f432476a44d0e1b45d8d1bc621e728234cf0ddef55851ff5b5c46145341a57ea",
+          "bytes": 3656
+        }
+      },
+      {
+        "run": "D_formal_dinov2_vit_b14_seed2026",
+        "role": "target_full",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_dinov2_vit_b14_seed2026/target_full/complete.json",
+          "sha256": "ae20ca1706bdf9e9ddcf117c66ef4a4b7c42bf30dcee1887a4a58efc161d2259",
+          "bytes": 12392
+        }
+      },
+      {
+        "run": "D_formal_dinov2_vit_b14_seed2026",
+        "role": "target_test",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_dinov2_vit_b14_seed2026/target_test/complete.json",
+          "sha256": "705de5b6137ad0f2dc683da784f8bd93bf0092a792b6906230e358abdbc9183d",
+          "bytes": 6454
+        }
+      },
+      {
+        "run": "D_formal_dinov2_vit_b14_seed2026",
+        "role": "train",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_dinov2_vit_b14_seed2026/train/complete.json",
+          "sha256": "9105102aa16bd5f7043616b2792b720cac4777fc3a817851d7baea1e00f360a4",
+          "bytes": 12030
+        }
+      },
+      {
+        "run": "D_formal_dinov2_vit_b14_seed3407",
+        "role": "source_cal",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_dinov2_vit_b14_seed3407/source_cal/complete.json",
+          "sha256": "0525503d522396b3ec660fddb9e41ab82a631b807b73f7bc4d3122e41e78ad2c",
+          "bytes": 3674
+        }
+      },
+      {
+        "run": "D_formal_dinov2_vit_b14_seed3407",
+        "role": "source_test",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_dinov2_vit_b14_seed3407/source_test/complete.json",
+          "sha256": "e4149faecd0bd036be1959fd9998fdb60a241ec47b6c67ea66c481c0962aeb08",
+          "bytes": 5422
+        }
+      },
+      {
+        "run": "D_formal_dinov2_vit_b14_seed3407",
+        "role": "target_cal",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_dinov2_vit_b14_seed3407/target_cal/complete.json",
+          "sha256": "42016162ae9d29f334738726a453d9ec0131fa9c578242c05be58f84d5984436",
+          "bytes": 3670
+        }
+      },
+      {
+        "run": "D_formal_dinov2_vit_b14_seed3407",
+        "role": "target_full",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_dinov2_vit_b14_seed3407/target_full/complete.json",
+          "sha256": "d716f069351a073cab0e09e2aabb33e32e592a924626b171196dfd7b996ffb92",
+          "bytes": 12406
+        }
+      },
+      {
+        "run": "D_formal_dinov2_vit_b14_seed3407",
+        "role": "target_test",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_dinov2_vit_b14_seed3407/target_test/complete.json",
+          "sha256": "411c4b126c455258f28fb037d857a5e43517e4cafc733fe8484d3f1b2ba59a28",
+          "bytes": 6468
+        }
+      },
+      {
+        "run": "D_formal_dinov2_vit_b14_seed3407",
+        "role": "train",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_dinov2_vit_b14_seed3407/train/complete.json",
+          "sha256": "b402481e4a4a9dada454243930eea80a0fb9a3f2458351a6df3988601992e0b0",
+          "bytes": 12044
+        }
+      },
+      {
+        "run": "D_formal_dinov2_vit_b14_seed42",
+        "role": "source_cal",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_dinov2_vit_b14_seed42/source_cal/complete.json",
+          "sha256": "62f7bd3715a4a38e2d423a2061731b3e247d17943060dbc0accb2886d826a6ad",
+          "bytes": 3650
+        }
+      },
+      {
+        "run": "D_formal_dinov2_vit_b14_seed42",
+        "role": "source_test",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_dinov2_vit_b14_seed42/source_test/complete.json",
+          "sha256": "30747a1414c26fc2390a4fb68c84185c333c02811085f23141e5931cd439ff41",
+          "bytes": 5398
+        }
+      },
+      {
+        "run": "D_formal_dinov2_vit_b14_seed42",
+        "role": "target_cal",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_dinov2_vit_b14_seed42/target_cal/complete.json",
+          "sha256": "4460322a7f6602e618cdea88e874feef35cd5d3f37de31fb6ec504fe058914ab",
+          "bytes": 3646
+        }
+      },
+      {
+        "run": "D_formal_dinov2_vit_b14_seed42",
+        "role": "target_full",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_dinov2_vit_b14_seed42/target_full/complete.json",
+          "sha256": "bbb6d4ce5a660c41ae853e01666a7edc5607c1e9546f64ddad0af81262e848c8",
+          "bytes": 12382
+        }
+      },
+      {
+        "run": "D_formal_dinov2_vit_b14_seed42",
+        "role": "target_test",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_dinov2_vit_b14_seed42/target_test/complete.json",
+          "sha256": "0217dea552dd23ee138af12079f0760d5af66334d735504a413c64af14b59d47",
+          "bytes": 6444
+        }
+      },
+      {
+        "run": "D_formal_dinov2_vit_b14_seed42",
+        "role": "train",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_dinov2_vit_b14_seed42/train/complete.json",
+          "sha256": "769ca347b0a8382e43ca9db11446a436ac7ff88e78698fb08f33f02e3be02da8",
+          "bytes": 12020
+        }
+      },
+      {
+        "run": "D_formal_dinov2_vit_b14_seed7",
+        "role": "source_cal",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_dinov2_vit_b14_seed7/source_cal/complete.json",
+          "sha256": "1cebdd4d27a90dbe836170148455627349395dfb3ff875e44dba4351158a27b2",
+          "bytes": 3659
+        }
+      },
+      {
+        "run": "D_formal_dinov2_vit_b14_seed7",
+        "role": "source_test",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_dinov2_vit_b14_seed7/source_test/complete.json",
+          "sha256": "72a2421e710ce0d7306737426f82cf0a33c7e33090a5f2255fbceec9b666d72b",
+          "bytes": 5407
+        }
+      },
+      {
+        "run": "D_formal_dinov2_vit_b14_seed7",
+        "role": "target_cal",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_dinov2_vit_b14_seed7/target_cal/complete.json",
+          "sha256": "bb3581a38f1aeac667a1f490079f1a62af228412cef94bb576f3b8b304adb019",
+          "bytes": 3655
+        }
+      },
+      {
+        "run": "D_formal_dinov2_vit_b14_seed7",
+        "role": "target_full",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_dinov2_vit_b14_seed7/target_full/complete.json",
+          "sha256": "4c0d220a1d405d0bcd3086c73e9c1f0c35ed623aa56df4c1f1be5893fc259f4c",
+          "bytes": 12391
+        }
+      },
+      {
+        "run": "D_formal_dinov2_vit_b14_seed7",
+        "role": "target_test",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_dinov2_vit_b14_seed7/target_test/complete.json",
+          "sha256": "a7729ca4a0861f344be313bc04b141530e4c875087ffac1451ffb76f921787a8",
+          "bytes": 6453
+        }
+      },
+      {
+        "run": "D_formal_dinov2_vit_b14_seed7",
+        "role": "train",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_dinov2_vit_b14_seed7/train/complete.json",
+          "sha256": "8938d19146d894bc279005f2b9672074c0350c42d05becc58f09e9cd23b4257e",
+          "bytes": 12029
+        }
+      },
+      {
+        "run": "D_formal_efficientnet_b0_seed123",
+        "role": "source_cal",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_efficientnet_b0_seed123/source_cal/complete.json",
+          "sha256": "64ceae4b872a6edb300ab8e8148edde135fe36647246490ae452ff694409b899",
+          "bytes": 3679
+        }
+      },
+      {
+        "run": "D_formal_efficientnet_b0_seed123",
+        "role": "source_test",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_efficientnet_b0_seed123/source_test/complete.json",
+          "sha256": "20b4e5aeb261952b06b0ca519f36a01c91546afdf4b0da165b57ad9a9147dc65",
+          "bytes": 5432
+        }
+      },
+      {
+        "run": "D_formal_efficientnet_b0_seed123",
+        "role": "target_cal",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_efficientnet_b0_seed123/target_cal/complete.json",
+          "sha256": "4b0a285fe44356796213fdada259d6691691a053031e329868dbf191fbe9ea2c",
+          "bytes": 3675
+        }
+      },
+      {
+        "run": "D_formal_efficientnet_b0_seed123",
+        "role": "target_full",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_efficientnet_b0_seed123/target_full/complete.json",
+          "sha256": "401a3666cb981804340d8f00ef1ffa6f60a858ae902dc79e1d7333dfe89aa7b9",
+          "bytes": 12436
+        }
+      },
+      {
+        "run": "D_formal_efficientnet_b0_seed123",
+        "role": "target_test",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_efficientnet_b0_seed123/target_test/complete.json",
+          "sha256": "7a7b8f145dd6e8624626adffbba4dfb8781ac71859ad3c7292894d558b14169b",
+          "bytes": 6481
+        }
+      },
+      {
+        "run": "D_formal_efficientnet_b0_seed123",
+        "role": "train",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_efficientnet_b0_seed123/train/complete.json",
+          "sha256": "883a9a0edf5a52f8ba9ce86f8f366b46c09d70e6daac9cb5d776b0182025f278",
+          "bytes": 12073
+        }
+      },
+      {
+        "run": "D_formal_efficientnet_b0_seed2026",
+        "role": "source_cal",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_efficientnet_b0_seed2026/source_cal/complete.json",
+          "sha256": "c3b8d53d5aa6bf77d82f6392900d5337782c33fbd8a7a84c423db021032a9e2b",
+          "bytes": 3682
+        }
+      },
+      {
+        "run": "D_formal_efficientnet_b0_seed2026",
+        "role": "source_test",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_efficientnet_b0_seed2026/source_test/complete.json",
+          "sha256": "52832648e7e98c83e36552f728b0c11d0780a9085611777c8cf83a4e53af7468",
+          "bytes": 5435
+        }
+      },
+      {
+        "run": "D_formal_efficientnet_b0_seed2026",
+        "role": "target_cal",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_efficientnet_b0_seed2026/target_cal/complete.json",
+          "sha256": "53430a6b1d2f2fbad655020bb83b9bbc2eba0a902036352fcbd49152502702a8",
+          "bytes": 3678
+        }
+      },
+      {
+        "run": "D_formal_efficientnet_b0_seed2026",
+        "role": "target_full",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_efficientnet_b0_seed2026/target_full/complete.json",
+          "sha256": "5f545b44bc4571f0050561f57a668424612419ba30d7a70ed37e0cf678387ddb",
+          "bytes": 12439
+        }
+      },
+      {
+        "run": "D_formal_efficientnet_b0_seed2026",
+        "role": "target_test",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_efficientnet_b0_seed2026/target_test/complete.json",
+          "sha256": "073a23a182d425d5932ce036e908d7538a8ea3c597b1f0a6dd9c720357174b78",
+          "bytes": 6484
+        }
+      },
+      {
+        "run": "D_formal_efficientnet_b0_seed2026",
+        "role": "train",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_efficientnet_b0_seed2026/train/complete.json",
+          "sha256": "0619ffb90be16913a11d31e218b4ed65b34f0df84551be1fcbcf2323df4907a9",
+          "bytes": 12076
+        }
+      },
+      {
+        "run": "D_formal_efficientnet_b0_seed3407",
+        "role": "source_cal",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_efficientnet_b0_seed3407/source_cal/complete.json",
+          "sha256": "28cda9b8798785a972d0499cb9e46810877ef94a87d1faeb6ad3f881a669f628",
+          "bytes": 3684
+        }
+      },
+      {
+        "run": "D_formal_efficientnet_b0_seed3407",
+        "role": "source_test",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_efficientnet_b0_seed3407/source_test/complete.json",
+          "sha256": "cfb72a3c510c9b8c56bf7756d946b6cfa6c23bd43ad8302eaf74f0d64f8a5d7d",
+          "bytes": 5437
+        }
+      },
+      {
+        "run": "D_formal_efficientnet_b0_seed3407",
+        "role": "target_cal",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_efficientnet_b0_seed3407/target_cal/complete.json",
+          "sha256": "14258201bbfac9406a3ae81c73fc8ef6a9b98e4dbc5811d9bdd1a6d186cd57ea",
+          "bytes": 3680
+        }
+      },
+      {
+        "run": "D_formal_efficientnet_b0_seed3407",
+        "role": "target_full",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_efficientnet_b0_seed3407/target_full/complete.json",
+          "sha256": "be81259f0823d7da9c9ce81eefc505ed3cf3f189e66fc61f37453e7ae3109cbb",
+          "bytes": 12441
+        }
+      },
+      {
+        "run": "D_formal_efficientnet_b0_seed3407",
+        "role": "target_test",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_efficientnet_b0_seed3407/target_test/complete.json",
+          "sha256": "f6993e5966b303a0aa92b563067a1fdb4f0a6f56473804e63407c3949b69ac8c",
+          "bytes": 6486
+        }
+      },
+      {
+        "run": "D_formal_efficientnet_b0_seed3407",
+        "role": "train",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_efficientnet_b0_seed3407/train/complete.json",
+          "sha256": "88a9e2480595b00347106fa92db9592ef9d49ce12d9cc7cb705c42e8e7d37b9c",
+          "bytes": 12078
+        }
+      },
+      {
+        "run": "D_formal_efficientnet_b0_seed42",
+        "role": "source_cal",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_efficientnet_b0_seed42/source_cal/complete.json",
+          "sha256": "7595fdaa56d30328243c3a08a412f77d7175464af740c9d881107948d7b70cb5",
+          "bytes": 3672
+        }
+      },
+      {
+        "run": "D_formal_efficientnet_b0_seed42",
+        "role": "source_test",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_efficientnet_b0_seed42/source_test/complete.json",
+          "sha256": "d0e3b079ceee56b282df12f6914a33856128bc1de412ab4b55fd28af8f11c2bc",
+          "bytes": 5425
+        }
+      },
+      {
+        "run": "D_formal_efficientnet_b0_seed42",
+        "role": "target_cal",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_efficientnet_b0_seed42/target_cal/complete.json",
+          "sha256": "be0b2947f34f830029e54f0bda51045fe9c29c4f8991f1ad799c2f0d0a55777c",
+          "bytes": 3668
+        }
+      },
+      {
+        "run": "D_formal_efficientnet_b0_seed42",
+        "role": "target_full",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_efficientnet_b0_seed42/target_full/complete.json",
+          "sha256": "4653f4704ea2c43dfcd1fbe39afb3b5db4cf6417f6c73e19e39e26028ab94c39",
+          "bytes": 12429
+        }
+      },
+      {
+        "run": "D_formal_efficientnet_b0_seed42",
+        "role": "target_test",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_efficientnet_b0_seed42/target_test/complete.json",
+          "sha256": "94a2b839898b76556c45b090cecc89aae9a8977df27482e5527ca103c58bf45d",
+          "bytes": 6474
+        }
+      },
+      {
+        "run": "D_formal_efficientnet_b0_seed42",
+        "role": "train",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_efficientnet_b0_seed42/train/complete.json",
+          "sha256": "d8484e5129fe98a744f27f0fe1c2db363e1799ec472b2e0f3fee702e7198d785",
+          "bytes": 12066
+        }
+      },
+      {
+        "run": "D_formal_efficientnet_b0_seed7",
+        "role": "source_cal",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_efficientnet_b0_seed7/source_cal/complete.json",
+          "sha256": "fb33260ea9c6dcf17e1afa648af6f85ec52b39b7c15efd6399676035732e8acb",
+          "bytes": 3669
+        }
+      },
+      {
+        "run": "D_formal_efficientnet_b0_seed7",
+        "role": "source_test",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_efficientnet_b0_seed7/source_test/complete.json",
+          "sha256": "629ab969a27f97d0a639651917c17a1933e1a908b4d48a13d5c108b05c43eb6e",
+          "bytes": 5422
+        }
+      },
+      {
+        "run": "D_formal_efficientnet_b0_seed7",
+        "role": "target_cal",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_efficientnet_b0_seed7/target_cal/complete.json",
+          "sha256": "63f530412a9c24e04c0c2acc73acc3eefd5091f8550d7fc9dad03de762ea81ab",
+          "bytes": 3665
+        }
+      },
+      {
+        "run": "D_formal_efficientnet_b0_seed7",
+        "role": "target_full",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_efficientnet_b0_seed7/target_full/complete.json",
+          "sha256": "5b4ee737968b1746c897eb63df0900f4a49b4bdcb62a04ba14d3dc9adbf3e274",
+          "bytes": 12426
+        }
+      },
+      {
+        "run": "D_formal_efficientnet_b0_seed7",
+        "role": "target_test",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_efficientnet_b0_seed7/target_test/complete.json",
+          "sha256": "d1008dc99585ebb2792619d115a5f0dee85ed123c3636557566367f86ad44488",
+          "bytes": 6471
+        }
+      },
+      {
+        "run": "D_formal_efficientnet_b0_seed7",
+        "role": "train",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/D_formal_efficientnet_b0_seed7/train/complete.json",
+          "sha256": "6ee5d58b5281f73b8ece7fa28b95477420d2f9172d8b2b02a21c64dcbe22db67",
+          "bytes": 12063
+        }
+      },
+      {
+        "run": "H_formal_clip_vit_b16_AB_seed123",
+        "role": "B/SOURCE_CAL",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/H_formal_clip_vit_b16_AB_seed123/B/SOURCE_CAL/complete.json",
+          "sha256": "6604245078c6bb99d50325a3491d6c60ce9da398043b6edd4f708d76140c2ff4",
+          "bytes": 5379
+        }
+      },
+      {
+        "run": "H_formal_clip_vit_b16_AB_seed123",
+        "role": "B/SOURCE_TEST",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/H_formal_clip_vit_b16_AB_seed123/B/SOURCE_TEST/complete.json",
+          "sha256": "a6cbeb0891af73c4232b1c1f86d2d30c2f86712d292aeb40e8f8ec4924d3e06f",
+          "bytes": 5729
+        }
+      },
+      {
+        "run": "H_formal_clip_vit_b16_AB_seed123",
+        "role": "B/TARGET_TEST",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/H_formal_clip_vit_b16_AB_seed123/B/TARGET_TEST/complete.json",
+          "sha256": "25b9f9e08f4f073a67f3f8e338684dc3f37dea81c7253dd8541bd04b9ec07591",
+          "bytes": 7476
+        }
+      },
+      {
+        "run": "H_formal_clip_vit_b16_AB_seed2026",
+        "role": "B/SOURCE_CAL",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/H_formal_clip_vit_b16_AB_seed2026/B/SOURCE_CAL/complete.json",
+          "sha256": "57b787de372c2f1cfcf4609f638a5410e8d198dee9f6638ffb5e4558854d8aaf",
+          "bytes": 5382
+        }
+      },
+      {
+        "run": "H_formal_clip_vit_b16_AB_seed2026",
+        "role": "B/SOURCE_TEST",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/H_formal_clip_vit_b16_AB_seed2026/B/SOURCE_TEST/complete.json",
+          "sha256": "1211ea53a125c7da75570902e6908d0a0897b67eadeae97b61e245a63dae42bb",
+          "bytes": 5732
+        }
+      },
+      {
+        "run": "H_formal_clip_vit_b16_AB_seed2026",
+        "role": "B/TARGET_TEST",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/H_formal_clip_vit_b16_AB_seed2026/B/TARGET_TEST/complete.json",
+          "sha256": "3eca8bf170b6949a5d3af0e0c5b7c1edbe1e33d376d2b4f6f3c51a37591f57f4",
+          "bytes": 7479
+        }
+      },
+      {
+        "run": "H_formal_clip_vit_b16_AB_seed3407",
+        "role": "B/SOURCE_CAL",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/H_formal_clip_vit_b16_AB_seed3407/B/SOURCE_CAL/complete.json",
+          "sha256": "b7464c9d2da363a1e438adbe06a3fdbc8c55523e98fc7a0b172b31857f381615",
+          "bytes": 5384
+        }
+      },
+      {
+        "run": "H_formal_clip_vit_b16_AB_seed3407",
+        "role": "B/SOURCE_TEST",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/H_formal_clip_vit_b16_AB_seed3407/B/SOURCE_TEST/complete.json",
+          "sha256": "ae045df22c72526ebfc38b694e99a11a18d2170932c0db8c00abedab88941da2",
+          "bytes": 5734
+        }
+      },
+      {
+        "run": "H_formal_clip_vit_b16_AB_seed3407",
+        "role": "B/TARGET_TEST",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/H_formal_clip_vit_b16_AB_seed3407/B/TARGET_TEST/complete.json",
+          "sha256": "1c66a0b08593fe84cd23fff1f293bfc8fb697a9d3ef24a92725aa111c242c46e",
+          "bytes": 7481
+        }
+      },
+      {
+        "run": "H_formal_clip_vit_b16_AB_seed42",
+        "role": "B/SOURCE_CAL",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/H_formal_clip_vit_b16_AB_seed42/B/SOURCE_CAL/complete.json",
+          "sha256": "cbfe4532e557b5d7042f97679eac181046e6480665b73fdc152e1b509385c439",
+          "bytes": 5374
+        }
+      },
+      {
+        "run": "H_formal_clip_vit_b16_AB_seed42",
+        "role": "B/SOURCE_TEST",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/H_formal_clip_vit_b16_AB_seed42/B/SOURCE_TEST/complete.json",
+          "sha256": "33f667af2d69102fa0b706e5fadfc6b59cde5e024ee1c81e20e15925e07de939",
+          "bytes": 5724
+        }
+      },
+      {
+        "run": "H_formal_clip_vit_b16_AB_seed42",
+        "role": "B/TARGET_TEST",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/H_formal_clip_vit_b16_AB_seed42/B/TARGET_TEST/complete.json",
+          "sha256": "76f59f7080f9a341e33658d1a2317cb3229cc132b77ab8a0342169c4b3d70b7c",
+          "bytes": 7471
+        }
+      },
+      {
+        "run": "H_formal_clip_vit_b16_AB_seed7",
+        "role": "B/SOURCE_CAL",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/H_formal_clip_vit_b16_AB_seed7/B/SOURCE_CAL/complete.json",
+          "sha256": "de71a6ba4f2c3014d8f938d5044e522091d5c3a4a29a284ff3f00cce68574544",
+          "bytes": 5369
+        }
+      },
+      {
+        "run": "H_formal_clip_vit_b16_AB_seed7",
+        "role": "B/SOURCE_TEST",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/H_formal_clip_vit_b16_AB_seed7/B/SOURCE_TEST/complete.json",
+          "sha256": "1b77945be40f2ff0b6371f64d99a4f10386767f7d898c579716d49dcfdc29e2f",
+          "bytes": 5719
+        }
+      },
+      {
+        "run": "H_formal_clip_vit_b16_AB_seed7",
+        "role": "B/TARGET_TEST",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/H_formal_clip_vit_b16_AB_seed7/B/TARGET_TEST/complete.json",
+          "sha256": "bfe35605809b2b352e4c0d68f0d642426a912fb94f4e83c58db5b41afc774bdb",
+          "bytes": 7466
+        }
+      },
+      {
+        "run": "H_formal_clip_vit_b16_B_seed123",
+        "role": "B/SOURCE_CAL",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/H_formal_clip_vit_b16_B_seed123/B/SOURCE_CAL/complete.json",
+          "sha256": "9382ee39ea5495ddb73ec0cc5f566cd1c1d83138bed193f3377c146409b9f751",
+          "bytes": 5373
+        }
+      },
+      {
+        "run": "H_formal_clip_vit_b16_B_seed123",
+        "role": "B/SOURCE_TEST",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/H_formal_clip_vit_b16_B_seed123/B/SOURCE_TEST/complete.json",
+          "sha256": "330c1ccfe36ca2d53043051f6b6100d5ec2f08f7413639b56c458c53b7b67525",
+          "bytes": 5723
+        }
+      },
+      {
+        "run": "H_formal_clip_vit_b16_B_seed123",
+        "role": "B/TARGET_TEST",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/H_formal_clip_vit_b16_B_seed123/B/TARGET_TEST/complete.json",
+          "sha256": "8f46974cd183d814763de664627250443f156092d21913d668092dffaf1a5d83",
+          "bytes": 7470
+        }
+      },
+      {
+        "run": "H_formal_clip_vit_b16_B_seed2026",
+        "role": "B/SOURCE_CAL",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/H_formal_clip_vit_b16_B_seed2026/B/SOURCE_CAL/complete.json",
+          "sha256": "ad2dec8866c9ba48cd03ddf3e277fee2545e6375a1930ae8d30a334a37b40b00",
+          "bytes": 5378
+        }
+      },
+      {
+        "run": "H_formal_clip_vit_b16_B_seed2026",
+        "role": "B/SOURCE_TEST",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/H_formal_clip_vit_b16_B_seed2026/B/SOURCE_TEST/complete.json",
+          "sha256": "89a8f445ef3d72ff6504e44954f7901e3e8a5636903df553eb90071358c43c69",
+          "bytes": 5728
+        }
+      },
+      {
+        "run": "H_formal_clip_vit_b16_B_seed2026",
+        "role": "B/TARGET_TEST",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/H_formal_clip_vit_b16_B_seed2026/B/TARGET_TEST/complete.json",
+          "sha256": "5a99cef2272f906d5cc8c148611816e849a1ae283ba2c780258a05fda663ef40",
+          "bytes": 7475
+        }
+      },
+      {
+        "run": "H_formal_clip_vit_b16_B_seed3407",
+        "role": "B/SOURCE_CAL",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/H_formal_clip_vit_b16_B_seed3407/B/SOURCE_CAL/complete.json",
+          "sha256": "15b683d5833a49f6960c2a60451fb52fb5e4198012572c2819d560b403324b2b",
+          "bytes": 5378
+        }
+      },
+      {
+        "run": "H_formal_clip_vit_b16_B_seed3407",
+        "role": "B/SOURCE_TEST",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/H_formal_clip_vit_b16_B_seed3407/B/SOURCE_TEST/complete.json",
+          "sha256": "37e7b7dbc7494fe092921bc3e3fcd1aa6a917962ef3fa7388aed7804b4e55274",
+          "bytes": 5728
+        }
+      },
+      {
+        "run": "H_formal_clip_vit_b16_B_seed3407",
+        "role": "B/TARGET_TEST",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/H_formal_clip_vit_b16_B_seed3407/B/TARGET_TEST/complete.json",
+          "sha256": "a3f7e5eff670fe63f03490b46d61b55c3e5deccea034e1c6d384720aa79d9fbd",
+          "bytes": 7475
+        }
+      },
+      {
+        "run": "H_formal_clip_vit_b16_B_seed42",
+        "role": "B/SOURCE_CAL",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/H_formal_clip_vit_b16_B_seed42/B/SOURCE_CAL/complete.json",
+          "sha256": "2da48372e7f7c4ccc0297f3b45345dcb1f97fc2163bc7f7fcc2bdbd7035c2e9b",
+          "bytes": 5368
+        }
+      },
+      {
+        "run": "H_formal_clip_vit_b16_B_seed42",
+        "role": "B/SOURCE_TEST",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/H_formal_clip_vit_b16_B_seed42/B/SOURCE_TEST/complete.json",
+          "sha256": "00956b0727a96af0dbf8aa5b9cc46e2a1128b5617e58e603c91ad33e087b1a91",
+          "bytes": 5718
+        }
+      },
+      {
+        "run": "H_formal_clip_vit_b16_B_seed42",
+        "role": "B/TARGET_TEST",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/H_formal_clip_vit_b16_B_seed42/B/TARGET_TEST/complete.json",
+          "sha256": "6abf61e51b6c39e53a053cbad3e245a80e8b0db4d864990d7c5c44a2d283148e",
+          "bytes": 7465
+        }
+      },
+      {
+        "run": "H_formal_clip_vit_b16_B_seed7",
+        "role": "B/SOURCE_CAL",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/H_formal_clip_vit_b16_B_seed7/B/SOURCE_CAL/complete.json",
+          "sha256": "8dff27cd4a3036b4297628c247d283c2b7e22b002bd45309be181ea12765a236",
+          "bytes": 5362
+        }
+      },
+      {
+        "run": "H_formal_clip_vit_b16_B_seed7",
+        "role": "B/SOURCE_TEST",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/H_formal_clip_vit_b16_B_seed7/B/SOURCE_TEST/complete.json",
+          "sha256": "1dac196680bce12b804f34329aecaaa39557f077f1e68580c087fa33d2c1b6a4",
+          "bytes": 5712
+        }
+      },
+      {
+        "run": "H_formal_clip_vit_b16_B_seed7",
+        "role": "B/TARGET_TEST",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/H_formal_clip_vit_b16_B_seed7/B/TARGET_TEST/complete.json",
+          "sha256": "a1a00cc3cf7bea96f2f4b68a29f19ed5b6d603bb89f76334686f5081e549959c",
+          "bytes": 7459
+        }
+      },
+      {
+        "run": "H_formal_dinov2_vit_b14_B_seed7",
+        "role": "B/SOURCE_CAL",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/H_formal_dinov2_vit_b14_B_seed7/B/SOURCE_CAL/complete.json",
+          "sha256": "6e20df9b3d094bd17f2817a1d2b310744ce236919f6f49860e0f72c7bb5ca7a0",
+          "bytes": 5397
+        }
+      },
+      {
+        "run": "H_formal_dinov2_vit_b14_B_seed7",
+        "role": "B/SOURCE_TEST",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/H_formal_dinov2_vit_b14_B_seed7/B/SOURCE_TEST/complete.json",
+          "sha256": "31a4c3cc4423947c95911b0b870f741a962efd90e2705d7758fc1661d7d58fd9",
+          "bytes": 5747
+        }
+      },
+      {
+        "run": "H_formal_dinov2_vit_b14_B_seed7",
+        "role": "B/TARGET_TEST",
+        "marker": {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/features/source_best_M/8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a/H_formal_dinov2_vit_b14_B_seed7/B/TARGET_TEST/complete.json",
+          "sha256": "0664d2f44e9b44d716327cf4cd72f7eb02213cae3913bca56d95fa7cd2a6b5dd",
+          "bytes": 7494
+        }
+      }
+    ],
+    "not_final_drain_set": true,
+    "provenance_limit": "Previously completed endpoint IDs/phase identities are receipt-SHA-bound and original owner-verified. This current26 is not a new resume plan. The four still-active direct-child PIDs are independently captured above and must be compared with their final receipts after drain."
+  },
+  "conditional_plan_review": {
+    "route": "Reuse the unchanged original owner implementation; clone the original plan only after natural drain.",
+    "fixed_fields": [
+      "schema",
+      "artifact_root",
+      "code_root",
+      "mode",
+      "input",
+      "cache_permit",
+      "run_ids",
+      "owner_code_sha256",
+      "worker_code_sha256"
+    ],
+    "required_fixed_values": {
+      "exact45_run_ids": [
+        "D_formal_clip_vit_b16_seed7",
+        "D_formal_clip_vit_b16_seed42",
+        "D_formal_clip_vit_b16_seed123",
+        "D_formal_clip_vit_b16_seed2026",
+        "D_formal_clip_vit_b16_seed3407",
+        "D_formal_dinov2_vit_b14_seed7",
+        "D_formal_dinov2_vit_b14_seed42",
+        "D_formal_dinov2_vit_b14_seed123",
+        "D_formal_dinov2_vit_b14_seed2026",
+        "D_formal_dinov2_vit_b14_seed3407",
+        "D_formal_efficientnet_b0_seed7",
+        "D_formal_efficientnet_b0_seed42",
+        "D_formal_efficientnet_b0_seed123",
+        "D_formal_efficientnet_b0_seed2026",
+        "D_formal_efficientnet_b0_seed3407",
+        "H_formal_clip_vit_b16_B_seed7",
+        "H_formal_clip_vit_b16_AB_seed7",
+        "H_formal_clip_vit_b16_B_seed42",
+        "H_formal_clip_vit_b16_AB_seed42",
+        "H_formal_clip_vit_b16_B_seed123",
+        "H_formal_clip_vit_b16_AB_seed123",
+        "H_formal_clip_vit_b16_B_seed2026",
+        "H_formal_clip_vit_b16_AB_seed2026",
+        "H_formal_clip_vit_b16_B_seed3407",
+        "H_formal_clip_vit_b16_AB_seed3407",
+        "H_formal_dinov2_vit_b14_B_seed7",
+        "H_formal_dinov2_vit_b14_AB_seed7",
+        "H_formal_dinov2_vit_b14_B_seed42",
+        "H_formal_dinov2_vit_b14_AB_seed42",
+        "H_formal_dinov2_vit_b14_B_seed123",
+        "H_formal_dinov2_vit_b14_AB_seed123",
+        "H_formal_dinov2_vit_b14_B_seed2026",
+        "H_formal_dinov2_vit_b14_AB_seed2026",
+        "H_formal_dinov2_vit_b14_B_seed3407",
+        "H_formal_dinov2_vit_b14_AB_seed3407",
+        "H_formal_efficientnet_b0_B_seed7",
+        "H_formal_efficientnet_b0_AB_seed7",
+        "H_formal_efficientnet_b0_B_seed42",
+        "H_formal_efficientnet_b0_AB_seed42",
+        "H_formal_efficientnet_b0_B_seed123",
+        "H_formal_efficientnet_b0_AB_seed123",
+        "H_formal_efficientnet_b0_B_seed2026",
+        "H_formal_efficientnet_b0_AB_seed2026",
+        "H_formal_efficientnet_b0_B_seed3407",
+        "H_formal_efficientnet_b0_AB_seed3407"
+      ],
+      "input_sha256": "8d8e25e767fe5ee396c2d6773d4c65d002268e19bbdfa4151b0764e6f6ca475a",
+      "cache_permit_sha256": "d4b735fda1c4aa5a4932b051fc01cf98770d5abe4c2c3d253a5f0a2820f42714",
+      "owner_code_sha256": "2c68dfb05aa0cd28808e7ae14f317225513202b7190151962e184ddf6bf4db5b",
+      "worker_code_sha256": {
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_cache.py": "4c5494d06f133b962fd22872ac88d22ad9155fcca102e29f0e300cc06a4ff0c7",
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_gpu.py": "f3cac34e1493cd109e336b77f94b087527e97d722f02253880371a7c2caebed5",
+        "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_lease.py": "175075eaa2e3dac44db2dbb0229abeb126058d694267901c6929cd28e0b9e5a9"
+      }
+    },
+    "allowed_future_changes": [
+      "resume_receipts: replace with the final SHA-bound completed-worker receipt union from original D phase660 and current H phasec1, after final child reap; not the current26 snapshot.",
+      "budget: point to the already reviewed C0 plan at the exact path/SHA recorded here; no source or runtime-floor change."
+    ],
+    "receipt_fields": [
+      "run_id",
+      "path",
+      "sha256",
+      "phase_nonce",
+      "worker_pid",
+      "phase_owner_pid"
+    ],
+    "receipt_rules": [
+      "Use only canonical final successful worker return JSON with original owner provenance, exact input/code/permit and all applicable role complete-marker SHA. Preserve the old15D receipts; add all ultimately verified H receipts.",
+      "Cross-bind the four active IDs and final receipt nonce/worker/owner to the captured direct-child identity. Reject duplicates, foreign endpoints, changed marker/receipt/code/permit, nonzero child exits or failed verification.",
+      "Call original owner.verify_return for every final selected resume ref. Do not infer endpoint completion from role markers alone, synthesize receipts, clear old failures or reissue skipped endpoint work.",
+      "Completed receipt reuse is operational cache reuse only; independent cache/data/statistical/scientific acceptance remains separate."
+    ],
+    "new_plan_generated": false,
+    "new_process_started": false,
+    "online_recovery_supported": false
+  },
+  "recovery_gates": [
+    {
+      "order": 1,
+      "gate": "NATURAL_DRAIN",
+      "state": "PENDING",
+      "evidence": "All four currently healthy direct workers finish naturally; original schedule reaps and verifies each. A worker exit/failure or missing receipt requires separate diagnosis, not automatic new dispatch."
+    },
+    {
+      "order": 2,
+      "gate": "ORIGINAL_OWNER_FINAL_EVIDENCE",
+      "state": "PENDING",
+      "evidence": "Final active=[] and completed/pending/failures snapshot; genuine terminal if original final guard permits, otherwise final exception/stdout/stderr plus true GNUtime exit. Preserve __owner__ failure; exit0 alone is not ALL45 success."
+    },
+    {
+      "order": 3,
+      "gate": "ORIGINAL_PROCESS_AND_LOCK_RELEASE",
+      "state": "PENDING",
+      "evidence": "825619,825618 and all direct workers absent by stable process identity; inherited phase FD descriptions gone, original phase/GPU0–3 locks released and approved devices idle. Read-only observations precede, and original nonblocking lease/native GPU validation enforces at start. Never unlock/remove lock files externally or touch GPU4–7."
+    },
+    {
+      "order": 4,
+      "gate": "FINAL_RECEIPTS_AND_NEW_IMMUTABLE_PLAN",
+      "state": "PENDING",
+      "evidence": "Build final receipt union only now, strict verify_return, preserve exact45/input/d4/owner+worker source. Fresh plan path/SHA and new original phase nonce; retain all old evidence and partial cache directories. This review does not generate it."
+    },
+    {
+      "order": 5,
+      "gate": "FRESH_INITIAL_FULL_CAPACITY_AND_ALL_ORIGINAL_GATES",
+      "state": "PENDING_AT_FUTURE_START",
+      "evidence": "Accepted C0 basis is148068010153B nominal before original strongly bound output/staging remaining-write accounting. Fresh initial validate_plan(initial=True) and original lease/idle-device checks remain mandatory;50GiB runtime floor, all features/caps/temp/reserve retained, no arbitrary cache/partial/compression credit."
+    },
+    {
+      "order": 6,
+      "gate": "ONE_ORIGINAL_OWNER_ONLY",
+      "state": "NOT_STARTED",
+      "evidence": "Root may launch only the original accepted owner after all preceding gates under already authorized Detector scope. If original guard faults again, preserve evidence and stop new dispatch/drain; no monkey patch, new controller, automatic restart loop or in-place status clear."
+    }
+  ],
+  "capacity": {
+    "new_budget": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/plans/M_two_canary_remaining_write_plan_after_H6_20261026_candidate.json",
+      "sha256": "c0f5080192f20203dd63f0133aeeb21afd24807fbf7b1af9119945baa2abef07",
+      "bytes": 5248
+    },
+    "root_acceptance": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_remaining_after_H6_capacity_acceptance_20261026.json",
+      "sha256": "d78bc0f1a35d954564581110f835bb4781351343dcf9ea97e5436339a36d668a",
+      "bytes": 2010
+    },
+    "independent_review": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_M_capacity_after_H6_reassessment_20261026.json",
+      "sha256": "a5fcdd16ef564117dbe8df1da72cfbdf3dad8185327885fb1afe2bd645531210",
+      "bytes": 18563
+    },
+    "nominal_complete_future_bytes": 148068010153,
+    "nominal_GiB": 137.89908043388277,
+    "decomposition_bytes": {
+      "remaining_H_primary9_full_caps": 9663676416,
+      "primary_logs_manifests_figures_audits": 17179869184,
+      "primary_temporary_peak": 17179869184,
+      "primary_reserve": 53687091200,
+      "M_temporary": 6442450944,
+      "M_extra": 5368709120,
+      "all_M45_feature_cap": 18413684905,
+      "all_M30_statistic_caps": 20132659200
+    },
+    "full45_feature_cap_bytes": 18413684905,
+    "all30_statistic_cap_bytes": 20132659200,
+    "runtime_floor_bytes": 53687091200,
+    "M_temporary_bytes": 6442450944,
+    "old_owner_budget": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/plans/M_detector_resume_remaining_write_plan_20261026T0140_candidate.json",
+      "sha256": "38b3fe99340bc42d18798f36e7b1cff9fe4a4e8a8e6e692cdd5b19fbf5075254",
+      "bytes": 4916
+    },
+    "old_nominal_complete_future_bytes": 150215493801,
+    "nominal_reduction_bytes": 2147483648,
+    "reduction_basis": "Two independently completed original LAST H future1GiB caps; no physical SSD release and no partial M feature credit.",
+    "live_free_metadata_snapshot_bytes": 149900398592,
+    "live_free_observation_utc": "2026-10-26T11:33:10.768373+00:00",
+    "snapshot_margin_to_nominal_C0_bytes": 1832388439,
+    "snapshot_is_launch_permission": false,
+    "remaining_required_semantics": "Use unchanged analysis.remaining_required at actual initial preflight: retain entire feature cap; allow only its existing exact sink-owned static-output cap consumption and retained staging accounting. Never manually subtract current feature tree bytes/role count/transport ratios.",
+    "cache_runtime_joint_gate": {
+      "ref": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/actual_four_gate_acceptance_20261025T2120/joint_capacity.json",
+        "sha256": "398c073647a979f23ee65e8c26b8b2131b73a5ddd877d32885d691ee9bce242d",
+        "bytes": 14896
+      },
+      "initial_required_remaining_bytes": 165195057321,
+      "required_remaining_bytes": 53687091200,
+      "semantics": "Historical full165195057321B issuance proof remains immutable; required_remaining_bytes53687091200 is the unchanged ongoing floor. New owner initial preflight uses its separate reviewed current C0 remaining-write plan, not a50GiB-only startup."
+    }
+  },
+  "remaining_blockers": [
+    "Historical guard cause unresolved.",
+    "Original owner and four workers still active; natural drain/terminal/exit/lock release not yet complete.",
+    "Final post-drain receipt set and new SHA-bound resume plan do not yet exist.",
+    "Actual start needs fresh capacity and unchanged source/permit/phase/device gates."
+  ],
+  "declined_to_judge": [
+    "Historical actual unlock versus proc-scan anomaly: no failing-scan trace exists.",
+    "Worker numerical correctness, cache payload/weight/PNG/source-context revalidation: intentionally not performed.",
+    "Actual resumed dispatch or new statistics/resource/scientific qualification: not performed or granted.",
+    "GPU4–7/JEV/GLM/MMTT/pair investigations and running Dcanary/Eff jobs: untouched.",
+    "No source fixes, tests/synthetic fault injection, lock acquisition/removal/unlock, signals, status edits, new plan/permit/controller or dispatcher."
+  ],
+  "source_or_running_state_modified": false,
+  "new_plan_generated": false,
+  "recovery_performed": false,
+  "actual_lease_acquired": false,
+  "actual_shared_CPU_slot_acquired": false,
+  "new_production_or_scientific_permission_issued": false
+}

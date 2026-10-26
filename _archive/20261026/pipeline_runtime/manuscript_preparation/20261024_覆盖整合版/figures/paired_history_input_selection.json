@@ -1,0 +1,193 @@
+{
+  "utc": "2026-10-24T12:41:30.332824+00:00",
+  "status": "FIXED_SOURCE_COMMON_TRAIN_ILLUSTRATION_INPUTS_ONLY",
+  "selection_rule": "For each of all five registered H source method labels, choose lexicographically first (video_uid,mother_frame_index,mother_id) in frozen common TRAIN and its exact AB paired mother; independent of scores and model performance.",
+  "freeze_sha256": "11ac3398b8bd2b347da24efbe45fb74e890681d2d063933b01a65d5fdba0675d",
+  "table_identities": {
+    "B/train": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/data/H/B/train.parquet",
+      "rows": 24424,
+      "sha256": "24c26b34fdeb30457a0dd9589292b0c4c990dcefe2ffb1ac68823744b006d29c",
+      "videos": 3053
+    },
+    "AB/train": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/data/H/AB/train.parquet",
+      "rows": 24424,
+      "sha256": "65053ccbd5cd2c4a3a11fe027a187400f032341fd58fda4c9488afe6f64d57cd",
+      "videos": 3053
+    }
+  },
+  "selections": [
+    {
+      "method_id": "Deepfakes",
+      "mother_id": "FFPP/source/Deepfakes/002_006/mother/000/502f885d6567e5bf74b341c1f032707022f4cfd94490dc7ccd08686e7dedd277",
+      "B": {
+        "image_path": "/Dataset/deepfake_detection/derived/pipeline_reliability_v2_20261023/H/FFPP/TRAIN/Deepfakes/002_006/000/B.png",
+        "content_sha256": "b179be7f5e43341bc45c3ab81e2be6cbb0e74baea0ed81d6ec02d06c8720e6ec",
+        "rgb_sha256": "bfcda3e5bc7307c5b9728c13349c3ba750e8b7470e7ef4a6539b751698cc6a48",
+        "mother_id": "FFPP/source/Deepfakes/002_006/mother/000/502f885d6567e5bf74b341c1f032707022f4cfd94490dc7ccd08686e7dedd277",
+        "video_uid": "FFPP/source/Deepfakes/002_006",
+        "method_id": "Deepfakes",
+        "label": 1,
+        "mother_frame_index": 0,
+        "mother_rgb_sha256": "502f885d6567e5bf74b341c1f032707022f4cfd94490dc7ccd08686e7dedd277",
+        "group_id": "FFPP/pair/002_006",
+        "domain": "source",
+        "role": "TRAIN",
+        "processing_version": "B"
+      },
+      "AB": {
+        "image_path": "/Dataset/deepfake_detection/derived/pipeline_reliability_v2_20261023/H/FFPP/TRAIN/Deepfakes/002_006/000/AB.png",
+        "content_sha256": "1ad57fa42deb189e7b92dcc7aaf62d668469a380f5c173178878232bb3fa6608",
+        "rgb_sha256": "ab57acce0ed7a16dff10a2a1ff52deb4cf715b76b87950c7e82be4a4341d96bf",
+        "video_uid": "FFPP/source/Deepfakes/002_006",
+        "method_id": "Deepfakes",
+        "label": 1,
+        "mother_frame_index": 0,
+        "mother_rgb_sha256": "502f885d6567e5bf74b341c1f032707022f4cfd94490dc7ccd08686e7dedd277",
+        "group_id": "FFPP/pair/002_006",
+        "domain": "source",
+        "role": "TRAIN",
+        "processing_version": "AB"
+      }
+    },
+    {
+      "method_id": "Face2Face",
+      "mother_id": "FFPP/source/Face2Face/002_006/mother/000/adbe9184aa39706dd1be43974e63a328b8a7f2f51bc81c195c426e818e616efa",
+      "B": {
+        "image_path": "/Dataset/deepfake_detection/derived/pipeline_reliability_v2_20261023/H/FFPP/TRAIN/Face2Face/002_006/000/B.png",
+        "content_sha256": "db21760c82c1860ff0f1408c6db5b1625297930bed8f04b78c4b8db82d447149",
+        "rgb_sha256": "f6f4b8a464d051889bf31b010a8b88d8bb2dd8b1ab1eb55fbe3a77a7318f027b",
+        "mother_id": "FFPP/source/Face2Face/002_006/mother/000/adbe9184aa39706dd1be43974e63a328b8a7f2f51bc81c195c426e818e616efa",
+        "video_uid": "FFPP/source/Face2Face/002_006",
+        "method_id": "Face2Face",
+        "label": 1,
+        "mother_frame_index": 0,
+        "mother_rgb_sha256": "adbe9184aa39706dd1be43974e63a328b8a7f2f51bc81c195c426e818e616efa",
+        "group_id": "FFPP/pair/002_006",
+        "domain": "source",
+        "role": "TRAIN",
+        "processing_version": "B"
+      },
+      "AB": {
+        "image_path": "/Dataset/deepfake_detection/derived/pipeline_reliability_v2_20261023/H/FFPP/TRAIN/Face2Face/002_006/000/AB.png",
+        "content_sha256": "b7c1596f9777e2c82e1560fe8024d8a112c56498000a4efdaf445927554ceac1",
+        "rgb_sha256": "641685476b04ffb53241a869845a96932678c04b66401bdd7e6a6a892c435ada",
+        "video_uid": "FFPP/source/Face2Face/002_006",
+        "method_id": "Face2Face",
+        "label": 1,
+        "mother_frame_index": 0,
+        "mother_rgb_sha256": "adbe9184aa39706dd1be43974e63a328b8a7f2f51bc81c195c426e818e616efa",
+        "group_id": "FFPP/pair/002_006",
+        "domain": "source",
+        "role": "TRAIN",
+        "processing_version": "AB"
+      }
+    },
+    {
+      "method_id": "FaceSwap",
+      "mother_id": "FFPP/source/FaceSwap/002_006/mother/000/1cecb6506896a9a4d583b863fc312834f390ad219856b3265d3e6c3885e7b24c",
+      "B": {
+        "image_path": "/Dataset/deepfake_detection/derived/pipeline_reliability_v2_20261023/H/FFPP/TRAIN/FaceSwap/002_006/000/B.png",
+        "content_sha256": "aff6363dfc98141083c2ae55a2858a5802da07fbc3ef6f826978ac1651eca10b",
+        "rgb_sha256": "cd81d1f269077a7d59789bfc38b8b61f30572d1e587444b56dc631357fb937df",
+        "mother_id": "FFPP/source/FaceSwap/002_006/mother/000/1cecb6506896a9a4d583b863fc312834f390ad219856b3265d3e6c3885e7b24c",
+        "video_uid": "FFPP/source/FaceSwap/002_006",
+        "method_id": "FaceSwap",
+        "label": 1,
+        "mother_frame_index": 0,
+        "mother_rgb_sha256": "1cecb6506896a9a4d583b863fc312834f390ad219856b3265d3e6c3885e7b24c",
+        "group_id": "FFPP/pair/002_006",
+        "domain": "source",
+        "role": "TRAIN",
+        "processing_version": "B"
+      },
+      "AB": {
+        "image_path": "/Dataset/deepfake_detection/derived/pipeline_reliability_v2_20261023/H/FFPP/TRAIN/FaceSwap/002_006/000/AB.png",
+        "content_sha256": "0634f449c52f55a76fb83380b71fd78935fcc70dcdfdac1a82513cdb8ae8b01d",
+        "rgb_sha256": "1b1793745fc2b604f2e6fd0390ce5b19771b317dff17638a1d6cded62d34c8a2",
+        "video_uid": "FFPP/source/FaceSwap/002_006",
+        "method_id": "FaceSwap",
+        "label": 1,
+        "mother_frame_index": 0,
+        "mother_rgb_sha256": "1cecb6506896a9a4d583b863fc312834f390ad219856b3265d3e6c3885e7b24c",
+        "group_id": "FFPP/pair/002_006",
+        "domain": "source",
+        "role": "TRAIN",
+        "processing_version": "AB"
+      }
+    },
+    {
+      "method_id": "NeuralTextures",
+      "mother_id": "FFPP/source/NeuralTextures/002_006/mother/000/b50b004669ae0276d816bfa3a7e1abc9581c0ed0388fe7139d3dd3359613c733",
+      "B": {
+        "image_path": "/Dataset/deepfake_detection/derived/pipeline_reliability_v2_20261023/H/FFPP/TRAIN/NeuralTextures/002_006/000/B.png",
+        "content_sha256": "5413c901bbfe3c593be1e8a9a7a1b15763eb69898e4f312cc418c2ccfc796d71",
+        "rgb_sha256": "fe8a12f6b871621a9cb42454f55e5a10bd7e1d0250eb12ab363533b1d45b0fc4",
+        "mother_id": "FFPP/source/NeuralTextures/002_006/mother/000/b50b004669ae0276d816bfa3a7e1abc9581c0ed0388fe7139d3dd3359613c733",
+        "video_uid": "FFPP/source/NeuralTextures/002_006",
+        "method_id": "NeuralTextures",
+        "label": 1,
+        "mother_frame_index": 0,
+        "mother_rgb_sha256": "b50b004669ae0276d816bfa3a7e1abc9581c0ed0388fe7139d3dd3359613c733",
+        "group_id": "FFPP/pair/002_006",
+        "domain": "source",
+        "role": "TRAIN",
+        "processing_version": "B"
+      },
+      "AB": {
+        "image_path": "/Dataset/deepfake_detection/derived/pipeline_reliability_v2_20261023/H/FFPP/TRAIN/NeuralTextures/002_006/000/AB.png",
+        "content_sha256": "f04bc55b6a1cd33a34243b1b529c3cc02864659e6369fa30374258f53df746f1",
+        "rgb_sha256": "44ebf35c603ea16a62b64b4b2dfb94fbb57b053cf50c9b393e13d61542203b83",
+        "video_uid": "FFPP/source/NeuralTextures/002_006",
+        "method_id": "NeuralTextures",
+        "label": 1,
+        "mother_frame_index": 0,
+        "mother_rgb_sha256": "b50b004669ae0276d816bfa3a7e1abc9581c0ed0388fe7139d3dd3359613c733",
+        "group_id": "FFPP/pair/002_006",
+        "domain": "source",
+        "role": "TRAIN",
+        "processing_version": "AB"
+      }
+    },
+    {
+      "method_id": "real",
+      "mother_id": "FFPP/source/real/002/mother/000/e4f0de39c40c1278910309033015fd5f386c55dbb39b882679db87d461691ee7",
+      "B": {
+        "image_path": "/Dataset/deepfake_detection/derived/pipeline_reliability_v2_20261023/H/FFPP/TRAIN/real/002/000/B.png",
+        "content_sha256": "f4a37afc0606f1b15ecd39c412b360777d3fa7314c1e92ac4baaf6bb4f199b95",
+        "rgb_sha256": "214452c1c05f42641c08abbe88aa8ee4fd2414f2e616e06831934b3867a378a8",
+        "mother_id": "FFPP/source/real/002/mother/000/e4f0de39c40c1278910309033015fd5f386c55dbb39b882679db87d461691ee7",
+        "video_uid": "FFPP/source/real/002",
+        "method_id": "real",
+        "label": 0,
+        "mother_frame_index": 0,
+        "mother_rgb_sha256": "e4f0de39c40c1278910309033015fd5f386c55dbb39b882679db87d461691ee7",
+        "group_id": "FFPP/pair/002_006",
+        "domain": "source",
+        "role": "TRAIN",
+        "processing_version": "B"
+      },
+      "AB": {
+        "image_path": "/Dataset/deepfake_detection/derived/pipeline_reliability_v2_20261023/H/FFPP/TRAIN/real/002/000/AB.png",
+        "content_sha256": "23d78183c712bac56290494a342587b6233b145fe3c6b2810321d3fb285fbd2f",
+        "rgb_sha256": "769f1c07a411010dab0676e4a51ff4baab1f4057123d2799e13d17953313171d",
+        "video_uid": "FFPP/source/real/002",
+        "method_id": "real",
+        "label": 0,
+        "mother_frame_index": 0,
+        "mother_rgb_sha256": "e4f0de39c40c1278910309033015fd5f386c55dbb39b882679db87d461691ee7",
+        "group_id": "FFPP/pair/002_006",
+        "domain": "source",
+        "role": "TRAIN",
+        "processing_version": "AB"
+      }
+    }
+  ],
+  "source_only": true,
+  "target_or_detector_scores_read": false,
+  "image_pixels_rendered_or_reaudited": false,
+  "publication_figure_complete": false,
+  "scientific_experimental_comparisons_changed": false,
+  "scope": "Five illustrative input pairs, not representative quality/accuracy claims or certification of manipulated-face identity."
+}

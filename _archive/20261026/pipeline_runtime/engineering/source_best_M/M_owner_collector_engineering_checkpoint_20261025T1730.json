@@ -1,0 +1,74 @@
+{
+  "utc": "2026-10-25T17:37:42Z",
+  "status": "OWNER_AND_CACHE_COLLECTOR_INDEPENDENT_REVIEWS_ACCEPTED_EXPANDED_SUITE_RUNNING_NO_PRODUCTION",
+  "runtime": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/check_20261025T1730_runtime.json",
+    "sha256": "a0953dfcdf397ef6eac1134e3d3f6dfd5750a667cca5df020a621c9e2ba411e8"
+  },
+  "runtime_time": "2026-10-25T17:32:50Z",
+  "H_roles": 190,
+  "H_operational_models": 24,
+  "H_independent_models": 8,
+  "H_statistics_independent_pairs": 2,
+  "H_statistics_running_pairs": 2,
+  "H_stats_fresh_ledgers": {
+    "CLIP123": 21,
+    "CLIP2026": 18
+  },
+  "owner_independent_acceptance": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_source_best_owner_fix_confirmation.json",
+    "sha256": "e8bc7442f5c447b9b99a5f71178a95d50a6f4a2605ad25d5ee4c2a219b4a5584"
+  },
+  "collector_independent_acceptance": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_source_best_cache_admission_final_confirmation.json",
+    "sha256": "4a233f278e2529ddc407461e12bb32b12a94df4f7f10a7aab3f742b0dd3ba942"
+  },
+  "root_new_targeted": {
+    "passed": 38,
+    "skipped_D_only_H_fixture": 10,
+    "seconds": 21.87,
+    "log": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_cache_bounded_namespace_GREEN.log"
+  },
+  "independent_collector": {
+    "probes_passed": 18,
+    "unit_passed": 27,
+    "D_only_H_skips": 10,
+    "Important_remaining_this_component": 0
+  },
+  "full_suite_launch": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_owner_collector_full_suite_20261025T1735_launch.json",
+    "sha256": "7c9ae1963dd8798cbdb056c5b377a3d93eaf88da1678d7892ed5584a71b58f2c"
+  },
+  "full_suite_pid": 2290260,
+  "full_suite_alive": true,
+  "full_suite_source_test_pins_unchanged": true,
+  "full_suite_final_result": "PENDING",
+  "uncommitted_files_pending_full_suite": [
+    "tools/source_best_owner.py",
+    "tools/source_best_cache_admission.py",
+    "tests/test_source_best_owner.py",
+    "tests/test_source_best_cache_admission.py"
+  ],
+  "accepted_package_sources_unchanged": true,
+  "post_cache_capacity_policy": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_post_cache_remaining_feature_policy_20261025T1730.json",
+    "sha256": "8bed7f401d75da970ce507542afb08f83471abf9f469b6a619e04ffb11b4de0d"
+  },
+  "actual_GPU_qualification": false,
+  "actual_canary": false,
+  "joint_budget_admitted": false,
+  "actual_M_feature_closure": false,
+  "M_production": false,
+  "cold_migration_release_bytes": 0,
+  "remaining_actions": [
+    "Read existing full suite2290260 terminal/time and recheck76pins; never repeat launch; on pass commit exactly2tools+2tests forced add ignored tests",
+    "Keep originalHowner3219035 and primarystats1477519/1592783 healthy; newmain pair admission waits shared slot",
+    "When originalH210roles/30operational exact terminal+empty queue and phase/native locks release, execute already prepared fixed9sourceGPU plan through independently accepted owner; no targetencoder in that qualification",
+    "Collector actual9source returns and independent data-format/cache+joint capacity gates before any fullMcache permit; source45CPUweight qualification must not repeat",
+    "Later45/180 same-input closedcache ownership proof permits NEW statistic-only plan with conservativepositive1MiB residual; oldownerbudget immutable; acceptedanalysis has no newruntimeclosure gate",
+    "M2boundedfirstplanned full-statistic canaries and realresources before full30 selectedM statistics/independentmetric-bootstrap acceptance/all5seedfour-core summaries",
+    "MainHremaining independent cache admissions/otherboneactualCPUqualification/statistics/figures and completeCN/ENpapers remain"
+  ],
+  "next_runtime_check": "2026-10-25T18:15:00Z",
+  "no_extra_authorization_needed_now": true
+}

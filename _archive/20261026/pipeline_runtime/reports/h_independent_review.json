@@ -1,0 +1,70 @@
+{
+  "blockers": [],
+  "conclusion": "Two Important issues should be addressed before H data freeze. Neither requires stopping or repeating pixel preprocessing.",
+  "findings": [
+    {
+      "effect": "The omitted edge can leave a connected TRAIN/CAL contamination component unquarantined. Keeping unused fakes out of tables does not remove their graph evidence.",
+      "evidence": "Synthetic disk-free call with TRAIN/trainpair/shared, SOURCE_UNUSED/calpair/shared, SOURCE_CAL/calpair/calrgb returned cross_role_conflicts=0 and quarantined=[].",
+      "id": "H-R1",
+      "lines": [
+        685,
+        686
+      ],
+      "recommendation": "Include all preprocessed candidates in RGB graph connectivity, preserving SOURCE_UNUSED exclusion from training/tuning/calibration/test rows; apply declared conflict semantics before freezing the retained cohorts.",
+      "severity": "Important",
+      "status": "Open; sent immediately to parent",
+      "title": "Unused validation fakes omitted from exact-RGB graph closure",
+      "trigger": "A SOURCE_UNUSED official-val fake duplicates a mother/derived RGB in TRAIN or another retained role while sharing a known pair group with SOURCE_CAL real."
+    },
+    {
+      "effect": "Resume returns reused=True and prior successful eligibility, allowing tables/failure coverage to reference missing or changed images.",
+      "evidence": "Disk-free FakePath/sha mock with eight existing mother paths and all A/B/AB paths missing returned reused=True and A/B/AB eligibility all True.",
+      "id": "H-R2",
+      "lines": [
+        864,
+        869
+      ],
+      "recommendation": "Verify mother bytes and every successful crop/mask path and recorded hashes before reuse or at a mandatory postprocessing integrity gate. Treat malformed manifests as incomplete rather than silently trusted.",
+      "severity": "Important",
+      "status": "Open; sent immediately to parent",
+      "title": "Resume reuse does not validate derived image integrity",
+      "trigger": "A matching manifest remains but A/B/AB PNGs or masks are absent or altered, or a mother PNG is altered while retaining its path."
+    }
+  ],
+  "implementation": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/geometry_h.py",
+  "live_snapshot": {
+    "GPU_used": false,
+    "ORT_threads_each": 2,
+    "completed_videos": 710,
+    "data_frozen": false,
+    "owner_pid": 3915880,
+    "status": "RUNNING",
+    "total_videos": 8431,
+    "version_ineligible_video_counts": {
+      "AB": 5
+    },
+    "workers": 4
+  },
+  "mutations": "Only this review JSON was written; no code, preprocessing output, jobs, Jev files, or VLLM/GPU4-7 changed.",
+  "operational_note": "The live process has already imported the old finalizer. After code fixes and pixel completion, explicitly rerun repaired finalization on H_processed_manifest_paths.json before data freeze.",
+  "provenance_caveat": "Geometry freeze contains earlier code SHA04c9c149...; current source SHA2ed76... separately recorded in source acceptance/handoff, while protocol hash is unchanged. Per-video result manifests bind protocol+source bytes, not implementation hash.",
+  "repository_commit": "8c4651b313fe384e20043351bd39da3c0c279758",
+  "reviewed_code_sha256": "2ed76f9d15406fbe4b94f1e7a9f98f7889f15949bb8bcd36d7f0c209dddbacaa",
+  "schema": "H_independent_scientific_review_v1",
+  "scope": "Read-only independent review of experiment plan sections3/4/11, geometry_h.py, tests, frozen source qualification, H/D source partitions and live CPU preprocessing provenance",
+  "utc": "2026-10-23",
+  "verification_method": "Source reads, accepted-report hash comparison, partition comparison, two in-memory synthetic reproducers. Did not rerun the parent's91-test suite; did not decode production videos or run GPU jobs.",
+  "verified": {
+    "DFD_scope": "Filename candidate ancestry and manipulated-face identity explicitly unverified",
+    "capacity": "/Dataset2.9T and workspace446G free; conservative source-derived reserve check present",
+    "eligibility": "Any selected-frame failure or fewer than8unique final RGB excludes that version; B deployment and commonB/AB evaluation rows separate",
+    "geometry": "A fixed112template expanded1.2 to256; orientation-preserving similarity; B unrotated1.5square224; bicubic constant-zero; AB separately redetects disk-decoded A PNG",
+    "mother_selection": "Unique RGB before face detection;32 uniform time candidates then full chronological fallback; chosen mother IDs shared across histories; no detector-driven replacement",
+    "paired_training": "Common-success videos, paired logical mother/sample IDs and exact .5real/.125perfake method masses; drawcount based on logical mother rows",
+    "partitions": "Independently normalized D/H partitions identical across all360 official source pairs:306TRAIN54DEV",
+    "qualification_protocol_sha256": "85a865f0e3343ecaf5b8c0174c8a3f602ec873deeccb03bd1826d617f2a7ae03",
+    "selection_and_masks": "Deterministic area/confidence/coordinate face selector; nearest-neighbor validity masks; AB inherits A mask; no padding-based exclusion threshold",
+    "source_qualification": "Initial640upscale AB0/10 documented; frozen no-upscale640top-left rule accepted10/10; source report SHA256 verified; protocol matches current code; no target images used for adjustment according to evidence",
+    "source_report_sha256": "12a25cd2a2e1269e3bbd287d37fce05dcce58845090056db2d32880fef13811c"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "utc": "2026-10-24T19:38:29.325656+00:00",
+  "run_id": "D_formal_efficientnet_b0_seed2026",
+  "slot": 0,
+  "status": "SLOT0_NEXT_FINITE_D_ANALYSIS_LAUNCHED_ADMISSION_FIRST",
+  "flock_pid": 2136543,
+  "command": [
+    "/usr/bin/flock",
+    "--nonblock",
+    "--conflict-exit-code",
+    "75",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/D/production_cpu.lock",
+    "/usr/bin/time",
+    "-v",
+    "-o",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/D_formal_efficientnet_b0_seed2026_analysis_time_v.log",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+    "-u",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/analysis_execution_records/D_formal_efficientnet_b0_seed2026.command.py"
+  ],
+  "command_source_sha256": "9b367b59f69404900f12b536f45c23d6e8401c13334ed1cd422b279a5f7b3321",
+  "source_template_sha256": "f04ad896cda267f25e1d18dee940688823264bfe8650fb223e094d8818c8e357",
+  "literal_run_record_substitutions": [
+    [
+      "RUN='D_formal_clip_vit_b16_seed7'",
+      "RUN='D_formal_efficientnet_b0_seed2026'"
+    ],
+    [
+      "D_first_single_analysis_progress.json",
+      "D_formal_efficientnet_b0_seed2026_analysis_progress.json"
+    ],
+    [
+      "D_first_single_analysis_admission.json",
+      "D_formal_efficientnet_b0_seed2026_analysis_admission.json"
+    ]
+  ],
+  "preceding_model_acceptance_sha256": "38b6ffe7e5a6b5f55b179601b28150c38491ffc9e6d3b4eac423cd6155562c3e",
+  "capacity_snapshot_sha256": "80ee571784c238a0bcc9aea27161c685d450c07190a2db5fb64aa5b56d06e009",
+  "calibration_repeats": 200,
+  "test_bootstrap_repeats": 2000,
+  "scientific_code_changed": false,
+  "stdout_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/D_formal_efficientnet_b0_seed2026_analysis.stdout.log"
+}

@@ -1,0 +1,20 @@
+{
+  "started_utc": "2026-10-24T16:49:05.664935+00:00",
+  "ended_utc": "2026-10-24T16:49:06.752377+00:00",
+  "returncode": 1,
+  "seconds": 1.087433522567153,
+  "command": [
+    "/usr/bin/flock",
+    "--nonblock",
+    "--conflict-exit-code",
+    "75",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/D/production_cpu_slot1.lock",
+    "python3",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/D_summary_independent_validation/audit.py",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023",
+    "clip_vit_b16"
+  ],
+  "script_sha256": "7323e939ff4fe47c9a0b77411317fc1c6b95a30be614f04d003ded5282051e22",
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/D_summary_independent_validation/audit.py\", line 142, in <module>\n    if __name__=='__main__':run(sys.argv[1],sys.argv[2])\n  File \"/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/D_summary_independent_validation/audit.py\", line 136, in run\n    actual=read_csv(output/(name+'.csv'));checks[name]={'rows':len(actual),'fields_verified':check_rows(actual,want,keys[name])}\n  File \"/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/D_summary_independent_validation/audit.py\", line 54, in check_rows\n    else:assert got==want,(key,name,got,want)\nAssertionError: ((7.0, 'clip_vit_b16', 'target_test', 'raw', 'mean_logit', 'max_ba'), 'missing_methods', '[]', [])\n"
+}

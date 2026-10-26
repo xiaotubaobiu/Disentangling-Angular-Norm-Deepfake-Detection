@@ -1,0 +1,176 @@
+{
+  "schema": "D_RESULT_FIGURE_IMPLEMENTATION_ACCEPTANCE_V1",
+  "utc": "2026-10-24T20:32:20.653789+00:00",
+  "status": "CPU_IMPLEMENTATION_VERIFIED_PENDING_INDEPENDENT_WHOLE_EXPORTER_REVIEW_AND_REAL_THREE_BACKBONE_ADMISSION",
+  "implementation_complete": true,
+  "independent_whole_exporter_review_complete": false,
+  "production_exported": false,
+  "plan": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/docs/superpowers/plans/2026-10-24-d-result-figures.md",
+  "spec_sections": [
+    "8",
+    "9"
+  ],
+  "owned_exporter": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/export_D_result_figures.py",
+  "exporter_sha256": "b7a0da32a42476f38d59491b1e4729b32f9b6924612bbfd3ab56893153ac513c",
+  "deliverable_sha256": {
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/export_D_result_figures.py": "b7a0da32a42476f38d59491b1e4729b32f9b6924612bbfd3ab56893153ac513c",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/D_result_figures_validation/fixtures.py": "c2593715882afa86c5696996fd0a3e3c9a456fb9bd7da8af9b9a45abeafa8e96",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/D_result_figures_validation/test_result_figures.py": "7d9ba91e09b06569fe1341f2110aaa0ddaa561721bf6cf171c001f5960ad6eed",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/D_result_figures_validation/progress.md": "56ee8458b8ee9ecb638d6f7ab47858f9bbaf484a7d4fd9f8e67aefd1f474a366",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/D_result_figures_validation/RED.log": "8f93525781d3952c4b05be939cc59765eb9e78a1167fdfe377a1ab303893b2d3",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/D_result_figures_validation/RED_partial_audit.log": "87c5b64ba4867568f962edd8379ed919255b832ce035f3c1e755e6bf0ea375a1",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/D_result_figures_validation/RED_same_set_metrics.log": "b3a7929ce40d45a374fca7f474501eae12f50997e4035f842e52fa193479341a",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/D_result_figures_validation/GREEN_28_final.log": "07d4d31703ab2e7be0d23f3d2d01e042810c3473bd8fe4c78de413ba9b2dc0b9",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/D_result_figures_validation/synthetic_preview_corrected.log": "531817eb7bc14c70f6d445c11d23b36c1c5a1a569972f642a0bb73c6894865a5"
+  },
+  "TDD": {
+    "initial_RED": "RED.log:24 expected implementation-absence assertion failures",
+    "regression_RED": [
+      "RED_partial_audit.log: partial independent12-table audit was not rejected",
+      "RED_same_set_metrics.log: repeated same CAL set could retain contradictory saved operating metrics"
+    ],
+    "final_GREEN": "GREEN_28_final.log:28/28 in37.394s, exit0",
+    "test_command": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -m unittest discover -s /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/D_result_figures_validation -p test_*.py -v",
+    "tests": 28,
+    "model_mocks": false,
+    "temporal_mutation_fault_injection": "One render wrapper calls the real renderer and then changes a synthetic config to verify post-render hash rejection; complete.json is not produced.",
+    "science_suite_repeated": false,
+    "science_suite_scope": "Plan explicitly scopes validation to the complete operational plotting suite while frozen V remains unchanged."
+  },
+  "behavior_verified": [
+    "Ties [2,1,2] -> unique support[1,2], cumulative[1/3,1]",
+    "All three independent accepted5-seed summaries and all12 audited table coverages required",
+    "Current source/completion/config/code hashes before and after; all bound analysis artifacts checked",
+    "Correct natural-video grouping, finite FP64 score rather than rank_score_decimal, separate role/class/seed flows",
+    "Duplicate natural UIDs, role mixing, missing summaries/audits/seeds, tampered hashes reject",
+    "All4 budgets and200 paired nested CAL repeats, fixed TEST ID hash, actual distinct-set recomputation",
+    "Legitimate unavailable budgets preserve200 NA rows and all5 model positions",
+    "Repeated identical CAL sets on fixed model/TEST require identical saved operating metrics; full80 set reports1 distinct set",
+    "No-overwrite, symlink/escape rejection and changed-input abort without completion receipt",
+    "Twelve accepted per-seed/five-seed tables concatenate exact string cells/NA/CI references without a pooled15-model estimator"
+  ],
+  "synthetic_fixture": {
+    "output": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/D_result_figures_validation/synthetic_preview_corrected/figures",
+    "status": "SYNTHETIC_FIXTURE_RENDERED_NOT_SCIENTIFIC_RESULTS",
+    "complete_sha256": "af9bd1cfc445693abe6c67ff8c034c779dd316e1c6e38cd5000722d642c5537f",
+    "artifacts_sha256": {
+      "CAL_variation_efficientnet_b0.svg": "364fa7cdda8de793993f6963faa6501eb27655dbef59577d93f72b739c17ac68",
+      "CAL_variation_efficientnet_b0.png": "7cc8755c7cf8187129cb073e2034c679d7625da80f3e8237a1b17b86c10b5490",
+      "CAL_variation_dinov2_vit_b14.png": "e5d87781fcaa2d8258106d175815e00e0022a4ab3f398be0175d38734cc067b1",
+      "CAL_variation_clip_vit_b16.svg": "124c77b5a246c31bdd788b3aa5a820076e372bb8bc3e194fdf33294012eb96a0",
+      "ECDF_source_test.png": "8ebe19e4d26f90e1c9236753cc67415a001cc6275a7eb754c0efc592939cbe85",
+      "captions_cn_en.md": "93f494b687658cd9b84e2a5f9bcce057ac4e97b2f65de3c5fceef604a782ae3b",
+      "ECDF_source_test.svg": "404550fac98b1c74e9ec83ec2b9db6eb1b24ec9e22bdaefd5082fabfc0910a93",
+      "ECDF_target_full.png": "9b761c5845f1e85d96238c46a6cc385cc9fd70a30664b091d05057fec713fd8e",
+      "plot_data.json": "db1211f62d1ea09d5b64e191a9bbfeac03a46ef591136d46c1cf8ff6e0000ac0",
+      "CAL_variation_dinov2_vit_b14.svg": "35092376ae2cf76d8818e51dbc94bbfa3f294e9715898bf705336fc0ff16ec36",
+      "CAL_variation_clip_vit_b16.png": "25140e477e7368eb25a9a88e05bf85f25de3e81bd8f40fcd2d2101154b106f09",
+      "ECDF_target_full.svg": "4b2d258be3325a3c477539f5da6852d5573768a15be1217d7b00a22a6dced76e",
+      "tables/per_seed_numerical.csv": "4de82539973b263490a27f0aa7b27f3d50cda0ae0f4be8a1ffb275a8e19001de",
+      "tables/five_seed_calibration_comparisons.csv": "db01e637bbdaff0da170193ff4a6725a3461347982422048f2f8ca4b636ecc21",
+      "tables/five_seed_numerical.csv": "db01e637bbdaff0da170193ff4a6725a3461347982422048f2f8ca4b636ecc21",
+      "tables/per_seed_calibration.csv": "4de82539973b263490a27f0aa7b27f3d50cda0ae0f4be8a1ffb275a8e19001de",
+      "tables/five_seed_metrics.csv": "db01e637bbdaff0da170193ff4a6725a3461347982422048f2f8ca4b636ecc21",
+      "tables/five_seed_effects.csv": "db01e637bbdaff0da170193ff4a6725a3461347982422048f2f8ca4b636ecc21",
+      "tables/per_seed_oracles.csv": "4de82539973b263490a27f0aa7b27f3d50cda0ae0f4be8a1ffb275a8e19001de",
+      "tables/per_seed_calibration_comparisons.csv": "4de82539973b263490a27f0aa7b27f3d50cda0ae0f4be8a1ffb275a8e19001de",
+      "tables/per_seed_effects.csv": "4de82539973b263490a27f0aa7b27f3d50cda0ae0f4be8a1ffb275a8e19001de",
+      "tables/five_seed_oracles.csv": "db01e637bbdaff0da170193ff4a6725a3461347982422048f2f8ca4b636ecc21",
+      "tables/per_seed_metrics.csv": "4de82539973b263490a27f0aa7b27f3d50cda0ae0f4be8a1ffb275a8e19001de",
+      "tables/five_seed_calibration.csv": "db01e637bbdaff0da170193ff4a6725a3461347982422048f2f8ca4b636ecc21"
+    },
+    "input_hash_count": 189,
+    "ECDF_curves": 120,
+    "CAL_boxes": 120,
+    "CAL_metric_values": 72000,
+    "calibration_original_row_groups": 30,
+    "calibration_original_rows": 24060,
+    "PNG_count": 5,
+    "SVG_count": 5,
+    "table_count": 12,
+    "all_output_hashes_rechecked": true,
+    "all_input_hashes_rechecked": true,
+    "table_rows_and_fields_readback_equal_payload": true,
+    "n80_constant_saved_metrics_and_unique_set1": true,
+    "initial_inconsistent_synthetic_fixture_preserved": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/D_result_figures_validation/synthetic_preview_inputs/figures",
+    "initial_fixture_not_scientific_results": true
+  },
+  "visual_review": {
+    "author_directly_viewed": [
+      "Initial synthetic ECDF_source_test.png",
+      "Initial synthetic CAL_variation_clip_vit_b16.png",
+      "Corrected synthetic CAL_variation_clip_vit_b16.png"
+    ],
+    "method": "In-memory Pillow resized JPEG previews of saved synthetic PNGs returned as tool images; originals unchanged.",
+    "scope": "Representative template layouts only; not independent review and not real-data production visual acceptance.",
+    "observations": "English axes/legends/seed IDs and distinct-set labels visible without overlapping/cropping; corrected n80 u=1 boxes collapse to saved constant points."
+  },
+  "scientific_boundaries": {
+    "ECDF_roles": [
+      "source_test",
+      "target_full"
+    ],
+    "ECDF_score_domain": "saved FP64 mean-logit margin score",
+    "RQ4_role": "fixed target_test bound by test_id_hash",
+    "target_full_not_relabelled_or_reconstructed_from_CAL_TEST": true,
+    "training_seeds_per_backbone": 5,
+    "CAL_repeats_per_model": 200,
+    "TEST_bootstrap_repeats": 2000,
+    "no_model_threshold_bootstrap_or_scientific_summary_recalculation": true,
+    "source_default_negative_results_and_NA_preserved_in_complete_tables": true
+  },
+  "runtime": {
+    "CPU_only": true,
+    "CUDA_VISIBLE_DEVICES": "",
+    "OMP_NUM_THREADS": "2",
+    "MKL_NUM_THREADS": "2",
+    "OPENBLAS_NUM_THREADS": "2",
+    "production_GPU_locks_or_process_signals": false,
+    "training_cache_qualification_scheduler_or_migration_started": false,
+    "workers_or_configs_modified": false,
+    "source_best_candidates_read_or_run": false,
+    "existing_three_figures_touched": false,
+    "production_output_directory_created": false,
+    "generated_exporter_bytecode_removed": true
+  },
+  "real_gate_marker_inventory": {
+    "clip_vit_b16": {
+      "completion_marker_present": true,
+      "audit_marker_present": true,
+      "marker_only_not_full_admission": true
+    },
+    "dinov2_vit_b14": {
+      "completion_marker_present": true,
+      "audit_marker_present": true,
+      "marker_only_not_full_admission": true
+    },
+    "efficientnet_b0": {
+      "completion_marker_present": false,
+      "audit_marker_present": false,
+      "marker_only_not_full_admission": true
+    }
+  },
+  "real_gate_limitation": "Marker inventory only. No build_packet on the live production root and no real-data plotting performed; EfficientNet summary/acceptance missing at this observation.",
+  "product_repo": {
+    "HEAD": "5ef6d06bf7aeda02a5a11113e4c35a2c9909f215",
+    "porcelain": ""
+  },
+  "author_self_check_findings": {
+    "Critical": [],
+    "Important": [],
+    "Minor": [
+      "Bundled Matplotlib/pyparsing deprecation warnings; environment unchanged."
+    ]
+  },
+  "rulings": [
+    "Ruling: Use the explicitly authorized validation directory for ledger/fixtures/tests, not a Git worktree or .superpowers workspace — frozen science repo must remain untouched; the parent specified the only writable implementation paths. Cost if wrong: operational evidence stays outside Git, bound by SHA instead.",
+    "Ruling: Preserve ledger and test evidence rather than deleting a workspace or committing to science V — explicit task scope forbids either. Cost if wrong: additional small evidence files remain."
+  ],
+  "remaining_root_actions": [
+    "One independent whole-exporter review; address important findings with RED->GREEN regression",
+    "Wait for all3 real5-seed summaries and independent acceptances; run exact current-source admission",
+    "Controller-only explicit production export, PNG/SVG render review and independent exact-data QA"
+  ],
+  "production_example": "CUDA_VISIBLE_DEVICES= OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/export_D_result_figures.py --export --admit-accepted-production",
+  "production_example_executed": false
+}

@@ -1,0 +1,61 @@
+{
+  "captured_utc": "2026-10-26T13:53:48.185464+00:00",
+  "dependencies": [
+    {
+      "path": "/home/z/project/deepfake_detector",
+      "exists": true,
+      "role": "Legacy source; artifacts and .venv links are still used."
+    },
+    {
+      "path": "/home/z/workspace/deepfake_detector_v11_20261007",
+      "exists": true,
+      "role": "Canonical legacy artifacts, weights, source data manifests, completed experiment outputs, environment_clean."
+    },
+    {
+      "path": "/home/z/workspace/deepfake_detector_publish_20261023",
+      "exists": true,
+      "role": "Frozen runtime imports used by qualification and independent audit scripts; do not replace with latest engineering code."
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023",
+      "exists": true,
+      "role": "Active runs, qualification, features, engineering, state and original environment."
+    },
+    {
+      "path": "/home/z/.cache/clip/ViT-B-16.pt",
+      "exists": true,
+      "role": "CLIP initialization checkpoint referenced by active configurations."
+    },
+    {
+      "path": "/Dataset/deepfake_detection/DF40_all",
+      "exists": true,
+      "role": "Dataset and official metadata."
+    },
+    {
+      "path": "/Dataset/deepfake_detection/FaceForensics++",
+      "exists": true,
+      "role": "Dataset and frame source."
+    },
+    {
+      "path": "/Dataset/deepfake_detection/derived/pipeline_reliability_v2_20261023/H",
+      "exists": true,
+      "role": "Derived H preprocessing data."
+    },
+    {
+      "path": "/Dataset/deepfake_detector_v2_cold_20261023/staged_copies",
+      "exists": true,
+      "role": "Cold checkpoint copies referenced by recovery and migration scripts."
+    }
+  ],
+  "symlinks": [
+    {
+      "path": "/home/z/project/deepfake_detector/artifacts",
+      "target": "/home/z/workspace/deepfake_detector_v11_20261007"
+    },
+    {
+      "path": "/home/z/project/deepfake_detector/.venv",
+      "target": "/home/z/workspace/deepfake_detector_v11_20261007/environment_clean"
+    }
+  ],
+  "scope": "Confirmed code/config paths. Paths mentioned only in fixtures are excluded; this is not a proof of exhaustive dynamic dependencies."
+}

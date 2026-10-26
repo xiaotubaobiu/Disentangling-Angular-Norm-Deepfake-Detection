@@ -1,0 +1,37 @@
+{
+  "utc": "2026-10-24T19:33:43.912930+00:00",
+  "status": "PREPARED_PARAMETERS_ONLY_NOT_STARTED",
+  "files": [
+    {
+      "file": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/analysis_execution_records/D_formal_efficientnet_b0_seed42.saved_rank_audit.command.py",
+      "sha256": "0b19732b291d4b5cc8c5ebb0fbfe11bb5301d164722be2bf7cfe423893a1909f",
+      "template_sha256": "d8a439ec8ef9421869299d2773dcc74cc68d7fd8d17c068b5929504f5d3ed80d"
+    },
+    {
+      "file": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/analysis_execution_records/D_formal_efficientnet_b0_seed42.terminal_audit.command.py",
+      "sha256": "bdd09cf910b9b51c83ce085b705341fc067ff902aa07650de05a414aa8e207b2",
+      "template_sha256": "1fede9e8c4f9896c1e0cc9ff897e6ed9d2af639c3b53a3dd9984467e8696b3ea"
+    },
+    {
+      "file": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/analysis_execution_records/D_formal_efficientnet_b0_seed42.independent_audit_supervisor.command.py",
+      "sha256": "f4a448c48f4eeda8da6f55452792b1f1f0a904bce5471cd9862c5dda6c1756ea",
+      "template_sha256": "a5d48acd36704b26102f25fb1fe23feaf996accaa8963984be12eab08dbcb54a"
+    },
+    {
+      "file": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/analysis_execution_records/D_formal_efficientnet_b0_seed123.saved_rank_audit.command.py",
+      "sha256": "b7667d63517be5b504d9c122a02971603ebaf65e85524621d436177d12725674",
+      "template_sha256": "d8a439ec8ef9421869299d2773dcc74cc68d7fd8d17c068b5929504f5d3ed80d"
+    },
+    {
+      "file": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/analysis_execution_records/D_formal_efficientnet_b0_seed123.terminal_audit.command.py",
+      "sha256": "877522d0ef5e319a32da9417d45c6ff92013f8727753a337bc5e44402f486cd8",
+      "template_sha256": "1fede9e8c4f9896c1e0cc9ff897e6ed9d2af639c3b53a3dd9984467e8696b3ea"
+    },
+    {
+      "file": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/analysis_execution_records/D_formal_efficientnet_b0_seed123.independent_audit_supervisor.command.py",
+      "sha256": "5cbb383bf795d620d9c350e453afca77548935a851ae245613707637343cab44",
+      "template_sha256": "a5d48acd36704b26102f25fb1fe23feaf996accaa8963984be12eab08dbcb54a"
+    }
+  ],
+  "guards": "Do not launch until complete.json + producer exit/time-v exit0 + no existing audit launch; original pending model controls/NA retained."
+}

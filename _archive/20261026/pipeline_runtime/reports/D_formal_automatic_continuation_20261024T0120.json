@@ -1,0 +1,235 @@
+{
+  "utc": "2026-10-24T01:32:50.015692+00:00",
+  "status": "PASS_FIRST4_FORMAL_TERMINALS_AND_ORIGINAL_AUTOMATIC_NEXT_BATCH",
+  "owner_pid_unchanged": 3942476,
+  "current_queue": {
+    "owner_pid": 3942476,
+    "stage": "P3_D_FORMAL_TRAINING",
+    "utc": "2026-10-24T01:32:36.184391+00:00",
+    "active": [
+      {
+        "pid": 457025,
+        "run_id": "D_formal_clip_vit_b16_seed3407",
+        "gpu": 0,
+        "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e"
+      },
+      {
+        "pid": 457172,
+        "run_id": "D_formal_dinov2_vit_b14_seed7",
+        "gpu": 3,
+        "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646"
+      },
+      {
+        "pid": 457712,
+        "run_id": "D_formal_dinov2_vit_b14_seed42",
+        "gpu": 2,
+        "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45"
+      },
+      {
+        "pid": 458602,
+        "run_id": "D_formal_dinov2_vit_b14_seed123",
+        "gpu": 1,
+        "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c"
+      }
+    ],
+    "completed_this_session": [
+      "D_dev_clip_vit_b16_lr1e-05_seed1007_e30",
+      "D_dev_clip_vit_b16_lr1e-05_seed1042_e30",
+      "D_dev_dinov2_vit_b14_lr1e-05_seed1007_e30",
+      "D_dev_dinov2_vit_b14_lr1e-05_seed1042_e30",
+      "D_dev_dinov2_vit_b14_lr3e-05_seed1007_e30",
+      "D_dev_dinov2_vit_b14_lr3e-05_seed1042_e30",
+      "D_dev_dinov2_vit_b14_lr5e-05_seed1042_e30",
+      "D_dev_dinov2_vit_b14_lr5e-05_seed1007_e30",
+      "D_dev_efficientnet_b0_lr1e-04_seed1007_e30",
+      "D_dev_efficientnet_b0_lr1e-04_seed1042_e30",
+      "D_formal_clip_vit_b16_seed7",
+      "D_formal_clip_vit_b16_seed2026",
+      "D_formal_clip_vit_b16_seed123",
+      "D_formal_clip_vit_b16_seed42"
+    ],
+    "detail": {
+      "pending": [
+        "D_formal_dinov2_vit_b14_seed2026",
+        "D_formal_dinov2_vit_b14_seed3407",
+        "D_formal_efficientnet_b0_seed7",
+        "D_formal_efficientnet_b0_seed42",
+        "D_formal_efficientnet_b0_seed123",
+        "D_formal_efficientnet_b0_seed2026",
+        "D_formal_efficientnet_b0_seed3407"
+      ]
+    }
+  },
+  "completed_models": [
+    {
+      "run_id": "D_formal_clip_vit_b16_seed7",
+      "backbone": "clip_vit_b16",
+      "seed": 7,
+      "epochs": 30,
+      "attempts": 23970,
+      "successful_updates": 23965,
+      "AMP_skips": 5,
+      "selection": "frozen_last",
+      "final_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_clip_vit_b16_seed7/final.pt",
+      "final_sha256": "ec115e317806cee35d3e6b459e59b90b3b5cbd8f43652311809d9257ff0d9e2f",
+      "source_best_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_clip_vit_b16_seed7/source_best.pt",
+      "source_best_sha256": "838828ed26fc905b04fb4b92ab3cfe1138fc2e3a7defb164232c71725770ce6f",
+      "source_best_epoch": 23,
+      "complete_receipt_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_clip_vit_b16_seed7/complete.json",
+      "complete_receipt_sha256": "556528e0bfc6a6fa0edac05b7e825248740f5868f7e75f09dee787ec7f31c1b2",
+      "complete_file_mtime_utc": "2026-10-24T01:13:04.981752+00:00",
+      "target_scores_used": false
+    },
+    {
+      "run_id": "D_formal_clip_vit_b16_seed42",
+      "backbone": "clip_vit_b16",
+      "seed": 42,
+      "epochs": 30,
+      "attempts": 23970,
+      "successful_updates": 23965,
+      "AMP_skips": 5,
+      "selection": "frozen_last",
+      "final_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_clip_vit_b16_seed42/final.pt",
+      "final_sha256": "eb9912c9ac0bb1521cc368dd9394dd46e9b1ea4454807c391cfdb7a9574b0685",
+      "source_best_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_clip_vit_b16_seed42/source_best.pt",
+      "source_best_sha256": "1c8fe494ce21f639596ee9e893b67d01b9a680875ad73a0b34e321651784c714",
+      "source_best_epoch": 4,
+      "complete_receipt_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_clip_vit_b16_seed42/complete.json",
+      "complete_receipt_sha256": "97ba1778845527152f838999c2c7a41071d3507cbeb6ae0252330fb53292e31a",
+      "complete_file_mtime_utc": "2026-10-24T01:15:38.297750+00:00",
+      "target_scores_used": false
+    },
+    {
+      "run_id": "D_formal_clip_vit_b16_seed123",
+      "backbone": "clip_vit_b16",
+      "seed": 123,
+      "epochs": 30,
+      "attempts": 23970,
+      "successful_updates": 23966,
+      "AMP_skips": 4,
+      "selection": "frozen_last",
+      "final_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_clip_vit_b16_seed123/final.pt",
+      "final_sha256": "d12435cf068b7f5f3325a0f06d251a8bca54f2f42809670e36fd7a9601e67616",
+      "source_best_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_clip_vit_b16_seed123/source_best.pt",
+      "source_best_sha256": "f74165005f63b91241ae6f489c99646db6b32414d3112f3cd8ab81896471d191",
+      "source_best_epoch": 4,
+      "complete_receipt_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_clip_vit_b16_seed123/complete.json",
+      "complete_receipt_sha256": "2c37662fb9354e8e7497a340b99bc4698dcc845c2473ddf59b1362bb25c099df",
+      "complete_file_mtime_utc": "2026-10-24T01:15:14.825751+00:00",
+      "target_scores_used": false
+    },
+    {
+      "run_id": "D_formal_clip_vit_b16_seed2026",
+      "backbone": "clip_vit_b16",
+      "seed": 2026,
+      "epochs": 30,
+      "attempts": 23970,
+      "successful_updates": 23965,
+      "AMP_skips": 5,
+      "selection": "frozen_last",
+      "final_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_clip_vit_b16_seed2026/final.pt",
+      "final_sha256": "421593e4817e03d797d8bdf037bcefe294544d6ec80675b352ea3a84592e4044",
+      "source_best_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_clip_vit_b16_seed2026/source_best.pt",
+      "source_best_sha256": "6f9705ffd34d2abcfa993814bfec12eb671255b9772cb0ced5690b822abc69f1",
+      "source_best_epoch": 20,
+      "complete_receipt_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_clip_vit_b16_seed2026/complete.json",
+      "complete_receipt_sha256": "fcc2fdc90dcc973b9097a826935692c0d9df2eef51c0ac90361f482a8e64dac4",
+      "complete_file_mtime_utc": "2026-10-24T01:14:37.809751+00:00",
+      "target_scores_used": false
+    }
+  ],
+  "retired_first_batch_PID_liveness": {
+    "342137": false,
+    "342138": false,
+    "342139": false,
+    "342140": false
+  },
+  "successor_first_epoch_recoveries": [
+    {
+      "run_id": "D_formal_clip_vit_b16_seed3407",
+      "pid": 457025,
+      "checkpoint_epoch": 1,
+      "attempts": 799,
+      "successful_updates": 799,
+      "AMP_skips": 0,
+      "identity": {
+        "config": "ec55a3bdc83326ee142a093aebdd61010372871a4454e557733d2627f4908391",
+        "train_manifest": "9d85e421d803f20481eb7720854cdb4369349b97dd5e04f5763dbe851077f496",
+        "dev_manifest": "2c157ce3f30504479e50023ff43c76bdd0a2df8cd7e31a938356a6306b7550bd",
+        "initialization": "5806e77cd80f8b59890b7e101eabd078d9fb84e6937f9e85e4ecb61988df416f",
+        "environment": "d3e6f2a2fc50770a2c3c8ab5b913dfa9049111a398c9de72d85baf618b139ebb",
+        "code": "336f3097434edf903a5ff402162e29afeca2442ca50f9c7d9883ca60136b8335",
+        "qualification": "c2a9a09d208d2671b7a123df7ee29e83b8abedcac08d9221d5ad26f3948700aa"
+      },
+      "checkpoint_sha256": "7472450b63387374340a8ba6e62312d84f8bc764c385e3588180152852781f8b",
+      "recent_effective_input_rate_per_second": 204.28579348472022
+    },
+    {
+      "run_id": "D_formal_dinov2_vit_b14_seed7",
+      "pid": 457172,
+      "checkpoint_epoch": 1,
+      "attempts": 799,
+      "successful_updates": 799,
+      "AMP_skips": 0,
+      "identity": {
+        "config": "d33e9fbafaf5474e9adbe4abd14447ceea155dc3daf835d9e4ea556cddaccfe8",
+        "train_manifest": "9d85e421d803f20481eb7720854cdb4369349b97dd5e04f5763dbe851077f496",
+        "dev_manifest": "2c157ce3f30504479e50023ff43c76bdd0a2df8cd7e31a938356a6306b7550bd",
+        "initialization": "0b8b82f85de91b424aded121c7e1dcc2b7bc6d0adeea651bf73a13307fad8c73",
+        "environment": "d3e6f2a2fc50770a2c3c8ab5b913dfa9049111a398c9de72d85baf618b139ebb",
+        "code": "336f3097434edf903a5ff402162e29afeca2442ca50f9c7d9883ca60136b8335",
+        "qualification": "c2a9a09d208d2671b7a123df7ee29e83b8abedcac08d9221d5ad26f3948700aa"
+      },
+      "checkpoint_sha256": "edc2123ffb2e84f0434405999ef163ea741400e80d5e8abe41eb395b67ddb02d",
+      "recent_effective_input_rate_per_second": 159.8194038234279
+    },
+    {
+      "run_id": "D_formal_dinov2_vit_b14_seed42",
+      "pid": 457712,
+      "checkpoint_epoch": 1,
+      "attempts": 799,
+      "successful_updates": 799,
+      "AMP_skips": 0,
+      "identity": {
+        "config": "beaa50f8f28451c6a8248dd34c2b6cb294066a0b2cbaee87c359fe7831c1dd30",
+        "train_manifest": "9d85e421d803f20481eb7720854cdb4369349b97dd5e04f5763dbe851077f496",
+        "dev_manifest": "2c157ce3f30504479e50023ff43c76bdd0a2df8cd7e31a938356a6306b7550bd",
+        "initialization": "0b8b82f85de91b424aded121c7e1dcc2b7bc6d0adeea651bf73a13307fad8c73",
+        "environment": "d3e6f2a2fc50770a2c3c8ab5b913dfa9049111a398c9de72d85baf618b139ebb",
+        "code": "336f3097434edf903a5ff402162e29afeca2442ca50f9c7d9883ca60136b8335",
+        "qualification": "c2a9a09d208d2671b7a123df7ee29e83b8abedcac08d9221d5ad26f3948700aa"
+      },
+      "checkpoint_sha256": "80a48ddaa87fbc4114eeef924fd150cbca572502888662ea242df124fc3c73f7",
+      "recent_effective_input_rate_per_second": 161.9827580527594
+    },
+    {
+      "run_id": "D_formal_dinov2_vit_b14_seed123",
+      "pid": 458602,
+      "checkpoint_epoch": 1,
+      "attempts": 799,
+      "successful_updates": 799,
+      "AMP_skips": 0,
+      "identity": {
+        "config": "afa6b82df208f102c1b38766cee52ca14a7a6b8dcb16cec3aed0fd74fd84e4a3",
+        "train_manifest": "9d85e421d803f20481eb7720854cdb4369349b97dd5e04f5763dbe851077f496",
+        "dev_manifest": "2c157ce3f30504479e50023ff43c76bdd0a2df8cd7e31a938356a6306b7550bd",
+        "initialization": "0b8b82f85de91b424aded121c7e1dcc2b7bc6d0adeea651bf73a13307fad8c73",
+        "environment": "d3e6f2a2fc50770a2c3c8ab5b913dfa9049111a398c9de72d85baf618b139ebb",
+        "code": "336f3097434edf903a5ff402162e29afeca2442ca50f9c7d9883ca60136b8335",
+        "qualification": "c2a9a09d208d2671b7a123df7ee29e83b8abedcac08d9221d5ad26f3948700aa"
+      },
+      "checkpoint_sha256": "9d12f3f7648df1889b44dbb39afbafaae5ad74cf89f1332826c18a630546eac8",
+      "recent_effective_input_rate_per_second": 162.25368707459916
+    }
+  ],
+  "D_formal_counts": {
+    "complete": 4,
+    "active": 4,
+    "pending": 7
+  },
+  "queue_status_has_completed_four_and_continues": true,
+  "child_exit_success_scope": "Unchangedqueue_d.pyonlyaddscompletedrunafterp.poll()==0andverifiedcomplete/finalhash;observedsuccessinferredfromthatimplementationandcontinuingoriginalowner,notaseparateOSexitlog.",
+  "manual_duplicate_training_started": false,
+  "cache_stage_started": false,
+  "H_GPU_started": false
+}

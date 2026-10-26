@@ -1,0 +1,123 @@
+{
+  "schema": "H_ACCEPTANCE_METADATA_BINDING_INDEPENDENT_REVIEW_V1",
+  "utc": "2026-10-23T20:25:42.651145+00:00",
+  "status": "PASS_NARROW_CODE_REVIEW_FULL_SUITE_PENDING",
+  "review_status": "PASS",
+  "full_suite_status": "PENDING_CORRECTED_SOURCE_FULL_SUITE",
+  "reviewer": {
+    "identity": "Codex independent delegated reviewer /root/h_pipeline_review",
+    "independent": true
+  },
+  "scope": "Independent read-only review of exactly the three-line H acceptance change and added CPU regression. Does not approve H GPU admission or model training.",
+  "bindings": {
+    "artifact_root": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023",
+    "code_root": "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2",
+    "git_HEAD": "a612f24194a0a89f42f0e3bf6dde73a6287ee76d",
+    "source_sha256": {
+      "qualification_h.py": "5c70e9fb2a39bd974b0db278d519a8b7103f9553c3bfee32c7accb311edf0ec0",
+      "worker_h.py": "d0219aa52ebb1b6602602d5b09eb5fdfbbb9dc3aeb7b55dbfc0251ced66136f4",
+      "queue_h.py": "a2792361443e64622391fb6ae766ee5e6f887789d662afdfb6d809f9a5ea8176",
+      "queue_d.py": "3db3d1ebb63fbe233fa19116934268ab999be94faaff59fe1f2d52fdbe1949b8",
+      "trainer.py": "56f0db0634a525a530fb53482732365ebf9693a1f5470b0a95ec0820cc614368",
+      "cache_d.py": "8f5814646194c772dcf00f6751a35c2f792dd5f11008e0834fdba4eb5e329761",
+      "data_h.py": "ad81f65c27d53159e6902bf8a20b0910cd129f75eb0105e5a5a053bcc2d2f45e",
+      "geometry_h.py": "161ac4e837463ff16e7916ca42eeb5d13acc44aab9bcc1c397025b9426ad9532"
+    },
+    "test_sha256": "c849dd181756cc156ed94b42009bd02253430ed2f1883847e1d77bb0c8c2f96e",
+    "h_code_bundle_sha256": "639d09df6ae68a36875d376c9176d8d69a1b070ae054d0eb04b2f221c1080ff3",
+    "H_freeze_sha256": "11ac3398b8bd2b347da24efbe45fb74e890681d2d063933b01a65d5fdba0675d",
+    "admission_design_review": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_resource_admission_design_review_2020.json",
+      "sha256": "507dd5db210e8a9eb76a06386c386752034c46131a75102a099ed8338ff2487c",
+      "status": "REJECT_FOR_GPU_NO_SHARED_ATOMIC_HANDSHAKE"
+    }
+  },
+  "AST_verification": {
+    "result": "PASS",
+    "exact_three_production_changes_only": true,
+    "method": "Parse HEAD and working source; inverse-normalize the two explicit deep arguments and verification-scope string in accept_qualification; full-module ast.dump(include_attributes=False) must equal HEAD. Compare all previous test AST nodes exactly; exactly one new test function is appended.",
+    "previous_test_AST_unchanged": true,
+    "new_test_alias_fixed": true,
+    "D_trainer_worker_queue_data_geometry_bytes_equal_HEAD": true,
+    "production_admission_h_module_absent": true
+  },
+  "findings": [],
+  "changes_reviewed": [
+    {
+      "location": "qualification_h.py:684",
+      "change": "_context(root,deep=False)",
+      "conclusion": "PASS",
+      "reason": "Reuses already accepted frozen H data binding policy. data_h.py:452-488 still freshly checks frozen data/geometry code, protocol, all metadata/table/review/audit bindings and receipt stability; only the optional inspect_h_data full raw-artifact reconstruction is skipped."
+    },
+    {
+      "location": "qualification_h.py:687",
+      "change": "_qualified_backbones(...,deep=True) explicitly retained",
+      "conclusion": "PASS",
+      "reason": "Three backbones times AMP/FP32 still each require real receipt/OOM chain; :660 calls full _verify_attempt. :535-590 rehashes every proof file, reloads/checks checkpoint/optimizer/scaler/RNG, paired FP32 features, source draws/methods/augmentations, DEV/CAL feature/score recomputation and proof stat stability."
+    },
+    {
+      "location": "qualification_h.py:691",
+      "change": "Truthful acceptance_verification scope",
+      "conclusion": "PASS",
+      "reason": "The gate describes full GPU evidence plus accepted frozen-H metadata bindings and no longer claims a fresh all-H-pixel data audit at gate acceptance."
+    }
+  ],
+  "independent_tests": {
+    "status": "PASS",
+    "returncode": 0,
+    "count": 3,
+    "duration_seconds": 12.58,
+    "command": "env CUDA_VISIBLE_DEVICES= OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 PYTHONDONTWRITEBYTECODE=1 R/environment/bin/python -m pytest -q -p no:cacheprovider --basetemp=/tmp/H_accept_independent_2020 tests/test_qualification_h.py::test_acceptance_uses_frozen_data_bindings_but_full_GPU_proofs tests/test_qualification_h.py::test_gate_schema_binds_six_receipts_and_rejects_changed_bundle tests/test_qualification_h.py::test_full_two_history_receipt_verification_on_cpu_and_tamper_detection",
+    "stdout": "... [100%]\n3 passed in 12.58s",
+    "scope": "CPU pytest temporary fixtures only; synthetic receipt/device metadata never touches production gate.",
+    "code_and_test_hashes_remained_equal_after_tests": true
+  },
+  "test_issue_resolved": {
+    "location": "tests/test_qualification_h.py:409,410,414,416",
+    "original_issue": "New function referenced undefined qualification_h despite module imported as q.",
+    "resolution": "Parent corrected only these four aliases to q; independently verified and new test passed.",
+    "original_full_suite": "Collected before alias fix; not accepted as green. Parent will preserve its actual result and run the corrected full suite."
+  },
+  "restored_resource_boundary": {
+    "worker_h_sha256": "d0219aa52ebb1b6602602d5b09eb5fdfbbb9dc3aeb7b55dbfc0251ced66136f4",
+    "qualification_worker": "qualification_h.py:470-472 still requires verify_resource_boundary(require_D_priority=True) then trainer.owned_gpu; no admission-policy override.",
+    "queue_D_sha256": "3db3d1ebb63fbe233fa19116934268ab999be94faaff59fe1f2d52fdbe1949b8",
+    "safe_production_GPU_admission": "BLOCKED_PENDING_EXISTING_D_TERMINAL_GUARD_OR_A_SEPARATELY_PROVEN_SHARED_HANDSHAKE"
+  },
+  "probe_versioning": {
+    "current_probe_exists": true,
+    "current_probe_sha256": "993314938dc58372265257a1e602bf444bd8e11ddebeb81d049aac571643cf42",
+    "current_probe_binding": {
+      "schema": "H_SOURCE_QUALIFICATION_V1",
+      "training_code_sha256": "336f3097434edf903a5ff402162e29afeca2442ca50f9c7d9883ca60136b8335",
+      "qualification_code_sha256": "b356d2ff1be89476821927abdb3145d2c8989724eb465d3b01b5c0f091060c1d",
+      "h_code_bundle_sha256": "5b5b101bcaabd73f4818bd9de03425d5c3898c21fcf0181fb28f39f6e5e4f295",
+      "H_data_freeze_sha256": "11ac3398b8bd2b347da24efbe45fb74e890681d2d063933b01a65d5fdba0675d",
+      "architecture_gate_sha256": "e3073c7d08e81f8e7cb173bdb1e5c526d78d8ca05a30e26980fc1beb3901fe85",
+      "base_config_sha256": "c3cfc87050677d23f2c8446e2bfdbedd5c0af8f5f15b34b41f3040889a6ba91c",
+      "environment_sha256": "d3e6f2a2fc50770a2c3c8ab5b913dfa9049111a398c9de72d85baf618b139ebb"
+    },
+    "current_probe_matches_new_bundle": false,
+    "requirement": "Preserve the old source-only probe receipt, then recreate the 416-row probe under the final H bundle before any eventual GPU worker. Do not rewrite hashes into old receipts. This review did not prepare probes or create a gate."
+  },
+  "blockers_to_narrow_code_review": [],
+  "remaining_dependencies": [
+    "Corrected full CPU suite result must be recorded separately before version finalization.",
+    "H GPU admission remains rejected by the separately hash-bound design review; this narrow acceptance fix does not close the D dispatch race.",
+    "Final H bundle requires new source-only probe preparation; no actual six GPU qualification proofs or H runtime gate are claimed."
+  ],
+  "limitations": [
+    "No all-PNG/source deep audit was repeated.",
+    "No GPU or production lock was acquired; no production model qualification/training was run.",
+    "No D/config/trainer/data/freeze edits were made by this reviewer."
+  ],
+  "actions": {
+    "production_code_edited": false,
+    "data_edited": false,
+    "freeze_created_or_overwritten": false,
+    "qualification_gate_created": false,
+    "GPU_accessed": false,
+    "production_process_signaled": false,
+    "reports_only_written": true
+  }
+}

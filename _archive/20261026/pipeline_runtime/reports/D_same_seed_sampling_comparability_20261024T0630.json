@@ -1,0 +1,2107 @@
+{
+  "utc": "2026-10-24T06:42:24.096572+00:00",
+  "status": "PASS_EXACT_SAME_SEED_DRAW_METHOD_AUGMENTATION_ARTIFACTS",
+  "completed_seed_pairs": 3,
+  "epoch_pairs": 90,
+  "hash_comparisons": 270,
+  "comparisons": [
+    {
+      "seed": 7,
+      "CLIP_run": "D_formal_clip_vit_b16_seed7",
+      "DINO_run": "D_formal_dinov2_vit_b14_seed7",
+      "epoch_pairs": [
+        {
+          "epoch": 1,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "8241473da3ec3d772b59b53ad5ae8e445151e3dfa6e6c4693afbb7bdfce99882",
+              "DINO_sha256": "8241473da3ec3d772b59b53ad5ae8e445151e3dfa6e6c4693afbb7bdfce99882",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "c5f812c79c66db9793d327bb0d747e154a89a42802571f2d2b17bc7063d1fe11",
+              "DINO_sha256": "c5f812c79c66db9793d327bb0d747e154a89a42802571f2d2b17bc7063d1fe11",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "e27b15c2daefe5ab3beea615c283a0d7801f02992f0776a55168232a4c9ea219",
+              "DINO_sha256": "e27b15c2daefe5ab3beea615c283a0d7801f02992f0776a55168232a4c9ea219",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 2,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "05be146e26d7de0ad0af8b6bcfa48eb7b1dd291c08a10ca31b08ae729b32fac2",
+              "DINO_sha256": "05be146e26d7de0ad0af8b6bcfa48eb7b1dd291c08a10ca31b08ae729b32fac2",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "e6cfebdb56fbd6c46fff4065ebdbe57ff31ec380298162a5b5ac3bd9df76e989",
+              "DINO_sha256": "e6cfebdb56fbd6c46fff4065ebdbe57ff31ec380298162a5b5ac3bd9df76e989",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "9ed513b2c66cc08b043ef12d85ed5b04b55c681f3bf2c40b40ced14432bdcfb9",
+              "DINO_sha256": "9ed513b2c66cc08b043ef12d85ed5b04b55c681f3bf2c40b40ced14432bdcfb9",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 3,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "fdf6723369fd9ede6eccbf5d80dcc5a25ecfbe2c0a90611a3089833b8e52ae70",
+              "DINO_sha256": "fdf6723369fd9ede6eccbf5d80dcc5a25ecfbe2c0a90611a3089833b8e52ae70",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "dd5e108854797389317124088588f2fef78dd31e7a0bbea46ae02aca4e05cf59",
+              "DINO_sha256": "dd5e108854797389317124088588f2fef78dd31e7a0bbea46ae02aca4e05cf59",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "3f8cb8ce4fc79c6fc8b6dc317263af67d9c365248918c5a8be883d76d2bacd6e",
+              "DINO_sha256": "3f8cb8ce4fc79c6fc8b6dc317263af67d9c365248918c5a8be883d76d2bacd6e",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 4,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "94cf5f4181687e4ff815f6e5c953d4c9cc9cbcbd6de28716852819511df3e9e2",
+              "DINO_sha256": "94cf5f4181687e4ff815f6e5c953d4c9cc9cbcbd6de28716852819511df3e9e2",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "e5948442691aafb8ecd1f88fb1c2f518003c42e860ae0e1deedb30d432fc9ade",
+              "DINO_sha256": "e5948442691aafb8ecd1f88fb1c2f518003c42e860ae0e1deedb30d432fc9ade",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "eb557421c24fbfa1a47bf63c09fc5f0a13e8add14fb7d6ec995f1de4099d0496",
+              "DINO_sha256": "eb557421c24fbfa1a47bf63c09fc5f0a13e8add14fb7d6ec995f1de4099d0496",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 5,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "6a2eb28b3b985d7fa8fdb2f296d4e2badf7c0a6a4a95240994f8e6b6245bd45b",
+              "DINO_sha256": "6a2eb28b3b985d7fa8fdb2f296d4e2badf7c0a6a4a95240994f8e6b6245bd45b",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "efba03ee7feb7daf82fa77ab222222fc87ec4ba6ba4bfba80fd4f6899a249852",
+              "DINO_sha256": "efba03ee7feb7daf82fa77ab222222fc87ec4ba6ba4bfba80fd4f6899a249852",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "d12091c7c1cacc5dc7002ce4bde43f223941d46c8aad75f6d986a118638bb865",
+              "DINO_sha256": "d12091c7c1cacc5dc7002ce4bde43f223941d46c8aad75f6d986a118638bb865",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 6,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "5790f7845b6ed0ba4cd68e352681be46f8511c634a4e5d562a726484f7c9ec3c",
+              "DINO_sha256": "5790f7845b6ed0ba4cd68e352681be46f8511c634a4e5d562a726484f7c9ec3c",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "7f18b4d6d83a17515bc85ed40f2b099b8fc3426c2be3b0c8eea0a12e34b9df77",
+              "DINO_sha256": "7f18b4d6d83a17515bc85ed40f2b099b8fc3426c2be3b0c8eea0a12e34b9df77",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "5cabf01fddfbd008aaaaca3cfba468e5cc2c22d12a406026414177b3e8898e36",
+              "DINO_sha256": "5cabf01fddfbd008aaaaca3cfba468e5cc2c22d12a406026414177b3e8898e36",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 7,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "9b8f94cb57f4caa9a467aa831d26782a12abeba469bed5785215b430be350b50",
+              "DINO_sha256": "9b8f94cb57f4caa9a467aa831d26782a12abeba469bed5785215b430be350b50",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "b70353eec939b6d0764f12da15f3bcf1e90d281612d96c3383637687a794d2aa",
+              "DINO_sha256": "b70353eec939b6d0764f12da15f3bcf1e90d281612d96c3383637687a794d2aa",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "d7fc5586a623776222c13dd12a0fd87f598099328cdeec553cdb728e0508d245",
+              "DINO_sha256": "d7fc5586a623776222c13dd12a0fd87f598099328cdeec553cdb728e0508d245",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 8,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "0a1f4e511f2065d129cc7d05070c74f9c72919c770ce2903e06f3ae5bc819bbc",
+              "DINO_sha256": "0a1f4e511f2065d129cc7d05070c74f9c72919c770ce2903e06f3ae5bc819bbc",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "3a2e0b228a5fc6be3cb2b507e57c668d9943f42541a01121f42b70746d22e9c2",
+              "DINO_sha256": "3a2e0b228a5fc6be3cb2b507e57c668d9943f42541a01121f42b70746d22e9c2",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "690825753ab6a1ea128878bbd5863c61327be9afc6f461a58c289ca53ad0a461",
+              "DINO_sha256": "690825753ab6a1ea128878bbd5863c61327be9afc6f461a58c289ca53ad0a461",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 9,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "bb3f7f172c75016a46003ff24694ba51d7ab8d667e0dff470104a5cd33569e0d",
+              "DINO_sha256": "bb3f7f172c75016a46003ff24694ba51d7ab8d667e0dff470104a5cd33569e0d",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "a4e6e99bf9ba736bd3bcdf1b36394d7b55baa84455d38126f45ae7ffeb236f10",
+              "DINO_sha256": "a4e6e99bf9ba736bd3bcdf1b36394d7b55baa84455d38126f45ae7ffeb236f10",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "45f977ed6e7294a986709a21114334086ac4586220a8dd9b888a3ebbb5675497",
+              "DINO_sha256": "45f977ed6e7294a986709a21114334086ac4586220a8dd9b888a3ebbb5675497",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 10,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "377adc7d6c08999a20e71d6f1080e48af730707e5d789c740c6f0c8853bb6301",
+              "DINO_sha256": "377adc7d6c08999a20e71d6f1080e48af730707e5d789c740c6f0c8853bb6301",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "9df4776408631e1c35ea5233b72b75d1f3616b45710356f1effb03558623a220",
+              "DINO_sha256": "9df4776408631e1c35ea5233b72b75d1f3616b45710356f1effb03558623a220",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "2204ca574ee5e3caf962a3066677638667aea77058515562a7dc8f616f86814e",
+              "DINO_sha256": "2204ca574ee5e3caf962a3066677638667aea77058515562a7dc8f616f86814e",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 11,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "bfeed42d6dbebfaac2105b2acff58d1be3bf5b8be96f109c2953516f60333fd2",
+              "DINO_sha256": "bfeed42d6dbebfaac2105b2acff58d1be3bf5b8be96f109c2953516f60333fd2",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "ac928c27aa83f680ce70250466345d4cc23385c41119f0d4363b3aae4f60d10b",
+              "DINO_sha256": "ac928c27aa83f680ce70250466345d4cc23385c41119f0d4363b3aae4f60d10b",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "e050b93ef311b909eecec38bffb3127f4eb814299a0d71b72ef60cd2771400f5",
+              "DINO_sha256": "e050b93ef311b909eecec38bffb3127f4eb814299a0d71b72ef60cd2771400f5",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 12,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "0f1d14288476329f279f63aafe511a4d81cacbe34499587a4d868f1f276aeb61",
+              "DINO_sha256": "0f1d14288476329f279f63aafe511a4d81cacbe34499587a4d868f1f276aeb61",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "be25177e1668577196c7207ad54a76a74c82d6be19fe737558acd206dbc0665b",
+              "DINO_sha256": "be25177e1668577196c7207ad54a76a74c82d6be19fe737558acd206dbc0665b",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "97c65639f34343810015a6ae8a11217f1c224ee88f0233ed48b4f58bb5a8f45c",
+              "DINO_sha256": "97c65639f34343810015a6ae8a11217f1c224ee88f0233ed48b4f58bb5a8f45c",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 13,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "826e45dd65cb90cac5b765dd5ed2835bc27a6bc2310e941a4f06e405dfc047b2",
+              "DINO_sha256": "826e45dd65cb90cac5b765dd5ed2835bc27a6bc2310e941a4f06e405dfc047b2",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "7659374dc4e0ecab5bff75230b4558a7fba495b5f5b08c1e5eead35e0490c189",
+              "DINO_sha256": "7659374dc4e0ecab5bff75230b4558a7fba495b5f5b08c1e5eead35e0490c189",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "b89100412c21fccda688d61ae2ab71089beff60caaaa6cd67cec12ceea45a6a8",
+              "DINO_sha256": "b89100412c21fccda688d61ae2ab71089beff60caaaa6cd67cec12ceea45a6a8",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 14,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "8eaa0dcd6b91a9cfab5576388921a266953a77627b5c0ef31cf34b8743073645",
+              "DINO_sha256": "8eaa0dcd6b91a9cfab5576388921a266953a77627b5c0ef31cf34b8743073645",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "ecca59e0780cfa0aab5e82ab75e7dd3ef9c35d0a17bbcfbbfe02bc41757ff62f",
+              "DINO_sha256": "ecca59e0780cfa0aab5e82ab75e7dd3ef9c35d0a17bbcfbbfe02bc41757ff62f",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "35b96304793343e95c4acb2a8f75e69dd2386a584fdc44db8c7a83f3eb254830",
+              "DINO_sha256": "35b96304793343e95c4acb2a8f75e69dd2386a584fdc44db8c7a83f3eb254830",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 15,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "cc25cdabcd5cb29b1fb36712828d1aadf51c5278da1af529b36df031b6284fec",
+              "DINO_sha256": "cc25cdabcd5cb29b1fb36712828d1aadf51c5278da1af529b36df031b6284fec",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "3af4a16baf5f859ea71138679930fea2214644f7ddac29417e0fed3665f2628a",
+              "DINO_sha256": "3af4a16baf5f859ea71138679930fea2214644f7ddac29417e0fed3665f2628a",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "d42a70f044f16affc60289063f5c134a558780607346cd993ac2b1f62650182d",
+              "DINO_sha256": "d42a70f044f16affc60289063f5c134a558780607346cd993ac2b1f62650182d",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 16,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "a8dd9faae823b992dee2973c72d4c75598e32debdea3ef6c1bd1cdec0a170535",
+              "DINO_sha256": "a8dd9faae823b992dee2973c72d4c75598e32debdea3ef6c1bd1cdec0a170535",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "57671f2b6199a8538ff41e63524a68b6ae17b6799e9a8e2145afacd77d618c7a",
+              "DINO_sha256": "57671f2b6199a8538ff41e63524a68b6ae17b6799e9a8e2145afacd77d618c7a",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "3c5478180f6fce6b7599a965ada6fc2392406fb699e99c9b80f088cf20d225de",
+              "DINO_sha256": "3c5478180f6fce6b7599a965ada6fc2392406fb699e99c9b80f088cf20d225de",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 17,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "13cf3df1de9bc83e396c992b7a5856127d9b411499b7ae3fd3d655043250bebb",
+              "DINO_sha256": "13cf3df1de9bc83e396c992b7a5856127d9b411499b7ae3fd3d655043250bebb",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "766503a9f42380836d0bc02108981f1210d346f431c8b7b9f066b4bd3e9cd1cc",
+              "DINO_sha256": "766503a9f42380836d0bc02108981f1210d346f431c8b7b9f066b4bd3e9cd1cc",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "2ccb5fb1513e60b48201430849eccb7c106028cd0115e5c6875e4909b0345444",
+              "DINO_sha256": "2ccb5fb1513e60b48201430849eccb7c106028cd0115e5c6875e4909b0345444",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 18,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "b9177ef44ff74f6c50b14c41f3d7bd09d4759c71b292f70ab528c3cc14146832",
+              "DINO_sha256": "b9177ef44ff74f6c50b14c41f3d7bd09d4759c71b292f70ab528c3cc14146832",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "e8ed22ab471d08a03dc36e1c81c348df0720c91e99a8e76bc7db29c9367e0119",
+              "DINO_sha256": "e8ed22ab471d08a03dc36e1c81c348df0720c91e99a8e76bc7db29c9367e0119",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "d3ce43366b9820f392bd1f6eda7bff4bba582d025c5db29bdc6c5b4d592fa3a5",
+              "DINO_sha256": "d3ce43366b9820f392bd1f6eda7bff4bba582d025c5db29bdc6c5b4d592fa3a5",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 19,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "767052049f340db76e8a84910c0cfffa5fb435433339ad498de82d1359e47893",
+              "DINO_sha256": "767052049f340db76e8a84910c0cfffa5fb435433339ad498de82d1359e47893",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "f8c7fb312509d5a3026be4076c3a3f88b2d9ecdcd0beeeb8c1c698cf7370aeed",
+              "DINO_sha256": "f8c7fb312509d5a3026be4076c3a3f88b2d9ecdcd0beeeb8c1c698cf7370aeed",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "342997df7fc31e4e32ad4486da088dc6a1c3e6aa6ef619629e53022c88a40727",
+              "DINO_sha256": "342997df7fc31e4e32ad4486da088dc6a1c3e6aa6ef619629e53022c88a40727",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 20,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "40986d497e28a2d0f96601bb77852a817ba4243fc29cd8bdbcee0837ce19120b",
+              "DINO_sha256": "40986d497e28a2d0f96601bb77852a817ba4243fc29cd8bdbcee0837ce19120b",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "04d7fd1795f9a64e1fff8c3c0a63200beeb55d3dc96fefcf59e863582705fd0f",
+              "DINO_sha256": "04d7fd1795f9a64e1fff8c3c0a63200beeb55d3dc96fefcf59e863582705fd0f",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "fa2a97fb2b331d3188161b515c475a31182388409b34aba5f1e0930e6ca85b2e",
+              "DINO_sha256": "fa2a97fb2b331d3188161b515c475a31182388409b34aba5f1e0930e6ca85b2e",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 21,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "c9005cad747d26bda15be5636e6f506fdaf9cc7fe4b08cd1e6c73c687d5f4076",
+              "DINO_sha256": "c9005cad747d26bda15be5636e6f506fdaf9cc7fe4b08cd1e6c73c687d5f4076",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "0b06ee26c85d0b6655124a267d7d584597d5d5fb1db3a9c7f3f37f549d065a25",
+              "DINO_sha256": "0b06ee26c85d0b6655124a267d7d584597d5d5fb1db3a9c7f3f37f549d065a25",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "4850007aedafbda37be794bf4e55133cfd77fcdc2723457951bf72b652b4c0df",
+              "DINO_sha256": "4850007aedafbda37be794bf4e55133cfd77fcdc2723457951bf72b652b4c0df",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 22,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "94a65a22eb0f5492d2d2152d0f4d6e88ed9ede23d4e494543c9e1df221f8e246",
+              "DINO_sha256": "94a65a22eb0f5492d2d2152d0f4d6e88ed9ede23d4e494543c9e1df221f8e246",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "4ef9dba0d82e0987a5ca7e913267df51cf1a4f03ac9ce08f1edc69d20c0e9c98",
+              "DINO_sha256": "4ef9dba0d82e0987a5ca7e913267df51cf1a4f03ac9ce08f1edc69d20c0e9c98",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "9cfc6a18bfe4e44e9088580838e5b2b5ff9ef4d1d5c1a1bfff712544af43d495",
+              "DINO_sha256": "9cfc6a18bfe4e44e9088580838e5b2b5ff9ef4d1d5c1a1bfff712544af43d495",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 23,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "7bf0af219d06ed2fea6a82751322647d27c2cf22c04693fe0a9b9db43c260a73",
+              "DINO_sha256": "7bf0af219d06ed2fea6a82751322647d27c2cf22c04693fe0a9b9db43c260a73",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "71d8585f253ad670ab024ac09517cab9b4cb5a2cba4bf1d433f39fa2708d6321",
+              "DINO_sha256": "71d8585f253ad670ab024ac09517cab9b4cb5a2cba4bf1d433f39fa2708d6321",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "81149e5bb14381ec9157c2294267510eb92b82e03d8fe6c61e902f4b4d94aac4",
+              "DINO_sha256": "81149e5bb14381ec9157c2294267510eb92b82e03d8fe6c61e902f4b4d94aac4",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 24,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "430a2cff2b2f59c350a248e2d4edde377f5f940a4e23aaeecdb0db4e24c4a925",
+              "DINO_sha256": "430a2cff2b2f59c350a248e2d4edde377f5f940a4e23aaeecdb0db4e24c4a925",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "2f03651d4dcbbb90d54a25895228509f58285806f87ff2c7939088cc27a93fe5",
+              "DINO_sha256": "2f03651d4dcbbb90d54a25895228509f58285806f87ff2c7939088cc27a93fe5",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "5200a5c7d8f7cad2638a6d9e3bef67b13a1fbf7246e256e8df49bdd5dd14e595",
+              "DINO_sha256": "5200a5c7d8f7cad2638a6d9e3bef67b13a1fbf7246e256e8df49bdd5dd14e595",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 25,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "0e74413dbcd2edc597723f3780b2626e6f3efa99bff450453f7e83b73324955e",
+              "DINO_sha256": "0e74413dbcd2edc597723f3780b2626e6f3efa99bff450453f7e83b73324955e",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "fc9454dd39c29cff002a706ef95d5160566fbb728b5e5679f2965373dbed9ed3",
+              "DINO_sha256": "fc9454dd39c29cff002a706ef95d5160566fbb728b5e5679f2965373dbed9ed3",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "68e5f06587fb3abd3fd3c8e0216772d31c8603cf44cc9697c2ca4329248b3604",
+              "DINO_sha256": "68e5f06587fb3abd3fd3c8e0216772d31c8603cf44cc9697c2ca4329248b3604",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 26,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "25d90b75cd921dd41abcb34f2d40ca5792b1ddfa8dd3e43b1a85d26e2ee9efa3",
+              "DINO_sha256": "25d90b75cd921dd41abcb34f2d40ca5792b1ddfa8dd3e43b1a85d26e2ee9efa3",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "fd1e206fe431dc76b4966aad39b37d5a852bfcb3306413166b24268fe7bcdd30",
+              "DINO_sha256": "fd1e206fe431dc76b4966aad39b37d5a852bfcb3306413166b24268fe7bcdd30",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "19c884a3461d588f5975401717a8ad9f207410b512930e35c0615eb28c3190ba",
+              "DINO_sha256": "19c884a3461d588f5975401717a8ad9f207410b512930e35c0615eb28c3190ba",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 27,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "a4d01b9fd434374e35ae6d6a7835e7d98a70173c3897245d232c1a40d70638ba",
+              "DINO_sha256": "a4d01b9fd434374e35ae6d6a7835e7d98a70173c3897245d232c1a40d70638ba",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "2420ddef8666b3e18dec05b9798f4815a31a8d8a8222bb19e5241d324cd77324",
+              "DINO_sha256": "2420ddef8666b3e18dec05b9798f4815a31a8d8a8222bb19e5241d324cd77324",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "d06bf2dff0131043a915e36f32aaa36b1e0f911afd746b9da629d621e1d922a2",
+              "DINO_sha256": "d06bf2dff0131043a915e36f32aaa36b1e0f911afd746b9da629d621e1d922a2",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 28,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "604ed71a5a589568e4bb6f05db3583f851e039563dcf6b1c56f8286ed5e2ca86",
+              "DINO_sha256": "604ed71a5a589568e4bb6f05db3583f851e039563dcf6b1c56f8286ed5e2ca86",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "e29e71c721b8a44618379066027a68869fe091bc3707e01f7f478f3a9f3dd4c1",
+              "DINO_sha256": "e29e71c721b8a44618379066027a68869fe091bc3707e01f7f478f3a9f3dd4c1",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "f8669a1ca4d9af78b3e9178229ba6dac3ae9b9176df84077aaaec8ffa9dfaf00",
+              "DINO_sha256": "f8669a1ca4d9af78b3e9178229ba6dac3ae9b9176df84077aaaec8ffa9dfaf00",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 29,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "62fc399e4be80e5b585116a5ac3780d804f00cdb715ad3e8c27830b651d88549",
+              "DINO_sha256": "62fc399e4be80e5b585116a5ac3780d804f00cdb715ad3e8c27830b651d88549",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "74ac5630d554deed667bbaec9dd7f171ef47e1df202f5f23794aa1caa500605a",
+              "DINO_sha256": "74ac5630d554deed667bbaec9dd7f171ef47e1df202f5f23794aa1caa500605a",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "e0a3dad07d41b234ac016e2470bf0c0d34c4fffc59b9a2714c05adb646ff65a4",
+              "DINO_sha256": "e0a3dad07d41b234ac016e2470bf0c0d34c4fffc59b9a2714c05adb646ff65a4",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 30,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "5e940a206ac5bd85a8a72b5eabe7cf8eaa06c390a58d51666c9e4f200e9d150e",
+              "DINO_sha256": "5e940a206ac5bd85a8a72b5eabe7cf8eaa06c390a58d51666c9e4f200e9d150e",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "71ca673c860180c1f8fb0de18a38316afe2438b073dcb9728f4f965313217089",
+              "DINO_sha256": "71ca673c860180c1f8fb0de18a38316afe2438b073dcb9728f4f965313217089",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "2386f7924ff1b985b68aaf49b62acf2033aa509ccfd132a21c751dc9a8ce060c",
+              "DINO_sha256": "2386f7924ff1b985b68aaf49b62acf2033aa509ccfd132a21c751dc9a8ce060c",
+              "identical": true
+            }
+          ]
+        }
+      ],
+      "identical_all90_artifacts": true
+    },
+    {
+      "seed": 42,
+      "CLIP_run": "D_formal_clip_vit_b16_seed42",
+      "DINO_run": "D_formal_dinov2_vit_b14_seed42",
+      "epoch_pairs": [
+        {
+          "epoch": 1,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "44dbb0075a7b79d0ba9c8d8fc28c5e72da2a2de98a3d2b251b3a7567a654b736",
+              "DINO_sha256": "44dbb0075a7b79d0ba9c8d8fc28c5e72da2a2de98a3d2b251b3a7567a654b736",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "66ef909404ebe8d9ad605ed9c24e6980eb175b2fc478e89104db3cda691aef76",
+              "DINO_sha256": "66ef909404ebe8d9ad605ed9c24e6980eb175b2fc478e89104db3cda691aef76",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "d7ed02faf519f50fe55c7a838ea008f3905fc5eb4a796a3e0522b030a2edd65e",
+              "DINO_sha256": "d7ed02faf519f50fe55c7a838ea008f3905fc5eb4a796a3e0522b030a2edd65e",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 2,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "746ffbcc9724c1f505f5ef49dcb5eef3064f0378d0fa48294c95df7620be946b",
+              "DINO_sha256": "746ffbcc9724c1f505f5ef49dcb5eef3064f0378d0fa48294c95df7620be946b",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "913343c4951b2f7cbf2ab304fa1d579d4a1a7223a5f7626e1acf03b5f9c7fd7e",
+              "DINO_sha256": "913343c4951b2f7cbf2ab304fa1d579d4a1a7223a5f7626e1acf03b5f9c7fd7e",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "fbb5fcc0153efb251fd2ef85c2cb2fb40fd4553e6e5cd70eb167424c14242d78",
+              "DINO_sha256": "fbb5fcc0153efb251fd2ef85c2cb2fb40fd4553e6e5cd70eb167424c14242d78",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 3,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "bc8f782ef22561d5b97a9d70ee8542feb8e01f9160a27daab68738641690108c",
+              "DINO_sha256": "bc8f782ef22561d5b97a9d70ee8542feb8e01f9160a27daab68738641690108c",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "579b4c1a6dd265fffc4ab4bd0ae6018ea6c953f89c474f70f5113c0d60123b67",
+              "DINO_sha256": "579b4c1a6dd265fffc4ab4bd0ae6018ea6c953f89c474f70f5113c0d60123b67",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "1d2026e9a656213680ccf738c6fddbcf1280bfdde7286721d0d1df23f35d84a4",
+              "DINO_sha256": "1d2026e9a656213680ccf738c6fddbcf1280bfdde7286721d0d1df23f35d84a4",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 4,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "967110df557dc3768aadbac1596347b21a8ee5b0e3d0f42f2f2cd5ba39cc035d",
+              "DINO_sha256": "967110df557dc3768aadbac1596347b21a8ee5b0e3d0f42f2f2cd5ba39cc035d",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "a192ebcc334e95a44e3fdcd0ce72f1e695342e5de1b2b0f98653d8bd85f5460c",
+              "DINO_sha256": "a192ebcc334e95a44e3fdcd0ce72f1e695342e5de1b2b0f98653d8bd85f5460c",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "926d3216f4347e5450d9a216074aa210e943cb5ac4ec8cf1d1afe5c62c5b580b",
+              "DINO_sha256": "926d3216f4347e5450d9a216074aa210e943cb5ac4ec8cf1d1afe5c62c5b580b",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 5,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "ea559524d7b9bbcde53b9ec30663409b15b85fa144ad348ee3023ba8b7a4ff07",
+              "DINO_sha256": "ea559524d7b9bbcde53b9ec30663409b15b85fa144ad348ee3023ba8b7a4ff07",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "12b5675b2ab2254fb794acce516b4490a9ee75f55a361f674bc6e0916ecabf13",
+              "DINO_sha256": "12b5675b2ab2254fb794acce516b4490a9ee75f55a361f674bc6e0916ecabf13",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "cb0eb7b2e8487f39902b45a72cc95f645c4347f4358649762b0d1209d7809b00",
+              "DINO_sha256": "cb0eb7b2e8487f39902b45a72cc95f645c4347f4358649762b0d1209d7809b00",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 6,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "1c75fb21bdb83f55d5609a72514a503a84fc8ec4482d2230778f449cc7c59448",
+              "DINO_sha256": "1c75fb21bdb83f55d5609a72514a503a84fc8ec4482d2230778f449cc7c59448",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "d31d99e17edb22f58977d9365eb1bded98b5595c07437f7192a4c2ea0836a952",
+              "DINO_sha256": "d31d99e17edb22f58977d9365eb1bded98b5595c07437f7192a4c2ea0836a952",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "ac97fc5fdd352f91d013f48f4c4c596644b74816572eacc36b28e346ee874155",
+              "DINO_sha256": "ac97fc5fdd352f91d013f48f4c4c596644b74816572eacc36b28e346ee874155",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 7,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "a369ac1bf12363136a8d903377cd333477be25bbaccf4dd68663f2a0e2a0a38d",
+              "DINO_sha256": "a369ac1bf12363136a8d903377cd333477be25bbaccf4dd68663f2a0e2a0a38d",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "70a59e17f857bfb57da97491c190180f188368327b74d1da8fb27d3438555723",
+              "DINO_sha256": "70a59e17f857bfb57da97491c190180f188368327b74d1da8fb27d3438555723",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "90909aeb33794beef77acfbf95043281f4d0f10d7464f477e6755c8e20027488",
+              "DINO_sha256": "90909aeb33794beef77acfbf95043281f4d0f10d7464f477e6755c8e20027488",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 8,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "72889b9a2f4c0c9c891aa42bcf31619f544d6a242cf92c248762d21679ef80da",
+              "DINO_sha256": "72889b9a2f4c0c9c891aa42bcf31619f544d6a242cf92c248762d21679ef80da",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "0720859bd8e81181a515f58eff5a166bc2264b5c18eca4b5bda6fddfeaaa7099",
+              "DINO_sha256": "0720859bd8e81181a515f58eff5a166bc2264b5c18eca4b5bda6fddfeaaa7099",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "569de6150550048493dbc3482aceca6211180a30ff3795a67fa153a179e264b2",
+              "DINO_sha256": "569de6150550048493dbc3482aceca6211180a30ff3795a67fa153a179e264b2",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 9,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "3b3471a5f3366a79b2731be75714c070dda94f36049e8392364776154c703f91",
+              "DINO_sha256": "3b3471a5f3366a79b2731be75714c070dda94f36049e8392364776154c703f91",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "fddbf3eba8b99aadfbf26b319282ef73c1d9d476e4bcfc8bb9b0de3c0e95978a",
+              "DINO_sha256": "fddbf3eba8b99aadfbf26b319282ef73c1d9d476e4bcfc8bb9b0de3c0e95978a",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "58edc7e02bc2f32b0b72300700cdb73b0ed32ab4a0742f77a4b479a9e8314170",
+              "DINO_sha256": "58edc7e02bc2f32b0b72300700cdb73b0ed32ab4a0742f77a4b479a9e8314170",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 10,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "1793998cc0618249dbf4944648544ea4599c082aaadff8e5935fbb8f7e237aba",
+              "DINO_sha256": "1793998cc0618249dbf4944648544ea4599c082aaadff8e5935fbb8f7e237aba",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "daac93f8e5688a43543666e78823158b4c54ccb95c20ca7605b49eeed7cf4916",
+              "DINO_sha256": "daac93f8e5688a43543666e78823158b4c54ccb95c20ca7605b49eeed7cf4916",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "d75d3b3edfa644c58bf0ab4705b1de9f55c60af5a0a0e197a340d310086495a5",
+              "DINO_sha256": "d75d3b3edfa644c58bf0ab4705b1de9f55c60af5a0a0e197a340d310086495a5",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 11,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "c50a328c9853679bdd1cf930881d6fe21a33c349ca2b640782f4b5245baa5d11",
+              "DINO_sha256": "c50a328c9853679bdd1cf930881d6fe21a33c349ca2b640782f4b5245baa5d11",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "846b2b7f0df710cc8f77e1dd3aeaf5975fa3fdb3250a02eef133eed9a741c7fc",
+              "DINO_sha256": "846b2b7f0df710cc8f77e1dd3aeaf5975fa3fdb3250a02eef133eed9a741c7fc",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "5a787ec3c7bdbf5d7740e01bd1bb43a922909eda9f38f1e75f73be11152ca0aa",
+              "DINO_sha256": "5a787ec3c7bdbf5d7740e01bd1bb43a922909eda9f38f1e75f73be11152ca0aa",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 12,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "adbcef231b750e588ad69c487c22a63a14432e9216275d285bf48534e4d40cb5",
+              "DINO_sha256": "adbcef231b750e588ad69c487c22a63a14432e9216275d285bf48534e4d40cb5",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "588583d382be33dca64524ed951d8198e9578bb49764682d235db1216e24e1e6",
+              "DINO_sha256": "588583d382be33dca64524ed951d8198e9578bb49764682d235db1216e24e1e6",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "0d8cfd102a57ee5fe337db38955059f73fb316c7b2c05697c22824b14c6fde44",
+              "DINO_sha256": "0d8cfd102a57ee5fe337db38955059f73fb316c7b2c05697c22824b14c6fde44",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 13,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "57593e7221b772fbff27777520edc2447497a13f0ab537ffec9096e43ff9bf4f",
+              "DINO_sha256": "57593e7221b772fbff27777520edc2447497a13f0ab537ffec9096e43ff9bf4f",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "f2688e296323fe3bc19e2e0a15579ae4b08a524a70ea7b92f5b70780c420990e",
+              "DINO_sha256": "f2688e296323fe3bc19e2e0a15579ae4b08a524a70ea7b92f5b70780c420990e",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "0d505c277b46a139eb4aaf14ad28f41efdf161c537b5af1c78c4109a0e5b0cd1",
+              "DINO_sha256": "0d505c277b46a139eb4aaf14ad28f41efdf161c537b5af1c78c4109a0e5b0cd1",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 14,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "7e0fdc48032d61e70e8bab97d83e16d851292a1f3b3b662765f1cf898dd9e285",
+              "DINO_sha256": "7e0fdc48032d61e70e8bab97d83e16d851292a1f3b3b662765f1cf898dd9e285",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "d1a62fad1200b17924c118f27a274f79aea91455d5d8bd4a97ee98649c3d4dc2",
+              "DINO_sha256": "d1a62fad1200b17924c118f27a274f79aea91455d5d8bd4a97ee98649c3d4dc2",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "bf22d2f13da5b505471bc87cab6e48dc65c907dd9009b87abd36abd343ebddb3",
+              "DINO_sha256": "bf22d2f13da5b505471bc87cab6e48dc65c907dd9009b87abd36abd343ebddb3",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 15,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "09292484c6ae4852307621ca60c42e1a6744f20c3d9ffbfe31db0c3359bb0e3b",
+              "DINO_sha256": "09292484c6ae4852307621ca60c42e1a6744f20c3d9ffbfe31db0c3359bb0e3b",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "c0bf3840de9843e62c69f0f39be1b5687c180816236d77140d3ba214abe97888",
+              "DINO_sha256": "c0bf3840de9843e62c69f0f39be1b5687c180816236d77140d3ba214abe97888",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "8378f9280515fce81bed77ebe8f4aaf0d5c31935299d8ac48638ca93590af3b2",
+              "DINO_sha256": "8378f9280515fce81bed77ebe8f4aaf0d5c31935299d8ac48638ca93590af3b2",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 16,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "9fed2b3441f9c92aed2277647947c3723e1fc6a0389402174387fa04eca69f5f",
+              "DINO_sha256": "9fed2b3441f9c92aed2277647947c3723e1fc6a0389402174387fa04eca69f5f",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "64baafbb05adbc2cfed5149c2866879a7ab39357272837403bd9ddcd67d8f8c5",
+              "DINO_sha256": "64baafbb05adbc2cfed5149c2866879a7ab39357272837403bd9ddcd67d8f8c5",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "3a109d2e8ce134c5919b8a871f77dfddad424200cf50c42635d2612a626d7b03",
+              "DINO_sha256": "3a109d2e8ce134c5919b8a871f77dfddad424200cf50c42635d2612a626d7b03",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 17,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "ae00e233bbfedad6a6ca916675f3b08a8570d77fa44f1a17da07cc0ad49b80e1",
+              "DINO_sha256": "ae00e233bbfedad6a6ca916675f3b08a8570d77fa44f1a17da07cc0ad49b80e1",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "809ad80ba6cefa252e837e7520751821e59f2042d81c2e731eb808db14413243",
+              "DINO_sha256": "809ad80ba6cefa252e837e7520751821e59f2042d81c2e731eb808db14413243",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "494f3461462dbc07769be6a5759ca868e48357d8c70b79eafefdb79a36a6169d",
+              "DINO_sha256": "494f3461462dbc07769be6a5759ca868e48357d8c70b79eafefdb79a36a6169d",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 18,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "c78676131315ce2d23e5e394eb9fb3f126089f98a1f739c2dbf9b374a506733b",
+              "DINO_sha256": "c78676131315ce2d23e5e394eb9fb3f126089f98a1f739c2dbf9b374a506733b",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "fdcb0f65c8d9c5ba9564a24f32e7098c886ec514ee0cfa22d7b2f4fcf34395e5",
+              "DINO_sha256": "fdcb0f65c8d9c5ba9564a24f32e7098c886ec514ee0cfa22d7b2f4fcf34395e5",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "a0443e8ed9c60b1a457bb0778b6f445f646ee68a72177cf73693461aec608a53",
+              "DINO_sha256": "a0443e8ed9c60b1a457bb0778b6f445f646ee68a72177cf73693461aec608a53",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 19,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "2d36b4dacb3829ef24ddb2922d77fe2b54c2c97de26772cb8c9ab014cb149fea",
+              "DINO_sha256": "2d36b4dacb3829ef24ddb2922d77fe2b54c2c97de26772cb8c9ab014cb149fea",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "52657da7d31bd42aeab4f2acab58d2833ca6d9a3bf6a628125f9ca9c4b33d1ef",
+              "DINO_sha256": "52657da7d31bd42aeab4f2acab58d2833ca6d9a3bf6a628125f9ca9c4b33d1ef",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "8c9c4bea6d886f5c6f6bfa58250fb5f3decd64975cc4f762b2c82d459b95529e",
+              "DINO_sha256": "8c9c4bea6d886f5c6f6bfa58250fb5f3decd64975cc4f762b2c82d459b95529e",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 20,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "26494c98e66e2723b0afdd498c1e3e3bdfee938b5c5a6513bb18bc691b79d7f0",
+              "DINO_sha256": "26494c98e66e2723b0afdd498c1e3e3bdfee938b5c5a6513bb18bc691b79d7f0",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "31b5f50d2ff5ecdfa6d2a52a6debad9bedd1ad8d65310a27fa783b30dc882af5",
+              "DINO_sha256": "31b5f50d2ff5ecdfa6d2a52a6debad9bedd1ad8d65310a27fa783b30dc882af5",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "461e97cff776bcefdba55d7bb8e4e34ae4041375d08a482ff92d3cfb67c688ff",
+              "DINO_sha256": "461e97cff776bcefdba55d7bb8e4e34ae4041375d08a482ff92d3cfb67c688ff",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 21,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "ff24e1044235ff4714dea4cfbb7a0726a5a67258fd0f8be32b2508d1a2839f97",
+              "DINO_sha256": "ff24e1044235ff4714dea4cfbb7a0726a5a67258fd0f8be32b2508d1a2839f97",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "6c8412257ab72d56b4d67e921c7f2641947af4387753c9e6e9da8fa0c694b6f9",
+              "DINO_sha256": "6c8412257ab72d56b4d67e921c7f2641947af4387753c9e6e9da8fa0c694b6f9",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "75f35586ba7d1541aeae0fcd5d6b6c91deb40729a52c788495e4d86200fa0026",
+              "DINO_sha256": "75f35586ba7d1541aeae0fcd5d6b6c91deb40729a52c788495e4d86200fa0026",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 22,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "8245656491b9150dfe91962a0a753cce65acbf61af7a6a185c01cf4234f76ab0",
+              "DINO_sha256": "8245656491b9150dfe91962a0a753cce65acbf61af7a6a185c01cf4234f76ab0",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "3f6b211632bee41e6188c09d4715e8d9edb15d28b653533226e8fe27b5d3c207",
+              "DINO_sha256": "3f6b211632bee41e6188c09d4715e8d9edb15d28b653533226e8fe27b5d3c207",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "5aed39a861916e56014ee94ac9fd91ff8e809b943526b51881225f7cc9a8a554",
+              "DINO_sha256": "5aed39a861916e56014ee94ac9fd91ff8e809b943526b51881225f7cc9a8a554",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 23,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "6619adebb11df8a24d4ce5e0fbafa7e8dd5c5c61e4aa60fab3e2a7b0195a6da8",
+              "DINO_sha256": "6619adebb11df8a24d4ce5e0fbafa7e8dd5c5c61e4aa60fab3e2a7b0195a6da8",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "a3e162c77fc1dc6f16474aac5a1ef3f508d24b4b72132a12d93213479017e9e2",
+              "DINO_sha256": "a3e162c77fc1dc6f16474aac5a1ef3f508d24b4b72132a12d93213479017e9e2",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "d8e0b48114e4f96a2522ecec78551860887eba65845028db30887dad4dbe15b1",
+              "DINO_sha256": "d8e0b48114e4f96a2522ecec78551860887eba65845028db30887dad4dbe15b1",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 24,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "c1751399716d83c8a2ae83d98c92f41852988626d204301ca4850b394e347fc8",
+              "DINO_sha256": "c1751399716d83c8a2ae83d98c92f41852988626d204301ca4850b394e347fc8",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "5a2d4a86a9a0d0d8b37347c6bd25704e83eb4d2d1951de5b7cfde2752aac0d9f",
+              "DINO_sha256": "5a2d4a86a9a0d0d8b37347c6bd25704e83eb4d2d1951de5b7cfde2752aac0d9f",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "e150b333f7eb8b885a8ba742c57dc0c9a0b5286e97e82dcc7c94c3c065096a62",
+              "DINO_sha256": "e150b333f7eb8b885a8ba742c57dc0c9a0b5286e97e82dcc7c94c3c065096a62",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 25,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "02e8314bec1e79f36ef8bf0826601c07a7b71b9c59878d499cc864031ea498bc",
+              "DINO_sha256": "02e8314bec1e79f36ef8bf0826601c07a7b71b9c59878d499cc864031ea498bc",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "7aa9c2293f42fce2b13e86323c924948c4693c71ac55982ddbf7d4904c8dbe87",
+              "DINO_sha256": "7aa9c2293f42fce2b13e86323c924948c4693c71ac55982ddbf7d4904c8dbe87",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "1d683fbe0f55b87e4f367db73541ba1c924597897409bbd19faae6f5b50b53b3",
+              "DINO_sha256": "1d683fbe0f55b87e4f367db73541ba1c924597897409bbd19faae6f5b50b53b3",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 26,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "510dc2ae3c749ffea40ce5c7a13eedba2a0d869973cf5b9fcb51573aee9d19c7",
+              "DINO_sha256": "510dc2ae3c749ffea40ce5c7a13eedba2a0d869973cf5b9fcb51573aee9d19c7",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "dea1585784dd8abfba1635139ccbba623667c7aa4fc8921c860e8647b681a7f4",
+              "DINO_sha256": "dea1585784dd8abfba1635139ccbba623667c7aa4fc8921c860e8647b681a7f4",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "477363917cc9bc59864225dc86617499cee13a537b613d21ed283fbe07c495e7",
+              "DINO_sha256": "477363917cc9bc59864225dc86617499cee13a537b613d21ed283fbe07c495e7",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 27,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "51fb69040d60001e28b0865cfae1f2394e7e5a46ddf03a084a496336b63655e0",
+              "DINO_sha256": "51fb69040d60001e28b0865cfae1f2394e7e5a46ddf03a084a496336b63655e0",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "7a93c04987d949e6afcc304e7c13f81b18750bec4f9a8f13264705184ab22b64",
+              "DINO_sha256": "7a93c04987d949e6afcc304e7c13f81b18750bec4f9a8f13264705184ab22b64",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "e372d834f989a24c17372eba36d983f05af6cd0191cb013d0dc2954d6fd122bf",
+              "DINO_sha256": "e372d834f989a24c17372eba36d983f05af6cd0191cb013d0dc2954d6fd122bf",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 28,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "02b6cdef83f1d941df408c24989eba890ca2c51a58ceb6c6d5f7d07c4717475e",
+              "DINO_sha256": "02b6cdef83f1d941df408c24989eba890ca2c51a58ceb6c6d5f7d07c4717475e",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "cfb16f47b334cd7a8e2c9e158bbbcfb17da12c2f467d17c16d47300a8e4f2ea8",
+              "DINO_sha256": "cfb16f47b334cd7a8e2c9e158bbbcfb17da12c2f467d17c16d47300a8e4f2ea8",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "2e82577fc3ee7e9dd8c75a0b633b0bca1da234cfcd3307d5083641a55a939add",
+              "DINO_sha256": "2e82577fc3ee7e9dd8c75a0b633b0bca1da234cfcd3307d5083641a55a939add",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 29,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "5bedbf275566dd5d36f71530fafa129dd321f47d6144295d57c39006519e8617",
+              "DINO_sha256": "5bedbf275566dd5d36f71530fafa129dd321f47d6144295d57c39006519e8617",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "04d4d781d032b2b7cd1509cd5a3b5563c82cad8e5e96d1af614125645fd1c948",
+              "DINO_sha256": "04d4d781d032b2b7cd1509cd5a3b5563c82cad8e5e96d1af614125645fd1c948",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "71afb3fe19aab0d1698b0689a35aacd86b0a4a3b0f892e2754ea720a2ea9919b",
+              "DINO_sha256": "71afb3fe19aab0d1698b0689a35aacd86b0a4a3b0f892e2754ea720a2ea9919b",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 30,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "9d312ba8ea5d9a7b84592f4a2d09865073af1da4ee1d845f556826627026de64",
+              "DINO_sha256": "9d312ba8ea5d9a7b84592f4a2d09865073af1da4ee1d845f556826627026de64",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "ead72d9818caefc8886803b91c42fe77df2c12d9b7f1320fb931880e9a0969c8",
+              "DINO_sha256": "ead72d9818caefc8886803b91c42fe77df2c12d9b7f1320fb931880e9a0969c8",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "f3de88203f37fa0ee789082db7b9056d7e63e9c1e5f833cf5b83578479b273dc",
+              "DINO_sha256": "f3de88203f37fa0ee789082db7b9056d7e63e9c1e5f833cf5b83578479b273dc",
+              "identical": true
+            }
+          ]
+        }
+      ],
+      "identical_all90_artifacts": true
+    },
+    {
+      "seed": 123,
+      "CLIP_run": "D_formal_clip_vit_b16_seed123",
+      "DINO_run": "D_formal_dinov2_vit_b14_seed123",
+      "epoch_pairs": [
+        {
+          "epoch": 1,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "5efacd9b94ce29ba8640eebda9ffa1945dc3b92bf017100887552f373f9e3209",
+              "DINO_sha256": "5efacd9b94ce29ba8640eebda9ffa1945dc3b92bf017100887552f373f9e3209",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "fd3c243608cb85f5e874570916c436deba39fef7824741c97729b33533071f39",
+              "DINO_sha256": "fd3c243608cb85f5e874570916c436deba39fef7824741c97729b33533071f39",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "814cc4464b15969b6783a32e6a83c4172bbf76bcd8dc275ea7033f7d4b08e71e",
+              "DINO_sha256": "814cc4464b15969b6783a32e6a83c4172bbf76bcd8dc275ea7033f7d4b08e71e",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 2,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "9c4c22787981f8d2cf2b081b81c9a4cb2446068aa0ca3b61f4125cf7ebdd694c",
+              "DINO_sha256": "9c4c22787981f8d2cf2b081b81c9a4cb2446068aa0ca3b61f4125cf7ebdd694c",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "f4acc902b49779f2c84622902fa823629cbe982e51dffe5b579ec24feff26145",
+              "DINO_sha256": "f4acc902b49779f2c84622902fa823629cbe982e51dffe5b579ec24feff26145",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "6a7d0b14b2880086c1a73b039700fc414c568a5f1aa713bdef91d2b42b4377a3",
+              "DINO_sha256": "6a7d0b14b2880086c1a73b039700fc414c568a5f1aa713bdef91d2b42b4377a3",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 3,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "9611121389921fd4ee1b84e04ae88a7ac761e700722b986ebd8e6bd419ee2822",
+              "DINO_sha256": "9611121389921fd4ee1b84e04ae88a7ac761e700722b986ebd8e6bd419ee2822",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "692cb141d3a5c6287758828d44bca70a8c6761f9cb616894d6ee370570354aa7",
+              "DINO_sha256": "692cb141d3a5c6287758828d44bca70a8c6761f9cb616894d6ee370570354aa7",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "0f23021f40e0412406902b5140eb0fe1ff6041b2328db0e5dc7bbd33c272bbae",
+              "DINO_sha256": "0f23021f40e0412406902b5140eb0fe1ff6041b2328db0e5dc7bbd33c272bbae",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 4,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "f94700f1bd6b80af1eee8509a99e0f1d9295d185f1f1cf989c73c505cb9cf669",
+              "DINO_sha256": "f94700f1bd6b80af1eee8509a99e0f1d9295d185f1f1cf989c73c505cb9cf669",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "132b1c2890179b96f9dd93cdd4a348f593a5d9e1785fcc8bc73971e2521d8898",
+              "DINO_sha256": "132b1c2890179b96f9dd93cdd4a348f593a5d9e1785fcc8bc73971e2521d8898",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "608265ac1c17a1c44859dd481f7c6ba2c9caf37b86641603f21500a1f9e3dc0a",
+              "DINO_sha256": "608265ac1c17a1c44859dd481f7c6ba2c9caf37b86641603f21500a1f9e3dc0a",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 5,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "e7f6f2e07fe4a5a39d3f1326faa17d272b5d275994e45f9ea8573e58023cc2ec",
+              "DINO_sha256": "e7f6f2e07fe4a5a39d3f1326faa17d272b5d275994e45f9ea8573e58023cc2ec",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "db6144428f0b80bf74585a90b8270accedb869b9c31b146ba9bbeeb98453236c",
+              "DINO_sha256": "db6144428f0b80bf74585a90b8270accedb869b9c31b146ba9bbeeb98453236c",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "c5f72080c869ebdb1c8ace6adc0a05e443c3bb76eec329a6257950637100e1e2",
+              "DINO_sha256": "c5f72080c869ebdb1c8ace6adc0a05e443c3bb76eec329a6257950637100e1e2",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 6,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "147a01c9aae3ad29877675180d98fe2e3b2fe2db4fbefc06c04f158f46c33c20",
+              "DINO_sha256": "147a01c9aae3ad29877675180d98fe2e3b2fe2db4fbefc06c04f158f46c33c20",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "5618923e568d24f94527e2045a6c81fef5b23b1f67bae4982bda4e0eab66d3c7",
+              "DINO_sha256": "5618923e568d24f94527e2045a6c81fef5b23b1f67bae4982bda4e0eab66d3c7",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "7780758e3a2337350840a014783e2fc8072452c20fb9c8f5d2b4c61f8b877bce",
+              "DINO_sha256": "7780758e3a2337350840a014783e2fc8072452c20fb9c8f5d2b4c61f8b877bce",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 7,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "db3fdb0795f16f853da53a0877b67721ffcf4f889386a9b128d9650038fba4fd",
+              "DINO_sha256": "db3fdb0795f16f853da53a0877b67721ffcf4f889386a9b128d9650038fba4fd",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "d9ea23206e94eea4f6c3973d7ec3f5aa4951cfa8874da83c89ea0f19d1cbde47",
+              "DINO_sha256": "d9ea23206e94eea4f6c3973d7ec3f5aa4951cfa8874da83c89ea0f19d1cbde47",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "55e364aa030a40f90ded38c328596f886c9f97bd275713c2f09f8527455aeae7",
+              "DINO_sha256": "55e364aa030a40f90ded38c328596f886c9f97bd275713c2f09f8527455aeae7",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 8,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "61a26c6c4062be00aba9c93f2d1fcbcaf88cc689654e5c63c796d9aac76936e5",
+              "DINO_sha256": "61a26c6c4062be00aba9c93f2d1fcbcaf88cc689654e5c63c796d9aac76936e5",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "93b6b6e800744ea4db1a2d6c8e52532fcbe579f3cc8e45b24c87c39a1f0343bc",
+              "DINO_sha256": "93b6b6e800744ea4db1a2d6c8e52532fcbe579f3cc8e45b24c87c39a1f0343bc",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "0defe3a44483c094879e35e726251eb46f04ff635c582a1526d90a02f8f0795e",
+              "DINO_sha256": "0defe3a44483c094879e35e726251eb46f04ff635c582a1526d90a02f8f0795e",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 9,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "9586e86fc880cb561b03867d28bacc5cb23432047c70dfc97fa95596ecd5dcfd",
+              "DINO_sha256": "9586e86fc880cb561b03867d28bacc5cb23432047c70dfc97fa95596ecd5dcfd",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "6ad85a5ec352f3c22a40dd117855a75d794c098b6def0f41715cb1ff7eefb32f",
+              "DINO_sha256": "6ad85a5ec352f3c22a40dd117855a75d794c098b6def0f41715cb1ff7eefb32f",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "1cffed12f813362def7ca27ad15e19836198c66ceb4a89830b576a7b44b4fef0",
+              "DINO_sha256": "1cffed12f813362def7ca27ad15e19836198c66ceb4a89830b576a7b44b4fef0",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 10,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "4d12f9b92b6a2170588146b24801493d87b8d797fdcafb462edf8afdbc9aafb7",
+              "DINO_sha256": "4d12f9b92b6a2170588146b24801493d87b8d797fdcafb462edf8afdbc9aafb7",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "8722bc291dd1a5fcdf94d498768b48659881016ccec3067434ec9fdb65a3cf6e",
+              "DINO_sha256": "8722bc291dd1a5fcdf94d498768b48659881016ccec3067434ec9fdb65a3cf6e",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "0299ddb7d68e576028f3c82e3107ce2ce39460e0b81d031af4c5a408dca6249a",
+              "DINO_sha256": "0299ddb7d68e576028f3c82e3107ce2ce39460e0b81d031af4c5a408dca6249a",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 11,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "3981e53fcfdbc41b1693a9c2fca1df7423caeacf7b2d1a1575d7a8782affe53f",
+              "DINO_sha256": "3981e53fcfdbc41b1693a9c2fca1df7423caeacf7b2d1a1575d7a8782affe53f",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "b1e89d30a9815ab9a90d0f1c036ac2c229b3613cc2689ccb052a1fa54f1f33b6",
+              "DINO_sha256": "b1e89d30a9815ab9a90d0f1c036ac2c229b3613cc2689ccb052a1fa54f1f33b6",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "211b477451041df4b9f0861292034b8e64a1b35e1e3c941f8d1100d661a8016b",
+              "DINO_sha256": "211b477451041df4b9f0861292034b8e64a1b35e1e3c941f8d1100d661a8016b",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 12,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "c1517c6446eee75969ecde628671464d6494edc9ef1e6beb4f81be74def58fe0",
+              "DINO_sha256": "c1517c6446eee75969ecde628671464d6494edc9ef1e6beb4f81be74def58fe0",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "9b94a97e945f3c817ea2c4a98ffc2581294729056307f1aa857b5a8cd619a804",
+              "DINO_sha256": "9b94a97e945f3c817ea2c4a98ffc2581294729056307f1aa857b5a8cd619a804",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "f2c71f82bdcf68b2024628d59a1632f41c7f8c92608b40b6f883b45070b42f08",
+              "DINO_sha256": "f2c71f82bdcf68b2024628d59a1632f41c7f8c92608b40b6f883b45070b42f08",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 13,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "d4b32b32f14a2104c9673d9851b6760c99d3b3f3d146f8c35509f15d00695a1c",
+              "DINO_sha256": "d4b32b32f14a2104c9673d9851b6760c99d3b3f3d146f8c35509f15d00695a1c",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "045f4663eb28b39acbca4afc3e52776364d9d1c6f1f37bb736319e9d8158877d",
+              "DINO_sha256": "045f4663eb28b39acbca4afc3e52776364d9d1c6f1f37bb736319e9d8158877d",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "62bb5b2dabdcd4603679e3471ae3eb220602d9149d2fcf4c95f5d060017680f8",
+              "DINO_sha256": "62bb5b2dabdcd4603679e3471ae3eb220602d9149d2fcf4c95f5d060017680f8",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 14,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "d94f54494a04bd7733ecb1f5bec4f605affff973cb3e559f98b6d05e9c6244b3",
+              "DINO_sha256": "d94f54494a04bd7733ecb1f5bec4f605affff973cb3e559f98b6d05e9c6244b3",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "7d35c41c7d89dd3b26e4201968a202ff30eafa0c2e72436ae8bfe1c352c12364",
+              "DINO_sha256": "7d35c41c7d89dd3b26e4201968a202ff30eafa0c2e72436ae8bfe1c352c12364",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "016a911766498f128d4528decfbadcf8da2e7fa76a5f0300ff9cdb5ea38bb04b",
+              "DINO_sha256": "016a911766498f128d4528decfbadcf8da2e7fa76a5f0300ff9cdb5ea38bb04b",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 15,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "d1c6a22c1d05967f79ac5c8366ea56bd633bc73aff35d9f23a8af83f883b18e0",
+              "DINO_sha256": "d1c6a22c1d05967f79ac5c8366ea56bd633bc73aff35d9f23a8af83f883b18e0",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "a65959a44d24412cd9152b35ad394cfcdef73e392764c85e3e463769a46273e7",
+              "DINO_sha256": "a65959a44d24412cd9152b35ad394cfcdef73e392764c85e3e463769a46273e7",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "b7fcad89850d437479ae64c6081d453a4e0881f2fcbbfc2c0b006a6dc75d4178",
+              "DINO_sha256": "b7fcad89850d437479ae64c6081d453a4e0881f2fcbbfc2c0b006a6dc75d4178",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 16,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "225225afd8d295598735dd3483666c972291189be99be1af1d1be2aa29c47155",
+              "DINO_sha256": "225225afd8d295598735dd3483666c972291189be99be1af1d1be2aa29c47155",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "aec3a292179bb487d41e3718c183bfc98b7131dc2443da605731f82c473472e4",
+              "DINO_sha256": "aec3a292179bb487d41e3718c183bfc98b7131dc2443da605731f82c473472e4",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "76ca57548e424c36e763d3984adb2119f80492f83eb7410d509b568d06215ff9",
+              "DINO_sha256": "76ca57548e424c36e763d3984adb2119f80492f83eb7410d509b568d06215ff9",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 17,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "11e026505c5c5ab49a75f7e2732abd7e4ed3deb76b56ef54d181f979632f0b32",
+              "DINO_sha256": "11e026505c5c5ab49a75f7e2732abd7e4ed3deb76b56ef54d181f979632f0b32",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "9ff4d0761ff4f1b9c9d322a3ff8e83965da402cafba7a39ba2d8027d91b71edd",
+              "DINO_sha256": "9ff4d0761ff4f1b9c9d322a3ff8e83965da402cafba7a39ba2d8027d91b71edd",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "ee3b3fb293f57f8529c1e3726d2b40f51a1a0f223c2790e4523da990d4ec4ddd",
+              "DINO_sha256": "ee3b3fb293f57f8529c1e3726d2b40f51a1a0f223c2790e4523da990d4ec4ddd",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 18,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "956164a402040b4627dac552b57f7a9c3ac410da586dd0bf14291e815e324439",
+              "DINO_sha256": "956164a402040b4627dac552b57f7a9c3ac410da586dd0bf14291e815e324439",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "7340b8f0c6a1bc3c9d0faf38b350ac631e0c2c67c12e22489fcb7af0f7bba779",
+              "DINO_sha256": "7340b8f0c6a1bc3c9d0faf38b350ac631e0c2c67c12e22489fcb7af0f7bba779",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "549d2f377fdaafaa5aaf972871b8a6141016e54e493530b7a66a44681a761b72",
+              "DINO_sha256": "549d2f377fdaafaa5aaf972871b8a6141016e54e493530b7a66a44681a761b72",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 19,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "8420938ca6c06f9e576656504e44cfe1ce21affd92f8d57197d9d63ea68c5fa1",
+              "DINO_sha256": "8420938ca6c06f9e576656504e44cfe1ce21affd92f8d57197d9d63ea68c5fa1",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "68709ad62cc22663c0cd4b306aa6b4396d97d79661bb1998cff95b3f333f825b",
+              "DINO_sha256": "68709ad62cc22663c0cd4b306aa6b4396d97d79661bb1998cff95b3f333f825b",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "18de11299e70555c1fdd8ee2e3e2a62f3d29edaa22c4401cdf07eaaca56ae0c9",
+              "DINO_sha256": "18de11299e70555c1fdd8ee2e3e2a62f3d29edaa22c4401cdf07eaaca56ae0c9",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 20,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "95d175b792eec3bf384cda038d7b1906cf1c57617a98b1301c6313d23d7324ac",
+              "DINO_sha256": "95d175b792eec3bf384cda038d7b1906cf1c57617a98b1301c6313d23d7324ac",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "230faf63e9bfd5a88b8ef84664d8c573c03b9f36ee7175b21efac29d8e77bc2b",
+              "DINO_sha256": "230faf63e9bfd5a88b8ef84664d8c573c03b9f36ee7175b21efac29d8e77bc2b",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "1022e1627d83c5c5873e70b2a485a7bcb27edbea21926c14236b08de729d580f",
+              "DINO_sha256": "1022e1627d83c5c5873e70b2a485a7bcb27edbea21926c14236b08de729d580f",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 21,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "d20ae7dec63182fbe8693bc6bfb0b31f8207f8d9f5912d73c5481d8fdc110a5c",
+              "DINO_sha256": "d20ae7dec63182fbe8693bc6bfb0b31f8207f8d9f5912d73c5481d8fdc110a5c",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "4442ca2cf9130af995ae087ff34f76af2db705ee83758c841d437cd68e242bc1",
+              "DINO_sha256": "4442ca2cf9130af995ae087ff34f76af2db705ee83758c841d437cd68e242bc1",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "24e444edc833f38883a43c9e6e679f2d383bb6cb18d6583d2a2fdeb02461a1a1",
+              "DINO_sha256": "24e444edc833f38883a43c9e6e679f2d383bb6cb18d6583d2a2fdeb02461a1a1",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 22,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "7378f953000282c9cf7d93ca24454afceeaf38c2ddab988098f2060be0543e83",
+              "DINO_sha256": "7378f953000282c9cf7d93ca24454afceeaf38c2ddab988098f2060be0543e83",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "2e278c87797aee5414465c4c710b3d2067803614ba07b4ce5310c411a07b5bf1",
+              "DINO_sha256": "2e278c87797aee5414465c4c710b3d2067803614ba07b4ce5310c411a07b5bf1",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "f4f46490b81a86c149b8b377f2e81db00c7b76a7e0e65cec124f31714d13f199",
+              "DINO_sha256": "f4f46490b81a86c149b8b377f2e81db00c7b76a7e0e65cec124f31714d13f199",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 23,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "7a131fe2210d86377c219a1401dabe677c37db28ca0fa044aad657fd23bbae53",
+              "DINO_sha256": "7a131fe2210d86377c219a1401dabe677c37db28ca0fa044aad657fd23bbae53",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "3da8e3b0c97a7bc00c267a62b3f98d9b769ee15d677f06fe2c8abecb69a5bcf8",
+              "DINO_sha256": "3da8e3b0c97a7bc00c267a62b3f98d9b769ee15d677f06fe2c8abecb69a5bcf8",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "06549c2e763a2ae51321c9f872a869aadbe4990ccb1b7c7c8493e63fbc459fc4",
+              "DINO_sha256": "06549c2e763a2ae51321c9f872a869aadbe4990ccb1b7c7c8493e63fbc459fc4",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 24,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "6c51907e43c04e39552566cb3072a91452fbe883e30c362508061225ec24bcd1",
+              "DINO_sha256": "6c51907e43c04e39552566cb3072a91452fbe883e30c362508061225ec24bcd1",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "8bc02e4a4314e7a0b1bcd01b5b27a140d9f95bc9f0c6a37e0cf5045a29ded391",
+              "DINO_sha256": "8bc02e4a4314e7a0b1bcd01b5b27a140d9f95bc9f0c6a37e0cf5045a29ded391",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "4f2801a1c655501f342c0dc3d991c0c8042b2d557b8a40642b08f3dc8ad6cdf1",
+              "DINO_sha256": "4f2801a1c655501f342c0dc3d991c0c8042b2d557b8a40642b08f3dc8ad6cdf1",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 25,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "1e5956b5675a698cddd69c44b852a5fb4e2c04cf47293a4c70d667cbfd9e00cf",
+              "DINO_sha256": "1e5956b5675a698cddd69c44b852a5fb4e2c04cf47293a4c70d667cbfd9e00cf",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "5ea9ba987dd92a22af7df7ce0811ed7f83329b4ce53c4081895a7e76aa80f4ae",
+              "DINO_sha256": "5ea9ba987dd92a22af7df7ce0811ed7f83329b4ce53c4081895a7e76aa80f4ae",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "6343bedc06b5b61887002ec0e772d74d4599eb16bd049f5fdf6a06981f2c029f",
+              "DINO_sha256": "6343bedc06b5b61887002ec0e772d74d4599eb16bd049f5fdf6a06981f2c029f",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 26,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "c430e110efa0c559461f38b041f361c02165dd48fa57b597cc1db11cf5f90894",
+              "DINO_sha256": "c430e110efa0c559461f38b041f361c02165dd48fa57b597cc1db11cf5f90894",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "82e62eafcfac31e404d614ab9a5bd64570f9c3b6b29f704e47a082a224a44f27",
+              "DINO_sha256": "82e62eafcfac31e404d614ab9a5bd64570f9c3b6b29f704e47a082a224a44f27",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "d1808d47f92aa4699d9d65790db3cac5117b7afbcaa14c7044ab1893a7416983",
+              "DINO_sha256": "d1808d47f92aa4699d9d65790db3cac5117b7afbcaa14c7044ab1893a7416983",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 27,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "0b373c9b6dfb13aa2c8e0eadb02f7beed0a19fd5b693ab02902e3941288e4cad",
+              "DINO_sha256": "0b373c9b6dfb13aa2c8e0eadb02f7beed0a19fd5b693ab02902e3941288e4cad",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "5a1819dd0af0e2eac9e64a83cd2e6ac8b7cbd9191ce63f5977bc100aa3530ef8",
+              "DINO_sha256": "5a1819dd0af0e2eac9e64a83cd2e6ac8b7cbd9191ce63f5977bc100aa3530ef8",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "2e9fde1beb2f101d569636f9b44e011cd6ad72f7c13f640b24fddd65e39cde53",
+              "DINO_sha256": "2e9fde1beb2f101d569636f9b44e011cd6ad72f7c13f640b24fddd65e39cde53",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 28,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "6e756a431c50837a9dfb5ca4a32a8919e34d7dcd2da11f7ea54098e3fac5dc12",
+              "DINO_sha256": "6e756a431c50837a9dfb5ca4a32a8919e34d7dcd2da11f7ea54098e3fac5dc12",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "9546448e516e7c17220295d2e59cb045e53bd6585c9836b3760f8b289be141d4",
+              "DINO_sha256": "9546448e516e7c17220295d2e59cb045e53bd6585c9836b3760f8b289be141d4",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "b8ddc382e1aa0734e47f30aad29aa1058fc5fc8bdc86b423a17a566c65f726bc",
+              "DINO_sha256": "b8ddc382e1aa0734e47f30aad29aa1058fc5fc8bdc86b423a17a566c65f726bc",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 29,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "027efde4101ec0728a78fbcec8095b5a319d56ca2e29eb0d475692e222800191",
+              "DINO_sha256": "027efde4101ec0728a78fbcec8095b5a319d56ca2e29eb0d475692e222800191",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "a321131ab25bf50ab7748aef4391038c2652bbad30b8e7e2e5944f3532785004",
+              "DINO_sha256": "a321131ab25bf50ab7748aef4391038c2652bbad30b8e7e2e5944f3532785004",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "34ce034aaa11d2b4faa5bb401e1976825d1bf85f17bad72ade4f9b0e49465307",
+              "DINO_sha256": "34ce034aaa11d2b4faa5bb401e1976825d1bf85f17bad72ade4f9b0e49465307",
+              "identical": true
+            }
+          ]
+        },
+        {
+          "epoch": 30,
+          "checks": [
+            {
+              "artifact": "samples.npy",
+              "CLIP_sha256": "b8c7a0689bf8aaeeaa22bf49fff7c875e173f6885cfea21c28f92cd58aede769",
+              "DINO_sha256": "b8c7a0689bf8aaeeaa22bf49fff7c875e173f6885cfea21c28f92cd58aede769",
+              "identical": true
+            },
+            {
+              "artifact": "methods.npy",
+              "CLIP_sha256": "c6ee96826d059377739945dc388b1bc847ad5052b82d7b2b4723c9c621b57a63",
+              "DINO_sha256": "c6ee96826d059377739945dc388b1bc847ad5052b82d7b2b4723c9c621b57a63",
+              "identical": true
+            },
+            {
+              "artifact": "augmentations.npy",
+              "CLIP_sha256": "484a9582c6cd1e404807d68cd162598cb31a523e7232fc4a8131277ec2ef617c",
+              "DINO_sha256": "484a9582c6cd1e404807d68cd162598cb31a523e7232fc4a8131277ec2ef617c",
+              "identical": true
+            }
+          ]
+        }
+      ],
+      "identical_all90_artifacts": true
+    }
+  ],
+  "source": "Current core/epoch artifact hashes from accepted independent terminal audit; no repeated full pixel audit or target metrics",
+  "success_update_counts_need_not_match": "Fixed attempt budgets; isolated AMP skips remain reported separately. Matching input arrays does not imply matching parameter trajectories.",
+  "other_pending_seed_backbone_comparisons": "NOT_YET_ACCEPTED",
+  "training_or_protocol_changed": false
+}

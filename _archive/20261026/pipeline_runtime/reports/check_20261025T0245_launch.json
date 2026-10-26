@@ -1,0 +1,46 @@
+{
+  "utc": "2026-10-25T02:46:31.678721+00:00",
+  "status": "SEALED_DINO123_PAIR_SINGLE_INDEPENDENT_AUDIT_AND_ORIGINAL_SUCCESSOR_HEALTH_STARTED",
+  "terminal_time_wrapper_pid": 2401937,
+  "terminal_command": [
+    "/usr/bin/time",
+    "-v",
+    "-o",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_DINO_seed123_terminal_time_v_20261025T0245.log",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+    "-B",
+    "-u",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/audit_H_formal_terminal.py",
+    "--run-id",
+    "H_formal_dinov2_vit_b14_B_seed123",
+    "--run-id",
+    "H_formal_dinov2_vit_b14_AB_seed123",
+    "--report",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_DINO_seed123_terminal_acceptance_20261025T0245.json"
+  ],
+  "terminal_auditor_sha256": "b76806a40ee85233123d17efceee8b10f6882600fa74507ff19d603d4685fa02",
+  "health_time_wrapper_pid": 2401938,
+  "health_command": [
+    "/usr/bin/time",
+    "-v",
+    "-o",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_formal_checkpoint_health_time_v_20261025T0245.log",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+    "-B",
+    "-u",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_formal_checkpoint_health_20261025T0245.command.py"
+  ],
+  "health_caller_sha256": "6c422c0e7185b86e51a43d4359da9904089958d6540df25338b33fba7bb02651",
+  "runtime_pid": 2401940,
+  "runtime_command": [
+    "python3",
+    "-B",
+    "-u",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_runtime_observation_20261025T0245.py"
+  ],
+  "runtime_script_sha256": "fa5df4234cb9f8d2e15a1b9b899ec3599898242fd5aff791aaac625d5e9bf558",
+  "CPU_only": true,
+  "GPU_jobs_started": false,
+  "production_processes_restarted": false,
+  "target_export_started": false
+}

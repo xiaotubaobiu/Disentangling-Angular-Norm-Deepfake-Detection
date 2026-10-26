@@ -1,0 +1,173 @@
+{
+  "BASE": "9dbb3cfcaa80ff6956068046177bd899f98629ea",
+  "HEAD": "9dbb3cfcaa80ff6956068046177bd899f98629ea",
+  "actual_resource_qualification": false,
+  "actual_summary_executed": false,
+  "all_original_M33_current_SHA_match_fixed_acceptance": true,
+  "changes": {
+    "M5SUM001": {
+      "binding": "whole M33 before/after auditor or resource module import; after remaining_required return via finally; original CPUslot lifetime including return",
+      "default": "metadata-only lazy auditor; PREPARE_ONLY does not import/execute M33 source",
+      "expected_source": "Only fixed SHA9bec reviewed metadata supplies exact33 canonical paths and expected code digests. No live code observation creates expected values.",
+      "fixed_analysis_sha256": "0ec974eec85a0a5204b8804707d627fa908a80eb1a4e76cfa81729ce0a875a32",
+      "fixed_runtime_sha256": "69b3d590d95fd3004c7c64617fbad642526b02862a97f61546d3cd375fc18742",
+      "private_regressions": "observed dependency refresh cannot seal expectations or enter fake loader; transitive cache drift before import,after import,and after fake return; fixed metadata drift"
+    },
+    "M5SUM002": {
+      "CSV_check": "independent direct sign and paired-delta count check from round-tripped355 seed rows; injected summary count error rejects",
+      "inference": "descriptive counts only; no significance test",
+      "mean_SD": "unchanged; exact5 registered seeds,ddof1,any numeric NA makes both unavailable",
+      "reversal_columns": [
+        "reversal_count",
+        "non_reversal_count",
+        "reversal_valid_count",
+        "reversal_unknown_count",
+        "reversal_tolerance"
+      ],
+      "reversal_rule": "same seed correct/collision delta signs must be strictly opposite beyond tolerance; never classify from interaction sign. Any nonfinite/NA delta pair remains unknown; zero is a known non-reversal.",
+      "sign_columns": [
+        "positive_count",
+        "negative_count",
+        "zero_count",
+        "na_count",
+        "sign_valid_count",
+        "sign_unknown_count",
+        "sign_tolerance"
+      ],
+      "tolerance": 1e-10
+    }
+  },
+  "endpoint_contract": {
+    "RQ2": "downstream arithmetic from aligned frozen normal draws; no new resampling or closure substitution",
+    "backbones_separate": true,
+    "four_selected_core_only": true,
+    "per_backbone_jobs": 10,
+    "per_backbone_seed_rows": 355,
+    "per_backbone_summary_rows": 71,
+    "source_best_prefix_disclosed": true,
+    "update_matched_primary_claim": false
+  },
+  "fixed_M33_code_sha256": {
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/analysis_d.py": "a1d3be7bd43acb43995768f9167225b066ee9e6691c61c7b8bf28b00de53ba5e",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/analysis_h.py": "051226f11737615bb3546ae1a301d621fd662943dc1c849e18085e610c865383",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/bootstrap_fast.py": "7eaeaf0973d72cd1def838cf6bc82863c92c75fb35409553332015dec8b0e4e5",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/cache_d.py": "8f5814646194c772dcf00f6751a35c2f792dd5f11008e0834fdba4eb5e329761",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/cache_h.py": "9119200359f8d696f1366e6c0137bca533c63089c32e505971e69f84ebaf40fb",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/coverage_h.py": "f1b684903d2486107dc1ba2312502b7f34a66636b196662b0a3566a159475f9d",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/data_d.py": "7d37fda956a5b5d0d9a4281a24b5967507ce28b892dd3a01486ec05280277cd1",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/data_h.py": "ad81f65c27d53159e6902bf8a20b0910cd129f75eb0105e5a5a053bcc2d2f45e",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/geometry_h.py": "161ac4e837463ff16e7916ca42eeb5d13acc44aab9bcc1c397025b9426ad9532",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/models.py": "5c4adb39314433c5f0d40311d7ada3ad5d30c7b239773be02080be120f5a2e60",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/multiplicity_bundle.py": "3aa5debf7d98bd976bc21fa5be2135d34cdfa8e0b91873f356cc8f57e24360c3",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/multiplicity_codec.py": "1931371915dcbf542b78b79ca433f202e6c6cdf194400985020f105eff92fa73",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/qualification_h.py": "5c70e9fb2a39bd974b0db278d519a8b7103f9553c3bfee32c7accb311edf0ec0",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/qualify.py": "5e8b6e856f2396bf15fa4e464cb8228a043864bc7b0e90dfcbd9d20f847b06eb",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/queue_d.py": "3db3d1ebb63fbe233fa19116934268ab999be94faaff59fe1f2d52fdbe1949b8",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/queue_h.py": "a2792361443e64622391fb6ae766ee5e6f887789d662afdfb6d809f9a5ea8176",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/scoring_d.py": "9bddf066fcb8df1b9659d4cfe14aa4febdf850f7cc39c1c0c3d6050864263d1c",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/sensitivity_io.py": "d311923c3e35b8e9ba2fc42dc5ee7e6e46b66ce3c9f2d3a923ea8ccb949be9ce",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_analysis.py": "0ec974eec85a0a5204b8804707d627fa908a80eb1a4e76cfa81729ce0a875a32",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_cache.py": "4c5494d06f133b962fd22872ac88d22ad9155fcca102e29f0e300cc06a4ff0c7",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_files.py": "9745e0181aa4da0a8fa53b73066e2b47f400d0e824df77d20c7e097fa082c908",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_gpu.py": "f3cac34e1493cd109e336b77f94b087527e97d722f02253880371a7c2caebed5",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_lease.py": "175075eaa2e3dac44db2dbb0229abeb126058d694267901c6929cd28e0b9e5a9",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_policy.py": "e407059ce2def098ff46fd0ebf7e61c40f4ab5c81b39608925d501b6e3c07b39",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_runtime.py": "69b3d590d95fd3004c7c64617fbad642526b02862a97f61546d3cd375fc18742",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_sink.py": "9b638a05738061fce9fb4537b6076c118b579631c8852452d4f894fa55a581f0",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_source_qualification.py": "3bc8e60a64226b37817d8142b6b374ad0400bf891c3209ad95329e8ccaa47ab9",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/source_best_stats.py": "012d5147f8f1bbb63dae6b1aff730e71459a359ead332c754e734ce525ca7a47",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/stats_h.py": "5627cccc714c2fc59a3dadfed3ddeba32d1488020cfd550ca70d0c9be947dd74",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/summary_d.py": "489330049b8b95c74db9bb3d191a38f7e7190107788144ff6c07aaec9946db93",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/trainer.py": "56f0db0634a525a530fb53482732365ebf9693a1f5470b0a95ec0820cc614368",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/reliability_v2/worker_h.py": "d0219aa52ebb1b6602602d5b09eb5fdfbbb9dc3aeb7b55dbfc0251ced66136f4"
+  },
+  "fixed_reviewed_M33_metadata": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_statistic_canary_engineering_acceptance_20261026T0430.json",
+    "sha256": "9bec22803f8e7c15918fdb1b4938e028e09a3115a4d23aea89dff1cb89d25571"
+  },
+  "independent_initial_review": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_M_source_best_five_seed_summary_review_20261026.json",
+    "sha256": "8b7587334d7dfceab453a9bb1e792c5775f5c8f83aa28d70742ad73c6931bf1f"
+  },
+  "prior_engineering_candidate": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_source_best_five_seed_summary_engineering_candidate_20261026.json",
+    "sha256": "5b191525f84c65a9ec96b0ff37c9bc43e87ed0cd973895e7265035e3ab1a5f0b"
+  },
+  "production_admitted": false,
+  "protocol_addendum": {
+    "capacity_accounting": "unchanged; externally SHA-bound INCLUDED_IN_PRIMARY_LOGS_FIGURES_AUDITS_AND_M_EXTRA does not double count50GiB/primary/Mtemporary. No fresh real capacity admission performed.",
+    "changes": "New request.dependencies_sha256 now includes all fixed M33 codes plus the fixed9bec metadata reference. Use current default output to construct a future external request; old b84 request/dependency identities cannot be reused. Summary adds descriptive counts columns without changing endpoint rows.",
+    "historical_scope": "prior non-consumed source pins retained as historical accepted evidence, not freshly rehashed",
+    "old_protocol_retained_unchanged": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_source_best_five_seed_summary_protocol_20261026.md",
+      "sha256": "685657d30624875a58cb392ba09608c91708de753d9252a80eae3522f842f982"
+    }
+  },
+  "remaining_blockers": [
+    "Independent fix confirmation pending",
+    "Ten genuine accepted D/H source-best job reports per backbone and fresh external resource request still required before actual execution"
+  ],
+  "schema": "M_SOURCE_BEST_FIVE_SEED_SUMMARY_REVIEW_FIXES_ENGINEERING_CANDIDATE_V1",
+  "scientific_final_acceptance": false,
+  "scope": [
+    "Only new M5summary tool/test changed; fresh report/logs saved in E",
+    "Original M33/72f/a7/H source/live owner/config unchanged",
+    "No old suite/qualification repeat,real slot,source weight/PNG/model,statistical job,locks,GPU,commit,seal or actual summary",
+    "Other agent files not modified"
+  ],
+  "source": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/m_source_best_five_seed_summary.py",
+    "sha256": "856a926bec16f32c5bfd27dbebdc66ad5e48c0f5ecbc24ace5863f1e1596cb30"
+  },
+  "status": "TWO_REVIEW_FINDINGS_FIXED_SYNTHETICALLY_PENDING_INDEPENDENT_CONFIRMATION",
+  "test": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests/test_m_source_best_five_seed_summary.py",
+    "sha256": "acfcc910e6299009670a71315ae23eb1cc2245716be23222a6d955ac29bfd14a"
+  },
+  "timestamp_UTC": "2026-10-26T07:59:46.944547+00:00",
+  "verification": {
+    "command": [
+      "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+      "-B",
+      "-m",
+      "pytest",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests/test_m_source_best_five_seed_summary.py"
+    ],
+    "default_CLI": "PREPARE_ONLY summary_executed:false scientific_final_acceptance:false;exit0",
+    "environment": {
+      "CUDA_VISIBLE_DEVICES": "",
+      "MKL_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTHONDONTWRITEBYTECODE": "1"
+    },
+    "fixture_scope": "real slots and accepted Reader constructors mocked only in tmp synthetic execution; real file digest/serialization/math checks run; no original M33 bytes mutated",
+    "green": "84 passed in3.20s; exit0",
+    "intermediate_failure": "First GREEN attempt had83pass/1failure because fixture patched ROOT on lazy proxy rather than the real auditor module. Only fixture boundary target changed; assertions/production validation were retained.",
+    "logs": [
+      {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_source_best_five_seed_summary_review_fixes_RED.log",
+        "sha256": "d430be6b6f45e4a48158a6e1700795ee8d0e77cc57451af72437d02500fcb986"
+      },
+      {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_source_best_five_seed_summary_review_fixes_GREEN_attempt1.log",
+        "sha256": "1508ef187a71b2cdc42a8f9b568f0fab2f8bc20891c9e18dea764caae56d5cf6"
+      },
+      {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_source_best_five_seed_summary_review_fixes_GREEN.log",
+        "sha256": "cbaad8cd324f1615f9c3178a8832195937b3b35b7aadc4989f74a66e1c8c6f6a"
+      },
+      {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_source_best_five_seed_summary_review_fixes_PREPARE_ONLY.log",
+        "sha256": "5cfdb0205f2aa97d7638160f35262f360cdad59d5864099df29685ed64366bcf"
+      }
+    ],
+    "new_review_cases": 12,
+    "original_tests_preserved": 72,
+    "red": "12 new targeted failures,72 deselected; real RED against old b84 code using private digest/fake-loader and literal fixtures only"
+  }
+}

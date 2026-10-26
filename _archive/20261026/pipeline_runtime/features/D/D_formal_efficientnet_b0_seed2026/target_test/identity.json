@@ -1,0 +1,26 @@
+{
+  "schema": "pipeline-reliability-v2-D-fp32-cache-1",
+  "config_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/configs/execution.json",
+  "config_sha256": "deae26fadc19a09c35ec2eba443e4b1c0ce3abd8ff304b85aa6cc1cb98fca750",
+  "artifact_root": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023",
+  "run_id": "D_formal_efficientnet_b0_seed2026",
+  "backbone": "efficientnet_b0",
+  "dimension": 1280,
+  "epochs": 30,
+  "training_identity": {
+    "config": "d6d6e8efaeabbc071a1b846e17705e2120221af2e5191541d5bc6c75e27afefc",
+    "train_manifest": "9d85e421d803f20481eb7720854cdb4369349b97dd5e04f5763dbe851077f496",
+    "dev_manifest": "2c157ce3f30504479e50023ff43c76bdd0a2df8cd7e31a938356a6306b7550bd",
+    "initialization": "7f5810bc96def8f7552d5b7e68d53c4786f81167d28291b21c0d90e1fca14934",
+    "environment": "d3e6f2a2fc50770a2c3c8ab5b913dfa9049111a398c9de72d85baf618b139ebb",
+    "code": "336f3097434edf903a5ff402162e29afeca2442ca50f9c7d9883ca60136b8335",
+    "qualification": "c2a9a09d208d2671b7a123df7ee29e83b8abedcac08d9221d5ad26f3948700aa"
+  },
+  "checkpoint_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_efficientnet_b0_seed2026/final.pt",
+  "checkpoint_sha256": "9bf1d7c86fb571519a0d856346f46257b2d8f62f118672b6542ecf3ac1d29042",
+  "training_complete_sha256": "60fb56351ee284a9f2de77bc0a18f26479455eed0897c01270cf9ddaecca9e0a",
+  "cache_code_sha256": "8f5814646194c772dcf00f6751a35c2f792dd5f11008e0834fdba4eb5e329761",
+  "role": "target_test",
+  "source_manifest_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/data/D/target_test.parquet",
+  "source_manifest_sha256": "4ee912e318397814ab2d780570e45762c4cd497dde984b5bdf09578e8a813c19"
+}

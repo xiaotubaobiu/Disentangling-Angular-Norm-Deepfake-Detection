@@ -1,0 +1,74 @@
+{
+  "schema": "M_INDEPENDENT_SAVED_RESULT_AUDIT_LAUNCH_V1",
+  "utc": "2026-10-26T12:39:42.914759+00:00",
+  "job": {
+    "job_id": "D_clip_vit_b16_seed7",
+    "route": "D",
+    "backbone": "clip_vit_b16",
+    "seed": 7,
+    "runs": {
+      "D": "D_formal_clip_vit_b16_seed7"
+    }
+  },
+  "request": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/M_D_clip_seed7_R1_actual_selected_core_numeric_audit_CSV_ID_R2_20261026T1240_request.json",
+    "sha256": "4e6d6efcc3d482cb88e7d8366d7fa79c4a306dd27ab658ee22998de750ae3e3e"
+  },
+  "entry": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/m_source_best_result_audit.py",
+    "sha256": "7836d63269669aea0c7ef73e3c8bc88309dd4b17645d06d40b30b8f11c0e9e98"
+  },
+  "CPU_slot": 0,
+  "address_space_limit_bytes": 34359738368,
+  "environment": {
+    "CUDA_VISIBLE_DEVICES": "",
+    "OMP_NUM_THREADS": "2",
+    "MKL_NUM_THREADS": "2",
+    "OPENBLAS_NUM_THREADS": "2",
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "stdout": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/M_D_clip_seed7_R1_actual_selected_core_numeric_audit_CSV_ID_R2_20261026T1240.json",
+  "stderr": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/M_D_clip_seed7_R1_actual_selected_core_numeric_audit_CSV_ID_R2_20261026T1240_stderr.log",
+  "time_v": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/M_D_clip_seed7_R1_actual_selected_core_numeric_audit_CSV_ID_R2_20261026T1240_time_v.log",
+  "cwd": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2",
+  "remaining_capacity_plan": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/plans/M_two_canary_remaining_write_plan_after_H6_20261026_candidate.json",
+    "sha256": "c0f5080192f20203dd63f0133aeeb21afd24807fbf7b1af9119945baa2abef07"
+  },
+  "free_bytes_before_launch": 149789233152,
+  "full_conservative_remaining_budget_bytes": 148068010153,
+  "producer_actual_exit0": true,
+  "producer_complete_sha256": "b503feed80f9a7ef80b6e29cba20c45ce6244e205a48bd48eec077b4aaec5e60",
+  "selected_four_core_only": true,
+  "command": [
+    "/usr/bin/time",
+    "-v",
+    "-o",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/M_D_clip_seed7_R1_actual_selected_core_numeric_audit_CSV_ID_R2_20261026T1240_time_v.log",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+    "-B",
+    "-u",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/m_source_best_result_audit.py",
+    "--execute",
+    "--request",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/M_D_clip_seed7_R1_actual_selected_core_numeric_audit_CSV_ID_R2_20261026T1240_request.json",
+    "--request-sha",
+    "4e6d6efcc3d482cb88e7d8366d7fa79c4a306dd27ab658ee22998de750ae3e3e",
+    "--slot",
+    "0"
+  ],
+  "engineering_acceptance": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_saved_result_consumer_CSV_lexical_identity_fix_engineering_acceptance_20261026T1240.json",
+    "sha256": "7e06c8c8c643f098762936b0e0f875ae1a1c1decc3502e35d39d34377ca4cc4a"
+  },
+  "independent_audit_attempt_number": 3,
+  "prior_failed_independent_audit": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/M_D_clip_seed7_R1_actual_selected_core_numeric_audit_native_context_R1_20261026T1205_exit.json",
+    "sha256": "649b73bb7a839cf0d6afe0eee7209590cb3ae99741294eac8aec60632a847119"
+  },
+  "producer_reexecuted": false,
+  "observer_source": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/M_D_clip_seed7_R1_actual_selected_core_numeric_audit_20261026T1155_observer.py",
+    "sha256": "b5dc72db07a473d997ecb4e31215ed23a56e76231e0a42d6f1f133e2b1426f49"
+  }
+}

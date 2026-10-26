@@ -1,0 +1,29 @@
+{
+  "utc": "2026-10-25T18:15:34Z",
+  "status": "ENGINEERING_OWNER_COLLECTOR_AND_ISSUER_ACCEPTED_ONLY",
+  "commit": "09be61044522c193f12a03b4fbbe666a48d2e95f",
+  "full_suite_passed": 792,
+  "fixture_skipped": 27,
+  "duplicate_NPZ_warning_expected": true,
+  "pytest_seconds": 691.43,
+  "wall_seconds": 692.48,
+  "peak_RSS_KiB": 963912,
+  "exit_code": 0,
+  "source_and_test_pins_unchanged": true,
+  "launch": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/M_owner_collector_full_suite_20261025T1735_launch.json",
+    "sha256": "7c9ae1963dd8798cbdb056c5b377a3d93eaf88da1678d7892ed5584a71b58f2c"
+  },
+  "owner_independent": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_source_best_owner_fix_confirmation.json",
+    "sha256": "e8bc7442f5c447b9b99a5f71178a95d50a6f4a2605ad25d5ee4c2a219b4a5584"
+  },
+  "collector_independent": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_source_best_cache_admission_final_confirmation.json",
+    "sha256": "4a233f278e2529ddc407461e12bb32b12a94df4f7f10a7aab3f742b0dd3ba942"
+  },
+  "actual_source_GPU_qualified": false,
+  "actual_resource_canary_executed": false,
+  "joint_capacity_admitted": false,
+  "M_production_admitted": false
+}

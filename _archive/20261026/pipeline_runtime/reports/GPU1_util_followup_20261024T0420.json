@@ -1,0 +1,86 @@
+{
+  "utc": "2026-10-24T04:31:34.954154+00:00",
+  "status": "FOLLOWUP_GPU1_PRIOR_ZERO_UTIL_WINDOW",
+  "target": {
+    "pid": 458602,
+    "run_id": "D_formal_dinov2_vit_b14_seed123",
+    "gpu": 1,
+    "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c"
+  },
+  "samples": [
+    {
+      "utc": "2026-10-24T04:31:19.974807+00:00",
+      "csv": "0, 98, 4930\n1, 80, 5414\n2, 84, 5414\n3, 86, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156"
+    },
+    {
+      "utc": "2026-10-24T04:31:22.097717+00:00",
+      "csv": "0, 96, 4930\n1, 81, 5414\n2, 82, 5414\n3, 78, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156"
+    },
+    {
+      "utc": "2026-10-24T04:31:24.239713+00:00",
+      "csv": "0, 94, 4930\n1, 80, 5414\n2, 82, 5414\n3, 77, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156"
+    },
+    {
+      "utc": "2026-10-24T04:31:26.383956+00:00",
+      "csv": "0, 95, 4930\n1, 80, 5414\n2, 78, 5414\n3, 83, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156"
+    },
+    {
+      "utc": "2026-10-24T04:31:28.532956+00:00",
+      "csv": "0, 96, 4930\n1, 82, 5414\n2, 80, 5414\n3, 81, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156"
+    },
+    {
+      "utc": "2026-10-24T04:31:30.681941+00:00",
+      "csv": "0, 96, 4930\n1, 76, 5414\n2, 83, 5414\n3, 80, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156"
+    },
+    {
+      "utc": "2026-10-24T04:31:32.819750+00:00",
+      "csv": "0, 96, 4930\n1, 81, 5414\n2, 83, 5414\n3, 81, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156"
+    },
+    {
+      "utc": "2026-10-24T04:31:34.950156+00:00",
+      "csv": "0, 98, 4930\n1, 82, 5414\n2, 78, 5414\n3, 77, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156"
+    }
+  ],
+  "GPUmean0to3_percent": [
+    96.125,
+    80.25,
+    81.25,
+    80.375
+  ],
+  "root_CPU_ticks_delta": 1975,
+  "root_IO_deltas": {
+    "rchar": 13920,
+    "wchar": 20001,
+    "syscr": 336,
+    "syscw": 240,
+    "read_bytes": 0,
+    "write_bytes": 20480,
+    "cancelled_write_bytes": 0
+  },
+  "committed_history_epoch_metadata_only": 18,
+  "markers": [
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_dinov2_vit_b14_seed123/epoch_18_source_dev.parquet",
+      "mtime_utc": "2026-10-24T04:27:07.018506+00:00",
+      "age_seconds": 267.93517780303955
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_dinov2_vit_b14_seed123/state.pt",
+      "mtime_utc": "2026-10-24T04:27:08.614502+00:00",
+      "age_seconds": 266.33922362327576
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_dinov2_vit_b14_seed123/history.json",
+      "mtime_utc": "2026-10-24T04:27:11.450496+00:00",
+      "age_seconds": 263.5032606124878
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_dinov2_vit_b14_seed123/epoch_19_updates.jsonl",
+      "mtime_utc": "2026-10-24T04:31:34.522080+00:00",
+      "age_seconds": 0.43170785903930664
+    }
+  ],
+  "prior_zero_window_receipt": "reports/check_20261024T0420Z.json",
+  "training_restarted_or_changed": false,
+  "interpretation": "Record current shortwindowandprogress; epoch/checkpointtimingcorrelationdoesnotestablishauniquecause."
+}

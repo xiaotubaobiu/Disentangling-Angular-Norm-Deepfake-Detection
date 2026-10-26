@@ -1,0 +1,51 @@
+{
+  "schema": "D_FIVE_SEED_SUMMARY_COMPLETE_V1",
+  "status": "SUMMARY_COMPLETE",
+  "utc": "2026-10-24T18:48:01.832675+00:00",
+  "identity": {
+    "schema": "D_FIVE_SEED_SUMMARY_IDENTITY_V1",
+    "backbone": "dinov2_vit_b14",
+    "seeds": [
+      7,
+      42,
+      123,
+      2026,
+      3407
+    ],
+    "config_sha256": "deae26fadc19a09c35ec2eba443e4b1c0ce3abd8ff304b85aa6cc1cb98fca750",
+    "analysis_complete_sha256": {
+      "7": "1b1a979b6911e450c0132e38bdd7a9f49b2f1d6587dae0b53d4b6e7bbc7611a4",
+      "42": "80991ef9139284c0a0be179f2d493a8f626afe40af02c99619ac5e8262de838b",
+      "123": "0d7946c6ce25d67130b09b87c1eb1e67b29b204d94b3cd1fd2e6332b326008f9",
+      "2026": "b9b3ea24695f4e2956fcf660ea8d98c09552afd9d0de3dbe963424cfa424b280",
+      "3407": "78b2c43e2bd3950cd3510599c5baf67fa64c37e83f7013f7c89a192230f73055"
+    },
+    "code_sha256": {
+      "analysis_d.py": "a1d3be7bd43acb43995768f9167225b066ee9e6691c61c7b8bf28b00de53ba5e",
+      "scoring_d.py": "9bddf066fcb8df1b9659d4cfe14aa4febdf850f7cc39c1c0c3d6050864263d1c",
+      "stats_h.py": "5627cccc714c2fc59a3dadfed3ddeba32d1488020cfd550ca70d0c9be947dd74",
+      "cache_d.py": "8f5814646194c772dcf00f6751a35c2f792dd5f11008e0834fdba4eb5e329761",
+      "bootstrap_fast.py": "7eaeaf0973d72cd1def838cf6bc82863c92c75fb35409553332015dec8b0e4e5",
+      "summary_d.py": "489330049b8b95c74db9bb3d191a38f7e7190107788144ff6c07aaec9946db93"
+    }
+  },
+  "artifact_sha256": {
+    "per_seed_oracles.csv": "2d12e6eb7b1b035890402d348364ecc7eed2cfab0dbde09ec8b95ab5b8ce96a3",
+    "five_seed_oracles.csv": "35c0f91f3d82cff9dfe7f7c8409f21c46921d66e9a0f5b42aab056fdb204071d",
+    "five_seed_numerical.csv": "027834814dbac27e8b6b2a4e13802eace7115bb22861646719be30739bd42f76",
+    "per_seed_calibration_comparisons.csv": "e052c55a8159f3a8fcb90ce2cf88a1b8c635f0c55c095fa8a080705b9e415841",
+    "identity.json": "f303bdb9287cb148d577866cd6d45cb46892f0211865d6c8ba7a358c24545a2a",
+    "five_seed_metrics.csv": "c2aa8a15c2a38645ae1553c09d8ff52f52529705d6c00562b04d408ea79b9e74",
+    "limitations.json": "c867f2ff2a4b868fbc7cc11d5e1b0f0affe347474c0a1599f5ead9cb24a98fc4",
+    "per_seed_effects.csv": "2fe43e6709362a65561373d2637455cb7f96c4bbbb4b1ced37cc9bb359d96b87",
+    "five_seed_calibration_comparisons.csv": "88db997bc375619a636e7aef67f50dfceac84925f85c9aa1bff61350fb21b3e6",
+    "supporting_artifacts.json": "9dae9d7c1fcac49b71f3f3a97c63a87ba456c9e2a381050f65a552084719b376",
+    "per_seed_metrics.csv": "2bb03a1abfd1fb7ff3cffd72dc12476bbc9b7e7233de1980ce5456304db00fb1",
+    "per_seed_calibration.csv": "2fe7ebb898a0859e51219092166de42ba49231c96a0bdcb2f397841d498927d8",
+    "per_seed_numerical.csv": "7373e6057c18e83c5d89ff156ecb393d0c2a58a53949eb29a8c114810215bbee",
+    "five_seed_effects.csv": "1bd00e9346742f813f72d64bc7b8c818f5e74a3c08c07d5f2ce163835cf6d0b4",
+    "five_seed_calibration.csv": "8d6a646d76313a15b5a260fcfddd1c53ff95f359fd76b7a13530d92b290ededc"
+  },
+  "backbone": "dinov2_vit_b14",
+  "training_seed_count": 5
+}

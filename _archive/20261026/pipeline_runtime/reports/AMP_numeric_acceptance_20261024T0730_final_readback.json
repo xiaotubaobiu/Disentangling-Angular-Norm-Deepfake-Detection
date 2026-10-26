@@ -1,0 +1,56 @@
+{
+  "utc": "2026-10-24T07:46:58.896162+00:00",
+  "status": "PASS_CURRENT_ACTIVE_LOGS_AND_ALL_OBSERVED_SKIP_RECOVERIES",
+  "completed_AMP_dev_formal": [
+    32,
+    32
+  ],
+  "current_active_only_scan": [
+    {
+      "run_id": "D_formal_dinov2_vit_b14_seed2026",
+      "cutoff_utc": "2026-10-24T07:46:58.641397+00:00",
+      "live_records": 10673,
+      "live_skips": 0,
+      "max_consecutive": 0,
+      "skip_evidence": [],
+      "partial_tail_lines_ignored": 0
+    },
+    {
+      "run_id": "D_formal_dinov2_vit_b14_seed3407",
+      "cutoff_utc": "2026-10-24T07:46:58.681013+00:00",
+      "live_records": 5473,
+      "live_skips": 0,
+      "max_consecutive": 0,
+      "skip_evidence": [],
+      "partial_tail_lines_ignored": 0
+    },
+    {
+      "run_id": "D_formal_efficientnet_b0_seed7",
+      "cutoff_utc": "2026-10-24T07:46:58.790878+00:00",
+      "live_records": 12580,
+      "live_skips": 0,
+      "max_consecutive": 0,
+      "skip_evidence": [],
+      "partial_tail_lines_ignored": 0
+    },
+    {
+      "run_id": "D_formal_efficientnet_b0_seed42",
+      "cutoff_utc": "2026-10-24T07:46:58.896127+00:00",
+      "live_records": 12784,
+      "live_skips": 0,
+      "max_consecutive": 0,
+      "skip_evidence": [],
+      "partial_tail_lines_ignored": 0
+    }
+  ],
+  "latest_AMP_dev_formal_total": [
+    32,
+    32,
+    64
+  ],
+  "new_since0734": 0,
+  "prior_all64_recovery_receipt": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/AMP_numeric_acceptance_20261024T0730.json",
+  "prior_receipt_sha256": "55ff2acf69aae1844ebfd31b3452f29b31351feb60ca1a6ea7a629ae1bdd8784",
+  "scope": "18unchangedcompleted numeric proofs inherited;only4active logs freshlyre-read. Allnewobservedskips have immediate successfulnextattempt.",
+  "no_makeup_or_protocol_change": true
+}

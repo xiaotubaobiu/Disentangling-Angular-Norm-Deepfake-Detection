@@ -1,0 +1,33 @@
+{
+  "utc": "2026-10-24T12:05:44.886602+00:00",
+  "status": "SYNTAX_AND_HASH_PREPARED_NOT_LAUNCHED",
+  "scripts": [
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/checkpoint_health_20261024T1230.py",
+      "sha256": "0bd427cd635e7bf5f5b122518e9439a58a3c6e141f4c5329ae976e97616e75c9",
+      "syntax": "PASS",
+      "launched": false
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/checkpoint_active_focus_20261024T1230.py",
+      "sha256": "8666030181e17e7c82c0a724d69b4dde14741775c7befe50f961c5f1aa336404",
+      "syntax": "PASS",
+      "launched": false
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/completion_audit_20261024T1230.py",
+      "sha256": "bb59370e70c1890f8d5fbc9823aef3f04136e3ac642ff751a02b3327cfb2997b",
+      "syntax": "PASS",
+      "launched": false
+    },
+    {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/runtime_monitor_20261024T1230.py",
+      "sha256": "928b1d1315461db7522ba8c9bc35c6384cc7bca4cb5f177b7826eaf16330876e",
+      "syntax": "PASS",
+      "launched": false
+    }
+  ],
+  "training_protocol_or_queue_changed": false,
+  "nominal_next": "2026-10-24T12:30:00Z",
+  "phase_guard": "Use trainer assertions only in P3_D_FORMAL_TRAINING; original cache worker phase needs cache ownership/role/chunk receipt checks."
+}

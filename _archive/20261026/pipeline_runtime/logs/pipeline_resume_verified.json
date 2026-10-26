@@ -1,0 +1,53 @@
+{
+  "status": "PASS",
+  "utc": "2026-10-23T08:49:42.065366+00:00",
+  "training_code_sha256": "336f3097434edf903a5ff402162e29afeca2442ca50f9c7d9883ca60136b8335",
+  "script_sha256": "bfa45114163ec019b96703c0f329e76db3ed44a10f4e65c864c178ee4cef803f",
+  "complete_receipt_sha256": "59ebbf1801b69e0a50f71ff24b5d608e1fb48223251eb2a1e8632129cc17a610",
+  "artifact_hashes_verified": 57,
+  "all_workers_returned_zero": true,
+  "all_worker_processes_exited": true,
+  "source_only": true,
+  "target_used": false,
+  "backbones": {
+    "clip_vit_b16": {
+      "status": "PASS",
+      "receipt_sha256": "f9b6367ced3db2e8163f76e641c96ae212f5e47b7c9e8be7875e6c35ea9d62d9",
+      "artifact_hashes_verified": 19,
+      "data_rows": 44,
+      "full_checkpoint_all_fields_equal": true,
+      "feature_shape": [
+        44,
+        512
+      ],
+      "peak_memory_bytes": 4451107328,
+      "elapsed_seconds": 32.904340744018555
+    },
+    "dinov2_vit_b14": {
+      "status": "PASS",
+      "receipt_sha256": "846c3f66fb89203c889dd6599ccced88f4f51f875c575d88d62c2e3d764b862a",
+      "artifact_hashes_verified": 19,
+      "data_rows": 44,
+      "full_checkpoint_all_fields_equal": true,
+      "feature_shape": [
+        44,
+        768
+      ],
+      "peak_memory_bytes": 4836139520,
+      "elapsed_seconds": 29.803460359573364
+    },
+    "efficientnet_b0": {
+      "status": "PASS",
+      "receipt_sha256": "82a53f31210e00a3b153189d35d620c0ea36595e55c17ccb7bdc55ee37324b58",
+      "artifact_hashes_verified": 19,
+      "data_rows": 44,
+      "full_checkpoint_all_fields_equal": true,
+      "feature_shape": [
+        44,
+        1280
+      ],
+      "peak_memory_bytes": 1620307456,
+      "elapsed_seconds": 10.45568037033081
+    }
+  }
+}

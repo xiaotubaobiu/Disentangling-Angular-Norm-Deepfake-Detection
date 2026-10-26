@@ -1,0 +1,84 @@
+{
+  "AST_vs_c242": {
+    "all_other_function_AST_unchanged": true,
+    "changed_functions": [
+      "validate_audit"
+    ],
+    "writer_reservation_atomic_commit_budget_numeric_kernel_unchanged": true
+  },
+  "GREEN": {
+    "environment": "R/environment/bin/python -B; emptyCUDA; OMP/MKL/OPENBLAS=1; no acquiring shared-slot substitutes",
+    "exit_code": 0,
+    "original81_retained": true,
+    "seconds": 27.5,
+    "total_tests": 84
+  },
+  "HSUM003_R1": "c242 atomic abstract UNIX writer reservation retained; exact private normal dual9MiB counterexample and cross-process exit/release tests remain in84GREEN",
+  "RED": {
+    "alias_cases": 3,
+    "coherent_alias_map_was_not_canonical": true,
+    "cross_seed_conflict": true,
+    "same_audit_conflict": true
+  },
+  "change": "Historical keys normalized to str(safe_path(p)) before local and global conflict checks; no historical source bytes rehashed",
+  "independent_alias_counterexample": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/reviewer_H5_fix_historical_alias_probe.log",
+    "sha256": "a7ea8ee68d4b0b0d8030e61c8a819865ea31d4d812db7f767b22916c9b5d9d91"
+  },
+  "preserved_c242_91e4_4746": {
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/review_snapshots/H_saved_summary_c242_before_historical_alias_fix/H_saved_five_seed_summary_writer_reservation_fix_engineering.json": "4746ef610641a96c6bd08accb6b47f6ba3959d5207c0e11847f99e5090578382",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/review_snapshots/H_saved_summary_c242_before_historical_alias_fix/h_saved_five_seed_summary.py": "c242753c4042f38f616a8d6f9b565e202d031c543a301c9f3797ce28220053e9",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/review_snapshots/H_saved_summary_c242_before_historical_alias_fix/test_h_saved_five_seed_summary.py": "91e4c70465b39f545ef80ed678bb31585674f36f473e23201198b51358f29ac6"
+  },
+  "production_scope": {
+    "actual_H_summary": false,
+    "committed": false,
+    "models_weights_pixels_source_context": false,
+    "original_consumers_M33_F4_owner_changed": false,
+    "real_CPU_slot_or_flock": false,
+    "saved_score_or_bootstrap_rerun": false,
+    "sealed": false
+  },
+  "protected_dependencies": {
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/h_pair_result_audit.py": {
+      "expected": "6cd3bff403cc2f7c27a870d092023e4c8677f5d9386668abbc439829eadaa4e5",
+      "observed": "6cd3bff403cc2f7c27a870d092023e4c8677f5d9386668abbc439829eadaa4e5",
+      "unchanged": true
+    },
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/h_last_matrix_result_audit.py": {
+      "expected": "bb299e512e355fa0a8c9b25f901b1788cee6a2b445a4eb1ddb67b30cb4c3a0e2",
+      "observed": "bb299e512e355fa0a8c9b25f901b1788cee6a2b445a4eb1ddb67b30cb4c3a0e2",
+      "unchanged": true
+    },
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/h_last_resumed_result_audit.py": {
+      "expected": "0d33952bcb640ecfbe6d2cb4a0a2ac132089f485f43046d4096f0e2cdb83412b",
+      "observed": "0d33952bcb640ecfbe6d2cb4a0a2ac132089f485f43046d4096f0e2cdb83412b",
+      "unchanged": true
+    },
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/h_primary_pair_admission_audit.py": {
+      "expected": "845bd8adab8dd95e47cae44543b0cffe2f57bcc99657a623e09529d8e76d7544",
+      "observed": "845bd8adab8dd95e47cae44543b0cffe2f57bcc99657a623e09529d8e76d7544",
+      "unchanged": true
+    }
+  },
+  "remaining": [
+    "IO single-round narrow confirmation of003-R1+004-R1 on exact frozen source/test hashes",
+    "Root immutable accepted-source snapshot plus actual5-pair request and current full accepted operational capacity packet",
+    "Only later separately authorized actual saved-summary run under original shared CPUslot; no production admission claimed here"
+  ],
+  "schema": "H_SAVED_SUMMARY_JOINT_RESIDUAL_FIX_ENGINEERING_V1",
+  "source": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/h_saved_five_seed_summary.py",
+    "sha256": "01e625dc771daa56442364ff49ec8aa819c4ec215b2d467e6ce52621e45d0a57"
+  },
+  "status": "SYNTHETIC84_PASS_FINAL_FROZEN_AWAITING_INDEPENDENT_JOINT_CONFIRMATION",
+  "test_logs": {
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/H_saved_five_seed_summary_historical_alias_RED.log": "df2d49d86cc71973ce92efac337af775e7f1fc3f8a8a36718888529bd4631576",
+    "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/H_saved_five_seed_summary_historical_alias_final_GREEN.log": "555b27ea7f936987697c32b3c3900b3fd0e6415d4f065aaa621ccdee1b39a85f"
+  },
+  "tests": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests/test_h_saved_five_seed_summary.py",
+    "sha256": "f24831342399e0c3d9baf3e93cbdba68f14a5e8aa28ad72069a966cd1c077919"
+  },
+  "utc": "2026-10-26T08:49:27.579548+00:00"
+}

@@ -1,0 +1,228 @@
+{
+  "utc": "2026-10-23T17:18:55.666206+00:00",
+  "status": "PASS_ISOLATED_AMP_SKIPS_RETAINED_FROZEN_ATTEMPT_BUDGET",
+  "baseline": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/check_20261023T1630Z.json",
+    "utc": "2026-10-23T16:38:42.430174+00:00",
+    "cumulative_skips": 13
+  },
+  "current": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/check_20261023T1715Z.json",
+    "utc": "2026-10-23T17:17:42.419462+00:00",
+    "cumulative_skips": 15,
+    "new_skips": 2
+  },
+  "new_events": [
+    {
+      "run_id": "D_dev_dinov2_vit_b14_lr3e-05_seed1007_e30",
+      "skip_evidence": [
+        {
+          "event": {
+            "attempt": 16375,
+            "lr": 8.409695355272345e-06,
+            "loss": 0.019073070026934147,
+            "gradient_norm": null,
+            "gradient_finite": false,
+            "scale_before": 32768.0,
+            "scale_after": 16384.0,
+            "success": false,
+            "skip": true,
+            "epoch": 21
+          },
+          "next_success": {
+            "attempt": 16376,
+            "lr": 8.408039337558018e-06,
+            "loss": 0.00011260993778705597,
+            "gradient_norm": 0.12062888864751012,
+            "gradient_finite": true,
+            "scale_before": 16384.0,
+            "scale_after": 16384.0,
+            "success": true,
+            "skip": false,
+            "epoch": 21
+          },
+          "next_event_status": "SUCCESS"
+        }
+      ]
+    },
+    {
+      "run_id": "D_dev_dinov2_vit_b14_lr3e-05_seed1042_e30",
+      "skip_evidence": [
+        {
+          "event": {
+            "attempt": 16549,
+            "lr": 8.123605988731417e-06,
+            "loss": 0.06833925098180771,
+            "gradient_norm": null,
+            "gradient_finite": false,
+            "scale_before": 32768.0,
+            "scale_after": 16384.0,
+            "success": false,
+            "skip": true,
+            "epoch": 21
+          },
+          "next_success": {
+            "attempt": 16550,
+            "lr": 8.121973913037335e-06,
+            "loss": 1.1819414794445038e-05,
+            "gradient_norm": 0.0013386366016358063,
+            "gradient_finite": true,
+            "scale_before": 16384.0,
+            "scale_after": 16384.0,
+            "success": true,
+            "skip": false,
+            "epoch": 21
+          },
+          "next_event_status": "SUCCESS"
+        }
+      ]
+    }
+  ],
+  "all_run_skip_positions": {
+    "D_dev_clip_vit_b16_lr1e-05_seed1007_e30": [
+      12024,
+      14061,
+      18187,
+      19456
+    ],
+    "D_dev_clip_vit_b16_lr1e-05_seed1042_e30": [
+      10860,
+      15251,
+      19357,
+      21601
+    ],
+    "D_dev_dinov2_vit_b14_lr1e-05_seed1007_e30": [
+      17450,
+      19979
+    ],
+    "D_dev_dinov2_vit_b14_lr1e-05_seed1042_e30": [
+      16851,
+      19231,
+      21371
+    ],
+    "D_dev_dinov2_vit_b14_lr3e-05_seed1007_e30": [
+      16375
+    ],
+    "D_dev_dinov2_vit_b14_lr3e-05_seed1042_e30": [
+      16549
+    ],
+    "D_dev_dinov2_vit_b14_lr5e-05_seed1007_e30": [],
+    "D_dev_dinov2_vit_b14_lr5e-05_seed1042_e30": [],
+    "D_dev_efficientnet_b0_lr1e-04_seed1007_e30": null,
+    "D_dev_efficientnet_b0_lr1e-04_seed1042_e30": null
+  },
+  "fresh_pinned_checkpoints": [
+    {
+      "run_id": "D_dev_clip_vit_b16_lr1e-05_seed1007_e30",
+      "epoch": 30,
+      "attempts": 23970,
+      "success": 23966,
+      "skip": 4,
+      "Adam_parameter_step_counts": [
+        23966
+      ],
+      "model_optimizer_best_finite": true
+    },
+    {
+      "run_id": "D_dev_clip_vit_b16_lr1e-05_seed1042_e30",
+      "epoch": 30,
+      "attempts": 23970,
+      "success": 23966,
+      "skip": 4,
+      "Adam_parameter_step_counts": [
+        23966
+      ],
+      "model_optimizer_best_finite": true
+    },
+    {
+      "run_id": "D_dev_dinov2_vit_b14_lr1e-05_seed1007_e30",
+      "epoch": 30,
+      "attempts": 23970,
+      "success": 23968,
+      "skip": 2,
+      "Adam_parameter_step_counts": [
+        23968
+      ],
+      "model_optimizer_best_finite": true
+    },
+    {
+      "run_id": "D_dev_dinov2_vit_b14_lr1e-05_seed1042_e30",
+      "epoch": 30,
+      "attempts": 23970,
+      "success": 23967,
+      "skip": 3,
+      "Adam_parameter_step_counts": [
+        23967
+      ],
+      "model_optimizer_best_finite": true
+    },
+    {
+      "run_id": "D_dev_dinov2_vit_b14_lr3e-05_seed1007_e30",
+      "epoch": 22,
+      "attempts": 17578,
+      "success": 17577,
+      "skip": 1,
+      "Adam_parameter_step_counts": [
+        17577
+      ],
+      "model_optimizer_best_finite": true
+    },
+    {
+      "run_id": "D_dev_dinov2_vit_b14_lr3e-05_seed1042_e30",
+      "epoch": 21,
+      "attempts": 16779,
+      "success": 16778,
+      "skip": 1,
+      "Adam_parameter_step_counts": [
+        16778
+      ],
+      "model_optimizer_best_finite": true
+    },
+    {
+      "run_id": "D_dev_dinov2_vit_b14_lr5e-05_seed1007_e30",
+      "epoch": 16,
+      "attempts": 12784,
+      "success": 12784,
+      "skip": 0,
+      "Adam_parameter_step_counts": [
+        12784
+      ],
+      "model_optimizer_best_finite": true
+    },
+    {
+      "run_id": "D_dev_dinov2_vit_b14_lr5e-05_seed1042_e30",
+      "epoch": 16,
+      "attempts": 12784,
+      "success": 12784,
+      "skip": 0,
+      "Adam_parameter_step_counts": [
+        12784
+      ],
+      "model_optimizer_best_finite": true
+    }
+  ],
+  "full_pinned_totals": {
+    "attempts": 155805,
+    "success": 155790,
+    "skips": 15
+  },
+  "protocol": {
+    "fixed_attempts_per_epoch": 799,
+    "epochs_per_standard_development_run": 30,
+    "fixed_attempts_total": 23970,
+    "TRAIN_draws_per_epoch": 102272,
+    "AMP_skip_advances_attempt_LR_clock": true,
+    "AMP_skip_advances_Adam_step": false,
+    "stop_rule": "Nonfinite loss or8consecutive gradient skips",
+    "observed_max_consecutive_skips": 1,
+    "makeup_steps": false,
+    "configuration_or_precision_changed": false,
+    "early_zero_skip_observation_extrapolated": false
+  },
+  "comparability": "Fixed attempted update/draw budgets remain identical by frozen protocol; successful optimizer update counts can differ and are reported. D downstream contrasts share each selected checkpoint and numeric history. No change of seed, test cohort or threshold selection. Do not apply future H pair fallback rules to these D development runs. Future H paired precision acceptance uses its already frozen five-pair skip-position rule.",
+  "full_recovery_receipt": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/checkpoint_health_1715.json",
+    "sha256": "7571af6ccdb63deabbc28932de34e1fef7cbfc9040f3e262ad2385a876fcf1e4"
+  },
+  "runtime_receipt_sha256": "44647b8c3778fe6dd8d0302a8d909e0e3fa532f84c789a2a54dafd1216c48b91"
+}

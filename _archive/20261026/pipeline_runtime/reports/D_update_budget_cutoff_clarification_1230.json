@@ -1,0 +1,156 @@
+{
+  "utc": "2026-10-23T12:44:33.198599+00:00",
+  "schema": "D_UPDATE_BUDGET_CUTOFF_CLARIFICATION_V1",
+  "status": "PASS",
+  "pinned_checkpoint_receipt_utc": "2026-10-23T12:30:49.784500+00:00",
+  "later_live_receipt_utc": "2026-10-23T12:33:30.104645+00:00",
+  "previous_committed_receipt": "reports/checkpoint_health_1130.json",
+  "previous_actual_live_receipt": "reports/D_numeric_live_1130.json",
+  "rows": [
+    {
+      "run_id": "D_dev_clip_vit_b16_lr1e-05_seed1007_e30",
+      "gpu": 0,
+      "pid": 3942500,
+      "status": "RUNNING_DEVELOPMENT",
+      "pinned_checkpoint_epoch": 25,
+      "pinned_attempts": 19975,
+      "pinned_successful_updates": 19971,
+      "pinned_AMP_skips": 4,
+      "pinned_checkpoint_sha256": "b66dce0fafa460228e2fefe5acf886af6235c790b9fc8e7a1420dced4d5cde99",
+      "optimizer_parameter_step_counts": [
+        19971
+      ],
+      "new_pinned_skips_since_previous_pinned_snapshot": 3,
+      "new_pinned_skips_since_previous_live_cutoff": 2,
+      "live_log_cutoff_utc": "2026-10-23T12:33:30.104645+00:00",
+      "live_log_records": 20280,
+      "live_log_successful_update_records": 20276,
+      "live_log_cumulative_skips": 4,
+      "new_live_skips_since_previous_live_cutoff": 2,
+      "live_skip_attempt_positions": [
+        12024,
+        14061,
+        18187,
+        19456
+      ],
+      "later_skip_positions_beyond_pinned_checkpoint": [],
+      "max_consecutive_skips": 1,
+      "draw_normalized_throughput_per_second": 200.38327915508034,
+      "recent_three_epoch_mean_seconds": 510.38190627098083
+    },
+    {
+      "run_id": "D_dev_clip_vit_b16_lr1e-05_seed1042_e30",
+      "gpu": 1,
+      "pid": 3942501,
+      "status": "RUNNING_DEVELOPMENT",
+      "pinned_checkpoint_epoch": 24,
+      "pinned_attempts": 19176,
+      "pinned_successful_updates": 19174,
+      "pinned_AMP_skips": 2,
+      "pinned_checkpoint_sha256": "fa295d526097b2c439f96c02e918adb2e4fcb4e4e6a305eb967957955042a580",
+      "optimizer_parameter_step_counts": [
+        19174
+      ],
+      "new_pinned_skips_since_previous_pinned_snapshot": 1,
+      "new_pinned_skips_since_previous_live_cutoff": 1,
+      "live_log_cutoff_utc": "2026-10-23T12:33:30.104645+00:00",
+      "live_log_records": 19970,
+      "live_log_successful_update_records": 19967,
+      "live_log_cumulative_skips": 3,
+      "new_live_skips_since_previous_live_cutoff": 2,
+      "live_skip_attempt_positions": [
+        10860,
+        15251,
+        19357
+      ],
+      "later_skip_positions_beyond_pinned_checkpoint": [
+        19357
+      ],
+      "max_consecutive_skips": 1,
+      "draw_normalized_throughput_per_second": 195.56509074646965,
+      "recent_three_epoch_mean_seconds": 522.9563190937042
+    },
+    {
+      "run_id": "D_dev_dinov2_vit_b14_lr1e-05_seed1007_e30",
+      "gpu": 2,
+      "pid": 3942502,
+      "status": "RUNNING_DEVELOPMENT",
+      "pinned_checkpoint_epoch": 19,
+      "pinned_attempts": 15181,
+      "pinned_successful_updates": 15181,
+      "pinned_AMP_skips": 0,
+      "pinned_checkpoint_sha256": "5c11adc6b9f8dea9d5a0a7094c175a5421ab92cfeb11a4a149ed8d5f84293b7f",
+      "optimizer_parameter_step_counts": [
+        15181
+      ],
+      "new_pinned_skips_since_previous_pinned_snapshot": 0,
+      "new_pinned_skips_since_previous_live_cutoff": 0,
+      "live_log_cutoff_utc": "2026-10-23T12:33:30.104645+00:00",
+      "live_log_records": 16033,
+      "live_log_successful_update_records": 16033,
+      "live_log_cumulative_skips": 0,
+      "new_live_skips_since_previous_live_cutoff": 0,
+      "live_skip_attempt_positions": [],
+      "later_skip_positions_beyond_pinned_checkpoint": [],
+      "max_consecutive_skips": 0,
+      "draw_normalized_throughput_per_second": 157.47032318803343,
+      "recent_three_epoch_mean_seconds": 649.4684073130289
+    },
+    {
+      "run_id": "D_dev_dinov2_vit_b14_lr1e-05_seed1042_e30",
+      "gpu": 3,
+      "pid": 3942503,
+      "status": "RUNNING_DEVELOPMENT",
+      "pinned_checkpoint_epoch": 19,
+      "pinned_attempts": 15181,
+      "pinned_successful_updates": 15181,
+      "pinned_AMP_skips": 0,
+      "pinned_checkpoint_sha256": "73173c800d21aa27bdaaa5096ec9319556daacc11b6e50aedc7f22ed51e36dca",
+      "optimizer_parameter_step_counts": [
+        15181
+      ],
+      "new_pinned_skips_since_previous_pinned_snapshot": 0,
+      "new_pinned_skips_since_previous_live_cutoff": 0,
+      "live_log_cutoff_utc": "2026-10-23T12:33:30.104645+00:00",
+      "live_log_records": 15980,
+      "live_log_successful_update_records": 15980,
+      "live_log_cumulative_skips": 0,
+      "new_live_skips_since_previous_live_cutoff": 0,
+      "live_skip_attempt_positions": [],
+      "later_skip_positions_beyond_pinned_checkpoint": [],
+      "max_consecutive_skips": 0,
+      "draw_normalized_throughput_per_second": 156.5881446942992,
+      "recent_three_epoch_mean_seconds": 653.1273500919342
+    }
+  ],
+  "pinned_totals": {
+    "attempts": 69513,
+    "successful_updates": 69507,
+    "skips": 6
+  },
+  "live_totals": {
+    "update_log_records": 72263,
+    "successful_update_records": 72256,
+    "skips": 7
+  },
+  "new_pinned_skips_since_previous_pinned": 4,
+  "new_live_skips_since_previous_actual_live": 4,
+  "scope_clarification": "Original numeric audit top-level new_since_previous_actual_live_skips=3 covers ONLY the pinned checkpoint subset. Including later GPU1 attempt19357 gives4 new live skips and7 total live skips. Original later_uncommitted_live_* names mean beyond pinned inspected inode; do not assert they remain uncommitted at later wall times.",
+  "protocol": {
+    "per_run_frozen_epochs": 30,
+    "attempts_per_epoch": 799,
+    "planned_attempts_per_run": 23970,
+    "effective_batch": 128,
+    "microbatch": 32,
+    "scheduler_clock": "attempt_count",
+    "successful_updates_separately_reported": true,
+    "no_makeup_steps": true,
+    "stop_policy": "nonfinite loss stops immediately;8 consecutive AMP skips stops for source protocol review;observed maximum1",
+    "D_contrast_comparability": "Raw/L2, logit/probability and grouping interventions within one model reuse its final weights/cache and same numeric training history. Different backbones/seeds are fixed-attempt, not guaranteed equal-successful-update comparisons.",
+    "H_future_rule": "No H training exists yet. Audit skip attempt positions for all5 pairs of each backbone before target export; mismatch invokes uniform qualified FP32 rerun of all10 H formal histories for that backbone, retaining AMP artifacts. Current D skips do not themselves invoke H fallback."
+  },
+  "evidence_sha256": {
+    "reports/D_update_budget_audit_1230.json": "856830acfccf6b200a2c3fec2ed84cc88e764d02b04544301c7a9eb260f64849",
+    "reports/checkpoint_health_1230.json": "5770229b2db27e7eddb2d775240324cf5d88da4ebb3e45442211ea133979524b"
+  }
+}

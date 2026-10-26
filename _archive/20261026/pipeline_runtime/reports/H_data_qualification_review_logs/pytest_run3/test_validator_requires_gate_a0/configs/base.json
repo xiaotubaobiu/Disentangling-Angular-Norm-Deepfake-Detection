@@ -1,0 +1,34 @@
+{
+  "artifact_root": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_logs/pytest_run3/test_validator_requires_gate_a0",
+  "effective_batch": 128,
+  "workers": 4,
+  "allowed_gpus": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "allowed_gpu_uuids": [
+    "GPU-0",
+    "GPU-1",
+    "GPU-2",
+    "GPU-3"
+  ],
+  "backbones": {
+    "clip_vit_b16": {
+      "weight_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_logs/pytest_run3/test_validator_requires_gate_a0/initial.pt",
+      "weight_sha256": "b2becf4a9e1b41b6fc413d2cff76b80b1bb6c63879c409b1f958a67640c35abd",
+      "learning_rate": 0.001
+    },
+    "dinov2_vit_b14": {
+      "weight_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_logs/pytest_run3/test_validator_requires_gate_a0/initial.pt",
+      "weight_sha256": "b2becf4a9e1b41b6fc413d2cff76b80b1bb6c63879c409b1f958a67640c35abd",
+      "learning_rate": 0.001
+    },
+    "efficientnet_b0": {
+      "weight_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_logs/pytest_run3/test_validator_requires_gate_a0/initial.pt",
+      "weight_sha256": "b2becf4a9e1b41b6fc413d2cff76b80b1bb6c63879c409b1f958a67640c35abd",
+      "learning_rate": 0.001
+    }
+  }
+}

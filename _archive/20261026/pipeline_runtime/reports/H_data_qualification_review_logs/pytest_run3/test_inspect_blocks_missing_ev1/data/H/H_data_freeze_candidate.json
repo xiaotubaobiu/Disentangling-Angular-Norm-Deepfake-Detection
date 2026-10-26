@@ -1,0 +1,133 @@
+{
+  "audit_schema": "FULL_CANDIDATE_GRAPH_INCLUDING_SOURCE_UNUSED_V2",
+  "candidate_videos": 20,
+  "code_sha256": "161ac4e837463ff16e7916ca42eeb5d13acc44aab9bcc1c397025b9426ad9532",
+  "coverage_report": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_logs/pytest_run3/test_inspect_blocks_missing_ev1/data/H/H_coverage_by_role_method.json",
+  "data_frozen": false,
+  "geometry_protocol_sha256": "85a865f0e3343ecaf5b8c0174c8a3f602ec873deeccb03bd1826d617f2a7ae03",
+  "quarantined_group_count": 0,
+  "status": "AUDIT_COMPLETE_READY_FOR_H_DATA_FREEZE_REVIEW",
+  "tables": {
+    "AB/dev": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_logs/pytest_run3/test_inspect_blocks_missing_ev1/data/H/AB/dev.parquet",
+      "rows": 40,
+      "sha256": "5b3f5df156614d1d18326266db058490557a491b3a617972d59f32a2ebf1c3b2",
+      "videos": 5
+    },
+    "AB/train": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_logs/pytest_run3/test_inspect_blocks_missing_ev1/data/H/AB/train.parquet",
+      "rows": 40,
+      "sha256": "077a07f26dbb675ece7e39a098687ef62d9d333ffb0fd3f9a7ad4764ea147a51",
+      "videos": 5
+    },
+    "B/SOURCE_CAL": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_logs/pytest_run3/test_inspect_blocks_missing_ev1/data/H/B/SOURCE_CAL.parquet",
+      "rows": 8,
+      "sha256": "92c2c3d3eca56823c60115fc889b02c2c55083a9f8ca74af74e51ae872868913",
+      "videos": 1
+    },
+    "B/SOURCE_TEST": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_logs/pytest_run3/test_inspect_blocks_missing_ev1/data/H/B/SOURCE_TEST.parquet",
+      "rows": 40,
+      "sha256": "6f0494c280fe56967934a53c47e46494267db4c004754b43873556a1bce5c91c",
+      "videos": 5
+    },
+    "B/TARGET_TEST": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_logs/pytest_run3/test_inspect_blocks_missing_ev1/data/H/B/TARGET_TEST.parquet",
+      "rows": 16,
+      "sha256": "e2cd63dcc3fcf03352b2af4b5986b1ae8690f31bc5b22ce096b7e85fb6c19f68",
+      "videos": 2
+    },
+    "B/dev": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_logs/pytest_run3/test_inspect_blocks_missing_ev1/data/H/B/dev.parquet",
+      "rows": 40,
+      "sha256": "1492cb91a105145065114fbb70b49beed74084008c2e2a681a81db7a7a08c21e",
+      "videos": 5
+    },
+    "B/train": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_logs/pytest_run3/test_inspect_blocks_missing_ev1/data/H/B/train.parquet",
+      "rows": 40,
+      "sha256": "877fb3ec8a110eecaca8cad3f0345a0d2c33446fbbef963e2f3c8c060b517833",
+      "videos": 5
+    },
+    "common/AB/SOURCE_CAL": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_logs/pytest_run3/test_inspect_blocks_missing_ev1/data/H/common/AB/SOURCE_CAL.parquet",
+      "rows": 8,
+      "sha256": "36533ee2f93270dbf99df9e8566b56abbda0c98d2ce60f7c82a7a2373d7eca5d",
+      "videos": 1
+    },
+    "common/AB/SOURCE_TEST": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_logs/pytest_run3/test_inspect_blocks_missing_ev1/data/H/common/AB/SOURCE_TEST.parquet",
+      "rows": 40,
+      "sha256": "750483ee57db65acd850c370e69542549071fbd5e7d543b69af15c56889e6443",
+      "videos": 5
+    },
+    "common/AB/TARGET_TEST": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_logs/pytest_run3/test_inspect_blocks_missing_ev1/data/H/common/AB/TARGET_TEST.parquet",
+      "rows": 16,
+      "sha256": "b1114efe89381809d48cbb508717b1293c00eb8c9f36905eb9c4a5e15762e900",
+      "videos": 2
+    },
+    "common/B/SOURCE_CAL": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_logs/pytest_run3/test_inspect_blocks_missing_ev1/data/H/common/B/SOURCE_CAL.parquet",
+      "rows": 8,
+      "sha256": "92c2c3d3eca56823c60115fc889b02c2c55083a9f8ca74af74e51ae872868913",
+      "videos": 1
+    },
+    "common/B/SOURCE_TEST": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_logs/pytest_run3/test_inspect_blocks_missing_ev1/data/H/common/B/SOURCE_TEST.parquet",
+      "rows": 40,
+      "sha256": "6f0494c280fe56967934a53c47e46494267db4c004754b43873556a1bce5c91c",
+      "videos": 5
+    },
+    "common/B/TARGET_TEST": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_logs/pytest_run3/test_inspect_blocks_missing_ev1/data/H/common/B/TARGET_TEST.parquet",
+      "rows": 16,
+      "sha256": "e2cd63dcc3fcf03352b2af4b5986b1ae8690f31bc5b22ce096b7e85fb6c19f68",
+      "videos": 2
+    }
+  },
+  "target_performance_used": false,
+  "training": {
+    "DEV": {
+      "draw_count": 128,
+      "logical_mother_rows": 40,
+      "method_probability": {
+        "Deepfakes": 0.125,
+        "Face2Face": 0.125,
+        "FaceSwap": 0.125,
+        "NeuralTextures": 0.125,
+        "real": 0.5
+      },
+      "paired_mother_ids_identical": true,
+      "sampling_mass": 1.0,
+      "video_counts": {
+        "Deepfakes": 1,
+        "Face2Face": 1,
+        "FaceSwap": 1,
+        "NeuralTextures": 1,
+        "real": 1
+      }
+    },
+    "TRAIN": {
+      "draw_count": 128,
+      "logical_mother_rows": 40,
+      "method_probability": {
+        "Deepfakes": 0.125,
+        "Face2Face": 0.125,
+        "FaceSwap": 0.125,
+        "NeuralTextures": 0.125,
+        "real": 0.5
+      },
+      "paired_mother_ids_identical": true,
+      "sampling_mass": 1.0,
+      "video_counts": {
+        "Deepfakes": 1,
+        "Face2Face": 1,
+        "FaceSwap": 1,
+        "NeuralTextures": 1,
+        "real": 1
+      }
+    }
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "utc": "2026-10-25T01:40:28.125698+00:00",
+  "status": "INDEPENDENT_REVIEW_IMPORTANT_FIX_REQUIRED_HELD_SOURCE_ONLY_CANDIDATE",
+  "review_scope": "Isolated CPU-only CLIP fresh source-verification scheduling candidate; no production integration, target authorization, target inference, training, or cache acceptance.",
+  "science_base_sha": "5ef6d06bf7aeda02a5a11113e4c35a2c9909f215",
+  "science_head_sha": "5ef6d06bf7aeda02a5a11113e4c35a2c9909f215",
+  "candidate_root": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_parallel_fresh_validation",
+  "candidate_source_sha256": "6aa0340f7309b2ae77d4adf3009bfa83439fb4535bc91f088f02a0358441a665",
+  "candidate_entry_sha256": "2095929a1e0c056b2d525b3a36ad5f076a894882c170bbae46ec26598ffb1552",
+  "candidate_tests_sha256": "8e7804b69ce7047b3f276efd6688cfb3d9395ed01717d413f8996b462577f691",
+  "candidate_plan_sha256": "6a2269cb6d2d3e4b76f60f3de116622289b5649125d026ec01966d3689cf3ee3",
+  "candidate_acceptance_sha256": "86a87e1aaf5892c2803d6514923d3fad1f39a16e2cb10f02f926359869ac68a5",
+  "original_dependency_checks": {
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/worker_h.py": {
+      "working_sha256": "d0219aa52ebb1b6602602d5b09eb5fdfbbb9dc3aeb7b55dbfc0251ced66136f4",
+      "matches_HEAD": true
+    },
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/queue_h.py": {
+      "working_sha256": "a2792361443e64622391fb6ae766ee5e6f887789d662afdfb6d809f9a5ea8176",
+      "matches_HEAD": true
+    },
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/cache_h.py": {
+      "working_sha256": "9119200359f8d696f1366e6c0137bca533c63089c32e505971e69f84ebaf40fb",
+      "matches_HEAD": true
+    },
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/data_h.py": {
+      "working_sha256": "ad81f65c27d53159e6902bf8a20b0910cd129f75eb0105e5a5a053bcc2d2f45e",
+      "matches_HEAD": true
+    },
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/qualification_h.py": {
+      "working_sha256": "5c70e9fb2a39bd974b0db278d519a8b7103f9553c3bfee32c7accb311edf0ec0",
+      "matches_HEAD": true
+    },
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/queue_d.py": {
+      "working_sha256": "3db3d1ebb63fbe233fa19116934268ab999be94faaff59fe1f2d52fdbe1949b8",
+      "matches_HEAD": true
+    },
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/trainer.py": {
+      "working_sha256": "56f0db0634a525a530fb53482732365ebf9693a1f5470b0a95ec0820cc614368",
+      "matches_HEAD": true
+    },
+    "/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2/reliability_v2/models.py": {
+      "working_sha256": "5c4adb39314433c5f0d40311d7ada3ad5d30c7b239773be02080be120f5a2e60",
+      "matches_HEAD": true
+    }
+  },
+  "fresh_independent_test": {
+    "cwd": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_parallel_fresh_validation",
+    "environment": {
+      "CUDA_VISIBLE_DEVICES": "",
+      "OMP_NUM_THREADS": "2",
+      "MKL_NUM_THREADS": "2",
+      "OPENBLAS_NUM_THREADS": "2",
+      "PYTHONDONTWRITEBYTECODE": "1"
+    },
+    "command": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -B -m pytest -q",
+    "returncode": 0,
+    "stdout": ".....................                                                    [100%]\n21 passed in 0.08s\n",
+    "elapsed_seconds": 0.35220497753471136
+  },
+  "findings": [
+    {
+      "severity": "Important",
+      "file": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_parallel_fresh_validation/benchmark_source.py",
+      "lines": [
+        33,
+        36,
+        65
+      ],
+      "title": "Complete frozen H code bundle is not rebound after verification",
+      "impact": "The entry checks worker_h.h_code_hash() before work and each original worker checks it during verification, but its final bound dictionary checks queue_h.py only from the five-file H bundle. A worker_h.py, data_h.py, qualification_h.py, or queue_d.py edit after the last verification would escape the final check. Original ledger training_code_sha256 covers trainer.py/models.py, not these four files. This leaves the PLAN.md:5 before/after code-binding promise incomplete in this held source-only benchmark.",
+      "fix": "Add every component of worker_h.h_code_hash to the before/after bound hashes or re-evaluate that bundle against the pinned configuration immediately before writing success. Add a CPU entry failure test simulating bundle drift after collection; it must raise before producing a report.",
+      "evidence": "Static source control-flow inspection; no source mutation or real benchmark executed by reviewer.",
+      "blocks_held_candidate_acceptance": true
+    },
+    {
+      "severity": "Minor",
+      "file": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_parallel_fresh_validation/benchmark_source.py",
+      "lines": [
+        68
+      ],
+      "title": "Direct report write can leave an incomplete artifact on write failure",
+      "impact": "All verification errors occur before report creation, but json.dump or stream I/O failure after exclusive creation can leave a truncated file and prevent a retry at the same output path. It is not a valid success JSON or a production qualification.",
+      "fix": "Serialize before creating the final path and publish only a complete report using an atomic no-overwrite strategy, with cleanup of the temporary artifact on failure.",
+      "evidence": "Static inspection of output.open followed by json.dump.",
+      "blocks_held_candidate_acceptance": false
+    }
+  ],
+  "critical_findings": 0,
+  "important_findings": 1,
+  "minor_findings": 1,
+  "verified_strengths": [
+    "The collect_fresh path invokes the supplied verifier anew for every selected run, uses at most two ThreadPoolExecutor workers, rejects invalid worker counts and model selections, propagates verifier failures, and returns no partial receipt dictionary.",
+    "The real entry supplies the ORIGINAL worker_h.verify_run_completion directly; this preserves original task/data/qualification checks, completion identity and budget checks, final/source-best hashes, and every sealed artifact hash. It does not call a shortcut or target authorization API.",
+    "FreshLookup deep-copies receipts, binds the configuration path, rejects unknown or reused runs, and finish requires every freshly collected run to have been consumed by the ORIGINAL queue_h.audit_paired_ledgers.",
+    "Ledger comparison retains all nested fields, excludes only the top-level utc, requires both timestamps, and distinguishes JSON int/float/bool types used by the original ledger.",
+    "The entry pins the accepted serial supervision, serial reference, configuration, registry, candidate code/test binding at start, and completion/seal evidence; it also snapshots 1590 sealed artifact metadata tuples before collection and checks them after ledger comparison.",
+    "The inspected eight original dependency files match science HEAD and production cache_h._target_authorization remains unchanged. No training, target inference, gate/registry write, production source integration, or GPU dispatch occurs in the candidate call path."
+  ],
+  "test_coverage": {
+    "covered": "Fresh observations across invocations; bounded concurrent overlap; rejected concurrency and run selection; propagated verifier failure; one-use context lookup; isolated receipt values; exact supported JSON ledger comparison; inert entry; CPU environment rejection; exclusive-output rejection; no synthetic execute success.",
+    "gaps": [
+      "No mocked successful full entry scenario with late code/metadata/config drift, verifier error, or output write failure. The real benchmark belongs to the parent and was deliberately not duplicated.",
+      "Original inherited shallow data/qualification validation semantics were preserved, not promoted to full pixel/video revalidation."
+    ]
+  },
+  "declined_to_judge": [
+    {
+      "behavior": "Real CLIP serial/parallel numerical equivalence and speed",
+      "reason": "Parent is running the real benchmark once. Reviewer was explicitly forbidden to run real --execute and has not inspected a finished measurement."
+    },
+    {
+      "behavior": "Production integration, production-cache acceptance, target export authorization, or effective registry readiness",
+      "reason": "No integration is proposed by this isolated candidate; all are explicitly held and outside review scope."
+    },
+    {
+      "behavior": "Cross-backbone behavior, end-to-end throughput, and statistical performance robustness",
+      "reason": "Only CLIP five-pair source scheduling is proposed, with one parent-owned measurement under concurrent training."
+    },
+    {
+      "behavior": "Complete media-byte revalidation and general protocol/scientific validity",
+      "reason": "This review preserves and assesses calls to the accepted ORIGINAL verifier. Original shallow data/qualification checks intentionally do not rehash every video/pixel."
+    },
+    {
+      "behavior": "Crash-proof or hostile-filesystem transactional snapshots",
+      "reason": "Metadata/hash stability checks were assessed for the stated read-only isolated run; no filesystem fault injection or concurrent mutation was authorized."
+    }
+  ],
+  "review_actions": {
+    "real_benchmark_executed": false,
+    "source_or_configuration_modified": false,
+    "models_or_gates_or_registry_modified": false,
+    "production_process_or_git_state_modified": false,
+    "only_review_deliverable": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_parallel_fresh_validation_independent_review_20261025T0120.json"
+  },
+  "source_only_candidate_accepted": false,
+  "production_integration_accepted": false,
+  "source_best_HOLD": true,
+  "target_export_started": false
+}

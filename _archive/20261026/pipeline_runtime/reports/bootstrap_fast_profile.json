@@ -1,0 +1,68 @@
+{
+  "evidence_type": "SYNTHETIC_ONLY_NO_DETECTOR_OR_TARGET_EVALUATION",
+  "source_groups": 1000,
+  "natural_videos": 3000,
+  "frames": 24000,
+  "frames_per_video": 8,
+  "repeats": 2000,
+  "recorded_calibration_thresholds": 200,
+  "calibration_budget": 20,
+  "cpu_thread_environment": {
+    "CUDA_VISIBLE_DEVICES": "",
+    "OMP_NUM_THREADS": "2",
+    "OPENBLAS_NUM_THREADS": "2",
+    "MKL_NUM_THREADS": "2"
+  },
+  "python": "3.11.5",
+  "numpy": "1.26.4",
+  "pandas": "2.0.3",
+  "D_fast2000": {
+    "wall_seconds": 18.7033964516595,
+    "prepare_seconds": 17.112712260335684,
+    "bootstrap_seconds": 1.5717728501185775,
+    "saved_multiplicity_integer_array_bytes": 10110560
+  },
+  "D_matched50": {
+    "baseline_wall_seconds": 29.869461400434375,
+    "fast_wall_seconds": 16.784855710342526,
+    "wall_ratio_baseline_over_fast": 1.7795482973398067,
+    "max_draw_error": 0.0,
+    "max_ci_error": 0.0
+  },
+  "normal_fast2000": {
+    "wall_seconds": 0.5581687074154615,
+    "prepare_seconds": 0.03239557612687349,
+    "bootstrap_seconds": 0.5162329850718379
+  },
+  "normal_matched50": {
+    "baseline_wall_seconds": 56.04818462859839,
+    "fast_wall_seconds": 0.04921078495681286,
+    "wall_ratio_baseline_over_fast": 1138.9410812647268,
+    "max_draw_error": 0.0
+  },
+  "RQ4_fast2000": {
+    "wall_seconds": 0.22175297793000937,
+    "prepare_seconds": 0.02182648703455925,
+    "bootstrap_seconds": 0.18872556369751692
+  },
+  "process_max_rss_KiB": 190764,
+  "input_frame_dataframe_deep_bytes": 14549572,
+  "counterfactual_materialized_frame_rows_avoided": 48000000,
+  "memory_scope": "Whole-process peak RSS includes imports, input and retained comparison results; not isolated allocation delta. No per-draw frame replicas.",
+  "protected_code_sha256_before": {
+    "trainer.py": "56f0db0634a525a530fb53482732365ebf9693a1f5470b0a95ec0820cc614368",
+    "models.py": "5c4adb39314433c5f0d40311d7ada3ad5d30c7b239773be02080be120f5a2e60",
+    "cache_d.py": "8f5814646194c772dcf00f6751a35c2f792dd5f11008e0834fdba4eb5e329761",
+    "scoring_d.py": "9bddf066fcb8df1b9659d4cfe14aa4febdf850f7cc39c1c0c3d6050864263d1c"
+  },
+  "protected_code_sha256_after": {
+    "trainer.py": "56f0db0634a525a530fb53482732365ebf9693a1f5470b0a95ec0820cc614368",
+    "models.py": "5c4adb39314433c5f0d40311d7ada3ad5d30c7b239773be02080be120f5a2e60",
+    "cache_d.py": "8f5814646194c772dcf00f6751a35c2f792dd5f11008e0834fdba4eb5e329761",
+    "scoring_d.py": "9bddf066fcb8df1b9659d4cfe14aa4febdf850f7cc39c1c0c3d6050864263d1c"
+  },
+  "module_sha256": "4b7c5e88946ea5feb799e2184c84c8c25051a7e0fa2db1713be1baa0d2f2e45c",
+  "test_sha256": "2d3b67e14b570aecec133b57afc0e535a766834629f0da9973d0fe3b20e6643b",
+  "profile_scope": "Synthetic 2 fake methods, 1000 independent source/collision groups; real roles/method counts/closure sizes/HP triggers can differ.",
+  "extrapolation": "Use actual reported preparation and per-2000-draw times as synthetic CPU estimates, not a completion promise; no scientific effect inferred."
+}

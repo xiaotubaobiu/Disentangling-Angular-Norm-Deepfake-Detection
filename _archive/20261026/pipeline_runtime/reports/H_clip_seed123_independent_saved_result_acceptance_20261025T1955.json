@@ -1,0 +1,33 @@
+{
+  "utc": "2026-10-25T19:55:56Z",
+  "status": "ROOT_ACCEPTED_ORIGINAL_H_LAST_CLIP_SEED123_INDEPENDENT_SAVED_RESULT_AUDIT",
+  "backbone": "clip_vit_b16",
+  "seed": 123,
+  "original_LAST_not_source_best": true,
+  "producer_terminal_sha256": "7b39aaa3f7754560041da7d2cae2be73a1271325484ead7edc9a25da8210a2d2",
+  "independent_audit": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/H_LAST_clip_seed123_independent_audit.json",
+    "sha256": "5b3ab5c2bd1ec7ae94201ff3220d3226b1ea9a07631ba53013ac797bed9b46c2"
+  },
+  "entry_commit": "817b62b87b036bbb2ea56f167f282e551e9c913f",
+  "component_review": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/independent_h_last_matrix_result_audit_fix_confirmation.json",
+    "sha256": "4c0edc80e425a52144c3d815d085c0bf2f8bd57fe43828691edb03e2d0424ebd"
+  },
+  "artifact_count": 72,
+  "cohorts": 8,
+  "draws_checked": 16000,
+  "point_values_checked": 864,
+  "intervals_checked": 864,
+  "wall_seconds": 21.55,
+  "peak_RSS_KiB": 225948,
+  "exit_code": 0,
+  "CPU_slot": 1,
+  "independent_H_pair_acceptance_count": 3,
+  "all_H_pairs_planned": 15,
+  "five_seed_summary_available": false,
+  "frame_to_video_and_feature_dot_reconstruction_reused_qualified_admission": true,
+  "fresh_geometry_reaudit": false,
+  "negative_and_NA_preserved": true,
+  "M_results_generated": false
+}

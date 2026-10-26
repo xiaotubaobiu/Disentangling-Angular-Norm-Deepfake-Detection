@@ -1,0 +1,67 @@
+{
+  "schema": "D_RESULT_FIGURE_INDEPENDENT_WHOLE_EXPORTER_REVIEW_V1",
+  "utc": "2026-10-24T20:36:16.788529+00:00",
+  "status": "PASS_IMPLEMENTATION_REVIEW_PENDING_REAL_THREE_BACKBONE_ADMISSION_AND_PRODUCTION_QA",
+  "exporter": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/export_D_result_figures.py",
+  "exporter_sha256": "b7a0da32a42476f38d59491b1e4729b32f9b6924612bbfd3ab56893153ac513c",
+  "implementation_acceptance_sha256": "d89f587d2fd3d7f88f5eab9c0a368eaa983c95dca556f5ba211adbf16edf2a5c",
+  "plan": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/docs/superpowers/plans/2026-10-24-d-result-figures.md",
+  "review_scope": "Independent whole exporter, all fixture construction/tests, frozen plan sections8-9 and cited bilingual table/figure contract. No production build_packet or export.",
+  "findings": {
+    "critical": [],
+    "important": []
+  },
+  "independent_test_execution": {
+    "tests": 28,
+    "passed": 28,
+    "failures": 0,
+    "errors": 0,
+    "seconds": 39.071,
+    "process_exit_code": 0,
+    "CUDA_VISIBLE_DEVICES": "",
+    "OMP_NUM_THREADS": "2",
+    "MKL_NUM_THREADS": "2",
+    "OPENBLAS_NUM_THREADS": "2",
+    "bytecode_writes_disabled": true,
+    "matplotlib_cache": "TemporaryDirectory under /tmp",
+    "fixture_outputs": "validation/work temporary directories, cleaned by tests",
+    "science_suite_repeated": false
+  },
+  "reviewed_contracts": [
+    "All3 accepted exact5-seed packets and all12 audited table row counts; summary completion, source/config/code and analysis artifact hash binding.",
+    "Natural correct grouping only; role/domain/representation/class/seed separation; duplicate UID and nonfinite scores fail; saved FP64 score is explicitly labelled and rank_score_decimal is not plotted.",
+    "source_test and target_full ECDFs are distinct; RQ4 uses target_test with fixed test ID hash and disjoint target CAL.",
+    "Four budgets10/20/40/80 retain200 exact repeats, paired nested common subset schedules, recomputed unique set counts, same-set same operating metrics and legitimate unavailable NA.",
+    "No pooling of15 models or recalculation of scientific scores/thresholds/bootstrap; exact12 tables/NA/CI references remain concatenated by backbone.",
+    "CPU-only export flag, canonical production path, no overwrite, symlink/path rejection, exclusive output directory and input hash checks before/after rendering."
+  ],
+  "visual_review": {
+    "synthetic_only": true,
+    "viewed": [
+      "ECDF_source_test.png",
+      "CAL_variation_clip_vit_b16.png"
+    ],
+    "source_directory": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/D_result_figures_validation/synthetic_preview_corrected/figures",
+    "method": "Copied unchanged synthetic PNGs to local temporary storage and viewed rendered pixels.",
+    "result": "Titles, axes, legends, seed/distinct-set labels are readable with no visible overlap/cropping. n80 u=1 appears as constant saved-metric marks. Identical synthetic seed curves overlap as expected.",
+    "limitation": "Representative templates only; real-data production PNG/SVG layout remains unreviewed."
+  },
+  "real_metadata_compatibility": {
+    "clip_and_dino_summary_schemas_and_audit_table_fields_match": true,
+    "representative_saved_score_CAL_TEST_schemas_match": true,
+    "efficientnet_summary_present_at_check": false,
+    "production_output_directory_exists_before_tests": false,
+    "production_output_directory_exists_after_tests": false,
+    "production_admission_performed": false
+  },
+  "write_scope": "Only this independent report and permitted temporary fixture/cache/local preview files. Exporter/science/train/data/config/status/HANDOFF unchanged.",
+  "production_exported": false,
+  "training_or_analysis_dispatched": false,
+  "GPU_work_started": false,
+  "cold_apply_executed": false,
+  "actual_SSD_release_bytes": 0,
+  "remaining": [
+    "Controller must obtain all3 real independent five-seed acceptances and run current-source production admission.",
+    "After export, actual PNG/SVG visual review and independent exact plotted-data/table QA remain required."
+  ]
+}

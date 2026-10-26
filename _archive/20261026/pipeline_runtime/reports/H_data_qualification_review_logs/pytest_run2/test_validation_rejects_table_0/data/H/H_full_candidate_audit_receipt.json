@@ -1,0 +1,99 @@
+{
+  "artifact_integrity_receipt_sha256": "49c52b3f3e9a3569bf78d516c5cf98825b018603b257930197f36d9e7c055c3d",
+  "artifact_integrity_status": "PASSED",
+  "audit_schema": "FULL_CANDIDATE_GRAPH_INCLUDING_SOURCE_UNUSED_V2",
+  "candidate_manifest_sha256": "7177fd1b5ec90fb0aa673084e25f10c294fb67e9a70ed8e929ccc88f73024c2e",
+  "candidate_videos": 19,
+  "content_source_audit_sha256": "afd6d46e377d1a39431c011c8f000ada74819073b1dc08126b690b06623dd976",
+  "data_frozen": false,
+  "detector_calls": 0,
+  "elapsed_seconds": 0.9191877553239465,
+  "existing_pngs_decoded": 1064,
+  "freeze_candidate_sha256": "aab19992875f2e242e59d793d9d6f7027f8495cb1cbdd60df55d6549eb050201",
+  "fresh_code_sha256": "161ac4e837463ff16e7916ca42eeb5d13acc44aab9bcc1c397025b9426ad9532",
+  "geometry_protocol_sha256": "85a865f0e3343ecaf5b8c0174c8a3f602ec873deeccb03bd1826d617f2a7ae03",
+  "processed_manifest_count": 19,
+  "processed_paths_sha256": "37c26520ca4ebd003c7586cb142c4cfeca8732f809dc7894e419261ad8da2545",
+  "source_videos_decoded": 0,
+  "status": "AUDIT_COMPLETE_READY_FOR_H_DATA_FREEZE_REVIEW",
+  "tables": {
+    "AB/dev": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_logs/pytest_run2/test_validation_rejects_table_0/data/H/AB/dev.parquet",
+      "rows": 40,
+      "sha256": "ce7973e8543b18e75a5b70e5170c04057b3aa9a45712a8b2fb63eca1083e4fa4",
+      "videos": 5
+    },
+    "AB/train": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_logs/pytest_run2/test_validation_rejects_table_0/data/H/AB/train.parquet",
+      "rows": 40,
+      "sha256": "9daccd20163f0f9a057f250bb53cb6d7ab8ed1b6995471f6f723d6e6e46e0eeb",
+      "videos": 5
+    },
+    "B/SOURCE_CAL": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_logs/pytest_run2/test_validation_rejects_table_0/data/H/B/SOURCE_CAL.parquet",
+      "rows": 8,
+      "sha256": "416520a68a73c5956b7d83931b228e4220fe3419410fd2c7700009a4195a7500",
+      "videos": 1
+    },
+    "B/SOURCE_TEST": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_logs/pytest_run2/test_validation_rejects_table_0/data/H/B/SOURCE_TEST.parquet",
+      "rows": 40,
+      "sha256": "e9e08e1c2bb02db1f0ba8a86cdb99410874305ffe05154909bb9da8830faab4c",
+      "videos": 5
+    },
+    "B/TARGET_TEST": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_logs/pytest_run2/test_validation_rejects_table_0/data/H/B/TARGET_TEST.parquet",
+      "rows": 16,
+      "sha256": "2cbaab1d61c1977f57ba65ba7210b7086ae2e606e6ddcf135afeaa0a9856f03e",
+      "videos": 2
+    },
+    "B/dev": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_logs/pytest_run2/test_validation_rejects_table_0/data/H/B/dev.parquet",
+      "rows": 40,
+      "sha256": "2d01072ee3efa72f50c2666fb4f5988666a222ee2e62c17598a1431a91a70270",
+      "videos": 5
+    },
+    "B/train": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_logs/pytest_run2/test_validation_rejects_table_0/data/H/B/train.parquet",
+      "rows": 40,
+      "sha256": "c122bf89ded04f099dce7b1a7a4cd58a20b7a4faf864e7648c3b226dc431213b",
+      "videos": 5
+    },
+    "common/AB/SOURCE_CAL": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_logs/pytest_run2/test_validation_rejects_table_0/data/H/common/AB/SOURCE_CAL.parquet",
+      "rows": 8,
+      "sha256": "5cf009303e9622678a6ff393e8f76c9723a56fa126e62ae994c006d9fe0ef0b0",
+      "videos": 1
+    },
+    "common/AB/SOURCE_TEST": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_logs/pytest_run2/test_validation_rejects_table_0/data/H/common/AB/SOURCE_TEST.parquet",
+      "rows": 40,
+      "sha256": "91b502e96671ff160100e632e5aca8e13264518218c13413670cd68090ef10b3",
+      "videos": 5
+    },
+    "common/AB/TARGET_TEST": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_logs/pytest_run2/test_validation_rejects_table_0/data/H/common/AB/TARGET_TEST.parquet",
+      "rows": 16,
+      "sha256": "8b7a6c35ab2c5e48b277bbf06fbb9f83c21c68ea198107da1da67867d00c5582",
+      "videos": 2
+    },
+    "common/B/SOURCE_CAL": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_logs/pytest_run2/test_validation_rejects_table_0/data/H/common/B/SOURCE_CAL.parquet",
+      "rows": 8,
+      "sha256": "416520a68a73c5956b7d83931b228e4220fe3419410fd2c7700009a4195a7500",
+      "videos": 1
+    },
+    "common/B/SOURCE_TEST": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_logs/pytest_run2/test_validation_rejects_table_0/data/H/common/B/SOURCE_TEST.parquet",
+      "rows": 40,
+      "sha256": "e9e08e1c2bb02db1f0ba8a86cdb99410874305ffe05154909bb9da8830faab4c",
+      "videos": 5
+    },
+    "common/B/TARGET_TEST": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_logs/pytest_run2/test_validation_rejects_table_0/data/H/common/B/TARGET_TEST.parquet",
+      "rows": 16,
+      "sha256": "2cbaab1d61c1977f57ba65ba7210b7086ae2e606e6ddcf135afeaa0a9856f03e",
+      "videos": 2
+    }
+  }
+}

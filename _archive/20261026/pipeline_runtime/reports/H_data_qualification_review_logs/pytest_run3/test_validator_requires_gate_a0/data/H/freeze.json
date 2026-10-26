@@ -1,0 +1,36 @@
+{
+  "status": "FROZEN",
+  "tables": {
+    "B/train": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_logs/pytest_run3/test_validator_requires_gate_a0/data/H/B_TRAIN.parquet",
+      "sha256": "a42cfce42a99965d185fbd039e3bd1491d19d5efb87fc9772ec8be88722e79b1",
+      "rows": 128,
+      "videos": 16
+    },
+    "AB/train": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_logs/pytest_run3/test_validator_requires_gate_a0/data/H/AB_TRAIN.parquet",
+      "sha256": "9985410ee016bf99557ad506458ead944b7faa65832b406306c027064af49a87",
+      "rows": 128,
+      "videos": 16
+    },
+    "B/dev": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_logs/pytest_run3/test_validator_requires_gate_a0/data/H/B_DEV.parquet",
+      "sha256": "347bb2c8dd25482261f46969b1c52bcf70bb168ab92ef78269f16300191625bf",
+      "rows": 128,
+      "videos": 16
+    },
+    "AB/dev": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_logs/pytest_run3/test_validator_requires_gate_a0/data/H/AB_DEV.parquet",
+      "sha256": "b838dfa9edf95970d0910e4396c1ced10aa0c46e05bc2d69e9ae56cd26aa165f",
+      "rows": 128,
+      "videos": 16
+    },
+    "B/SOURCE_CAL": {
+      "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_data_qualification_review_logs/pytest_run3/test_validator_requires_gate_a0/data/H/B_SOURCE_CAL.parquet",
+      "sha256": "f6f90fac8e02301710795aee0cab7eb1074dd2e8cf0c7f74682dbdd2d82c26a0",
+      "rows": 16,
+      "videos": 2
+    }
+  },
+  "training_draw_count": 128
+}

@@ -1,0 +1,165 @@
+{
+  "utc": "2026-10-24T08:59:17.865429+00:00",
+  "status": "PASS_EXISTING4_SUCCESSORS_AND_ALL_NEW_LIVE_SKIPS_RECOVERED",
+  "active_rows": [
+    {
+      "pid": 711439,
+      "run_id": "D_formal_dinov2_vit_b14_seed2026",
+      "gpu": 0,
+      "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e",
+      "live_records": 16055,
+      "live_skips": 1,
+      "live_success": 16054,
+      "latest_live_event": {
+        "attempt": 16054,
+        "lr": 2.9826940981330386e-06,
+        "loss": 8.316710591316223e-07,
+        "gradient_norm": 0.0006842387535899124,
+        "gradient_finite": true,
+        "scale_before": 8192.0,
+        "scale_after": 8192.0,
+        "success": true,
+        "skip": false,
+        "epoch": 21
+      },
+      "skip_evidence": [
+        {
+          "event": {
+            "attempt": 15684,
+            "lr": 3.1948567933237622e-06,
+            "loss": 0.021975038573145866,
+            "gradient_norm": null,
+            "gradient_finite": false,
+            "scale_before": 16384.0,
+            "scale_after": 8192.0,
+            "success": false,
+            "skip": true,
+            "epoch": 20
+          },
+          "next_success": {
+            "attempt": 15685,
+            "lr": 3.194276167713554e-06,
+            "loss": 9.787268936634064e-06,
+            "gradient_norm": 0.016998210587091143,
+            "gradient_finite": true,
+            "scale_before": 8192.0,
+            "scale_after": 8192.0,
+            "success": true,
+            "skip": false,
+            "epoch": 20
+          },
+          "next_event_status": "SUCCESS"
+        }
+      ],
+      "history_epoch_metadata": 20
+    },
+    {
+      "pid": 745561,
+      "run_id": "D_formal_dinov2_vit_b14_seed3407",
+      "gpu": 3,
+      "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646",
+      "live_records": 10821,
+      "live_skips": 0,
+      "live_success": 10821,
+      "latest_live_event": {
+        "attempt": 10820,
+        "lr": 6.249756599649039e-06,
+        "loss": 1.2573786079883575e-05,
+        "gradient_norm": 0.0031900316517188753,
+        "gradient_finite": true,
+        "scale_before": 4096.0,
+        "scale_after": 4096.0,
+        "success": true,
+        "skip": false,
+        "epoch": 14
+      },
+      "skip_evidence": [],
+      "history_epoch_metadata": 13
+    },
+    {
+      "pid": 835840,
+      "run_id": "D_formal_efficientnet_b0_seed123",
+      "gpu": 2,
+      "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+      "live_records": 1484,
+      "live_skips": 0,
+      "live_success": 1484,
+      "latest_live_event": {
+        "attempt": 1483,
+        "lr": 9.979586748584985e-05,
+        "loss": 0.009283963590860367,
+        "gradient_norm": 0.4629766552480277,
+        "gradient_finite": true,
+        "scale_before": 128.0,
+        "scale_after": 128.0,
+        "success": true,
+        "skip": false,
+        "epoch": 2
+      },
+      "skip_evidence": [],
+      "history_epoch_metadata": 1
+    },
+    {
+      "pid": 836451,
+      "run_id": "D_formal_efficientnet_b0_seed2026",
+      "gpu": 1,
+      "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+      "live_records": 1435,
+      "live_skips": 0,
+      "live_success": 1435,
+      "latest_live_event": {
+        "attempt": 1434,
+        "lr": 9.982404952659615e-05,
+        "loss": 0.0061873747035861015,
+        "gradient_norm": 0.2544085171259187,
+        "gradient_finite": true,
+        "scale_before": 128.0,
+        "scale_after": 128.0,
+        "success": true,
+        "skip": false,
+        "epoch": 2
+      },
+      "skip_evidence": [],
+      "history_epoch_metadata": 1
+    }
+  ],
+  "GPU_samples": [
+    {
+      "utc": "2026-10-24T08:59:11.042287+00:00",
+      "csv": "0, 79, 5414\n1, 75, 2436\n2, 57, 2438\n3, 73, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-24T08:59:13.175090+00:00",
+      "csv": "0, 80, 5414\n1, 81, 2436\n2, 59, 2438\n3, 82, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-24T08:59:15.304844+00:00",
+      "csv": "0, 82, 5414\n1, 80, 2436\n2, 61, 2438\n3, 83, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n"
+    },
+    {
+      "utc": "2026-10-24T08:59:17.437494+00:00",
+      "csv": "0, 80, 5414\n1, 78, 2436\n2, 61, 2438\n3, 80, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n"
+    }
+  ],
+  "GPU_mean0to3_percent": [
+    80.25,
+    78.5,
+    59.5,
+    79.5
+  ],
+  "AMP_development": 32,
+  "AMP_formal": 42,
+  "AMP_total": 74,
+  "new_since0854": 0,
+  "capacity": {
+    "workspace_free_GiB": 395.52233123779297,
+    "Dataset_free_GiB": 2740.961799621582
+  },
+  "protected_alive": [
+    true,
+    true,
+    true,
+    true
+  ],
+  "no_training_or_GPU_launch": true
+}

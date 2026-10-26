@@ -1,0 +1,64 @@
+{
+  "utc": "2026-10-25T21:50:25.594579+00:00",
+  "status": "OBSERVED_ROLE_COMMIT_PROGRESS_NOT_FULL_MODEL_OR_SCIENTIFIC_ACCEPTANCE",
+  "roles": [
+    {
+      "seed": 7,
+      "rows": 102225,
+      "chunks": 25,
+      "precision": "FP32",
+      "role_complete_utc": "2026-10-25T21:44:21.401121+00:00",
+      "role_sha256": "a31aa6f1d319e65361e9d9e4e596160b063aff64fdb9c38caae07e79543388ac",
+      "dispatch_to_role_complete_seconds": 848.3920891284943,
+      "dispatch_to_role_complete_rows_per_second": 120.49263696578079,
+      "between_first_and_last_chunk_rows": 98129,
+      "chunk_write_window_seconds": 471.02533292770386,
+      "between_chunk_commit_rows_per_second": 208.33062075466225
+    },
+    {
+      "seed": 42,
+      "rows": 102225,
+      "chunks": 25,
+      "precision": "FP32",
+      "role_complete_utc": "2026-10-25T21:44:21.361121+00:00",
+      "role_sha256": "ace265ed5368eadc8b5833c04e740b2b52b8e342c0bfbb124d1aac3a61b75653",
+      "dispatch_to_role_complete_seconds": 848.3520891666412,
+      "dispatch_to_role_complete_rows_per_second": 120.49831821645931,
+      "between_first_and_last_chunk_rows": 98129,
+      "chunk_write_window_seconds": 471.0253326892853,
+      "between_chunk_commit_rows_per_second": 208.33062086011282
+    },
+    {
+      "seed": 123,
+      "rows": 102225,
+      "chunks": 25,
+      "precision": "FP32",
+      "role_complete_utc": "2026-10-25T21:44:21.357121+00:00",
+      "role_sha256": "af022ce3997327c8bfffbbe760cc6e7c60a3d574c6365728ed2d9b317e8a942e",
+      "dispatch_to_role_complete_seconds": 848.3480892181396,
+      "dispatch_to_role_complete_rows_per_second": 120.49888636422025,
+      "between_first_and_last_chunk_rows": 98129,
+      "chunk_write_window_seconds": 471.0213327407837,
+      "between_chunk_commit_rows_per_second": 208.33239001937764
+    },
+    {
+      "seed": 2026,
+      "rows": 102225,
+      "chunks": 25,
+      "precision": "FP32",
+      "role_complete_utc": "2026-10-25T21:44:21.417121+00:00",
+      "role_sha256": "f1185d66f46aa8864ed071974cffb8df8eb535349ce3f6109cd41fd1cc7e1c93",
+      "dispatch_to_role_complete_seconds": 848.4080889225006,
+      "dispatch_to_role_complete_rows_per_second": 120.49036464259586,
+      "between_first_and_last_chunk_rows": 98129,
+      "chunk_write_window_seconds": 471.0013327598572,
+      "between_chunk_commit_rows_per_second": 208.34123637189717
+    }
+  ],
+  "aggregate_dispatch_to_all4_train_roles_rows_per_second": 481.96145857038346,
+  "aggregate_completed_train_rows": 408900,
+  "pure_GPU_inference_rate_measured": false,
+  "CPU_checks_loader_guard_and_writer_included": true,
+  "full45_cache_ETA_inferred": false,
+  "M_statistical_canary_passed": false
+}

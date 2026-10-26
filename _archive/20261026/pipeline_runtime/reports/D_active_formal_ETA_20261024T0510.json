@@ -1,0 +1,215 @@
+{
+  "utc": "2026-10-24T05:14:53.783471+00:00",
+  "status": "MEASURED_NEAR_TERMINAL_METADATA_ESTIMATE_NOT_COMPLETION",
+  "rows": [
+    {
+      "pid": 457025,
+      "run_id": "D_formal_clip_vit_b16_seed3407",
+      "gpu": 0,
+      "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e",
+      "metadata_epoch": 28,
+      "history_sha256": "ea96a70aa97bf4d46465c013c7fd684d5a1ec0fec41f6a52131e6b54c703f96a",
+      "remaining_epoch_endpoints": 2,
+      "last6_DEV_markers": [
+        {
+          "epoch": 23,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_clip_vit_b16_seed3407/epoch_23_source_dev.parquet",
+          "mtime": 1792815986.594602
+        },
+        {
+          "epoch": 24,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_clip_vit_b16_seed3407/epoch_24_source_dev.parquet",
+          "mtime": 1792816488.1499372
+        },
+        {
+          "epoch": 25,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_clip_vit_b16_seed3407/epoch_25_source_dev.parquet",
+          "mtime": 1792816990.6419208
+        },
+        {
+          "epoch": 26,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_clip_vit_b16_seed3407/epoch_26_source_dev.parquet",
+          "mtime": 1792817492.4120014
+        },
+        {
+          "epoch": 27,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_clip_vit_b16_seed3407/epoch_27_source_dev.parquet",
+          "mtime": 1792817994.583276
+        },
+        {
+          "epoch": 28,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_clip_vit_b16_seed3407/epoch_28_source_dev.parquet",
+          "mtime": 1792818499.1950014
+        }
+      ],
+      "last3_checkpoint_inclusive_intervals_seconds": [
+        501.77008056640625,
+        502.1712746620178,
+        504.6117253303528
+      ],
+      "median_terminal_overhead_seconds": 7.802000045776367,
+      "terminal_estimate_utc": "2026-10-24T05:25:12.699055+00:00",
+      "remaining_minutes": 10.31525973478953,
+      "complete_exists": false,
+      "final_exists": false
+    },
+    {
+      "pid": 457172,
+      "run_id": "D_formal_dinov2_vit_b14_seed7",
+      "gpu": 3,
+      "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646",
+      "metadata_epoch": 22,
+      "history_sha256": "4d133aed5454b28debb18202e3464409b787a8bf16ecf790e5147c6f1b33b85c",
+      "remaining_epoch_endpoints": 8,
+      "last6_DEV_markers": [
+        {
+          "epoch": 17,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_dinov2_vit_b14_seed7/epoch_17_source_dev.parquet",
+          "mtime": 1792815338.6503544
+        },
+        {
+          "epoch": 18,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_dinov2_vit_b14_seed7/epoch_18_source_dev.parquet",
+          "mtime": 1792815981.086616
+        },
+        {
+          "epoch": 19,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_dinov2_vit_b14_seed7/epoch_19_source_dev.parquet",
+          "mtime": 1792816619.7058938
+        },
+        {
+          "epoch": 20,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_dinov2_vit_b14_seed7/epoch_20_source_dev.parquet",
+          "mtime": 1792817261.404662
+        },
+        {
+          "epoch": 21,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_dinov2_vit_b14_seed7/epoch_21_source_dev.parquet",
+          "mtime": 1792817898.6633658
+        },
+        {
+          "epoch": 22,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_dinov2_vit_b14_seed7/epoch_22_source_dev.parquet",
+          "mtime": 1792818536.3869898
+        }
+      ],
+      "last3_checkpoint_inclusive_intervals_seconds": [
+        641.6987681388855,
+        637.2587039470673,
+        637.7236239910126
+      ],
+      "median_terminal_overhead_seconds": 7.8959455490112305,
+      "terminal_estimate_utc": "2026-10-24T06:34:15.432525+00:00",
+      "remaining_minutes": 79.36081756353379,
+      "complete_exists": false,
+      "final_exists": false
+    },
+    {
+      "pid": 457712,
+      "run_id": "D_formal_dinov2_vit_b14_seed42",
+      "gpu": 2,
+      "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+      "metadata_epoch": 22,
+      "history_sha256": "3d98d5664f7e539bdae6d0586879b6578048b0a430b2c45af0782b8283b37927",
+      "remaining_epoch_endpoints": 8,
+      "last6_DEV_markers": [
+        {
+          "epoch": 17,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_dinov2_vit_b14_seed42/epoch_17_source_dev.parquet",
+          "mtime": 1792815363.1620967
+        },
+        {
+          "epoch": 18,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_dinov2_vit_b14_seed42/epoch_18_source_dev.parquet",
+          "mtime": 1792816002.8625624
+        },
+        {
+          "epoch": 19,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_dinov2_vit_b14_seed42/epoch_19_source_dev.parquet",
+          "mtime": 1792816642.6058896
+        },
+        {
+          "epoch": 20,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_dinov2_vit_b14_seed42/epoch_20_source_dev.parquet",
+          "mtime": 1792817285.1765792
+        },
+        {
+          "epoch": 21,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_dinov2_vit_b14_seed42/epoch_21_source_dev.parquet",
+          "mtime": 1792817924.47534
+        },
+        {
+          "epoch": 22,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_dinov2_vit_b14_seed42/epoch_22_source_dev.parquet",
+          "mtime": 1792818566.910981
+        }
+      ],
+      "last3_checkpoint_inclusive_intervals_seconds": [
+        642.5706896781921,
+        639.2987606525421,
+        642.4356410503387
+      ],
+      "median_terminal_overhead_seconds": 7.8959455490112305,
+      "terminal_estimate_utc": "2026-10-24T06:35:06.287170+00:00",
+      "remaining_minutes": 80.20839498440425,
+      "complete_exists": false,
+      "final_exists": false
+    },
+    {
+      "pid": 458602,
+      "run_id": "D_formal_dinov2_vit_b14_seed123",
+      "gpu": 1,
+      "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+      "metadata_epoch": 22,
+      "history_sha256": "6e17b439a6833c8c8d9a98d65655af2a08a148686d6d52a4e1dcef2f00185a00",
+      "remaining_epoch_endpoints": 8,
+      "last6_DEV_markers": [
+        {
+          "epoch": 17,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_dinov2_vit_b14_seed123/epoch_17_source_dev.parquet",
+          "mtime": 1792815392.9218013
+        },
+        {
+          "epoch": 18,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_dinov2_vit_b14_seed123/epoch_18_source_dev.parquet",
+          "mtime": 1792816027.018506
+        },
+        {
+          "epoch": 19,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_dinov2_vit_b14_seed123/epoch_19_source_dev.parquet",
+          "mtime": 1792816659.0538871
+        },
+        {
+          "epoch": 20,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_dinov2_vit_b14_seed123/epoch_20_source_dev.parquet",
+          "mtime": 1792817300.784527
+        },
+        {
+          "epoch": 21,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_dinov2_vit_b14_seed123/epoch_21_source_dev.parquet",
+          "mtime": 1792817939.7113254
+        },
+        {
+          "epoch": 22,
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/runs/D_formal_dinov2_vit_b14_seed123/epoch_22_source_dev.parquet",
+          "mtime": 1792818580.9269772
+        }
+      ],
+      "last3_checkpoint_inclusive_intervals_seconds": [
+        641.7306399345398,
+        638.9267983436584,
+        641.2156517505646
+      ],
+      "median_terminal_overhead_seconds": 7.8959455490112305,
+      "terminal_estimate_utc": "2026-10-24T06:35:13.817829+00:00",
+      "remaining_minutes": 80.33390597105026,
+      "complete_exists": false,
+      "final_exists": false
+    }
+  ],
+  "method": "LastcompletedsourceDEVParquetmtime+remainingepochs*mean(last3successiveDEVcompletionintervals)+median(samebackbonecompletedterminaloverheads); includescheckpoint/loopoverhead",
+  "terminal_overhead_reference": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/D_active_formal_ETA_20261024T0420.json",
+  "terminal_overhead_reference_sha256": "4a68491bc2418c20157abfb1cd13553acc79f95dda1a80c8369b5236d3bbe5bb",
+  "next_check_utc": "2026-10-24T05:25:00Z",
+  "no_final_performance_or_completion_claim": true
+}

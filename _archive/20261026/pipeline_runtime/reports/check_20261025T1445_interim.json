@@ -1,0 +1,43 @@
+{
+  "utc": "2026-10-25T14:49:58Z",
+  "H_roles": 140,
+  "H_operational_models": 19,
+  "H_independent_models": 4,
+  "H_statistic_independent_pairs": 2,
+  "H_active": [
+    {
+      "pid": 542324,
+      "run_id": "H_formal_dinov2_vit_b14_AB_seed3407",
+      "gpu": 2,
+      "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+      "backbone": "dinov2_vit_b14"
+    },
+    {
+      "pid": 1229851,
+      "run_id": "H_formal_efficientnet_b0_B_seed7",
+      "gpu": 0,
+      "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e",
+      "backbone": "efficientnet_b0"
+    },
+    {
+      "pid": 1236589,
+      "run_id": "H_formal_efficientnet_b0_AB_seed7",
+      "gpu": 1,
+      "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+      "backbone": "efficientnet_b0"
+    },
+    {
+      "pid": 1250299,
+      "run_id": "H_formal_efficientnet_b0_B_seed42",
+      "gpu": 3,
+      "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646",
+      "backbone": "efficientnet_b0"
+    }
+  ],
+  "H_pending": 7,
+  "CPU_admission_123_alive": true,
+  "CPU_admission_2026_alive": true,
+  "free_GiB": 160.16554260253906,
+  "M_production_admitted": false,
+  "next_check": "2026-10-25T15:10:00Z"
+}

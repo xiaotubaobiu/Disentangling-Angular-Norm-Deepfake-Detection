@@ -1,0 +1,43 @@
+{
+  "schema": "M_EXACT_MULTIPLICITY_BUNDLE_V1",
+  "identity": {
+    "artifact": "source_test/closure_bootstrap.json",
+    "kind": "json",
+    "sink_identity_sha256": "9999df6eedd866e74646d6d78761fc5ca7e73065610e878e018eed3955942b0f"
+  },
+  "raw_json_sha256": "dfcef2c9eb84cd1a6b714040a9e1c9a4e11c95be5e9eab7c469bef40141732a2",
+  "raw_json_bytes": 9623109,
+  "implementation_sha256": {
+    "multiplicity_codec.py": "1931371915dcbf542b78b79ca433f202e6c6cdf194400985020f105eff92fa73",
+    "sensitivity_io.py": "d311923c3e35b8e9ba2fc42dc5ee7e6e46b66ce3c9f2d3a923ea8ccb949be9ce",
+    "multiplicity_bundle.py": "3aa5debf7d98bd976bc21fa5be2135d34cdfa8e0b91873f356cc8f57e24360c3"
+  },
+  "metadata": {
+    "compressed_sha256": "8a95d4e340684a4bad38680caf7324993cf1f3d9fd520f561657fc3e4ee972be",
+    "uncompressed_sha256": "a474e0b30906fad368d5ff6669b1635c4139200fba90e18a45e4cead3df979b2",
+    "compressed_bytes": 236453,
+    "uncompressed_bytes": 2014451
+  },
+  "npz": {
+    "sha256": "0446c57267c46f4b8af12ddb3ea6a96dfee8fc80c69c64e0ed0244c27aa5bc33",
+    "bytes": 107170
+  },
+  "array_specs": {
+    "counts_0": {
+      "dtype": "<u4",
+      "shape": [
+        2000,
+        70
+      ],
+      "bytes": 560000
+    },
+    "order_0": {
+      "dtype": "<i4",
+      "shape": [
+        2000,
+        70
+      ],
+      "bytes": 560000
+    }
+  }
+}

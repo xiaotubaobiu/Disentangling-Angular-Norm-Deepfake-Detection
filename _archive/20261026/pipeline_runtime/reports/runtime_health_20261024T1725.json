@@ -1,0 +1,328 @@
+{
+  "utc": "2026-10-24T17:42:01.977268+00:00",
+  "status": "PASS_1725_SUPERVISION_MAIN_CONTINUES_SOURCE_BEST_PREPARATION_ONLY",
+  "D_individual_analysis_accepted": 8,
+  "DINO42_acceptance_sha256": "0cb0e9f4fb5cb120e65269c9c6155ca3edf418c5867b0a8b3e5714cf0d218b35",
+  "DINO123_independent_acceptance_complete": true,
+  "DINO123_acceptance_sha256": "50a7ed9f4351f850b5a488694a5cf2e9e11f8a4129564be6a0f4e60073291db3",
+  "DINO3407_launch": {
+    "utc": "2026-10-24T17:41:57.733109+00:00",
+    "status": "SLOT0_NEXT_FINITE_D_ANALYSIS_LAUNCHED_ADMISSION_FIRST",
+    "run_id": "D_formal_dinov2_vit_b14_seed3407",
+    "slot": 0,
+    "flock_pid": 2069913,
+    "command": [
+      "/usr/bin/flock",
+      "--nonblock",
+      "--conflict-exit-code",
+      "75",
+      "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/D/production_cpu.lock",
+      "/usr/bin/time",
+      "-v",
+      "-o",
+      "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/D_formal_dinov2_vit_b14_seed3407_analysis_time_v.log",
+      "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python",
+      "-u",
+      "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/analysis_execution_records/D_formal_dinov2_vit_b14_seed3407.command.py"
+    ],
+    "command_source_sha256": "f607a27d2a2dabc8ae42d54a8876d98be367ea83e18adc7df9df7e808f0d5ed9",
+    "source_template_sha256": "f04ad896cda267f25e1d18dee940688823264bfe8650fb223e094d8818c8e357",
+    "literal_run_record_substitutions": [
+      [
+        "RUN='D_formal_clip_vit_b16_seed7'",
+        "RUN='D_formal_dinov2_vit_b14_seed3407'"
+      ],
+      [
+        "D_first_single_analysis_progress.json",
+        "D_formal_dinov2_vit_b14_seed3407_analysis_progress.json"
+      ],
+      [
+        "D_first_single_analysis_admission.json",
+        "D_formal_dinov2_vit_b14_seed3407_analysis_admission.json"
+      ]
+    ],
+    "stdout_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/D_formal_dinov2_vit_b14_seed3407_analysis.stdout.log",
+    "time_v_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/D_formal_dinov2_vit_b14_seed3407_analysis_time_v.log",
+    "preceding_model_acceptance_sha256": "50a7ed9f4351f850b5a488694a5cf2e9e11f8a4129564be6a0f4e60073291db3",
+    "capacity_snapshot_sha256": "a9a4809e14d7933b9e3bdee8a5520f9a18a13d777662acb1362f79605769716f",
+    "scientific_code_changed": false,
+    "calibration_repeats": 200,
+    "test_bootstrap_repeats": 2000
+  },
+  "D_CPU_slots": [
+    {
+      "run_id": "D_formal_dinov2_vit_b14_seed3407",
+      "slot": 0,
+      "pid": 2069915,
+      "status": "FULL_SEVEN_ROLE_ADMISSION_RUNNING",
+      "admitted_roles": [],
+      "alive": true
+    },
+    {
+      "run_id": "D_formal_dinov2_vit_b14_seed2026",
+      "slot": 1,
+      "pid": 2064755,
+      "status": "PRODUCTION_ANALYSIS_RUNNING",
+      "admitted_roles": [
+        "train",
+        "dev",
+        "source_cal",
+        "source_test",
+        "target_full",
+        "target_cal",
+        "target_test"
+      ],
+      "alive": true
+    }
+  ],
+  "H_completed": 4,
+  "H_pending": 12,
+  "H_active": [
+    {
+      "pid": 2035767,
+      "run_id": "H_dev_dinov2_vit_b14_B_lr1e-05_seed1007_e30",
+      "gpu": 0,
+      "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e",
+      "backbone": "dinov2_vit_b14",
+      "alive": true,
+      "committed_epoch": 22,
+      "committed_attempts": 4202,
+      "committed_success": 4202,
+      "committed_skips": 0,
+      "live_attempts": 4373,
+      "live_success": 4373,
+      "live_skips": 0,
+      "skip_recovery": []
+    },
+    {
+      "pid": 2035768,
+      "run_id": "H_dev_dinov2_vit_b14_AB_lr1e-05_seed1007_e30",
+      "gpu": 2,
+      "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+      "backbone": "dinov2_vit_b14",
+      "alive": true,
+      "committed_epoch": 22,
+      "committed_attempts": 4202,
+      "committed_success": 4202,
+      "committed_skips": 0,
+      "live_attempts": 4349,
+      "live_success": 4349,
+      "live_skips": 0,
+      "skip_recovery": []
+    },
+    {
+      "pid": 2035769,
+      "run_id": "H_dev_dinov2_vit_b14_B_lr1e-05_seed1042_e30",
+      "gpu": 3,
+      "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646",
+      "backbone": "dinov2_vit_b14",
+      "alive": true,
+      "committed_epoch": 22,
+      "committed_attempts": 4202,
+      "committed_success": 4202,
+      "committed_skips": 0,
+      "live_attempts": 4375,
+      "live_success": 4375,
+      "live_skips": 0,
+      "skip_recovery": []
+    },
+    {
+      "pid": 2036656,
+      "run_id": "H_dev_dinov2_vit_b14_AB_lr1e-05_seed1042_e30",
+      "gpu": 1,
+      "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+      "backbone": "dinov2_vit_b14",
+      "alive": true,
+      "committed_epoch": 22,
+      "committed_attempts": 4202,
+      "committed_success": 4202,
+      "committed_skips": 0,
+      "live_attempts": 4262,
+      "live_success": 4262,
+      "live_skips": 0,
+      "skip_recovery": []
+    }
+  ],
+  "H_full_checkpoint": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_checkpoint_health_20261024T1725.json",
+  "H_full_checkpoint_sha256": "51f21f2cae3c27327414237c0ab23e89da30a34314ace3755010deb50605113b",
+  "H_full_epochs": {
+    "H_dev_dinov2_vit_b14_B_lr1e-05_seed1007_e30": 19,
+    "H_dev_dinov2_vit_b14_AB_lr1e-05_seed1007_e30": 19,
+    "H_dev_dinov2_vit_b14_B_lr1e-05_seed1042_e30": 19,
+    "H_dev_dinov2_vit_b14_AB_lr1e-05_seed1042_e30": 18
+  },
+  "H_full_attempts": 14325,
+  "H_full_success": 14325,
+  "H_full_AMP_skips": 0,
+  "H_latest_pair_arrays": [
+    {
+      "seed": 1007,
+      "common_committed_array_epochs_verified": 22,
+      "samples_methods_augmentations_byte_equal": true
+    },
+    {
+      "seed": 1042,
+      "common_committed_array_epochs_verified": 22,
+      "samples_methods_augmentations_byte_equal": true
+    }
+  ],
+  "H_full_actual_mother_pair_epochs": {
+    "1007": 19,
+    "1042": 18
+  },
+  "GPU_samples": [
+    [
+      [
+        0,
+        80,
+        5332
+      ],
+      [
+        1,
+        83,
+        5414
+      ],
+      [
+        2,
+        86,
+        5414
+      ],
+      [
+        3,
+        83,
+        5414
+      ],
+      [
+        4,
+        0,
+        28156
+      ],
+      [
+        5,
+        0,
+        28156
+      ],
+      [
+        6,
+        0,
+        28156
+      ],
+      [
+        7,
+        0,
+        28156
+      ]
+    ],
+    [
+      [
+        0,
+        82,
+        5332
+      ],
+      [
+        1,
+        86,
+        5414
+      ],
+      [
+        2,
+        80,
+        5414
+      ],
+      [
+        3,
+        82,
+        5414
+      ],
+      [
+        4,
+        0,
+        28156
+      ],
+      [
+        5,
+        0,
+        28156
+      ],
+      [
+        6,
+        0,
+        28156
+      ],
+      [
+        7,
+        0,
+        28156
+      ]
+    ],
+    [
+      [
+        0,
+        85,
+        5332
+      ],
+      [
+        1,
+        83,
+        5414
+      ],
+      [
+        2,
+        85,
+        5414
+      ],
+      [
+        3,
+        83,
+        5414
+      ],
+      [
+        4,
+        0,
+        28156
+      ],
+      [
+        5,
+        0,
+        28156
+      ],
+      [
+        6,
+        0,
+        28156
+      ],
+      [
+        7,
+        0,
+        28156
+      ]
+    ]
+  ],
+  "GPU_short_window_mean_util_percent": [
+    82.33333333333333,
+    84.0,
+    83.66666666666667,
+    82.66666666666667
+  ],
+  "protected_compute_csv": "2035767, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 5324 MiB\n2036656, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 5406 MiB\n2035768, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 5406 MiB\n2035769, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 5406 MiB\n1532179, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 28152 MiB\n1532180, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 28152 MiB\n1532181, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 28152 MiB\n1532182, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 28152 MiB\n",
+  "protected_inputs_verified": 13,
+  "source_best_packet_sha256": "4fe49b0b245cec033c619f047aed4e31cb4d74727e0f6ea830140d766bede798",
+  "source_best_packet_md_sha256": "c3ec0e3804c9b52d4ac171849e5d500575ff7a7b4af7d2eee9b7822b06200de2",
+  "source_best_parent_hold": true,
+  "source_best_candidate_selected": null,
+  "source_best_target_export_started": false,
+  "source_best_new_training_started": false,
+  "question_sent_to_user": false,
+  "source_best_existing_last_codec_probe_sha256": "6cb96ba432f3f838b585c9cfeb2b81996d1ed9f09312b8c50ae0087da3504b32",
+  "cold_forward_diagnosis_sha256": "969dcbea3734bf62bb3523b93cc56a28e0f372915f46e7a9a94362973d1f8b04",
+  "cold_originals_regular_unchanged_inode_size_mtime": true,
+  "SSD_cold_release_bytes": 0,
+  "workspace_free_bytes": 303735877632,
+  "Dataset_free_bytes": 2674188767232,
+  "formal_training_complete": 15,
+  "formal_training_total": 45,
+  "H_formal_started": 0,
+  "complete_scientific_results": false,
+  "complete_journal_manuscripts": false,
+  "next_recommended_check_utc": "2026-10-24T18:00:00Z"
+}

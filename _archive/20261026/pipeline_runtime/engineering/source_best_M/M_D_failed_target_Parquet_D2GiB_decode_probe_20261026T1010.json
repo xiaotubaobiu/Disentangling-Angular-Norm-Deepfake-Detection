@@ -1,0 +1,32 @@
+{
+  "schema": "M_D_2GIB_DECODE_BOUND_ACTUAL_READONLY_PROBE_V1",
+  "status": "PASS_OLD_GUARD_REPRODUCED_NEW_GUARD_DECODES_SAME_REAL_PARQUET",
+  "utc": "2026-10-26T10:08:03.801758+00:00",
+  "CPU_slot": 0,
+  "lifetime_shared_CPU_slot_held": true,
+  "address_space_limit_bytes": 34359738368,
+  "source_sink_sha256": "9b638a05738061fce9fb4537b6076c118b579631c8852452d4f894fa55a581f0",
+  "source_runtime_sha256": "69b3d590d95fd3004c7c64617fbad642526b02862a97f61546d3cd375fc18742",
+  "failed_artifact": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/analysis/source_best_M/f2245c70bde16847e0f0a13d8b6d93e15cdd1356772e69ba2302e26ff0fcc8aa/D_clip_vit_b16_seed7/.staging/fd5192f7f6f44e7d9b04aae055bdaf04",
+    "sha256": "5b424ff259b4661d1ff56194736cb2f5e89ddd10199fdc29030b65662d73e16c"
+  },
+  "rows": 104424,
+  "columns": 40,
+  "guard_formula_bound_bytes": 1458269184,
+  "original_limit_bytes": 536870912,
+  "proposed_D_limit_bytes": 2147483648,
+  "other_D_limits_unchanged": true,
+  "H_limits_unchanged": true,
+  "old_guard_error": "Parquet decoded-table budget exceeded",
+  "pandas_deep_memory_bytes": 240753822,
+  "Arrow_pandas_Arrow_all_columns_values_nulls_equal": true,
+  "source_bytes_SHA_before_after_equal": true,
+  "elapsed_seconds": 1.9026711182668805,
+  "peak_RSS_KiB": 920616,
+  "scientific_statistics_recomputed": false,
+  "models_or_pixels_read": false,
+  "original_canonical_output_written_or_removed": false,
+  "actual_full_D_canary_resource_qualification_granted": false,
+  "any_new_production_permission_issued": false
+}

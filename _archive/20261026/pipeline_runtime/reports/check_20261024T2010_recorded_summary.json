@@ -1,0 +1,142 @@
+{
+  "utc": "2026-10-24T20:38:20.391827+00:00",
+  "scheduled_check_utc": "2026-10-24T20:10:00Z",
+  "status": "D15INDIVIDUAL_ACCEPTED_EFF5SUMMARY_RUNNING_H12DEV_AND_LR5_HEALTHY_FIGURE_CODE28TESTS_AND_INDEPENDENT_REVIEW_PASS",
+  "D_individual_analysis_accepted": 15,
+  "D_individual_analysis_total": 15,
+  "D_new_final_acceptances": [
+    {
+      "run_id": "D_formal_efficientnet_b0_seed2026",
+      "status": "PASS_REAL_D_MODEL_COMPLETE_ARTIFACT_CAL_BOOTSTRAP_RESOURCE_ACCEPTANCE",
+      "checks": 35464,
+      "max_error": 1.1102230246251565e-16,
+      "elapsed": "41:16.43",
+      "peak_RSS_KiB": 6928192,
+      "acceptance_sha256": "3d874e845f8fc3aa43549622a699926b8c72c5290ffab48e154200a0e505fa54"
+    },
+    {
+      "run_id": "D_formal_efficientnet_b0_seed3407",
+      "status": "PASS_REAL_D_MODEL_COMPLETE_ARTIFACT_CAL_BOOTSTRAP_RESOURCE_ACCEPTANCE",
+      "checks": 35464,
+      "max_error": 2.220446049250313e-16,
+      "elapsed": "40:38.11",
+      "peak_RSS_KiB": 6918772,
+      "acceptance_sha256": "10e93bd3b07be0edd674639cc67d74d4ca3e4a71ec9c570f6267876878d40285"
+    }
+  ],
+  "D_EfficientNet_summary": {
+    "status": "PRODUCTION_RUNNING_REAL_INDEPENDENT_ACCEPTANCE_PENDING",
+    "flock_pid": 2172982,
+    "alive": true,
+    "actual_complete_marker": false,
+    "launch_sha256": "3c5abef2e6492a7ffe63092fcc6cdbd8f07203d13a972d5c6290cf4e24bfdde4",
+    "expected_next": "Only after actual completion/time-v exit0 run qualification/D_summary_independent_validation/audit.py R efficientnet_b0; then bind all3accepted summaries to real figures"
+  },
+  "H": {
+    "development_completed_accepted": 12,
+    "development_total": 20,
+    "active": [
+      {
+        "pid": 2126426,
+        "run_id": "H_dev_dinov2_vit_b14_B_lr5e-05_seed1007_e30",
+        "gpu": 0,
+        "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e",
+        "backbone": "dinov2_vit_b14",
+        "committed_epoch": 27,
+        "committed_attempts": 5157,
+        "committed_success": 5157,
+        "committed_skips": 0,
+        "alive": true
+      },
+      {
+        "pid": 2126991,
+        "run_id": "H_dev_dinov2_vit_b14_AB_lr5e-05_seed1007_e30",
+        "gpu": 3,
+        "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646",
+        "backbone": "dinov2_vit_b14",
+        "committed_epoch": 27,
+        "committed_attempts": 5157,
+        "committed_success": 5157,
+        "committed_skips": 0,
+        "alive": true
+      },
+      {
+        "pid": 2128880,
+        "run_id": "H_dev_dinov2_vit_b14_B_lr5e-05_seed1042_e30",
+        "gpu": 1,
+        "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+        "backbone": "dinov2_vit_b14",
+        "committed_epoch": 26,
+        "committed_attempts": 4966,
+        "committed_success": 4966,
+        "committed_skips": 0,
+        "alive": true
+      },
+      {
+        "pid": 2128881,
+        "run_id": "H_dev_dinov2_vit_b14_AB_lr5e-05_seed1042_e30",
+        "gpu": 2,
+        "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+        "backbone": "dinov2_vit_b14",
+        "committed_epoch": 26,
+        "committed_attempts": 4966,
+        "committed_success": 4966,
+        "committed_skips": 0,
+        "alive": true
+      }
+    ],
+    "pending": 4,
+    "full_tensor_snapshot_epochs": [
+      17,
+      16,
+      16,
+      16
+    ],
+    "full_tensor_success": [
+      3247,
+      3056,
+      3056,
+      3056
+    ],
+    "full_tensor_skips": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "pairs_actual_mother_samples_methods_augmentations": "PASS_COMMON16EPOCHS",
+    "current_committed_scope_separate": true,
+    "original_owner_pid": 1993186,
+    "formal_trained": 0,
+    "EfficientNet_successor": "Originalowneronly; noadditionaldispatcher; standby auditmustuse1280classifierdimension, not768DINO; do not auditmixedhandoverasonepairgroup"
+  },
+  "figure_implementation": {
+    "status": "CPU28TESTS_AND_WHOLE_INDEPENDENT_REVIEW_ACCEPTED_ONLY_SYNTHETIC_PREVIEWS",
+    "code_sha256": "b7a0da32a42476f38d59491b1e4729b32f9b6924612bbfd3ab56893153ac513c",
+    "implementation_report_sha256": "d89f587d2fd3d7f88f5eab9c0a368eaa983c95dca556f5ba211adbf16edf2a5c",
+    "independent_review_sha256": "08fb1f01d9fefa53e369c0fb5ea92f850f2ee52c4f391fc17a52e47fa9267d66",
+    "production_output_exists": false,
+    "production_admission": false,
+    "source_roles": "source_test and target_full ECDF kept separate; RQ4 target_test exact; all4CAL budgets/fixedTEST/unique counts; no15modelpool",
+    "deferred_minor": "Existing Matplotlib/pyparsing deprecationwarnings; environmentunchanged"
+  },
+  "capacity": {
+    "actual_free_bytes": 233580032000,
+    "conservative_full_remaining_requirement_bytes": 176559953990.52283,
+    "approved_snapshot_utc": "2026-10-24T20:22:06.694426+00:00",
+    "normal_margin_bytes": 57020078009.47717,
+    "all_registered_conditionals_deficit_bytes": 20140662110.197815,
+    "actual_cold_release_bytes": 0,
+    "actual_apply": false
+  },
+  "GPU_csv": "0, 80, 5332\n1, 80, 5414\n2, 81, 5414\n3, 88, 5414\n4, 0, 28156\n5, 0, 28156\n6, 0, 28156\n7, 0, 28156\n",
+  "GPU4to7_original_pids_present": true,
+  "protected_inputs_count": 13,
+  "science_HEAD": "5ef6d06bf7aeda02a5a11113e4c35a2c9909f215",
+  "source_best": "HOLD_UNSELECTED_NOEXECUTION",
+  "full_registered_formal_training_done": 15,
+  "full_registered_formal_training_total": 45,
+  "complete_journal_manuscripts": false,
+  "remaining": "Effreal5seedsummary+independentaudit; D3backbonerealfigures/tables/captions/readback; Hcurrentlr5+4Effdev/actualconditions/30formal/cache/analysis; fullCNENmastermergeandresultverification. Existing3pre-resultfiguresunchanged.",
+  "next_check_utc": "2026-10-24T20:45:00Z"
+}

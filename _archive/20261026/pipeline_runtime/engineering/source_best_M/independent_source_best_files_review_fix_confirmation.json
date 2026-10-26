@@ -1,0 +1,59 @@
+{
+  "schema": "INDEPENDENT_SOURCE_BEST_M_FILE_TENSOR_REVIEW_FIX_CONFIRMATION_V1",
+  "utc": "2026-10-25T07:15:43.004730+00:00",
+  "reviewer": "independent post_amp_qualification_review subagent",
+  "status": "SBF_1_AND_SBF_2_RESOLVED_TARGETED_CPU_VERIFICATION_PASS",
+  "scope": "Actual source-best bytes/tensors/head staging component using temporary files only. No actual45 production staging, original unpatched H production validation, full-suite acceptance or downstream M cache/inference/resource authority is claimed.",
+  "original_review_preserved": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_source_best_files_review.json",
+    "sha256": "c9d4f2bccbff26c9f37fa1a50a1f614cbd5cddc0512d78b21de5ecb50d23edec"
+  },
+  "verified_artifacts": {
+    "source_best_files.py": "861736bca921dc705bfb27ffb7104c94adfed521900e9325df0fe29c539b243c",
+    "test_source_best_files.py": "79d24843c916b91b7626db6666075ab201a60d17fa9cc4cbed0614451917f535",
+    "source_best_files_review_fixes_RED.log": "5fc15d607f1fb8d78b1ed4f1ceb6b5c55aa42261ad87f3650537a7e9d72728d2",
+    "source_best_files_review_fixes_GREEN.log": "81d8f4e1b6b028a612b8134a11a33770dda14dfc6f762d8e3bee6fe70527d80b"
+  },
+  "resolved_findings": [
+    {
+      "id": "SBF-1",
+      "status": "RESOLVED",
+      "location": "source_best_files.py:115-118",
+      "fix": "The complete original _source_context is rerun after loading/tensor/head checks, using default original Dcache_d._context or Hworker.validate_task, and config/task/identity must remain equal before the existing full bound hash recheck.",
+      "fresh_independent_reproduction": "The original synthetic H file+seal+registry/real recipe case now raises ValueError H frozen recipe changed after recipe mutation during _load. The source validator was called twice. Valid H baseline also invoked it twice.",
+      "regressions": "Three during-load prerequisite mutation cases cover frozen recipe, freeze metadata and qualification dependency. The check preserves original default freshness semantics; it does not invent a processed/source pixel byte audit."
+    },
+    {
+      "id": "SBF-2",
+      "status": "RESOLVED",
+      "location": "source_best_files.py:114",
+      "fix": "Best/final equivalence requires equal dtype and shape for every matching state tensor before torch.equal.",
+      "fresh_independent_reproduction": "The original actual tiny D checkpoint case with source encoderfloat32/final encoderfloat64 but equal numeric values now raises ValueError best at last epoch differs from accepted final tensor state.",
+      "regressions": "Equal values with mismatched encoder dtype reject. Valid identical tensor baseline continues to pass."
+    }
+  ],
+  "verification": {
+    "command": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -B -m pytest -q -p no:cacheprovider /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests/test_source_best_files.py",
+    "cwd": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2",
+    "environment": {
+      "CUDA_VISIBLE_DEVICES": "",
+      "OMP_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2"
+    },
+    "fresh_result": "37 passed in2.16s",
+    "fresh_test_exit_code": 0,
+    "independent_fix_reproductions_exit_code": 0,
+    "positive_D_H_source_only_flags_verified": true,
+    "source_validation_rechecked_after_load": true,
+    "source_training_pixel_bytes_freshly_verified_here": false,
+    "target_inference_authorized": false,
+    "actual_cache_context_qualified": false,
+    "full486_suite_verified_by_this_review": false
+  },
+  "new_findings": [],
+  "actions_performed": "Read-only fixedcode/regression/RED-GREEN inspection; bounded CPU37case run; original reviewer reproductions with actual tiny temporary torch files, original Dcontext and synthetic Hfixture sourcevalidator. Wrote only this confirmation. No source/artifact edits, production helpers, production weights, target inference, GPU operation, restart, kill or primary worker interference.",
+  "remaining_blockers": "No remaining review blocker from SBF-1 or SBF-2. Before component adoption, root must validate actual45 admitted source-only checkpoints, including the unchanged default H production sourcevalidator, and verify the required fresh full486 suite against unchanged code. Actual M role/cache/extraction, original globalfresh target authorization, primarypriority ownership and full primary+M budget remain separate required gates."
+}

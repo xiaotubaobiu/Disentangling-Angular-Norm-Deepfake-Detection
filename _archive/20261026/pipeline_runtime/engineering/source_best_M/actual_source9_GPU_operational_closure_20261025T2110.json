@@ -1,0 +1,140 @@
+{
+  "utc": "2026-10-25T21:12:21.464776+00:00",
+  "schema": "ROOT_M_SOURCE9_OPERATIONAL_CLOSURE_OBSERVATION_V1",
+  "status": "ALL9_ACTUAL_GPU_SOURCE_CASES_OPERATIONALLY_CLOSED_PENDING_INDEPENDENT_COLLECTOR",
+  "owner_terminal": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_finite_owner/source_qualification/195fcb122568d54d0022d05c24b9b3ec5c565dc50e1650eebc969723651bf0aa/883a623cc487472892444961790070b1/complete.json",
+    "sha256": "1c19d78d4bb364578d69f3cc0f76af6df0608cdbb35277e9b063f618de7b50d7"
+  },
+  "time_v": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/actual_source9_GPU_qualification_20261025T1925_time_v.log",
+    "sha256": "70dc61cd3c6da80666d4ec34584892d5d88c1740491dad678772adcb853b0de9",
+    "exit_status": 0,
+    "wall_clock": "1:40:14",
+    "max_RSS_KiB": 2569720
+  },
+  "all_wrapper_owner_worker_PIDs_absent": true,
+  "receipts": {
+    "D_formal_clip_vit_b16_seed7": {
+      "receipt": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_only_GPU_qualification/883a623cc487472892444961790070b1/D_formal_clip_vit_b16_seed7.json",
+        "sha256": "002ed481cb09f4764ef7f3710b82f13ac4b7b09f92d9d7e86b825ab97771e3f9"
+      },
+      "worker_pid": 3225072,
+      "source_cal_rows": 1120,
+      "fresh_forward_rows": 1120,
+      "source_best_epoch": 23,
+      "GPU": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e",
+      "seconds_in_worker_report": 48.54049377981573,
+      "FP32_feature_bytes": 2293760
+    },
+    "D_formal_dinov2_vit_b14_seed7": {
+      "receipt": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_only_GPU_qualification/883a623cc487472892444961790070b1/D_formal_dinov2_vit_b14_seed7.json",
+        "sha256": "c8c3c4306dfeb5173044a6d8775603e03f4248a3b9226d0e69e44af259aa4a5f"
+      },
+      "worker_pid": 3225074,
+      "source_cal_rows": 1120,
+      "fresh_forward_rows": 1120,
+      "source_best_epoch": 24,
+      "GPU": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+      "seconds_in_worker_report": 50.06892329733819,
+      "FP32_feature_bytes": 3440640
+    },
+    "D_formal_efficientnet_b0_seed7": {
+      "receipt": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_only_GPU_qualification/883a623cc487472892444961790070b1/D_formal_efficientnet_b0_seed7.json",
+        "sha256": "3b704d448bfee274dc454b6a2199bbc016f4e778282176252eb8094483912cab"
+      },
+      "worker_pid": 3225095,
+      "source_cal_rows": 1120,
+      "fresh_forward_rows": 1120,
+      "source_best_epoch": 14,
+      "GPU": "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+      "seconds_in_worker_report": 12.870965496636927,
+      "FP32_feature_bytes": 5734400
+    },
+    "H_formal_clip_vit_b16_AB_seed7": {
+      "receipt": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_only_GPU_qualification/883a623cc487472892444961790070b1/H_formal_clip_vit_b16_AB_seed7.json",
+        "sha256": "7391802205a514fc99a648a130990fa327f4c0350c30a3e67690aec0ccb7c9ef"
+      },
+      "worker_pid": 3249648,
+      "source_cal_rows": 1120,
+      "fresh_forward_rows": 1120,
+      "source_best_epoch": 23,
+      "GPU": "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+      "seconds_in_worker_report": 2255.5772673748434,
+      "FP32_feature_bytes": 2293760
+    },
+    "H_formal_clip_vit_b16_B_seed7": {
+      "receipt": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_only_GPU_qualification/883a623cc487472892444961790070b1/H_formal_clip_vit_b16_B_seed7.json",
+        "sha256": "279c04a3efb6a423a57291dd52342b27b21483f3d974f3742ae28b6212005325"
+      },
+      "worker_pid": 3225098,
+      "source_cal_rows": 1120,
+      "fresh_forward_rows": 1120,
+      "source_best_epoch": 17,
+      "GPU": "GPU-626ec32f-1401-c959-74b0-db04ed63c646",
+      "seconds_in_worker_report": 2254.599631594494,
+      "FP32_feature_bytes": 2293760
+    },
+    "H_formal_dinov2_vit_b14_AB_seed7": {
+      "receipt": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_only_GPU_qualification/883a623cc487472892444961790070b1/H_formal_dinov2_vit_b14_AB_seed7.json",
+        "sha256": "fde908f22095746315928b3c3d7e3bec23e152babcc8ae1acccd31a0907792c8"
+      },
+      "worker_pid": 3256703,
+      "source_cal_rows": 1120,
+      "fresh_forward_rows": 1120,
+      "source_best_epoch": 23,
+      "GPU": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+      "seconds_in_worker_report": 2262.411523924209,
+      "FP32_feature_bytes": 3440640
+    },
+    "H_formal_dinov2_vit_b14_B_seed7": {
+      "receipt": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_only_GPU_qualification/883a623cc487472892444961790070b1/H_formal_dinov2_vit_b14_B_seed7.json",
+        "sha256": "20e7fee606e7f6e84261323a4e140ad7678260a0f06fcaba9a1f09e6a11bd4ed"
+      },
+      "worker_pid": 3256578,
+      "source_cal_rows": 1120,
+      "fresh_forward_rows": 1120,
+      "source_best_epoch": 23,
+      "GPU": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e",
+      "seconds_in_worker_report": 2308.134679132141,
+      "FP32_feature_bytes": 3440640
+    },
+    "H_formal_efficientnet_b0_AB_seed7": {
+      "receipt": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_only_GPU_qualification/883a623cc487472892444961790070b1/H_formal_efficientnet_b0_AB_seed7.json",
+        "sha256": "4089498b7a3ed598efa9cd2ea3658fbdda06e0d787962a8106137939a91f5469"
+      },
+      "worker_pid": 3668490,
+      "source_cal_rows": 1120,
+      "fresh_forward_rows": 1120,
+      "source_best_epoch": 20,
+      "GPU": "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+      "seconds_in_worker_report": 1792.0798202035949,
+      "FP32_feature_bytes": 5734400
+    },
+    "H_formal_efficientnet_b0_B_seed7": {
+      "receipt": {
+        "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/M_source_only_GPU_qualification/883a623cc487472892444961790070b1/H_formal_efficientnet_b0_B_seed7.json",
+        "sha256": "adb53df0ce61f5499a162205f803628a9e220b179ebaec6d8c14074a38175585"
+      },
+      "worker_pid": 3664628,
+      "source_cal_rows": 1120,
+      "fresh_forward_rows": 1120,
+      "source_best_epoch": 23,
+      "GPU": "GPU-626ec32f-1401-c959-74b0-db04ed63c646",
+      "seconds_in_worker_report": 1754.5813970630988,
+      "FP32_feature_bytes": 5734400
+    }
+  },
+  "source_cal_rows_total": 10080,
+  "data_or_scientific_independent_admission": false,
+  "M_production_cache_admission": false,
+  "statistical_canary_passed": false
+}

@@ -1,0 +1,115 @@
+{
+  "schema": "INDEPENDENT_H_LAST_MATRIX_RESULT_AUDIT_REVIEW_V1",
+  "utc": "2026-10-25T19:36:42.416477+00:00",
+  "status": "IMPORTANT_FINDINGS_REQUIRE_FIX_BEFORE_REAL_MATRIX_AUDIT",
+  "reviewed_source_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tools/h_last_matrix_result_audit.py",
+  "reviewed_source_sha256": "e75127e399fe631bc757f2e661717722944447b02364114524484471d6a46615",
+  "reviewed_test_source_sha256": "87096f3ea50791ccf60150296b25ee5b4cd91345e44c7bcf39ac3a0726db09a5",
+  "baseline_unit_tests": {
+    "count": 35,
+    "passed": true,
+    "seconds": 0.17,
+    "log": "/tmp/h_last_matrix_review_lpyfabs0/baseline.log",
+    "sha256": "93784e108cf7ba6b520726c6690e0d4648ce72a5d802eba0d14017d9873fcbdc"
+  },
+  "critical_findings": 0,
+  "important_findings": 3,
+  "findings": [
+    {
+      "id": "MATRIX-1",
+      "severity": "Important",
+      "title": "Producer pin map is not required to equal the recorded full source/input union",
+      "lines": [
+        45,
+        78
+      ],
+      "repro": "missing_P_base_pin",
+      "observed": "Public main accepted after removing H_execution.json from P.pinned_sha256; C/A maps still supply its current hash during union so missing producer-time binding is masked.",
+      "required": "Require exact P map keys/values equal C.base107 union raw Q,C,primary-entry path/SHA, including all107 source/input pins; keep A auxiliary135 separate."
+    },
+    {
+      "id": "MATRIX-2",
+      "severity": "Important",
+      "title": "Q actual qualification evidence is hashed without checking its semantic proof links",
+      "lines": [
+        35,
+        85,
+        86,
+        88
+      ],
+      "repro": "wrong_Q_actual_evidence",
+      "observed": "DINO-declared Q with raw-SHA-correct qualification candidate and independent audit that both say FAILED/CLIP still passed public main and all8 numeric cohorts.",
+      "required": "Parse accepted real aux schemas/status/backbone/use/receipt and identity links. Q candidate and its independent audit share their own qualification seed, which may differ from the result seed. Entry engineering review uses its actual long status/candidate_sha256 contract and has no backbone/schema."
+    },
+    {
+      "id": "MATRIX-3",
+      "severity": "Important",
+      "title": "Public result acceptance has no primary true-exit or log/time terminal gate",
+      "lines": [
+        57,
+        60,
+        113,
+        117,
+        118,
+        119,
+        120
+      ],
+      "repro": "live_primary_exit1",
+      "observed": "Public main accepted while L.pid was the live fixture process and L.time_v contained Exit status1; the simulated producer held temporary slot0 while the audit acquired temporary slot1.",
+      "required": "Externally SHA-bind L.stdout/time_v, require root-recorded primary wrapper PID exited or zombie, unique time exit0 and sequential42 BEGIN lines plus canonical final COMPLETE publication; retain nonblocking original shared slot. Do not confuse earlier A admission PIDs with primary producer PIDs."
+    }
+  ],
+  "public_test_method": "Surrogate canonical root under/tmp; only literal filesystem namespace constants/anchors redirected. Actual load_spec/main/_safe/metadata/proof merge/terminal inventory and72-artifact I/O were used. Old independent check_tables kernels ran unmodified; routing spy only asserted and delegated, not substituted.",
+  "public_positive": {
+    "real_tiny_csv_parquet": true,
+    "cohorts": 8,
+    "cell_counts": [
+      2,
+      4
+    ],
+    "aggregations": [
+      "mean_logit",
+      "mean_probability"
+    ],
+    "domains": [
+      "SOURCE_TEST",
+      "TARGET_TEST"
+    ],
+    "independent_kernel_used": true,
+    "groups_below20": true,
+    "bootstrap_draws_not_exercised_by_this_tiny_routing_test": true
+  },
+  "public_repro": {
+    "script": "/tmp/h_last_matrix_review_lpyfabs0/public_repro.py",
+    "script_sha256": "dfa52c503741f6a72056f79119b475b72d9b89acf3f4a3297e090eeadf214070",
+    "results": "/tmp/h_last_matrix_review_lpyfabs0/public_results.json",
+    "results_sha256": "c360ba7d37bc619b55ce98c6ef783faf8b492e4c34e56b3505cb0d6c49d0ee86",
+    "log": "/tmp/h_last_matrix_review_lpyfabs0/public_repro.py.final.log",
+    "log_sha256": "5877fef674988bd24d32e21584cfc0f1e37535459bc9d1d4b9d64acaef126bbb",
+    "wall_seconds": 0.96,
+    "peak_RSS_KiB": 122164
+  },
+  "path_probes": {
+    "script": "/tmp/h_last_matrix_review_lpyfabs0/public_path_probes.py",
+    "results": "/tmp/h_last_matrix_review_lpyfabs0/public_path_results.json",
+    "results_sha256": "4fd94122a4e6c9f31f3ce03951f8739a8972e54610b0f726998ccf26454c6b30",
+    "passed": 7,
+    "wall_seconds": 0.53
+  },
+  "saved_fixture_generator": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/independent_h_last_matrix_public_fixture.py",
+  "saved_fixture_generator_sha256": "dfa52c503741f6a72056f79119b475b72d9b89acf3f4a3297e090eeadf214070",
+  "saved_public_path_probes": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/independent_h_last_matrix_public_path_probes.py",
+  "saved_public_path_probes_sha256": "9691088caec4ed5e9c1857f0eb0cceb38b62e37b114c81ec6665c3ffdf1f1513",
+  "archived_reviewed_source": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/h_last_matrix_result_audit_reviewed_e75127e3.py",
+  "archived_reviewed_source_sha256": "e75127e399fe631bc757f2e661717722944447b02364114524484471d6a46615",
+  "Q_aux_notes": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/audits/H_last_matrix_result_audit_Q_aux_field_notes.json",
+  "Q_aux_notes_sha256": "42923fa82e20b6a2129b6ea4ef18f0197a965c5348283d0ce6b25c31261c5daf",
+  "implementation_modified": false,
+  "old_numeric_source_modified": false,
+  "real_saved_result_audit_run": false,
+  "real_P_created": false,
+  "actual_CPU_slot_opened": false,
+  "model_image_GPU_access": false,
+  "original_or_F_modified": false,
+  "all_temporary_data_and_locks_under": "/tmp/h_last_matrix_review_lpyfabs0"
+}

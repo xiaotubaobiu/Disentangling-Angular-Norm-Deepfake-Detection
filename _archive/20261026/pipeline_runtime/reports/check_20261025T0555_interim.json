@@ -1,0 +1,66 @@
+{
+  "utc": "2026-10-25T06:07:46.838212+00:00",
+  "status": "ALL3_EFFECTIVE_REGISTRY_ACCEPTED_PRIMARY4_CACHE_WORKERS_RUNNING_SOURCE_VALIDATION_STAGE",
+  "primary_training_terminals": 45,
+  "old_qualification_process_exited": true,
+  "qualification_elapsed": "24:13.52",
+  "qualification_exit_code": 0,
+  "all3_acceptance_path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/reports/H_final_all3_effective_registry_acceptance_20261025T0555.json",
+  "cache_owner_pid": 3219035,
+  "cache_wrapper_pid": 3219034,
+  "active": [
+    {
+      "pid": 3219063,
+      "run_id": "H_formal_clip_vit_b16_B_seed7",
+      "gpu": 0,
+      "uuid": "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e",
+      "backbone": "clip_vit_b16",
+      "actual_matching_worker_alive": true,
+      "io": "rchar: 28741431333\nwchar: 1444\nsyscr: 436839\nsyscw: 108\nread_bytes: 49152\nwrite_bytes: 0\ncancelled_write_bytes: 0\n"
+    },
+    {
+      "pid": 3219064,
+      "run_id": "H_formal_clip_vit_b16_AB_seed7",
+      "gpu": 1,
+      "uuid": "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+      "backbone": "clip_vit_b16",
+      "actual_matching_worker_alive": true,
+      "io": "rchar: 29815280392\nwchar: 1444\nsyscr: 439638\nsyscw: 108\nread_bytes: 0\nwrite_bytes: 0\ncancelled_write_bytes: 0\n"
+    },
+    {
+      "pid": 3219065,
+      "run_id": "H_formal_clip_vit_b16_B_seed42",
+      "gpu": 2,
+      "uuid": "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+      "backbone": "clip_vit_b16",
+      "actual_matching_worker_alive": true,
+      "io": "rchar: 26170551759\nwchar: 1444\nsyscr: 433941\nsyscw: 108\nread_bytes: 16384\nwrite_bytes: 0\ncancelled_write_bytes: 0\n"
+    },
+    {
+      "pid": 3219066,
+      "run_id": "H_formal_clip_vit_b16_AB_seed42",
+      "gpu": 3,
+      "uuid": "GPU-626ec32f-1401-c959-74b0-db04ed63c646",
+      "backbone": "clip_vit_b16",
+      "actual_matching_worker_alive": true,
+      "io": "rchar: 26235652177\nwchar: 1444\nsyscr: 433999\nsyscw: 108\nread_bytes: 0\nwrite_bytes: 0\ncancelled_write_bytes: 0\n"
+    }
+  ],
+  "pending": 26,
+  "raw_seven_role_model_complete_markers": 0,
+  "raw_role_complete_markers": 0,
+  "expected_roles": 210,
+  "independent_cache_admissions": 0,
+  "GPU_instantaneous_csv": "0, 0, 0, 32768\n1, 0, 0, 32768\n2, 0, 0, 32768\n3, 0, 0, 32768\n4, 0, 28156, 32768\n5, 0, 28156, 32768\n6, 0, 28156, 32768\n7, 0, 28156, 32768\n",
+  "free_GiB": 165.65403747558594,
+  "M_policy_tests_initial": 25,
+  "M_policy_review_Important": [
+    "SBP1 task identity not bound",
+    "SBP2 frozen H draw count not enforced"
+  ],
+  "M_full437_measurement_pid": 3217967,
+  "M_policy_source_frozen_until_measurement_finishes": true,
+  "M_production_admitted": false,
+  "real_H_profile_dependency": "first independentlyadmitted actual H pair caches+actual statistical output; synthetic4x2000 is not resource-credit",
+  "next_check_utc": "2026-10-25T06:25:00Z"
+}

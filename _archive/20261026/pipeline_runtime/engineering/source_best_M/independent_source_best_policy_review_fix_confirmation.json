@@ -1,0 +1,57 @@
+{
+  "schema": "INDEPENDENT_SOURCE_BEST_M_METADATA_POLICY_REVIEW_FIX_CONFIRMATION_V1",
+  "utc": "2026-10-25T06:13:14.689098+00:00",
+  "reviewer": "independent post_amp_qualification_review subagent",
+  "status": "SBP_1_AND_SBP_2_RESOLVED_TARGETED_VERIFICATION_PASS_FULL_SUITE_SEPARATE",
+  "scope": "Pure task2a metadata consistency only; no production inference, sealed-file/tensor/head validation, scientific acceptance or resource admission is granted.",
+  "original_review_preserved": {
+    "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/independent_source_best_policy_review.json",
+    "sha256": "354961f69062fbaedd7e47bd1ce5d368272e389aa2aee5c745904e1c6a419a81"
+  },
+  "verified_artifacts": {
+    "source_best_policy.py": "e407059ce2def098ff46fd0ebf7e61c40f4ab5c81b39608925d501b6e3c07b39",
+    "test_source_best_policy.py": "2df32a4ecda3c3e99f9c465a04f19ce83157aff0b5d3f6384f01ae3c9b72b214",
+    "test_source_best_policy_review_fixes.py": "d5928e6d719d4b8b2b4da110a836a172d63cab7f26f208e87da5a1fe68c216e2",
+    "source_best_policy_review_fixes_RED.log": "05189b478af8aea0c04c8d7d965cd120055290aa688a28cd9205a00ebdda23f5",
+    "source_best_policy_review_fixes_GREEN.log": "1306f8a67ef13e41cd55bb21c478f0c132da14d8845caf466e5dbaa1de3c99af"
+  },
+  "resolved_findings": [
+    {
+      "id": "SBP-1",
+      "status": "RESOLVED",
+      "location": "source_best_policy.py:62-64",
+      "fix": "After checkpoint/receipt metadata identity equality and hash syntax checks, identity.config must equal exact original sha256(json.dumps(task,sort_keys=True).encode()). Applies to both D and H.",
+      "fresh_independent_reproduction": "Original valid30epoch D seed7 sample passed; task/run relabel to seed42 with matching old receipt/checkpoint metadata now raises ValueError metadata identity is foreign to the frozen task.",
+      "regressions": "Dseed,Hseed,Hhistory,Dlr,Hprecision changes reject matching foreign metadata; updated legitimate taskhash positive fixtures pass."
+    },
+    {
+      "id": "SBP-2",
+      "status": "RESOLVED",
+      "location": "source_best_policy.py:56-58",
+      "fix": "H task draw_count must be an integer at least128 and a multiple128; every row draws and attempts must exactly equal frozen task exposure. D receives no invented task field.",
+      "fresh_independent_reproduction": "Original valid30epoch H B sample passed; shortening epoch1 from24448draws/191attempts to24320/190 with adjusted receipt totals now raises ValueError H per-epoch exposure differs from frozen task.",
+      "regressions": "Single-row and uniform arithmetically consistent exposure drift reject; missing/bool/zero/nonmultiple/noninteger draw bases reject."
+    }
+  ],
+  "verification": {
+    "command": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -B -m pytest -q -p no:cacheprovider /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests/test_source_best_policy.py /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2/tests/test_source_best_policy_review_fixes.py",
+    "cwd": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2",
+    "environment": {
+      "CUDA_VISIBLE_DEVICES": "",
+      "OMP_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/code/studies/pipeline_reliability/v2"
+    },
+    "fresh_targeted_result": "37 passed in0.04s",
+    "fresh_targeted_exit_code": 0,
+    "fresh_independent_fix_reproductions_exit_code": 0,
+    "positive_independent30epoch_D_and_H_samples": "Both preserve earliest best epoch2, exact382attempt/48896draw prefix counts, target_inference_authorized=False,tensor_and_head_validation_complete=False,equal_update_primary_claim_allowed=False.",
+    "full449_suite_pid3224855_exists_at_confirmation": true,
+    "full449_suite_result_verified_by_this_review": false
+  },
+  "new_findings": [],
+  "actions_performed": "Read-only policy/regression/RED-GREEN inspection, targeted CPU37cases and pure synthetic metadata samples; wrote only this confirmation. Original review/source/full-suite process and all production activity left untouched. No production helper, tensor load, inference, GPU operation, restart or kill.",
+  "remaining_blockers": "No remaining review blocker from SBP-1 or SBP-2. Root must verify fresh full449 suite and bind its result to unchanged source before component adoption. Task2a remains metadata-only; actual sealed-byte/tensor/head/data/env/code/provenance, H global-target permissions, primary-priority ownership and full primary+M resource gates remain separate prerequisites before any production M activity."
+}
