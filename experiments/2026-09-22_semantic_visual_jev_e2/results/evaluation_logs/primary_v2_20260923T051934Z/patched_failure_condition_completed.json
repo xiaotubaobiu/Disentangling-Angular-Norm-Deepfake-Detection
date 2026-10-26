@@ -1,0 +1,29 @@
+{
+  "checked_at_utc": "2026-09-23T06:17:25.798717+00:00",
+  "source_bundle_sha256": "0529ab9127e142d18afef5f0ffd52c2781ff506e449cded116510afd8e3d0af7",
+  "condition": "meaningless_candidates",
+  "domain": "ffpp",
+  "records": [
+    {
+      "seed": 42,
+      "files": {
+        "ffpp_metrics.json": 131535,
+        "ffpp_frames.npz": 58051780,
+        "ffpp_videos.csv": 13339838,
+        "ffpp_paired_videos.csv": 23361862
+      },
+      "metric_rows": 383
+    },
+    {
+      "seed": 7,
+      "files": {
+        "ffpp_metrics.json": 130646,
+        "ffpp_frames.npz": 58540078,
+        "ffpp_videos.csv": 13308903,
+        "ffpp_paired_videos.csv": 23299104
+      },
+      "metric_rows": 383
+    }
+  ],
+  "note": "Old seed42 deduplication failure condition now has committed metrics and all associated files for both first two seeds; this is not full launcher completion."
+}

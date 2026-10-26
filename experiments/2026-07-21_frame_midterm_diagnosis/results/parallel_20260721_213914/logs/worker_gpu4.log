@@ -1,0 +1,60 @@
+[21:39:14] worker gpu=4 started
+[21:39:14] worker gpu=4: starting clip_normtrain_s2048
+[diag] output dir: outputs/frame_midt_diag/parallel_20260721_213914
+[diag] device: cuda
+[diag] stage=extract, 1 checkpoint(s) × 3 domain(s) = 3 (ckpt, domain) pairs
+
+[diag] (1/1) clip_normtrain_s2048
+[diag]   ffpp: 164221 frame-rows (1 infer_mode(s)) in 578.6s
+[diag]   cdf: 396284 frame-rows (1 infer_mode(s)) in 1330.6s
+[diag]   dfd: 103339 frame-rows (1 infer_mode(s)) in 376.1s
+[diag]   total 2290.9s; wrote clip_normtrain_s2048.parquet (663844 rows)
+[22:17:31] worker gpu=4: finished clip_normtrain_s2048 (rc=0)
+[22:17:31] worker gpu=4: starting clip_raw_s123
+[diag] output dir: outputs/frame_midt_diag/parallel_20260721_213914
+[diag] device: cuda
+[diag] stage=extract, 1 checkpoint(s) × 3 domain(s) = 3 (ckpt, domain) pairs
+
+[diag] (1/1) clip_raw_s123
+[diag]   ffpp: 492663 frame-rows (3 infer_mode(s)) in 579.0s
+[diag]   cdf: 1188852 frame-rows (3 infer_mode(s)) in 1335.2s
+[diag]   dfd: 310017 frame-rows (3 infer_mode(s)) in 376.0s
+[diag]   total 2298.0s; wrote clip_raw_s123.parquet (1991532 rows)
+[22:55:56] worker gpu=4: finished clip_raw_s123 (rc=0)
+[22:55:56] worker gpu=4: starting dinov2_normtrain_s999
+[diag] output dir: outputs/frame_midt_diag/parallel_20260721_213914
+[diag] device: cuda
+[diag] stage=extract, 1 checkpoint(s) × 3 domain(s) = 3 (ckpt, domain) pairs
+
+[diag] (1/1) dinov2_normtrain_s999
+Using cache found in /home/z/.cache/torch/hub/facebookresearch_dinov2_main
+/home/z/.cache/torch/hub/facebookresearch_dinov2_main/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/home/z/.cache/torch/hub/facebookresearch_dinov2_main/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/home/z/.cache/torch/hub/facebookresearch_dinov2_main/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+[diag]   ffpp: 164221 frame-rows (1 infer_mode(s)) in 694.2s
+[diag]   cdf: 396284 frame-rows (1 infer_mode(s)) in 1620.9s
+[diag]   dfd: 103339 frame-rows (1 infer_mode(s)) in 451.2s
+[diag]   total 2770.4s; wrote dinov2_normtrain_s999.parquet (663844 rows)
+[23:42:14] worker gpu=4: finished dinov2_normtrain_s999 (rc=0)
+[23:42:14] worker gpu=4: starting dinov2_raw_s2048
+[diag] output dir: outputs/frame_midt_diag/parallel_20260721_213914
+[diag] device: cuda
+[diag] stage=extract, 1 checkpoint(s) × 3 domain(s) = 3 (ckpt, domain) pairs
+
+[diag] (1/1) dinov2_raw_s2048
+Using cache found in /home/z/.cache/torch/hub/facebookresearch_dinov2_main
+/home/z/.cache/torch/hub/facebookresearch_dinov2_main/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/home/z/.cache/torch/hub/facebookresearch_dinov2_main/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/home/z/.cache/torch/hub/facebookresearch_dinov2_main/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+[diag]   ffpp: 492663 frame-rows (3 infer_mode(s)) in 697.8s
+[diag]   cdf: 1188852 frame-rows (3 infer_mode(s)) in 1622.7s
+[diag]   dfd: 310017 frame-rows (3 infer_mode(s)) in 447.8s
+[diag]   total 2773.8s; wrote dinov2_raw_s2048.parquet (1991532 rows)
+[00:28:34] worker gpu=4: finished dinov2_raw_s2048 (rc=0)
+[00:28:34] worker gpu=4: no more ckpts to do, exiting

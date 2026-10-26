@@ -1,0 +1,45 @@
+{
+  "candidate_swap_check": {
+    "max_logit_permutation_error": 0.0,
+    "passed": true,
+    "remapped_loss_error": 0.0
+  },
+  "comparisons": {
+    "cdf": {
+      "auc_a": 0.9014458939593019,
+      "auc_b": 0.9134792170077436,
+      "bootstrap_samples": 2000,
+      "bootstrap_seed": 20260921,
+      "delta_auc_b_minus_a": 0.012033323048441735,
+      "delta_auc_ci95": [
+        0.005716175129745723,
+        0.018394687333520676
+      ],
+      "n_fake_videos": 9723,
+      "n_real_videos": 178,
+      "n_videos": 9901,
+      "noninferiority_margin": 0.01,
+      "passes_point_estimate_gate": true
+    },
+    "ffpp": {
+      "auc_a": 0.998489908166773,
+      "auc_b": 0.9985512940136523,
+      "bootstrap_samples": 2000,
+      "bootstrap_seed": 20260921,
+      "delta_auc_b_minus_a": 6.138584687931381e-05,
+      "delta_auc_ci95": [
+        -0.0001546923341353451,
+        0.0003142955360212474
+      ],
+      "n_fake_videos": 2909,
+      "n_real_videos": 140,
+      "n_videos": 3049,
+      "noninferiority_margin": 0.01,
+      "passes_point_estimate_gate": true
+    }
+  },
+  "decision_rule": "delta_auc_b_minus_a >= -0.01",
+  "primary_domain": "ffpp",
+  "reason": "FF++ video-AUROC point estimate is within the pre-registered 0.01 margin",
+  "verdict": "H1 supported"
+}

@@ -1,0 +1,21 @@
+{
+  "seed": 7,
+  "launcher_exit_code": null,
+  "launcher_observation_lost": true,
+  "all_four_worker_processes_terminated": true,
+  "final_rank_zero_summary_present": true,
+  "all_nine_epoch_rank_diagnostics_verified": true,
+  "completed_epochs": 9,
+  "stop_reason": "five_consecutive_epochs_without_seen_validation_ce_improvement",
+  "best_epoch": 4,
+  "best_val_seen_ce": 0.26681596220723164,
+  "best_epoch_val_seen_accuracy": 0.915509693558474,
+  "checkpoint": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/training/seed_7/best_model.pth",
+  "checkpoint_sha256": "f560189e99a0a2e90872db3d4f3a6dcac30dcab07c27e7b98ff1930104f949f6",
+  "reportable": true,
+  "world_size": 4,
+  "visible_devices": "0,1,2,3",
+  "evaluation_checkpoint_validation_passed": true,
+  "verified_at_utc": "2026-09-23T03:33:35Z",
+  "evidence_source": "persistent_rank0_epoch_and_final_logs_process_inventory_and_saved_checkpoint_validation"
+}

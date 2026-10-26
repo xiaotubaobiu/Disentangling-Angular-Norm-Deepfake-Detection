@@ -1,0 +1,22 @@
+[2026-09-21 20:06:26] Experiment: visual_jev_h1_s42, Device: cuda:0, Config: experiments/2026-09-21_visual_jev_h1/configs/visual_jev_s42.yaml
+[2026-09-21 20:06:26] Per-GPU batch: 128, Epochs: 15, LR: 0.0001, Warmup: 1, EMA: 0.999
+[2026-09-21 20:06:26] Log dir: experiments/2026-09-21_visual_jev_h1/results/training/seed_42/20260921_200626
+[2026-09-21 20:06:50] Train samples: 149956, Val samples: 25584, FF++ test: 164221, CDF test: 396284, DFD test: 103339
+[2026-09-21 20:10:10] Epoch 1/15 (199.7s) loss=0.1076 val_auc=0.9967 val_eer=0.0381 val_acc=0.9516
+[2026-09-21 20:10:10]   -> Best model saved (val AUC=0.9967)
+[2026-09-21 20:12:31] Epoch 2/15 (140.6s) loss=0.0439 val_auc=0.9967 val_eer=0.0378 val_acc=0.9534
+[2026-09-21 20:12:31]   -> Best model saved (val AUC=0.9967)
+[2026-09-21 20:14:50] Epoch 3/15 (138.7s) loss=0.0398 val_auc=0.9965 val_eer=0.0391 val_acc=0.9509
+[2026-09-21 20:17:09] Epoch 4/15 (138.6s) loss=0.0381 val_auc=0.9961 val_eer=0.0391 val_acc=0.9413
+[2026-09-21 20:19:27] Epoch 5/15 (138.8s) loss=0.0365 val_auc=0.9958 val_eer=0.0387 val_acc=0.9363
+[2026-09-21 20:21:47] Epoch 6/15 (139.3s) loss=0.0370 val_auc=0.9956 val_eer=0.0378 val_acc=0.9369
+[2026-09-21 20:24:06] Epoch 7/15 (139.3s) loss=0.0339 val_auc=0.9953 val_eer=0.0378 val_acc=0.9322
+[2026-09-21 20:24:06] Early stopping at epoch 7
+[2026-09-21 20:24:06] Loading best model for final test evaluation...
+[2026-09-21 20:37:05] Val (best): auc=0.9967 eer=0.0378 acc=0.9534
+[2026-09-21 20:37:05] FF++ test: auc=0.9986 eer=0.0142 acc=0.9898
+[2026-09-21 20:37:05] CDF test: auc=0.9135 eer=0.1618 acc=0.9822
+[2026-09-21 20:37:05] DFD test: auc=0.8140 eer=0.2768 acc=0.6550
+[2026-09-21 20:37:05] Best epoch: 2, Best val AUC: 0.9967
+[2026-09-21 20:37:05] Meta saved to experiments/2026-09-21_visual_jev_h1/results/training/seed_42/20260921_200626/output/meta.json
+[2026-09-21 20:37:05] Results saved to experiments/2026-09-21_visual_jev_h1/results/training/seed_42/20260921_200626/output/results_summary.txt

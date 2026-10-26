@@ -1,0 +1,79 @@
+{
+  "recorded_at_utc": "2026-09-23T06:37:28.702969+00:00",
+  "launcher_completion": {
+    "argv": [
+      "/home/z/anaconda3/bin/torchrun",
+      "--standalone",
+      "--nproc_per_node=4",
+      "--log-dir",
+      "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_logs/primary_v2_20260923T051934Z/seed_7/rank_logs",
+      "--redirects",
+      "3",
+      "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/scripts/evaluate_semantic.py",
+      "--config",
+      "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/configs/semantic_jev.yaml",
+      "--seed",
+      "7",
+      "--checkpoint",
+      "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/training/seed_7/best_model.pth",
+      "--domains",
+      "ffpp",
+      "cdf",
+      "--conditions",
+      "fixed_h1",
+      "seen",
+      "heldout",
+      "permutation",
+      "counterfactual",
+      "meaningless_candidates",
+      "meaningless_questions",
+      "--feature-cache-root",
+      "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/feature_cache",
+      "--output-dir",
+      "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7"
+    ],
+    "configured_per_gpu_batch": 128,
+    "cwd": "/home/z/project/deepfake_detection",
+    "environment": {
+      "CUDA_VISIBLE_DEVICES": "0,1,2,3",
+      "MKL_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTHONUNBUFFERED": "1"
+    },
+    "expected_source_bundle_sha256": "0529ab9127e142d18afef5f0ffd52c2781ff506e449cded116510afd8e3d0af7",
+    "finished_at_utc": "2026-09-23T06:34:27Z",
+    "launcher_exit_code": 1,
+    "launcher_pid": 3459109,
+    "seed": 7,
+    "shell_display": "/home/z/anaconda3/bin/torchrun --standalone --nproc_per_node=4 --log-dir /home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_logs/primary_v2_20260923T051934Z/seed_7/rank_logs --redirects 3 /home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/scripts/evaluate_semantic.py --config /home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/configs/semantic_jev.yaml --seed 7 --checkpoint /home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/training/seed_7/best_model.pth --domains ffpp cdf --conditions fixed_h1 seen heldout permutation counterfactual meaningless_candidates meaningless_questions --feature-cache-root /home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/feature_cache --output-dir /home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7",
+    "started_at_utc": "2026-09-23T05:19:34Z"
+  },
+  "direct_evidence": [
+    {
+      "rank": 1,
+      "log_path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_logs/primary_v2_20260923T051934Z/seed_7/rank_logs/666cf910-2778-4d4d-bac0-6145dca0f2f3_1emdizud/attempt_0/1/stderr.log",
+      "first_timeout": "[rank1]:[E923 15:34:21.474438773 ProcessGroupNCCL.cpp:629] [Rank 1] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=49, OpType=BROADCAST, NumelIn=1, NumelOut=1, Timeout(ms)=600000) ran for 600082 milliseconds before timing out."
+    },
+    {
+      "rank": 2,
+      "log_path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_logs/primary_v2_20260923T051934Z/seed_7/rank_logs/666cf910-2778-4d4d-bac0-6145dca0f2f3_1emdizud/attempt_0/2/stderr.log",
+      "first_timeout": "[rank2]:[E923 15:34:21.891849463 ProcessGroupNCCL.cpp:629] [Rank 2] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=49, OpType=BROADCAST, NumelIn=1, NumelOut=1, Timeout(ms)=600000) ran for 600080 milliseconds before timing out."
+    }
+  ],
+  "observed_group_count": 22,
+  "observed_incomplete_group": "seed7/meaningless_candidates/cdf",
+  "rank_zero_log": "Only sklearn y_pred contains classes not in y_true warnings in rank0 stderr; no Python exception observed",
+  "hypothesis": "Ranks1/2 entered synchronized_rank_zero broadcast while rank0 was still executing CPU deduplication/aggregation/output. Its duration exceeded default NCCL600s timeout. This is inferred from the call graph and absent CDF outputs, not a captured live Python stack.",
+  "code_evidence": [
+    "evaluate_semantic.py:232\u2013242 operation() runs on rank0 before broadcast_object_list",
+    "evaluate_semantic.py:1141\u20131149 write_current_outputs invokes deduplicate_distributed_rows and write_outputs inside synchronized_rank_zero",
+    "src/engine/ddp.py:10 init_process_group(backend=nccl) has no explicit timeout"
+  ],
+  "not_observed": [
+    "value duplicate-mismatch exception",
+    "CUDA out-of-memory error",
+    "host out-of-memory evidence"
+  ],
+  "dispatch": "seed2048 not launched; seed42 original invocation still observed separately; no restart performed"
+}

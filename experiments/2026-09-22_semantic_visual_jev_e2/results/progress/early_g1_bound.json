@@ -1,0 +1,43 @@
+{
+  "status": "early_mathematical_G1_failure_bound_not_full_adjudication",
+  "domain": "cdf",
+  "known_seeds": [
+    42,
+    7
+  ],
+  "known_e2_auroc": [
+    0.7645872118352522,
+    0.8338914909279168
+  ],
+  "h1_three_seed_mean": 0.911267387533556,
+  "remaining_seed": 2048,
+  "assumed_remaining_auroc_upper_bound": 1.0,
+  "e2_three_seed_mean_upper_bound": 0.8661595675877231,
+  "delta_upper_bound": -0.045107819945832905,
+  "required_delta_min": -0.01,
+  "required_e2_mean_min": 0.901267387533556,
+  "point_gate_cannot_pass": true,
+  "remaining_protocol": "Continue all63 groups, integrity audit, exact10000-bootstrap and fullG1\u2013G6 report; no training or threshold changes.",
+  "sources": [
+    {
+      "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/baseline_h1/seed_42/cdf_video_predictions.csv",
+      "sha256": "119767c4237a4411ace9a2f2de18a5c4cdafcc332bc79fa5f636c4da5c2fc39d"
+    },
+    {
+      "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/baseline_h1/seed_7/cdf_video_predictions.csv",
+      "sha256": "ecca8f2d1f53dd7cf0b64f73150ca1142f79436da43eee940ffc0e9e5d208067"
+    },
+    {
+      "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/baseline_h1/seed_2048/cdf_video_predictions.csv",
+      "sha256": "9144c9258c55713d9d9861f81bb4275ae795a441a668983146cdb8d4ed6defdc"
+    },
+    {
+      "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation/seed_42/fixed_h1/cdf_videos.csv",
+      "sha256": "3419ddb91198212adb5074b62e4339efc087729c5d79efcf0f46ae2eab3e420f"
+    },
+    {
+      "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation/seed_7/fixed_h1/cdf_videos.csv",
+      "sha256": "ab2acb399452b14cebfbec868ef069ab117545987f425d14f8187bf1c0b4e963"
+    }
+  ]
+}

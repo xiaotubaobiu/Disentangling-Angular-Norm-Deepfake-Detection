@@ -1,0 +1,45 @@
+{
+  "caveats": [
+    "Sampling may miss between-sample transient peaks.",
+    "Summed RSS double-counts shared pages; PSS apportions them.",
+    "CPU process churn between samples can omit terminated-worker CPU time."
+  ],
+  "completed_at_utc": "2026-09-23T04:30:11.805740+00:00",
+  "condition": "seen",
+  "domain": "cdf",
+  "duration_definition": "Previous FF++ metrics atomic commit to CDF metrics atomic commit; includes CDF cache validation, loader construction, inference, aggregation and writes, plus domain transition synchronization.",
+  "duration_seconds_between_adjacent_metric_commits": 572.24170089,
+  "gpu_peaks": [
+    {
+      "index": 0,
+      "sampled_peak_memory_used_mib": 5894,
+      "sampled_peak_utilization_percent": 100
+    },
+    {
+      "index": 1,
+      "sampled_peak_memory_used_mib": 5884,
+      "sampled_peak_utilization_percent": 100
+    },
+    {
+      "index": 2,
+      "sampled_peak_memory_used_mib": 5918,
+      "sampled_peak_utilization_percent": 100
+    },
+    {
+      "index": 3,
+      "sampled_peak_memory_used_mib": 5752,
+      "sampled_peak_utilization_percent": 100
+    }
+  ],
+  "launcher_pid": 3020340,
+  "sample_interval_seconds": 10,
+  "sampled_max_process_count": 41,
+  "sampled_min_host_available_bytes": 332650995712,
+  "sampled_peak_host_cpu_percent": 14.9,
+  "sampled_peak_tree_cpu_percent_one_core_100": 1371.19480949917,
+  "sampled_tree_peak_pss_bytes": 49401385984,
+  "sampled_tree_peak_rss_bytes": 63588548608,
+  "sampled_tree_peak_uss_bytes": 48223981568,
+  "samples": 53,
+  "seed": 42
+}

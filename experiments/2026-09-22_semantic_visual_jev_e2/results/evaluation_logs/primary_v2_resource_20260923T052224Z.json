@@ -1,0 +1,34 @@
+{
+  "at_utc": "2026-09-23T05:22:24.125596+00:00",
+  "state": {
+    "active": {
+      "42": 3459108,
+      "7": 3459109
+    },
+    "at_utc": "2026-09-23T05:19:34Z",
+    "coordinator_pid": 3459105,
+    "evaluation_root": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2",
+    "event": "launcher_started",
+    "launcher_exits": {},
+    "launcher_pid": 3459109,
+    "pending_seeds": [
+      2048
+    ],
+    "run_directory": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_logs/primary_v2_20260923T051934Z",
+    "seed": 7
+  },
+  "trees": {
+    "42": {
+      "launcher_pid": 3459108,
+      "process_count": 9,
+      "pss_gib": 11.084647178649902
+    },
+    "7": {
+      "launcher_pid": 3459109,
+      "process_count": 9,
+      "pss_gib": 11.06490707397461
+    }
+  },
+  "host_available_gib": 333.7249336242676,
+  "gpu_memory": "0, GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e, 3336 MiB, 32768 MiB\n1, GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c, 3312 MiB, 32768 MiB\n2, GPU-5df5602a-848e-d944-26cd-aec11b964b45, 3328 MiB, 32768 MiB\n3, GPU-626ec32f-1401-c959-74b0-db04ed63c646, 3344 MiB, 32768 MiB\n4, GPU-d12ec296-f5f1-faa5-8015-dfaf1d5312e1, 28564 MiB, 32768 MiB\n5, GPU-a2823ce6-14d4-558c-e242-ff0b4da33631, 28564 MiB, 32768 MiB\n6, GPU-30f9337b-17f1-3b55-5ab7-1037aa475909, 28564 MiB, 32768 MiB\n7, GPU-bda9bc8d-d70c-bf1b-cd7b-01991d082099, 28564 MiB, 32768 MiB\n"
+}

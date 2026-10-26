@@ -1,0 +1,8 @@
+Exp: multibb_normtrain_s2048_dinov2
+Model: dinov2_vitb14
+Best epoch: 15
+Per-GPU batch: 128
+Val:  AUC=0.9993 EER=0.0116 ACC=0.9884
+FF++: AUC=0.9996 EER=0.0071 ACC=0.9938
+CDF:  AUC=0.8215 EER=0.2766 ACC=0.9280
+DFD:  AUC=0.8315 EER=0.2624 ACC=0.5675

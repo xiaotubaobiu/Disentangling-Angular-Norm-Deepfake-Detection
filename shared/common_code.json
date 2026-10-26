@@ -1,0 +1,118 @@
+{
+  "version": "2026-09-23",
+  "runtime_dependency": false,
+  "projects": [
+    "feature_geometry",
+    "visual_jev"
+  ],
+  "files": [
+    {
+      "path": "src/config_io.py",
+      "sha256": "e7436851cc2b3ea536c7adfd5f6468abd1625bacfebc75387250a63c602a0fcf"
+    },
+    {
+      "path": "src/data/__init__.py",
+      "sha256": "ca1e76ea05baf78768f54aa7f88ad0042ee38c6a280c57b6683579f25dab4666"
+    },
+    {
+      "path": "src/data/bg_patches.py",
+      "sha256": "57280893df7195d4a438ce0c64106f5cbe9955f37f17ae382f69df5b4d1b6d35"
+    },
+    {
+      "path": "src/data/constants.py",
+      "sha256": "dc86081be44dad0c5a52533b69e74274274bb244d41ab3d3c10ef3cca54c82b8"
+    },
+    {
+      "path": "src/data/crops.py",
+      "sha256": "303fe435b707d2b9d51a763654a542d9f93a306f1d4c890b42e0e4d02dc4a4a6"
+    },
+    {
+      "path": "src/data/datasets.py",
+      "sha256": "5c2c04d651efd5b11cc1770c477fa252d503471e2f2838ecab549c7c3d1440f8"
+    },
+    {
+      "path": "src/data/frequency.py",
+      "sha256": "59e5a6a2ba0aeac180424a0cf871b1e203d9c46b69a349d20091065b8b8fed4d"
+    },
+    {
+      "path": "src/data/index_external.py",
+      "sha256": "8aad4b1e9c8bb2ad2ea4ea7089002721431773d7b35e29042716a68dc8277924"
+    },
+    {
+      "path": "src/data/index_ffpp.py",
+      "sha256": "e56333b870ecc48b79169080f6e7db7201dc4b0bdd2a24e1acf1d2d09077de52"
+    },
+    {
+      "path": "src/data/sampling.py",
+      "sha256": "2ecbda41044f187393fe663c0a98dde2d55db4100ac389c4f8256ef69c7637fd"
+    },
+    {
+      "path": "src/data/transforms.py",
+      "sha256": "4871cf948b53c6625b1372f49732feb652fdc31985da147e9b50c4296355c5cd"
+    },
+    {
+      "path": "src/engine/__init__.py",
+      "sha256": "75ad4f4c2943325f88064ad2beae890b59674be2bf0404b30afc5584dc4de4bb"
+    },
+    {
+      "path": "src/engine/ddp.py",
+      "sha256": "d0d98e6d9f8b2ea454805c8631802b6d120ab00beb6b2146bd65518cd7cebb35"
+    },
+    {
+      "path": "src/engine/metrics.py",
+      "sha256": "fa769bb7f047240d402500e42ed57d3e765b8261be15c86bd347fd68636d4a0c"
+    },
+    {
+      "path": "src/engine/trainers.py",
+      "sha256": "1957234897e74b1bd1d1827032d4dc25dc199cf3732c62dfd84df94cd503d6fb"
+    },
+    {
+      "path": "src/evaluation/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "src/evaluation/sample_eval.py",
+      "sha256": "9dee2625325c1f4ac685d6bd5f2c686bf779c6a188ce82f78f36373f349b784a"
+    },
+    {
+      "path": "src/losses/__init__.py",
+      "sha256": "75ad4f4c2943325f88064ad2beae890b59674be2bf0404b30afc5584dc4de4bb"
+    },
+    {
+      "path": "src/losses/contrastive.py",
+      "sha256": "de13e38ce6d217df2104e7dc4091566215a5a357caf979576090f61f500dcbdd"
+    },
+    {
+      "path": "src/models/__init__.py",
+      "sha256": "75ad4f4c2943325f88064ad2beae890b59674be2bf0404b30afc5584dc4de4bb"
+    },
+    {
+      "path": "src/models/clip_bgcontrast.py",
+      "sha256": "94e689f6abe3d73bc91220560b9e1b4ec2bec0cf96eaff828df5aca1d1220a78"
+    },
+    {
+      "path": "src/models/clip_classifier.py",
+      "sha256": "84c47b5842ac6769b8a3ea51b86a7b53d9c2f3d335e6e15e01111bed59b0df02"
+    },
+    {
+      "path": "src/models/clip_prompt.py",
+      "sha256": "23948ba0c76e6fa3c6e620ad9cb8f841a6d137692b75cdc7ab60e33ad06b123b"
+    },
+    {
+      "path": "src/models/dinov2.py",
+      "sha256": "61d00ab4d6086f33a3b479974b08726479f9760693b2b528dda79a3d444bad1e"
+    },
+    {
+      "path": "src/models/efficientnet.py",
+      "sha256": "1d97aad3113f31963ad3f0e9b50084a1008ee2d639d9076dfd0e3fc90f2129ca"
+    },
+    {
+      "path": "src/models/xception.py",
+      "sha256": "15a4d5cdc8be7128be4c2de80a12c784443d1023daf729a1cf3729626a2cc9ee"
+    }
+  ],
+  "intentional_divergence": [
+    "src/data/builders.py",
+    "src/models/factory.py"
+  ]
+}

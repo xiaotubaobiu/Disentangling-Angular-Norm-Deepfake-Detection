@@ -1,0 +1,1161 @@
+{
+  "audit_script": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/progress/audit_final_artifacts.py",
+  "script_sha256": "286afa7c44ec084921305f0019fd07ef077f11ae60d71fc9650b9b34c9fd5934",
+  "timestamp_utc": "2026-09-23T05:13:03.108487+00:00",
+  "input_root": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2",
+  "status": "fail",
+  "domains": [
+    "ffpp",
+    "cdf"
+  ],
+  "expected_groups": 42,
+  "inventory_complete_groups": 0,
+  "checks_by_status": {},
+  "groups": [
+    {
+      "seed": 42,
+      "domain": "ffpp",
+      "condition": "fixed_h1",
+      "inventory_complete": false,
+      "files": [
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/fixed_h1/ffpp_metrics.json",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/fixed_h1/ffpp_videos.csv",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/fixed_h1/ffpp_frames.npz",
+          "exists_nonempty": false,
+          "bytes": null
+        }
+      ]
+    },
+    {
+      "seed": 42,
+      "domain": "ffpp",
+      "condition": "seen",
+      "inventory_complete": false,
+      "files": [
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/seen/ffpp_metrics.json",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/seen/ffpp_videos.csv",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/seen/ffpp_frames.npz",
+          "exists_nonempty": false,
+          "bytes": null
+        }
+      ]
+    },
+    {
+      "seed": 42,
+      "domain": "ffpp",
+      "condition": "heldout",
+      "inventory_complete": false,
+      "files": [
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/heldout/ffpp_metrics.json",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/heldout/ffpp_videos.csv",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/heldout/ffpp_frames.npz",
+          "exists_nonempty": false,
+          "bytes": null
+        }
+      ]
+    },
+    {
+      "seed": 42,
+      "domain": "ffpp",
+      "condition": "permutation",
+      "inventory_complete": false,
+      "files": [
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/permutation/ffpp_metrics.json",
+          "exists_nonempty": false,
+          "bytes": null
+        }
+      ]
+    },
+    {
+      "seed": 42,
+      "domain": "ffpp",
+      "condition": "counterfactual",
+      "inventory_complete": false,
+      "files": [
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/counterfactual/ffpp_metrics.json",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/counterfactual/ffpp_videos.csv",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/counterfactual/ffpp_frames.npz",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/counterfactual/ffpp_controls.csv",
+          "exists_nonempty": false,
+          "bytes": null
+        }
+      ]
+    },
+    {
+      "seed": 42,
+      "domain": "ffpp",
+      "condition": "meaningless_candidates",
+      "inventory_complete": false,
+      "files": [
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/meaningless_candidates/ffpp_metrics.json",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/meaningless_candidates/ffpp_videos.csv",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/meaningless_candidates/ffpp_frames.npz",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/meaningless_candidates/ffpp_paired_videos.csv",
+          "exists_nonempty": false,
+          "bytes": null
+        }
+      ]
+    },
+    {
+      "seed": 42,
+      "domain": "ffpp",
+      "condition": "meaningless_questions",
+      "inventory_complete": false,
+      "files": [
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/meaningless_questions/ffpp_metrics.json",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/meaningless_questions/ffpp_videos.csv",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/meaningless_questions/ffpp_frames.npz",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/meaningless_questions/ffpp_paired_videos.csv",
+          "exists_nonempty": false,
+          "bytes": null
+        }
+      ]
+    },
+    {
+      "seed": 42,
+      "domain": "cdf",
+      "condition": "fixed_h1",
+      "inventory_complete": false,
+      "files": [
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/fixed_h1/cdf_metrics.json",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/fixed_h1/cdf_videos.csv",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/fixed_h1/cdf_frames.npz",
+          "exists_nonempty": false,
+          "bytes": null
+        }
+      ]
+    },
+    {
+      "seed": 42,
+      "domain": "cdf",
+      "condition": "seen",
+      "inventory_complete": false,
+      "files": [
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/seen/cdf_metrics.json",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/seen/cdf_videos.csv",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/seen/cdf_frames.npz",
+          "exists_nonempty": false,
+          "bytes": null
+        }
+      ]
+    },
+    {
+      "seed": 42,
+      "domain": "cdf",
+      "condition": "heldout",
+      "inventory_complete": false,
+      "files": [
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/heldout/cdf_metrics.json",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/heldout/cdf_videos.csv",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/heldout/cdf_frames.npz",
+          "exists_nonempty": false,
+          "bytes": null
+        }
+      ]
+    },
+    {
+      "seed": 42,
+      "domain": "cdf",
+      "condition": "permutation",
+      "inventory_complete": false,
+      "files": [
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/permutation/cdf_metrics.json",
+          "exists_nonempty": false,
+          "bytes": null
+        }
+      ]
+    },
+    {
+      "seed": 42,
+      "domain": "cdf",
+      "condition": "counterfactual",
+      "inventory_complete": false,
+      "files": [
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/counterfactual/cdf_metrics.json",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/counterfactual/cdf_videos.csv",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/counterfactual/cdf_frames.npz",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/counterfactual/cdf_controls.csv",
+          "exists_nonempty": false,
+          "bytes": null
+        }
+      ]
+    },
+    {
+      "seed": 42,
+      "domain": "cdf",
+      "condition": "meaningless_candidates",
+      "inventory_complete": false,
+      "files": [
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/meaningless_candidates/cdf_metrics.json",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/meaningless_candidates/cdf_videos.csv",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/meaningless_candidates/cdf_frames.npz",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/meaningless_candidates/cdf_paired_videos.csv",
+          "exists_nonempty": false,
+          "bytes": null
+        }
+      ]
+    },
+    {
+      "seed": 42,
+      "domain": "cdf",
+      "condition": "meaningless_questions",
+      "inventory_complete": false,
+      "files": [
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/meaningless_questions/cdf_metrics.json",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/meaningless_questions/cdf_videos.csv",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/meaningless_questions/cdf_frames.npz",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/meaningless_questions/cdf_paired_videos.csv",
+          "exists_nonempty": false,
+          "bytes": null
+        }
+      ]
+    },
+    {
+      "seed": 7,
+      "domain": "ffpp",
+      "condition": "fixed_h1",
+      "inventory_complete": false,
+      "files": [
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/fixed_h1/ffpp_metrics.json",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/fixed_h1/ffpp_videos.csv",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/fixed_h1/ffpp_frames.npz",
+          "exists_nonempty": false,
+          "bytes": null
+        }
+      ]
+    },
+    {
+      "seed": 7,
+      "domain": "ffpp",
+      "condition": "seen",
+      "inventory_complete": false,
+      "files": [
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/seen/ffpp_metrics.json",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/seen/ffpp_videos.csv",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/seen/ffpp_frames.npz",
+          "exists_nonempty": false,
+          "bytes": null
+        }
+      ]
+    },
+    {
+      "seed": 7,
+      "domain": "ffpp",
+      "condition": "heldout",
+      "inventory_complete": false,
+      "files": [
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/heldout/ffpp_metrics.json",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/heldout/ffpp_videos.csv",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/heldout/ffpp_frames.npz",
+          "exists_nonempty": false,
+          "bytes": null
+        }
+      ]
+    },
+    {
+      "seed": 7,
+      "domain": "ffpp",
+      "condition": "permutation",
+      "inventory_complete": false,
+      "files": [
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/permutation/ffpp_metrics.json",
+          "exists_nonempty": false,
+          "bytes": null
+        }
+      ]
+    },
+    {
+      "seed": 7,
+      "domain": "ffpp",
+      "condition": "counterfactual",
+      "inventory_complete": false,
+      "files": [
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/counterfactual/ffpp_metrics.json",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/counterfactual/ffpp_videos.csv",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/counterfactual/ffpp_frames.npz",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/counterfactual/ffpp_controls.csv",
+          "exists_nonempty": false,
+          "bytes": null
+        }
+      ]
+    },
+    {
+      "seed": 7,
+      "domain": "ffpp",
+      "condition": "meaningless_candidates",
+      "inventory_complete": false,
+      "files": [
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/meaningless_candidates/ffpp_metrics.json",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/meaningless_candidates/ffpp_videos.csv",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/meaningless_candidates/ffpp_frames.npz",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/meaningless_candidates/ffpp_paired_videos.csv",
+          "exists_nonempty": false,
+          "bytes": null
+        }
+      ]
+    },
+    {
+      "seed": 7,
+      "domain": "ffpp",
+      "condition": "meaningless_questions",
+      "inventory_complete": false,
+      "files": [
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/meaningless_questions/ffpp_metrics.json",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/meaningless_questions/ffpp_videos.csv",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/meaningless_questions/ffpp_frames.npz",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/meaningless_questions/ffpp_paired_videos.csv",
+          "exists_nonempty": false,
+          "bytes": null
+        }
+      ]
+    },
+    {
+      "seed": 7,
+      "domain": "cdf",
+      "condition": "fixed_h1",
+      "inventory_complete": false,
+      "files": [
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/fixed_h1/cdf_metrics.json",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/fixed_h1/cdf_videos.csv",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/fixed_h1/cdf_frames.npz",
+          "exists_nonempty": false,
+          "bytes": null
+        }
+      ]
+    },
+    {
+      "seed": 7,
+      "domain": "cdf",
+      "condition": "seen",
+      "inventory_complete": false,
+      "files": [
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/seen/cdf_metrics.json",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/seen/cdf_videos.csv",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/seen/cdf_frames.npz",
+          "exists_nonempty": false,
+          "bytes": null
+        }
+      ]
+    },
+    {
+      "seed": 7,
+      "domain": "cdf",
+      "condition": "heldout",
+      "inventory_complete": false,
+      "files": [
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/heldout/cdf_metrics.json",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/heldout/cdf_videos.csv",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/heldout/cdf_frames.npz",
+          "exists_nonempty": false,
+          "bytes": null
+        }
+      ]
+    },
+    {
+      "seed": 7,
+      "domain": "cdf",
+      "condition": "permutation",
+      "inventory_complete": false,
+      "files": [
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/permutation/cdf_metrics.json",
+          "exists_nonempty": false,
+          "bytes": null
+        }
+      ]
+    },
+    {
+      "seed": 7,
+      "domain": "cdf",
+      "condition": "counterfactual",
+      "inventory_complete": false,
+      "files": [
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/counterfactual/cdf_metrics.json",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/counterfactual/cdf_videos.csv",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/counterfactual/cdf_frames.npz",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/counterfactual/cdf_controls.csv",
+          "exists_nonempty": false,
+          "bytes": null
+        }
+      ]
+    },
+    {
+      "seed": 7,
+      "domain": "cdf",
+      "condition": "meaningless_candidates",
+      "inventory_complete": false,
+      "files": [
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/meaningless_candidates/cdf_metrics.json",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/meaningless_candidates/cdf_videos.csv",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/meaningless_candidates/cdf_frames.npz",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/meaningless_candidates/cdf_paired_videos.csv",
+          "exists_nonempty": false,
+          "bytes": null
+        }
+      ]
+    },
+    {
+      "seed": 7,
+      "domain": "cdf",
+      "condition": "meaningless_questions",
+      "inventory_complete": false,
+      "files": [
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/meaningless_questions/cdf_metrics.json",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/meaningless_questions/cdf_videos.csv",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/meaningless_questions/cdf_frames.npz",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/meaningless_questions/cdf_paired_videos.csv",
+          "exists_nonempty": false,
+          "bytes": null
+        }
+      ]
+    },
+    {
+      "seed": 2048,
+      "domain": "ffpp",
+      "condition": "fixed_h1",
+      "inventory_complete": false,
+      "files": [
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/fixed_h1/ffpp_metrics.json",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/fixed_h1/ffpp_videos.csv",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/fixed_h1/ffpp_frames.npz",
+          "exists_nonempty": false,
+          "bytes": null
+        }
+      ]
+    },
+    {
+      "seed": 2048,
+      "domain": "ffpp",
+      "condition": "seen",
+      "inventory_complete": false,
+      "files": [
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/seen/ffpp_metrics.json",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/seen/ffpp_videos.csv",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/seen/ffpp_frames.npz",
+          "exists_nonempty": false,
+          "bytes": null
+        }
+      ]
+    },
+    {
+      "seed": 2048,
+      "domain": "ffpp",
+      "condition": "heldout",
+      "inventory_complete": false,
+      "files": [
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/heldout/ffpp_metrics.json",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/heldout/ffpp_videos.csv",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/heldout/ffpp_frames.npz",
+          "exists_nonempty": false,
+          "bytes": null
+        }
+      ]
+    },
+    {
+      "seed": 2048,
+      "domain": "ffpp",
+      "condition": "permutation",
+      "inventory_complete": false,
+      "files": [
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/permutation/ffpp_metrics.json",
+          "exists_nonempty": false,
+          "bytes": null
+        }
+      ]
+    },
+    {
+      "seed": 2048,
+      "domain": "ffpp",
+      "condition": "counterfactual",
+      "inventory_complete": false,
+      "files": [
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/counterfactual/ffpp_metrics.json",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/counterfactual/ffpp_videos.csv",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/counterfactual/ffpp_frames.npz",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/counterfactual/ffpp_controls.csv",
+          "exists_nonempty": false,
+          "bytes": null
+        }
+      ]
+    },
+    {
+      "seed": 2048,
+      "domain": "ffpp",
+      "condition": "meaningless_candidates",
+      "inventory_complete": false,
+      "files": [
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/meaningless_candidates/ffpp_metrics.json",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/meaningless_candidates/ffpp_videos.csv",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/meaningless_candidates/ffpp_frames.npz",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/meaningless_candidates/ffpp_paired_videos.csv",
+          "exists_nonempty": false,
+          "bytes": null
+        }
+      ]
+    },
+    {
+      "seed": 2048,
+      "domain": "ffpp",
+      "condition": "meaningless_questions",
+      "inventory_complete": false,
+      "files": [
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/meaningless_questions/ffpp_metrics.json",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/meaningless_questions/ffpp_videos.csv",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/meaningless_questions/ffpp_frames.npz",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/meaningless_questions/ffpp_paired_videos.csv",
+          "exists_nonempty": false,
+          "bytes": null
+        }
+      ]
+    },
+    {
+      "seed": 2048,
+      "domain": "cdf",
+      "condition": "fixed_h1",
+      "inventory_complete": false,
+      "files": [
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/fixed_h1/cdf_metrics.json",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/fixed_h1/cdf_videos.csv",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/fixed_h1/cdf_frames.npz",
+          "exists_nonempty": false,
+          "bytes": null
+        }
+      ]
+    },
+    {
+      "seed": 2048,
+      "domain": "cdf",
+      "condition": "seen",
+      "inventory_complete": false,
+      "files": [
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/seen/cdf_metrics.json",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/seen/cdf_videos.csv",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/seen/cdf_frames.npz",
+          "exists_nonempty": false,
+          "bytes": null
+        }
+      ]
+    },
+    {
+      "seed": 2048,
+      "domain": "cdf",
+      "condition": "heldout",
+      "inventory_complete": false,
+      "files": [
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/heldout/cdf_metrics.json",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/heldout/cdf_videos.csv",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/heldout/cdf_frames.npz",
+          "exists_nonempty": false,
+          "bytes": null
+        }
+      ]
+    },
+    {
+      "seed": 2048,
+      "domain": "cdf",
+      "condition": "permutation",
+      "inventory_complete": false,
+      "files": [
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/permutation/cdf_metrics.json",
+          "exists_nonempty": false,
+          "bytes": null
+        }
+      ]
+    },
+    {
+      "seed": 2048,
+      "domain": "cdf",
+      "condition": "counterfactual",
+      "inventory_complete": false,
+      "files": [
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/counterfactual/cdf_metrics.json",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/counterfactual/cdf_videos.csv",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/counterfactual/cdf_frames.npz",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/counterfactual/cdf_controls.csv",
+          "exists_nonempty": false,
+          "bytes": null
+        }
+      ]
+    },
+    {
+      "seed": 2048,
+      "domain": "cdf",
+      "condition": "meaningless_candidates",
+      "inventory_complete": false,
+      "files": [
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/meaningless_candidates/cdf_metrics.json",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/meaningless_candidates/cdf_videos.csv",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/meaningless_candidates/cdf_frames.npz",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/meaningless_candidates/cdf_paired_videos.csv",
+          "exists_nonempty": false,
+          "bytes": null
+        }
+      ]
+    },
+    {
+      "seed": 2048,
+      "domain": "cdf",
+      "condition": "meaningless_questions",
+      "inventory_complete": false,
+      "files": [
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/meaningless_questions/cdf_metrics.json",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/meaningless_questions/cdf_videos.csv",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/meaningless_questions/cdf_frames.npz",
+          "exists_nonempty": false,
+          "bytes": null
+        },
+        {
+          "path": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/meaningless_questions/cdf_paired_videos.csv",
+          "exists_nonempty": false,
+          "bytes": null
+        }
+      ]
+    }
+  ],
+  "checks": [],
+  "errors": [
+    {
+      "check": "required_inventory",
+      "error": "missing or empty final artifacts",
+      "missing_paths": [
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/fixed_h1/ffpp_metrics.json",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/fixed_h1/ffpp_videos.csv",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/fixed_h1/ffpp_frames.npz",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/seen/ffpp_metrics.json",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/seen/ffpp_videos.csv",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/seen/ffpp_frames.npz",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/heldout/ffpp_metrics.json",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/heldout/ffpp_videos.csv",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/heldout/ffpp_frames.npz",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/permutation/ffpp_metrics.json",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/counterfactual/ffpp_metrics.json",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/counterfactual/ffpp_videos.csv",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/counterfactual/ffpp_frames.npz",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/counterfactual/ffpp_controls.csv",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/meaningless_candidates/ffpp_metrics.json",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/meaningless_candidates/ffpp_videos.csv",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/meaningless_candidates/ffpp_frames.npz",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/meaningless_candidates/ffpp_paired_videos.csv",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/meaningless_questions/ffpp_metrics.json",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/meaningless_questions/ffpp_videos.csv",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/meaningless_questions/ffpp_frames.npz",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/meaningless_questions/ffpp_paired_videos.csv",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/fixed_h1/cdf_metrics.json",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/fixed_h1/cdf_videos.csv",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/fixed_h1/cdf_frames.npz",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/seen/cdf_metrics.json",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/seen/cdf_videos.csv",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/seen/cdf_frames.npz",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/heldout/cdf_metrics.json",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/heldout/cdf_videos.csv",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/heldout/cdf_frames.npz",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/permutation/cdf_metrics.json",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/counterfactual/cdf_metrics.json",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/counterfactual/cdf_videos.csv",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/counterfactual/cdf_frames.npz",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/counterfactual/cdf_controls.csv",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/meaningless_candidates/cdf_metrics.json",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/meaningless_candidates/cdf_videos.csv",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/meaningless_candidates/cdf_frames.npz",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/meaningless_candidates/cdf_paired_videos.csv",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/meaningless_questions/cdf_metrics.json",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/meaningless_questions/cdf_videos.csv",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/meaningless_questions/cdf_frames.npz",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42/meaningless_questions/cdf_paired_videos.csv",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/fixed_h1/ffpp_metrics.json",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/fixed_h1/ffpp_videos.csv",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/fixed_h1/ffpp_frames.npz",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/seen/ffpp_metrics.json",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/seen/ffpp_videos.csv",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/seen/ffpp_frames.npz",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/heldout/ffpp_metrics.json",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/heldout/ffpp_videos.csv",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/heldout/ffpp_frames.npz",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/permutation/ffpp_metrics.json",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/counterfactual/ffpp_metrics.json",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/counterfactual/ffpp_videos.csv",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/counterfactual/ffpp_frames.npz",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/counterfactual/ffpp_controls.csv",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/meaningless_candidates/ffpp_metrics.json",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/meaningless_candidates/ffpp_videos.csv",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/meaningless_candidates/ffpp_frames.npz",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/meaningless_candidates/ffpp_paired_videos.csv",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/meaningless_questions/ffpp_metrics.json",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/meaningless_questions/ffpp_videos.csv",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/meaningless_questions/ffpp_frames.npz",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/meaningless_questions/ffpp_paired_videos.csv",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/fixed_h1/cdf_metrics.json",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/fixed_h1/cdf_videos.csv",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/fixed_h1/cdf_frames.npz",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/seen/cdf_metrics.json",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/seen/cdf_videos.csv",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/seen/cdf_frames.npz",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/heldout/cdf_metrics.json",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/heldout/cdf_videos.csv",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/heldout/cdf_frames.npz",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/permutation/cdf_metrics.json",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/counterfactual/cdf_metrics.json",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/counterfactual/cdf_videos.csv",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/counterfactual/cdf_frames.npz",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/counterfactual/cdf_controls.csv",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/meaningless_candidates/cdf_metrics.json",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/meaningless_candidates/cdf_videos.csv",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/meaningless_candidates/cdf_frames.npz",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/meaningless_candidates/cdf_paired_videos.csv",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/meaningless_questions/cdf_metrics.json",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/meaningless_questions/cdf_videos.csv",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/meaningless_questions/cdf_frames.npz",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_7/meaningless_questions/cdf_paired_videos.csv",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/fixed_h1/ffpp_metrics.json",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/fixed_h1/ffpp_videos.csv",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/fixed_h1/ffpp_frames.npz",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/seen/ffpp_metrics.json",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/seen/ffpp_videos.csv",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/seen/ffpp_frames.npz",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/heldout/ffpp_metrics.json",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/heldout/ffpp_videos.csv",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/heldout/ffpp_frames.npz",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/permutation/ffpp_metrics.json",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/counterfactual/ffpp_metrics.json",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/counterfactual/ffpp_videos.csv",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/counterfactual/ffpp_frames.npz",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/counterfactual/ffpp_controls.csv",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/meaningless_candidates/ffpp_metrics.json",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/meaningless_candidates/ffpp_videos.csv",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/meaningless_candidates/ffpp_frames.npz",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/meaningless_candidates/ffpp_paired_videos.csv",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/meaningless_questions/ffpp_metrics.json",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/meaningless_questions/ffpp_videos.csv",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/meaningless_questions/ffpp_frames.npz",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/meaningless_questions/ffpp_paired_videos.csv",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/fixed_h1/cdf_metrics.json",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/fixed_h1/cdf_videos.csv",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/fixed_h1/cdf_frames.npz",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/seen/cdf_metrics.json",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/seen/cdf_videos.csv",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/seen/cdf_frames.npz",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/heldout/cdf_metrics.json",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/heldout/cdf_videos.csv",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/heldout/cdf_frames.npz",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/permutation/cdf_metrics.json",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/counterfactual/cdf_metrics.json",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/counterfactual/cdf_videos.csv",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/counterfactual/cdf_frames.npz",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/counterfactual/cdf_controls.csv",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/meaningless_candidates/cdf_metrics.json",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/meaningless_candidates/cdf_videos.csv",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/meaningless_candidates/cdf_frames.npz",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/meaningless_candidates/cdf_paired_videos.csv",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/meaningless_questions/cdf_metrics.json",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/meaningless_questions/cdf_videos.csv",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/meaningless_questions/cdf_frames.npz",
+        "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_2048/meaningless_questions/cdf_paired_videos.csv"
+      ]
+    }
+  ],
+  "files_sha256": {},
+  "limitations": [
+    "Complements assess_gates.py; does not replace its locked provenance validation or G1-G6 adjudication.",
+    "Hashes identify audited files; H1 prediction files lack a preregistered cryptographic binding to their evaluator/checkpoint. The available evaluation.json and execution-manifest checkpoint binding are checked.",
+    "Frame NPZ headers and task/video/context arrays are inspected; full frame probability replay, image-content rehashing, and per-sample text reconstruction are not performed.",
+    "Canonical meaningful probabilities may differ by up to 1e-6 across inference batch shapes. Candidate positions are intentionally excluded from meaningless-control joins.",
+    "The frozen meaningless-candidate bank is not strictly matched to meaningful-candidate length; this audit cannot remedy that protocol limitation."
+  ]
+}

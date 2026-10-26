@@ -1,0 +1,30 @@
+global_seed: 42
+parquet_frame: experiments/2026-07-21_frame_midterm_diagnosis/results/parallel_20260721_213914/per_frame_scores.parquet
+ckpt_root: experiments/2026-05-05_paper_feature_geometry/results/checkpoints
+backbones: [clip, dinov2, efficientnet]
+seeds: [7, 42, 123, 999, 2048]
+methods: [simswap, inswap, blendface, faceswap, fsgan, mobileswap, e4s, facedancer,
+          fomm, facevid2vid, wav2lip, sadtalker, MRAA, pirender, tpsm, lia]
+domains: [ffpp, cdf]            # DFD excluded
+bootstrap_iterations: 2000
+clip_values: [2.0, 4.0, 6.0, 8.0]
+gamma_values: [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+topk_fraction: 0.25
+trim_fraction: 0.10
+sat_thresholds: [0.01, 0.05, 0.10]
+val_videos_per_method: 100
+frames_per_video: 8
+gpus: [0, 1, 2, 3, 4, 5]
+smoke:
+  backbone: clip
+  seed: 42
+  methods: [fsgan, sadtalker]
+# `paths` are relative to this phase directory; `parquet_frame` and
+# `ckpt_root` above are relative to the repository root.
+output_dir: results
+paths:
+  tables: results/tables
+  figures: figures
+  reports: reports
+  logs: results/logs
+  val_cache: results/val_cache

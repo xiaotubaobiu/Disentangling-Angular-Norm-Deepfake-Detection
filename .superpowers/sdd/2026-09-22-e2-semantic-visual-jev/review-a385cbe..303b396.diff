@@ -1,0 +1,654 @@
+# Review package: a385cbe16befe50ddb487b36b262803d902b1cfa..303b396fe9e332391d29acdc9bce51989442ef4b
+
+## Commits
+303b396 feat: add E2 cross-attention decision model
+
+## Files changed
+ src/models/clip_semantic_jev.py        | 216 +++++++++++++++++++++
+ src/models/factory.py                  |  76 ++++++++
+ tests/models/test_clip_semantic_jev.py | 332 +++++++++++++++++++++++++++++++++
+ 3 files changed, 624 insertions(+)
+
+## Diff
+diff --git a/src/models/clip_semantic_jev.py b/src/models/clip_semantic_jev.py
+new file mode 100644
+index 0000000..5edeb21
+--- /dev/null
++++ b/src/models/clip_semantic_jev.py
+@@ -0,0 +1,216 @@
++"""Frozen-CLIP semantic Visual-Jev decision model."""
++
++from __future__ import annotations
++
++from collections.abc import Sequence
++from dataclasses import dataclass
++from pathlib import Path
++
++import clip
++import torch
++import torch.nn as nn
++
++from data.semantic_language import LanguageBank
++
++
++class Projection(nn.Module):
++    """Independent layer-normalized projection into decision space."""
++
++    def __init__(self, input_dim: int, output_dim: int) -> None:
++        super().__init__()
++        self.normalization = nn.LayerNorm(input_dim)
++        self.linear = nn.Linear(input_dim, output_dim)
++
++    def forward(self, inputs: torch.Tensor) -> torch.Tensor:
++        return self.linear(self.normalization(inputs))
++
++
++class CLIPSemanticVisualJev(nn.Module):
++    """Cross-attention decision model over image, question, and candidates."""
++
++    def __init__(
++        self,
++        clip_model_name: str = "ViT-B/16",
++        d_model: int = 256,
++        nhead: int = 8,
++        ffn_dim: int = 1024,
++        num_layers: int = 2,
++        dropout: float = 0.1,
++    ) -> None:
++        super().__init__()
++        self.clip, _ = clip.load(clip_model_name, device="cpu")
++        self._freeze_clip()
++
++        feature_dim = int(self.clip.visual.output_dim)
++        self.image_projection = Projection(feature_dim, d_model)
++        self.question_projection = Projection(feature_dim, d_model)
++        self.candidate_projection = Projection(feature_dim, d_model)
++        decoder_layer = nn.TransformerDecoderLayer(
++            d_model=d_model,
++            nhead=nhead,
++            dim_feedforward=ffn_dim,
++            dropout=dropout,
++            batch_first=True,
++            norm_first=True,
++            activation="gelu",
++        )
++        self.decoder = nn.TransformerDecoder(
++            decoder_layer,
++            num_layers=num_layers,
++        )
++        self.scorer = nn.Sequential(
++            nn.LayerNorm(d_model),
++            nn.Linear(d_model, 1),
++        )
++
++    def _freeze_clip(self) -> None:
++        for parameter in self.clip.parameters():
++            parameter.requires_grad_(False)
++        self.clip.eval()
++
++    def train(self, mode: bool = True):
++        super().train(mode)
++        self.clip.eval()
++        return self
++
++    def extract_features(self, images: torch.Tensor) -> torch.Tensor:
++        with torch.no_grad():
++            return self.clip.encode_image(images).float()
++
++    def encode_texts(self, texts: Sequence[str]) -> torch.Tensor:
++        tokens = clip.tokenize(list(texts), truncate=True).to(
++            next(self.parameters()).device
++        )
++        with torch.no_grad():
++            return self.clip.encode_text(tokens).float()
++
++    def classify_features(
++        self,
++        image_features: torch.Tensor,
++        question_embeddings: torch.Tensor,
++        candidate_embeddings: torch.Tensor,
++        candidate_mask: torch.Tensor,
++    ) -> torch.Tensor:
++        memory = torch.stack(
++            (
++                self.image_projection(image_features.float()),
++                self.question_projection(question_embeddings.float()),
++            ),
++            dim=1,
++        )
++        candidate_tokens = self.candidate_projection(
++            candidate_embeddings.float()
++        )
++        decoded = self.decoder(
++            tgt=candidate_tokens,
++            memory=memory,
++            tgt_key_padding_mask=~candidate_mask,
++        )
++        logits = self.scorer(decoded).squeeze(-1)
++        return logits.masked_fill(~candidate_mask, float("-inf"))
++
++    def forward(
++        self,
++        images: torch.Tensor,
++        question_embeddings: torch.Tensor,
++        candidate_embeddings: torch.Tensor,
++        candidate_mask: torch.Tensor,
++    ) -> torch.Tensor:
++        return self.classify_features(
++            self.extract_features(images),
++            question_embeddings,
++            candidate_embeddings,
++            candidate_mask,
++        )
++
++    def load_h1_visual_checkpoint(self, path: str | Path) -> None:
++        checkpoint = torch.load(path, map_location="cpu", weights_only=True)
++        if not isinstance(checkpoint, dict):
++            raise ValueError("H1 checkpoint must contain a state dictionary")
++        state = checkpoint.get("model_state_dict", checkpoint)
++        if not isinstance(state, dict):
++            raise ValueError("H1 checkpoint must contain model_state_dict")
++        visual_state = {
++            key.removeprefix("visual."): value
++            for key, value in state.items()
++            if key.startswith("visual.")
++        }
++        if not visual_state:
++            raise ValueError("H1 checkpoint contains no visual weights")
++        self.clip.visual.load_state_dict(visual_state, strict=True)
++        self._freeze_clip()
++
++
++@dataclass
++class EncodedTextLookup:
++    """Dense, split-scoped mapping from language-bank IDs to CLIP vectors."""
++
++    row_for_text_id: torch.Tensor
++    embeddings: torch.Tensor
++
++    @classmethod
++    def build(
++        cls,
++        model: CLIPSemanticVisualJev,
++        bank: LanguageBank,
++        allowed_splits: Sequence[str],
++        device: torch.device,
++    ) -> EncodedTextLookup:
++        allowed = frozenset(allowed_splits)
++        entries = tuple(
++            entry for entry in bank.text_entries if entry.split in allowed
++        )
++        if not entries:
++            raise ValueError("allowed_splits selected no language-bank text")
++
++        embeddings = model.encode_texts([entry.text for entry in entries]).to(
++            device
++        )
++        largest_text_id = max(entry.text_id for entry in bank.text_entries)
++        row_for_text_id = torch.full(
++            (largest_text_id + 1,),
++            -1,
++            dtype=torch.long,
++            device=device,
++        )
++        text_ids = torch.tensor(
++            [entry.text_id for entry in entries],
++            dtype=torch.long,
++            device=device,
++        )
++        row_for_text_id[text_ids] = torch.arange(
++            len(entries), dtype=torch.long, device=device
++        )
++        return cls(
++            row_for_text_id=row_for_text_id,
++            embeddings=embeddings,
++        )
++
++    def lookup(
++        self,
++        question_ids: torch.Tensor,
++        candidate_ids: torch.Tensor,
++        candidate_mask: torch.Tensor,
++    ) -> tuple[torch.Tensor, torch.Tensor]:
++        text_id_count = self.row_for_text_id.shape[0]
++        invalid_questions = (question_ids < 0) | (question_ids >= text_id_count)
++        invalid_candidates = candidate_mask & (
++            (candidate_ids < 0) | (candidate_ids >= text_id_count)
++        )
++        if invalid_questions.any() or invalid_candidates.any():
++            raise KeyError("text ID is not encoded in this split-scoped lookup")
++
++        question_rows = self.row_for_text_id[question_ids]
++        safe_candidate_ids = candidate_ids.masked_fill(~candidate_mask, 0)
++        candidate_rows = self.row_for_text_id[safe_candidate_ids]
++        if (question_rows < 0).any() or (
++            candidate_rows[candidate_mask] < 0
++        ).any():
++            raise KeyError("text ID is not encoded in this split-scoped lookup")
++        questions = self.embeddings[question_rows]
++        candidates = self.embeddings[candidate_rows.clamp_min(0)]
++        candidates = candidates.masked_fill(
++            ~candidate_mask[..., None],
++            0.0,
++        )
++        return questions, candidates
+diff --git a/src/models/factory.py b/src/models/factory.py
+new file mode 100644
+index 0000000..48b7225
+--- /dev/null
++++ b/src/models/factory.py
+@@ -0,0 +1,76 @@
++from __future__ import annotations
++
++from models.efficientnet import EfficientNetBinaryClassifier
++from models.dinov2 import DINOv2BinaryClassifier
++from models.xception import XceptionBinaryClassifier
++from models.clip_classifier import CLIPFineTuneBinaryClassifier
++from models.clip_prompt import CLIPPromptBinaryClassifier
++from models.clip_bgcontrast import CLIPBgFaceContrastModel
++from models.clip_semantic_jev import CLIPSemanticVisualJev
++from models.clip_visual_jev import CLIPVisualJevClassifier
++
++
++def build_model(model_cfg: dict):
++    name = model_cfg["name"]
++    clip_name = model_cfg.get("clip_model_name", "ViT-B/16")
++    if name == "efficientnet_b0":
++        return EfficientNetBinaryClassifier(
++            normalize_features=model_cfg.get("normalize_features", False),
++        )
++    if name == "dinov2_vitb14":
++        return DINOv2BinaryClassifier(
++            normalize_features=model_cfg.get("normalize_features", False),
++        )
++    if name == "xception":
++        return XceptionBinaryClassifier(
++            normalize_features=model_cfg.get("normalize_features", False),
++        )
++    if name == "clip_finetune":
++        return CLIPFineTuneBinaryClassifier(
++            clip_name,
++            model_cfg.get("normalize_features", False),
++        )
++    if name == "clip_prompt":
++        tau = model_cfg.get("tau", 0.07)
++        freeze_visual = model_cfg.get("freeze_visual", "none")
++        freeze_visual_layers = model_cfg.get("freeze_visual_layers", 9)
++        projection_dim = model_cfg.get("projection_dim", 512)
++        classifier_normalize_features = model_cfg.get("classifier_normalize_features", True)
++        return CLIPPromptBinaryClassifier(
++            clip_name,
++            tau,
++            freeze_visual,
++            freeze_visual_layers,
++            projection_dim,
++            classifier_normalize_features,
++        )
++    if name == "clip_prompt_bgcontrast":
++        proj_dim = model_cfg.get("projection_dim", 256)
++        return CLIPBgFaceContrastModel(clip_name, proj_dim)
++    if name == "clip_visual_jev":
++        hidden_dims = tuple(model_cfg.get("hidden_dims", [512, 128]))
++        return CLIPVisualJevClassifier(
++            clip_model_name=clip_name,
++            question=model_cfg.get(
++                "question",
++                "Which description best matches this facial image?",
++            ),
++            candidates=model_cfg.get(
++                "candidates",
++                [
++                    "an authentic facial image.",
++                    "a manipulated deepfake facial image.",
++                ],
++            ),
++            hidden_dims=hidden_dims,
++        )
++    if name == "clip_semantic_jev":
++        return CLIPSemanticVisualJev(
++            clip_model_name=clip_name,
++            d_model=model_cfg.get("d_model", 256),
++            nhead=model_cfg.get("nhead", 8),
++            ffn_dim=model_cfg.get("ffn_dim", 1024),
++            num_layers=model_cfg.get("num_layers", 2),
++            dropout=model_cfg.get("dropout", 0.1),
++        )
++    raise ValueError(f"Unknown model name: {name}")
+diff --git a/tests/models/test_clip_semantic_jev.py b/tests/models/test_clip_semantic_jev.py
+new file mode 100644
+index 0000000..a141ad8
+--- /dev/null
++++ b/tests/models/test_clip_semantic_jev.py
+@@ -0,0 +1,332 @@
++from __future__ import annotations
++
++import itertools
++from pathlib import Path
++
++import pytest
++import torch
++import torch.nn as nn
++
++from data.semantic_language import load_language_bank
++
++
++LANGUAGE_BANK = Path(
++    "experiments/2026-09-22_semantic_visual_jev_e2/configs/language_bank.yaml"
++)
++
++
++class _FakeVisual(nn.Module):
++    output_dim = 4
++
++    def __init__(self):
++        super().__init__()
++        self.projection = nn.Linear(3, self.output_dim, bias=False)
++
++    def forward(self, images: torch.Tensor) -> torch.Tensor:
++        return self.projection(images)
++
++
++class _FakeCLIP(nn.Module):
++    def __init__(self):
++        super().__init__()
++        self.visual = _FakeVisual()
++        self.text_anchor = nn.Parameter(
++            torch.arange(512, dtype=torch.float32).view(128, 4)
++        )
++
++    def encode_image(self, images: torch.Tensor) -> torch.Tensor:
++        return self.visual(images)
++
++    def encode_text(self, tokens: torch.Tensor) -> torch.Tensor:
++        return self.text_anchor[tokens[:, 0]]
++
++
++@pytest.fixture
++def patched_clip(monkeypatch):
++    import models.clip_semantic_jev as module
++
++    monkeypatch.setattr(
++        module.clip,
++        "load",
++        lambda *_args, **_kwargs: (_FakeCLIP(), None),
++    )
++    monkeypatch.setattr(
++        module.clip,
++        "tokenize",
++        lambda texts, truncate=True: torch.arange(len(texts))[:, None],
++    )
++    return module
++
++
++@pytest.fixture
++def language_bank():
++    return load_language_bank(LANGUAGE_BANK)
++
++
++def test_only_decision_modules_are_trainable_and_clip_stays_in_eval(patched_clip):
++    model = patched_clip.CLIPSemanticVisualJev(
++        "fake", d_model=8, nhead=2, ffn_dim=16
++    )
++
++    trainable = {
++        name
++        for name, parameter in model.named_parameters()
++        if parameter.requires_grad
++    }
++    assert trainable
++    assert all(
++        name.startswith(
++            (
++                "image_projection.",
++                "question_projection.",
++                "candidate_projection.",
++                "decoder.",
++                "scorer.",
++            )
++        )
++        for name in trainable
++    )
++    assert all(not parameter.requires_grad for parameter in model.clip.parameters())
++    assert not model.clip.training
++
++    model.train()
++
++    assert model.training
++    assert model.decoder.training
++    assert not model.clip.training
++
++
++def test_default_architecture_matches_the_locked_e2_decision_model(patched_clip):
++    model = patched_clip.CLIPSemanticVisualJev("fake")
++
++    for projection in (
++        model.image_projection,
++        model.question_projection,
++        model.candidate_projection,
++    ):
++        assert isinstance(projection.normalization, nn.LayerNorm)
++        assert projection.normalization.normalized_shape == (4,)
++        assert isinstance(projection.linear, nn.Linear)
++        assert (projection.linear.in_features, projection.linear.out_features) == (
++            4,
++            256,
++        )
++    assert len(model.decoder.layers) == 2
++    layer = model.decoder.layers[0]
++    assert layer.self_attn.num_heads == 8
++    assert layer.linear1.out_features == 1024
++    assert layer.dropout.p == pytest.approx(0.1)
++    scalar_scorers = [
++        child
++        for child in model.scorer.modules()
++        if isinstance(child, nn.Linear) and child.out_features == 1
++    ]
++    assert len(scalar_scorers) == 1
++
++
++@pytest.mark.parametrize("candidate_count", [2, 3])
++def test_two_and_three_candidate_shapes_and_padding(patched_clip, candidate_count):
++    model = patched_clip.CLIPSemanticVisualJev(
++        "fake", d_model=8, nhead=2, ffn_dim=16
++    )
++    image = torch.randn(4, 4)
++    question = torch.randn(4, 4)
++    candidates = torch.randn(4, 3, 4)
++    mask = torch.arange(3)[None, :] < candidate_count
++    mask = mask.expand(4, -1)
++
++    logits = model.classify_features(image, question, candidates, mask)
++
++    assert logits.shape == (4, 3)
++    assert torch.isneginf(logits[:, candidate_count:]).all()
++    assert torch.isfinite(logits[:, :candidate_count]).all()
++
++
++def test_all_t5_permutations_are_equivariant(patched_clip):
++    model = patched_clip.CLIPSemanticVisualJev(
++        "fake", d_model=8, nhead=2, ffn_dim=16, dropout=0.0
++    ).eval()
++    image = torch.randn(2, 4)
++    question = torch.randn(2, 4)
++    candidates = torch.randn(2, 3, 4)
++    mask = torch.ones(2, 3, dtype=torch.bool)
++    reference = model.classify_features(image, question, candidates, mask)
++
++    for order in itertools.permutations(range(3)):
++        order = list(order)
++        actual = model.classify_features(
++            image, question, candidates[:, order], mask[:, order]
++        )
++        torch.testing.assert_close(actual, reference[:, order], atol=1e-6, rtol=0)
++
++
++def test_padded_candidate_has_no_gradient(patched_clip):
++    model = patched_clip.CLIPSemanticVisualJev(
++        "fake", d_model=8, nhead=2, ffn_dim=16, dropout=0.0
++    )
++    image = torch.randn(2, 4)
++    question = torch.randn(2, 4)
++    candidates = torch.randn(2, 3, 4, requires_grad=True)
++    mask = torch.tensor([[True, True, False], [True, True, False]])
++
++    logits = model.classify_features(image, question, candidates, mask)
++    torch.nn.functional.cross_entropy(logits, torch.tensor([0, 1])).backward()
++
++    assert candidates.grad is not None
++    assert candidates.grad[:, 2].abs().max().item() == 0.0
++
++
++def test_frozen_clip_feature_interfaces_do_not_build_gradients(patched_clip):
++    model = patched_clip.CLIPSemanticVisualJev(
++        "fake", d_model=8, nhead=2, ffn_dim=16
++    )
++    images = torch.randn(3, 3, requires_grad=True)
++
++    image_features = model.extract_features(images)
++    text_features = model.encode_texts(["a", "b"])
++
++    assert image_features.shape == (3, 4)
++    assert text_features.shape == (2, 4)
++    assert not image_features.requires_grad
++    assert not text_features.requires_grad
++
++
++def test_h1_checkpoint_loads_only_actual_visual_prefix(patched_clip, tmp_path):
++    model = patched_clip.CLIPSemanticVisualJev(
++        "fake", d_model=8, nhead=2, ffn_dim=16
++    )
++    expected = torch.full_like(model.clip.visual.projection.weight, 2.5)
++    original_scorer = model.scorer[1].weight.detach().clone()
++    path = tmp_path / "h1.pth"
++    torch.save(
++        {
++            "epoch": 3,
++            "model_state_dict": {
++                "visual.projection.weight": expected,
++                "candidate_embeddings": torch.randn(2, 4),
++                "scorer.0.weight": torch.randn(2, 2),
++            },
++            "auc": 0.75,
++        },
++        path,
++    )
++
++    model.load_h1_visual_checkpoint(path)
++
++    torch.testing.assert_close(model.clip.visual.projection.weight, expected)
++    torch.testing.assert_close(model.scorer[1].weight, original_scorer)
++    assert all(not parameter.requires_grad for parameter in model.clip.parameters())
++    assert not model.clip.training
++
++
++def test_h1_checkpoint_without_visual_weights_is_rejected(patched_clip, tmp_path):
++    model = patched_clip.CLIPSemanticVisualJev(
++        "fake", d_model=8, nhead=2, ffn_dim=16
++    )
++    path = tmp_path / "not_h1.pth"
++    torch.save({"model_state_dict": {"scorer.0.weight": torch.randn(2, 2)}}, path)
++
++    with pytest.raises(ValueError, match="visual weights"):
++        model.load_h1_visual_checkpoint(path)
++
++
++def test_train_lookup_rejects_heldout_text_id(patched_clip, language_bank):
++    model = patched_clip.CLIPSemanticVisualJev(
++        "fake", d_model=8, nhead=2, ffn_dim=16
++    )
++    lookup = patched_clip.EncodedTextLookup.build(
++        model,
++        language_bank,
++        allowed_splits=("train", "fixed"),
++        device=torch.device("cpu"),
++    )
++    heldout_id = language_bank.text_id("t1_q_heldout")
++
++    with pytest.raises(KeyError, match="not encoded"):
++        lookup.lookup(
++            torch.tensor([heldout_id]),
++            torch.tensor(
++                [[language_bank.text_id("t1_real_train"), -1, -1]]
++            ),
++            torch.tensor([[True, False, False]]),
++        )
++
++
++def test_lookup_returns_zeroed_padding_and_encoded_rows(patched_clip, language_bank):
++    model = patched_clip.CLIPSemanticVisualJev(
++        "fake", d_model=8, nhead=2, ffn_dim=16
++    )
++    lookup = patched_clip.EncodedTextLookup.build(
++        model,
++        language_bank,
++        allowed_splits=("train",),
++        device=torch.device("cpu"),
++    )
++    question_id = language_bank.text_id("t1_q_train")
++    real_id = language_bank.text_id("t1_real_train")
++    fake_id = language_bank.text_id("t1_fake_train")
++
++    questions, candidates = lookup.lookup(
++        torch.tensor([question_id]),
++        torch.tensor([[real_id, fake_id, -1]]),
++        torch.tensor([[True, True, False]]),
++    )
++
++    assert questions.shape == (1, 4)
++    assert candidates.shape == (1, 3, 4)
++    assert torch.count_nonzero(candidates[:, 2]) == 0
++
++
++def test_lookup_rejects_unmasked_padding_id_even_when_all_splits_are_encoded(
++    patched_clip, language_bank
++):
++    model = patched_clip.CLIPSemanticVisualJev(
++        "fake", d_model=8, nhead=2, ffn_dim=16
++    )
++    lookup = patched_clip.EncodedTextLookup.build(
++        model,
++        language_bank,
++        allowed_splits=("train", "fixed", "heldout"),
++        device=torch.device("cpu"),
++    )
++    question_id = language_bank.text_id("t1_q_train")
++
++    with pytest.raises(KeyError, match="not encoded"):
++        lookup.lookup(
++            torch.tensor([question_id]),
++            torch.tensor([[-1, -1, -1]]),
++            torch.tensor([[True, False, False]]),
++        )
++
++
++def test_factory_passes_semantic_architecture_configuration(monkeypatch):
++    import models.factory as factory
++
++    received = {}
++
++    def fake_constructor(**kwargs):
++        received.update(kwargs)
++        return object()
++
++    monkeypatch.setattr(factory, "CLIPSemanticVisualJev", fake_constructor)
++    result = factory.build_model(
++        {
++            "name": "clip_semantic_jev",
++            "clip_model_name": "custom-clip",
++            "d_model": 24,
++            "nhead": 3,
++            "ffn_dim": 48,
++            "num_layers": 4,
++            "dropout": 0.2,
++        }
++    )
++
++    assert result is not None
++    assert received == {
++        "clip_model_name": "custom-clip",
++        "d_model": 24,
++        "nhead": 3,
++        "ffn_dim": 48,
++        "num_layers": 4,
++        "dropout": 0.2,
++    }

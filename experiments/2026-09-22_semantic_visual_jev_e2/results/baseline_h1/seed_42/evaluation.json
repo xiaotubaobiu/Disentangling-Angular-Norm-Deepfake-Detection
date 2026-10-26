@@ -1,0 +1,61 @@
+{
+  "checkpoint": "/home/z/project/deepfake_detection/experiments/2026-09-21_visual_jev_h1/results/training/seed_42/20260921_200626/output/best_model.pth",
+  "checkpoint_epoch_zero_based": 1,
+  "checkpoint_validation_auc": 0.9967238281249998,
+  "config": "/home/z/project/deepfake_detection/experiments/2026-09-21_visual_jev_h1/configs/visual_jev_s42.yaml",
+  "device": "cuda:0",
+  "domains": {
+    "cdf": {
+      "candidate_swap_check": {
+        "max_logit_permutation_error": 0.0,
+        "passed": true,
+        "remapped_loss_error": 0.0
+      },
+      "elapsed_seconds": 393.5519835948944,
+      "frame": {
+        "acc_at_0_5": 0.9819477921944715,
+        "ap": 0.9973630627057877,
+        "auc": 0.8835924505708582,
+        "brier": 0.04140102771124549,
+        "count": 311984,
+        "eer": 0.1943054318517953
+      },
+      "video": {
+        "acc_at_0_5": 0.9822240177759822,
+        "ap": 0.9981615970270095,
+        "auc": 0.9134792170077436,
+        "brier": 0.041010031449085334,
+        "count": 9901,
+        "eer": 0.16183710118599823
+      }
+    },
+    "ffpp": {
+      "candidate_swap_check": {
+        "max_logit_permutation_error": 0.0,
+        "passed": true,
+        "remapped_loss_error": 0.0
+      },
+      "elapsed_seconds": 186.49983644485474,
+      "frame": {
+        "acc_at_0_5": 0.984428459540789,
+        "ap": 0.9997987794358413,
+        "auc": 0.9958572139430464,
+        "brier": 0.04232934985574962,
+        "count": 97036,
+        "eer": 0.02613937845262979
+      },
+      "video": {
+        "acc_at_0_5": 0.9898327320432929,
+        "ap": 0.9999304236717654,
+        "auc": 0.9985512940136523,
+        "brier": 0.041170473957060506,
+        "count": 3049,
+        "eer": 0.014189952364582838
+      }
+    }
+  },
+  "model_id": "h1_jev_seed42",
+  "model_name": "clip_visual_jev",
+  "total_parameters": 87307521,
+  "trainable_parameters": 1114881
+}

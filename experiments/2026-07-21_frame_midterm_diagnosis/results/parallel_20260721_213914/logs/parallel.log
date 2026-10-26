@@ -1,0 +1,63 @@
+[21:39:14] RUN_DIR=outputs/frame_midt_diag/parallel_20260721_213914
+[21:39:14] N_GPUS=6, N_CKPTS=30
+[21:39:14] GPU policy: using GPUs 0..5 only; GPUs 6,7 are off-limits
+[21:39:14] checkpoints: clip_normtrain_s7 clip_normtrain_s42 clip_normtrain_s123 clip_normtrain_s999 clip_normtrain_s2048 clip_raw_s7 clip_raw_s42 clip_raw_s123 clip_raw_s999 clip_raw_s2048 dinov2_normtrain_s7 dinov2_normtrain_s42 dinov2_normtrain_s123 dinov2_normtrain_s999 dinov2_normtrain_s2048 dinov2_raw_s7 dinov2_raw_s42 dinov2_raw_s123 dinov2_raw_s999 dinov2_raw_s2048 efficientnet_normtrain_s7 efficientnet_normtrain_s42 efficientnet_normtrain_s123 efficientnet_normtrain_s999 efficientnet_normtrain_s2048 efficientnet_raw_s7 efficientnet_raw_s42 efficientnet_raw_s123 efficientnet_raw_s999 efficientnet_raw_s2048
+[21:39:14] launched worker gpu=0 pid=3020631
+[21:39:14] launched worker gpu=1 pid=3020637
+[21:39:14] launched worker gpu=2 pid=3020645
+[21:39:14] launched worker gpu=3 pid=3020652
+[21:39:14] launched worker gpu=4 pid=3020661
+[21:39:14] launched worker gpu=5 pid=3020671
+[00:10:58] worker pid=3020631 exited (rc=0)
+[00:15:22] worker pid=3020637 exited (rc=0)
+[00:15:22] worker pid=3020645 exited (rc=0)
+[00:15:22] worker pid=3020652 exited (rc=0)
+[00:28:34] worker pid=3020661 exited (rc=0)
+[00:28:34] worker pid=3020671 exited (rc=0)
+[00:28:34] extract stage complete: 30 / 30 shards
+[00:28:34] starting aggregate stage
+[diag] output dir: outputs/frame_midt_diag/parallel_20260721_213914
+[diag] device: cpu
+[diag] stage=aggregate, 30 checkpoint(s) × 3 domain(s) = 90 (ckpt, domain) pairs
+
+[diag] concatenating 30 per_ckpt shards
+[diag] total per-frame rows: 39830640
+[diag] wrote outputs/frame_midt_diag/parallel_20260721_213914/per_frame_scores.parquet
+[diag] wrote outputs/frame_midt_diag/parallel_20260721_213914/per_video_scores.parquet  (982740 video rows)
+[diag] wrote outputs/frame_midt_diag/parallel_20260721_213914/per_method_metrics.csv  (2160 rows)
+[diag] wrote outputs/frame_midt_diag/parallel_20260721_213914/aggregate_metrics.csv
+[diag] wrote outputs/frame_midt_diag/parallel_20260721_213914/bootstrap_direction_vs_raw.csv
+Traceback (most recent call last):
+  File "/home/z/anaconda3/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 3653, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 147, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 176, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7080, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'domain'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/z/project/deepfake_detection/scripts/frame_midt_diagnose.py", line 478, in <module>
+    main()
+  File "/home/z/project/deepfake_detection/scripts/frame_midt_diagnose.py", line 247, in main
+    run_aggregate_stage(
+  File "/home/z/project/deepfake_detection/scripts/frame_midt_diagnose.py", line 431, in run_aggregate_stage
+    hypothesis = build_hypothesis_summary(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/z/project/deepfake_detection/src/deepfake_detection/diagnosis/hypothesis_summary.py", line 268, in build_hypothesis_summary
+    "H1": summarize_h1(aggregate_df, delta_auc_df),
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/z/project/deepfake_detection/src/deepfake_detection/diagnosis/hypothesis_summary.py", line 45, in summarize_h1
+    cdf_delta = delta_auc_df[delta_auc_df["domain"] == "cdf"] if not delta_auc_df.empty else delta_auc_df
+                             ~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/z/anaconda3/lib/python3.11/site-packages/pandas/core/frame.py", line 3761, in __getitem__
+    indexer = self.columns.get_loc(key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/z/anaconda3/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 3655, in get_loc
+    raise KeyError(key) from err
+KeyError: 'domain'
+[01:25:04] aggregate stage finished (rc=1)
+[01:25:04] DONE. Output in: outputs/frame_midt_diag/parallel_20260721_213914

@@ -1,0 +1,56 @@
+RECOVERED COPY — 2026-07-30
+The original `_completion_report.txt` (mtime 2026-07-22 01:26, 1519 bytes) was
+deleted from this run directory some time on 2026-07-29, outside any recorded
+step. The text below was recovered verbatim from an agent session transcript
+that had `cat`-ed the file on 2026-07-28. It is byte-for-byte unverifiable, so
+it is stored under a distinct name instead of the original one. Content
+cross-checks against `logs/parallel.log` (aggregate rc=1 at 01:25) and
+`reports/provenance.md` §1/§4.4.
+----------------------------------------------------------------------
+[21:56:47] polling outputs/frame_midt_diag/parallel_20260721_213914 for completion (up to 6h)...
+[21:56:47] shards: 0 / 30
+[22:17:48] shards: 2 / 30
+[22:19:48] shards: 5 / 30
+[22:20:48] shards: 6 / 30
+[22:55:49] shards: 7 / 30
+[22:56:49] shards: 8 / 30
+[22:59:49] shards: 10 / 30
+[23:09:49] shards: 12 / 30
+[23:41:51] shards: 13 / 30
+[23:42:51] shards: 14 / 30
+[23:47:51] shards: 15 / 30
+[23:48:51] shards: 16 / 30
+[23:54:51] shards: 17 / 30
+[23:55:51] shards: 18 / 30
+[23:58:51] shards: 20 / 30
+[00:02:51] shards: 21 / 30
+[00:04:51] shards: 22 / 30
+[00:07:52] shards: 24 / 30
+[00:11:52] shards: 25 / 30
+[00:12:52] shards: 26 / 30
+[00:15:52] shards: 28 / 30
+[00:27:52] shards: 29 / 30
+[00:28:52] shards: 30 / 30
+[01:25:54] WARNING: no diag processes running; checking if complete...
+[01:26:04] ERROR: processes died but no hypothesis_summary.json. Aborting.
+
+=== Completion verification ===
+
+[shards] 30 / 30
+
+[required files]
+  OK   per_frame_scores.parquet  (1381098121 bytes)
+  OK   per_video_scores.parquet  (33969324 bytes)
+  OK   per_method_metrics.csv  (457362 bytes)
+  OK   aggregate_metrics.csv  (3209 bytes)
+  MISS hypothesis_summary.json
+
+[required figures]
+  MISS figures/01_cdf_delta_auc_heatmap.png
+  MISS figures/02_ffpp_to_cdf_score_shift_direction.png
+  MISS figures/03_optimal_threshold_distribution_cdf.png
+  MISS figures/04_d_method_comparison_cdf.png
+  MISS figures/05_norm_quartile_vs_error.png
+  MISS figures/06_ba_at_05_vs_optimal_ba_cdf.png
+
+[01:26:04] VERDICT: MISSING OR INCOMPLETE ARTIFACTS

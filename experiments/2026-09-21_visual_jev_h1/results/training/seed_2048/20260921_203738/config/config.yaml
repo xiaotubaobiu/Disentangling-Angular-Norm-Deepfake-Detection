@@ -1,0 +1,50 @@
+augment:
+  brightness_contrast_p: 0.5
+  brightness_limit: 0.1
+  compression_p: 0.2
+  compression_quality_lower: 40
+  compression_quality_upper: 100
+  contrast_limit: 0.1
+  horizontal_flip_p: 0.5
+  rotate_limit: 10
+  rotate_p: 0.5
+dataset:
+  frames_per_video: 8
+  image_size: 224
+  methods: []
+  real_sampling: oversample_per_method
+  root: /Dataset/deepfake_detection/DF40_all
+  train_videos_per_method: 586
+  use_mask: false
+  val_videos_per_method: 100
+experiment_name: visual_jev_h1_s2048
+loss:
+  name: cross_entropy
+model:
+  candidates:
+  - an authentic facial image.
+  - a manipulated deepfake facial image.
+  clip_model_name: ViT-B/16
+  hidden_dims:
+  - 512
+  - 128
+  name: clip_visual_jev
+  question: Which description best matches this facial image?
+train:
+  distributed: ddp
+  ema_decay: 0.999
+  epochs: 15
+  image_size: 224
+  init_checkpoint: experiments/2026-05-05_paper_feature_geometry/results/checkpoints/clip/raw/seed_42__20260505_130308/output/best_model.pth
+  launcher: torchrun
+  lr: 0.0001
+  num_nodes: 1
+  num_workers: 8
+  output_dir: experiments/2026-09-21_visual_jev_h1/results/training/seed_2048
+  patience: 5
+  per_gpu_batch: 128
+  precision: amp
+  prefetch_factor: 4
+  seed: 2048
+  warmup_epochs: 1
+  weight_decay: 0.01

@@ -1,0 +1,216 @@
+{
+  "timestamp_utc": "2026-09-23T04:55:01.284580+00:00",
+  "sample_interval_seconds": 4.541726677911356,
+  "mem_available_gib": 290.4323196411133,
+  "mem_total_gib": 377.2851676940918,
+  "host_cpu_percent": 10.8,
+  "gpus": [
+    {
+      "index": 0,
+      "used_mib": 14766,
+      "total_mib": 32768,
+      "utilization_percent": 0
+    },
+    {
+      "index": 1,
+      "used_mib": 14598,
+      "total_mib": 32768,
+      "utilization_percent": 100
+    },
+    {
+      "index": 2,
+      "used_mib": 14814,
+      "total_mib": 32768,
+      "utilization_percent": 100
+    },
+    {
+      "index": 3,
+      "used_mib": 14630,
+      "total_mib": 32768,
+      "utilization_percent": 100
+    }
+  ],
+  "runs": {
+    "42": {
+      "launcher_pid": 3020340,
+      "process_count": 9,
+      "tree_pss_gib": 35.56233787536621,
+      "tree_rss_gib": 40.50130844116211,
+      "sampled_cpu_cores": 2.959226953344669,
+      "processes": [
+        {
+          "cpu_seconds": 8.23,
+          "pid": 3020340,
+          "ppid": 2875501,
+          "status": "sleeping",
+          "rss_bytes": 408260608,
+          "pss_bytes": 243025920,
+          "uss_bytes": 226279424
+        },
+        {
+          "cpu_seconds": 1854.35,
+          "pid": 3020347,
+          "ppid": 3020340,
+          "status": "running",
+          "rss_bytes": 11058987008,
+          "pss_bytes": 9779166208,
+          "uss_bytes": 9603514368
+        },
+        {
+          "cpu_seconds": 1868.3700000000001,
+          "pid": 3020348,
+          "ppid": 3020340,
+          "status": "running",
+          "rss_bytes": 10641158144,
+          "pss_bytes": 9362613248,
+          "uss_bytes": 9188249600
+        },
+        {
+          "cpu_seconds": 1870.8300000000002,
+          "pid": 3020349,
+          "ppid": 3020340,
+          "status": "running",
+          "rss_bytes": 10688016384,
+          "pss_bytes": 9412233216,
+          "uss_bytes": 9236770816
+        },
+        {
+          "cpu_seconds": 1859.9199999999998,
+          "pid": 3020350,
+          "ppid": 3020340,
+          "status": "running",
+          "rss_bytes": 10642731008,
+          "pss_bytes": 9363602432,
+          "uss_bytes": 9188794368
+        },
+        {
+          "cpu_seconds": 0.04,
+          "pid": 3023223,
+          "ppid": 3020350,
+          "status": "sleeping",
+          "rss_bytes": 12218368,
+          "pss_bytes": 6037504,
+          "uss_bytes": 5836800
+        },
+        {
+          "cpu_seconds": 0.04,
+          "pid": 3023224,
+          "ppid": 3020349,
+          "status": "sleeping",
+          "rss_bytes": 12148736,
+          "pss_bytes": 6033408,
+          "uss_bytes": 5832704
+        },
+        {
+          "cpu_seconds": 0.04,
+          "pid": 3023222,
+          "ppid": 3020348,
+          "status": "sleeping",
+          "rss_bytes": 12255232,
+          "pss_bytes": 6029312,
+          "uss_bytes": 5828608
+        },
+        {
+          "cpu_seconds": 0.05,
+          "pid": 3023219,
+          "ppid": 3020347,
+          "status": "sleeping",
+          "rss_bytes": 12173312,
+          "pss_bytes": 6028288,
+          "uss_bytes": 5828608
+        }
+      ]
+    },
+    "7": {
+      "launcher_pid": 3120105,
+      "process_count": 9,
+      "tree_pss_gib": 29.176630973815918,
+      "tree_rss_gib": 34.09666061401367,
+      "sampled_cpu_cores": 3.6483921589971207,
+      "processes": [
+        {
+          "cpu_seconds": 4.98,
+          "pid": 3120105,
+          "ppid": 3120003,
+          "status": "sleeping",
+          "rss_bytes": 408338432,
+          "pss_bytes": 242976768,
+          "uss_bytes": 226217984
+        },
+        {
+          "cpu_seconds": 974.5600000000001,
+          "pid": 3121200,
+          "ppid": 3120105,
+          "status": "running",
+          "rss_bytes": 8998666240,
+          "pss_bytes": 7725921280,
+          "uss_bytes": 7551569920
+        },
+        {
+          "cpu_seconds": 978.0799999999999,
+          "pid": 3121201,
+          "ppid": 3120105,
+          "status": "running",
+          "rss_bytes": 9034264576,
+          "pss_bytes": 7760562176,
+          "uss_bytes": 7587569664
+        },
+        {
+          "cpu_seconds": 979.2199999999999,
+          "pid": 3121202,
+          "ppid": 3120105,
+          "status": "running",
+          "rss_bytes": 9037692928,
+          "pss_bytes": 7763671040,
+          "uss_bytes": 7590465536
+        },
+        {
+          "cpu_seconds": 985.0799999999999,
+          "pid": 3121203,
+          "ppid": 3120105,
+          "status": "running",
+          "rss_bytes": 9083277312,
+          "pss_bytes": 7810895872,
+          "uss_bytes": 7637151744
+        },
+        {
+          "cpu_seconds": 0.03,
+          "pid": 3123631,
+          "ppid": 3121203,
+          "status": "sleeping",
+          "rss_bytes": 12197888,
+          "pss_bytes": 6028288,
+          "uss_bytes": 5828608
+        },
+        {
+          "cpu_seconds": 0.03,
+          "pid": 3123646,
+          "ppid": 3121202,
+          "status": "sleeping",
+          "rss_bytes": 12152832,
+          "pss_bytes": 6036480,
+          "uss_bytes": 5832704
+        },
+        {
+          "cpu_seconds": 0.03,
+          "pid": 3123649,
+          "ppid": 3121201,
+          "status": "sleeping",
+          "rss_bytes": 12210176,
+          "pss_bytes": 6038528,
+          "uss_bytes": 5832704
+        },
+        {
+          "cpu_seconds": 0.03,
+          "pid": 3123648,
+          "ppid": 3121200,
+          "status": "sleeping",
+          "rss_bytes": 12210176,
+          "pss_bytes": 6038528,
+          "uss_bytes": 5832704
+        }
+      ]
+    }
+  },
+  "scope": "Read-only one-shot snapshot; no inference rerun or scheduling changes. CPU is a short interval estimate; transient peaks are not implied."
+}

@@ -1,0 +1,1803 @@
+# Review package: 6fb7221088d3504cad9401fb504bb071fa3b4f13..b6651884873cc54ad213e8eca499c3e19ad15b1c
+
+## Commits
+b665188 feat: add E2 semantic control suites
+
+## Files changed
+ .../scripts/evaluate_semantic.py                   | 540 ++++++++++++++++++++-
+ src/evaluation/semantic_controls.py                | 479 ++++++++++++++++++
+ tests/test_semantic_controls.py                    | 511 +++++++++++++++++++
+ 3 files changed, 1512 insertions(+), 18 deletions(-)
+
+## Diff
+diff --git a/experiments/2026-09-22_semantic_visual_jev_e2/scripts/evaluate_semantic.py b/experiments/2026-09-22_semantic_visual_jev_e2/scripts/evaluate_semantic.py
+index 1dcad0b..67e6d55 100644
+--- a/experiments/2026-09-22_semantic_visual_jev_e2/scripts/evaluate_semantic.py
++++ b/experiments/2026-09-22_semantic_visual_jev_e2/scripts/evaluate_semantic.py
+@@ -2,59 +2,87 @@
+ 
+ from __future__ import annotations
+ 
+ import argparse
+ import hashlib
+ import json
+ import os
+ import sys
+ from collections import namedtuple
+ from pathlib import Path
++from types import SimpleNamespace
+ 
+ import numpy as np
++import pandas as pd
+ import torch
+ import torch.distributed as dist
+-from torch.utils.data import DataLoader, Dataset, DistributedSampler
++from torch.utils.data import DataLoader, Dataset, DistributedSampler, Subset
+ 
+ 
+ REPO_ROOT = Path(__file__).resolve().parents[3]
+ if str(REPO_ROOT / "src") not in sys.path:
+     sys.path.insert(0, str(REPO_ROOT / "src"))
+ 
+ from config_io import load_config
+ from data.builders import build_eval_dataset, build_semantic_eval_loader
+-from data.semantic_dataset import TASKS, method_family
++from data.semantic_dataset import (
++    TASKS,
++    SemanticDataset,
++    SemanticTemplateSampler,
++    method_family,
++)
+ from data.semantic_language import SEMANTIC_TO_ID, load_language_bank
+ from engine.ddp import barrier, init_ddp, is_main_process
+ from evaluation.sample_eval import gather_rows_across_ranks
++from evaluation.semantic_controls import (
++    build_counterfactual_requests,
++    build_meaningless_candidate_request,
++    build_meaningless_question_request,
++    control_metric_rows,
++    paired_control_rows,
++    permutation_audit,
++    permutation_metric_rows,
++    select_global_audit_indices,
++)
+ from evaluation.semantic_eval import (
++    GROUP_KEYS,
++    PROBABILITY_COLUMNS,
+     aggregate_semantic_videos,
+     compute_task_metrics,
+     deduplicate_distributed_rows,
+     frame_semantic_rows,
++    map_candidate_probabilities,
+ )
+ from models.clip_semantic_jev import EncodedTextLookup
+ from models.factory import build_model
+ 
+ 
+ ConditionSpec = namedtuple(
+-    "ConditionSpec", ("text_splits", "language_split", "fixed_h1"),
+-    defaults=(False,),
++    "ConditionSpec", ("text_splits", "language_split", "mode", "fixed_h1"),
++    defaults=("ordinary", False),
+ )
+ 
+ 
+ # Task 6 extends this registry with controls.  Keeping construction and
+ # inference behind these hooks avoids embedding control behavior in Task 5.
+ CONDITION_SPECS = {
+     "fixed_h1": ConditionSpec(("fixed",), "fixed", fixed_h1=True),
+     "seen": ConditionSpec(("train",), "train"),
+     "heldout": ConditionSpec(("heldout",), "heldout"),
++    "permutation": ConditionSpec(("heldout",), "heldout", "permutation"),
++    "counterfactual": ConditionSpec(("heldout",), "heldout", "counterfactual"),
++    "meaningless_candidates": ConditionSpec(
++        ("heldout", "control"), "heldout", "meaningless_candidates"
++    ),
++    "meaningless_questions": ConditionSpec(
++        ("heldout", "control"), "heldout", "meaningless_questions"
++    ),
+ }
+ 
+ _MANIFEST_GATED_CONDITIONS = frozenset(
+     {
+         "heldout",
+         "permutation",
+         "counterfactual",
+         "meaningless_candidates",
+         "meaningless_questions",
+     }
+@@ -97,20 +125,46 @@ def file_sha256(path: str | Path) -> str:
+     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+ 
+ 
+ def required_text_splits(condition: str) -> tuple[str, ...]:
+     try:
+         return CONDITION_SPECS[condition].text_splits
+     except KeyError as error:
+         raise ValueError(f"unsupported evaluation condition: {condition}") from error
+ 
+ 
++def build_condition_text_lookup(model, language_bank, condition, device):
++    """Encode only text entries reachable by one explicit condition."""
++    splits = frozenset(required_text_splits(condition))
++    control_kind = {
++        "meaningless_candidates": "candidate",
++        "meaningless_questions": "question",
++    }.get(condition)
++    entries = tuple(
++        entry
++        for entry in language_bank.text_entries
++        if entry.split in splits
++        and (
++            entry.split != "control"
++            or control_kind is None
++            or entry.kind == control_kind
++        )
++    )
++    scoped_bank = SimpleNamespace(text_entries=entries)
++    return EncodedTextLookup.build(
++        model,
++        scoped_bank,
++        allowed_splits=tuple(splits),
++        device=device,
++    )
++
++
+ def validate_checkpoint_manifest(
+     checkpoint: dict, expected_sha256: str, conditions
+ ) -> None:
+     """Gate held-out/control evaluation on the exact training manifest."""
+     if not (_MANIFEST_GATED_CONDITIONS & set(conditions)):
+         return
+     actual = checkpoint.get("language_manifest_sha256")
+     if actual != expected_sha256:
+         raise ValueError(
+             "checkpoint language manifest SHA256 is missing or does not match "
+@@ -230,20 +284,115 @@ class PairedT4EvaluationDataset(Dataset):
+                 f"T4::{self.split}::{candidate_set_id}"
+             )
+         else:
+             rendered["question_pair_id"] = ""
+         return rendered
+ 
+     def set_epoch(self, epoch: int) -> None:
+         self.epoch = int(epoch)
+ 
+ 
++class CounterfactualEvaluationDataset(Dataset):
++    """Expand each physical sample into exact T2/T4 paired requests."""
++
++    def __init__(self, base_dataset, language_bank, *, tasks, split, seed):
++        self.base_dataset = base_dataset
++        self.language_bank = language_bank
++        self.split = split
++        self.seed = int(seed)
++        self.tasks = tuple(task for task in tasks if task in {"T2", "T4"})
++        if not self.tasks:
++            raise ValueError("counterfactual evaluation selected no paired tasks")
++        self.slots = tuple(
++            (task_id, pair_index)
++            for task_id in self.tasks
++            for pair_index in range(2)
++        )
++
++    def __len__(self):
++        return len(self.base_dataset) * len(self.slots)
++
++    def __getitem__(self, index):
++        base_index, slot_index = divmod(index, len(self.slots))
++        task_id, pair_index = self.slots[slot_index]
++        requests = build_counterfactual_requests(
++            task_id,
++            self.split,
++            self.base_dataset[base_index],
++            self.language_bank,
++            seed=self.seed,
++        )
++        return requests[pair_index]
++
++
++class PairedMeaninglessEvaluationDataset(Dataset):
++    """Emit a control request plus its exact hidden meaningful counterpart."""
++
++    _PAIRED_FIELDS = (
++        "question_text_id",
++        "candidate_text_ids",
++        "candidate_semantic_ids",
++        "candidate_mask",
++        "target_index",
++        "question_id",
++        "variant_id",
++        "render_id",
++    )
++
++    def __init__(self, meaningful_dataset, language_bank, *, control):
++        if control not in {"meaningless_candidates", "meaningless_questions"}:
++            raise ValueError(f"unknown meaningless control: {control}")
++        self.meaningful_dataset = meaningful_dataset
++        self.language_bank = language_bank
++        self.control = control
++        permitted = (
++            {"T2", "T4"}
++            if control == "meaningless_questions"
++            else set(TASKS)
++        )
++        self.slot_indices = tuple(
++            index
++            for index, (task_id, _question_id) in enumerate(
++                meaningful_dataset.slots
++            )
++            if task_id in permitted
++        )
++        if not self.slot_indices:
++            raise ValueError(f"{control} selected no eligible semantic tasks")
++
++    def __len__(self):
++        return len(self.meaningful_dataset.base_dataset) * len(self.slot_indices)
++
++    def __getitem__(self, index):
++        base_index, selected_slot = divmod(index, len(self.slot_indices))
++        meaningful_index = (
++            base_index * len(self.meaningful_dataset.slots)
++            + self.slot_indices[selected_slot]
++        )
++        meaningful = self.meaningful_dataset[meaningful_index]
++        sample_id = str(meaningful["sample_id"])
++        if self.control == "meaningless_candidates":
++            control = build_meaningless_candidate_request(
++                meaningful, sample_id, self.language_bank
++            )
++        else:
++            control = build_meaningless_question_request(
++                meaningful, sample_id, self.language_bank
++            )
++        for field in self._PAIRED_FIELDS:
++            value = meaningful[field]
++            control[f"meaningful_{field}"] = (
++                value.clone() if isinstance(value, torch.Tensor) else value
++            )
++        return control
++
++
+ def _plain_loader(cfg: dict, dataset, distributed: bool) -> DataLoader:
+     workers = int(cfg["train"].get("num_workers", 4))
+     kwargs = {
+         "batch_size": int(cfg["train"].get("per_gpu_batch", 32)),
+         "shuffle": False,
+         "drop_last": False,
+         "num_workers": workers,
+         "pin_memory": True,
+     }
+     if workers > 0:
+@@ -258,33 +407,84 @@ def _plain_loader(cfg: dict, dataset, distributed: bool) -> DataLoader:
+ 
+ 
+ def condition_tasks(domain: str, condition: str) -> tuple[str, ...]:
+     if condition == "fixed_h1":
+         return ("T1",)
+     if domain == "dfd":
+         return ("T1", "T2", "T3")
+     return TASKS
+ 
+ 
++def _base_sample_ids(dataset) -> list[str]:
++    records = getattr(dataset, "records", None)
++    if records is not None:
++        return [str(record.sample_id) for record in records]
++    return [str(dataset[index]["sample_id"]) for index in range(len(dataset))]
++
++
+ def build_condition_loader(
+     cfg: dict,
+     language_bank,
+     *,
+     domain: str,
+     condition: str,
+     distributed: bool,
+ ):
+-    """Condition hook intentionally limited to Task 5's three suites."""
++    """Build an explicit condition without changing Task 5 primitives."""
+     spec = CONDITION_SPECS[condition]
+     if spec.fixed_h1:
+         dataset = FixedH1Dataset(build_eval_dataset(cfg, domain), language_bank)
+         return _plain_loader(cfg, dataset, distributed)
++    if spec.mode != "ordinary":
++        base_dataset = build_eval_dataset(cfg, domain)
++        tasks = condition_tasks(domain, condition)
++        seed = int(cfg["train"].get("seed", 42))
++        if spec.mode == "permutation":
++            selected = select_global_audit_indices(
++                _base_sample_ids(base_dataset), limit=4096
++            )
++            audited_base = Subset(base_dataset, selected)
++            dataset = SemanticDataset(
++                audited_base,
++                SemanticTemplateSampler(language_bank, seed=seed),
++                mode="suite",
++                tasks=tasks,
++                split=spec.language_split,
++            )
++            # A global subset is selected before rank sharding. Unlike padded
++            # DistributedSampler, this visits each audited render exactly once.
++            if distributed:
++                dataset = Subset(dataset, range(dist.get_rank(), len(dataset), dist.get_world_size()))
++            return _plain_loader(cfg, dataset, distributed=False)
++        elif spec.mode == "counterfactual":
++            dataset = CounterfactualEvaluationDataset(
++                base_dataset,
++                language_bank,
++                tasks=tasks,
++                split=spec.language_split,
++                seed=seed,
++            )
++        else:
++            meaningful = SemanticDataset(
++                base_dataset,
++                SemanticTemplateSampler(language_bank, seed=seed),
++                mode="suite",
++                tasks=tasks,
++                split=spec.language_split,
++            )
++            paired_meaningful = PairedT4EvaluationDataset(meaningful)
++            dataset = PairedMeaninglessEvaluationDataset(
++                paired_meaningful,
++                language_bank,
++                control=spec.mode,
++            )
++        return _plain_loader(cfg, dataset, distributed)
+     ordinary_loader = build_semantic_eval_loader(
+         cfg,
+         language_bank,
+         domain=domain,
+         distributed=False,
+         split=spec.language_split,
+         tasks=condition_tasks(domain, condition),
+     )
+     return _plain_loader(
+         cfg,
+@@ -304,20 +504,32 @@ def _load_checkpoint(path: str | Path) -> dict:
+ 
+ 
+ def _move_batch(batch: dict, device: torch.device):
+     images = batch["image"].to(device, non_blocking=True)
+     question_ids = batch["question_text_id"].to(device, non_blocking=True)
+     candidate_ids = batch["candidate_text_ids"].to(device, non_blocking=True)
+     candidate_mask = batch["candidate_mask"].to(device, non_blocking=True)
+     return images, question_ids, candidate_ids, candidate_mask
+ 
+ 
++def _batch_list(value, size):
++    if isinstance(value, torch.Tensor):
++        result = value.detach().cpu().tolist()
++    elif isinstance(value, (str, bytes)):
++        result = [value] * size
++    else:
++        result = list(value)
++    if len(result) != size:
++        raise ValueError(f"batch field has {len(result)} values; expected {size}")
++    return result
++
++
+ @torch.no_grad()
+ def infer_condition_rows(
+     model,
+     loader,
+     text_lookup,
+     device: torch.device,
+     *,
+     seed: int,
+     domain: str,
+     condition: str,
+@@ -333,23 +545,289 @@ def infer_condition_rows(
+         )
+         logits = model(images, questions, candidates, candidate_mask)
+         probabilities = torch.softmax(logits.float(), dim=1)
+         rows.extend(
+             frame_semantic_rows(
+                 batch,
+                 probabilities.cpu(),
+                 {"seed": seed, "domain": domain, "condition": condition},
+             )
+         )
++        if "control_pair_id" in batch or "hidden_visual_truth" in batch:
++            current = rows[-probabilities.shape[0] :]
++            for field in (
++                "control_pair_id",
++                "hidden_visual_truth",
++                "hidden_method_family",
++                "hidden_question_polarity",
++            ):
++                if field in batch:
++                    for row, value in zip(
++                        current, _batch_list(batch[field], len(current))
++                    ):
++                        row[field] = str(value)
+     return rows
+ 
+ 
++@torch.no_grad()
++def infer_paired_control_rows(
++    model,
++    loader,
++    text_lookup,
++    device: torch.device,
++    *,
++    seed: int,
++    domain: str,
++    condition: str,
++) -> list[dict]:
++    """Score paired meaningful/control text using one visual feature cache."""
++    model.eval()
++    rows = []
++    for batch in loader:
++        images, question_ids, candidate_ids, candidate_mask = _move_batch(
++            batch, device
++        )
++        image_features = model.extract_features(images)
++        control_questions, control_candidates = text_lookup.lookup(
++            question_ids, candidate_ids, candidate_mask
++        )
++        meaningful_question_ids = batch["meaningful_question_text_id"].to(device)
++        meaningful_candidate_ids = batch["meaningful_candidate_text_ids"].to(device)
++        meaningful_mask = batch["meaningful_candidate_mask"].to(device)
++        meaningful_questions, meaningful_candidates = text_lookup.lookup(
++            meaningful_question_ids, meaningful_candidate_ids, meaningful_mask
++        )
++        control_logits = model.classify_features(
++            image_features,
++            control_questions,
++            control_candidates,
++            candidate_mask,
++        )
++        meaningful_logits = model.classify_features(
++            image_features,
++            meaningful_questions,
++            meaningful_candidates,
++            meaningful_mask,
++        )
++        control_position_probabilities = torch.softmax(
++            control_logits.float(), dim=1
++        )
++        meaningful_position_probabilities = torch.softmax(
++            meaningful_logits.float(), dim=1
++        )
++        control_canonical = map_candidate_probabilities(
++            control_position_probabilities,
++            batch["candidate_semantic_ids"].to(device),
++            candidate_mask,
++        ).cpu()
++        meaningful_canonical = map_candidate_probabilities(
++            meaningful_position_probabilities,
++            batch["meaningful_candidate_semantic_ids"].to(device),
++            meaningful_mask,
++        ).cpu()
++        evaluation_batch = dict(batch)
++        # Original question/variant identity remains evaluation metadata. The
++        # actual model text IDs above still point only to the control text.
++        for field in ("question_id", "variant_id", "render_id"):
++            evaluation_batch[field] = batch[f"meaningful_{field}"]
++        frame_rows = frame_semantic_rows(
++            evaluation_batch,
++            control_position_probabilities.cpu(),
++            {"seed": seed, "domain": domain, "condition": condition},
++        )
++        pair_ids = _batch_list(batch["control_pair_id"], len(frame_rows))
++        metadata = []
++        for row, pair_id in zip(frame_rows, pair_ids):
++            row["control_pair_id"] = str(pair_id)
++            metadata.append(
++                {
++                    **row,
++                    "control_pair_id": str(pair_id),
++                }
++            )
++        paired = paired_control_rows(
++            metadata, meaningful_canonical, control_canonical
++        )
++        meaningful_batch = dict(evaluation_batch)
++        for field in PairedMeaninglessEvaluationDataset._PAIRED_FIELDS:
++            meaningful_batch[field] = batch[f"meaningful_{field}"]
++        meaningful_rows = frame_semantic_rows(
++            meaningful_batch, meaningful_position_probabilities.cpu(),
++            {"seed": seed, "domain": domain, "condition": condition},
++        )
++        for row, meaningful_row in zip(paired, meaningful_rows):
++            for column in (*PROBABILITY_COLUMNS, "prob_fake"):
++                row[f"meaningful_{column}"] = meaningful_row[column]
++        for row, question_id in zip(paired, _batch_list(batch["question_id"], len(paired))):
++            row["control_question_id"] = str(question_id)
++        rows.extend(paired)
++    return rows
++
++
++@torch.no_grad()
++def infer_permutation_metrics(
++    model,
++    loader,
++    text_lookup,
++    device: torch.device,
++    *,
++    seed: int,
++    domain: str,
++) -> list[dict]:
++    """Run exhaustive orders with one visual extraction per audited batch."""
++    maximum_error = 0.0
++    consistent_count = 0
++    comparison_count = 0
++    model.eval()
++    for batch in loader:
++        images, question_ids, candidate_ids, candidate_mask = _move_batch(
++            batch, device
++        )
++        image_features = model.extract_features(images)
++        questions, candidates = text_lookup.lookup(
++            question_ids, candidate_ids, candidate_mask
++        )
++        result = permutation_audit(
++            model,
++            image_features,
++            questions,
++            candidates,
++            candidate_mask,
++            reduce_across_ranks=False,
++        )
++        maximum_error = max(maximum_error, float(result["max_probability_error"]))
++        consistent_count += int(result["consistent_count"])
++        comparison_count += int(result["comparison_count"])
++    # Only one collective per aggregate, after potentially uneven rank loops.
++    if dist.is_available() and dist.is_initialized():
++        error = torch.tensor(maximum_error, dtype=torch.float64, device=device)
++        counts = torch.tensor([consistent_count, comparison_count], dtype=torch.long, device=device)
++        dist.all_reduce(error, op=dist.ReduceOp.MAX)
++        dist.all_reduce(counts, op=dist.ReduceOp.SUM)
++        maximum_error = error.item()
++        consistent_count, comparison_count = counts.tolist()
++    aggregate = {
++        "max_probability_error": maximum_error,
++        "prediction_consistency": (
++            consistent_count / comparison_count
++            if comparison_count
++            else float("nan")
++        ),
++        "consistent_count": consistent_count,
++        "comparison_count": comparison_count,
++    }
++    return permutation_metric_rows(aggregate, seed=seed, domain=domain)
++
++
++def counterfactual_control_rows(rows: list[dict]) -> list[dict]:
++    """Compute paired consistency/ordering after averaging each video polarity."""
++    if not rows:
++        return []
++    frame = pd.DataFrame(rows)
++    physical_keys = ["seed", "domain", "condition", "task_id", "sample_id", "video_key", "question_pair_id"]
++    for identity, pair in frame.groupby(physical_keys, sort=False, dropna=False):
++        expected = {"real", "fake"} if identity[3] == "T2" else {"swap", "reenact"}
++        if len(pair) != 2 or set(pair.question_yes_means) != expected:
++            raise ValueError("counterfactual physical question pair is incomplete or ambiguous")
++    # Physical pair IDs remain in frame output. Video pairing pools all frames
++    # of each question polarity within the same method-qualified video.
++    video_keys = ["seed", "domain", "condition", "task_id", "video_key", "label", "method_family", "question_yes_means"]
++    frame = frame.groupby(video_keys, sort=False, dropna=False)[["p_yes", "prob_fake"]].mean().reset_index()
++    keys = [
++        "seed",
++        "domain",
++        "condition",
++        "task_id",
++        "video_key",
++    ]
++    output = []
++    for identity, pair in frame.groupby(keys, sort=False, dropna=False):
++        if len(pair) != 2 or pair.question_yes_means.nunique() != 2:
++            raise ValueError("counterfactual pair ID must identify exactly two polarities")
++        seed, domain, condition, task_id, video_key = identity
++        base = {
++            "seed": int(seed),
++            "domain": str(domain),
++            "condition": str(condition),
++            "task_id": str(task_id),
++            "video_key": str(video_key),
++            "pairing_key": "::".join(str(value) for value in identity),
++            "count": 1,
++        }
++        if task_id == "T2":
++            literal_answers = pair.p_yes.to_numpy(dtype=float) >= 0.5
++            implied_fake = pair.prob_fake.to_numpy(dtype=float) >= 0.5
++            value = float(
++                literal_answers[0] != literal_answers[1]
++                and implied_fake[0] == implied_fake[1]
++            )
++            output.append(
++                {
++                    **base,
++                    "metric": "polarity_consistency",
++                    "value": value,
++                }
++            )
++        elif task_id == "T4" and int(pair.label.iloc[0]) == 1:
++            family = str(pair.method_family.iloc[0])
++            matching = pair.loc[pair.question_yes_means == family]
++            counterfactual = pair.loc[pair.question_yes_means != family]
++            if len(matching) != 1 or len(counterfactual) != 1:
++                raise ValueError("T4 pair does not contain one true-family question")
++            meaningful_score = float(matching.p_yes.iloc[0])
++            control_score = float(counterfactual.p_yes.iloc[0])
++            output.append(
++                {
++                    **base,
++                    "metric": "true_family_ordering",
++                    "value": float(meaningful_score > control_score),
++                    "meaningful_score": meaningful_score,
++                    "control_score": control_score,
++                    "drop": meaningful_score - control_score,
++                }
++            )
++    return output
++
++
++def evaluate_condition(model, loader, text_lookup, device, *, seed, domain, condition):
++    """Dispatch all public conditions through their actual evaluation path."""
++    context = dict(seed=seed, domain=domain)
++    if condition == "permutation":
++        return infer_permutation_metrics(model, loader, text_lookup, device, **context)
++    infer = infer_paired_control_rows if condition.startswith("meaningless_") else infer_condition_rows
++    return infer(model, loader, text_lookup, device, condition=condition, **context)
++
++
++def paired_control_videos(rows):
++    """Keep canonical video aggregation and join counterparts by exact keys."""
++    control = aggregate_semantic_videos(rows)
++    meaningful_rows = []
++    for source in rows:
++        row = dict(source)
++        for column in (*PROBABILITY_COLUMNS, "prob_fake"):
++            row[column] = source[f"meaningful_{column}"]
++        meaningful_rows.append(row)
++    meaningful = aggregate_semantic_videos(meaningful_rows)
++    values = [*PROBABILITY_COLUMNS, "prob_fake", "num_frames"]
++    joined = control.merge(
++        meaningful[[*GROUP_KEYS, *values]].rename(columns={column: f"meaningful_{column}" for column in values}),
++        on=list(GROUP_KEYS), how="outer", validate="one_to_one", indicator=True,
++    )
++    if not joined["_merge"].eq("both").all():
++        raise ValueError("meaningful/control video keys do not match exactly")
++    if not joined.num_frames.eq(joined.meaningful_num_frames).all():
++        raise ValueError("meaningful/control video frame counts differ")
++    joined = joined.drop(columns="_merge")
++    joined["pairing_key"] = joined[list(GROUP_KEYS)].astype(str).agg("::".join, axis=1)
++    return joined
++
++
+ def _npz_array(values: list[object]) -> np.ndarray:
+     if all(isinstance(value, (bool, np.bool_)) for value in values):
+         return np.asarray(values, dtype=bool)
+     if all(isinstance(value, (int, np.integer)) for value in values):
+         return np.asarray(values, dtype=np.int64)
+     if all(isinstance(value, (int, float, np.number)) for value in values):
+         return np.asarray(values, dtype=np.float64)
+     return np.asarray(["" if value is None else str(value) for value in values])
+ 
+ 
+@@ -373,34 +851,60 @@ def _json_value(value):
+     if isinstance(value, float) and not np.isfinite(value):
+         return None
+     return value
+ 
+ 
+ def write_outputs(
+     rows: list[dict], *, output_dir: str | Path, condition: str, domain: str
+ ) -> None:
+     root = Path(output_dir) / condition
+     root.mkdir(parents=True, exist_ok=True)
+-    videos = aggregate_semantic_videos(rows)
+-    metrics = compute_task_metrics(videos)
++    if condition == "permutation":
++        _write_metrics(rows, root / f"{domain}_metrics.json")
++        return
++    aggregation_rows = rows
++    if condition == "counterfactual":
++        # Physical IDs must not split a video into single-frame groups.
++        aggregation_rows = [dict(row, question_pair_id=f"{row['task_id']}::heldout::{row['variant_id'].split('::')[1]}") for row in rows]
++    videos = aggregate_semantic_videos(aggregation_rows)
++    metrics = compute_task_metrics(videos).to_dict("records")
++    for row in metrics:
++        row["pairing_key"] = "::".join(str(row[key]) for key in ("seed", "domain", "condition", "task_id", "method_id"))
++    if condition.startswith("meaningless_"):
++        paired = paired_control_videos(rows)
++        _write_csv(paired, root / f"{domain}_paired_videos.csv")
++        metrics.extend(control_metric_rows(paired.to_dict("records")))
++    elif condition == "counterfactual":
++        controls = counterfactual_control_rows(rows)
++        _write_csv(pd.DataFrame(controls), root / f"{domain}_controls.csv")
++        if controls:
++            keys = ["seed", "domain", "condition", "task_id", "metric"]
++            for identity, group in pd.DataFrame(controls).groupby(keys, sort=False):
++                metrics.append({**dict(zip(keys, identity)), "value": float(group.value.mean()),
++                                "count": len(group), "pairing_key": "::".join(map(str, identity))})
+ 
+     write_frame_npz(rows, root / f"{domain}_frames.npz")
+-    video_path = root / f"{domain}_videos.csv"
+-    video_tmp = video_path.with_suffix(video_path.suffix + ".tmp")
+-    videos.to_csv(video_tmp, index=False)
+-    os.replace(video_tmp, video_path)
++    _write_csv(videos, root / f"{domain}_videos.csv")
++    _write_metrics(metrics, root / f"{domain}_metrics.json")
++
++
++def _write_csv(frame, path):
++    temporary = path.with_suffix(path.suffix + ".tmp")
++    frame.to_csv(temporary, index=False)
++    os.replace(temporary, path)
++
+ 
+-    metric_path = root / f"{domain}_metrics.json"
++def _write_metrics(metrics, metric_path):
+     metric_tmp = metric_path.with_suffix(metric_path.suffix + ".tmp")
+     records = [
+         {key: _json_value(value) for key, value in row.items()}
+-        for row in metrics.to_dict("records")
++        for row in metrics
+     ]
+     metric_tmp.write_text(json.dumps(records, indent=2, sort_keys=True) + "\n")
+     os.replace(metric_tmp, metric_path)
+ 
+ 
+ def main(argv=None) -> int:
+     args = parse_args(argv)
+     cfg = load_config(args.config)
+     cfg = dict(cfg)
+     cfg["train"] = dict(cfg["train"])
+@@ -427,46 +931,46 @@ def main(argv=None) -> int:
+             )
+ 
+         model = build_model(cfg["model"]).to(device)
+         model.load_state_dict(checkpoint["model_state_dict"], strict=True)
+         model.eval()
+ 
+         # A lookup is built lazily per condition and contains only the split
+         # that condition is authorized to encode.
+         text_lookups = {}
+         for condition in args.conditions:
+-            text_lookups[condition] = EncodedTextLookup.build(
++            text_lookups[condition] = build_condition_text_lookup(
+                 model,
+                 language_bank,
+-                allowed_splits=required_text_splits(condition),
++                condition=condition,
+                 device=device,
+             )
+             for domain in args.domains:
+                 loader = build_condition_loader(
+                     cfg,
+                     language_bank,
+                     domain=domain,
+                     condition=condition,
+                     distributed=distributed,
+                 )
+-                local_rows = infer_condition_rows(
++                local_rows = evaluate_condition(
+                     model,
+                     loader,
+                     text_lookups[condition],
+                     device,
+                     seed=args.seed,
+                     domain=domain,
+                     condition=condition,
+                 )
+-                gathered = gather_rows_across_ranks(local_rows)
++                gathered = local_rows if condition == "permutation" else gather_rows_across_ranks(local_rows)
+                 if is_main_process():
+-                    rows = deduplicate_distributed_rows(gathered)
++                    rows = gathered if condition == "permutation" else deduplicate_distributed_rows(gathered)
+                     write_outputs(
+                         rows,
+                         output_dir=args.output_dir,
+                         condition=condition,
+                         domain=domain,
+                     )
+                 barrier()
+         return 0
+     finally:
+         if distributed:
+diff --git a/src/evaluation/semantic_controls.py b/src/evaluation/semantic_controls.py
+new file mode 100644
+index 0000000..3b20616
+--- /dev/null
++++ b/src/evaluation/semantic_controls.py
+@@ -0,0 +1,479 @@
++"""Exhaustive and paired controls for E2 semantic evaluation."""
++
++from __future__ import annotations
++
++import hashlib
++import itertools
++import random
++from collections.abc import Iterable, Mapping, Sequence
++from pathlib import Path
++
++import torch
++import torch.distributed as dist
++import pandas as pd
++
++from data.semantic_dataset import SemanticTemplateSampler, method_family
++from data.semantic_language import LanguageBank, SEMANTIC_TO_ID, load_language_bank
++from evaluation.semantic_eval import compute_task_metrics
++
++
++class ControlRequest(dict):
++    """A collatable mapping with convenient attribute access in audits/tests."""
++
++    def __getattr__(self, name):
++        try:
++            return self[name]
++        except KeyError as error:
++            raise AttributeError(name) from error
++
++
++def _stable_u64(*parts: object) -> int:
++    payload = "\x1f".join(str(part) for part in parts).encode("utf-8")
++    return int.from_bytes(hashlib.blake2b(payload, digest_size=8).digest(), "big")
++
++
++def _stable_permutation(size: int, *parts: object) -> tuple[int, ...]:
++    order = list(range(size))
++    random.Random(_stable_u64(*parts)).shuffle(order)
++    return tuple(order)
++
++
++def _default_language_bank() -> LanguageBank:
++    manifest = (
++        Path(__file__).resolve().parents[2]
++        / "experiments/2026-09-22_semantic_visual_jev_e2/configs/language_bank.yaml"
++    )
++    return load_language_bank(manifest)
++
++
++def _resolve_bank(sample: Mapping[str, object], bank: LanguageBank | None) -> LanguageBank:
++    if bank is not None:
++        return bank
++    embedded = sample.get("language_bank")
++    if isinstance(embedded, LanguageBank):
++        return embedded
++    return _default_language_bank()
++
++
++def enumerate_candidate_permutations(candidate_count: int) -> tuple[tuple[int, ...], ...]:
++    """Return every valid order for the locked binary/ternary candidate sets."""
++    if candidate_count not in (2, 3):
++        raise ValueError("candidate_count must be two or three")
++    return tuple(itertools.permutations(range(candidate_count)))
++
++
++def _distributed_audit_totals(
++    maximum_error: torch.Tensor,
++    consistent_count: torch.Tensor,
++    comparison_count: torch.Tensor,
++) -> tuple[float, int, int]:
++    if dist.is_available() and dist.is_initialized():
++        dist.all_reduce(maximum_error, op=dist.ReduceOp.MAX)
++        dist.all_reduce(consistent_count, op=dist.ReduceOp.SUM)
++        dist.all_reduce(comparison_count, op=dist.ReduceOp.SUM)
++    return (
++        float(maximum_error.item()),
++        int(consistent_count.item()),
++        int(comparison_count.item()),
++    )
++
++
++@torch.no_grad()
++def permutation_audit(
++    model,
++    image_features: torch.Tensor,
++    question_embeddings: torch.Tensor,
++    candidate_embeddings: torch.Tensor,
++    candidate_mask: torch.Tensor,
++    *,
++    reduce_across_ranks: bool = True,
++) -> dict[str, float | int]:
++    """Audit all 2!/3! orders after remapping to the original candidate order.
++
++    ``image_features`` is intentionally supplied rather than raw images so the
++    caller extracts the frozen visual representation exactly once per batch.
++    Global max/count reductions happen here when torch.distributed is active.
++    """
++    if candidate_embeddings.ndim != 3 or candidate_mask.ndim != 2:
++        raise ValueError("candidate embeddings/mask must be rank three/two")
++    if candidate_embeddings.shape[:2] != candidate_mask.shape:
++        raise ValueError("candidate embeddings and mask shapes do not align")
++    batch_size = candidate_embeddings.shape[0]
++    if image_features.shape[0] != batch_size or question_embeddings.shape[0] != batch_size:
++        raise ValueError("all audit tensors must have the same batch size")
++    candidate_counts = candidate_mask.sum(dim=1)
++    if not torch.all((candidate_counts == 2) | (candidate_counts == 3)):
++        raise ValueError("every audit sample must contain two or three candidates")
++    if not torch.all(candidate_mask == (
++        torch.arange(candidate_mask.shape[1], device=candidate_mask.device)[None, :]
++        < candidate_counts[:, None]
++    )):
++        raise ValueError("valid candidates must precede padding")
++
++    was_training = bool(getattr(model, "training", False))
++    model.eval()
++    try:
++        reference_logits = model.classify_features(
++            image_features,
++            question_embeddings,
++            candidate_embeddings,
++            candidate_mask,
++        )
++        reference_probabilities = torch.softmax(reference_logits.float(), dim=-1)
++        maximum_error = torch.zeros((), dtype=torch.float64, device=image_features.device)
++        consistent_count = torch.zeros((), dtype=torch.long, device=image_features.device)
++        comparison_count = torch.zeros((), dtype=torch.long, device=image_features.device)
++
++        for candidate_count in (2, 3):
++            selected = torch.where(candidate_counts == candidate_count)[0]
++            if selected.numel() == 0:
++                continue
++            subset_candidates = candidate_embeddings[selected]
++            subset_mask = candidate_mask[selected]
++            subset_reference = reference_probabilities[selected]
++            for permutation in enumerate_candidate_permutations(candidate_count):
++                full_order = tuple(permutation) + tuple(
++                    range(candidate_count, candidate_embeddings.shape[1])
++                )
++                order = torch.tensor(
++                    full_order, dtype=torch.long, device=candidate_embeddings.device
++                )
++                permuted_logits = model.classify_features(
++                    image_features[selected],
++                    question_embeddings[selected],
++                    subset_candidates.index_select(1, order),
++                    subset_mask.index_select(1, order),
++                )
++                permuted_probabilities = torch.softmax(
++                    permuted_logits.float(), dim=-1
++                )
++                remapped = torch.zeros_like(permuted_probabilities)
++                remapped[:, order] = permuted_probabilities
++                error = (remapped - subset_reference).abs().max().to(torch.float64)
++                maximum_error = torch.maximum(maximum_error, error)
++                consistent = (
++                    remapped.argmax(dim=-1) == subset_reference.argmax(dim=-1)
++                )
++                consistent_count += consistent.sum()
++                comparison_count += consistent.numel()
++    finally:
++        model.train(was_training)
++
++    if reduce_across_ranks:
++        error, consistent, comparisons = _distributed_audit_totals(
++            maximum_error, consistent_count, comparison_count
++        )
++    else:
++        error, consistent, comparisons = maximum_error.item(), consistent_count.item(), comparison_count.item()
++    return {
++        "max_probability_error": error,
++        "prediction_consistency": consistent / comparisons if comparisons else float("nan"),
++        "consistent_count": consistent,
++        "comparison_count": comparisons,
++    }
++
++
++def select_global_audit_indices(
++    sample_ids: Sequence[str], limit: int = 4096
++) -> tuple[int, ...]:
++    """Select one global first-N subset using canonical sample-id ordering."""
++    if limit <= 0:
++        raise ValueError("audit limit must be positive")
++    normalized = [str(sample_id) for sample_id in sample_ids]
++    if len(normalized) != len(set(normalized)):
++        raise ValueError("permutation audit sample IDs must be unique")
++    return tuple(sorted(range(len(normalized)), key=normalized.__getitem__)[:limit])
++
++
++def _pair_id(task_id: str, split: str, sample_id: str, candidate_set: str) -> str:
++    digest = format(
++        _stable_u64("counterfactual", task_id, split, sample_id, candidate_set),
++        "016x",
++    )
++    return f"{task_id}::{split}::{sample_id}::{digest}"
++
++
++def build_counterfactual_requests(
++    task_id: str,
++    split: str,
++    sample: Mapping[str, object],
++    bank: LanguageBank | None = None,
++    *,
++    seed: int = 42,
++) -> tuple[ControlRequest, ControlRequest]:
++    """Render one exact opposite-polarity/family pair for a physical sample."""
++    if task_id not in {"T2", "T4"}:
++        raise ValueError("counterfactual controls support only T2 or T4")
++    bank = _resolve_bank(sample, bank)
++    language = bank.task(task_id, split)
++    expected_polarities = ("real", "fake") if task_id == "T2" else ("swap", "reenact")
++    questions = {}
++    for polarity in expected_polarities:
++        candidates = tuple(
++            question for question in language.questions if question.yes_means == polarity
++        )
++        if not candidates:
++            raise ValueError(f"{task_id} {split} has no {polarity} question")
++        questions[polarity] = candidates[
++            _stable_u64("counterfactual_question", sample["sample_id"], polarity)
++            % len(candidates)
++        ]
++    candidate_set = language.candidate_sets[
++        _stable_u64("counterfactual_candidates", sample["sample_id"], task_id)
++        % len(language.candidate_sets)
++    ]
++    permutation = _stable_permutation(
++        len(candidate_set.options), "counterfactual_order", sample["sample_id"], task_id
++    )
++    pair_id = _pair_id(task_id, split, str(sample["sample_id"]), candidate_set.name)
++    label = int(sample["label"])
++    family = method_family(str(sample["method_id"]), label)
++    sampler = SemanticTemplateSampler(bank, seed=seed)
++    requests = []
++    for polarity in expected_polarities:
++        rendered = sampler.render(
++            dict(sample),
++            task_id,
++            split,
++            0,
++            permutation=permutation,
++            force_question=questions[polarity].name,
++            force_candidate_set=candidate_set.name,
++        )
++        rendered.update(
++            question_pair_id=pair_id,
++            render_id=pair_id,
++            control_pair_id=pair_id,
++            hidden_visual_truth="real" if label == 0 else "fake",
++            hidden_method_family=family,
++            hidden_question_polarity=polarity,
++        )
++        requests.append(ControlRequest(rendered))
++    return tuple(requests)  # type: ignore[return-value]
++
++
++def _control_candidate_entries(bank: LanguageBank, candidate_count: int):
++    key = "binary" if candidate_count == 2 else "ternary"
++    records = bank.raw["controls"]["candidate_sets"][key]
++    by_id = {entry.name: entry for entry in bank.entries("control", "candidate")}
++    return tuple(by_id[record["id"]] for record in records)
++
++
++def _valid_candidate_semantics(request: Mapping[str, object]) -> list[str]:
++    mask = request["candidate_mask"]
++    semantics = request["candidate_semantics"]
++    mask_values = mask.detach().cpu().tolist() if isinstance(mask, torch.Tensor) else list(mask)
++    return [
++        str(semantic)
++        for semantic, valid in zip(semantics, mask_values)
++        if bool(valid)
++    ]
++
++
++def _control_pair_id(control: str, request: Mapping[str, object], sample_id: str) -> str:
++    identity = (
++        control,
++        sample_id,
++        request.get("task_id", ""),
++        request.get("variant_id", ""),
++        request.get("question_id", ""),
++        request.get("question_yes_means_name", ""),
++    )
++    return f"{control}::{format(_stable_u64(*identity), '016x')}"
++
++
++def build_meaningless_candidate_request(
++    meaningful_request: Mapping[str, object],
++    sample_id: str,
++    bank: LanguageBank | None = None,
++) -> ControlRequest:
++    """Replace candidates with manifest controls and hidden balanced meanings."""
++    bank = _resolve_bank(meaningful_request, bank)
++    request = ControlRequest(dict(meaningful_request))
++    original_semantics = _valid_candidate_semantics(meaningful_request)
++    candidate_count = len(original_semantics)
++    if candidate_count not in (2, 3):
++        raise ValueError("meaningless controls require two or three candidates")
++    canonical_semantics = tuple(
++        sorted(set(original_semantics), key=SEMANTIC_TO_ID.__getitem__)
++    )
++    if len(canonical_semantics) != candidate_count:
++        raise ValueError("meaningful candidate semantics must be unique")
++    hidden_order = _stable_permutation(
++        candidate_count, "meaningless_candidates:hidden", sample_id
++    )
++    hidden_semantics = tuple(canonical_semantics[index] for index in hidden_order)
++    controls = _control_candidate_entries(bank, candidate_count)
++    word_order = _stable_permutation(
++        candidate_count, "meaningless_candidates:surface", sample_id
++    )
++    ordered_controls = tuple(controls[index] for index in word_order)
++    width = len(meaningful_request["candidate_mask"])
++    text_ids = torch.full((width,), -1, dtype=torch.long)
++    semantic_ids = torch.full((width,), -1, dtype=torch.long)
++    mask = torch.zeros(width, dtype=torch.bool)
++    for index, (entry, semantic) in enumerate(zip(ordered_controls, hidden_semantics)):
++        text_ids[index] = entry.text_id
++        semantic_ids[index] = SEMANTIC_TO_ID[semantic]
++        mask[index] = True
++    target_semantic = str(meaningful_request["target_semantic"])
++    target_index = hidden_semantics.index(target_semantic)
++    padding = ("",) * (width - candidate_count)
++    pair_id = _control_pair_id("meaningless_candidates", meaningful_request, sample_id)
++    request.update(
++        candidate_text_ids=text_ids,
++        candidate_semantic_ids=semantic_ids,
++        candidate_mask=mask,
++        candidate_ids=tuple(entry.name for entry in ordered_controls) + padding,
++        candidate_texts=tuple(entry.text for entry in ordered_controls) + padding,
++        candidate_semantics=hidden_semantics + padding,
++        target_index=torch.tensor(target_index, dtype=torch.long),
++        variant_id=f"{meaningful_request.get('variant_id', '')}::meaningless_candidates",
++        render_id=f"{pair_id}::control",
++        control_pair_id=pair_id,
++        hidden_target_semantic=target_semantic,
++        hidden_candidate_semantics=hidden_semantics + padding,
++    )
++    return request
++
++
++def build_meaningless_question_request(
++    meaningful_request: Mapping[str, object],
++    sample_id: str,
++    bank: LanguageBank | None = None,
++) -> ControlRequest:
++    """Replace a T2/T4 question while retaining evaluation-only polarity."""
++    if str(meaningful_request.get("task_id")) not in {"T2", "T4"}:
++        raise ValueError("meaningless question controls support only T2 or T4")
++    bank = _resolve_bank(meaningful_request, bank)
++    questions = bank.entries("control", "question")
++    if not questions:
++        raise ValueError("language manifest contains no control questions")
++    question = questions[
++        _stable_u64("meaningless_questions", sample_id) % len(questions)
++    ]
++    pair_id = _control_pair_id("meaningless_questions", meaningful_request, sample_id)
++    request = ControlRequest(dict(meaningful_request))
++    request.update(
++        question_text_id=torch.tensor(question.text_id, dtype=torch.long),
++        question_id=question.name,
++        question_text=question.text,
++        variant_id=f"{meaningful_request.get('variant_id', '')}::meaningless_questions",
++        render_id=f"{pair_id}::control",
++        control_pair_id=pair_id,
++        hidden_question_polarity=meaningful_request.get("question_yes_means_name", ""),
++    )
++    return request
++
++
++def paired_control_rows(
++    metadata: Sequence[Mapping[str, object]],
++    meaningful_probabilities: torch.Tensor,
++    control_probabilities: torch.Tensor,
++) -> list[dict]:
++    """Create exact per-sample meaningful/control score-drop records."""
++    if meaningful_probabilities.shape != control_probabilities.shape:
++        raise ValueError("meaningful and control probability shapes differ")
++    if meaningful_probabilities.ndim != 2 or meaningful_probabilities.shape[1] != len(SEMANTIC_TO_ID):
++        raise ValueError("canonical probabilities must have shape [batch, semantics]")
++    if len(metadata) != meaningful_probabilities.shape[0]:
++        raise ValueError("control metadata and probability batch sizes differ")
++    pair_ids = [str(row.get("control_pair_id", "")) for row in metadata]
++    if any(not pair_id for pair_id in pair_ids) or len(pair_ids) != len(set(pair_ids)):
++        raise ValueError("each row must have a unique control pair ID")
++
++    meaningful_cpu = meaningful_probabilities.detach().cpu()
++    control_cpu = control_probabilities.detach().cpu()
++    rows = []
++    for index, source in enumerate(metadata):
++        target_semantic = str(source["target_semantic"])
++        try:
++            target_column = SEMANTIC_TO_ID[target_semantic]
++        except KeyError as error:
++            raise ValueError(f"invalid hidden target semantic: {target_semantic}") from error
++        meaningful_score = float(meaningful_cpu[index, target_column])
++        control_score = float(control_cpu[index, target_column])
++        drop = meaningful_score - control_score
++        row = dict(source)
++        row.update(
++            pairing_key=pair_ids[index],
++            metric="target_probability_drop_diagnostic",
++            value=drop,
++            count=1,
++            meaningful_score=meaningful_score,
++            control_score=control_score,
++            drop=drop,
++        )
++        rows.append(row)
++    return rows
++
++
++def control_metric_rows(rows: Iterable[Mapping[str, object]]) -> list[dict]:
++    """G6 primary metric drops over exact paired *video* predictions.
++
++    Meaningful probabilities are prefixed in the same records, so both scores
++    use precisely the same videos/questions. Bootstrap inference is Task 7.
++    """
++    frame = pd.DataFrame(list(rows))
++    if frame.empty:
++        return []
++    if frame.pairing_key.eq("").any() or frame.pairing_key.duplicated().any():
++        raise ValueError("paired videos require unique nonempty pairing keys")
++    meaningful = frame.copy()
++    required = {"T1": ("prob_fake",), "T2": ("prob_fake",),
++                "T3": ("prob_fake",), "T4": ("p_yes",),
++                "T5": ("p_camera", "p_swap", "p_reenact")}
++    for task in frame.task_id.unique():
++        for column in required[task]:
++            if f"meaningful_{column}" not in frame:
++                raise ValueError(f"missing paired meaningful probability: {column}")
++    for column in frame:
++        if column.startswith("meaningful_"):
++            meaningful[column.removeprefix("meaningful_")] = frame[column]
++    primary = {"T1": "auroc", "T2": "balanced_accuracy", "T3": "auroc",
++               "T4": "balanced_accuracy", "T5": "macro_balanced_accuracy"}
++    keys = ["seed", "domain", "condition", "task_id", "metric", "method_id"]
++    left = compute_task_metrics(meaningful)
++    right = compute_task_metrics(frame)
++    joined = left.merge(right, on=keys, validate="one_to_one", suffixes=("_meaningful", "_control"))
++    output = []
++    for row in joined.to_dict("records"):
++        if row["method_id"] != "__all__" or row["metric"] != primary[row["task_id"]]:
++            continue
++        score, control = float(row["value_meaningful"]), float(row["value_control"])
++        output.append({
++            **{key: row[key] for key in keys},
++            "metric": f"{row['metric']}_drop", "primary_metric": row["metric"],
++            "value": score - control, "drop": score - control,
++            "meaningful_score": score, "control_score": control,
++            "count": int(row["count_control"]),
++            "pairing_key": f"{row['seed']}::{row['domain']}::{row['condition']}::{row['task_id']}",
++        })
++    return output
++
++
++def permutation_metric_rows(
++    result: Mapping[str, float | int], *, seed: int, domain: str
++) -> list[dict]:
++    """Normalize a global permutation result for Task 7 consumption."""
++    count = int(result["comparison_count"])
++    base = {
++        "seed": int(seed),
++        "domain": str(domain),
++        "condition": "permutation",
++        "task_id": "__all__",
++        "count": count,
++        "pairing_key": f"{seed}::{domain}::permutation",
++    }
++    return [
++        {
++            **base,
++            "metric": "max_probability_error",
++            "value": float(result["max_probability_error"]),
++        },
++        {
++            **base,
++            "metric": "prediction_consistency",
++            "value": float(result["prediction_consistency"]),
++        },
++    ]
+diff --git a/tests/test_semantic_controls.py b/tests/test_semantic_controls.py
+new file mode 100644
+index 0000000..c450c32
+--- /dev/null
++++ b/tests/test_semantic_controls.py
+@@ -0,0 +1,511 @@
++from __future__ import annotations
++
++import importlib.util
++from collections import Counter
++from pathlib import Path
++
++import pytest
++import torch
++import pandas as pd
++from torch.utils.data import DataLoader
++
++from data.semantic_dataset import SemanticTemplateSampler
++from data.semantic_language import SEMANTIC_TO_ID, load_language_bank
++from evaluation.semantic_controls import (
++    build_counterfactual_requests,
++    build_meaningless_candidate_request,
++    build_meaningless_question_request,
++    control_metric_rows,
++    enumerate_candidate_permutations,
++    paired_control_rows,
++    permutation_audit,
++    select_global_audit_indices,
++)
++
++
++ROOT = Path(__file__).parents[1]
++MANIFEST = (
++    ROOT
++    / "experiments/2026-09-22_semantic_visual_jev_e2/configs/language_bank.yaml"
++)
++SCRIPT = (
++    ROOT
++    / "experiments/2026-09-22_semantic_visual_jev_e2/scripts/evaluate_semantic.py"
++)
++
++
++@pytest.fixture
++def bank():
++    return load_language_bank(MANIFEST)
++
++
++def _sample(label=1, method_id="simswap", sample_id="sample-1"):
++    return {
++        "image": torch.zeros(3, 8, 8),
++        "label": torch.tensor(label),
++        "method_id": method_id,
++        "video_id": "001",
++        "video_key": f"{method_id}::001",
++        "image_path": f"/{sample_id}.png",
++        "sample_id": sample_id,
++    }
++
++
++def _render(bank, *, task_id="T2", label=1, method_id="simswap", sample_id="sample-1"):
++    return SemanticTemplateSampler(bank, seed=42).render(
++        _sample(label, method_id, sample_id), task_id, "heldout", 0
++    )
++
++
++def _load_evaluator_script():
++    spec = importlib.util.spec_from_file_location("evaluate_semantic_task6", SCRIPT)
++    module = importlib.util.module_from_spec(spec)
++    assert spec.loader is not None
++    spec.loader.exec_module(module)
++    return module
++
++
++def test_permutation_enumeration_is_complete_and_rejects_other_arities():
++    assert enumerate_candidate_permutations(2) == ((0, 1), (1, 0))
++    assert enumerate_candidate_permutations(3) == (
++        (0, 1, 2),
++        (0, 2, 1),
++        (1, 0, 2),
++        (1, 2, 0),
++        (2, 0, 1),
++        (2, 1, 0),
++    )
++    with pytest.raises(ValueError, match="two or three"):
++        enumerate_candidate_permutations(1)
++
++
++class _EquivariantModel:
++    def __init__(self):
++        self.training = False
++        self.calls = 0
++
++    def eval(self):
++        self.training = False
++        return self
++
++    def train(self, mode=True):
++        self.training = mode
++        return self
++
++    def classify_features(self, image, question, candidates, mask):
++        self.calls += 1
++        return candidates[..., 0].masked_fill(~mask, float("-inf"))
++
++
++def test_permutation_audit_remaps_every_binary_and_ternary_order():
++    model = _EquivariantModel()
++    image = torch.zeros(2, 2)
++    questions = torch.zeros(2, 2)
++    candidates = torch.tensor(
++        [[[0.2], [0.8], [99.0]], [[0.1], [0.3], [0.9]]]
++    )
++    mask = torch.tensor([[True, True, False], [True, True, True]])
++
++    result = permutation_audit(model, image, questions, candidates, mask)
++
++    assert result["max_probability_error"] == pytest.approx(0.0)
++    assert result["prediction_consistency"] == pytest.approx(1.0)
++    assert result["consistent_count"] == 8
++    assert result["comparison_count"] == 8
++    # One reference call plus two binary and six ternary permutations.
++    assert model.calls == 9
++
++
++def test_permutation_audit_exposes_canonical_prediction_failures():
++    class PositionBiased(_EquivariantModel):
++        def classify_features(self, image, question, candidates, mask):
++            self.calls += 1
++            bias = torch.tensor([2.0, 0.0, -2.0])[: candidates.shape[1]]
++            return (candidates[..., 0] + bias).masked_fill(~mask, float("-inf"))
++
++    result = permutation_audit(
++        PositionBiased(),
++        torch.zeros(1, 2),
++        torch.zeros(1, 2),
++        torch.tensor([[[0.0], [0.1], [0.2]]]),
++        torch.ones(1, 3, dtype=torch.bool),
++    )
++
++    assert result["max_probability_error"] > 0.0
++    assert result["prediction_consistency"] < 1.0
++
++
++def test_global_audit_subset_uses_one_sorted_sample_order():
++    sample_ids = ["z", "a", "m", "b"]
++    assert select_global_audit_indices(sample_ids, limit=3) == (1, 3, 2)
++    assert select_global_audit_indices(sample_ids, limit=99) == (1, 3, 2, 0)
++    with pytest.raises(ValueError, match="unique"):
++        select_global_audit_indices(["same", "same"], limit=1)
++
++
++@pytest.mark.parametrize(
++    ("task_id", "label", "method_id", "polarities", "targets"),
++    [
++        ("T2", 1, "simswap", {"real", "fake"}, {"no", "yes"}),
++        ("T4", 1, "simswap", {"swap", "reenact"}, {"yes", "no"}),
++    ],
++)
++def test_counterfactuals_share_explicit_pair_id_and_keep_truth(
++    bank, task_id, label, method_id, polarities, targets
++):
++    requests = build_counterfactual_requests(
++        task_id,
++        "heldout",
++        _sample(label, method_id, "pair-sample"),
++        bank,
++        seed=42,
++    )
++
++    assert len(requests) == 2
++    assert {request.question_yes_means_name for request in requests} == polarities
++    assert {request.target_semantic for request in requests} == targets
++    assert len({request.question_pair_id for request in requests}) == 1
++    assert len({request.render_id for request in requests}) == 1
++    assert len({tuple(request.candidate_text_ids.tolist()) for request in requests}) == 1
++    assert all(request.hidden_visual_truth == ("real" if label == 0 else "fake") for request in requests)
++    assert all(request.hidden_method_family == "swap" for request in requests)
++
++
++def test_counterfactual_rejects_nonpaired_tasks(bank):
++    with pytest.raises(ValueError, match="T2 or T4"):
++        build_counterfactual_requests("T1", "heldout", _sample(), bank)
++
++
++def test_meaningless_candidates_are_manifest_only_repeatable_and_balanced(bank):
++    allowed_ids = {entry.text_id for entry in bank.entries("control", "candidate")}
++    assignments = []
++    # Fixed unseen IDs, 4,000 trials: each label/position cell has expectation
++    # 1,000. A 100-count deviation exceeds four binomial standard deviations.
++    for index in range(4000):
++        meaningful = _render(
++            bank,
++            task_id="T2",
++            label=index % 2,
++            method_id="simswap" if index % 2 else "real",
++            sample_id=f"balance-holdout-{index}",
++        )
++        request = build_meaningless_candidate_request(
++            meaningful, meaningful["sample_id"], bank
++        )
++        repeated = build_meaningless_candidate_request(
++            meaningful, meaningful["sample_id"], bank
++        )
++        assert request.candidate_text_ids.tolist() == repeated.candidate_text_ids.tolist()
++        assert request.candidate_semantic_ids.tolist() == repeated.candidate_semantic_ids.tolist()
++        assert set(request.candidate_text_ids[request.candidate_mask].tolist()) <= allowed_ids
++        assert request.target_semantic == meaningful["target_semantic"]
++        assignments.append((request.target_index.item(), int(request.label)))
++
++    counts = Counter(assignments)
++    assert set(counts) == {(0, 0), (0, 1), (1, 0), (1, 1)}
++    assert all(abs(count - 1000) <= 100 for count in counts.values())
++
++
++def test_meaningless_ternary_candidates_preserve_hidden_truth_not_surface_semantics(bank):
++    meaningful = _render(bank, task_id="T5", sample_id="ternary")
++    request = build_meaningless_candidate_request(meaningful, "ternary", bank)
++
++    assert request.target_semantic == "swap"
++    assert request.candidate_mask.tolist() == [True, True, True]
++    assert {
++        value for value in request.candidate_semantics if value
++    } == {"camera", "swap", "reenact"}
++    assert request.target_index.item() == request.candidate_semantics.index("swap")
++    assert all("nonsense" in candidate_id for candidate_id in request.candidate_ids)
++
++
++def test_meaningless_question_is_manifest_only_and_retains_hidden_polarity(bank):
++    meaningful = _render(bank, task_id="T4", sample_id="question-control")
++    request = build_meaningless_question_request(
++        meaningful, "question-control", bank
++    )
++    question_entries = {entry.text_id: entry for entry in bank.entries("control", "question")}
++
++    assert request.question_text_id.item() in question_entries
++    assert request.question_text == question_entries[request.question_text_id.item()].text
++    assert request.question_yes_means_name == meaningful["question_yes_means_name"]
++    assert request.question_yes_means.item() == meaningful["question_yes_means"].item()
++    assert request.target_semantic == meaningful["target_semantic"]
++    assert request.control_pair_id
++
++
++def test_paired_control_rows_retain_sample_scores_drop_and_normalized_schema():
++    metadata = [
++        {
++            "seed": 42,
++            "domain": "ffpp",
++            "condition": "meaningless_questions",
++            "task_id": "T2",
++            "sample_id": "sample-1",
++            "video_key": "simswap::001",
++            "target_semantic": "yes",
++            "control_pair_id": "pair-1",
++        }
++    ]
++    meaningful = torch.tensor([[0.0, 0.0, 0.2, 0.8, 0.0, 0.0, 0.0]])
++    control = torch.tensor([[0.0, 0.0, 0.6, 0.4, 0.0, 0.0, 0.0]])
++
++    rows = paired_control_rows(metadata, meaningful, control)
++
++    assert rows == [
++        {
++            **metadata[0],
++            "pairing_key": "pair-1",
++            "metric": "target_probability_drop_diagnostic",
++            "value": pytest.approx(0.4),
++            "count": 1,
++            "meaningful_score": pytest.approx(0.8),
++            "control_score": pytest.approx(0.4),
++            "drop": pytest.approx(0.4),
++        }
++    ]
++
++
++@pytest.mark.parametrize("task_id,metric", [("T1", "auroc"), ("T2", "balanced_accuracy"), ("T3", "auroc"), ("T4", "balanced_accuracy"), ("T5", "macro_balanced_accuracy")])
++def test_g6_uses_paired_primary_performance_metrics(task_id, metric):
++    rows = []
++    for index, family in enumerate(("camera", "swap", "reenact")):
++        label = int(index != 0)
++        row = dict(seed=42, domain="ffpp", condition="meaningless_candidates", task_id=task_id,
++                   video_key=f"{family}::{index}", method_id=family, label=label,
++                   method_family=family, target_semantic="yes" if label else "no",
++                   pairing_key=f"pair-{index}", prob_fake=0.5, meaningful_prob_fake=0.1 if not label else 0.9,
++                   p_yes=0.5, meaningful_p_yes=0.1 if not label else 0.9)
++        for semantic in ("camera", "swap", "reenact"):
++            row[f"p_{semantic}"] = 1 / 3
++            row[f"meaningful_p_{semantic}"] = 0.8 if semantic == family else 0.1
++        rows.append(row)
++    result = control_metric_rows(rows)
++    assert len(result) == 1
++    assert result[0]["metric"] == f"{metric}_drop"
++    assert result[0]["meaningful_score"] == 1.0
++    assert result[0]["value"] == pytest.approx(2 / 3 if task_id == "T5" else 0.5)
++    assert result[0]["count"] == 3
++    assert result[0]["pairing_key"]
++
++
++def test_hidden_candidate_assignment_is_label_and_position_independent(bank):
++    for task in ("T2", "T5"):
++        original = _render(bank, task_id=task, sample_id="independent")
++        changed = dict(original, label=torch.tensor(0), target_semantic="no" if task == "T2" else "camera")
++        changed["candidate_semantics"] = tuple(reversed(original["candidate_semantics"][:2])) + ("",) if task == "T2" else tuple(reversed(original["candidate_semantics"]))
++        left = build_meaningless_candidate_request(original, "independent", bank)
++        right = build_meaningless_candidate_request(changed, "independent", bank)
++        assert left.candidate_semantic_ids.tolist() == right.candidate_semantic_ids.tolist()
++        assert left.candidate_text_ids.tolist() == right.candidate_text_ids.tolist()
++
++
++@pytest.mark.parametrize("task_id,size", [("T2", 2), ("T5", 3)])
++def test_hidden_word_meaning_position_assignments_are_counterbalanced(bank, task_id, size):
++    meaningful = _render(bank, task_id=task_id)
++    counts = Counter()
++    # Independent fixed population, with an a priori six-sigma cell bound.
++    population = 6000
++    for index in range(population):
++        request = build_meaningless_candidate_request(meaningful, f"surface-holdout-{index}", bank)
++        for position in range(size):
++            counts[(position, request.candidate_ids[position], request.candidate_semantics[position])] += 1
++    expectation = population / (size * size)
++    sigma = (population * (1 / size**2) * (1 - 1 / size**2)) ** 0.5
++    assert len(counts) == size**3
++    assert all(abs(value - expectation) <= 6 * sigma for value in counts.values())
++
++
++@pytest.mark.parametrize("condition,control_kind", [("meaningless_candidates", "candidate"), ("meaningless_questions", "question")])
++def test_condition_lookup_encodes_only_its_reachable_control_kind(bank, condition, control_kind):
++    module = _load_evaluator_script()
++
++    class Encoder:
++        def encode_texts(self, texts):
++            self.encoded = set(texts)
++            return torch.zeros(len(texts), 2)
++
++    model = Encoder()
++    module.build_condition_text_lookup(model, bank, condition, torch.device("cpu"))
++    allowed = {entry.text for entry in bank.text_entries if entry.split == "heldout" or (entry.split == "control" and entry.kind == control_kind)}
++    assert model.encoded == allowed
++
++
++class _PhysicalSamples:
++    def __len__(self):
++        return 6
++
++    def __getitem__(self, index):
++        family = ("real", "simswap", "fomm")[index // 2]
++        return _sample(int(index >= 2), family, f"physical-{index}")
++
++
++class _FeatureModel(_EquivariantModel):
++    def __init__(self):
++        super().__init__()
++        self.extractions = 0
++
++    def extract_features(self, images):
++        self.extractions += 1
++        return images.flatten(1)[:, :2]
++
++    def __call__(self, images, questions, candidates, mask):
++        return self.classify_features(self.extract_features(images), questions, candidates, mask)
++
++
++class _Lookup:
++    def lookup(self, question_ids, candidate_ids, mask):
++        return question_ids.float()[:, None], candidate_ids.float()[:, :, None] / 100
++
++
++@pytest.mark.parametrize("condition", ["counterfactual", "meaningless_candidates", "meaningless_questions", "permutation"])
++def test_evaluator_control_integration_writes_paired_video_data(bank, tmp_path, monkeypatch, condition):
++    module = _load_evaluator_script()
++    monkeypatch.setattr(module, "build_eval_dataset", lambda cfg, domain: _PhysicalSamples())
++    cfg = {"train": {"seed": 42, "num_workers": 0, "per_gpu_batch": 5}}
++    loader = module.build_condition_loader(cfg, bank, domain="ffpp", condition=condition, distributed=False)
++    model = _FeatureModel()
++    rows = module.evaluate_condition(model, loader, _Lookup(), torch.device("cpu"), seed=42, domain="ffpp", condition=condition)
++    module.write_outputs(rows, output_dir=tmp_path, condition=condition, domain="ffpp")
++    import json
++    metrics = json.loads((tmp_path / condition / "ffpp_metrics.json").read_text())
++    assert metrics
++    assert all({"seed", "domain", "condition", "task_id", "metric", "value", "count", "pairing_key"} <= set(row) for row in metrics)
++    if condition.startswith("meaningless"):
++        paired = pd.read_csv(tmp_path / condition / "ffpp_paired_videos.csv")
++        assert {"meaningful_p_yes", "meaningful_prob_fake", "p_yes", "prob_fake", "pairing_key"} <= set(paired)
++        assert not paired.pairing_key.duplicated().any()
++        assert model.extractions == len(loader)
++        assert any(row["metric"].endswith("_drop") for row in metrics)
++        # Existing Task5 video groups retain different answer variants.
++        t4 = paired[paired.task_id == "T4"]
++        assert len(t4) == 12
++        assert t4.groupby("video_key").num_frames.sum().tolist() == [4, 4, 4]
++    elif condition == "counterfactual":
++        controls = pd.read_csv(tmp_path / condition / "ffpp_controls.csv")
++        ordering = controls[controls.metric == "true_family_ordering"]
++        assert len(ordering) == 2  # fake video pairs, not four frame pairs
++    else:
++        assert {row["metric"] for row in metrics} == {"max_probability_error", "prediction_consistency"}
++        assert metrics[0]["count"] == 6 * (4 * 2 + 6)
++
++
++def test_global_subset_limits_physical_samples_before_task_expansion(bank, monkeypatch):
++    module = _load_evaluator_script()
++
++    class ManySamples:
++        def __len__(self):
++            return 4100
++
++        def __getitem__(self, index):
++            return _sample(sample_id=f"physical-{4099 - index:05d}")
++
++    monkeypatch.setattr(module, "build_eval_dataset", lambda cfg, domain: ManySamples())
++    loader = module.build_condition_loader({"train": {"num_workers": 0}}, bank, domain="ffpp", condition="permutation", distributed=False)
++    assert len(loader.dataset) == 4096 * 5
++    assert loader.dataset.base_dataset.indices[0] == 4099
++    assert loader.dataset.base_dataset.indices[-1] == 4
++
++
++def test_counterfactual_rejects_a_missing_physical_partner(bank):
++    module = _load_evaluator_script()
++    dataset = module.CounterfactualEvaluationDataset(_PhysicalSamples(), bank, tasks=("T2",), split="heldout", seed=42)
++    rows = module.infer_condition_rows(_FeatureModel(), DataLoader(dataset, batch_size=4), _Lookup(), torch.device("cpu"), seed=42, domain="ffpp", condition="counterfactual")
++    with pytest.raises(ValueError, match="physical.*pair"):
++        module.counterfactual_control_rows(rows[1:])
++
++
++def _distributed_permutation_worker(rank, init_path, output_dir):
++    import torch.distributed as distributed
++    torch.set_num_threads(1)
++    distributed.init_process_group("gloo", init_method=f"file://{init_path}", rank=rank, world_size=2)
++    try:
++        module = _load_evaluator_script()
++        batch = {"image": torch.zeros(1, 3, 2, 2), "question_text_id": torch.tensor([0]),
++                 "candidate_text_ids": torch.tensor([[0, 1, -1]]),
++                 "candidate_mask": torch.tensor([[True, True, False]])}
++        # Deliberately uneven loops: one rank has zero batches.
++        result = module.infer_permutation_metrics(_FeatureModel(), [batch, batch] if rank == 0 else [], _Lookup(), torch.device("cpu"), seed=42, domain="ffpp")
++        torch.save(result, Path(output_dir) / f"rank-{rank}.pt")
++    finally:
++        distributed.destroy_process_group()
++
++
++def test_permutation_ddp_reduces_once_after_uneven_rank_batches(tmp_path):
++    import os
++    import subprocess
++    import sys
++    code = "import runpy, sys; runpy.run_path(sys.argv[1])['_distributed_permutation_worker'](int(sys.argv[2]), sys.argv[3], sys.argv[4])"
++    environment = dict(os.environ, PYTHONPATH=str(ROOT / "src"), OMP_NUM_THREADS="1")
++    processes = [subprocess.Popen([sys.executable, "-c", code, __file__, str(rank), str(tmp_path / "init"), str(tmp_path)], env=environment, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True) for rank in range(2)]
++    try:
++        for process in processes:
++            stdout, stderr = process.communicate(timeout=45)
++            assert process.returncode == 0, stdout + stderr
++    finally:
++        for process in processes:
++            if process.poll() is None:
++                process.kill()
++                process.wait()
++    for rank in range(2):
++        result = torch.load(tmp_path / f"rank-{rank}.pt", weights_only=True)
++        assert result[0]["count"] == 4
++        assert result[0]["value"] == pytest.approx(0.0)
++        assert result[1]["value"] == 1.0
++
++
++def test_evaluator_registers_all_conditions_with_minimal_text_scope():
++    module = _load_evaluator_script()
++
++    assert tuple(module.CONDITION_SPECS) == (
++        "fixed_h1",
++        "seen",
++        "heldout",
++        "permutation",
++        "counterfactual",
++        "meaningless_candidates",
++        "meaningless_questions",
++    )
++    assert module.required_text_splits("fixed_h1") == ("fixed",)
++    assert module.required_text_splits("seen") == ("train",)
++    assert module.required_text_splits("heldout") == ("heldout",)
++    assert module.required_text_splits("permutation") == ("heldout",)
++    assert module.required_text_splits("counterfactual") == ("heldout",)
++    assert module.required_text_splits("meaningless_candidates") == (
++        "heldout",
++        "control",
++    )
++    assert module.required_text_splits("meaningless_questions") == (
++        "heldout",
++        "control",
++    )
++
++
++def test_every_control_is_manifest_gated():
++    module = _load_evaluator_script()
++    controls = (
++        "permutation",
++        "counterfactual",
++        "meaningless_candidates",
++        "meaningless_questions",
++    )
++    for condition in controls:
++        with pytest.raises(ValueError, match="language manifest SHA256"):
++            module.validate_checkpoint_manifest({}, "expected", (condition,))
++
++
++def test_control_pairing_rejects_mismatched_or_duplicate_pair_ids():
++    meaningful = torch.zeros((2, 7))
++    control = torch.zeros((2, 7))
++    base = {
++        "seed": 42,
++        "domain": "ffpp",
++        "condition": "meaningless_candidates",
++        "task_id": "T1",
++        "sample_id": "sample-1",
++        "video_key": "real::001",
++        "target_semantic": "real",
++        "control_pair_id": "same",
++    }
++    with pytest.raises(ValueError, match="unique control pair"):
++        paired_control_rows([base, dict(base)], meaningful, control)

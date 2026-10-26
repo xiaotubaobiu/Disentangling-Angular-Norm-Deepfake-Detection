@@ -1,0 +1,11 @@
+      method domain   view  delta_auc  identity_error
+0      fsgan   ffpp  frame   0.000038    9.432559e-18
+1      fsgan   ffpp  video  -0.000459    3.323080e-17
+2      fsgan    cdf  frame  -0.003414    3.599551e-17
+3      fsgan    cdf  video   0.017720    1.387779e-17
+4  sadtalker   ffpp  frame   0.000451    5.767956e-17
+5  sadtalker   ffpp  video   0.000311    6.163689e-17
+6  sadtalker    cdf  frame  -0.016481    9.367507e-17
+7  sadtalker    cdf  video  -0.038747    9.020562e-17
+[self-check] max identity_error=9.37e-17 < tol -> OK
+Q1 done. rows: 960

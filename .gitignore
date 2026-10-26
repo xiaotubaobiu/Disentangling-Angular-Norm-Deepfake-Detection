@@ -1,18 +1,31 @@
 __pycache__/
 *.pyc
 *.pyo
-outputs/
-experiments/
-figures/
-features/
-docs/
-tests/
-.pytest_cache/
 *.egg-info/
-logs/
+.pytest_cache/
 .claude/
+
+# Large binaries
 *.pth
 *.pt
 *.ckpt
 *.onnx
 *.dat
+*.parquet
+*.npz
+
+# Experiment artifacts stay local. Per phase, `scripts/`, `configs/`,
+# `reports/`, `docs/` and `README.md` are tracked; heavy outputs are not.
+experiments/*/results/
+experiments/*/figures/
+experiments/_runs/
+features/
+logs/
+
+# Independent paper projects
+projects/*/.venv/
+projects/*/runs/
+projects/*/build/
+projects/*/dist/
+projects/*/experiments/*/results/
+projects/*/experiments/*/figures/

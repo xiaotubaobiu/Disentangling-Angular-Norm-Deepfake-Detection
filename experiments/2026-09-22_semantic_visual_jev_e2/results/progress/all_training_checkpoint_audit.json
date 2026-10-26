@@ -1,0 +1,37 @@
+{
+  "all_three_passed": true,
+  "expected_hashes": {
+    "config_sha256": "f192983448e3a848a32199272916a381b4317eba46b7715f8e126b4f7cf27957",
+    "language_manifest_sha256": "8faa86be0ae4c9ad74a95d4a0bb358c79a1271fefa3eb42d15f36d50a0705811",
+    "visual_checkpoint_sha256": "99d05d2b2119b79d77dd0ad79bad89075c41b65e06084f536cecbbf274ebbb7c"
+  },
+  "seeds": [
+    {
+      "seed": 42,
+      "best_epoch": 4,
+      "val_seen_ce": 0.2682119975142586,
+      "checkpoint_sha256": "4a8a588b095436dd7dd99cff2b8900b10d4ef0dd9309b17c92571fd6fc3b60d5",
+      "reportable": true,
+      "validation_passed": true,
+      "launcher_exit_code": 0
+    },
+    {
+      "seed": 7,
+      "best_epoch": 4,
+      "val_seen_ce": 0.26681596220723164,
+      "checkpoint_sha256": "f560189e99a0a2e90872db3d4f3a6dcac30dcab07c27e7b98ff1930104f949f6",
+      "reportable": true,
+      "validation_passed": true,
+      "launcher_exit_code": null
+    },
+    {
+      "seed": 2048,
+      "best_epoch": 4,
+      "val_seen_ce": 0.2515979654029282,
+      "checkpoint_sha256": "3a11126be0dd7867a890845cd4d8f9b646f6f41e10a981d00fdfdaac0791f392",
+      "reportable": true,
+      "validation_passed": true,
+      "launcher_exit_code": null
+    }
+  ]
+}

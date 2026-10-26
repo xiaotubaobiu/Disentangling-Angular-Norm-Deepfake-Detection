@@ -1,0 +1,41 @@
+[2026-05-15 01:17:36] Experiment: multibb_raw_s123_dinov2, Device: cuda:0, Config: experiments/configs/multibb/multibb_raw_s123_dinov2.yaml
+[2026-05-15 01:17:36] Per-GPU batch: 128, Epochs: 15, LR: 1e-05, Warmup: 1, EMA: 0.999
+[2026-05-15 01:17:36] Log dir: experiments/20260515_011736
+[2026-05-15 01:18:01] Train samples: 149956, Val samples: 25584, FF++ test: 164221, CDF test: 396284, DFD test: 103339
+[2026-05-15 01:24:04] Epoch 1/15 (363.7s) loss=0.5127 val_auc=0.6122 val_eer=0.4034 val_acc=0.5900
+[2026-05-15 01:24:05]   -> Best model saved (val AUC=0.6122)
+[2026-05-15 01:29:47] Epoch 2/15 (342.4s) loss=0.2273 val_auc=0.7224 val_eer=0.3300 val_acc=0.6416
+[2026-05-15 01:29:48]   -> Best model saved (val AUC=0.7224)
+[2026-05-15 01:35:45] Epoch 3/15 (357.0s) loss=0.1631 val_auc=0.8208 val_eer=0.2591 val_acc=0.7200
+[2026-05-15 01:35:45]   -> Best model saved (val AUC=0.8208)
+[2026-05-15 01:41:32] Epoch 4/15 (346.1s) loss=0.0969 val_auc=0.8969 val_eer=0.1784 val_acc=0.7572
+[2026-05-15 01:41:32]   -> Best model saved (val AUC=0.8969)
+[2026-05-15 01:47:13] Epoch 5/15 (340.7s) loss=0.0710 val_auc=0.9450 val_eer=0.1225 val_acc=0.7994
+[2026-05-15 01:47:14]   -> Best model saved (val AUC=0.9450)
+[2026-05-15 01:52:57] Epoch 6/15 (343.2s) loss=0.0584 val_auc=0.9693 val_eer=0.0884 val_acc=0.8438
+[2026-05-15 01:52:57]   -> Best model saved (val AUC=0.9693)
+[2026-05-15 01:58:38] Epoch 7/15 (340.5s) loss=0.0449 val_auc=0.9814 val_eer=0.0697 val_acc=0.8822
+[2026-05-15 01:58:38]   -> Best model saved (val AUC=0.9814)
+[2026-05-15 02:04:20] Epoch 8/15 (341.4s) loss=0.0364 val_auc=0.9884 val_eer=0.0481 val_acc=0.9109
+[2026-05-15 02:04:20]   -> Best model saved (val AUC=0.9884)
+[2026-05-15 02:10:10] Epoch 9/15 (349.7s) loss=0.0292 val_auc=0.9923 val_eer=0.0381 val_acc=0.9384
+[2026-05-15 02:10:11]   -> Best model saved (val AUC=0.9923)
+[2026-05-15 02:15:59] Epoch 10/15 (348.4s) loss=0.0248 val_auc=0.9947 val_eer=0.0294 val_acc=0.9591
+[2026-05-15 02:16:00]   -> Best model saved (val AUC=0.9947)
+[2026-05-15 02:21:47] Epoch 11/15 (347.5s) loss=0.0185 val_auc=0.9961 val_eer=0.0294 val_acc=0.9722
+[2026-05-15 02:21:48]   -> Best model saved (val AUC=0.9961)
+[2026-05-15 02:27:57] Epoch 12/15 (368.7s) loss=0.0144 val_auc=0.9967 val_eer=0.0281 val_acc=0.9838
+[2026-05-15 02:27:57]   -> Best model saved (val AUC=0.9967)
+[2026-05-15 02:34:03] Epoch 13/15 (366.1s) loss=0.0113 val_auc=0.9972 val_eer=0.0222 val_acc=0.9819
+[2026-05-15 02:34:04]   -> Best model saved (val AUC=0.9972)
+[2026-05-15 02:39:50] Epoch 14/15 (346.7s) loss=0.0114 val_auc=0.9975 val_eer=0.0219 val_acc=0.9688
+[2026-05-15 02:39:51]   -> Best model saved (val AUC=0.9975)
+[2026-05-15 02:45:31] Epoch 15/15 (339.9s) loss=0.0088 val_auc=0.9974 val_eer=0.0272 val_acc=0.9656
+[2026-05-15 02:45:31] Loading best model for final test evaluation...
+[2026-05-15 02:55:45] Val (best): auc=0.9975 eer=0.0219 acc=0.9688
+[2026-05-15 02:55:45] FF++ test: auc=0.9978 eer=0.0217 acc=0.9833
+[2026-05-15 02:55:45] CDF test: auc=0.8739 eer=0.1983 acc=0.9331
+[2026-05-15 02:55:45] DFD test: auc=0.7887 eer=0.2906 acc=0.4608
+[2026-05-15 02:55:45] Best epoch: 14, Best val AUC: 0.9975
+[2026-05-15 02:55:45] Meta saved to experiments/20260515_011736/output/meta.json
+[2026-05-15 02:55:45] Results saved to experiments/20260515_011736/output/results_summary.txt
