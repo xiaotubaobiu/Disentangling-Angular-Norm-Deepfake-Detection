@@ -1,0 +1,57 @@
+........................................................................ [ 22%]
+........................................................................ [ 45%]
+........................................................................ [ 68%]
+........................................................................ [ 91%]
+...........................                                              [100%]
+=============================== warnings summary ===============================
+../../anaconda3/lib/python3.11/site-packages/clip/clip.py:6
+  /home/z/anaconda3/lib/python3.11/site-packages/clip/clip.py:6: DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html
+    from pkg_resources import packaging
+
+../../anaconda3/lib/python3.11/site-packages/pkg_resources/__init__.py:2871
+  /home/z/anaconda3/lib/python3.11/site-packages/pkg_resources/__init__.py:2871: DeprecationWarning: Deprecated call to `pkg_resources.declare_namespace('mpl_toolkits')`.
+  Implementing implicit namespace packages (as specified in PEP 420) is preferred to `pkg_resources.declare_namespace`. See https://setuptools.pypa.io/en/latest/references/keywords.html#keyword-namespace-packages
+    declare_namespace(pkg)
+
+../../anaconda3/lib/python3.11/site-packages/pkg_resources/__init__.py:2871
+  /home/z/anaconda3/lib/python3.11/site-packages/pkg_resources/__init__.py:2871: DeprecationWarning: Deprecated call to `pkg_resources.declare_namespace('ruamel')`.
+  Implementing implicit namespace packages (as specified in PEP 420) is preferred to `pkg_resources.declare_namespace`. See https://setuptools.pypa.io/en/latest/references/keywords.html#keyword-namespace-packages
+    declare_namespace(pkg)
+
+../../anaconda3/lib/python3.11/site-packages/pkg_resources/__init__.py:2871
+../../anaconda3/lib/python3.11/site-packages/pkg_resources/__init__.py:2871
+../../anaconda3/lib/python3.11/site-packages/pkg_resources/__init__.py:2871
+../../anaconda3/lib/python3.11/site-packages/pkg_resources/__init__.py:2871
+../../anaconda3/lib/python3.11/site-packages/pkg_resources/__init__.py:2871
+../../anaconda3/lib/python3.11/site-packages/pkg_resources/__init__.py:2871
+  /home/z/anaconda3/lib/python3.11/site-packages/pkg_resources/__init__.py:2871: DeprecationWarning: Deprecated call to `pkg_resources.declare_namespace('sphinxcontrib')`.
+  Implementing implicit namespace packages (as specified in PEP 420) is preferred to `pkg_resources.declare_namespace`. See https://setuptools.pypa.io/en/latest/references/keywords.html#keyword-namespace-packages
+    declare_namespace(pkg)
+
+../../anaconda3/lib/python3.11/site-packages/pkg_resources/__init__.py:2871
+  /home/z/anaconda3/lib/python3.11/site-packages/pkg_resources/__init__.py:2871: DeprecationWarning: Deprecated call to `pkg_resources.declare_namespace('zope')`.
+  Implementing implicit namespace packages (as specified in PEP 420) is preferred to `pkg_resources.declare_namespace`. See https://setuptools.pypa.io/en/latest/references/keywords.html#keyword-namespace-packages
+    declare_namespace(pkg)
+
+tests/test_semantic_controls.py: 20 warnings
+  /home/z/anaconda3/lib/python3.11/site-packages/sklearn/metrics/_classification.py:2394: UserWarning: y_pred contains classes not in y_true
+    warnings.warn("y_pred contains classes not in y_true")
+
+tests/test_semantic_trainer.py::test_train_epoch_updates_only_trainable_decision_parameters
+  /home/z/project/deepfake_detection/tests/test_semantic_trainer.py:263: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+    scaler = torch.cuda.amp.GradScaler(enabled=False)
+
+tests/test_semantic_trainer.py::test_rank_diagnostics_count_actual_batches_and_candidate_widths
+  /home/z/project/deepfake_detection/tests/test_semantic_trainer.py:289: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+    scaler = torch.cuda.amp.GradScaler(enabled=False)
+
+tests/test_stage2_layout.py::test_balanced_helper_writes_into_run_dir_figures
+  /home/z/anaconda3/lib/python3.11/site-packages/jupyter_client/connect.py:27: DeprecationWarning: Jupyter is migrating its paths to use standard platformdirs
+  given by the platformdirs library.  To remove this warning and
+  see the appropriate new directories, set the environment variable
+  `JUPYTER_PLATFORM_DIRS=1` and then run `jupyter --paths`.
+  The use of platformdirs will be the default in `jupyter_core` v6
+    from jupyter_core.paths import jupyter_data_dir
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+315 passed, 33 warnings in 118.15s (0:01:58)

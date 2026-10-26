@@ -1,0 +1,90 @@
+# Review package: 1b998c5b83706fe3b4b9d326b48384801a0c1450..HEAD
+
+## Commits
+f44181e fix: validate binary E2 language candidate sets
+
+## Files changed
+ src/data/semantic_language.py   |  7 +++++++
+ tests/test_semantic_language.py | 18 ++++++++++++++++++
+ 2 files changed, 25 insertions(+)
+
+## Diff
+diff --git a/src/data/semantic_language.py b/src/data/semantic_language.py
+index 08983e0..a957726 100644
+--- a/src/data/semantic_language.py
++++ b/src/data/semantic_language.py
+@@ -138,20 +138,27 @@ def _validate_schema(raw: dict[str, Any]) -> None:
+     for name, answer_set in answer_sets.items():
+         options = answer_set.get("options", [])
+         if len(options) != 2 or {_semantic(option.get("semantic")) for option in options} != {"yes", "no"}:
+             raise ValueError(f"non-binary answer set: {name}")
+     for task_id, task in raw.get("tasks", {}).items():
+         for split, language in task.items():
+             for reference in language.get("answer_sets", []):
+                 if reference not in answer_sets:
+                     raise ValueError(f"unknown task reference: {reference}")
+             candidate_sets = language.get("candidate_sets", [])
++            if task_id in {"T1", "T3"}:
++                for candidate_set in candidate_sets:
++                    options = candidate_set.get("options", [])
++                    if len(options) != 2 or {_semantic(item.get("semantic")) for item in options} != {"real", "fake"}:
++                        raise ValueError(
++                            f"non-binary {task_id} set: {candidate_set.get('id')}"
++                        )
+             if task_id == "T5":
+                 for candidate_set in candidate_sets:
+                     options = candidate_set.get("options", [])
+                     if len(options) != 3 or {_semantic(item.get("semantic")) for item in options} != {"camera", "swap", "reenact"}:
+                         raise ValueError(f"non-ternary T5 set: {candidate_set.get('id')}")
+     controls = raw.get("controls", {}).get("candidate_sets", {})
+     if len(controls.get("binary", [])) != 2:
+         raise ValueError("non-binary control set")
+     if len(controls.get("ternary", [])) != 3:
+         raise ValueError("non-ternary control set")
+diff --git a/tests/test_semantic_language.py b/tests/test_semantic_language.py
+index f24ad20..9f8c5fc 100644
+--- a/tests/test_semantic_language.py
++++ b/tests/test_semantic_language.py
+@@ -1,13 +1,14 @@
+ from pathlib import Path
+ 
+ import pytest
++import yaml
+ 
+ from data.semantic_language import SEMANTIC_TO_ID, load_language_bank
+ 
+ 
+ MANIFEST = Path(
+     "experiments/2026-09-22_semantic_visual_jev_e2/configs/language_bank.yaml"
+ )
+ 
+ 
+ def test_language_bank_has_five_tasks_and_nine_train_questions():
+@@ -29,10 +30,27 @@ def test_train_and_heldout_full_strings_are_disjoint():
+ def test_duplicate_text_or_id_is_rejected(tmp_path):
+     path = tmp_path / "bad.yaml"
+     path.write_text(
+         "texts:\n"
+         "  - {id: a, split: train, kind: question, text: duplicate}\n"
+         "  - {id: a, split: heldout, kind: question, text: duplicate}\n"
+         "tasks: {}\n"
+     )
+     with pytest.raises(ValueError, match="duplicate"):
+         load_language_bank(path)
++
++
++def test_t1_candidate_sets_reject_a_third_option(tmp_path):
++    raw = yaml.safe_load(MANIFEST.read_text())
++    raw["tasks"]["T1"]["train"]["candidate_sets"][0]["options"].append(
++        {
++            "id": "t1_third_train",
++            "split": "train",
++            "kind": "candidate",
++            "semantic": "camera",
++            "text": "a third, invalid authenticity option.",
++        }
++    )
++    path = tmp_path / "three_t1_candidates.yaml"
++    path.write_text(yaml.safe_dump(raw))
++    with pytest.raises(ValueError, match="non-binary"):
++        load_language_bank(path)

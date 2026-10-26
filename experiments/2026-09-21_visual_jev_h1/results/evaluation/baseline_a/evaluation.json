@@ -1,0 +1,57 @@
+{
+  "cache": "/home/z/project/deepfake_detection/experiments/2026-07-21_frame_midterm_diagnosis/results/parallel_20260721_213914/per_frame_scores.parquet",
+  "checkpoint_id": "clip_raw_s42",
+  "deduplication_key": [
+    "image_path",
+    "label",
+    "video_id"
+  ],
+  "domains": {
+    "cdf": {
+      "frame": {
+        "acc_at_0_5": 0.9773578132211909,
+        "ap": 0.997282383491907,
+        "auc": 0.8785461161010016,
+        "brier": 0.018986095955754963,
+        "count": 311984,
+        "eer": 0.19877532580391544
+      },
+      "rows_after_dedup": 311984,
+      "rows_before_dedup": 396284,
+      "video": {
+        "acc_at_0_5": 0.9811130188869811,
+        "ap": 0.9978646053116417,
+        "auc": 0.9014458939593019,
+        "brier": 0.016596486785694323,
+        "count": 9901,
+        "eer": 0.1733174668658931
+      }
+    },
+    "ffpp": {
+      "frame": {
+        "acc_at_0_5": 0.9648274867059647,
+        "ap": 0.9997843656009884,
+        "auc": 0.9955388013912092,
+        "brier": 0.027490232725643077,
+        "count": 97036,
+        "eer": 0.02706128943266526
+      },
+      "rows_after_dedup": 97036,
+      "rows_before_dedup": 164221,
+      "video": {
+        "acc_at_0_5": 0.9737618891439817,
+        "ap": 0.9999276513216897,
+        "auc": 0.998489908166773,
+        "brier": 0.020334133457325543,
+        "count": 3049,
+        "eer": 0.013502430879536422
+      }
+    }
+  },
+  "model_id": "baseline_a_clip_raw_s42",
+  "video_group_key": [
+    "method_id",
+    "video_id",
+    "label"
+  ]
+}

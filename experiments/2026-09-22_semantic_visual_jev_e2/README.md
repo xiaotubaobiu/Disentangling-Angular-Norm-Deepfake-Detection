@@ -2,6 +2,10 @@
 
 当前任务清单、训练曲线数值和正式评估完成情况见 [E2 实验进度](PROGRESS.md)。
 
+正式中文结果见 [假设验证汇报](reports/e2_validation_summary_zh.md)：主域 42/42 组已完成，冻结 G1–G6 总裁决为 `not_supported`。方法限制与审计范围见 [协议审查](reports/protocol_audit_zh.md)。
+
+本次用户汇报只覆盖 FF++／CDF 两个主域的三种子、七条件共42组。旧版正式评估在seed42无意义候选条件遇到分布式重复行的浮点去重错误，真实launcher退出码为1；旧结果和日志完整保留。修复提交 `103ab5c` 后，所有主域条件在全新 `results/evaluation_primary_v2` 重跑，同一报告不混用旧源码指纹的产物。恢复运行的五次调用真实退出码均为0，[独立审计](results/progress/audit_primary_artifacts.json)通过108项检查。
+
 This experiment compares the frozen-vision E2-Semantic decision model with
 the already trained H1-Jev fixed-candidate baseline. The visual frame indexes,
 splits, transforms, and video aggregation are inherited from H1. The frozen
@@ -79,24 +83,36 @@ adjudication. The run provenance also binds the evaluator's result-defining
 source bundle and one fixed three-domain cache (mode, absolute root, and
 manifest hashes); the final gate checks these against the live files.
 
+本次仅两个主域的正式重跑使用相同训练检查点、配置、缓存和七条件，输出到独立目录。实际每次调用的完整 argv、环境和四rank日志另见 `results/evaluation_logs/primary_v2_20260923T051934Z/seed_{seed}/command.json`。
+
 ```bash
 for seed in 42 7 2048; do
-  torchrun --standalone --nproc_per_node=4 \
+  CUDA_VISIBLE_DEVICES=0,1,2,3 torchrun --standalone --nproc_per_node=4 \
     experiments/2026-09-22_semantic_visual_jev_e2/scripts/evaluate_semantic.py \
     --config experiments/2026-09-22_semantic_visual_jev_e2/configs/semantic_jev.yaml \
     --seed "$seed" \
     --checkpoint "experiments/2026-09-22_semantic_visual_jev_e2/results/training/seed_${seed}/best_model.pth" \
-    --domains ffpp cdf dfd \
+    --domains ffpp cdf \
     --conditions fixed_h1 seen heldout permutation counterfactual meaningless_candidates meaningless_questions \
     --feature-cache-root experiments/2026-09-22_semantic_visual_jev_e2/results/feature_cache \
-    --output-dir "experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation/seed_${seed}"
+    --output-dir "experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_${seed}"
 done
-python experiments/2026-09-22_semantic_visual_jev_e2/scripts/assess_gates.py \
-  --config experiments/2026-09-22_semantic_visual_jev_e2/configs/semantic_jev.yaml \
-  --evaluation-root experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation \
-  --baseline-root experiments/2026-09-22_semantic_visual_jev_e2/results/baseline_h1 \
-  --output-root experiments/2026-09-22_semantic_visual_jev_e2/results/summary \
-  --report experiments/2026-09-22_semantic_visual_jev_e2/reports/e2_validation_result.md
+```
+
+主域汇报的最终判定与辅助审计命令如下；`assess_gates.py` 继续使用冻结的 G1–G6 口径，本次 G3 只核查 FF++／CDF。
+
+```bash
+CUDA_VISIBLE_DEVICES='' OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 \
+  python experiments/2026-09-22_semantic_visual_jev_e2/scripts/assess_gates.py \
+    --config experiments/2026-09-22_semantic_visual_jev_e2/configs/semantic_jev.yaml \
+    --evaluation-root experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2 \
+    --baseline-root experiments/2026-09-22_semantic_visual_jev_e2/results/baseline_h1 \
+    --output-root experiments/2026-09-22_semantic_visual_jev_e2/results/summary \
+    --report experiments/2026-09-22_semantic_visual_jev_e2/reports/e2_validation_result.md
+CUDA_VISIBLE_DEVICES='' python experiments/2026-09-22_semantic_visual_jev_e2/results/progress/audit_final_artifacts.py \
+  --primary-only --evaluation-root experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2
+CUDA_VISIBLE_DEVICES='' python experiments/2026-09-22_semantic_visual_jev_e2/results/progress/export_report_tables.py \
+  --primary-only --evaluation-root experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2
 ```
 
 `supported` requires all six preregistered gates. A point-threshold failure

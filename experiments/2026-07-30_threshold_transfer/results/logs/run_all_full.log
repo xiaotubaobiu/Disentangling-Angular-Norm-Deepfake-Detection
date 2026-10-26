@@ -1,0 +1,197 @@
+run_all.py (full) started 2026-07-30T11:19:37
+PHASE=/home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer
+ROOT=/home/z/project/deepfake_detection
+
+=== [00 audit inputs] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/scripts/00_audit_inputs.py ===
+[write] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/results/tables/00_input_audit.csv  (34 rows)
+[write] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/reports/input_audit.md
+[audit] 34/34 inputs present
+--- [00 audit inputs] rc=0 ---
+
+=== [01 FF++ validation] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/scripts/01_prepare_ffpp_validation.py ===
+[source] clip_raw_s7: 1700 videos (100 real / 1600 fake)
+[source] clip_raw_s42: 1700 videos (100 real / 1600 fake)
+[source] clip_raw_s123: 1700 videos (100 real / 1600 fake)
+[source] clip_raw_s999: 1700 videos (100 real / 1600 fake)
+[source] clip_raw_s2048: 1700 videos (100 real / 1600 fake)
+[source] dinov2_raw_s7: 1700 videos (100 real / 1600 fake)
+[source] dinov2_raw_s42: 1700 videos (100 real / 1600 fake)
+[source] dinov2_raw_s123: 1700 videos (100 real / 1600 fake)
+[source] dinov2_raw_s999: 1700 videos (100 real / 1600 fake)
+[source] dinov2_raw_s2048: 1700 videos (100 real / 1600 fake)
+[source] efficientnet_raw_s7: 1700 videos (100 real / 1600 fake)
+[source] efficientnet_raw_s42: 1700 videos (100 real / 1600 fake)
+[source] efficientnet_raw_s123: 1700 videos (100 real / 1600 fake)
+[source] efficientnet_raw_s999: 1700 videos (100 real / 1600 fake)
+[source] efficientnet_raw_s2048: 1700 videos (100 real / 1600 fake)
+[write] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/results/val_cache/source_video_scores.parquet  (25500 rows)
+[write] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/results/tables/01_source_videos.csv  (15 rows)
+--- [01 FF++ validation] rc=0 ---
+
+=== [02 fit calibrators] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/scripts/02_fit_calibrators.py ===
+[calib] clip_raw_s7 raw       T=  1.083 A=  1.130 B= -0.815 | val frame ECE 0.036->0.038 | val video ECE 0.029->0.041 (Platt)
+[calib] clip_raw_s7 direction T=  0.102 A= 12.506 B= -1.294 | val frame ECE 0.363->0.032 | val video ECE 0.369->0.042 (Platt)
+[calib] clip_raw_s42 raw       T=  1.034 A=  1.262 B= +0.755 | val frame ECE 0.068->0.070 | val video ECE 0.060->0.040 (Platt)
+[calib] clip_raw_s42 direction T=  0.089 A= 14.239 B= +0.378 | val frame ECE 0.366->0.059 | val video ECE 0.372->0.039 (Platt)
+[calib] clip_raw_s123 raw       T=  1.423 A=  0.862 B= -1.239 | val frame ECE 0.029->0.039 | val video ECE 0.024->0.057 (Platt)
+[calib] clip_raw_s123 direction T=  0.122 A= 10.452 B= -1.263 | val frame ECE 0.363->0.041 | val video ECE 0.369->0.059 (Platt)
+[calib] clip_raw_s999 raw       T=  1.368 A=  0.848 B= -0.818 | val frame ECE 0.033->0.041 | val video ECE 0.027->0.048 (Platt)
+[calib] clip_raw_s999 direction T=  0.108 A= 10.617 B= -0.232 | val frame ECE 0.384->0.055 | val video ECE 0.388->0.049 (Platt)
+[calib] clip_raw_s2048 raw       T=  1.213 A=  1.034 B= -1.254 | val frame ECE 0.027->0.032 | val video ECE 0.021->0.044 (Platt)
+[calib] clip_raw_s2048 direction T=  0.110 A= 12.080 B= -1.728 | val frame ECE 0.362->0.026 | val video ECE 0.368->0.044 (Platt)
+[calib] dinov2_raw_s7 raw       T=  1.786 A=  0.792 B= -1.634 | val frame ECE 0.022->0.026 | val video ECE 0.014->0.033 (Platt)
+[calib] dinov2_raw_s7 direction T=  0.036 A= 38.611 B= +0.140 | val frame ECE 0.435->0.054 | val video ECE 0.442->0.033 (Platt)
+[calib] dinov2_raw_s42 raw       T=  1.383 A=  1.071 B= +0.229 | val frame ECE 0.036->0.040 | val video ECE 0.023->0.021 (Platt)
+[calib] dinov2_raw_s42 direction T=  0.027 A= 51.499 B= -0.894 | val frame ECE 0.415->0.027 | val video ECE 0.415->0.021 (Platt)
+[calib] dinov2_raw_s123 raw       T=  1.429 A=  0.952 B= -0.666 | val frame ECE 0.030->0.034 | val video ECE 0.020->0.027 (Platt)
+[calib] dinov2_raw_s123 direction T=  0.035 A= 45.848 B= -3.014 | val frame ECE 0.391->0.009 | val video ECE 0.387->0.027 (Platt)
+[calib] dinov2_raw_s999 raw       T=  1.594 A=  0.796 B= -0.457 | val frame ECE 0.032->0.038 | val video ECE 0.021->0.029 (Platt)
+[calib] dinov2_raw_s999 direction T=  0.033 A= 38.815 B= -1.783 | val frame ECE 0.408->0.020 | val video ECE 0.406->0.029 (Platt)
+[calib] dinov2_raw_s2048 raw       T=  1.342 A=  1.019 B= -0.539 | val frame ECE 0.035->0.039 | val video ECE 0.024->0.030 (Platt)
+[calib] dinov2_raw_s2048 direction T=  0.030 A= 49.215 B= +0.788 | val frame ECE 0.437->0.064 | val video ECE 0.441->0.030 (Platt)
+[calib] efficientnet_raw_s7 raw       T=  1.688 A=  0.782 B= -0.643 | val frame ECE 0.069->0.089 | val video ECE 0.055->0.091 (Platt)
+[calib] efficientnet_raw_s7 direction T=  0.131 A=  9.864 B= -0.631 | val frame ECE 0.357->0.088 | val video ECE 0.362->0.092 (Platt)
+[calib] efficientnet_raw_s42 raw       T=  1.339 A=  0.913 B= -0.274 | val frame ECE 0.087->0.098 | val video ECE 0.072->0.088 (Platt)
+[calib] efficientnet_raw_s42 direction T=  0.114 A= 10.782 B= -0.390 | val frame ECE 0.365->0.092 | val video ECE 0.369->0.088 (Platt)
+[calib] efficientnet_raw_s123 raw       T=  3.042 A=  0.664 B= -2.636 | val frame ECE 0.022->0.048 | val video ECE 0.016->0.089 (Platt)
+[calib] efficientnet_raw_s123 direction T=  0.233 A=  9.515 B= -3.000 | val frame ECE 0.316->0.059 | val video ECE 0.319->0.094 (Platt)
+[calib] efficientnet_raw_s999 raw       T=  1.365 A=  0.957 B= -0.572 | val frame ECE 0.071->0.080 | val video ECE 0.058->0.080 (Platt)
+[calib] efficientnet_raw_s999 direction T=  0.110 A= 11.732 B= -0.278 | val frame ECE 0.366->0.092 | val video ECE 0.369->0.081 (Platt)
+[calib] efficientnet_raw_s2048 raw       T=  1.227 A=  1.039 B= -0.622 | val frame ECE 0.077->0.085 | val video ECE 0.062->0.088 (Platt)
+[calib] efficientnet_raw_s2048 direction T=  0.106 A= 12.368 B= -0.864 | val frame ECE 0.360->0.076 | val video ECE 0.377->0.087 (Platt)
+[write] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/results/tables/02_calibrators.csv  (30 rows)
+--- [02 fit calibrators] rc=0 ---
+
+=== [03 select thresholds] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/scripts/03_select_source_thresholds.py ===
+[thr] clip_raw_s7 raw       t_BA=+1.147 t_equal=+0.646 t_FPR1=+1.594 t_FPR5=-0.157 | t_BA vs t_equal gap 0.501
+[thr] clip_raw_s7 direction t_BA=+0.186 t_equal=+0.106 t_FPR1=+0.186 t_FPR5=+0.024 | t_BA vs t_equal gap 0.080
+[thr] clip_raw_s42 raw       t_BA=-0.312 t_equal=-0.722 t_FPR1=-0.312 t_FPR5=-1.167 | t_BA vs t_equal gap 0.409
+[thr] clip_raw_s42 direction t_BA=+0.000 t_equal=-0.038 t_FPR1=+0.000 t_FPR5=-0.082 | t_BA vs t_equal gap 0.038
+[thr] clip_raw_s123 raw       t_BA=+2.988 t_equal=+1.939 t_FPR1=+2.988 t_FPR5=+0.931 | t_BA vs t_equal gap 1.049
+[thr] clip_raw_s123 direction t_BA=+0.088 t_equal=+0.188 t_FPR1=+0.284 t_FPR5=+0.088 | t_BA vs t_equal gap 0.100
+[thr] clip_raw_s999 raw       t_BA=+3.110 t_equal=+1.264 t_FPR1=+2.754 t_FPR5=+0.233 | t_BA vs t_equal gap 1.846
+[thr] clip_raw_s999 direction t_BA=+0.205 t_equal=+0.065 t_FPR1=+0.196 t_FPR5=-0.029 | t_BA vs t_equal gap 0.140
+[thr] clip_raw_s2048 raw       t_BA=+0.354 t_equal=+1.393 t_FPR1=+2.356 t_FPR5=+0.238 | t_BA vs t_equal gap 1.039
+[thr] clip_raw_s2048 direction t_BA=+0.074 t_equal=+0.167 t_FPR1=+0.255 t_FPR5=+0.063 | t_BA vs t_equal gap 0.093
+[thr] dinov2_raw_s7 raw       t_BA=+2.334 t_equal=+2.225 t_FPR1=+2.312 t_FPR5=+1.641 | t_BA vs t_equal gap 0.109
+[thr] dinov2_raw_s7 direction t_BA=+0.003 t_equal=-0.000 t_FPR1=+0.002 t_FPR5=-0.011 | t_BA vs t_equal gap 0.003
+[thr] dinov2_raw_s42 raw       t_BA=-0.447 t_equal=-0.519 t_FPR1=-0.461 t_FPR5=-2.342 | t_BA vs t_equal gap 0.072
+[thr] dinov2_raw_s42 direction t_BA=+0.013 t_equal=+0.011 t_FPR1=+0.012 t_FPR5=-0.029 | t_BA vs t_equal gap 0.002
+[thr] dinov2_raw_s123 raw       t_BA=+1.282 t_equal=+0.332 t_FPR1=+0.686 t_FPR5=-0.903 | t_BA vs t_equal gap 0.950
+[thr] dinov2_raw_s123 direction t_BA=+0.078 t_equal=+0.058 t_FPR1=+0.065 t_FPR5=+0.033 | t_BA vs t_equal gap 0.020
+[thr] dinov2_raw_s999 raw       t_BA=+1.143 t_equal=+0.052 t_FPR1=+1.143 t_FPR5=-1.499 | t_BA vs t_equal gap 1.091
+[thr] dinov2_raw_s999 direction t_BA=+0.058 t_equal=+0.035 t_FPR1=+0.058 t_FPR5=+0.004 | t_BA vs t_equal gap 0.022
+[thr] dinov2_raw_s2048 raw       t_BA=+0.969 t_equal=+0.540 t_FPR1=+0.696 t_FPR5=-1.194 | t_BA vs t_equal gap 0.429
+[thr] dinov2_raw_s2048 direction t_BA=-0.007 t_equal=-0.013 t_FPR1=-0.012 t_FPR5=-0.050 | t_BA vs t_equal gap 0.006
+[thr] efficientnet_raw_s7 raw       t_BA=+0.592 t_equal=+0.630 t_FPR1=+2.604 t_FPR5=+1.609 | t_BA vs t_equal gap 0.039
+[thr] efficientnet_raw_s7 direction t_BA=+0.068 t_equal=+0.059 t_FPR1=+0.260 t_FPR5=+0.110 | t_BA vs t_equal gap 0.009
+[thr] efficientnet_raw_s42 raw       t_BA=+0.011 t_equal=+0.120 t_FPR1=+1.874 t_FPR5=+0.380 | t_BA vs t_equal gap 0.109
+[thr] efficientnet_raw_s42 direction t_BA=+0.012 t_equal=+0.021 t_FPR1=+0.181 t_FPR5=+0.044 | t_BA vs t_equal gap 0.009
+[thr] efficientnet_raw_s123 raw       t_BA=+3.967 t_equal=+3.727 t_FPR1=+6.574 t_FPR5=+3.967 | t_BA vs t_equal gap 0.240
+[thr] efficientnet_raw_s123 direction t_BA=+0.318 t_equal=+0.318 t_FPR1=+0.516 t_FPR5=+0.357 | t_BA vs t_equal gap 0.000
+[thr] efficientnet_raw_s999 raw       t_BA=+0.509 t_equal=+0.220 t_FPR1=+2.402 t_FPR5=+0.250 | t_BA vs t_equal gap 0.289
+[thr] efficientnet_raw_s999 direction t_BA=+0.001 t_equal=-0.001 t_FPR1=+0.169 t_FPR5=+0.001 | t_BA vs t_equal gap 0.002
+[thr] efficientnet_raw_s2048 raw       t_BA=+0.494 t_equal=+0.310 t_FPR1=+2.634 t_FPR5=+0.494 | t_BA vs t_equal gap 0.185
+[thr] efficientnet_raw_s2048 direction t_BA=+0.065 t_equal=+0.054 t_FPR1=+0.271 t_FPR5=+0.065 | t_BA vs t_equal gap 0.011
+[write] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/results/tables/03_source_thresholds.csv  (180 rows)
+--- [03 select thresholds] rc=0 ---
+
+=== [04 evaluate transfer] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/scripts/04_evaluate_transfer.py ===
+[transfer] clip_raw_s7 raw       t_BA=+1.147 | src BA 0.971 -> tgt BA 0.621 (oracle 0.816, R=0.196) | tgt AUC 0.898 | tgt FPR 0.747
+[transfer] clip_raw_s7 direction t_BA=+0.186 | src BA 0.972 -> tgt BA 0.644 (oracle 0.813, R=0.169) | tgt AUC 0.898 | tgt FPR 0.697
+[transfer] clip_raw_s42 raw       t_BA=-0.312 | src BA 0.973 -> tgt BA 0.541 (oracle 0.835, R=0.293) | tgt AUC 0.905 | tgt FPR 0.916
+[transfer] clip_raw_s42 direction t_BA=+0.000 | src BA 0.973 -> tgt BA 0.541 (oracle 0.830, R=0.289) | tgt AUC 0.898 | tgt FPR 0.916
+[transfer] clip_raw_s123 raw       t_BA=+2.988 | src BA 0.958 -> tgt BA 0.609 (oracle 0.825, R=0.217) | tgt AUC 0.908 | tgt FPR 0.775
+[transfer] clip_raw_s123 direction t_BA=+0.088 | src BA 0.957 -> tgt BA 0.539 (oracle 0.820, R=0.282) | tgt AUC 0.902 | tgt FPR 0.921
+[transfer] clip_raw_s999 raw       t_BA=+3.110 | src BA 0.962 -> tgt BA 0.619 (oracle 0.834, R=0.215) | tgt AUC 0.914 | tgt FPR 0.753
+[transfer] clip_raw_s999 direction t_BA=+0.205 | src BA 0.962 -> tgt BA 0.611 (oracle 0.819, R=0.209) | tgt AUC 0.902 | tgt FPR 0.770
+[transfer] clip_raw_s2048 raw       t_BA=+0.354 | src BA 0.969 -> tgt BA 0.539 (oracle 0.839, R=0.300) | tgt AUC 0.916 | tgt FPR 0.921
+[transfer] clip_raw_s2048 direction t_BA=+0.074 | src BA 0.969 -> tgt BA 0.539 (oracle 0.839, R=0.300) | tgt AUC 0.918 | tgt FPR 0.921
+[transfer] dinov2_raw_s7 raw       t_BA=+2.334 | src BA 0.985 -> tgt BA 0.675 (oracle 0.855, R=0.179) | tgt AUC 0.930 | tgt FPR 0.640
+[transfer] dinov2_raw_s7 direction t_BA=+0.003 | src BA 0.985 -> tgt BA 0.675 (oracle 0.850, R=0.174) | tgt AUC 0.930 | tgt FPR 0.640
+[transfer] dinov2_raw_s42 raw       t_BA=-0.447 | src BA 0.992 -> tgt BA 0.603 (oracle 0.846, R=0.243) | tgt AUC 0.927 | tgt FPR 0.792
+[transfer] dinov2_raw_s42 direction t_BA=+0.013 | src BA 0.991 -> tgt BA 0.603 (oracle 0.847, R=0.245) | tgt AUC 0.927 | tgt FPR 0.792
+[transfer] dinov2_raw_s123 raw       t_BA=+1.282 | src BA 0.985 -> tgt BA 0.673 (oracle 0.887, R=0.213) | tgt AUC 0.945 | tgt FPR 0.646
+[transfer] dinov2_raw_s123 direction t_BA=+0.078 | src BA 0.985 -> tgt BA 0.673 (oracle 0.888, R=0.215) | tgt AUC 0.945 | tgt FPR 0.646
+[transfer] dinov2_raw_s999 raw       t_BA=+1.143 | src BA 0.981 -> tgt BA 0.682 (oracle 0.860, R=0.177) | tgt AUC 0.928 | tgt FPR 0.624
+[transfer] dinov2_raw_s999 direction t_BA=+0.058 | src BA 0.981 -> tgt BA 0.682 (oracle 0.860, R=0.177) | tgt AUC 0.928 | tgt FPR 0.624
+[transfer] dinov2_raw_s2048 raw       t_BA=+0.969 | src BA 0.985 -> tgt BA 0.641 (oracle 0.842, R=0.201) | tgt AUC 0.927 | tgt FPR 0.708
+[transfer] dinov2_raw_s2048 direction t_BA=-0.007 | src BA 0.985 -> tgt BA 0.641 (oracle 0.840, R=0.198) | tgt AUC 0.926 | tgt FPR 0.708
+[transfer] efficientnet_raw_s7 raw       t_BA=+0.592 | src BA 0.931 -> tgt BA 0.612 (oracle 0.781, R=0.169) | tgt AUC 0.841 | tgt FPR 0.742
+[transfer] efficientnet_raw_s7 direction t_BA=+0.068 | src BA 0.930 -> tgt BA 0.624 (oracle 0.768, R=0.145) | tgt AUC 0.831 | tgt FPR 0.713
+[transfer] efficientnet_raw_s42 raw       t_BA=+0.011 | src BA 0.934 -> tgt BA 0.602 (oracle 0.752, R=0.150) | tgt AUC 0.830 | tgt FPR 0.770
+[transfer] efficientnet_raw_s42 direction t_BA=+0.012 | src BA 0.934 -> tgt BA 0.602 (oracle 0.749, R=0.148) | tgt AUC 0.829 | tgt FPR 0.770
+[transfer] efficientnet_raw_s123 raw       t_BA=+3.967 | src BA 0.938 -> tgt BA 0.640 (oracle 0.761, R=0.121) | tgt AUC 0.841 | tgt FPR 0.674
+[transfer] efficientnet_raw_s123 direction t_BA=+0.318 | src BA 0.939 -> tgt BA 0.630 (oracle 0.762, R=0.132) | tgt AUC 0.833 | tgt FPR 0.702
+[transfer] efficientnet_raw_s999 raw       t_BA=+0.509 | src BA 0.947 -> tgt BA 0.595 (oracle 0.750, R=0.155) | tgt AUC 0.822 | tgt FPR 0.781
+[transfer] efficientnet_raw_s999 direction t_BA=+0.001 | src BA 0.945 -> tgt BA 0.588 (oracle 0.743, R=0.155) | tgt AUC 0.822 | tgt FPR 0.798
+[transfer] efficientnet_raw_s2048 raw       t_BA=+0.494 | src BA 0.941 -> tgt BA 0.617 (oracle 0.761, R=0.144) | tgt AUC 0.840 | tgt FPR 0.736
+[transfer] efficientnet_raw_s2048 direction t_BA=+0.065 | src BA 0.941 -> tgt BA 0.620 (oracle 0.749, R=0.129) | tgt AUC 0.831 | tgt FPR 0.730
+[write] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/results/tables/04_target_video_scores.parquet  (148515 rows)
+[write] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/results/tables/04_transfer_pooled.csv  (210 rows)
+[write] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/results/tables/04_transfer_per_method.csv  (2880 rows)
+[write] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/results/tables/04_bootstrap.csv  (45 rows)
+--- [04 evaluate transfer] rc=0 ---
+
+=== [05 score shift] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/scripts/05_analyze_score_shift.py ===
+/home/z/project/deepfake_detection/src/study_threshold/reporting.py:73: UserWarning: The figure layout has changed to tight
+  fig.tight_layout()
+[figure] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/figures/05_score_distributions_clip_raw_s7_raw.png
+[figure] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/figures/05_ba_vs_threshold_clip_raw_s7_raw.png
+[shift] clip_raw_s7 raw       shift_real=+6.55 shift_fake=+0.21 common=+3.38 diff=-6.34 scale_real=1.17 W_real=6.55 -> class-conditional (differential) shift
+[figure] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/figures/05_score_distributions_clip_raw_s7_direction.png
+[figure] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/figures/05_ba_vs_threshold_clip_raw_s7_direction.png
+[shift] clip_raw_s7 direction shift_real=+0.59 shift_fake=+0.02 common=+0.31 diff=-0.58 scale_real=1.13 W_real=0.59 -> class-conditional (differential) shift
+[figure] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/figures/05_score_distributions_clip_raw_s42_raw.png
+[figure] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/figures/05_ba_vs_threshold_clip_raw_s42_raw.png
+[shift] clip_raw_s42 raw       shift_real=+7.11 shift_fake=+0.76 common=+3.94 diff=-6.35 scale_real=1.38 W_real=7.11 -> class-conditional (differential) shift
+[figure] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/figures/05_score_distributions_clip_raw_s42_direction.png
+[figure] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/figures/05_ba_vs_threshold_clip_raw_s42_direction.png
+[shift] clip_raw_s42 direction shift_real=+0.62 shift_fake=+0.06 common=+0.34 diff=-0.56 scale_real=1.48 W_real=0.62 -> class-conditional (differential) shift
+[figure] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/figures/05_score_distributions_clip_raw_s123_raw.png
+[figure] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/figures/05_ba_vs_threshold_clip_raw_s123_raw.png
+[shift] clip_raw_s123 raw       shift_real=+8.19 shift_fake=+0.65 common=+4.42 diff=-7.54 scale_real=0.88 W_real=8.19 -> class-conditional (differential) shift
+[figure] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/figures/05_score_distributions_clip_raw_s123_direction.png
+[figure] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/figures/05_ba_vs_threshold_clip_raw_s123_direction.png
+[shift] clip_raw_s123 direction shift_real=+0.68 shift_fake=+0.04 common=+0.36 diff=-0.64 scale_real=0.78 W_real=0.68 -> class-conditional (differential) shift
+[shift] clip_raw_s999 raw       shift_real=+8.75 shift_fake=+0.71 common=+4.73 diff=-8.04 scale_real=0.96 W_real=8.75 -> class-conditional (differential) shift
+[shift] clip_raw_s999 direction shift_real=+0.70 shift_fake=+0.04 common=+0.37 diff=-0.66 scale_real=0.88 W_real=0.70 -> class-conditional (differential) shift
+[shift] clip_raw_s2048 raw       shift_real=+7.54 shift_fake=+0.38 common=+3.96 diff=-7.17 scale_real=0.86 W_real=7.54 -> class-conditional (differential) shift
+[shift] clip_raw_s2048 direction shift_real=+0.65 shift_fake=+0.03 common=+0.34 diff=-0.62 scale_real=0.81 W_real=0.65 -> class-conditional (differential) shift
+[shift] dinov2_raw_s7 raw       shift_real=+9.97 shift_fake=+0.54 common=+5.25 diff=-9.42 scale_real=1.31 W_real=9.97 -> class-conditional (differential) shift
+[shift] dinov2_raw_s7 direction shift_real=+0.20 shift_fake=+0.01 common=+0.11 diff=-0.19 scale_real=1.31 W_real=0.20 -> score scale change
+[shift] dinov2_raw_s42 raw       shift_real=+9.85 shift_fake=+0.82 common=+5.34 diff=-9.03 scale_real=1.58 W_real=9.85 -> class-conditional (differential) shift
+[shift] dinov2_raw_s42 direction shift_real=+0.21 shift_fake=+0.02 common=+0.11 diff=-0.19 scale_real=1.60 W_real=0.21 -> score scale change
+[shift] dinov2_raw_s123 raw       shift_real=+8.69 shift_fake=+0.97 common=+4.83 diff=-7.72 scale_real=1.46 W_real=8.69 -> class-conditional (differential) shift
+[shift] dinov2_raw_s123 direction shift_real=+0.18 shift_fake=+0.02 common=+0.10 diff=-0.16 scale_real=1.45 W_real=0.18 -> score scale change
+[shift] dinov2_raw_s999 raw       shift_real=+9.38 shift_fake=+0.62 common=+5.00 diff=-8.77 scale_real=1.59 W_real=9.38 -> class-conditional (differential) shift
+[shift] dinov2_raw_s999 direction shift_real=+0.19 shift_fake=+0.01 common=+0.10 diff=-0.18 scale_real=1.60 W_real=0.19 -> score scale change
+[shift] dinov2_raw_s2048 raw       shift_real=+8.39 shift_fake=+0.74 common=+4.57 diff=-7.66 scale_real=1.45 W_real=8.39 -> class-conditional (differential) shift
+[shift] dinov2_raw_s2048 direction shift_real=+0.17 shift_fake=+0.01 common=+0.09 diff=-0.16 scale_real=1.42 W_real=0.17 -> score scale change
+[shift] efficientnet_raw_s7 raw       shift_real=+7.07 shift_fake=+0.66 common=+3.86 diff=-6.41 scale_real=0.89 W_real=7.07 -> class-conditional (differential) shift
+[shift] efficientnet_raw_s7 direction shift_real=+0.51 shift_fake=+0.05 common=+0.28 diff=-0.46 scale_real=1.19 W_real=0.51 -> class-conditional (differential) shift
+[shift] efficientnet_raw_s42 raw       shift_real=+6.40 shift_fake=+0.66 common=+3.53 diff=-5.73 scale_real=1.00 W_real=6.40 -> class-conditional (differential) shift
+[shift] efficientnet_raw_s42 direction shift_real=+0.49 shift_fake=+0.06 common=+0.27 diff=-0.43 scale_real=1.31 W_real=0.49 -> class-conditional (differential) shift
+[shift] efficientnet_raw_s123 raw       shift_real=+8.00 shift_fake=+0.67 common=+4.34 diff=-7.32 scale_real=1.03 W_real=8.00 -> class-conditional (differential) shift
+[shift] efficientnet_raw_s123 direction shift_real=+0.57 shift_fake=+0.02 common=+0.30 diff=-0.54 scale_real=0.88 W_real=0.57 -> class-conditional (differential) shift
+[shift] efficientnet_raw_s999 raw       shift_real=+6.70 shift_fake=+0.95 common=+3.83 diff=-5.76 scale_real=1.17 W_real=6.70 -> class-conditional (differential) shift
+[shift] efficientnet_raw_s999 direction shift_real=+0.49 shift_fake=+0.05 common=+0.27 diff=-0.44 scale_real=1.24 W_real=0.49 -> class-conditional (differential) shift
+[shift] efficientnet_raw_s2048 raw       shift_real=+5.35 shift_fake=+1.01 common=+3.18 diff=-4.35 scale_real=1.13 W_real=5.35 -> class-conditional (differential) shift
+[shift] efficientnet_raw_s2048 direction shift_real=+0.43 shift_fake=+0.06 common=+0.24 diff=-0.37 scale_real=1.24 W_real=0.43 -> class-conditional (differential) shift
+[write] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/results/tables/05_score_shift.csv  (30 rows)
+[write] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/results/tables/05_class_distributions.csv  (60 rows)
+[figure] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/figures/05_shift_decomposition.png
+--- [05 score shift] rc=0 ---
+
+=== [06 report] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/scripts/06_generate_report.py ===
+[figure] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/figures/06_r_transfer_by_rule.png
+[figure] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/figures/06_target_ba_by_rule.png
+[figure] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/figures/06_fpr_budget_violation.png
+[figure] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/figures/06_ece_source_vs_target.png
+[figure] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/figures/06_per_method_r_transfer.png
+[figure] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/figures/06_differential_shift_vs_regret.png
+[write] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/reports/threshold_transfer_final_report.md
+[write] /home/z/project/deepfake_detection/reports/threshold_transfer_final_report.md
+--- [06 report] rc=0 ---
+
+run_all.py (full) finished in 0:08:31.803438

@@ -1,0 +1,47 @@
+{
+  "project_directories": [
+    "deepfake_feature_geometry",
+    "deepfake_visual_jev",
+    "deidentification"
+  ],
+  "repository_roots": [
+    "deepfake_feature_geometry",
+    "deepfake_visual_jev",
+    "deidentification"
+  ],
+  "outer_git_repository": false,
+  "nested_git_repositories": false,
+  "source_coverage": "all previously tracked vendor source/config/documentation retained, excluding historical archives and editor settings",
+  "repositories": [
+    {
+      "project": "deepfake_feature_geometry",
+      "head": "5c0be43f8c4ca1287a6cea4fd2704ba00c4749e2",
+      "tracked_files": 239,
+      "tracked_bytes": 1913548,
+      "working_tree_clean": true
+    },
+    {
+      "project": "deepfake_visual_jev",
+      "head": "59927415a983af8e75e5bee21c352f9626af4846",
+      "tracked_files": 1130,
+      "tracked_bytes": 29172521,
+      "working_tree_clean": true
+    },
+    {
+      "project": "deidentification",
+      "head": "ce0be0c3b0499452af54c560e04d3e091ee041ec",
+      "tracked_files": 992,
+      "tracked_bytes": 30985466,
+      "working_tree_clean": true
+    }
+  ],
+  "checks": {
+    "feature_geometry_local_imports": 43,
+    "visual_jev_local_imports": 29,
+    "evaluation_cli": "passed",
+    "modified_python_syntax": "passed",
+    "updated_runtime_paths": 14,
+    "evaluation_dataset_path_references": 40
+  },
+  "backup_directory": "/home/z/project_backups/2026-10-01-simplify"
+}

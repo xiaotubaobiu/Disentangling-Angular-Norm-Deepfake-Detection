@@ -1,0 +1,63 @@
+run_all.py (dry) started 2026-07-30T11:15:24
+PHASE=/home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer
+ROOT=/home/z/project/deepfake_detection
+
+=== [00 audit inputs] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/scripts/00_audit_inputs.py ===
+[write] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/results/tables/00_input_audit.csv  (34 rows)
+[write] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/reports/input_audit.md
+[audit] 34/34 inputs present
+--- [00 audit inputs] rc=0 ---
+
+=== [01 FF++ validation] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/scripts/01_prepare_ffpp_validation.py --dry-run ===
+[source] clip_raw_s42: 300 videos (100 real / 200 fake)
+[write] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/results/val_cache/source_video_scores.parquet  (300 rows)
+[write] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/results/tables/01_source_videos.csv  (1 rows)
+--- [01 FF++ validation] rc=0 ---
+
+=== [02 fit calibrators] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/scripts/02_fit_calibrators.py --dry-run ===
+[calib] clip_raw_s42 raw       T=  0.918 A=  1.498 B= +0.572 | val frame ECE 0.025->0.026 | val video ECE 0.033->0.019 (Platt)
+[calib] clip_raw_s42 direction T=  0.079 A= 17.048 B= +0.125 | val frame ECE 0.361->0.019 | val video ECE 0.372->0.019 (Platt)
+[write] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/results/tables/02_calibrators.csv  (2 rows)
+--- [02 fit calibrators] rc=0 ---
+
+=== [03 select thresholds] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/scripts/03_select_source_thresholds.py --dry-run ===
+[thr] clip_raw_s42 raw       t_BA=-0.290 t_equal=-0.631 t_FPR1=-0.290 t_FPR5=-1.000 | t_BA vs t_equal gap 0.341
+[thr] clip_raw_s42 direction t_BA=+0.001 t_equal=-0.028 t_FPR1=+0.001 t_FPR5=-0.081 | t_BA vs t_equal gap 0.029
+[write] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/results/tables/03_source_thresholds.csv  (12 rows)
+--- [03 select thresholds] rc=0 ---
+
+=== [04 evaluate transfer] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/scripts/04_evaluate_transfer.py --dry-run ===
+[transfer] clip_raw_s42 raw       t_BA=-0.290 | src BA 0.980 -> tgt BA 0.541 (oracle 0.828, R=0.287) | tgt AUC 0.894 | tgt FPR 0.916
+[transfer] clip_raw_s42 direction t_BA=+0.001 | src BA 0.980 -> tgt BA 0.541 (oracle 0.820, R=0.279) | tgt AUC 0.886 | tgt FPR 0.916
+[write] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/results/tables/04_target_video_scores.parquet  (1454 rows)
+[write] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/results/tables/04_transfer_pooled.csv  (14 rows)
+[write] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/results/tables/04_transfer_per_method.csv  (24 rows)
+[write] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/results/tables/04_bootstrap.csv  (3 rows)
+--- [04 evaluate transfer] rc=0 ---
+
+=== [05 score shift] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/scripts/05_analyze_score_shift.py --dry-run ===
+/home/z/project/deepfake_detection/src/study_threshold/reporting.py:73: UserWarning: The figure layout has changed to tight
+  fig.tight_layout()
+[figure] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/figures/05_score_distributions_clip_raw_s42_raw.png
+[figure] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/figures/05_ba_vs_threshold_clip_raw_s42_raw.png
+[shift] clip_raw_s42 raw       shift_real=+7.11 shift_fake=+0.37 common=+3.74 diff=-6.74 scale_real=1.38 W_real=7.11 -> class-conditional (differential) shift
+[figure] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/figures/05_score_distributions_clip_raw_s42_direction.png
+[figure] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/figures/05_ba_vs_threshold_clip_raw_s42_direction.png
+[shift] clip_raw_s42 direction shift_real=+0.62 shift_fake=+0.03 common=+0.32 diff=-0.59 scale_real=1.48 W_real=0.62 -> class-conditional (differential) shift
+[write] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/results/tables/05_score_shift.csv  (2 rows)
+[write] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/results/tables/05_class_distributions.csv  (4 rows)
+[figure] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/figures/05_shift_decomposition.png
+--- [05 score shift] rc=0 ---
+
+=== [06 report] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/scripts/06_generate_report.py --dry-run ===
+[figure] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/figures/06_r_transfer_by_rule.png
+[figure] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/figures/06_target_ba_by_rule.png
+[figure] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/figures/06_fpr_budget_violation.png
+[figure] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/figures/06_ece_source_vs_target.png
+[figure] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/figures/06_per_method_r_transfer.png
+[figure] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/figures/06_differential_shift_vs_regret.png
+[write] /home/z/project/deepfake_detection/experiments/2026-07-30_threshold_transfer/reports/threshold_transfer_final_report.md
+[write] /home/z/project/deepfake_detection/reports/threshold_transfer_final_report.md
+--- [06 report] rc=0 ---
+
+run_all.py (dry) finished in 0:00:11.003824

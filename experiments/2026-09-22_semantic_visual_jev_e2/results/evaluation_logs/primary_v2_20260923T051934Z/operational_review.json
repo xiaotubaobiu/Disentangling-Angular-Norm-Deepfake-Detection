@@ -1,0 +1,23 @@
+{
+  "reviewed_at_utc": "2026-09-23T05:23:29.958326+00:00",
+  "reviewer": "review_parallel_scheduler",
+  "scope": "Operational wrapper only; scientific fix separately reviewed by parent",
+  "normal_path_verified": [
+    "max_two_launchers",
+    "unique_seed_outputs",
+    "ffpp_cdf_only_no_dfd",
+    "actual_Popen_wait_completion",
+    "artifact_readiness_separate_from_exit_success"
+  ],
+  "known_limitations": [
+    {
+      "severity": "P1",
+      "description": "Unexpected supervisor exception or termination before child completion can lose original wait handles; running supervisor has no exception-drain finally."
+    },
+    {
+      "severity": "P2",
+      "description": "Dispatch occurs before poll; an unobserved peer failure during previous sleep can be noticed only after filling newly free slot."
+    }
+  ],
+  "action": "Keep the original live supervisor and its wait handles alive. Do not restart or present on-disk edits as a live fix. Monitor input stability, disk space, process liveness and errors; record all actually observed completion codes. Parent informed."
+}

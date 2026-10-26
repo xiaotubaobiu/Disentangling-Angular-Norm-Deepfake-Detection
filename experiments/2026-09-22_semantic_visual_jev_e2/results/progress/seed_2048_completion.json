@@ -1,0 +1,22 @@
+{
+  "all_epoch_rank_diagnostics_verified": true,
+  "all_four_worker_processes_terminated": true,
+  "best_epoch": 4,
+  "best_epoch_val_seen_accuracy": 0.9190196998123827,
+  "best_val_seen_ce": 0.2515979654029282,
+  "checkpoint": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/training/seed_2048/best_model.pth",
+  "checkpoint_sha256": "3a11126be0dd7867a890845cd4d8f9b646f6f41e10a981d00fdfdaac0791f392",
+  "completed_epochs": 9,
+  "evaluation_checkpoint_validation_passed": true,
+  "evidence_source": "persistent_rank0_epoch_and_final_logs_process_inventory_and_saved_checkpoint_validation",
+  "final_rank_zero_summary_present": true,
+  "launcher_exit_code": null,
+  "launcher_observation_lost": true,
+  "rank0_log": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/training_logs/seed_2048/5303a0d6-c5c4-4a03-bb36-302a69683b15_6wds2uy7/attempt_0/0/stdout.log",
+  "reportable": true,
+  "seed": 2048,
+  "stop_reason": "five_consecutive_epochs_without_seen_validation_ce_improvement",
+  "verified_at_utc": "2026-09-23T04:11:27Z",
+  "visible_devices": "0,1,2,3",
+  "world_size": 4
+}

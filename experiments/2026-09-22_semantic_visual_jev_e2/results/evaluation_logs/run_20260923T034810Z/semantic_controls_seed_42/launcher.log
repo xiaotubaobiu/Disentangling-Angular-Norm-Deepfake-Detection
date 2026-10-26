@@ -1,0 +1,36 @@
+W0923 14:07:33.321000 3020340 site-packages/torch/distributed/elastic/multiprocessing/api.py:897] Sending process 3020348 closing signal SIGTERM
+W0923 14:07:33.323000 3020340 site-packages/torch/distributed/elastic/multiprocessing/api.py:897] Sending process 3020349 closing signal SIGTERM
+W0923 14:07:33.324000 3020340 site-packages/torch/distributed/elastic/multiprocessing/api.py:897] Sending process 3020350 closing signal SIGTERM
+E0923 14:07:34.103000 3020340 site-packages/torch/distributed/elastic/multiprocessing/api.py:869] failed (exitcode: 1) local_rank: 0 (pid: 3020347) of binary: /home/z/anaconda3/bin/python
+Traceback (most recent call last):
+  File "/home/z/anaconda3/bin/torchrun", line 8, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/home/z/anaconda3/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 355, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/z/anaconda3/lib/python3.11/site-packages/torch/distributed/run.py", line 918, in main
+    run(args)
+  File "/home/z/anaconda3/lib/python3.11/site-packages/torch/distributed/run.py", line 909, in run
+    elastic_launch(
+  File "/home/z/anaconda3/lib/python3.11/site-packages/torch/distributed/launcher/api.py", line 138, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/z/anaconda3/lib/python3.11/site-packages/torch/distributed/launcher/api.py", line 269, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/scripts/evaluate_semantic.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-09-23_14:07:33
+  host      : z
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 3020347)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

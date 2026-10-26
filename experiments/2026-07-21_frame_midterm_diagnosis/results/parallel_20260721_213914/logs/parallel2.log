@@ -1,0 +1,47 @@
+[diag] output dir: outputs/frame_midt_diag/parallel_20260721_213914
+[diag] device: cpu
+[diag] stage=aggregate, 30 checkpoint(s) × 3 domain(s) = 90 (ckpt, domain) pairs
+
+[diag] concatenating 30 per_ckpt shards
+[diag] total per-frame rows: 39830640
+[diag] wrote outputs/frame_midt_diag/parallel_20260721_213914/per_frame_scores.parquet
+[diag] wrote outputs/frame_midt_diag/parallel_20260721_213914/per_video_scores.parquet  (982740 video rows)
+[diag] wrote outputs/frame_midt_diag/parallel_20260721_213914/per_method_metrics.csv  (2160 rows)
+[diag] wrote outputs/frame_midt_diag/parallel_20260721_213914/aggregate_metrics.csv
+[diag] wrote outputs/frame_midt_diag/parallel_20260721_213914/bootstrap_direction_vs_raw.csv
+[diag] wrote outputs/frame_midt_diag/parallel_20260721_213914/hypothesis_summary.json
+[diag] wrote figure outputs/frame_midt_diag/parallel_20260721_213914/figures/01_cdf_delta_auc_heatmap.png
+[diag] wrote figure outputs/frame_midt_diag/parallel_20260721_213914/figures/02_ffpp_to_cdf_score_shift_direction.png
+[diag] wrote figure outputs/frame_midt_diag/parallel_20260721_213914/figures/03_optimal_threshold_distribution_cdf.png
+[diag] wrote figure outputs/frame_midt_diag/parallel_20260721_213914/figures/04_d_method_comparison_cdf.png
+[diag] wrote figure outputs/frame_midt_diag/parallel_20260721_213914/figures/05_norm_quartile_vs_error.png
+[diag] wrote figure outputs/frame_midt_diag/parallel_20260721_213914/figures/06_ba_at_05_vs_optimal_ba_cdf.png
+
+============================================================
+Hypothesis verdicts:
+  H1 [partially_supported]: Direction 是否在大多数方法上降低了 FF++ → CDF 的域偏移?
+      D_domain_raw_mean: 0.0276
+      D_domain_direction_mean: 0.0106
+      D_domain_reduction: 0.0170
+      n_methods_direction_higher_cdf_auc: 347
+      n_methods_total: 720
+      pct_methods_direction_higher: 0.4819
+  H2 [refuted]: Direction 的 0.48 阈值是否同时具有较小 threshold regret,还是仅因概率收缩到 0.5 附近?
+      direction_threshold_regret_mean: 0.2546
+      raw_threshold_regret_mean: 0.2489
+      direction_optimal_threshold_mean: 0.5825
+      direction_optimal_threshold_std: 0.0361
+  H3 [refuted]: 不同伪造方法的 direction score 分布是否显著不同?这种方法差异是否大于 seed 波动?
+      direction_D_method_cdf: 0.0136
+      direction_seed_noise_floor: 0.0348
+      ratio_method_over_seed: 0.3898
+  H4 [refuted]: Normtrain 是否降低了部分方法的分类错误,但增加了方法间 score/threshold 离散?
+      D_method_cdf_direction: 0.0136
+      D_method_cdf_normtrain: 0.0105
+      T_method_cdf_direction: 0.0127
+      T_method_cdf_normtrain: 0.0082
+  H5 [partially_supported]: Feature norm 是否能预测帧的正确性?若只能提高置信度而不能提高正确率,则标记为 'confidence polarizer'。
+      corr_norm_prob_fake: -0.0307
+      corr_norm_correct: 0.0401
+      norm_role_tag: mixed
+============================================================

@@ -1,0 +1,197 @@
+[
+  {
+    "original_worktree": "/home/z/project",
+    "head": "96aa145476e90263695fcfee183fb7b4a4335c59",
+    "refs": [
+      "0f38486907d738e210e74fb9e3c021a12bee7433 refs/codex/turn-diffs/captures/1790831630965/cd62de79-499b-432a-b031-05a0c879274a/base",
+      "7051655bd8219e1b278d6966ff5455408ddd9f82 refs/codex/turn-diffs/captures/1790846714632/ba936008-274a-4633-8fc8-33eed111fea1/base",
+      "96aa145476e90263695fcfee183fb7b4a4335c59 refs/heads/master"
+    ],
+    "tracked_status": " D docs/OPERATIONS_GUIDE.md\n D scripts/final_system_check.sh\n"
+  },
+  {
+    "original_worktree": "/home/z/project/archive/deepfake_detection_legacy",
+    "head": "9b10c56e515b013170af888831dbe597e477224b",
+    "refs": [
+      "5cc0105477509566295ea6cd3c277cdcf4ede82e refs/heads/master",
+      "56ee14e74f00dec7309bccccc602545447971899 refs/heads/study/four-questions",
+      "9b10c56e515b013170af888831dbe597e477224b refs/heads/study/pooling-saturation",
+      "1b160576a3a1f372d78c9c610526cba975c8881f refs/heads/worktree-agent-a15d2cece88d198b4",
+      "bd1c3b8e7329decb5206959c5aa7ed1a3cfd5f7c refs/heads/worktree-agent-a22eab60bb916d5d9",
+      "1b160576a3a1f372d78c9c610526cba975c8881f refs/heads/worktree-agent-ab37cb141001b49f9",
+      "5cc0105477509566295ea6cd3c277cdcf4ede82e refs/remotes/origin/master"
+    ],
+    "tracked_status": " M .gitignore\n M README.md\n D configs/pooling_saturation_config.yaml\n D configs/study_config.yaml\n D configs/xception_base.yaml\n D evaluate.py\n D outputs/figures/.gitkeep\n D outputs/logs/.gitkeep\n D outputs/tables/.gitkeep\n D outputs/z_cache/.gitkeep\n M pyproject.toml\n D scripts/00_inspect_project.py\n D scripts/01_rank_flip_analysis.py\n D scripts/02_radial_stability.py\n D scripts/03_length_robustness.py\n D scripts/04_audit_pairs.py\n D scripts/04b_q4_gate.py\n D scripts/04c_q4_run.py\n D scripts/05_generate_report.py\n D scripts/06_pooling_saturation_analysis.py\n D scripts/07_fit_temperature_calibration.py\n D scripts/08_pooling_rank_flip.py\n D scripts/09_generate_pooling_report.py\n D scripts/download_faceforensics.py\n D scripts/evaluate_norm_correction.py\n D scripts/launch_training.py\n D scripts/prepare_dfd_df40.py\n D scripts/run_all.py\n D scripts/summarize_paper_results.py\nRD src/deepfake_detection/__init__.py -> src/__package_init_old.py\n D src/deepfake_detection/data/__init__.py\n D src/deepfake_detection/data/bg_patches.py\n D src/deepfake_detection/data/builders.py\n D src/deepfake_detection/data/constants.py\n D src/deepfake_detection/data/crops.py\n D src/deepfake_detection/data/datasets.py\n D src/deepfake_detection/data/frequency.py\n D src/deepfake_detection/data/index_cdf.py\n D src/deepfake_detection/data/index_external.py\n D src/deepfake_detection/data/index_ffpp.py\n D src/deepfake_detection/data/sampling.py\n D src/deepfake_detection/data/transforms.py\n D src/deepfake_detection/engine/__init__.py\n D src/deepfake_detection/engine/ddp.py\n D src/deepfake_detection/engine/metrics.py\n D src/deepfake_detection/engine/trainers.py\n D src/deepfake_detection/evaluation/__init__.py\n D src/deepfake_detection/evaluation/norm_correction.py\n D src/deepfake_detection/evaluation/norm_modes.py\n D src/deepfake_detection/evaluation/sample_eval.py\n D src/deepfake_detection/losses/__init__.py\n D src/deepfake_detection/losses/contrastive.py\n D src/deepfake_detection/models/__init__.py\n D src/deepfake_detection/models/clip_bgcontrast.py\n D src/deepfake_detection/models/clip_classifier.py\n D src/deepfake_detection/models/clip_prompt.py\n D src/deepfake_detection/models/dinov2.py\n D src/deepfake_detection/models/efficientnet.py\n D src/deepfake_detection/models/factory.py\n D src/deepfake_detection/models/xception.py\n D src/deepfake_detection/study/__init__.py\n D src/deepfake_detection/study/auc_pairs.py\n D src/deepfake_detection/study/canonical.py\n D src/deepfake_detection/study/cluster_bootstrap.py\n D src/deepfake_detection/study/config.py\n D src/deepfake_detection/study/flip_dissect.py\n D src/deepfake_detection/study/io.py\n D src/deepfake_detection/study/length.py\n D src/deepfake_detection/study/q4_alignment.py\n D src/deepfake_detection/study/q4_extract.py\n D src/deepfake_detection/study/radial.py\n D src/deepfake_detection/study_pooling/__init__.py\n D src/deepfake_detection/study_pooling/aggregators.py\n D src/deepfake_detection/study_pooling/config.py\n D src/deepfake_detection/study_pooling/gamma.py\n D src/deepfake_detection/study_pooling/saturation.py\n D src/deepfake_detection/study_pooling/temperature.py\n D src/deepfake_detection/study_pooling/temporal.py\n D src/deepfake_detection/study_pooling/video_eval.py\n D src/deepfake_detection/study_pooling/wb_io.py\n D tests/study/test_auc_pairs.py\n D tests/study/test_canonical.py\n D tests/study/test_cluster_bootstrap.py\n D tests/study/test_config.py\n D tests/study/test_flip_dissect.py\n D tests/study/test_io.py\n D tests/study/test_length.py\n D tests/study/test_q4_alignment.py\n D tests/study/test_q4_extract.py\n D tests/study/test_radial.py\n D tests/study/test_sampling.py\n D tests/study_pooling/test_aggregators.py\n D tests/study_pooling/test_config.py\n D tests/study_pooling/test_gamma.py\n D tests/study_pooling/test_saturation.py\n D tests/study_pooling/test_temperature.py\n D tests/study_pooling/test_temporal.py\n D tests/study_pooling/test_video_eval.py\n D train.py\n"
+  },
+  {
+    "original_worktree": "/home/z/project/deepfake_visual_jev/experiments/2026-09-28_e4_antifakeprompt/upstream",
+    "head": "e261aa6ee4c398f63a36c08b7ebad3455dc1428e",
+    "refs": [
+      "e261aa6ee4c398f63a36c08b7ebad3455dc1428e refs/heads/main",
+      "e261aa6ee4c398f63a36c08b7ebad3455dc1428e refs/remotes/origin/HEAD",
+      "e261aa6ee4c398f63a36c08b7ebad3455dc1428e refs/remotes/origin/main"
+    ],
+    "tracked_status": ""
+  },
+  {
+    "original_worktree": "/home/z/project/deidentification/de-id/Facial-Privacy-Protection",
+    "head": "00d8671d3000511ee443fd3e6ddf15a8edad28e3",
+    "refs": [
+      "00d8671d3000511ee443fd3e6ddf15a8edad28e3 refs/heads/main",
+      "bd0a8e4c874b0e8bc385cbc95161033a30b8cbb7 refs/remotes/origin/HEAD",
+      "bd0a8e4c874b0e8bc385cbc95161033a30b8cbb7 refs/remotes/origin/main"
+    ],
+    "tracked_status": ""
+  },
+  {
+    "original_worktree": "/home/z/project/deidentification/de-id/VGGFace2-HQ",
+    "head": "8e6d0dd0790ea305b10aa42385403cea92f62aca",
+    "refs": [
+      "8e6d0dd0790ea305b10aa42385403cea92f62aca refs/heads/main",
+      "36d5b72cb7b7b5a17a8daa7e8f94c79ff3ef32ec refs/remotes/origin/HEAD",
+      "36d5b72cb7b7b5a17a8daa7e8f94c79ff3ef32ec refs/remotes/origin/main"
+    ],
+    "tracked_status": ""
+  },
+  {
+    "original_worktree": "/home/z/project/deidentification/de-id/VGGFace2-HQ/havatar",
+    "head": "c9d753aca3907134616f2cc375480cf07edb18a0",
+    "refs": [
+      "c9d753aca3907134616f2cc375480cf07edb18a0 refs/heads/main",
+      "c9d753aca3907134616f2cc375480cf07edb18a0 refs/remotes/origin/HEAD",
+      "c9d753aca3907134616f2cc375480cf07edb18a0 refs/remotes/origin/main"
+    ],
+    "tracked_status": " D data_preprocessing/OpenSeeFace/__pycache__/__init__.cpython-38.pyc\n D data_preprocessing/OpenSeeFace/__pycache__/remedian.cpython-38.pyc\n D data_preprocessing/OpenSeeFace/__pycache__/retinaface.cpython-38.pyc\n D data_preprocessing/OpenSeeFace/__pycache__/similaritytransform.cpython-38.pyc\n D data_preprocessing/OpenSeeFace/__pycache__/tracker.cpython-38.pyc\n M data_preprocessing/OpenSeeFace/tracker.py\n D data_preprocessing/metamodel/v31_face_mask_new.npy\n"
+  },
+  {
+    "original_worktree": "/home/z/project/deidentification/de-id/3DDFA-V3",
+    "head": "61bff24ef915934c0d20b3d5db7397f94e24742a",
+    "refs": [
+      "61bff24ef915934c0d20b3d5db7397f94e24742a refs/heads/main",
+      "e15385837dc1e051a6cf376b3827f2e279537b29 refs/remotes/origin/HEAD",
+      "e15385837dc1e051a6cf376b3827f2e279537b29 refs/remotes/origin/main"
+    ],
+    "tracked_status": ""
+  },
+  {
+    "original_worktree": "/home/z/project/deidentification/de-id/3DDFA-V3/nvdiffrast",
+    "head": "729261dc64c4241ea36efda84fbf532cc8b425b8",
+    "refs": [
+      "729261dc64c4241ea36efda84fbf532cc8b425b8 refs/heads/main",
+      "729261dc64c4241ea36efda84fbf532cc8b425b8 refs/remotes/origin/HEAD",
+      "729261dc64c4241ea36efda84fbf532cc8b425b8 refs/remotes/origin/main",
+      "2468e2a0ba1f748b16233af72f4b833c7ae8c8c2 refs/tags/v0.2.0",
+      "ce7063f113df181487a776c1fd72df83b12d3188 refs/tags/v0.2.1",
+      "5a2d5d595ef94c63f186dc497c6223c866a33995 refs/tags/v0.2.2",
+      "3ffece8ffe2dc59f365c64ac7da3e46abe828971 refs/tags/v0.2.3",
+      "7b346299ad6cda1ccb5d08f369d54c8b3bf39e37 refs/tags/v0.2.4",
+      "a4e7a4db7e09695b4efc7641cc6b044ef706f953 refs/tags/v0.2.5",
+      "0c39902a5163a33c853cdb04ab4e38ed097772e1 refs/tags/v0.2.6",
+      "e44c9a29867addc8b98982deeec1f66c4a7d8b54 refs/tags/v0.2.7",
+      "78528e683210dfaa1be57e3c65aa37d3b36c6644 refs/tags/v0.2.8",
+      "fad71a4ad3dc8530a4eeaeb55a65b2e8c127d69d refs/tags/v0.3.0",
+      "c5caf7bdb8a2448acc491a9faa47753972edd380 refs/tags/v0.3.1",
+      "f09684d2cad785a04c94052ce32fb8e9c031c834 refs/tags/v0.3.2",
+      "729261dc64c4241ea36efda84fbf532cc8b425b8 refs/tags/v0.3.3"
+    ],
+    "tracked_status": ""
+  },
+  {
+    "original_worktree": "/home/z/project/deidentification/de-id/SimSwap",
+    "head": "28d3765763e4c7de3c3d8c9f2b692c0de99cef45",
+    "refs": [
+      "28d3765763e4c7de3c3d8c9f2b692c0de99cef45 refs/heads/main",
+      "bd7b7686a17f41dd11cfcd5d82f7e4c5eb94b780 refs/remotes/origin/HEAD",
+      "bd7b7686a17f41dd11cfcd5d82f7e4c5eb94b780 refs/remotes/origin/main",
+      "9bd2e11f03d80f6dc5325e3c53a4ce79a9ceb7e2 refs/tags/1.0",
+      "0f2e4fd244dfdb513197471693d3a970dc1df08c refs/tags/512_beta"
+    ],
+    "tracked_status": ""
+  },
+  {
+    "original_worktree": "/home/z/project/deidentification/de-id/GANonymization",
+    "head": "49e84c54fc21269543f3d4db366d2853067396de",
+    "refs": [
+      "49e84c54fc21269543f3d4db366d2853067396de refs/heads/main",
+      "7dbe45e3b172670ff59be982c662749165ab5ced refs/remotes/origin/HEAD",
+      "f9643265e86cce5f870838d3abd62c1eb56b9aab refs/remotes/origin/demo",
+      "7dbe45e3b172670ff59be982c662749165ab5ced refs/remotes/origin/main"
+    ],
+    "tracked_status": ""
+  },
+  {
+    "original_worktree": "/home/z/project/deidentification/de-id/fawkes",
+    "head": "752a18ea0e73131a15fd08dfaf17da3dddc51f94",
+    "refs": [
+      "752a18ea0e73131a15fd08dfaf17da3dddc51f94 refs/heads/master",
+      "aedaa82d22504c4e7dbc86de869a6e0d943a5f2a refs/remotes/origin/HEAD",
+      "265229f093cf70c8f4336e153d3595a993b724b4 refs/remotes/origin/dependabot/pip/tensorflow-2.5.3",
+      "aedaa82d22504c4e7dbc86de869a6e0d943a5f2a refs/remotes/origin/master",
+      "9834d6e97a53d6f24c9c1b690cabecac22319d07 refs/tags/v0.3"
+    ],
+    "tracked_status": " M README.md\n"
+  },
+  {
+    "original_worktree": "/home/z/project/deidentification/de-id/face_anon_simple",
+    "head": "5e9c43c7db21831150b2073dc90dffe415326d22",
+    "refs": [
+      "5e9c43c7db21831150b2073dc90dffe415326d22 refs/heads/main",
+      "ca136a89cdaf6140769cdb472b7ff425b721e052 refs/remotes/origin/HEAD",
+      "ca136a89cdaf6140769cdb472b7ff425b721e052 refs/remotes/origin/main"
+    ],
+    "tracked_status": " M process_vggface2.py\n"
+  },
+  {
+    "original_worktree": "/home/z/project/deidentification/de-id/FALCO",
+    "head": "73daa3ff688fe14c797b05edbc2119552e67b393",
+    "refs": [
+      "73daa3ff688fe14c797b05edbc2119552e67b393 refs/heads/cvpr23",
+      "1cbf5f90ffc8de1ac1bafb287a2c1a9882bf798a refs/remotes/origin/HEAD",
+      "1cbf5f90ffc8de1ac1bafb287a2c1a9882bf798a refs/remotes/origin/cvpr23"
+    ],
+    "tracked_status": " M .gitignore\n M LICENSE\n M README.md\n M anonymize.py\n M create_fake_dataset.py\n M doc/datasets.md\n M download_models.py\n M figs/overview.png\n M figs/overview.svg\n M figs/teaser.png\n M figs/teaser.svg\n M figs/vis_orig_nn.jpg\n M figs/vis_orig_recon_nn.jpg\n M figs/vis_orig_recon_nn_anon-m-0.0.jpg\n M figs/vis_orig_recon_nn_anon-m-0.5.jpg\n M figs/vis_orig_recon_nn_anon-m-1.0.jpg\n M lib/__init__.py\n M lib/arcface.py\n M lib/attr_loss.py\n M lib/celebahq.py\n M lib/collate_fn.py\n M lib/config.py\n M lib/fan_model/models.py\n M lib/fonts/Roboto-Black.ttf\n M lib/fonts/Roboto-BlackItalic.ttf\n M lib/fonts/Roboto-Bold.ttf\n M lib/fonts/Roboto-BoldItalic.ttf\n M lib/fonts/Roboto-Italic.ttf\n M lib/fonts/Roboto-Light.ttf\n M lib/fonts/Roboto-LightItalic.ttf\n M lib/fonts/Roboto-Medium.ttf\n M lib/fonts/Roboto-MediumItalic.ttf\n M lib/fonts/Roboto-Regular.ttf\n M lib/fonts/Roboto-Thin.ttf\n M lib/fonts/Roboto-ThinItalic.ttf\n M lib/fonts/RobotoCondensed-Bold.ttf\n M lib/fonts/RobotoCondensed-BoldItalic.ttf\n M lib/fonts/RobotoCondensed-Italic.ttf\n M lib/fonts/RobotoCondensed-Light.ttf\n M lib/fonts/RobotoCondensed-LightItalic.ttf\n M lib/fonts/RobotoCondensed-Regular.ttf\n M lib/id_loss.py\n M lib/latent_code.py\n M lib/sfd/__init__.py\n M lib/sfd/bbox.py\n M lib/sfd/core.py\n M lib/sfd/detect.py\n M lib/sfd/net_s3fd.py\n M lib/sfd/sfd_detector.py\n M models/encoders/__init__.py\n M models/encoders/helpers.py\n M models/encoders/model_irse.py\n M models/encoders/psp_encoders.py\n M models/genforce/.gitignore\n M models/genforce/LICENSE\n M models/genforce/MODEL_ZOO.md\n M models/genforce/README.md\n M models/genforce/__init__.py\n M models/genforce/configs/stylegan_demo.py\n M models/genforce/configs/stylegan_ffhq1024.py\n M models/genforce/configs/stylegan_ffhq1024_val.py\n M models/genforce/configs/stylegan_ffhq256.py\n M models/genforce/configs/stylegan_ffhq256_encoder_y.py\n M models/genforce/configs/stylegan_ffhq256_val.py\n M models/genforce/convert_model.py\n M models/genforce/converters/README.md\n M models/genforce/converters/__init__.py\n M models/genforce/converters/pggan_converter.py\n M models/genforce/converters/pggan_official/README.md\n M models/genforce/converters/pggan_official/config.py\n M models/genforce/converters/pggan_official/dataset.py\n M models/genforce/converters/pggan_official/dataset_tool.py\n M models/genforce/converters/pggan_official/legacy.py\n M models/genforce/converters/pggan_official/loss.py\n M models/genforce/converters/pggan_official/metrics/__init__.py\n M models/genforce/converters/pggan_official/metrics/frechet_inception_distance.py\n M models/genforce/converters/pggan_official/metrics/inception_score.py\n M models/genforce/converters/pggan_official/metrics/ms_ssim.py\n M models/genforce/converters/pggan_official/metrics/sliced_wasserstein.py\n M models/genforce/converters/pggan_official/misc.py\n M models/genforce/converters/pggan_official/networks.py\n M models/genforce/converters/pggan_official/tfutil.py\n M models/genforce/converters/pggan_official/train.py\n M models/genforce/converters/pggan_official/util_scripts.py\n M models/genforce/converters/stylegan2_converter.py\n M models/genforce/converters/stylegan2_official/Dockerfile\n M models/genforce/converters/stylegan2_official/README.md\n M models/genforce/converters/stylegan2_official/dataset_tool.py\n M models/genforce/converters/stylegan2_official/dnnlib/__init__.py\n M models/genforce/converters/stylegan2_official/dnnlib/submission/__init__.py\n M models/genforce/converters/stylegan2_official/dnnlib/submission/internal/__init__.py\n M models/genforce/converters/stylegan2_official/dnnlib/submission/internal/local.py\n M models/genforce/converters/stylegan2_official/dnnlib/submission/run_context.py\n M models/genforce/converters/stylegan2_official/dnnlib/submission/submit.py\n M models/genforce/converters/stylegan2_official/dnnlib/tflib/__init__.py\n M models/genforce/converters/stylegan2_official/dnnlib/tflib/autosummary.py\n M models/genforce/converters/stylegan2_official/dnnlib/tflib/custom_ops.py\n M models/genforce/converters/stylegan2_official/dnnlib/tflib/network.py\n M models/genforce/converters/stylegan2_official/dnnlib/tflib/ops/__init__.py\n M models/genforce/converters/stylegan2_official/dnnlib/tflib/ops/fused_bias_act.cu\n M models/genforce/converters/stylegan2_official/dnnlib/tflib/ops/fused_bias_act.py\n M models/genforce/converters/stylegan2_official/dnnlib/tflib/ops/upfirdn_2d.cu\n M models/genforce/converters/stylegan2_official/dnnlib/tflib/ops/upfirdn_2d.py\n M models/genforce/converters/stylegan2_official/dnnlib/tflib/optimizer.py\n M models/genforce/converters/stylegan2_official/dnnlib/tflib/tfutil.py\n M models/genforce/converters/stylegan2_official/dnnlib/util.py\n M models/genforce/converters/stylegan2_official/metrics/__init__.py\n M models/genforce/converters/stylegan2_official/metrics/frechet_inception_distance.py\n M models/genforce/converters/stylegan2_official/metrics/inception_score.py\n M models/genforce/converters/stylegan2_official/metrics/linear_separability.py\n M models/genforce/converters/stylegan2_official/metrics/metric_base.py\n M models/genforce/converters/stylegan2_official/metrics/metric_defaults.py\n M models/genforce/converters/stylegan2_official/metrics/perceptual_path_length.py\n M models/genforce/converters/stylegan2_official/metrics/precision_recall.py\n M models/genforce/converters/stylegan2_official/pretrained_networks.py\n M models/genforce/converters/stylegan2_official/projector.py\n M models/genforce/converters/stylegan2_official/run_generator.py\n M models/genforce/converters/stylegan2_official/run_metrics.py\n M models/genforce/converters/stylegan2_official/run_projector.py\n M models/genforce/converters/stylegan2_official/run_training.py\n M models/genforce/converters/stylegan2_official/test_nvcc.cu\n M models/genforce/converters/stylegan2_official/training/__init__.py\n M models/genforce/converters/stylegan2_official/training/dataset.py\n M models/genforce/converters/stylegan2_official/training/loss.py\n M models/genforce/converters/stylegan2_official/training/misc.py\n M models/genforce/converters/stylegan2_official/training/networks_stylegan.py\n M models/genforce/converters/stylegan2_official/training/networks_stylegan2.py\n M models/genforce/converters/stylegan2_official/training/training_loop.py\n M models/genforce/converters/stylegan2ada_pth_converter.py\n M models/genforce/converters/stylegan2ada_pth_official/Dockerfile\n M models/genforce/converters/stylegan2ada_pth_official/README.md\n M models/genforce/converters/stylegan2ada_pth_official/calc_metrics.py\n M models/genforce/converters/stylegan2ada_pth_official/dataset_tool.py\n M models/genforce/converters/stylegan2ada_pth_official/dnnlib/__init__.py\n M models/genforce/converters/stylegan2ada_pth_official/dnnlib/util.py\n M models/genforce/converters/stylegan2ada_pth_official/docker_run.sh\n M models/genforce/converters/stylegan2ada_pth_official/generate.py\n M models/genforce/converters/stylegan2ada_pth_official/legacy.py\n M models/genforce/converters/stylegan2ada_pth_official/metrics/__init__.py\n M models/genforce/converters/stylegan2ada_pth_official/metrics/frechet_inception_distance.py\n M models/genforce/converters/stylegan2ada_pth_official/metrics/inception_score.py\n M models/genforce/converters/stylegan2ada_pth_official/metrics/kernel_inception_distance.py\n M models/genforce/converters/stylegan2ada_pth_official/metrics/metric_main.py\n M models/genforce/converters/stylegan2ada_pth_official/metrics/metric_utils.py\n M models/genforce/converters/stylegan2ada_pth_official/metrics/perceptual_path_length.py\n M models/genforce/converters/stylegan2ada_pth_official/metrics/precision_recall.py\n M models/genforce/converters/stylegan2ada_pth_official/projector.py\n M models/genforce/converters/stylegan2ada_pth_official/style_mixing.py\n M models/genforce/converters/stylegan2ada_pth_official/torch_utils/__init__.py\n M models/genforce/converters/stylegan2ada_pth_official/torch_utils/custom_ops.py\n M models/genforce/converters/stylegan2ada_pth_official/torch_utils/misc.py\n M models/genforce/converters/stylegan2ada_pth_official/torch_utils/ops/__init__.py\n M models/genforce/converters/stylegan2ada_pth_official/torch_utils/ops/bias_act.cpp\n M models/genforce/converters/stylegan2ada_pth_official/torch_utils/ops/bias_act.cu\n M models/genforce/converters/stylegan2ada_pth_official/torch_utils/ops/bias_act.h\n M models/genforce/converters/stylegan2ada_pth_official/torch_utils/ops/bias_act.py\n M models/genforce/converters/stylegan2ada_pth_official/torch_utils/ops/conv2d_gradfix.py\n M models/genforce/converters/stylegan2ada_pth_official/torch_utils/ops/conv2d_resample.py\n M models/genforce/converters/stylegan2ada_pth_official/torch_utils/ops/fma.py\n M models/genforce/converters/stylegan2ada_pth_official/torch_utils/ops/grid_sample_gradfix.py\n M models/genforce/converters/stylegan2ada_pth_official/torch_utils/ops/upfirdn2d.cpp\n M models/genforce/converters/stylegan2ada_pth_official/torch_utils/ops/upfirdn2d.cu\n M models/genforce/converters/stylegan2ada_pth_official/torch_utils/ops/upfirdn2d.h\n M models/genforce/converters/stylegan2ada_pth_official/torch_utils/ops/upfirdn2d.py\n M models/genforce/converters/stylegan2ada_pth_official/torch_utils/persistence.py\n M models/genforce/converters/stylegan2ada_pth_official/torch_utils/training_stats.py\n M models/genforce/converters/stylegan2ada_pth_official/train.py\n M models/genforce/converters/stylegan2ada_pth_official/training/__init__.py\n M models/genforce/converters/stylegan2ada_pth_official/training/augment.py\n M models/genforce/converters/stylegan2ada_pth_official/training/dataset.py\n M models/genforce/converters/stylegan2ada_pth_official/training/loss.py\n M models/genforce/converters/stylegan2ada_pth_official/training/networks.py\n M models/genforce/converters/stylegan2ada_pth_official/training/training_loop.py\n M models/genforce/converters/stylegan2ada_tf_converter.py\n M models/genforce/converters/stylegan2ada_tf_official/Dockerfile\n M models/genforce/converters/stylegan2ada_tf_official/README.md\n M models/genforce/converters/stylegan2ada_tf_official/calc_metrics.py\n M models/genforce/converters/stylegan2ada_tf_official/dataset_tool.py\n M models/genforce/converters/stylegan2ada_tf_official/dnnlib/__init__.py\n M models/genforce/converters/stylegan2ada_tf_official/dnnlib/tflib/__init__.py\n M models/genforce/converters/stylegan2ada_tf_official/dnnlib/tflib/autosummary.py\n M models/genforce/converters/stylegan2ada_tf_official/dnnlib/tflib/custom_ops.py\n M models/genforce/converters/stylegan2ada_tf_official/dnnlib/tflib/network.py\n M models/genforce/converters/stylegan2ada_tf_official/dnnlib/tflib/ops/__init__.py\n M models/genforce/converters/stylegan2ada_tf_official/dnnlib/tflib/ops/fused_bias_act.cu\n M models/genforce/converters/stylegan2ada_tf_official/dnnlib/tflib/ops/fused_bias_act.py\n M models/genforce/converters/stylegan2ada_tf_official/dnnlib/tflib/ops/upfirdn_2d.cu\n M models/genforce/converters/stylegan2ada_tf_official/dnnlib/tflib/ops/upfirdn_2d.py\n M models/genforce/converters/stylegan2ada_tf_official/dnnlib/tflib/optimizer.py\n M models/genforce/converters/stylegan2ada_tf_official/dnnlib/tflib/tfutil.py\n M models/genforce/converters/stylegan2ada_tf_official/dnnlib/util.py\n M models/genforce/converters/stylegan2ada_tf_official/generate.py\n M models/genforce/converters/stylegan2ada_tf_official/metrics/__init__.py\n M models/genforce/converters/stylegan2ada_tf_official/metrics/frechet_inception_distance.py\n M models/genforce/converters/stylegan2ada_tf_official/metrics/inception_score.py\n M models/genforce/converters/stylegan2ada_tf_official/metrics/kernel_inception_distance.py\n M models/genforce/converters/stylegan2ada_tf_official/metrics/linear_separability.py\n M models/genforce/converters/stylegan2ada_tf_official/metrics/metric_base.py\n M models/genforce/converters/stylegan2ada_tf_official/metrics/metric_defaults.py\n M models/genforce/converters/stylegan2ada_tf_official/metrics/perceptual_path_length.py\n M models/genforce/converters/stylegan2ada_tf_official/metrics/precision_recall.py\n M models/genforce/converters/stylegan2ada_tf_official/projector.py\n M models/genforce/converters/stylegan2ada_tf_official/style_mixing.py\n M models/genforce/converters/stylegan2ada_tf_official/train.py\n M models/genforce/converters/stylegan2ada_tf_official/training/__init__.py\n M models/genforce/converters/stylegan2ada_tf_official/training/augment.py\n M models/genforce/converters/stylegan2ada_tf_official/training/dataset.py\n M models/genforce/converters/stylegan2ada_tf_official/training/loss.py\n M models/genforce/converters/stylegan2ada_tf_official/training/networks.py\n M models/genforce/converters/stylegan2ada_tf_official/training/training_loop.py\n M models/genforce/converters/stylegan_converter.py\n M models/genforce/converters/stylegan_official/README.md\n M models/genforce/converters/stylegan_official/config.py\n M models/genforce/converters/stylegan_official/dataset_tool.py\n M models/genforce/converters/stylegan_official/dnnlib/__init__.py\n M models/genforce/converters/stylegan_official/dnnlib/submission/__init__.py\n M models/genforce/converters/stylegan_official/dnnlib/submission/_internal/run.py\n M models/genforce/converters/stylegan_official/dnnlib/submission/run_context.py\n M models/genforce/converters/stylegan_official/dnnlib/submission/submit.py\n M models/genforce/converters/stylegan_official/dnnlib/tflib/__init__.py\n M models/genforce/converters/stylegan_official/dnnlib/tflib/autosummary.py\n M models/genforce/converters/stylegan_official/dnnlib/tflib/network.py\n M models/genforce/converters/stylegan_official/dnnlib/tflib/optimizer.py\n M models/genforce/converters/stylegan_official/dnnlib/tflib/tfutil.py\n M models/genforce/converters/stylegan_official/dnnlib/util.py\n M models/genforce/converters/stylegan_official/generate_figures.py\n M models/genforce/converters/stylegan_official/metrics/__init__.py\n M models/genforce/converters/stylegan_official/metrics/frechet_inception_distance.py\n M models/genforce/converters/stylegan_official/metrics/linear_separability.py\n M models/genforce/converters/stylegan_official/metrics/metric_base.py\n M models/genforce/converters/stylegan_official/metrics/perceptual_path_length.py\n M models/genforce/converters/stylegan_official/pretrained_example.py\n M models/genforce/converters/stylegan_official/run_metrics.py\n M models/genforce/converters/stylegan_official/train.py\n M models/genforce/converters/stylegan_official/training/__init__.py\n M models/genforce/converters/stylegan_official/training/dataset.py\n M models/genforce/converters/stylegan_official/training/loss.py\n M models/genforce/converters/stylegan_official/training/misc.py\n M models/genforce/converters/stylegan_official/training/networks_progan.py\n M models/genforce/converters/stylegan_official/training/networks_stylegan.py\n M models/genforce/converters/stylegan_official/training/training_loop.py\n M models/genforce/docs/synthesize_demo.ipynb\n M models/genforce/metrics/README.md\n M models/genforce/metrics/__init__.py\n M models/genforce/metrics/fid.py\n M models/genforce/metrics/inception.py\n M models/genforce/models/__init__.py\n M models/genforce/models/encoder.py\n M models/genforce/models/model_zoo.py\n M models/genforce/models/perceptual_model.py\n M models/genforce/models/pggan_discriminator.py\n M models/genforce/models/pggan_generator.py\n M models/genforce/models/stylegan2_discriminator.py\n M models/genforce/models/stylegan2_generator.py\n M models/genforce/models/stylegan_discriminator.py\n M models/genforce/models/stylegan_generator.py\n M models/genforce/models/sync_op.py\n M models/genforce/runners/__init__.py\n M models/genforce/runners/base_encoder_runner.py\n M models/genforce/runners/base_gan_runner.py\n M models/genforce/runners/base_runner.py\n M models/genforce/runners/controllers/__init__.py\n M models/genforce/runners/controllers/base_controller.py\n M models/genforce/runners/controllers/cache_cleaner.py\n M models/genforce/runners/controllers/checkpointer.py\n M models/genforce/runners/controllers/fid_evaluator.py\n M models/genforce/runners/controllers/lr_scheduler.py\n M models/genforce/runners/controllers/progress_scheduler.py\n M models/genforce/runners/controllers/running_logger.py\n M models/genforce/runners/controllers/snapshoter.py\n M models/genforce/runners/controllers/timer.py\n M models/genforce/runners/encoder_runner.py\n M models/genforce/runners/losses/__init__.py\n M models/genforce/runners/losses/encoder_loss.py\n M models/genforce/runners/losses/logistic_gan_loss.py\n M models/genforce/runners/misc.py\n M models/genforce/runners/optimizer.py\n M models/genforce/runners/running_stats.py\n M models/genforce/runners/stylegan_runner.py\n M models/genforce/synthesize.py\n M models/genforce/test.py\n M models/genforce/train.py\n M models/genforce/utils/__init__.py\n M models/genforce/utils/logger.py\n M models/genforce/utils/logger_test.py\n M models/genforce/utils/misc.py\n M models/genforce/utils/visualizer.py\n M models/load_generator.py\n M models/psp.py\n M models/stylegan2/__init__.py\n M models/stylegan2/model.py\n M models/stylegan2/op/__init__.py\n M models/stylegan2/op/fused_act.py\n M models/stylegan2/op/fused_bias_act.cpp\n M models/stylegan2/op/fused_bias_act_kernel.cu\n M models/stylegan2/op/upfirdn2d.cpp\n M models/stylegan2/op/upfirdn2d.py\n M models/stylegan2/op/upfirdn2d_kernel.cu\n M pair_nn.py\n M requirements.txt\n M visualize_dataset.py\n"
+  },
+  {
+    "original_worktree": "/home/z/project/deidentification/de-id/TIP-IM",
+    "head": "0f03916b89019d48e24ca018ca70e9196e3089d8",
+    "refs": [
+      "0f03916b89019d48e24ca018ca70e9196e3089d8 refs/heads/master",
+      "5ad8175d1e7868d1601024b0116066230415892b refs/remotes/origin/HEAD",
+      "5ad8175d1e7868d1601024b0116066230415892b refs/remotes/origin/master"
+    ],
+    "tracked_status": " D networks/FaceModel.pyc\n D networks/__pycache__/ArcFace.cpython-36.pyc\n D networks/__pycache__/CosFace.cpython-36.pyc\n D networks/__pycache__/FaceModel.cpython-36.pyc\n D networks/__pycache__/SphereFace.cpython-36.pyc\n"
+  },
+  {
+    "original_worktree": "/home/z/project/deidentification/evaluation",
+    "head": "36de6804b886e69b47ef379b98a6c457b5aa0bd2",
+    "refs": [
+      "36de6804b886e69b47ef379b98a6c457b5aa0bd2 refs/heads/master"
+    ],
+    "tracked_status": ""
+  },
+  {
+    "original_worktree": "/home/z/project/deidentification/evaluation/third_party/GFPGAN",
+    "head": "7552a7791caad982045a7bbe5634bbf1cd5c8679",
+    "refs": [
+      "7552a7791caad982045a7bbe5634bbf1cd5c8679 refs/heads/master",
+      "7552a7791caad982045a7bbe5634bbf1cd5c8679 refs/remotes/origin/HEAD",
+      "7552a7791caad982045a7bbe5634bbf1cd5c8679 refs/remotes/origin/master",
+      "996d1e3df972438bfffa87993f0f21d242125bdf refs/tags/v.0.2.1",
+      "14e04eaa07dd630e0fe1e642574f46410b73fca7 refs/tags/v0.1.0",
+      "401cf51a733992d1dc3fdf446237ea2a01e0156c refs/tags/v0.2.0",
+      "4f0562df64fc780a5faec1e9feeb6d2636a18ffd refs/tags/v0.2.2",
+      "0ff1cf72152b9ecb92d1cecb9d0c7ab98d25d4f3 refs/tags/v0.2.3",
+      "ee3e556f1887432b01784a1a8fb829a15fd6f9a5 refs/tags/v0.2.4",
+      "77df6e4fad3bbd735bd54dff1a08405522c6a4b0 refs/tags/v1.3.0",
+      "6c544b70e60464403e044fa7cdf1dd0310a3b289 refs/tags/v1.3.1",
+      "924ce473abd1aea95a38a7be2e907c28b09307b2 refs/tags/v1.3.2",
+      "ccd30af837dd99925586129bc5e18b3025cf5d92 refs/tags/v1.3.3",
+      "9c3f2d62cb4e63a7ba7ce68648dd1667b2b2ef44 refs/tags/v1.3.4",
+      "af7569775d1b24d53846ee8ae8d9daf7dc621732 refs/tags/v1.3.5",
+      "fe3beac9dc8fd109c23d826d92510af10e4d2520 refs/tags/v1.3.6",
+      "d226e86f6c09dd220d54c43fd1541517de7f4980 refs/tags/v1.3.7",
+      "2eac2033893ca7f427f4035d80fe95b92649ac56 refs/tags/v1.3.8"
+    ],
+    "tracked_status": ""
+  }
+]

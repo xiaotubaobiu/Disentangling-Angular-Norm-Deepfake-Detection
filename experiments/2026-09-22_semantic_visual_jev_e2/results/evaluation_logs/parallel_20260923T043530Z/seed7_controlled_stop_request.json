@@ -1,0 +1,18 @@
+{
+  "timestamp_utc": "2026-09-23T05:15:16.073741+00:00",
+  "authorized_action": "Gracefully terminate superseded v1 seed7 evaluator before isolated primary_v2 rerun",
+  "target_launcher_pid": 3120105,
+  "target_children_at_request": [
+    3121200,
+    3121201,
+    3121202,
+    3121203,
+    3123631,
+    3123646,
+    3123649,
+    3123648
+  ],
+  "signal": "SIGTERM",
+  "preserve_existing_outputs_and_logs": true,
+  "old_observer_worker_pid": 3120003
+}

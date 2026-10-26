@@ -1,0 +1,1010 @@
+[
+  {
+    "mode": "100644",
+    "oid": "086bf2282a2a9d0ba55f3f04bf0ebe4a168ecc2f",
+    "stage": "0",
+    "path": ".gitignore"
+  },
+  {
+    "mode": "100644",
+    "oid": "1a308a7b77d86680c4b0fa76e5f79d1d529560d8",
+    "stage": "0",
+    "path": "docs/superpowers/plans/2026-04-28-ffpp-cdf-pipeline.md"
+  },
+  {
+    "mode": "100644",
+    "oid": "1cdee9b38db30ca96dff01fc4b20a60c44cb7934",
+    "stage": "0",
+    "path": "docs/superpowers/plans/2026-04-28-validation-set-exp1-exp2.md"
+  },
+  {
+    "mode": "100644",
+    "oid": "7babdeb0de86d79bafc096776be5a0bf4f2469a6",
+    "stage": "0",
+    "path": "docs/superpowers/plans/2026-04-29-exp3-clip-prompt-contrast.md"
+  },
+  {
+    "mode": "100644",
+    "oid": "9f8f85f1938f621b792860bed98a52abb47529a2",
+    "stage": "0",
+    "path": "docs/superpowers/plans/2026-04-29-exp4-bg-face-contrast.md"
+  },
+  {
+    "mode": "100644",
+    "oid": "e2747d9c9d24a0c09e13183e136361f64f57943a",
+    "stage": "0",
+    "path": "docs/superpowers/plans/2026-04-29-fix-data-leakage-json-index.md"
+  },
+  {
+    "mode": "100644",
+    "oid": "9b1e7cf704d4fd780d4ecac1b109d1e9bc433d87",
+    "stage": "0",
+    "path": "docs/superpowers/plans/2026-05-01-exp3-text-contrast-20-experiments.md"
+  },
+  {
+    "mode": "100644",
+    "oid": "c259bb366057d19b2e11b9e1cdca098f4ed1d7c9",
+    "stage": "0",
+    "path": "docs/superpowers/plans/2026-05-01-full-ffpp-ema-10-experiments.md"
+  },
+  {
+    "mode": "100644",
+    "oid": "11adc600c4200d94fdef9ba8310ba7a3b5f5f2de",
+    "stage": "0",
+    "path": "docs/superpowers/plans/2026-05-04-clip-norm-shortcut-experiments.md"
+  },
+  {
+    "mode": "100644",
+    "oid": "564701f93885dcf5cd362548f99474dc6bac0e22",
+    "stage": "0",
+    "path": "docs/superpowers/specs/2026-04-28-ffpp-cdf-deepfake-design.md"
+  },
+  {
+    "mode": "100644",
+    "oid": "506625583e226142afba407e5396881269d595dd",
+    "stage": "0",
+    "path": "docs/superpowers/specs/2026-04-28-validation-set-exp1-exp2-design.md"
+  },
+  {
+    "mode": "100644",
+    "oid": "8d7473ade5bcbeef6aaa7f76e58a372d50ffe969",
+    "stage": "0",
+    "path": "docs/superpowers/specs/2026-04-29-exp3-clip-prompt-contrast-design.md"
+  },
+  {
+    "mode": "100644",
+    "oid": "a47bf8c258162f366b4587fb0476e438e3166db4",
+    "stage": "0",
+    "path": "docs/superpowers/specs/2026-04-29-exp4-bg-face-contrast-design.md"
+  },
+  {
+    "mode": "100644",
+    "oid": "7b339a663544aae2ba40acde74b1317438899dfe",
+    "stage": "0",
+    "path": "environment.yml"
+  },
+  {
+    "mode": "100644",
+    "oid": "445859b9e69e0ae8aca2097509afcd956995b0af",
+    "stage": "0",
+    "path": "evaluate.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "49122cb5903c264fb91822a43d8f9912d77e478c",
+    "stage": "0",
+    "path": "evaluate_norm_correction.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "2a1f2e0d53ce29cff22315d0133dae5f3cf74dfa",
+    "stage": "0",
+    "path": "evaluate_norm_probe.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "491cf884a4f481f2243a9cc2ed076f24ec4d6cb3",
+    "stage": "0",
+    "path": "experiments/configs/base.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "07e1e98c8f07e35160d88eaf57a3a23b6c6e66d3",
+    "stage": "0",
+    "path": "experiments/configs/exp2_fullffpp_ema_s123.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "a26064eac2c257179e58e4fd358f17744d8d5791",
+    "stage": "0",
+    "path": "experiments/configs/exp2_fullffpp_ema_s2048.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "04b9e95e6011f6588865f34302e06cdcc89f9d53",
+    "stage": "0",
+    "path": "experiments/configs/exp2_fullffpp_ema_s42.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "672cd8b11b5733aa13f53bed090d0ed22df0ed18",
+    "stage": "0",
+    "path": "experiments/configs/exp2_fullffpp_ema_s7.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "184f910e2aeb4f0f2e9a7b3310982268dc2648ba",
+    "stage": "0",
+    "path": "experiments/configs/exp2_fullffpp_ema_s999.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "3fa39003c3d68a0d2717feeb8f78c4703acc01b7",
+    "stage": "0",
+    "path": "experiments/configs/exp2_norm_fullffpp_ema_s123.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "c4a3d6e2757e11542e34841e8a12eb6953539cbe",
+    "stage": "0",
+    "path": "experiments/configs/exp2_norm_fullffpp_ema_s2048.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "d3f20cbf1623959277d17b4ee61ec5244211ac05",
+    "stage": "0",
+    "path": "experiments/configs/exp2_norm_fullffpp_ema_s42.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "6123e7fd5b985586a33fc53b6d5f09e52254e848",
+    "stage": "0",
+    "path": "experiments/configs/exp2_norm_fullffpp_ema_s7.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "f1d8fe61edca6ceb1cafa83f33c3177f31e64360",
+    "stage": "0",
+    "path": "experiments/configs/exp2_norm_fullffpp_ema_s999.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "c2de09d3f1be5840e0a0d163f857d28ed408128f",
+    "stage": "0",
+    "path": "experiments/configs/norm_shortcut_normtrain_s123.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "f73ee3ed8396c72b4a1e9076d8222009094b16a1",
+    "stage": "0",
+    "path": "experiments/configs/norm_shortcut_normtrain_s2048.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "752fd353026e2eec0a1af7899e140cffc7148fc1",
+    "stage": "0",
+    "path": "experiments/configs/norm_shortcut_normtrain_s42.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "2801e89dc9bbd501829df4b19c6a7b4193d6d849",
+    "stage": "0",
+    "path": "experiments/configs/norm_shortcut_normtrain_s7.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "c37544bd6891f9b172c66156f9a4ca4cb7d88176",
+    "stage": "0",
+    "path": "experiments/configs/norm_shortcut_normtrain_s999.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "5e15906c014958ed0d944f1f96dfb23869704914",
+    "stage": "0",
+    "path": "experiments/configs/norm_shortcut_raw_s123.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "9ac650a8147a5f6895b6f1eee4fef7484dc3af25",
+    "stage": "0",
+    "path": "experiments/configs/norm_shortcut_raw_s2048.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "ac505d35986801d995d150d55bc39e6bb1b188c8",
+    "stage": "0",
+    "path": "experiments/configs/norm_shortcut_raw_s42.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "c74639e0687cec4bd561c706193b114fe8eea974",
+    "stage": "0",
+    "path": "experiments/configs/norm_shortcut_raw_s7.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "eeb3168dda7375339fff57fd18f8e9721b43ac83",
+    "stage": "0",
+    "path": "experiments/configs/norm_shortcut_raw_s999.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "ac505d35986801d995d150d55bc39e6bb1b188c8",
+    "stage": "0",
+    "path": "experiments/timeline/20260505_130308/config/config.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "c9f8045a714ccf42199a3d8793755d0bcd3cc445",
+    "stage": "0",
+    "path": "experiments/timeline/20260505_130308/config/resolved_config.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "6a80503e91806dadfd4fc708d12557581c2f20a5",
+    "stage": "0",
+    "path": "experiments/timeline/20260505_130308/experiment_name.txt"
+  },
+  {
+    "mode": "100644",
+    "oid": "d149a8ec5f74785a685d4edc3ef61f8775182aa4",
+    "stage": "0",
+    "path": "experiments/timeline/20260505_130308/logs/dfd_eval_8gpu.log"
+  },
+  {
+    "mode": "100644",
+    "oid": "d4b380d95832d1ad5b6918ad785ff7affab4596c",
+    "stage": "0",
+    "path": "experiments/timeline/20260505_130308/logs/train.log"
+  },
+  {
+    "mode": "100644",
+    "oid": "a7e930b441406e99d28b76754b21d9996fd485f4",
+    "stage": "0",
+    "path": "experiments/timeline/20260505_130308/output/checkpoint_path.txt"
+  },
+  {
+    "mode": "100644",
+    "oid": "2c2f418d008e2a93ee8253ceff8ddb3b101da151",
+    "stage": "0",
+    "path": "experiments/timeline/20260505_130308/output/meta.json"
+  },
+  {
+    "mode": "100644",
+    "oid": "58a3c44a17d32f6b585177242e372b5d4e0da037",
+    "stage": "0",
+    "path": "experiments/timeline/20260505_130308/output/results_summary.txt"
+  },
+  {
+    "mode": "100644",
+    "oid": "752fd353026e2eec0a1af7899e140cffc7148fc1",
+    "stage": "0",
+    "path": "experiments/timeline/20260505_145908/config/config.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "20709ff7308773144f940e25394f9c45d8e6fe68",
+    "stage": "0",
+    "path": "experiments/timeline/20260505_145908/config/resolved_config.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "0626e6903177509d109fc8756c8bfe295dcafd7b",
+    "stage": "0",
+    "path": "experiments/timeline/20260505_145908/experiment_name.txt"
+  },
+  {
+    "mode": "100644",
+    "oid": "a3cd6f978c9df204d42136339c6f634102d6a757",
+    "stage": "0",
+    "path": "experiments/timeline/20260505_145908/logs/dfd_eval_8gpu.log"
+  },
+  {
+    "mode": "100644",
+    "oid": "30e497c40bcc18713f269c3e70a201fb375a1c09",
+    "stage": "0",
+    "path": "experiments/timeline/20260505_145908/logs/train.log"
+  },
+  {
+    "mode": "100644",
+    "oid": "af0299e73a636970881f7179d95f2e59d77b410a",
+    "stage": "0",
+    "path": "experiments/timeline/20260505_145908/output/checkpoint_path.txt"
+  },
+  {
+    "mode": "100644",
+    "oid": "aa6331cd32e4acccabeada48511a143941eaec07",
+    "stage": "0",
+    "path": "experiments/timeline/20260505_145908/output/meta.json"
+  },
+  {
+    "mode": "100644",
+    "oid": "9a7c17fd7293a8b4afab6d31db9b2aa692851845",
+    "stage": "0",
+    "path": "experiments/timeline/20260505_145908/output/results_summary.txt"
+  },
+  {
+    "mode": "100644",
+    "oid": "5e15906c014958ed0d944f1f96dfb23869704914",
+    "stage": "0",
+    "path": "experiments/timeline/20260505_163304/config/config.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "22cf92d9562ed49c2ef80e4945e87ebeea49fd6b",
+    "stage": "0",
+    "path": "experiments/timeline/20260505_163304/config/resolved_config.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "4a04b435033045b7d5d1357453068a6ac874c784",
+    "stage": "0",
+    "path": "experiments/timeline/20260505_163304/experiment_name.txt"
+  },
+  {
+    "mode": "100644",
+    "oid": "6a289100f4be9bf41383f2449ae688ad9a3179cd",
+    "stage": "0",
+    "path": "experiments/timeline/20260505_163304/logs/dfd_eval_8gpu.log"
+  },
+  {
+    "mode": "100644",
+    "oid": "a4f13ab21265820f4a41b95c24e9fff38dc451c2",
+    "stage": "0",
+    "path": "experiments/timeline/20260505_163304/logs/train.log"
+  },
+  {
+    "mode": "100644",
+    "oid": "cf1ca22566a0eb09a26259caab0fda38971df9e6",
+    "stage": "0",
+    "path": "experiments/timeline/20260505_163304/output/checkpoint_path.txt"
+  },
+  {
+    "mode": "100644",
+    "oid": "2331d3bd8a5ed39f17827e4a066ce99a87af33b1",
+    "stage": "0",
+    "path": "experiments/timeline/20260505_163304/output/meta.json"
+  },
+  {
+    "mode": "100644",
+    "oid": "0c8061f8d0578229a1029b3fc8527c0d108c0e27",
+    "stage": "0",
+    "path": "experiments/timeline/20260505_163304/output/results_summary.txt"
+  },
+  {
+    "mode": "100644",
+    "oid": "c2de09d3f1be5840e0a0d163f857d28ed408128f",
+    "stage": "0",
+    "path": "experiments/timeline/20260505_181828/config/config.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "b8db37575591f5425a49cc543bb030d106f15560",
+    "stage": "0",
+    "path": "experiments/timeline/20260505_181828/config/resolved_config.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "4fbc54c209335ecc4765d31934c2e05e5961fdf1",
+    "stage": "0",
+    "path": "experiments/timeline/20260505_181828/experiment_name.txt"
+  },
+  {
+    "mode": "100644",
+    "oid": "87cb649f169bcbdc49a94d9bafde84f36b45bad6",
+    "stage": "0",
+    "path": "experiments/timeline/20260505_181828/logs/dfd_eval_8gpu.log"
+  },
+  {
+    "mode": "100644",
+    "oid": "0c8eb1d3e82fe3876e894e5cdb3c162b262bba29",
+    "stage": "0",
+    "path": "experiments/timeline/20260505_181828/logs/train.log"
+  },
+  {
+    "mode": "100644",
+    "oid": "e5fdb7bd9fe3271bc15e5032d5f4ae16133bf614",
+    "stage": "0",
+    "path": "experiments/timeline/20260505_181828/output/checkpoint_path.txt"
+  },
+  {
+    "mode": "100644",
+    "oid": "ba24ba2f6c53b12c6334ec60b451c8d000088486",
+    "stage": "0",
+    "path": "experiments/timeline/20260505_181828/output/meta.json"
+  },
+  {
+    "mode": "100644",
+    "oid": "307931dac0515f74b217e80dd72c752b3f223074",
+    "stage": "0",
+    "path": "experiments/timeline/20260505_181828/output/results_summary.txt"
+  },
+  {
+    "mode": "100644",
+    "oid": "c74639e0687cec4bd561c706193b114fe8eea974",
+    "stage": "0",
+    "path": "experiments/timeline/20260505_200221/config/config.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "29b1075393a9b72bc38601019ac820c7f699ecd3",
+    "stage": "0",
+    "path": "experiments/timeline/20260505_200221/config/resolved_config.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "9e8c9e63e5e205753974b7a9b095357838f6c8a6",
+    "stage": "0",
+    "path": "experiments/timeline/20260505_200221/experiment_name.txt"
+  },
+  {
+    "mode": "100644",
+    "oid": "4aa9f0f4fb98f7d09ee90931a08bd379bec6ebbc",
+    "stage": "0",
+    "path": "experiments/timeline/20260505_200221/logs/dfd_eval_8gpu.log"
+  },
+  {
+    "mode": "100644",
+    "oid": "9136634dab8c7b2ec0e70776906e9cc1b953741a",
+    "stage": "0",
+    "path": "experiments/timeline/20260505_200221/logs/train.log"
+  },
+  {
+    "mode": "100644",
+    "oid": "dcb8ca765760a1f6591001456187fcf92c371f8a",
+    "stage": "0",
+    "path": "experiments/timeline/20260505_200221/output/checkpoint_path.txt"
+  },
+  {
+    "mode": "100644",
+    "oid": "da80629075875ad2deb92cfbffdcc0fcd6b8b885",
+    "stage": "0",
+    "path": "experiments/timeline/20260505_200221/output/meta.json"
+  },
+  {
+    "mode": "100644",
+    "oid": "3993345ddfbb0438bb5f1b1dc31cbd5bd9ac65b4",
+    "stage": "0",
+    "path": "experiments/timeline/20260505_200221/output/results_summary.txt"
+  },
+  {
+    "mode": "100644",
+    "oid": "2801e89dc9bbd501829df4b19c6a7b4193d6d849",
+    "stage": "0",
+    "path": "experiments/timeline/20260505_215543/config/config.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "0512b9fb6947ead804a27f4e06609392cac1e744",
+    "stage": "0",
+    "path": "experiments/timeline/20260505_215543/config/resolved_config.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "413cf0ea41241ffa3a4c7e88fbadf49d4565c770",
+    "stage": "0",
+    "path": "experiments/timeline/20260505_215543/experiment_name.txt"
+  },
+  {
+    "mode": "100644",
+    "oid": "8a6d7f831ce8ade81bd6c283b25227fc0661514a",
+    "stage": "0",
+    "path": "experiments/timeline/20260505_215543/logs/dfd_eval_8gpu.log"
+  },
+  {
+    "mode": "100644",
+    "oid": "0c9969b3f5c877f5b10c1344d03fb71cc090d514",
+    "stage": "0",
+    "path": "experiments/timeline/20260505_215543/logs/train.log"
+  },
+  {
+    "mode": "100644",
+    "oid": "db668cfa8beefb2f384cf9462c2e0cb119d4599d",
+    "stage": "0",
+    "path": "experiments/timeline/20260505_215543/output/checkpoint_path.txt"
+  },
+  {
+    "mode": "100644",
+    "oid": "2c05c016a1744b417f4d9d34f922708bf3b60c66",
+    "stage": "0",
+    "path": "experiments/timeline/20260505_215543/output/meta.json"
+  },
+  {
+    "mode": "100644",
+    "oid": "cfdeeb068502b35fb09653d5083d7476edaa256d",
+    "stage": "0",
+    "path": "experiments/timeline/20260505_215543/output/results_summary.txt"
+  },
+  {
+    "mode": "100644",
+    "oid": "eeb3168dda7375339fff57fd18f8e9721b43ac83",
+    "stage": "0",
+    "path": "experiments/timeline/20260505_234842/config/config.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "fdae5c58b9829c63b7bab78dafa0dc87b622e2a5",
+    "stage": "0",
+    "path": "experiments/timeline/20260505_234842/config/resolved_config.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "1c554fcc58caed926258a69488594bac4a8ffc42",
+    "stage": "0",
+    "path": "experiments/timeline/20260505_234842/experiment_name.txt"
+  },
+  {
+    "mode": "100644",
+    "oid": "916f64219feb5adf3902f8dc6c2d5f43a3044995",
+    "stage": "0",
+    "path": "experiments/timeline/20260505_234842/logs/dfd_eval_8gpu.log"
+  },
+  {
+    "mode": "100644",
+    "oid": "0ca6450b233d1f26d102cea7038ce75919cac4cf",
+    "stage": "0",
+    "path": "experiments/timeline/20260505_234842/logs/train.log"
+  },
+  {
+    "mode": "100644",
+    "oid": "e33d53c2d83d1879dbc0ddb1065bcb9106a03e5f",
+    "stage": "0",
+    "path": "experiments/timeline/20260505_234842/output/checkpoint_path.txt"
+  },
+  {
+    "mode": "100644",
+    "oid": "39c5671aaa61d2f6ec43067f687b974707693be2",
+    "stage": "0",
+    "path": "experiments/timeline/20260505_234842/output/meta.json"
+  },
+  {
+    "mode": "100644",
+    "oid": "6a8bfc95146b6adce2eb5b4b5ab74376b70be263",
+    "stage": "0",
+    "path": "experiments/timeline/20260505_234842/output/results_summary.txt"
+  },
+  {
+    "mode": "100644",
+    "oid": "c37544bd6891f9b172c66156f9a4ca4cb7d88176",
+    "stage": "0",
+    "path": "experiments/timeline/20260506_013459/config/config.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "e8f546b2cb61f2e5c127ccace45836594273fb19",
+    "stage": "0",
+    "path": "experiments/timeline/20260506_013459/config/resolved_config.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "04eb70d23e8123b4afe104a12f12764f48d6e182",
+    "stage": "0",
+    "path": "experiments/timeline/20260506_013459/experiment_name.txt"
+  },
+  {
+    "mode": "100644",
+    "oid": "0e1db6018eb52e5cdf891f8c0ee242c5bae5d55b",
+    "stage": "0",
+    "path": "experiments/timeline/20260506_013459/logs/dfd_eval_8gpu.log"
+  },
+  {
+    "mode": "100644",
+    "oid": "a1593354732d1cd2e7bc27e46a93695455f7d48b",
+    "stage": "0",
+    "path": "experiments/timeline/20260506_013459/logs/train.log"
+  },
+  {
+    "mode": "100644",
+    "oid": "05718506271db40c48094e6272e4b7f6d30e6d2c",
+    "stage": "0",
+    "path": "experiments/timeline/20260506_013459/output/checkpoint_path.txt"
+  },
+  {
+    "mode": "100644",
+    "oid": "17bdbf8aae15e5de0b6bb01b52b9e6c27d942581",
+    "stage": "0",
+    "path": "experiments/timeline/20260506_013459/output/meta.json"
+  },
+  {
+    "mode": "100644",
+    "oid": "1bd1262346bda8a3deeedd82323f01e2308dc4ac",
+    "stage": "0",
+    "path": "experiments/timeline/20260506_013459/output/results_summary.txt"
+  },
+  {
+    "mode": "100644",
+    "oid": "9ac650a8147a5f6895b6f1eee4fef7484dc3af25",
+    "stage": "0",
+    "path": "experiments/timeline/20260506_032147/config/config.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "11a5c1ee3913ceea7feadd6efd23391cd0e2d584",
+    "stage": "0",
+    "path": "experiments/timeline/20260506_032147/config/resolved_config.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "9745e31d05594ff2c4b3daaa7b2672ee47690cc1",
+    "stage": "0",
+    "path": "experiments/timeline/20260506_032147/experiment_name.txt"
+  },
+  {
+    "mode": "100644",
+    "oid": "e421cdf89f03ad94d09bff9cc843d59597a9e74c",
+    "stage": "0",
+    "path": "experiments/timeline/20260506_032147/logs/dfd_eval_8gpu.log"
+  },
+  {
+    "mode": "100644",
+    "oid": "9437fe2ca86a6674a1d4ab765b04cc20cc321073",
+    "stage": "0",
+    "path": "experiments/timeline/20260506_032147/logs/train.log"
+  },
+  {
+    "mode": "100644",
+    "oid": "3e8b161523c62a081ffcbc8d2eb4bd853b5293be",
+    "stage": "0",
+    "path": "experiments/timeline/20260506_032147/output/checkpoint_path.txt"
+  },
+  {
+    "mode": "100644",
+    "oid": "0ad2b3b145990a88e4b82309ab940dd84f2f8c65",
+    "stage": "0",
+    "path": "experiments/timeline/20260506_032147/output/meta.json"
+  },
+  {
+    "mode": "100644",
+    "oid": "b3bed3e7464f0ec355f19b9912c8a59ccdcf1231",
+    "stage": "0",
+    "path": "experiments/timeline/20260506_032147/output/results_summary.txt"
+  },
+  {
+    "mode": "100644",
+    "oid": "f73ee3ed8396c72b4a1e9076d8222009094b16a1",
+    "stage": "0",
+    "path": "experiments/timeline/20260506_050719/config/config.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "08040f959eabc1339b02ce0bd498d1aa35828366",
+    "stage": "0",
+    "path": "experiments/timeline/20260506_050719/config/resolved_config.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "f3947a5ef3b1f40a92a2e2ae8a070299d12454b9",
+    "stage": "0",
+    "path": "experiments/timeline/20260506_050719/experiment_name.txt"
+  },
+  {
+    "mode": "100644",
+    "oid": "26eb43e12fdfe08ccffe81685223aae702f3d037",
+    "stage": "0",
+    "path": "experiments/timeline/20260506_050719/logs/dfd_eval_8gpu.log"
+  },
+  {
+    "mode": "100644",
+    "oid": "8d2ad2c02a984982aca39e0ac068230d6fd63865",
+    "stage": "0",
+    "path": "experiments/timeline/20260506_050719/logs/train.log"
+  },
+  {
+    "mode": "100644",
+    "oid": "86aa104f920c08cd0c5d0e8edb28a0a5805098e7",
+    "stage": "0",
+    "path": "experiments/timeline/20260506_050719/output/checkpoint_path.txt"
+  },
+  {
+    "mode": "100644",
+    "oid": "ac02b204da74d578842db1291f5c9c74e379729e",
+    "stage": "0",
+    "path": "experiments/timeline/20260506_050719/output/meta.json"
+  },
+  {
+    "mode": "100644",
+    "oid": "f68078c878bb2deb90e1e8bc83131dbb871ae8fa",
+    "stage": "0",
+    "path": "experiments/timeline/20260506_050719/output/results_summary.txt"
+  },
+  {
+    "mode": "100644",
+    "oid": "a1de4dc98f5e70aac18c81663990cfdeca8d5314",
+    "stage": "0",
+    "path": "requirements.txt"
+  },
+  {
+    "mode": "100644",
+    "oid": "99036323b9c97e382836fec68ade1130d2b97324",
+    "stage": "0",
+    "path": "scripts/dlib_tools/shape_predictor_81_face_landmarks.dat"
+  },
+  {
+    "mode": "100644",
+    "oid": "071a5ddd05118e871c77743323debe6583324ab5",
+    "stage": "0",
+    "path": "scripts/download_faceforensics.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "9ae5dda6cae3ca352647246993f7cd8c2bb029c7",
+    "stage": "0",
+    "path": "scripts/prepare_dfd_df40.py"
+  },
+  {
+    "mode": "100755",
+    "oid": "13319ed929b9c239bd6bb83049070de66f5c8c46",
+    "stage": "0",
+    "path": "scripts/run_norm_shortcut_experiments.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "968f9f5dfe6aaead7e6951f14a8e093f274ae26a",
+    "stage": "0",
+    "path": "scripts/summarize_norm_shortcut_results.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "e859f9c07a0fafd80f94b5ad7a70dbb1d762db2b",
+    "stage": "0",
+    "path": "src/deepfake_detection/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "10598d17f15836644da38b24444208bfa79f1391",
+    "stage": "0",
+    "path": "src/deepfake_detection/data/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "bc5046e46265f71a849aa87b42035030dbc3ae25",
+    "stage": "0",
+    "path": "src/deepfake_detection/data/bg_patches.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "fb867669bc4d787c01c38f6d2e0e143ce3201980",
+    "stage": "0",
+    "path": "src/deepfake_detection/data/builders.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "e468028a284fcf2f63ced8749ea36e1e010f59ab",
+    "stage": "0",
+    "path": "src/deepfake_detection/data/constants.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "d552e143dd78d996466f3056febf0653eb76c9d0",
+    "stage": "0",
+    "path": "src/deepfake_detection/data/crops.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "1212ea2fac544fec703022d97d01ae2200b84f76",
+    "stage": "0",
+    "path": "src/deepfake_detection/data/datasets.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "86db835d1bd6ff9b7680297dfc3ca9e3d1d3ed6e",
+    "stage": "0",
+    "path": "src/deepfake_detection/data/frequency.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "cc336b5ac8e1f60853060063fb9a8071824a2979",
+    "stage": "0",
+    "path": "src/deepfake_detection/data/index_cdf.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "2007cec288aa9cb5a2042a5d7574785b96d3213d",
+    "stage": "0",
+    "path": "src/deepfake_detection/data/index_external.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "5dbe4b78345d272c4091c166d091b80bd2975f9e",
+    "stage": "0",
+    "path": "src/deepfake_detection/data/index_ffpp.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "f49be07a9bb449863c23386df949a45759405fa2",
+    "stage": "0",
+    "path": "src/deepfake_detection/data/sampling.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "b08cd8cef28781de090f604f97122cff30dd3e0a",
+    "stage": "0",
+    "path": "src/deepfake_detection/data/transforms.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "a9a2c5b3bb437bff74e283b62c894075e8c15331",
+    "stage": "0",
+    "path": "src/deepfake_detection/engine/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "9594e2da83e4da27d329b6cbff33479cbe93fdea",
+    "stage": "0",
+    "path": "src/deepfake_detection/engine/ddp.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "e6604c61c0cdaafdc4a6de501a5755dcdff750d6",
+    "stage": "0",
+    "path": "src/deepfake_detection/engine/metrics.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "369eab73c8a0dd09b77da5672f33e1bba9ed183a",
+    "stage": "0",
+    "path": "src/deepfake_detection/engine/trainers.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+    "stage": "0",
+    "path": "src/deepfake_detection/evaluation/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "2e06b3dc460ab9e76f4503132d1f4892cd861f65",
+    "stage": "0",
+    "path": "src/deepfake_detection/evaluation/norm_correction.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "bc2e403b31ac12e255bbfd6236808de4eaf58a65",
+    "stage": "0",
+    "path": "src/deepfake_detection/evaluation/norm_modes.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "d611b0747c736aca5569537baa1b66fef279b927",
+    "stage": "0",
+    "path": "src/deepfake_detection/evaluation/sample_eval.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "a9a2c5b3bb437bff74e283b62c894075e8c15331",
+    "stage": "0",
+    "path": "src/deepfake_detection/losses/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "3911bf7557d7e0af9df0bc964b460f54a0063123",
+    "stage": "0",
+    "path": "src/deepfake_detection/losses/contrastive.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "a9a2c5b3bb437bff74e283b62c894075e8c15331",
+    "stage": "0",
+    "path": "src/deepfake_detection/models/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "91f12f981b1428937f8c4080a021e817a56c09a3",
+    "stage": "0",
+    "path": "src/deepfake_detection/models/clip_bgcontrast.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "856787be7a8bdf9130bae8406f102bdc572ad871",
+    "stage": "0",
+    "path": "src/deepfake_detection/models/clip_classifier.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "8aaea7cbc4c4e6d0eb782c0d7460257d17c6c2bf",
+    "stage": "0",
+    "path": "src/deepfake_detection/models/clip_prompt.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "c2b7d8ee7ac72894553309098cbddb7dd581ed56",
+    "stage": "0",
+    "path": "src/deepfake_detection/models/efficientnet.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "14199538aca5e75e11840ff418279fdc0867db13",
+    "stage": "0",
+    "path": "src/deepfake_detection/models/factory.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "6fd90e554cf398d250e94fd1d7eac0a885dd173b",
+    "stage": "0",
+    "path": "tests/configs/test_config_load.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "b6aacdda00413bc2dc1c7b1dacdbdcadfa3c35ed",
+    "stage": "0",
+    "path": "tests/data/test_dfd_index.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "d76e2bb0e8b46f662f15d086309f528065469c55",
+    "stage": "0",
+    "path": "tests/data/test_dfd_loader.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "7d1279251949309908bce706b458e16f702c1835",
+    "stage": "0",
+    "path": "tests/data/test_sample_metadata.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "08e77d42a24416b9d84ea101cc861ed5e305e3ef",
+    "stage": "0",
+    "path": "tests/data/test_sampling.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "8dddd05091771822bed589bd6c25edb9b8cdcf73",
+    "stage": "0",
+    "path": "tests/data/test_transforms.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "a9df7d81ba313d0bb4cd4bdec63aa49c87f9dca2",
+    "stage": "0",
+    "path": "tests/data/test_triplets.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "34f5fd9d8dacd4ac703b6f669b10283638b948b6",
+    "stage": "0",
+    "path": "tests/engine/test_metrics.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "0e20f8f997000781ef14e867153fd41fd0ad72a5",
+    "stage": "0",
+    "path": "tests/engine/test_norm_correction.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "02f7c4b2891f2db6b0ef6d005c2e7fbdec1de4c4",
+    "stage": "0",
+    "path": "tests/evaluation/test_norm_modes.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "b879282394e7233e5b6f189ac6389391c022b2f9",
+    "stage": "0",
+    "path": "tests/evaluation/test_sample_eval.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "8d7a40d003041cf24eedb16069441108b8742341",
+    "stage": "0",
+    "path": "tests/losses/test_contrastive.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "19d7c4c890a07d9626d1c30e56899a88471b8744",
+    "stage": "0",
+    "path": "tests/models/test_clip_classifier.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "cd3001efdba069288b8cc5f4a4183b9402cbeaea",
+    "stage": "0",
+    "path": "tests/models/test_prompts.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "c825f04273d90e7fcf1656375e57d8bed0ebde66",
+    "stage": "0",
+    "path": "train.py"
+  }
+]

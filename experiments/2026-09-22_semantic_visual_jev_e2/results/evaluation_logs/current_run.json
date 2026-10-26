@@ -1,0 +1,9 @@
+{
+  "coordinator_pid": 3120003,
+  "error": "Evaluation invocation failed with exit code 1: /home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_logs/parallel_20260923T043530Z/semantic_controls_seed_7",
+  "event": "parallel_evaluation_worker_failed",
+  "run_directory": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_logs/parallel_20260923T043530Z",
+  "seed": 7,
+  "timestamp_utc": "2026-09-23T05:15:21Z",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_logs/parallel_formal_evaluation.py\", line 227, in <module>\n    run_evaluation(seed,CONDITIONS[1:],'semantic_controls',metric_paths())\n  File \"/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_logs/continue_formal_evaluation.py\", line 203, in run_evaluation\n    raise RuntimeError(f'Evaluation invocation failed with exit code {code}: {invocation}')\nRuntimeError: Evaluation invocation failed with exit code 1: /home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_logs/parallel_20260923T043530Z/semantic_controls_seed_7\n"
+}

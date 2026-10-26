@@ -1,0 +1,1150 @@
+# Review package: 303b396fe9e332391d29acdc9bce51989442ef4b..7fabb6ca40a20751a06cb9340b1343c8eb91521f
+
+## Commits
+7fabb6c feat: add leakage-safe E2 semantic training
+
+## Files changed
+ .../configs/semantic_jev.yaml                      |  63 +++
+ .../scripts/train_semantic.py                      | 361 ++++++++++++++
+ src/engine/semantic_trainer.py                     | 173 +++++++
+ tests/test_semantic_trainer.py                     | 516 +++++++++++++++++++++
+ 4 files changed, 1113 insertions(+)
+
+## Diff
+diff --git a/experiments/2026-09-22_semantic_visual_jev_e2/configs/semantic_jev.yaml b/experiments/2026-09-22_semantic_visual_jev_e2/configs/semantic_jev.yaml
+new file mode 100644
+index 0000000..0c06886
+--- /dev/null
++++ b/experiments/2026-09-22_semantic_visual_jev_e2/configs/semantic_jev.yaml
+@@ -0,0 +1,63 @@
++experiment_name: e2_semantic_visual_jev
++dataset:
++  root: /Dataset/deepfake_detection/DF40_all
++  methods: []
++  train_videos_per_method: 586
++  val_videos_per_method: 100
++  frames_per_video: 8
++  image_size: 224
++augment:
++  horizontal_flip_p: 0.5
++  rotate_p: 0.5
++  rotate_limit: 10
++  brightness_contrast_p: 0.5
++  brightness_limit: 0.1
++  contrast_limit: 0.1
++  compression_p: 0.2
++  compression_quality_lower: 40
++  compression_quality_upper: 100
++language:
++  manifest: experiments/2026-09-22_semantic_visual_jev_e2/configs/language_bank.yaml
++  train_tasks: [T1, T2, T3, T4, T5]
++  task_probabilities: [0.2, 0.2, 0.2, 0.2, 0.2]
++model:
++  name: clip_semantic_jev
++  clip_model_name: ViT-B/16
++  d_model: 256
++  nhead: 8
++  ffn_dim: 1024
++  num_layers: 2
++  dropout: 0.1
++loss:
++  name: semantic_cross_entropy
++train:
++  init_visual_checkpoint: experiments/2026-09-21_visual_jev_h1/results/training/seed_42/20260921_200626/output/best_model.pth
++  output_dir: experiments/2026-09-22_semantic_visual_jev_e2/results/training
++  epochs: 15
++  lr: 1.0e-4
++  weight_decay: 1.0e-2
++  patience: 5
++  warmup_epochs: 1
++  ema_decay: 0.999
++  per_gpu_batch: 128
++  num_workers: 8
++  prefetch_factor: 4
++  precision: amp
++  seeds: [42, 7, 2048]
++evaluation:
++  primary_domains: [ffpp, cdf]
++  exploratory_domains: [dfd]
++  permutation_audit_samples: 4096
++  bootstrap_samples: 10000
++  bootstrap_seed: 20260922
++gates:
++  noninferiority_margin: 0.01
++  heldout_macro_drop_max: 0.02
++  heldout_task_drop_max: 0.05
++  permutation_error_max: 1.0e-6
++  t2_balanced_accuracy_min: 0.80
++  t2_polarity_consistency_min: 0.95
++  t4_balanced_accuracy_min: 0.65
++  t4_counterfactual_order_min: 0.80
++  t5_macro_balanced_accuracy_min: 0.60
++  meaningless_drop_min: 0.10
+diff --git a/experiments/2026-09-22_semantic_visual_jev_e2/scripts/train_semantic.py b/experiments/2026-09-22_semantic_visual_jev_e2/scripts/train_semantic.py
+new file mode 100644
+index 0000000..c008057
+--- /dev/null
++++ b/experiments/2026-09-22_semantic_visual_jev_e2/scripts/train_semantic.py
+@@ -0,0 +1,361 @@
++"""Leakage-safe DDP training for the E2 semantic Visual-Jev model."""
++
++from __future__ import annotations
++
++import argparse
++import copy
++import hashlib
++import itertools
++import json
++import math
++import os
++import random
++import sys
++from pathlib import Path
++
++import numpy as np
++import torch
++import torch.distributed as dist
++from torch.nn.parallel import DistributedDataParallel as DDP
++from torch.optim import AdamW
++
++
++REPO_ROOT = Path(__file__).resolve().parents[3]
++if str(REPO_ROOT / "src") not in sys.path:
++    sys.path.insert(0, str(REPO_ROOT / "src"))
++
++from config_io import load_config
++from data.builders import (
++    build_semantic_train_loader,
++    build_semantic_val_loader,
++)
++from data.semantic_language import load_language_bank
++from engine.ddp import barrier, init_ddp, is_main_process
++from engine.semantic_trainer import (
++    TrainableEMA,
++    run_semantic_train_epoch,
++    run_semantic_val_epoch,
++    trainable_parameters,
++)
++from models.clip_semantic_jev import EncodedTextLookup
++from models.factory import build_model
++
++
++def parse_args(argv=None):
++    parser = argparse.ArgumentParser(
++        description="Train the locked E2 semantic Visual-Jev model."
++    )
++    parser.add_argument("--config", required=True)
++    parser.add_argument("--seed", required=True, type=int, choices=(42, 7, 2048))
++    parser.add_argument("--smoke", action="store_true")
++    parser.add_argument("--max-train-batches", type=int)
++    parser.add_argument("--max-val-batches", type=int)
++    parser.add_argument("--allow-overwrite", action="store_true")
++    args = parser.parse_args(argv)
++    max_batches = (args.max_train_batches, args.max_val_batches)
++    if not args.smoke and any(value is not None for value in max_batches):
++        parser.error("max-batch flags are allowed only with --smoke")
++    if any(value is not None and value <= 0 for value in max_batches):
++        parser.error("max-batch values must be positive")
++    return args
++
++
++def checkpoint_path(cfg: dict, seed: int, smoke: bool) -> Path:
++    root = Path(cfg["train"]["output_dir"])
++    if smoke:
++        return root / "smoke" / f"seed_{seed}" / "best_model.pth"
++    return root / f"seed_{seed}" / "best_model.pth"
++
++
++def ensure_checkpoint_writable(path: Path, allow_overwrite: bool) -> None:
++    if path.exists() and not allow_overwrite:
++        raise FileExistsError(
++            f"checkpoint already exists: {path}; pass --allow-overwrite to replace it"
++        )
++
++
++def file_sha256(path: str | Path) -> str:
++    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
++
++
++def set_training_epoch(loader, epoch: int) -> None:
++    if hasattr(loader.sampler, "set_epoch"):
++        loader.sampler.set_epoch(epoch)
++    loader.dataset.set_epoch(epoch)
++
++
++def build_training_text_lookup(model, language_bank, device):
++    return EncodedTextLookup.build(
++        model,
++        language_bank,
++        allowed_splits=("train", "fixed"),
++        device=device,
++    )
++
++
++def build_training_loaders(cfg, language_bank, distributed):
++    train_loader = build_semantic_train_loader(
++        cfg, language_bank, distributed=distributed
++    )
++    seen_val_loader = build_semantic_val_loader(
++        cfg,
++        language_bank,
++        distributed=distributed,
++        split="train",
++    )
++    return train_loader, seen_val_loader
++
++
++def is_better_seen_ce(val_seen_ce: float, best_seen_ce: float) -> bool:
++    return math.isfinite(val_seen_ce) and val_seen_ce < best_seen_ce
++
++
++def effective_epochs(cfg: dict, smoke: bool) -> int:
++    return 1 if smoke else int(cfg["train"]["epochs"])
++
++
++def _raw_model(model):
++    return model.module if hasattr(model, "module") else model
++
++
++def _clone_state_dict(model) -> dict[str, torch.Tensor]:
++    return {
++        name: value.detach().cpu().clone()
++        for name, value in _raw_model(model).state_dict().items()
++    }
++
++
++def build_checkpoint_payload(
++    model,
++    ema,
++    *,
++    epoch: int,
++    val_seen_ce: float,
++    seed: int,
++    language_manifest_sha256: str,
++    cfg: dict,
++) -> dict:
++    if ema is not None:
++        ema.apply(model)
++    try:
++        model_state = _clone_state_dict(model)
++    finally:
++        if ema is not None:
++            ema.restore(model)
++    return {
++        "epoch": int(epoch),
++        "model_state_dict": model_state,
++        "ema_state_dict": None if ema is None else ema.state_dict(),
++        "val_seen_ce": float(val_seen_ce),
++        "seed": int(seed),
++        "language_manifest_sha256": language_manifest_sha256,
++        "config": copy.deepcopy(cfg),
++    }
++
++
++def build_scheduler(optimizer, epochs: int, warmup_epochs: int):
++    def lr_lambda(epoch):
++        if epoch < warmup_epochs:
++            return (epoch + 1) / max(1, warmup_epochs)
++        progress = (epoch - warmup_epochs) / max(1, epochs - warmup_epochs)
++        return 0.5 * (1.0 + math.cos(math.pi * progress))
++
++    return torch.optim.lr_scheduler.LambdaLR(optimizer, lr_lambda)
++
++
++def configure_determinism(seed: int) -> None:
++    os.environ["CUBLAS_WORKSPACE_CONFIG"] = ":16:8"
++    random.seed(seed)
++    np.random.seed(seed)
++    torch.manual_seed(seed)
++    torch.cuda.manual_seed_all(seed)
++    torch.backends.cudnn.deterministic = True
++    torch.backends.cudnn.benchmark = False
++    torch.backends.cuda.matmul.allow_tf32 = False
++    torch.backends.cudnn.allow_tf32 = False
++    torch.use_deterministic_algorithms(True, warn_only=True)
++
++
++def _repo_path(path: str | Path) -> Path:
++    path = Path(path)
++    return path if path.is_absolute() else REPO_ROOT / path
++
++
++def _limited(loader, maximum: int | None):
++    return loader if maximum is None else itertools.islice(loader, maximum)
++
++
++def _atomic_save(payload: dict, path: Path) -> None:
++    path.parent.mkdir(parents=True, exist_ok=True)
++    temporary = path.with_suffix(path.suffix + ".tmp")
++    torch.save(payload, temporary)
++    os.replace(temporary, path)
++
++
++def _validate_locked_training_contract(cfg: dict, seed: int) -> None:
++    if cfg.get("loss", {}).get("name") != "semantic_cross_entropy":
++        raise ValueError("E2 training permits semantic_cross_entropy only")
++    if cfg.get("model", {}).get("name") != "clip_semantic_jev":
++        raise ValueError("E2 training requires clip_semantic_jev")
++    if seed not in cfg.get("train", {}).get("seeds", ()):
++        raise ValueError(f"seed {seed} is not registered in the locked config")
++
++
++def main(argv=None) -> int:
++    args = parse_args(argv)
++    cfg = load_config(args.config)
++    _validate_locked_training_contract(cfg, args.seed)
++    cfg = copy.deepcopy(cfg)
++    cfg["train"]["seed"] = args.seed
++
++    save_path = checkpoint_path(cfg, args.seed, args.smoke)
++    ensure_checkpoint_writable(save_path, args.allow_overwrite)
++    configure_determinism(args.seed)
++
++    local_rank = init_ddp()
++    distributed = dist.is_available() and dist.is_initialized()
++    device = torch.device(
++        f"cuda:{local_rank}" if torch.cuda.is_available() else "cpu"
++    )
++
++    try:
++        language_manifest = _repo_path(cfg["language"]["manifest"])
++        language_bank = load_language_bank(language_manifest)
++        manifest_hash = file_sha256(language_manifest)
++
++        raw_model = build_model(cfg["model"]).to(device)
++        visual_checkpoint = _repo_path(
++            cfg["train"]["init_visual_checkpoint"]
++        )
++        raw_model.load_h1_visual_checkpoint(visual_checkpoint)
++        text_lookup = build_training_text_lookup(
++            raw_model, language_bank, device
++        )
++
++        model = raw_model
++        if distributed:
++            model = DDP(
++                raw_model,
++                device_ids=[local_rank],
++                output_device=local_rank,
++                broadcast_buffers=False,
++            )
++
++        decision_parameters = trainable_parameters(model)
++        optimizer = AdamW(
++            decision_parameters,
++            lr=cfg["train"]["lr"],
++            weight_decay=cfg["train"]["weight_decay"],
++        )
++        epochs = effective_epochs(cfg, args.smoke)
++        scheduler = build_scheduler(
++            optimizer,
++            epochs,
++            cfg["train"]["warmup_epochs"],
++        )
++        use_amp = (
++            device.type == "cuda"
++            and cfg["train"].get("precision") == "amp"
++        )
++        scaler = torch.amp.GradScaler(device.type, enabled=use_amp)
++        ema = TrainableEMA(model, decay=cfg["train"]["ema_decay"])
++
++        train_loader, seen_val_loader = build_training_loaders(
++            cfg, language_bank, distributed
++        )
++        max_train_batches = args.max_train_batches
++        max_val_batches = args.max_val_batches
++        if args.smoke:
++            max_train_batches = max_train_batches or 1
++            max_val_batches = max_val_batches or 1
++
++        best_seen_ce = float("inf")
++        patience_counter = 0
++        best_epoch = None
++        for epoch in range(epochs):
++            set_training_epoch(train_loader, epoch)
++            train_loss = run_semantic_train_epoch(
++                model,
++                _limited(train_loader, max_train_batches),
++                optimizer,
++                scaler,
++                device,
++                text_lookup,
++                cfg,
++                ema=ema,
++            )
++
++            ema.apply(model)
++            try:
++                val_metrics = run_semantic_val_epoch(
++                    model,
++                    _limited(seen_val_loader, max_val_batches),
++                    text_lookup,
++                    device,
++                )
++            finally:
++                ema.restore(model)
++            val_seen_ce = val_metrics["loss"]
++
++            if is_main_process():
++                print(
++                    json.dumps(
++                        {
++                            "epoch": epoch + 1,
++                            "train_ce": train_loss,
++                            "val_seen_ce": val_seen_ce,
++                            "val_seen_accuracy": val_metrics["accuracy"],
++                            "val_seen_count": val_metrics["count"],
++                        },
++                        sort_keys=True,
++                    ),
++                    flush=True,
++                )
++
++            if is_better_seen_ce(val_seen_ce, best_seen_ce):
++                best_seen_ce = val_seen_ce
++                best_epoch = epoch
++                patience_counter = 0
++                if is_main_process():
++                    payload = build_checkpoint_payload(
++                        model,
++                        ema,
++                        epoch=epoch,
++                        val_seen_ce=val_seen_ce,
++                        seed=args.seed,
++                        language_manifest_sha256=manifest_hash,
++                        cfg=cfg,
++                    )
++                    _atomic_save(payload, save_path)
++            else:
++                patience_counter += 1
++
++            scheduler.step()
++            barrier()
++            if patience_counter >= cfg["train"]["patience"]:
++                break
++
++        if best_epoch is None:
++            raise RuntimeError("training produced no finite seen-language validation CE")
++        if is_main_process():
++            print(
++                json.dumps(
++                    {
++                        "best_epoch": best_epoch + 1,
++                        "best_val_seen_ce": best_seen_ce,
++                        "checkpoint": str(save_path),
++                        "seed": args.seed,
++                    },
++                    sort_keys=True,
++                ),
++                flush=True,
++            )
++        barrier()
++        return 0
++    finally:
++        if distributed:
++            dist.destroy_process_group()
++
++
++if __name__ == "__main__":
++    raise SystemExit(main())
+diff --git a/src/engine/semantic_trainer.py b/src/engine/semantic_trainer.py
+new file mode 100644
+index 0000000..1675f9e
+--- /dev/null
++++ b/src/engine/semantic_trainer.py
+@@ -0,0 +1,173 @@
++"""CE-only training utilities for semantic Visual-Jev."""
++
++from __future__ import annotations
++
++from collections.abc import Iterable
++
++import torch
++import torch.distributed as dist
++import torch.nn.functional as F
++
++
++def _raw_model(model):
++    return model.module if hasattr(model, "module") else model
++
++
++def semantic_classification_step(model, batch, text_lookup, device):
++    """Run one candidate-classification step with exact cross entropy."""
++    images = batch["image"].to(device, non_blocking=True)
++    question_ids = batch["question_text_id"].to(device, non_blocking=True)
++    candidate_ids = batch["candidate_text_ids"].to(
++        device, non_blocking=True
++    )
++    candidate_mask = batch["candidate_mask"].to(
++        device, non_blocking=True
++    )
++    target = batch["target_index"].to(device, non_blocking=True)
++    question, candidates = text_lookup.lookup(
++        question_ids, candidate_ids, candidate_mask
++    )
++    logits = model(images, question, candidates, candidate_mask)
++    loss = F.cross_entropy(logits, target)
++    return loss, logits
++
++
++def trainable_parameters(model) -> list[torch.nn.Parameter]:
++    """Return only parameters participating in the semantic decision rule."""
++    return [
++        parameter
++        for parameter in _raw_model(model).parameters()
++        if parameter.requires_grad
++    ]
++
++
++class TrainableEMA:
++    """Exponential moving average over trainable decision parameters only."""
++
++    def __init__(self, model, decay: float = 0.999) -> None:
++        if not 0.0 <= decay <= 1.0:
++            raise ValueError("EMA decay must be between zero and one")
++        self.decay = float(decay)
++        self.shadow = {
++            name: parameter.detach().clone()
++            for name, parameter in _raw_model(model).named_parameters()
++            if parameter.requires_grad
++        }
++        if not self.shadow:
++            raise ValueError("EMA requires at least one trainable parameter")
++        self._backup: dict[str, torch.Tensor] | None = None
++
++    @torch.no_grad()
++    def update(self, model) -> None:
++        parameters = dict(_raw_model(model).named_parameters())
++        for name, shadow in self.shadow.items():
++            parameter = parameters[name]
++            shadow.mul_(self.decay).add_(
++                parameter.detach(), alpha=1.0 - self.decay
++            )
++
++    @torch.no_grad()
++    def apply(self, model) -> None:
++        if self._backup is not None:
++            raise RuntimeError("EMA weights are already applied")
++        parameters = dict(_raw_model(model).named_parameters())
++        self._backup = {
++            name: parameters[name].detach().clone() for name in self.shadow
++        }
++        for name, shadow in self.shadow.items():
++            parameters[name].copy_(shadow)
++
++    @torch.no_grad()
++    def restore(self, model) -> None:
++        if self._backup is None:
++            raise RuntimeError("EMA weights are not applied")
++        parameters = dict(_raw_model(model).named_parameters())
++        for name, backup in self._backup.items():
++            parameters[name].copy_(backup)
++        self._backup = None
++
++    def state_dict(self) -> dict[str, torch.Tensor]:
++        return {name: value.detach().clone() for name, value in self.shadow.items()}
++
++    def load_state_dict(self, state: dict[str, torch.Tensor]) -> None:
++        if state.keys() != self.shadow.keys():
++            raise ValueError("EMA state does not match trainable parameters")
++        for name, value in state.items():
++            self.shadow[name].copy_(value)
++
++
++def _amp_enabled(device: torch.device, cfg: dict) -> bool:
++    return (
++        device.type == "cuda"
++        and cfg.get("train", {}).get("precision", "amp") == "amp"
++    )
++
++
++def run_semantic_train_epoch(
++    model,
++    dataloader: Iterable,
++    optimizer,
++    scaler,
++    device,
++    text_lookup,
++    cfg,
++    ema=None,
++) -> float:
++    """Train one epoch using candidate cross entropy and no auxiliary loss."""
++    model.train()
++    raw_model = _raw_model(model)
++    if hasattr(raw_model, "clip"):
++        raw_model.clip.eval()
++    parameters = trainable_parameters(model)
++    total_loss = 0.0
++    total_count = 0
++    amp_enabled = _amp_enabled(device, cfg)
++
++    for batch in dataloader:
++        optimizer.zero_grad(set_to_none=True)
++        with torch.autocast(device_type=device.type, enabled=amp_enabled):
++            loss, _ = semantic_classification_step(
++                model, batch, text_lookup, device
++            )
++        scaler.scale(loss).backward()
++        scaler.unscale_(optimizer)
++        torch.nn.utils.clip_grad_norm_(parameters, max_norm=1.0)
++        scaler.step(optimizer)
++        scaler.update()
++        if ema is not None:
++            ema.update(model)
++
++        batch_count = int(batch["target_index"].numel())
++        total_loss += float(loss.detach().item()) * batch_count
++        total_count += batch_count
++
++    return total_loss / max(total_count, 1)
++
++
++@torch.no_grad()
++def run_semantic_val_epoch(model, dataloader, text_lookup, device) -> dict:
++    """Return deterministic, all-rank seen-language CE and accuracy."""
++    model.eval()
++    totals = torch.zeros(3, dtype=torch.float64, device=device)
++
++    for batch in dataloader:
++        loss, logits = semantic_classification_step(
++            model, batch, text_lookup, device
++        )
++        target = batch["target_index"].to(device, non_blocking=True)
++        batch_count = target.numel()
++        totals[0] += loss.double() * batch_count
++        totals[1] += (logits.argmax(dim=-1) == target).sum().double()
++        totals[2] += batch_count
++
++    if dist.is_available() and dist.is_initialized():
++        dist.all_reduce(totals)
++
++    count = int(totals[2].item())
++    if count == 0:
++        return {"loss": 0.0, "accuracy": 0.0, "count": 0}
++    return {
++        "loss": float((totals[0] / count).item()),
++        "accuracy": float((totals[1] / count).item()),
++        "count": count,
++    }
+diff --git a/tests/test_semantic_trainer.py b/tests/test_semantic_trainer.py
+new file mode 100644
+index 0000000..3c5e9d7
+--- /dev/null
++++ b/tests/test_semantic_trainer.py
+@@ -0,0 +1,516 @@
++from __future__ import annotations
++
++import copy
++import hashlib
++import importlib.util
++from pathlib import Path
++
++import pytest
++import torch
++import torch.nn as nn
++import torch.nn.functional as F
++from torch.utils.data import DataLoader, Dataset
++
++import yaml
++
++from engine.semantic_trainer import (
++    TrainableEMA,
++    run_semantic_train_epoch,
++    run_semantic_val_epoch,
++    semantic_classification_step,
++    trainable_parameters,
++)
++
++
++REPO = Path(__file__).resolve().parents[1]
++TRAIN_SCRIPT = REPO / (
++    "experiments/2026-09-22_semantic_visual_jev_e2/scripts/train_semantic.py"
++)
++LOCKED_CONFIG = REPO / (
++    "experiments/2026-09-22_semantic_visual_jev_e2/configs/semantic_jev.yaml"
++)
++
++
++def _load_train_script():
++    spec = importlib.util.spec_from_file_location("train_semantic", TRAIN_SCRIPT)
++    module = importlib.util.module_from_spec(spec)
++    assert spec.loader is not None
++    spec.loader.exec_module(module)
++    return module
++
++
++class _ToySemanticModel(nn.Module):
++    def __init__(self) -> None:
++        super().__init__()
++        self.clip = nn.Linear(2, 2, bias=False)
++        self.clip.requires_grad_(False)
++        self.decision = nn.Linear(2, 1, bias=False)
++
++    def forward(self, images, questions, candidates, candidate_mask):
++        del questions
++        image_scores = self.decision(images).squeeze(-1)
++        candidate_scores = candidates[..., 0]
++        logits = candidate_scores + image_scores[:, None]
++        return logits.masked_fill(~candidate_mask, float("-inf"))
++
++
++class _Lookup:
++    def lookup(self, question_ids, candidate_ids, candidate_mask):
++        questions = torch.stack((question_ids.float(), question_ids.float()), dim=-1)
++        candidates = torch.stack(
++            (candidate_ids.clamp_min(0).float(), torch.zeros_like(candidate_ids).float()),
++            dim=-1,
++        )
++        return questions, candidates.masked_fill(~candidate_mask[..., None], 0.0)
++
++
++class _Rows(Dataset):
++    def __init__(self, rows):
++        self.rows = rows
++
++    def __len__(self):
++        return len(self.rows)
++
++    def __getitem__(self, index):
++        return self.rows[index]
++
++
++def _row(image, candidates, target):
++    candidate_ids = torch.tensor(candidates + [-1] * (3 - len(candidates)))
++    candidate_mask = candidate_ids >= 0
++    return {
++        "image": torch.tensor(image, dtype=torch.float32),
++        "question_text_id": torch.tensor(1),
++        "candidate_text_ids": candidate_ids,
++        "candidate_mask": candidate_mask,
++        "target_index": torch.tensor(target),
++    }
++
++
++def _assert_state_dict_equal(actual, expected):
++    assert actual.keys() == expected.keys()
++    for name in actual:
++        torch.testing.assert_close(actual[name], expected[name])
++
++
++@pytest.fixture
++def toy_model():
++    model = _ToySemanticModel()
++    with torch.no_grad():
++        model.decision.weight.copy_(torch.tensor([[0.25, -0.5]]))
++    return model
++
++
++@pytest.fixture
++def batch():
++    return next(
++        iter(
++            DataLoader(
++                _Rows(
++                    [
++                        _row([1.0, 0.0], [2, 5], 1),
++                        _row([0.0, 1.0], [4, 1, 3], 0),
++                    ]
++                ),
++                batch_size=2,
++            )
++        )
++    )
++
++
++@pytest.fixture
++def lookup():
++    return _Lookup()
++
++
++def test_semantic_step_is_exact_candidate_cross_entropy(toy_model, batch, lookup):
++    loss, logits = semantic_classification_step(
++        toy_model, batch, lookup, torch.device("cpu")
++    )
++
++    expected = F.cross_entropy(logits, batch["target_index"])
++
++    torch.testing.assert_close(loss, expected)
++
++
++def test_optimizer_scope_excludes_clip(toy_model):
++    parameters = trainable_parameters(toy_model)
++
++    assert parameters
++    assert all(parameter.requires_grad for parameter in parameters)
++    assert not any(
++        parameter is frozen
++        for parameter in parameters
++        for frozen in toy_model.clip.parameters()
++    )
++
++
++def test_validation_is_repeatable_and_sample_weighted(toy_model, lookup):
++    loader = DataLoader(
++        _Rows(
++            [
++                _row([1.0, 0.0], [2, 5], 1),
++                _row([0.0, 1.0], [4, 1], 0),
++                _row([1.0, 1.0], [3, 2, 1], 2),
++            ]
++        ),
++        batch_size=2,
++        shuffle=False,
++    )
++    batches = list(loader)
++    expected_loss_sum = sum(
++        F.cross_entropy(
++            semantic_classification_step(
++                toy_model, item, lookup, torch.device("cpu")
++            )[1],
++            item["target_index"],
++            reduction="sum",
++        ).item()
++        for item in batches
++    )
++
++    first = run_semantic_val_epoch(
++        toy_model, loader, lookup, torch.device("cpu")
++    )
++    second = run_semantic_val_epoch(
++        toy_model, loader, lookup, torch.device("cpu")
++    )
++
++    assert first == second
++    assert first["count"] == 3
++    assert first["loss"] == pytest.approx(expected_loss_sum / 3)
++    assert first["accuracy"] == pytest.approx(2 / 3)
++
++
++def test_validation_all_reduces_loss_correct_count_and_accuracy(
++    monkeypatch, toy_model, lookup
++):
++    import engine.semantic_trainer as trainer
++
++    loader = DataLoader(
++        _Rows([_row([1.0, 0.0], [2, 5], 1)]), batch_size=1
++    )
++    batches = list(loader)
++    local_logits = semantic_classification_step(
++        toy_model, batches[0], lookup, torch.device("cpu")
++    )[1]
++    local_loss = F.cross_entropy(local_logits, torch.tensor([1])).item()
++
++    monkeypatch.setattr(trainer.dist, "is_available", lambda: True)
++    monkeypatch.setattr(trainer.dist, "is_initialized", lambda: True)
++
++    def add_remote_totals(totals):
++        totals += torch.tensor([1.25, 2.0, 3.0], dtype=torch.float64)
++
++    monkeypatch.setattr(trainer.dist, "all_reduce", add_remote_totals)
++
++    metrics = run_semantic_val_epoch(
++        toy_model, batches, lookup, torch.device("cpu")
++    )
++
++    assert metrics == {
++        "loss": pytest.approx((local_loss + 1.25) / 4),
++        "accuracy": pytest.approx(3 / 4),
++        "count": 4,
++    }
++
++
++def test_train_epoch_updates_only_trainable_decision_parameters(toy_model, lookup):
++    loader = DataLoader(
++        _Rows(
++            [
++                _row([1.0, 0.0], [2, 5], 1),
++                _row([0.0, 1.0], [4, 1], 0),
++            ]
++        ),
++        batch_size=2,
++    )
++    frozen_before = copy.deepcopy(toy_model.clip.state_dict())
++    decision_before = toy_model.decision.weight.detach().clone()
++    optimizer = torch.optim.AdamW(trainable_parameters(toy_model), lr=0.1)
++    scaler = torch.amp.GradScaler("cpu", enabled=False)
++
++    loss = run_semantic_train_epoch(
++        toy_model,
++        loader,
++        optimizer,
++        scaler,
++        torch.device("cpu"),
++        lookup,
++        {"train": {"precision": "fp32"}},
++    )
++
++    assert loss > 0
++    _assert_state_dict_equal(toy_model.clip.state_dict(), frozen_before)
++    assert not torch.equal(toy_model.decision.weight, decision_before)
++
++
++def test_ema_tracks_and_applies_only_trainable_parameters(toy_model):
++    ema = TrainableEMA(toy_model, decay=0.5)
++    original_clip = copy.deepcopy(toy_model.clip.state_dict())
++    initial_decision = toy_model.decision.weight.detach().clone()
++    with torch.no_grad():
++        toy_model.decision.weight.add_(2.0)
++    changed_decision = toy_model.decision.weight.detach().clone()
++
++    ema.update(toy_model)
++    ema.apply(toy_model)
++
++    torch.testing.assert_close(
++        toy_model.decision.weight, (initial_decision + changed_decision) / 2
++    )
++    _assert_state_dict_equal(toy_model.clip.state_dict(), original_clip)
++    assert set(ema.state_dict()) == {"decision.weight"}
++
++    ema.restore(toy_model)
++    torch.testing.assert_close(toy_model.decision.weight, changed_decision)
++
++
++def test_max_batch_flags_are_rejected_outside_smoke():
++    script = _load_train_script()
++
++    with pytest.raises(SystemExit):
++        script.parse_args(
++            [
++                "--config",
++                "config.yaml",
++                "--seed",
++                "42",
++                "--max-train-batches",
++                "1",
++            ]
++        )
++
++    args = script.parse_args(
++        [
++            "--config",
++            "config.yaml",
++            "--seed",
++            "7",
++            "--smoke",
++            "--max-train-batches",
++            "2",
++            "--max-val-batches",
++            "3",
++        ]
++    )
++    assert (args.seed, args.max_train_batches, args.max_val_batches) == (7, 2, 3)
++
++
++def test_reportable_checkpoint_path_is_deterministic_and_refuses_overwrite(
++    tmp_path,
++):
++    script = _load_train_script()
++    cfg = {"train": {"output_dir": str(tmp_path)}}
++
++    path = script.checkpoint_path(cfg, seed=2048, smoke=False)
++
++    assert path == tmp_path / "seed_2048" / "best_model.pth"
++    path.parent.mkdir(parents=True)
++    path.write_bytes(b"existing reportable checkpoint")
++    with pytest.raises(FileExistsError, match="allow-overwrite"):
++        script.ensure_checkpoint_writable(path, allow_overwrite=False)
++    script.ensure_checkpoint_writable(path, allow_overwrite=True)
++
++
++def test_epoch_is_set_on_distributed_sampler_and_semantic_dataset():
++    script = _load_train_script()
++
++    class EpochReceiver:
++        def __init__(self):
++            self.epoch = None
++
++        def set_epoch(self, epoch):
++            self.epoch = epoch
++
++    loader = type(
++        "Loader",
++        (),
++        {"sampler": EpochReceiver(), "dataset": EpochReceiver()},
++    )()
++
++    script.set_training_epoch(loader, 9)
++
++    assert loader.sampler.epoch == 9
++    assert loader.dataset.epoch == 9
++
++
++def test_training_lookup_encodes_only_train_and_fixed(monkeypatch):
++    script = _load_train_script()
++
++    class FakeLookup:
++        @classmethod
++        def build(cls, model, bank, allowed_splits, device):
++            del model, bank, device
++            return tuple(allowed_splits)
++
++    monkeypatch.setattr(script, "EncodedTextLookup", FakeLookup)
++
++    allowed = script.build_training_text_lookup(
++        object(), object(), torch.device("cpu")
++    )
++
++    assert allowed == ("train", "fixed")
++
++
++def test_training_builds_only_train_and_seen_language_validation_loaders(
++    monkeypatch,
++):
++    script = _load_train_script()
++    calls = []
++
++    def train_builder(cfg, bank, distributed):
++        calls.append(("train", cfg, bank, distributed))
++        return "train-loader"
++
++    def val_builder(cfg, bank, distributed, split):
++        calls.append(("val", cfg, bank, distributed, split))
++        return "val-loader"
++
++    monkeypatch.setattr(script, "build_semantic_train_loader", train_builder)
++    monkeypatch.setattr(script, "build_semantic_val_loader", val_builder)
++
++    loaders = script.build_training_loaders("cfg", "bank", distributed=True)
++
++    assert loaders == ("train-loader", "val-loader")
++    assert calls == [
++        ("train", "cfg", "bank", True),
++        ("val", "cfg", "bank", True, "train"),
++    ]
++
++
++def test_model_selection_accepts_only_lower_seen_language_ce():
++    script = _load_train_script()
++
++    assert script.is_better_seen_ce(0.49, 0.50)
++    assert not script.is_better_seen_ce(0.50, 0.50)
++    assert not script.is_better_seen_ce(0.51, 0.50)
++
++
++def test_smoke_mode_runs_exactly_one_epoch():
++    script = _load_train_script()
++
++    assert script.effective_epochs({"train": {"epochs": 15}}, smoke=True) == 1
++    assert script.effective_epochs({"train": {"epochs": 15}}, smoke=False) == 15
++
++
++def test_checkpoint_contains_ema_model_and_required_provenance(toy_model):
++    script = _load_train_script()
++    ema = TrainableEMA(toy_model, decay=0.9)
++    ema_decision = toy_model.decision.weight.detach().clone()
++    with torch.no_grad():
++        toy_model.decision.weight.add_(3.0)
++    live_decision = toy_model.decision.weight.detach().clone()
++
++    payload = script.build_checkpoint_payload(
++        toy_model,
++        ema,
++        epoch=4,
++        val_seen_ce=0.125,
++        seed=42,
++        language_manifest_sha256="abc123",
++        cfg={"loss": {"name": "semantic_cross_entropy"}},
++    )
++
++    assert set(payload) == {
++        "epoch",
++        "model_state_dict",
++        "ema_state_dict",
++        "val_seen_ce",
++        "seed",
++        "language_manifest_sha256",
++        "config",
++    }
++    torch.testing.assert_close(
++        payload["model_state_dict"]["decision.weight"], ema_decision
++    )
++    torch.testing.assert_close(toy_model.decision.weight, live_decision)
++    assert payload["ema_state_dict"].keys() == {"decision.weight"}
++    assert payload["val_seen_ce"] == 0.125
++
++
++def test_locked_configuration_matches_accepted_e2_protocol():
++    expected = {
++        "experiment_name": "e2_semantic_visual_jev",
++        "dataset": {
++            "root": "/Dataset/deepfake_detection/DF40_all",
++            "methods": [],
++            "train_videos_per_method": 586,
++            "val_videos_per_method": 100,
++            "frames_per_video": 8,
++            "image_size": 224,
++        },
++        "augment": {
++            "horizontal_flip_p": 0.5,
++            "rotate_p": 0.5,
++            "rotate_limit": 10,
++            "brightness_contrast_p": 0.5,
++            "brightness_limit": 0.1,
++            "contrast_limit": 0.1,
++            "compression_p": 0.2,
++            "compression_quality_lower": 40,
++            "compression_quality_upper": 100,
++        },
++        "language": {
++            "manifest": "experiments/2026-09-22_semantic_visual_jev_e2/configs/language_bank.yaml",
++            "train_tasks": ["T1", "T2", "T3", "T4", "T5"],
++            "task_probabilities": [0.2, 0.2, 0.2, 0.2, 0.2],
++        },
++        "model": {
++            "name": "clip_semantic_jev",
++            "clip_model_name": "ViT-B/16",
++            "d_model": 256,
++            "nhead": 8,
++            "ffn_dim": 1024,
++            "num_layers": 2,
++            "dropout": 0.1,
++        },
++        "loss": {"name": "semantic_cross_entropy"},
++        "train": {
++            "init_visual_checkpoint": "experiments/2026-09-21_visual_jev_h1/results/training/seed_42/20260921_200626/output/best_model.pth",
++            "output_dir": "experiments/2026-09-22_semantic_visual_jev_e2/results/training",
++            "epochs": 15,
++            "lr": 1.0e-4,
++            "weight_decay": 1.0e-2,
++            "patience": 5,
++            "warmup_epochs": 1,
++            "ema_decay": 0.999,
++            "per_gpu_batch": 128,
++            "num_workers": 8,
++            "prefetch_factor": 4,
++            "precision": "amp",
++            "seeds": [42, 7, 2048],
++        },
++        "evaluation": {
++            "primary_domains": ["ffpp", "cdf"],
++            "exploratory_domains": ["dfd"],
++            "permutation_audit_samples": 4096,
++            "bootstrap_samples": 10000,
++            "bootstrap_seed": 20260922,
++        },
++        "gates": {
++            "noninferiority_margin": 0.01,
++            "heldout_macro_drop_max": 0.02,
++            "heldout_task_drop_max": 0.05,
++            "permutation_error_max": 1.0e-6,
++            "t2_balanced_accuracy_min": 0.80,
++            "t2_polarity_consistency_min": 0.95,
++            "t4_balanced_accuracy_min": 0.65,
++            "t4_counterfactual_order_min": 0.80,
++            "t5_macro_balanced_accuracy_min": 0.60,
++            "meaningless_drop_min": 0.10,
++        },
++    }
++
++    assert yaml.safe_load(LOCKED_CONFIG.read_text()) == expected
++
++
++def test_language_manifest_hash_is_raw_file_sha256():
++    script = _load_train_script()
++    manifest = REPO / (
++        "experiments/2026-09-22_semantic_visual_jev_e2/configs/language_bank.yaml"
++    )
++
++    assert script.file_sha256(manifest) == hashlib.sha256(
++        manifest.read_bytes()
++    ).hexdigest()

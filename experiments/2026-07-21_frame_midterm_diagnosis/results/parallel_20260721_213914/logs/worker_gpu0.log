@@ -1,0 +1,75 @@
+[21:39:14] worker gpu=0 started
+[21:39:14] worker gpu=0: starting clip_normtrain_s7
+[diag] output dir: outputs/frame_midt_diag/parallel_20260721_213914
+[diag] device: cuda
+[diag] stage=extract, 1 checkpoint(s) × 3 domain(s) = 3 (ckpt, domain) pairs
+
+[diag] (1/1) clip_normtrain_s7
+[diag]   ffpp: 164221 frame-rows (1 infer_mode(s)) in 599.3s
+[diag]   cdf: 396284 frame-rows (1 infer_mode(s)) in 1380.2s
+[diag]   dfd: 103339 frame-rows (1 infer_mode(s)) in 389.4s
+[diag]   total 2380.4s; wrote clip_normtrain_s7.parquet (663844 rows)
+[22:19:01] worker gpu=0: finished clip_normtrain_s7 (rc=0)
+[22:19:01] worker gpu=0: starting clip_raw_s999
+[diag] output dir: outputs/frame_midt_diag/parallel_20260721_213914
+[diag] device: cuda
+[diag] stage=extract, 1 checkpoint(s) × 3 domain(s) = 3 (ckpt, domain) pairs
+
+[diag] (1/1) clip_raw_s999
+[diag]   ffpp: 492663 frame-rows (3 infer_mode(s)) in 601.2s
+[diag]   cdf: 1188852 frame-rows (3 infer_mode(s)) in 1386.5s
+[diag]   dfd: 310017 frame-rows (3 infer_mode(s)) in 388.9s
+[diag]   total 2384.8s; wrote clip_raw_s999.parquet (1991532 rows)
+[22:58:53] worker gpu=0: finished clip_raw_s999 (rc=0)
+[22:58:53] worker gpu=0: starting dinov2_normtrain_s2048
+[diag] output dir: outputs/frame_midt_diag/parallel_20260721_213914
+[diag] device: cuda
+[diag] stage=extract, 1 checkpoint(s) × 3 domain(s) = 3 (ckpt, domain) pairs
+
+[diag] (1/1) dinov2_normtrain_s2048
+Using cache found in /home/z/.cache/torch/hub/facebookresearch_dinov2_main
+/home/z/.cache/torch/hub/facebookresearch_dinov2_main/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/home/z/.cache/torch/hub/facebookresearch_dinov2_main/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/home/z/.cache/torch/hub/facebookresearch_dinov2_main/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+[diag]   ffpp: 164221 frame-rows (1 infer_mode(s)) in 722.2s
+[diag]   cdf: 396284 frame-rows (1 infer_mode(s)) in 1685.1s
+[diag]   dfd: 103339 frame-rows (1 infer_mode(s)) in 466.5s
+[diag]   total 2877.9s; wrote dinov2_normtrain_s2048.parquet (663844 rows)
+[23:46:58] worker gpu=0: finished dinov2_normtrain_s2048 (rc=0)
+[23:46:58] worker gpu=0: starting efficientnet_normtrain_s7
+[diag] output dir: outputs/frame_midt_diag/parallel_20260721_213914
+[diag] device: cuda
+[diag] stage=extract, 1 checkpoint(s) × 3 domain(s) = 3 (ckpt, domain) pairs
+
+[diag] (1/1) efficientnet_normtrain_s7
+[diag]   ffpp: 164221 frame-rows (1 infer_mode(s)) in 120.2s
+[diag]   cdf: 396284 frame-rows (1 infer_mode(s)) in 231.1s
+[diag]   dfd: 103339 frame-rows (1 infer_mode(s)) in 91.8s
+[diag]   total 445.2s; wrote efficientnet_normtrain_s7.parquet (663844 rows)
+[23:54:31] worker gpu=0: finished efficientnet_normtrain_s7 (rc=0)
+[23:54:31] worker gpu=0: starting efficientnet_normtrain_s123
+[diag] output dir: outputs/frame_midt_diag/parallel_20260721_213914
+[diag] device: cuda
+[diag] stage=extract, 1 checkpoint(s) × 3 domain(s) = 3 (ckpt, domain) pairs
+
+[diag] (1/1) efficientnet_normtrain_s123
+[diag]   ffpp: 164221 frame-rows (1 infer_mode(s)) in 117.3s
+[diag]   cdf: 396284 frame-rows (1 infer_mode(s)) in 246.7s
+[diag]   dfd: 103339 frame-rows (1 infer_mode(s)) in 95.2s
+[diag]   total 461.3s; wrote efficientnet_normtrain_s123.parquet (663844 rows)
+[00:02:19] worker gpu=0: finished efficientnet_normtrain_s123 (rc=0)
+[00:02:19] worker gpu=0: starting efficientnet_raw_s42
+[diag] output dir: outputs/frame_midt_diag/parallel_20260721_213914
+[diag] device: cuda
+[diag] stage=extract, 1 checkpoint(s) × 3 domain(s) = 3 (ckpt, domain) pairs
+
+[diag] (1/1) efficientnet_raw_s42
+[diag]   ffpp: 492663 frame-rows (3 infer_mode(s)) in 149.5s
+[diag]   cdf: 1188852 frame-rows (3 infer_mode(s)) in 260.9s
+[diag]   dfd: 310017 frame-rows (3 infer_mode(s)) in 97.2s
+[diag]   total 511.5s; wrote efficientnet_raw_s42.parquet (1991532 rows)
+[00:10:58] worker gpu=0: finished efficientnet_raw_s42 (rc=0)
+[00:10:58] worker gpu=0: no more ckpts to do, exiting

@@ -1,0 +1,65 @@
+{
+  "legacy": {
+    "original_commits": 108,
+    "original_refs": 7,
+    "standalone_tree_snapshots": 14,
+    "index_snapshots": [
+      {
+        "label": "legacy-index",
+        "tree": "61c26a21b05c9a507766fb135632341e34d96549",
+        "commit": "ebac982465516fec4632494ba786838d8ad3e815"
+      },
+      {
+        "label": "legacy-agent-a15d2cece88d198b4-index",
+        "tree": "ad38c64d31337219c523b5113f3ee135b40e0a2f",
+        "commit": "a2212b3b6d640b62b9063e118e61459ab774ea4d"
+      },
+      {
+        "label": "legacy-agent-a22eab60bb916d5d9-index",
+        "tree": "0827ff0c6744afead0a8fb4c7e6db20822d70130",
+        "commit": "7b43820d6bfaa4e67c04154024b4e091e2d627e8"
+      },
+      {
+        "label": "legacy-agent-ab37cb141001b49f9-index",
+        "tree": "ad38c64d31337219c523b5113f3ee135b40e0a2f",
+        "commit": "b8b66ffca2ee765f49c549ed07994e1ebc61dcc9"
+      }
+    ],
+    "recovered_unnamed_text_blobs": 105,
+    "missing_parents": []
+  },
+  "jev-nested": {
+    "original_commits": 1,
+    "original_refs": 3,
+    "standalone_tree_snapshots": 0,
+    "index_snapshots": [
+      {
+        "label": "jev-nested-index",
+        "tree": "630d03078d1451fdf9845ed5865e858a1a6ae5b0",
+        "commit": "2e84c64a2397b1551b73763beaf8a028aa65cecd"
+      }
+    ],
+    "recovered_unnamed_text_blobs": 0,
+    "missing_parents": [
+      {
+        "commit": "e261aa6ee4c398f63a36c08b7ebad3455dc1428e",
+        "missing_parent": "d9fd174cfc74383856bfd19a04b88ad03e2974f7"
+      }
+    ]
+  },
+  "outer": {
+    "original_commits": 2,
+    "original_refs": 3,
+    "standalone_tree_snapshots": 3,
+    "index_snapshots": [
+      {
+        "label": "outer-index",
+        "tree": "11f5f108a7ebfe42591fb457d1925d5ddc7e1c5f",
+        "commit": "c7cdb4b475b35cb3ca9b6f6f63abfb5880ebd7ae"
+      }
+    ],
+    "recovered_unnamed_text_blobs": 0,
+    "missing_parents": []
+  },
+  "deleted_config_tar_files": 17
+}

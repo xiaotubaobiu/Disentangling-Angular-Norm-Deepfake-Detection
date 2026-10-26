@@ -1,0 +1,59 @@
+{
+  "argv": [
+    "/home/z/anaconda3/bin/torchrun",
+    "--standalone",
+    "--nproc_per_node=4",
+    "--log-dir",
+    "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_logs/run_20260923T034810Z/semantic_controls_seed_42/rank_logs",
+    "--redirects",
+    "3",
+    "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/scripts/evaluate_semantic.py",
+    "--config",
+    "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/configs/semantic_jev.yaml",
+    "--seed",
+    "42",
+    "--checkpoint",
+    "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/training/seed_42/best_model.pth",
+    "--domains",
+    "ffpp",
+    "cdf",
+    "dfd",
+    "--conditions",
+    "seen",
+    "heldout",
+    "permutation",
+    "counterfactual",
+    "meaningless_candidates",
+    "meaningless_questions",
+    "--feature-cache-root",
+    "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/feature_cache",
+    "--output-dir",
+    "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation/seed_42"
+  ],
+  "conditions": [
+    "seen",
+    "heldout",
+    "permutation",
+    "counterfactual",
+    "meaningless_candidates",
+    "meaningless_questions"
+  ],
+  "configured_per_gpu_batch": 128,
+  "cwd": "/home/z/project/deepfake_detection",
+  "domains": [
+    "ffpp",
+    "cdf",
+    "dfd"
+  ],
+  "environment": {
+    "CUDA_VISIBLE_DEVICES": "0,1,2,3",
+    "MKL_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "PYTHONUNBUFFERED": "1"
+  },
+  "phase": "semantic_controls",
+  "seed": 42,
+  "shell_display": "/home/z/anaconda3/bin/torchrun --standalone --nproc_per_node=4 --log-dir /home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_logs/run_20260923T034810Z/semantic_controls_seed_42/rank_logs --redirects 3 /home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/scripts/evaluate_semantic.py --config /home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/configs/semantic_jev.yaml --seed 42 --checkpoint /home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/training/seed_42/best_model.pth --domains ffpp cdf dfd --conditions seen heldout permutation counterfactual meaningless_candidates meaningless_questions --feature-cache-root /home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/feature_cache --output-dir /home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation/seed_42",
+  "started_at_utc": "2026-09-23T04:16:47Z"
+}

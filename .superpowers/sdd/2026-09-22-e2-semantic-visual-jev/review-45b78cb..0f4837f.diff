@@ -1,0 +1,1284 @@
+# Review package: 45b78cb36a7db767e14a4107d21041844a516877..0f4837f26332676c52a25d14eaf3979d948fdbbb
+
+## Commits
+0f4837f feat: add canonical E2 semantic evaluation
+
+## Files changed
+ .../scripts/evaluate_semantic.py                   | 403 ++++++++++++++++
+ src/evaluation/semantic_eval.py                    | 510 +++++++++++++++++++++
+ tests/test_semantic_eval.py                        | 341 ++++++++++++++
+ 3 files changed, 1254 insertions(+)
+
+## Diff
+diff --git a/experiments/2026-09-22_semantic_visual_jev_e2/scripts/evaluate_semantic.py b/experiments/2026-09-22_semantic_visual_jev_e2/scripts/evaluate_semantic.py
+new file mode 100644
+index 0000000..4e25c9e
+--- /dev/null
++++ b/experiments/2026-09-22_semantic_visual_jev_e2/scripts/evaluate_semantic.py
+@@ -0,0 +1,403 @@
++"""Distributed, leakage-safe evaluation for E2 Semantic Visual-Jev."""
++
++from __future__ import annotations
++
++import argparse
++import hashlib
++import json
++import os
++import sys
++from collections import namedtuple
++from pathlib import Path
++
++import numpy as np
++import torch
++import torch.distributed as dist
++from torch.utils.data import DataLoader, Dataset, DistributedSampler
++
++
++REPO_ROOT = Path(__file__).resolve().parents[3]
++if str(REPO_ROOT / "src") not in sys.path:
++    sys.path.insert(0, str(REPO_ROOT / "src"))
++
++from config_io import load_config
++from data.builders import build_eval_dataset, build_semantic_eval_loader
++from data.semantic_dataset import TASKS, method_family
++from data.semantic_language import SEMANTIC_TO_ID, load_language_bank
++from engine.ddp import barrier, init_ddp, is_main_process
++from evaluation.sample_eval import gather_rows_across_ranks
++from evaluation.semantic_eval import (
++    aggregate_semantic_videos,
++    compute_task_metrics,
++    deduplicate_distributed_rows,
++    frame_semantic_rows,
++)
++from models.clip_semantic_jev import EncodedTextLookup
++from models.factory import build_model
++
++
++ConditionSpec = namedtuple(
++    "ConditionSpec", ("text_splits", "language_split", "fixed_h1"),
++    defaults=(False,),
++)
++
++
++# Task 6 extends this registry with controls.  Keeping construction and
++# inference behind these hooks avoids embedding control behavior in Task 5.
++CONDITION_SPECS = {
++    "fixed_h1": ConditionSpec(("fixed",), "fixed", fixed_h1=True),
++    "seen": ConditionSpec(("train",), "train"),
++    "heldout": ConditionSpec(("heldout",), "heldout"),
++}
++
++_MANIFEST_GATED_CONDITIONS = frozenset(
++    {
++        "heldout",
++        "permutation",
++        "counterfactual",
++        "meaningless_candidates",
++        "meaningless_questions",
++    }
++)
++
++
++def parse_args(argv=None):
++    parser = argparse.ArgumentParser(
++        description="Evaluate the locked E2 semantic Visual-Jev checkpoint."
++    )
++    parser.add_argument("--config", required=True)
++    parser.add_argument("--checkpoint", required=True)
++    parser.add_argument("--seed", required=True, type=int, choices=(42, 7, 2048))
++    parser.add_argument(
++        "--domains", nargs="+", default=("ffpp", "cdf", "dfd"),
++        choices=("ffpp", "cdf", "dfd"),
++    )
++    parser.add_argument(
++        "--conditions", nargs="+", default=tuple(CONDITION_SPECS),
++        choices=tuple(CONDITION_SPECS),
++    )
++    parser.add_argument("--batch-size", type=int)
++    parser.add_argument("--output-dir", required=True)
++    args = parser.parse_args(argv)
++    if args.batch_size is not None and args.batch_size <= 0:
++        parser.error("--batch-size must be positive")
++    if len(args.domains) != len(set(args.domains)):
++        parser.error("--domains must not contain duplicates")
++    if len(args.conditions) != len(set(args.conditions)):
++        parser.error("--conditions must not contain duplicates")
++    return args
++
++
++def _repo_path(path: str | Path) -> Path:
++    path = Path(path)
++    return path if path.is_absolute() else REPO_ROOT / path
++
++
++def file_sha256(path: str | Path) -> str:
++    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
++
++
++def required_text_splits(condition: str) -> tuple[str, ...]:
++    try:
++        return CONDITION_SPECS[condition].text_splits
++    except KeyError as error:
++        raise ValueError(f"unsupported evaluation condition: {condition}") from error
++
++
++def validate_checkpoint_manifest(
++    checkpoint: dict, expected_sha256: str, conditions
++) -> None:
++    """Gate held-out/control evaluation on the exact training manifest."""
++    if not (_MANIFEST_GATED_CONDITIONS & set(conditions)):
++        return
++    actual = checkpoint.get("language_manifest_sha256")
++    if actual != expected_sha256:
++        raise ValueError(
++            "checkpoint language manifest SHA256 is missing or does not match "
++            "the requested held-out/control evaluation manifest"
++        )
++
++
++class FixedH1Dataset(Dataset):
++    """Render the exact fixed H1 text while preserving semantic row metadata."""
++
++    def __init__(self, base_dataset, language_bank):
++        self.base_dataset = base_dataset
++        self.question_text_id = language_bank.text_id("fixed_h1_q")
++        self.real_text_id = language_bank.text_id("fixed_h1_real")
++        self.fake_text_id = language_bank.text_id("fixed_h1_fake")
++
++    def __len__(self):
++        return len(self.base_dataset)
++
++    def __getitem__(self, index):
++        sample = dict(self.base_dataset[index])
++        label = int(sample["label"])
++        sample.update(
++            {
++                "task_id": "T1",
++                "task_index": torch.tensor(0, dtype=torch.long),
++                "question_text_id": torch.tensor(
++                    self.question_text_id, dtype=torch.long
++                ),
++                "question_id": "fixed_h1_q",
++                "question_yes_means": torch.tensor(-1, dtype=torch.long),
++                "question_yes_means_name": "",
++                "candidate_text_ids": torch.tensor(
++                    [self.real_text_id, self.fake_text_id, -1], dtype=torch.long
++                ),
++                "candidate_semantic_ids": torch.tensor(
++                    [SEMANTIC_TO_ID["real"], SEMANTIC_TO_ID["fake"], -1],
++                    dtype=torch.long,
++                ),
++                "candidate_mask": torch.tensor([True, True, False]),
++                "candidate_ids": ("fixed_h1_real", "fixed_h1_fake", ""),
++                "candidate_texts": (
++                    "an authentic facial image.",
++                    "a manipulated deepfake facial image.",
++                    "",
++                ),
++                "candidate_semantics": ("real", "fake", ""),
++                "target_index": torch.tensor(label, dtype=torch.long),
++                "target_semantic": "fake" if label else "real",
++                "method_family": method_family(sample["method_id"], label),
++                "variant_id": "fixed_h1_q::fixed_h1_candidates",
++                "render_id": f"fixed_h1::{sample['sample_id']}",
++            }
++        )
++        return sample
++
++
++def _plain_loader(cfg: dict, dataset, distributed: bool) -> DataLoader:
++    workers = int(cfg["train"].get("num_workers", 4))
++    kwargs = {
++        "batch_size": int(cfg["train"].get("per_gpu_batch", 32)),
++        "shuffle": False,
++        "drop_last": False,
++        "num_workers": workers,
++        "pin_memory": True,
++    }
++    if workers > 0:
++        kwargs.update(
++            persistent_workers=False,
++            prefetch_factor=int(cfg["train"].get("prefetch_factor", 4)),
++            multiprocessing_context="spawn",
++        )
++    if distributed:
++        kwargs["sampler"] = DistributedSampler(dataset, shuffle=False)
++    return DataLoader(dataset, **kwargs)
++
++
++def condition_tasks(domain: str, condition: str) -> tuple[str, ...]:
++    if condition == "fixed_h1":
++        return ("T1",)
++    if domain == "dfd":
++        return ("T1", "T2", "T3")
++    return TASKS
++
++
++def build_condition_loader(
++    cfg: dict,
++    language_bank,
++    *,
++    domain: str,
++    condition: str,
++    distributed: bool,
++):
++    """Condition hook intentionally limited to Task 5's three suites."""
++    spec = CONDITION_SPECS[condition]
++    if spec.fixed_h1:
++        dataset = FixedH1Dataset(build_eval_dataset(cfg, domain), language_bank)
++        return _plain_loader(cfg, dataset, distributed)
++    return build_semantic_eval_loader(
++        cfg,
++        language_bank,
++        domain=domain,
++        distributed=distributed,
++        split=spec.language_split,
++        tasks=condition_tasks(domain, condition),
++    )
++
++
++def _load_checkpoint(path: str | Path) -> dict:
++    checkpoint = torch.load(path, map_location="cpu", weights_only=True)
++    if not isinstance(checkpoint, dict):
++        raise ValueError("semantic checkpoint must be a mapping")
++    state = checkpoint.get("model_state_dict")
++    if not isinstance(state, dict):
++        raise ValueError("semantic checkpoint lacks model_state_dict")
++    return checkpoint
++
++
++def _move_batch(batch: dict, device: torch.device):
++    images = batch["image"].to(device, non_blocking=True)
++    question_ids = batch["question_text_id"].to(device, non_blocking=True)
++    candidate_ids = batch["candidate_text_ids"].to(device, non_blocking=True)
++    candidate_mask = batch["candidate_mask"].to(device, non_blocking=True)
++    return images, question_ids, candidate_ids, candidate_mask
++
++
++@torch.no_grad()
++def infer_condition_rows(
++    model,
++    loader,
++    text_lookup,
++    device: torch.device,
++    *,
++    seed: int,
++    domain: str,
++    condition: str,
++) -> list[dict]:
++    model.eval()
++    rows: list[dict] = []
++    for batch in loader:
++        images, question_ids, candidate_ids, candidate_mask = _move_batch(
++            batch, device
++        )
++        questions, candidates = text_lookup.lookup(
++            question_ids, candidate_ids, candidate_mask
++        )
++        logits = model(images, questions, candidates, candidate_mask)
++        probabilities = torch.softmax(logits.float(), dim=1)
++        rows.extend(
++            frame_semantic_rows(
++                batch,
++                probabilities.cpu(),
++                {"seed": seed, "domain": domain, "condition": condition},
++            )
++        )
++    return rows
++
++
++def _npz_array(values: list[object]) -> np.ndarray:
++    if all(isinstance(value, (bool, np.bool_)) for value in values):
++        return np.asarray(values, dtype=bool)
++    if all(isinstance(value, (int, np.integer)) for value in values):
++        return np.asarray(values, dtype=np.int64)
++    if all(isinstance(value, (int, float, np.number)) for value in values):
++        return np.asarray(values, dtype=np.float64)
++    return np.asarray(["" if value is None else str(value) for value in values])
++
++
++def write_frame_npz(rows: list[dict], path: str | Path) -> None:
++    path = Path(path)
++    path.parent.mkdir(parents=True, exist_ok=True)
++    columns = sorted({key for row in rows for key in row})
++    arrays = {
++        column: _npz_array([row.get(column) for row in rows])
++        for column in columns
++    }
++    temporary = path.with_suffix(path.suffix + ".tmp")
++    with temporary.open("wb") as stream:
++        np.savez_compressed(stream, **arrays)
++    os.replace(temporary, path)
++
++
++def _json_value(value):
++    if isinstance(value, np.generic):
++        value = value.item()
++    if isinstance(value, float) and not np.isfinite(value):
++        return None
++    return value
++
++
++def write_outputs(
++    rows: list[dict], *, output_dir: str | Path, condition: str, domain: str
++) -> None:
++    root = Path(output_dir) / condition
++    root.mkdir(parents=True, exist_ok=True)
++    videos = aggregate_semantic_videos(rows)
++    metrics = compute_task_metrics(videos)
++
++    write_frame_npz(rows, root / f"{domain}_frames.npz")
++    video_path = root / f"{domain}_videos.csv"
++    video_tmp = video_path.with_suffix(video_path.suffix + ".tmp")
++    videos.to_csv(video_tmp, index=False)
++    os.replace(video_tmp, video_path)
++
++    metric_path = root / f"{domain}_metrics.json"
++    metric_tmp = metric_path.with_suffix(metric_path.suffix + ".tmp")
++    records = [
++        {key: _json_value(value) for key, value in row.items()}
++        for row in metrics.to_dict("records")
++    ]
++    metric_tmp.write_text(json.dumps(records, indent=2, sort_keys=True) + "\n")
++    os.replace(metric_tmp, metric_path)
++
++
++def main(argv=None) -> int:
++    args = parse_args(argv)
++    cfg = load_config(args.config)
++    cfg = dict(cfg)
++    cfg["train"] = dict(cfg["train"])
++    cfg["train"]["seed"] = args.seed
++    if args.batch_size is not None:
++        cfg["train"]["per_gpu_batch"] = args.batch_size
++
++    local_rank = init_ddp()
++    distributed = dist.is_available() and dist.is_initialized()
++    device = torch.device(
++        f"cuda:{local_rank}" if torch.cuda.is_available() else "cpu"
++    )
++    try:
++        manifest_path = _repo_path(cfg["language"]["manifest"])
++        language_bank = load_language_bank(manifest_path)
++        checkpoint = _load_checkpoint(_repo_path(args.checkpoint))
++        validate_checkpoint_manifest(
++            checkpoint, file_sha256(manifest_path), args.conditions
++        )
++        checkpoint_seed = checkpoint.get("seed")
++        if checkpoint_seed is not None and int(checkpoint_seed) != args.seed:
++            raise ValueError(
++                f"checkpoint seed {checkpoint_seed} does not match --seed {args.seed}"
++            )
++
++        model = build_model(cfg["model"]).to(device)
++        model.load_state_dict(checkpoint["model_state_dict"], strict=True)
++        model.eval()
++
++        # A lookup is built lazily per condition and contains only the split
++        # that condition is authorized to encode.
++        text_lookups = {}
++        for condition in args.conditions:
++            text_lookups[condition] = EncodedTextLookup.build(
++                model,
++                language_bank,
++                allowed_splits=required_text_splits(condition),
++                device=device,
++            )
++            for domain in args.domains:
++                loader = build_condition_loader(
++                    cfg,
++                    language_bank,
++                    domain=domain,
++                    condition=condition,
++                    distributed=distributed,
++                )
++                local_rows = infer_condition_rows(
++                    model,
++                    loader,
++                    text_lookups[condition],
++                    device,
++                    seed=args.seed,
++                    domain=domain,
++                    condition=condition,
++                )
++                gathered = gather_rows_across_ranks(local_rows)
++                if is_main_process():
++                    rows = deduplicate_distributed_rows(gathered)
++                    write_outputs(
++                        rows,
++                        output_dir=args.output_dir,
++                        condition=condition,
++                        domain=domain,
++                    )
++                barrier()
++        return 0
++    finally:
++        if distributed:
++            dist.destroy_process_group()
++
++
++if __name__ == "__main__":
++    raise SystemExit(main())
+diff --git a/src/evaluation/semantic_eval.py b/src/evaluation/semantic_eval.py
+new file mode 100644
+index 0000000..1292762
+--- /dev/null
++++ b/src/evaluation/semantic_eval.py
+@@ -0,0 +1,510 @@
++"""Canonical semantic probabilities, video aggregation, and E2 metrics."""
++
++from __future__ import annotations
++
++import math
++from collections import OrderedDict
++from collections.abc import Iterable, Mapping, Sequence
++
++import numpy as np
++import pandas as pd
++import torch
++from sklearn.metrics import (
++    accuracy_score,
++    average_precision_score,
++    balanced_accuracy_score,
++    brier_score_loss,
++    f1_score,
++    roc_auc_score,
++)
++
++from data.semantic_language import SEMANTIC_TO_ID
++
++
++SEMANTICS = tuple(
++    name for name, _ in sorted(SEMANTIC_TO_ID.items(), key=lambda item: item[1])
++)
++if tuple(SEMANTIC_TO_ID.values()) != tuple(range(len(SEMANTIC_TO_ID))):
++    raise RuntimeError("SEMANTIC_TO_ID must be contiguous in declaration order")
++
++PROBABILITY_COLUMNS = tuple(f"p_{name}" for name in SEMANTICS)
++
++# These identify a rendered semantic condition.  In particular,
++# candidate_order keeps exhaustive permutations distinct while sample_id is
++# deliberately absent so it can be used as the within-condition unique key.
++SEMANTIC_CONDITION_KEYS = (
++    "seed",
++    "domain",
++    "condition",
++    "task_id",
++    "variant_id",
++    "question_id",
++    "question_yes_means",
++    "candidate_order",
++)
++
++GROUP_KEYS = (
++    "seed",
++    "domain",
++    "condition",
++    "task_id",
++    "variant_id",
++    "question_id",
++    "question_yes_means",
++    "candidate_order",
++    "method_id",
++    "video_id",
++    "video_key",
++    "label",
++    "method_family",
++    "target_semantic",
++)
++
++METRIC_COLUMNS = (
++    "seed",
++    "domain",
++    "condition",
++    "task_id",
++    "metric",
++    "value",
++    "count",
++    "method_id",
++    "variant_id",
++    "question_yes_means",
++)
++
++
++def map_candidate_probabilities(
++    probabilities: torch.Tensor,
++    semantic_ids: torch.Tensor,
++    mask: torch.Tensor,
++) -> torch.Tensor:
++    """Scatter candidate-position probabilities into canonical semantic order."""
++    if probabilities.ndim != 2:
++        raise ValueError("probabilities must have shape [batch, candidates]")
++    if semantic_ids.shape != probabilities.shape or mask.shape != probabilities.shape:
++        raise ValueError("probabilities, semantic_ids, and mask must have equal shapes")
++    if mask.dtype is not torch.bool:
++        raise ValueError("mask must be boolean")
++
++    valid_ids = semantic_ids[mask]
++    if ((valid_ids < 0) | (valid_ids >= len(SEMANTICS))).any():
++        raise ValueError("invalid semantic ID in a valid candidate position")
++    for row in range(probabilities.shape[0]):
++        row_ids = semantic_ids[row][mask[row]].detach().cpu().tolist()
++        if len(row_ids) != len(set(row_ids)):
++            raise ValueError("duplicate semantic IDs in one candidate set")
++
++    mapped = probabilities.new_zeros((probabilities.shape[0], len(SEMANTICS)))
++    for column in range(probabilities.shape[1]):
++        valid = mask[:, column]
++        if valid.any():
++            mapped[valid, semantic_ids[valid, column]] = probabilities[valid, column]
++    return mapped
++
++
++def canonical_fake_probability(row: Mapping[str, object]) -> float:
++    """Return a task-independent fake probability for one semantic result."""
++    task_id = str(row["task_id"])
++    if task_id in {"T1", "T3", "fixed_h1", "Fixed-H1"}:
++        return float(row["p_fake"])
++    if task_id == "T2":
++        polarity = row.get("question_yes_means")
++        if polarity == "real":
++            return float(row["p_no"])
++        if polarity == "fake":
++            return float(row["p_yes"])
++        raise ValueError("T2 question_yes_means must be 'real' or 'fake'")
++    if task_id == "T4":
++        if "p_yes_swap" in row and "p_yes_reenact" in row:
++            return max(float(row["p_yes_swap"]), float(row["p_yes_reenact"]))
++        raise ValueError("T4 fake probability requires paired swap and reenact scores")
++    if task_id == "T5":
++        return 1.0 - float(row["p_camera"])
++    raise ValueError(f"unknown semantic task: {task_id}")
++
++
++def validate_domain_task(domain: str, task_id: str) -> None:
++    """Reject semantic family tasks that DFD cannot label reliably."""
++    if domain.lower() == "dfd" and task_id not in {"T1", "T2", "T3"}:
++        raise ValueError("DFD supports only T1-T3")
++
++
++def _as_batch_list(value, size: int) -> list:
++    if isinstance(value, torch.Tensor):
++        values = value.detach().cpu().tolist()
++    elif isinstance(value, np.ndarray):
++        values = value.tolist()
++    elif isinstance(value, (str, bytes)) or not isinstance(value, Sequence):
++        values = [value] * size
++    else:
++        values = list(value)
++    if len(values) != size:
++        raise ValueError(f"batch field has {len(values)} items; expected {size}")
++    return values
++
++
++def _context(condition: str | Mapping[str, object]) -> dict[str, object]:
++    if isinstance(condition, str):
++        return {"condition": condition}
++    result = dict(condition)
++    if not result.get("condition"):
++        raise ValueError("condition context must include condition")
++    return result
++
++
++def frame_semantic_rows(
++    batch: Mapping[str, object],
++    probabilities: torch.Tensor,
++    condition: str | Mapping[str, object],
++) -> list[dict]:
++    """Convert one inference batch into canonical, serialization-safe rows."""
++    semantic_ids = batch["candidate_semantic_ids"]
++    candidate_mask = batch["candidate_mask"]
++    if not isinstance(semantic_ids, torch.Tensor) or not isinstance(
++        candidate_mask, torch.Tensor
++    ):
++        raise TypeError("candidate semantic IDs and mask must be tensors")
++    mapped = map_candidate_probabilities(
++        probabilities.detach(), semantic_ids.to(probabilities.device),
++        candidate_mask.to(probabilities.device),
++    ).cpu()
++    size = probabilities.shape[0]
++    context = _context(condition)
++
++    def values(name: str, default):
++        return _as_batch_list(batch.get(name, default), size)
++
++    sample_ids = values("sample_id", "")
++    image_paths = values("image_path", "")
++    method_ids = values("method_id", "unknown")
++    video_ids = values("video_id", "")
++    video_keys = values(
++        "video_key",
++        [f"{method_id}::{video_id}" for method_id, video_id in zip(method_ids, video_ids)],
++    )
++    labels = values("label", 0)
++    task_ids = values("task_id", "")
++    variants = values("variant_id", "")
++    question_ids = values("question_id", "")
++    polarities = values("question_yes_means_name", "")
++    families = values("method_family", "")
++    targets = values("target_semantic", "")
++    render_ids = values("render_id", "")
++    seeds = (
++        _as_batch_list(context["seed"], size)
++        if "seed" in context
++        else values("seed", 0)
++    )
++    domains = (
++        _as_batch_list(context["domain"], size)
++        if "domain" in context
++        else values("domain", "")
++    )
++
++    rows: list[dict] = []
++    ids_cpu = semantic_ids.detach().cpu()
++    mask_cpu = candidate_mask.detach().cpu()
++    for index in range(size):
++        task_id = str(task_ids[index])
++        validate_domain_task(str(domains[index]), task_id)
++        ordered_semantics = [
++            SEMANTICS[int(semantic_id)]
++            for semantic_id, valid in zip(ids_cpu[index], mask_cpu[index])
++            if bool(valid)
++        ]
++        row = {
++            "seed": int(seeds[index]),
++            "domain": str(domains[index]),
++            "condition": str(context["condition"]),
++            "task_id": task_id,
++            "variant_id": str(variants[index]),
++            "question_id": str(question_ids[index]),
++            "question_yes_means": str(polarities[index]),
++            "candidate_order": "|".join(ordered_semantics),
++            "sample_id": str(sample_ids[index]),
++            "image_path": str(image_paths[index]),
++            "method_id": str(method_ids[index]),
++            "video_id": str(video_ids[index]),
++            "video_key": str(video_keys[index]),
++            "label": int(labels[index]),
++            "method_family": str(families[index]),
++            "target_semantic": str(targets[index]),
++            "render_id": str(render_ids[index]),
++        }
++        for semantic, column in SEMANTIC_TO_ID.items():
++            row[f"p_{semantic}"] = float(mapped[index, column])
++        if task_id == "T4":
++            # An individual family question is not itself a fake probability;
++            # Task 6 can pair swap/reenact scores using pairing_key.
++            row["prob_fake"] = float("nan")
++        else:
++            row["prob_fake"] = canonical_fake_probability(row)
++        row["pairing_key"] = "::".join(
++            (
++                str(row["seed"]),
++                row["domain"],
++                row["condition"],
++                row["sample_id"],
++                row["video_key"],
++            )
++        )
++        rows.append(row)
++    return rows
++
++
++def semantic_condition_key(row: Mapping[str, object]) -> tuple[object, ...]:
++    return tuple(row.get(key, "") for key in SEMANTIC_CONDITION_KEYS)
++
++
++def _deduplication_key(row: Mapping[str, object]) -> tuple[object, ...]:
++    sample_id = row.get("sample_id")
++    if not sample_id:
++        raise ValueError("semantic row is missing sample_id")
++    return (*semantic_condition_key(row), sample_id)
++
++
++def _equal_values(left: object, right: object) -> bool:
++    try:
++        if math.isnan(float(left)) and math.isnan(float(right)):
++            return True
++    except (TypeError, ValueError):
++        pass
++    return left == right
++
++
++def _equal_rows(left: Mapping[str, object], right: Mapping[str, object]) -> bool:
++    return left.keys() == right.keys() and all(
++        _equal_values(left[key], right[key]) for key in left
++    )
++
++
++def deduplicate_distributed_rows(rows: Iterable[dict]) -> list[dict]:
++    """Remove identical DistributedSampler padding without hiding conflicts."""
++    unique: OrderedDict[tuple[object, ...], dict] = OrderedDict()
++    for row in rows:
++        key = _deduplication_key(row)
++        previous = unique.get(key)
++        if previous is None:
++            unique[key] = row
++        elif not _equal_rows(previous, row):
++            raise ValueError(f"conflicting distributed rows for semantic sample {key}")
++    return list(unique.values())
++
++
++def _with_aggregation_defaults(rows: list[dict]) -> pd.DataFrame:
++    frame = pd.DataFrame(rows)
++    defaults = {
++        "seed": 0,
++        "domain": "",
++        "condition": "",
++        "variant_id": "",
++        "question_id": "",
++        "question_yes_means": "",
++        "candidate_order": "",
++        "method_family": "",
++        "target_semantic": "",
++        "image_path": "",
++        "pairing_key": "",
++        "render_id": "",
++    }
++    for column, default in defaults.items():
++        if column not in frame:
++            frame[column] = default
++    for column in PROBABILITY_COLUMNS + ("prob_fake",):
++        if column not in frame:
++            frame[column] = np.nan
++    if "video_key" not in frame:
++        frame["video_key"] = (
++            frame["method_id"].astype(str) + "::" + frame["video_id"].astype(str)
++        )
++    return frame
++
++
++def _attach_paired_t4_fake_probabilities(frame: pd.DataFrame) -> None:
++    """Attach max(swap yes, reenact yes) only to correctly aligned T4 pairs."""
++    selected = frame["task_id"].astype(str) == "T4"
++    if not selected.any():
++        return
++    pair_keys = [
++        "seed",
++        "domain",
++        "condition",
++        "task_id",
++        "sample_id",
++        "method_id",
++        "video_id",
++        "video_key",
++    ]
++    for _, pair in frame.loc[selected].groupby(pair_keys, sort=False, dropna=False):
++        families = set(pair["question_yes_means"].astype(str))
++        if not {"swap", "reenact"} <= families:
++            continue
++        swap_yes = pair.loc[pair["question_yes_means"] == "swap", "p_yes"]
++        reenact_yes = pair.loc[pair["question_yes_means"] == "reenact", "p_yes"]
++        probability = max(float(swap_yes.max()), float(reenact_yes.max()))
++        frame.loc[pair.index, "prob_fake"] = probability
++
++
++def aggregate_semantic_videos(rows: Iterable[dict] | pd.DataFrame) -> pd.DataFrame:
++    """Average canonical frame probabilities by semantic condition and video."""
++    records = rows.to_dict("records") if isinstance(rows, pd.DataFrame) else list(rows)
++    output_columns = list(GROUP_KEYS) + list(PROBABILITY_COLUMNS) + [
++        "prob_fake",
++        "num_frames",
++        "pairing_key",
++    ]
++    if not records:
++        return pd.DataFrame(columns=output_columns)
++
++    seen: set[tuple[object, ...]] = set()
++    for row in records:
++        key = _deduplication_key(row)
++        if key in seen:
++            raise ValueError(f"duplicate sample_id inside semantic condition: {key}")
++        seen.add(key)
++
++    frame = _with_aggregation_defaults(records)
++    _attach_paired_t4_fake_probabilities(frame)
++    for domain, task_id in frame[["domain", "task_id"]].drop_duplicates().itertuples(
++        index=False, name=None
++    ):
++        validate_domain_task(str(domain), str(task_id))
++
++    expected_keys = frame["method_id"].astype(str) + "::" + frame["video_id"].astype(str)
++    if not (frame["video_key"].astype(str) == expected_keys).all():
++        raise ValueError("video_key must equal method_id::video_id")
++    video_identity = list(SEMANTIC_CONDITION_KEYS) + [
++        "method_id",
++        "video_id",
++        "video_key",
++    ]
++    label_counts = frame.groupby(
++        video_identity, sort=False, dropna=False
++    )["label"].nunique(dropna=False)
++    if (label_counts > 1).any():
++        raise ValueError("conflicting labels for one semantic video")
++
++    value_columns = list(PROBABILITY_COLUMNS) + ["prob_fake"]
++    aggregations = {column: (column, "mean") for column in value_columns}
++    aggregations.update(
++        num_frames=("sample_id", "count"),
++        pairing_key=("pairing_key", "first"),
++    )
++    return (
++        frame.groupby(list(GROUP_KEYS), sort=False, dropna=False)
++        .agg(**aggregations)
++        .reset_index()
++    )
++
++
++def _ece(labels: np.ndarray, scores: np.ndarray, bins: int = 15) -> float:
++    """H1-compatible equal-width ECE over the fake-class probability."""
++    error = 0.0
++    edges = np.linspace(0.0, 1.0, bins + 1)
++    for index in range(bins):
++        if index == bins - 1:
++            selected = (scores >= edges[index]) & (scores <= edges[index + 1])
++        else:
++            selected = (scores >= edges[index]) & (scores < edges[index + 1])
++        if selected.any():
++            error += selected.mean() * abs(
++                float(labels[selected].mean()) - float(scores[selected].mean())
++            )
++    return float(error)
++
++
++def _binary_metrics(labels: np.ndarray, scores: np.ndarray) -> dict[str, float]:
++    predictions = (scores >= 0.5).astype(int)
++    return {
++        "auroc": (
++            float(roc_auc_score(labels, scores))
++            if len(np.unique(labels)) == 2
++            else float("nan")
++        ),
++        "ap": (
++            float(average_precision_score(labels, scores))
++            if np.any(labels == 1)
++            else float("nan")
++        ),
++        "brier": float(brier_score_loss(labels, scores)),
++        "accuracy": float(accuracy_score(labels, predictions)),
++        "ece": _ece(labels, scores),
++    }
++
++
++def _classification_metrics(
++    labels: np.ndarray, predictions: np.ndarray, *, macro_name: bool = False
++) -> dict[str, float]:
++    prefix = "macro_" if macro_name else ""
++    return {
++        f"{prefix}balanced_accuracy": float(
++            balanced_accuracy_score(labels, predictions)
++        ),
++        f"{prefix}f1": float(
++            f1_score(labels, predictions, average="macro", zero_division=0)
++        ),
++    }
++
++
++def _task_values(task_id: str, rows: pd.DataFrame) -> dict[str, float]:
++    if task_id in {"T1", "T3", "fixed_h1", "Fixed-H1"}:
++        labels = rows["label"].to_numpy(dtype=int)
++        scores = rows["prob_fake"].to_numpy(dtype=float)
++        return _binary_metrics(labels, scores)
++    if task_id == "T2":
++        labels = rows["label"].to_numpy(dtype=int)
++        scores = rows["prob_fake"].to_numpy(dtype=float)
++        return _classification_metrics(labels, (scores >= 0.5).astype(int))
++    if task_id == "T4":
++        labels = (rows["target_semantic"].astype(str) == "yes").to_numpy(dtype=int)
++        predictions = (rows["p_yes"].to_numpy(dtype=float) >= 0.5).astype(int)
++        return _classification_metrics(labels, predictions)
++    if task_id == "T5":
++        classes = ("camera", "swap", "reenact")
++        truth = rows["method_family"].astype(str).to_numpy()
++        probabilities = rows[[f"p_{name}" for name in classes]].to_numpy(dtype=float)
++        predicted = np.asarray(classes)[np.argmax(probabilities, axis=1)]
++        return _classification_metrics(truth, predicted, macro_name=True)
++    raise ValueError(f"unknown semantic task: {task_id}")
++
++
++def compute_task_metrics(video_rows: pd.DataFrame | Iterable[dict]) -> pd.DataFrame:
++    """Compute normalized overall and per-method video metric rows."""
++    frame = (
++        video_rows.copy()
++        if isinstance(video_rows, pd.DataFrame)
++        else pd.DataFrame(list(video_rows))
++    )
++    if frame.empty:
++        return pd.DataFrame(columns=METRIC_COLUMNS)
++    for column, default in (("seed", 0), ("domain", ""), ("condition", "")):
++        if column not in frame:
++            frame[column] = default
++
++    results: list[dict] = []
++    context_keys = ["seed", "domain", "condition", "task_id"]
++    for context, task_rows in frame.groupby(context_keys, sort=False, dropna=False):
++        seed, domain, condition, task_id = context
++        validate_domain_task(str(domain), str(task_id))
++        slices = [("__all__", task_rows)]
++        slices.extend(
++            (str(method_id), method_rows)
++            for method_id, method_rows in task_rows.groupby("method_id", sort=False)
++        )
++        for method_id, selected in slices:
++            count = int(len(selected))
++            base = {
++                "seed": int(seed),
++                "domain": str(domain),
++                "condition": str(condition),
++                "task_id": str(task_id),
++                "count": count,
++                "method_id": method_id,
++                "variant_id": "__all__",
++                "question_yes_means": "__all__",
++            }
++            results.append({**base, "metric": "count", "value": float(count)})
++            for metric, value in _task_values(str(task_id), selected).items():
++                results.append({**base, "metric": metric, "value": value})
++    return pd.DataFrame(results, columns=METRIC_COLUMNS)
+diff --git a/tests/test_semantic_eval.py b/tests/test_semantic_eval.py
+new file mode 100644
+index 0000000..d24f196
+--- /dev/null
++++ b/tests/test_semantic_eval.py
+@@ -0,0 +1,341 @@
++from __future__ import annotations
++
++import importlib.util
++from pathlib import Path
++
++import pandas as pd
++import pytest
++import torch
++
++from data.semantic_language import SEMANTIC_TO_ID
++from evaluation.semantic_eval import (
++    aggregate_semantic_videos,
++    canonical_fake_probability,
++    compute_task_metrics,
++    deduplicate_distributed_rows,
++    frame_semantic_rows,
++    map_candidate_probabilities,
++    validate_domain_task,
++)
++
++
++SCRIPT = (
++    Path(__file__).parents[1]
++    / "experiments/2026-09-22_semantic_visual_jev_e2/scripts/evaluate_semantic.py"
++)
++
++
++def _frame_row(
++    method_id: str,
++    video_id: str,
++    frame: int,
++    label: int,
++    probability: float,
++    *,
++    task_id: str = "T1",
++    variant_id: str = "v1",
++) -> dict:
++    return {
++        "seed": 42,
++        "domain": "ffpp",
++        "condition": "seen",
++        "task_id": task_id,
++        "variant_id": variant_id,
++        "question_id": "q1",
++        "question_yes_means": "",
++        "candidate_order": "real|fake",
++        "sample_id": f"{method_id}-{video_id}-{frame}",
++        "image_path": f"/{method_id}/{video_id}/{frame}.png",
++        "method_id": method_id,
++        "video_id": video_id,
++        "video_key": f"{method_id}::{video_id}",
++        "label": label,
++        "method_family": "camera" if label == 0 else "swap",
++        "target_semantic": "real" if label == 0 else "fake",
++        "p_real": 1.0 - probability,
++        "p_fake": probability,
++        "p_no": 0.0,
++        "p_yes": 0.0,
++        "p_camera": 0.0,
++        "p_swap": 0.0,
++        "p_reenact": 0.0,
++        "prob_fake": probability,
++    }
++
++
++def test_candidate_probabilities_use_canonical_semantic_order():
++    probabilities = torch.tensor([[0.7, 0.3, 0.0], [0.2, 0.3, 0.5]])
++    semantic_ids = torch.tensor(
++        [
++            [SEMANTIC_TO_ID["fake"], SEMANTIC_TO_ID["real"], -1],
++            [SEMANTIC_TO_ID["reenact"], SEMANTIC_TO_ID["camera"], SEMANTIC_TO_ID["swap"]],
++        ]
++    )
++    mask = torch.tensor([[True, True, False], [True, True, True]])
++
++    mapped = map_candidate_probabilities(probabilities, semantic_ids, mask)
++
++    torch.testing.assert_close(
++        mapped,
++        torch.tensor(
++            [
++                [0.3, 0.7, 0.0, 0.0, 0.0, 0.0, 0.0],
++                [0.0, 0.0, 0.0, 0.0, 0.3, 0.5, 0.2],
++            ]
++        ),
++    )
++
++
++@pytest.mark.parametrize(
++    ("semantic_ids", "message"),
++    [
++        ([[0, 0]], "duplicate semantic IDs"),
++        ([[0, 7]], "invalid semantic ID"),
++        ([[0, -1]], "invalid semantic ID"),
++    ],
++)
++def test_candidate_mapping_rejects_duplicate_or_invalid_valid_ids(
++    semantic_ids, message
++):
++    with pytest.raises(ValueError, match=message):
++        map_candidate_probabilities(
++            torch.tensor([[0.5, 0.5]]),
++            torch.tensor(semantic_ids),
++            torch.tensor([[True, True]]),
++        )
++
++
++def test_t2_fake_probability_depends_on_question_polarity():
++    authentic = {
++        "task_id": "T2",
++        "question_yes_means": "real",
++        "p_yes": 0.2,
++        "p_no": 0.8,
++    }
++    manipulated = {
++        "task_id": "T2",
++        "question_yes_means": "fake",
++        "p_yes": 0.8,
++        "p_no": 0.2,
++    }
++    assert canonical_fake_probability(authentic) == pytest.approx(0.8)
++    assert canonical_fake_probability(manipulated) == pytest.approx(0.8)
++
++
++def test_t5_fake_probability_is_one_minus_camera():
++    row = {
++        "task_id": "T5",
++        "p_camera": 0.15,
++        "p_swap": 0.60,
++        "p_reenact": 0.25,
++    }
++    assert canonical_fake_probability(row) == pytest.approx(0.85)
++
++
++def test_frame_rows_retain_t4_pairing_and_canonical_probabilities():
++    batch = {
++        "sample_id": ["sample-1"],
++        "image_path": ["/swap/001/0.png"],
++        "method_id": ["simswap"],
++        "video_id": ["001"],
++        "video_key": ["simswap::001"],
++        "label": torch.tensor([1]),
++        "task_id": ["T4"],
++        "variant_id": ["swap-question::answers"],
++        "question_id": ["swap-question"],
++        "question_yes_means_name": ["swap"],
++        "candidate_semantic_ids": torch.tensor(
++            [[SEMANTIC_TO_ID["no"], SEMANTIC_TO_ID["yes"], -1]]
++        ),
++        "candidate_mask": torch.tensor([[True, True, False]]),
++        "candidate_ids": [("no-answer",), ("yes-answer",), ("",)],
++        "candidate_semantics": [("no",), ("yes",), ("",)],
++        "target_semantic": ["yes"],
++        "method_family": ["swap"],
++        "render_id": ["render-1"],
++    }
++
++    rows = frame_semantic_rows(
++        batch,
++        torch.tensor([[0.2, 0.8, 0.0]]),
++        {"condition": "heldout", "seed": 7, "domain": "cdf"},
++    )
++
++    assert rows[0]["p_yes"] == pytest.approx(0.8)
++    assert rows[0]["question_yes_means"] == "swap"
++    assert rows[0]["question_id"] == "swap-question"
++    assert rows[0]["candidate_order"] == "no|yes"
++    assert rows[0]["pairing_key"] == "7::cdf::heldout::sample-1::simswap::001"
++
++
++def test_frame_rows_accept_per_sample_seed_and_domain_context():
++    batch = {
++        "seed": torch.tensor([42, 42]),
++        "domain": ["ffpp", "ffpp"],
++        "sample_id": ["a", "b"],
++        "method_id": ["real", "simswap"],
++        "video_id": ["1", "2"],
++        "label": torch.tensor([0, 1]),
++        "task_id": ["T1", "T1"],
++        "candidate_semantic_ids": torch.tensor(
++            [
++                [SEMANTIC_TO_ID["real"], SEMANTIC_TO_ID["fake"]],
++                [SEMANTIC_TO_ID["real"], SEMANTIC_TO_ID["fake"]],
++            ]
++        ),
++        "candidate_mask": torch.ones((2, 2), dtype=torch.bool),
++    }
++
++    rows = frame_semantic_rows(
++        batch, torch.tensor([[0.9, 0.1], [0.2, 0.8]]), "seen"
++    )
++
++    assert [row["seed"] for row in rows] == [42, 42]
++    assert [row["domain"] for row in rows] == ["ffpp", "ffpp"]
++
++
++def test_video_aggregation_keeps_same_id_from_different_methods_separate():
++    rows = [
++        _frame_row("simswap", "001", 1, 1, 0.9),
++        _frame_row("blendface", "001", 1, 1, 0.2),
++        _frame_row("real", "001", 1, 0, 0.1),
++    ]
++    videos = aggregate_semantic_videos(rows)
++    assert set(videos.video_key) == {
++        "simswap::001",
++        "blendface::001",
++        "real::001",
++    }
++
++
++def test_video_aggregation_rejects_duplicate_sample_inside_condition():
++    row = _frame_row("simswap", "001", 1, 1, 0.9)
++    with pytest.raises(ValueError, match="duplicate sample_id"):
++        aggregate_semantic_videos([row, dict(row)])
++
++
++def test_video_aggregation_rejects_conflicting_labels_for_one_video():
++    first = _frame_row("simswap", "001", 1, 1, 0.9)
++    second = _frame_row("simswap", "001", 2, 0, 0.1)
++
++    with pytest.raises(ValueError, match="conflicting labels"):
++        aggregate_semantic_videos([first, second])
++
++
++def test_video_aggregation_keeps_same_sample_across_variants_distinct():
++    first = _frame_row("simswap", "001", 1, 1, 0.9, variant_id="v1")
++    second = dict(first, variant_id="v2", p_fake=0.3, prob_fake=0.3)
++
++    videos = aggregate_semantic_videos([first, second])
++
++    assert len(videos) == 2
++    assert set(videos.variant_id) == {"v1", "v2"}
++
++
++def test_t4_aggregation_pairs_family_questions_before_fake_probability():
++    base = _frame_row("simswap", "001", 0, 1, 0.0, task_id="T4")
++    swap = dict(
++        base,
++        variant_id="swap-question::answers",
++        question_id="swap-question",
++        question_yes_means="swap",
++        candidate_order="no|yes",
++        target_semantic="yes",
++        p_yes=0.8,
++        p_no=0.2,
++        prob_fake=float("nan"),
++    )
++    reenact = dict(
++        base,
++        variant_id="reenact-question::answers",
++        question_id="reenact-question",
++        question_yes_means="reenact",
++        candidate_order="yes|no",
++        target_semantic="no",
++        p_yes=0.1,
++        p_no=0.9,
++        prob_fake=float("nan"),
++    )
++
++    videos = aggregate_semantic_videos([swap, reenact])
++
++    assert len(videos) == 2
++    assert videos.prob_fake.tolist() == pytest.approx([0.8, 0.8])
++
++
++def test_distributed_padding_is_deduplicated_only_when_rows_match():
++    row = _frame_row("simswap", "001", 1, 1, 0.9)
++    assert deduplicate_distributed_rows([row, dict(row)]) == [row]
++
++    with pytest.raises(ValueError, match="conflicting distributed rows"):
++        deduplicate_distributed_rows([row, dict(row, p_fake=0.1)])
++
++
++def test_binary_and_multiclass_metrics_are_normalized_and_sliced():
++    binary_rows = [
++        _frame_row("real", "r1", 0, 0, 0.1),
++        _frame_row("real", "r2", 0, 0, 0.2),
++        _frame_row("simswap", "f1", 0, 1, 0.8),
++        _frame_row("simswap", "f2", 0, 1, 0.9),
++    ]
++    videos = aggregate_semantic_videos(binary_rows)
++    metrics = compute_task_metrics(videos)
++
++    assert {
++        "seed",
++        "domain",
++        "condition",
++        "task_id",
++        "metric",
++        "value",
++        "count",
++        "method_id",
++        "variant_id",
++        "question_yes_means",
++    } <= set(metrics.columns)
++    overall = metrics[metrics.method_id == "__all__"].set_index("metric")
++    assert overall.loc["auroc", "value"] == pytest.approx(1.0)
++    assert overall.loc["ap", "value"] == pytest.approx(1.0)
++    assert overall.loc["ece", "count"] == 4
++    assert set(metrics.method_id) == {"__all__", "real", "simswap"}
++
++    t5 = pd.DataFrame(
++        [
++            dict(binary_rows[0], task_id="T5", method_family="camera", p_camera=0.8, p_swap=0.1, p_reenact=0.1),
++            dict(binary_rows[2], task_id="T5", method_family="swap", p_camera=0.1, p_swap=0.8, p_reenact=0.1),
++            dict(binary_rows[3], task_id="T5", method_family="reenact", p_camera=0.1, p_swap=0.2, p_reenact=0.7),
++        ]
++    )
++    t5_metrics = compute_task_metrics(t5)
++    t5_overall = t5_metrics[t5_metrics.method_id == "__all__"].set_index("metric")
++    assert t5_overall.loc["macro_balanced_accuracy", "value"] == pytest.approx(1.0)
++    assert t5_overall.loc["macro_f1", "value"] == pytest.approx(1.0)
++
++
++def test_dfd_metrics_exclude_t4_and_t5():
++    for task_id in ("T1", "T2", "T3"):
++        validate_domain_task("dfd", task_id)
++    for task_id in ("T4", "T5", "fixed_h1"):
++        with pytest.raises(ValueError, match="DFD supports only T1-T3"):
++            validate_domain_task("dfd", task_id)
++
++
++def test_evaluator_manifest_gate_and_split_scope():
++    spec = importlib.util.spec_from_file_location("evaluate_semantic", SCRIPT)
++    module = importlib.util.module_from_spec(spec)
++    assert spec.loader is not None
++    spec.loader.exec_module(module)
++
++    assert module.required_text_splits("fixed_h1") == ("fixed",)
++    assert module.required_text_splits("seen") == ("train",)
++    assert module.required_text_splits("heldout") == ("heldout",)
++    module.validate_checkpoint_manifest(
++        {"language_manifest_sha256": "abc"}, "abc", ("heldout",)
++    )
++    with pytest.raises(ValueError, match="language manifest SHA256"):
++        module.validate_checkpoint_manifest({}, "abc", ("heldout",))
++    with pytest.raises(ValueError, match="language manifest SHA256"):
++        module.validate_checkpoint_manifest(
++            {"language_manifest_sha256": "wrong"}, "abc", ("heldout",)
++        )
++    module.validate_checkpoint_manifest({}, "abc", ("seen", "fixed_h1"))

@@ -1,0 +1,6 @@
+{"event": "coordinator_started", "gpu_allocation": "0,1,2,3", "timestamp_utc": "2026-09-23T03:46:54Z", "training_worker_pids": [2701438, 2701439, 2701440, 2701441]}
+{"event": "waiting_for_existing_training", "timestamp_utc": "2026-09-23T03:46:54Z", "worker_pids": [2701438, 2701439, 2701440, 2701441]}
+{"epoch": 1, "event": "training_epoch_completed", "seed": 2048, "timestamp_utc": "2026-09-23T03:46:54Z", "train_ce": 0.2333930567008992, "val_seen_accuracy": 0.6112570356472795, "val_seen_ce": 0.6986996854652533}
+{"epoch": 2, "event": "training_epoch_completed", "seed": 2048, "timestamp_utc": "2026-09-23T03:46:54Z", "train_ce": 0.10503897449792657, "val_seen_accuracy": 0.8039712320200125, "val_seen_ce": 0.47984079717751066}
+{"epoch": 3, "event": "training_epoch_completed", "seed": 2048, "timestamp_utc": "2026-09-23T03:46:54Z", "train_ce": 0.09428469661291536, "val_seen_accuracy": 0.9096232020012508, "val_seen_ce": 0.2902757197338913}
+{"coordinator_pid": 2866428, "event": "waiting_coordinator_superseded", "reason": "root authorized concurrent evaluation of frozen seed42 and seed7 fixed_h1 while seed2048 training continues unchanged; only waiting coordinator stopped; no training processes touched", "timestamp_utc": "2026-09-23T03:48:09.464278+00:00"}

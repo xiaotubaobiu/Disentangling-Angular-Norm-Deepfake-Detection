@@ -1,0 +1,5816 @@
+[
+  {
+    "mode": "100644",
+    "oid": "a1e15205a37d2e48bc4b0eb63e16cbb42d79f166",
+    "stage": "0",
+    "path": ".github/workflows/docs.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "2456fddfa95e3cea8aa967b66d0e5e159526a250",
+    "stage": "0",
+    "path": ".gitignore"
+  },
+  {
+    "mode": "100644",
+    "oid": "e39726bff7b40ac221629413348e3f69b2bdfb2f",
+    "stage": "0",
+    "path": ".pre-commit-config.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "41016a6bcf7375d0a3fb3115b303791930e93c2d",
+    "stage": "0",
+    "path": "CODEOWNERS"
+  },
+  {
+    "mode": "100644",
+    "oid": "b4612a7bc59f0b1770675cc2857d866fe41a9a31",
+    "stage": "0",
+    "path": "CODE_OF_CONDUCT.md"
+  },
+  {
+    "mode": "100644",
+    "oid": "9ba97919e5b9568c8b9c42ea85251f01049a220e",
+    "stage": "0",
+    "path": "LICENSE.txt"
+  },
+  {
+    "mode": "100644",
+    "oid": "beeac24cddefd6cfeadaede65423b97f9f6a29f0",
+    "stage": "0",
+    "path": "MANIFEST.in"
+  },
+  {
+    "mode": "100644",
+    "oid": "3ea3fe73bbf85379842bad1bcc20eaa177b6fb34",
+    "stage": "0",
+    "path": "README.md"
+  },
+  {
+    "mode": "100644",
+    "oid": "e31774df287d3b91b508341475a7cf26e146aa2d",
+    "stage": "0",
+    "path": "SECURITY.md"
+  },
+  {
+    "mode": "100644",
+    "oid": "0552204081d813fbd3fb28c81dbada83d4b53021",
+    "stage": "0",
+    "path": "app/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "168e8503e943b715fbc3e010444bfc57901b8ffc",
+    "stage": "0",
+    "path": "app/calculate_coco_features.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "ad118988e8692f64261e344ebe76b264f9ab02d7",
+    "stage": "0",
+    "path": "app/caption.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "2b5bd896474d5df6814220c79aeda6d5a895ab92",
+    "stage": "0",
+    "path": "app/classification.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "6b761d899731940b8963c8894473848359418a74",
+    "stage": "0",
+    "path": "app/dataset_browser.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "e7957384e6ebba19acf47658f6c97446b54b3aeb",
+    "stage": "0",
+    "path": "app/image_text_match.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "108c46f8cce738499adeb3a65091f3b1919563e0",
+    "stage": "0",
+    "path": "app/main.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "ffc9766429e4922eac34db8b643445d3bc1622a3",
+    "stage": "0",
+    "path": "app/multimodal_search.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "040f76ebd2f86d7ded9e8a224a20ce779862c607",
+    "stage": "0",
+    "path": "app/multipage.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "d01655b97d7c0e495caf42c81c83b59e1bc3c811",
+    "stage": "0",
+    "path": "app/text_localization.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "5a4f209d6b90f6747f4f0a090276d5032c1049db",
+    "stage": "0",
+    "path": "app/utils.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "c505a985d2450a4a2065faca67a1e8974e899c95",
+    "stage": "0",
+    "path": "app/vqa.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "14f148e39c43d24876c735cd00f115eb1e611f97",
+    "stage": "0",
+    "path": "assets/LAVIS_technical_report.pdf"
+  },
+  {
+    "mode": "100755",
+    "oid": "58782a3fec0cfd4c6dfd4becc7b5d70cca53ed93",
+    "stage": "0",
+    "path": "assets/demo-6.png"
+  },
+  {
+    "mode": "100644",
+    "oid": "e3e638a2e26990a6c319f673b97c3c0fecc119f6",
+    "stage": "0",
+    "path": "ckpt/download_checkpoints.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "7fe88d32fd8ba62d3aa6fc6a9c6ade26aa3675c5",
+    "stage": "0",
+    "path": "dataset_card/avsd_dialogue.md"
+  },
+  {
+    "mode": "100644",
+    "oid": "08226f877dd887b0eb784db2c355e21c2fc1d5dc",
+    "stage": "0",
+    "path": "dataset_card/coco_caption.md"
+  },
+  {
+    "mode": "100644",
+    "oid": "3ae23445be18aeea35f0086d4f283b3162ae8784",
+    "stage": "0",
+    "path": "dataset_card/coco_retrieval.md"
+  },
+  {
+    "mode": "100644",
+    "oid": "91db817af5da3db31a3d9e6c88f54438cd84dd5f",
+    "stage": "0",
+    "path": "dataset_card/conceptual_captions.md"
+  },
+  {
+    "mode": "100644",
+    "oid": "09c094180517badd2404f8797157376d1b96103e",
+    "stage": "0",
+    "path": "dataset_card/didemo_retrieval.md"
+  },
+  {
+    "mode": "100644",
+    "oid": "61529c10c67817de892fbc20cdd7614be2bc003b",
+    "stage": "0",
+    "path": "dataset_card/flickr_retrieval.md"
+  },
+  {
+    "mode": "100644",
+    "oid": "5c65d18754c14ed56255a7fc3243ad2a3d31b349",
+    "stage": "0",
+    "path": "dataset_card/gqa.md"
+  },
+  {
+    "mode": "100644",
+    "oid": "cc38d812a460de604e443aad8f7bbf1bd15b898b",
+    "stage": "0",
+    "path": "dataset_card/imgs/NLVR2.png"
+  },
+  {
+    "mode": "100644",
+    "oid": "3990434764e1134ba89a052b328f23091eb0a11c",
+    "stage": "0",
+    "path": "dataset_card/imgs/avsd_dialogue.png"
+  },
+  {
+    "mode": "100644",
+    "oid": "660621afa6a49c64ad42f88ba362be0b3fbc978e",
+    "stage": "0",
+    "path": "dataset_card/imgs/coco_caption.png"
+  },
+  {
+    "mode": "100644",
+    "oid": "edd035945373806da469e85b584c0b00c6011c18",
+    "stage": "0",
+    "path": "dataset_card/imgs/conceptual_captions.png"
+  },
+  {
+    "mode": "100644",
+    "oid": "6bca451879f7faaf4ab92cbd64586546276cb322",
+    "stage": "0",
+    "path": "dataset_card/imgs/didemo.png"
+  },
+  {
+    "mode": "100644",
+    "oid": "6f609a4461e206f8c7321345724a3fe39b453eb9",
+    "stage": "0",
+    "path": "dataset_card/imgs/flickr30k.png"
+  },
+  {
+    "mode": "100644",
+    "oid": "1471ec1715b9f8ffa8695c32740f6eb8b8341f82",
+    "stage": "0",
+    "path": "dataset_card/imgs/gqa.png"
+  },
+  {
+    "mode": "100644",
+    "oid": "eec2baa058a18d95c8e3e245abff70bd7d065ff7",
+    "stage": "0",
+    "path": "dataset_card/imgs/msrvtt.png"
+  },
+  {
+    "mode": "100644",
+    "oid": "74c5f25d23b0ea19d68db9aaa09f41728966ef08",
+    "stage": "0",
+    "path": "dataset_card/imgs/msrvtt_qa.png"
+  },
+  {
+    "mode": "100644",
+    "oid": "805522205cf9593cf9ca21623947f3ae6565b1a6",
+    "stage": "0",
+    "path": "dataset_card/imgs/msvd_qa.png"
+  },
+  {
+    "mode": "100644",
+    "oid": "c5548cf3ad3ab4c540a228f39e7f00960351bba6",
+    "stage": "0",
+    "path": "dataset_card/imgs/nocaps.png"
+  },
+  {
+    "mode": "100644",
+    "oid": "0f4308e2e414018caec8297c22fc25dc55711db5",
+    "stage": "0",
+    "path": "dataset_card/imgs/sbu_caption.png"
+  },
+  {
+    "mode": "100644",
+    "oid": "37cca693e98efc3c70922f818572768e99956efe",
+    "stage": "0",
+    "path": "dataset_card/imgs/snli_ve.png"
+  },
+  {
+    "mode": "100644",
+    "oid": "94e6bbcdc3a74982d35aa25116fa4636e4415c98",
+    "stage": "0",
+    "path": "dataset_card/imgs/vqav2.png"
+  },
+  {
+    "mode": "100644",
+    "oid": "308f366a75312d06b05dd40afbe22565dc27ac89",
+    "stage": "0",
+    "path": "dataset_card/msrvtt_qa.md"
+  },
+  {
+    "mode": "100644",
+    "oid": "6e0fa06596cb2c38148fb8ecb56c311ae6e237e9",
+    "stage": "0",
+    "path": "dataset_card/msrvtt_retrieval.md"
+  },
+  {
+    "mode": "100644",
+    "oid": "9d6e885705c1bc5f3357edd7595c8a2d3372b3bf",
+    "stage": "0",
+    "path": "dataset_card/msvd_qa.md"
+  },
+  {
+    "mode": "100644",
+    "oid": "2a5ccc4c313c8ba5e38edfbf9716219b0d5daf70",
+    "stage": "0",
+    "path": "dataset_card/nlvr2.md"
+  },
+  {
+    "mode": "100644",
+    "oid": "49f4005d48ec90c1b9bf43f74b9d6bd716d248c8",
+    "stage": "0",
+    "path": "dataset_card/nocaps.md"
+  },
+  {
+    "mode": "100644",
+    "oid": "03f2c5e7ec4838ab102b0b1daf1434d283c05340",
+    "stage": "0",
+    "path": "dataset_card/sbu_caption.md"
+  },
+  {
+    "mode": "100644",
+    "oid": "de19d5fa95e6aa6fe96a3bf0eb082800b1fbd9db",
+    "stage": "0",
+    "path": "dataset_card/snli_visual_entailment.md"
+  },
+  {
+    "mode": "100644",
+    "oid": "7f34667c1d521308823f32067f75d02f9e2e0527",
+    "stage": "0",
+    "path": "dataset_card/vqav2.md"
+  },
+  {
+    "mode": "100644",
+    "oid": "aefdc58791ae53f4cdc5cd5d71cf216ba9ea14c5",
+    "stage": "0",
+    "path": "deepfake-detection/albef_vqa.ipynb"
+  },
+  {
+    "mode": "100644",
+    "oid": "8dff39a084a37f4676da0fba5767fe792f6c4b13",
+    "stage": "0",
+    "path": "deepfake-detection/antifakeprompt_cam.ipynb"
+  },
+  {
+    "mode": "100644",
+    "oid": "1ded9565c5fa64649cc158ee25c07c32fdfb6f6e",
+    "stage": "0",
+    "path": "deepfake-detection/blip2_t5_instruct.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "161db6ad18d64c72d83f595eed0dc0b6d2e3bd6d",
+    "stage": "0",
+    "path": "deepfake-detection/blip2_t5_instruct_freezeLLM.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "2c9aba80ea3164314a8ef24c68b8085a605b335d",
+    "stage": "0",
+    "path": "deepfake-detection/blip2_t5_instruct_freezeQformer.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "a76162b89a7bcc153e5f71831bc6e38df1e2eb61",
+    "stage": "0",
+    "path": "deepfake-detection/blip2_t5_instruct_lora.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "b71ca37b787022e331553b500d590c8dc502b9a6",
+    "stage": "0",
+    "path": "deepfake-detection/blip2_vicuna_instruct.ipynb"
+  },
+  {
+    "mode": "100644",
+    "oid": "9f93a0193c075b46a5c77cac11f2b1e8f589474a",
+    "stage": "0",
+    "path": "deepfake-detection/blip2_vicuna_instruct.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "d600cab9dc8eaf58ef9e7c6eb11c3df5f778a063",
+    "stage": "0",
+    "path": "deepfake-detection/textinv_dataset.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "5bf15c074c4034935e44acb0fdcb83a375d84d79",
+    "stage": "0",
+    "path": "docs/EVA_logo.png"
+  },
+  {
+    "mode": "100644",
+    "oid": "d0c3cbf1020d5c292abdedf27627c6abe25e2293",
+    "stage": "0",
+    "path": "docs/Makefile"
+  },
+  {
+    "mode": "100644",
+    "oid": "0d5360c1cde9a50b3d54a0a1202c3a1b8df80305",
+    "stage": "0",
+    "path": "docs/NYCU_logo.png"
+  },
+  {
+    "mode": "100644",
+    "oid": "f3bb120c6a7b60646c4b5c46da881eb22e879798",
+    "stage": "0",
+    "path": "docs/_static/Confusing-Pictures.jpg"
+  },
+  {
+    "mode": "100755",
+    "oid": "817e139e8141797502b5329e910994a1d96241f8",
+    "stage": "0",
+    "path": "docs/_static/architecture.png"
+  },
+  {
+    "mode": "100644",
+    "oid": "632d094422f3e3ffc3b6ecfaec8bc2df3b9e2a42",
+    "stage": "0",
+    "path": "docs/_static/logo_final.png"
+  },
+  {
+    "mode": "100644",
+    "oid": "405b82c6e8131ddf73757d3933f60888b86d69dc",
+    "stage": "0",
+    "path": "docs/_static/merlion.png"
+  },
+  {
+    "mode": "100644",
+    "oid": "520278ac2168da9abd491aee17cc9cd885d13eef",
+    "stage": "0",
+    "path": "docs/antifakeprompt.png"
+  },
+  {
+    "mode": "100644",
+    "oid": "eeefa34dfe049981f6330bc011057bec26dc945d",
+    "stage": "0",
+    "path": "docs/benchmark.rst"
+  },
+  {
+    "mode": "100755",
+    "oid": "122172f753f29d49839de55a4555365c6ab0c020",
+    "stage": "0",
+    "path": "docs/build_docs.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "ad4f8ab1af27d21f1a1a51e57e5bb49cc4485c05",
+    "stage": "0",
+    "path": "docs/conf.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "baeb24ee44bda4116ead935c93a136dbc8191c08",
+    "stage": "0",
+    "path": "docs/getting_started.rst"
+  },
+  {
+    "mode": "100644",
+    "oid": "0e2a8458d04c2020df562bb59a0ec7833126d6c4",
+    "stage": "0",
+    "path": "docs/index.rst"
+  },
+  {
+    "mode": "100644",
+    "oid": "6dba84e15b3ed404cdee2cf06a703ea2410c31c0",
+    "stage": "0",
+    "path": "docs/intro.rst"
+  },
+  {
+    "mode": "100644",
+    "oid": "6247f7e231716482115f34084ac61030743e0715",
+    "stage": "0",
+    "path": "docs/make.bat"
+  },
+  {
+    "mode": "100644",
+    "oid": "da594f6d5cee1569d227e8c30af5c3113304bd8f",
+    "stage": "0",
+    "path": "docs/requirements.txt"
+  },
+  {
+    "mode": "100644",
+    "oid": "e7e5bc01c5035480b236cdb3f4bad7f0e7087e6b",
+    "stage": "0",
+    "path": "docs/results.jpg"
+  },
+  {
+    "mode": "100644",
+    "oid": "dc787b366a343594241dbe7f7ee87795c6dead54",
+    "stage": "0",
+    "path": "docs/results.png"
+  },
+  {
+    "mode": "100644",
+    "oid": "0ff3bafdb28313c4ac662387f0740ea7c1023524",
+    "stage": "0",
+    "path": "docs/tutorial.configs.rst"
+  },
+  {
+    "mode": "100644",
+    "oid": "ee026c03f3fecfe2c2bc3cf0076b5f2242898d42",
+    "stage": "0",
+    "path": "docs/tutorial.datasets.rst"
+  },
+  {
+    "mode": "100644",
+    "oid": "8a3a8e13b0051899819d9eb796e3780537ab2a41",
+    "stage": "0",
+    "path": "docs/tutorial.evaluation.rst"
+  },
+  {
+    "mode": "100644",
+    "oid": "61a4ce0c228e206ed9f01d7df10d20624339de15",
+    "stage": "0",
+    "path": "docs/tutorial.models.rst"
+  },
+  {
+    "mode": "100644",
+    "oid": "14566b5f189de9411d19e2a2bc13045d8b087f83",
+    "stage": "0",
+    "path": "docs/tutorial.processors.rst"
+  },
+  {
+    "mode": "100644",
+    "oid": "c58c7f31cec592c75709c9fe157ded8aa3b6f838",
+    "stage": "0",
+    "path": "docs/tutorial.rst"
+  },
+  {
+    "mode": "100644",
+    "oid": "b6122809d0bc57bac57c284bd5c4df809ac9ad78",
+    "stage": "0",
+    "path": "docs/tutorial.tasks.rst"
+  },
+  {
+    "mode": "100644",
+    "oid": "4c34bb2176f7837b73136c9fc647d90f6a622800",
+    "stage": "0",
+    "path": "docs/tutorial.training-example.rst"
+  },
+  {
+    "mode": "100644",
+    "oid": "ee1692386691ef15c9fbcfdebe79882671aed561",
+    "stage": "0",
+    "path": "evaluate.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "e09510870d01c6037e73415614a0c9c6649480cf",
+    "stage": "0",
+    "path": "examples/albef_feature_extraction.ipynb"
+  },
+  {
+    "mode": "100644",
+    "oid": "0ed599ea2541214185ab7c50d640e444ec4c78b2",
+    "stage": "0",
+    "path": "examples/albef_vqa.ipynb"
+  },
+  {
+    "mode": "100644",
+    "oid": "fb403177d22dafefeb0b66084e86700d26fe94ba",
+    "stage": "0",
+    "path": "examples/albef_zero_shot_classification.ipynb"
+  },
+  {
+    "mode": "100644",
+    "oid": "f2ae7d1fa093f92d21beaebebc75300af09197a7",
+    "stage": "0",
+    "path": "examples/blip2_feature_extraction.ipynb"
+  },
+  {
+    "mode": "100644",
+    "oid": "9afb9461af5de006a1f781e5f69cb6d6aa66a30b",
+    "stage": "0",
+    "path": "examples/blip2_image_text_matching.ipynb"
+  },
+  {
+    "mode": "100644",
+    "oid": "9e10e0c6c975958e4d8172d9f90126d2cd76ebe0",
+    "stage": "0",
+    "path": "examples/blip2_instructed_generation.ipynb"
+  },
+  {
+    "mode": "100644",
+    "oid": "33058947e61a5a6cacbff7419aa649542319f314",
+    "stage": "0",
+    "path": "examples/blip_feature_extraction.ipynb"
+  },
+  {
+    "mode": "100644",
+    "oid": "4c59c59bc0ca6f77c12b3fca1a07bc58d6758ea8",
+    "stage": "0",
+    "path": "examples/blip_image_captioning.ipynb"
+  },
+  {
+    "mode": "100644",
+    "oid": "4eb6a7c06eab84fdb7ad548fb4736518caa71e2c",
+    "stage": "0",
+    "path": "examples/blip_image_text_matching.ipynb"
+  },
+  {
+    "mode": "100644",
+    "oid": "5713293a3c523b9379dbd550fe36b1ed47859d7f",
+    "stage": "0",
+    "path": "examples/blip_text_localization.ipynb"
+  },
+  {
+    "mode": "100644",
+    "oid": "3ad5765178397f3c67a14bd950cdc02ff983bbb3",
+    "stage": "0",
+    "path": "examples/blip_vqa.ipynb"
+  },
+  {
+    "mode": "100644",
+    "oid": "c231ee258897db6f6b91228e30af59e7a4106072",
+    "stage": "0",
+    "path": "examples/blip_zero_shot_classification.ipynb"
+  },
+  {
+    "mode": "100644",
+    "oid": "6b509c5c57167e4e6c6ac74bcdece53f081fc1a7",
+    "stage": "0",
+    "path": "examples/clip_feature_extraction.ipynb"
+  },
+  {
+    "mode": "100644",
+    "oid": "f83ef2a5ec7c2165b4d5d3f16ed40a3b47b98ce2",
+    "stage": "0",
+    "path": "examples/clip_zero_shot_classification.ipynb"
+  },
+  {
+    "mode": "100644",
+    "oid": "b5062d8208782aa453106df29cfa3d991d1f3ad8",
+    "stage": "0",
+    "path": "lavis.md"
+  },
+  {
+    "mode": "100644",
+    "oid": "ab17686f819c970015351238d2db77c8c09d5243",
+    "stage": "0",
+    "path": "lavis/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "cb0da951dc838ec9dec2131007e036113281800b",
+    "stage": "0",
+    "path": "lavis/common/annotator/canny/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "6b28617b6fd95bdb2609ec54df292e320a1e4435",
+    "stage": "0",
+    "path": "lavis/common/annotator/ckpts/download.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "56532c374df5c26f9ec53e2ac0dd924f4534bbdd",
+    "stage": "0",
+    "path": "lavis/common/annotator/hed/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "dc5ac03eea6f5ba7968706f1863c8bc4f8aaaf6a",
+    "stage": "0",
+    "path": "lavis/common/annotator/midas/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "1ab9f15bf96bbaffcee0e3e29fc9d3979d6c32e8",
+    "stage": "0",
+    "path": "lavis/common/annotator/midas/api.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+    "stage": "0",
+    "path": "lavis/common/annotator/midas/midas/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "5cf430239b47ec5ec07531263f26f5c24a2311cd",
+    "stage": "0",
+    "path": "lavis/common/annotator/midas/midas/base_model.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "2145d18fa98060a618536d9a64fe6589e9be4f78",
+    "stage": "0",
+    "path": "lavis/common/annotator/midas/midas/blocks.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "4e9aab5d2767dffea39da5b3f30e2798688216f1",
+    "stage": "0",
+    "path": "lavis/common/annotator/midas/midas/dpt_depth.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "8a954977800b0a0f48807e80fa63041910e33c1f",
+    "stage": "0",
+    "path": "lavis/common/annotator/midas/midas/midas_net.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "50e4acb5e53d5fabefe3dde16ab49c33c2b7797c",
+    "stage": "0",
+    "path": "lavis/common/annotator/midas/midas/midas_net_custom.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "350cbc11662633ad7f8968eb10be2e7de6e384e9",
+    "stage": "0",
+    "path": "lavis/common/annotator/midas/midas/transforms.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "ea46b1be88b261b0dec04f3da0256f5f66f88a74",
+    "stage": "0",
+    "path": "lavis/common/annotator/midas/midas/vit.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "9a9d3b5b66370fa98da9e067ba53ead848ea9a59",
+    "stage": "0",
+    "path": "lavis/common/annotator/midas/utils.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "42af28c682e781b30f691f65a475b53c9f3adc8b",
+    "stage": "0",
+    "path": "lavis/common/annotator/mlsd/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "5b9799e7573ca41549b3c3b13ac47b906b369603",
+    "stage": "0",
+    "path": "lavis/common/annotator/mlsd/models/mbv2_mlsd_large.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "e3ed633f2cc23ea1829a627fdb879ab39f641f83",
+    "stage": "0",
+    "path": "lavis/common/annotator/mlsd/models/mbv2_mlsd_tiny.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "ae3cf9420a33a4abae27c48ac4b90938c7d63cc3",
+    "stage": "0",
+    "path": "lavis/common/annotator/mlsd/utils.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "8c26f1b37dae854f51da938da2fa67a8ef48ce5a",
+    "stage": "0",
+    "path": "lavis/common/annotator/openpose/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "7c3cf7a388b4ac81004524e64125e383bdd455bd",
+    "stage": "0",
+    "path": "lavis/common/annotator/openpose/body.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "3d0bf17165ad7eb225332b51f4a2aa16718664b2",
+    "stage": "0",
+    "path": "lavis/common/annotator/openpose/hand.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "5dfc80de827a17beccb9b0f3f7588545be78c9de",
+    "stage": "0",
+    "path": "lavis/common/annotator/openpose/model.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "6f91ae0e65abaf0cbd62d803f56498991141e61b",
+    "stage": "0",
+    "path": "lavis/common/annotator/openpose/util.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "6be429542e4908c2b7648e7ee7c9c5f8253e7c94",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "efc8b4bb20c981f3db6df7eb52b3dc0744c94cc0",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/configs/_base_/datasets/ade20k.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "298594ea925f87f22b37094a2ec50e370aec96a0",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/configs/_base_/datasets/chase_db1.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "f21867c63e1835f6fceb61f066e802fd8fd2a735",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/configs/_base_/datasets/cityscapes.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "336c7b254fe392b4703039fec86a83acdbd2e1a5",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/configs/_base_/datasets/cityscapes_769x769.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "06e8ff606e0d2a4514ec8b7d2c6c436a32efcbf4",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/configs/_base_/datasets/drive.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "242d790eb1b83e75cf6b7eaa7a35c674099311ad",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/configs/_base_/datasets/hrf.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "ff65bad1b86d7e3a5980bb5b9fc55798dc8df5f4",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/configs/_base_/datasets/pascal_context.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "37585abab89834b95cd5bdd993b994fca1db65f6",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/configs/_base_/datasets/pascal_context_59.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "ba1d42d0c5781f56dc177d860d856bb34adce555",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/configs/_base_/datasets/pascal_voc12.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "3f23b6717d53ad29f02dd15046802a2631a5076b",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/configs/_base_/datasets/pascal_voc12_aug.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "3f71b25488cc11a6b4d582ac52b5a24e1ad1cf8e",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/configs/_base_/datasets/stare.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "b564cc4e7e7d9a67dacaaddecb100e4d8f5c005b",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/configs/_base_/default_runtime.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "a2cb653827e44e6015b3b83bc578003e614a6aa1",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/configs/_base_/models/ann_r50-d8.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "c8f5316cbcf3896ba9de7ca2c801eba512f01d5e",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/configs/_base_/models/apcnet_r50-d8.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "794148f576b9e215c3c6963e73dffe98204b7717",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/configs/_base_/models/ccnet_r50-d8.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "eff8d9458c877c5db894957e0b1b4597e40da6ab",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/configs/_base_/models/cgnet.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "2c934939fac48525f22ad86f489a041dd7db7d09",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/configs/_base_/models/danet_r50-d8.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "d7a43bee01422ad4795dd27874e0cd4bb6cbfecf",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/configs/_base_/models/deeplabv3_r50-d8.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "0cd262999d8b2cb8e14a5c32190ae73f479d8e81",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/configs/_base_/models/deeplabv3_unet_s5-d16.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "050e39e091d816df9028d23aa3ecf9db74e441e1",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/configs/_base_/models/deeplabv3plus_r50-d8.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "d22ba52640bebd805b3b8d07025e276dfb023759",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/configs/_base_/models/dmnet_r50-d8.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "edb4c174c51e34c103737ba39bfc48bf831e561d",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/configs/_base_/models/dnl_r50-d8.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "26adcd430926de0862204a71d345f2543167f27b",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/configs/_base_/models/emanet_r50-d8.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "be777123a886503172a95fe0719e956a147bbd68",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/configs/_base_/models/encnet_r50-d8.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "32fdeb659355a5ce5ef2cc7c2f30742703811cdf",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/configs/_base_/models/fast_scnn.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "c3e299bc89ada56ca14bbffcbdb08a586b8ed9e9",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/configs/_base_/models/fcn_hr18.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "5e98f6cc918b6146fc6d613c6918e825ef1355c3",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/configs/_base_/models/fcn_r50-d8.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "a33e7972877f902d0e7d18401ca675e3e4e60a18",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/configs/_base_/models/fcn_unet_s5-d16.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "86ab327db92e44c14822d65f1c9277cb007f17c1",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/configs/_base_/models/fpn_r50.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "8aae98c5991055bfcc08e82ccdc09f8b1d9f8a8d",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/configs/_base_/models/fpn_uniformer.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "3d2ad69f5c22adfe79d5fdabf920217628987166",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/configs/_base_/models/gcnet_r50-d8.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "93258242a90695cc94a7c6bd41562d6a75988771",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/configs/_base_/models/lraspp_m-v3-d8.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "5674a39854cafd1f2e363bac99c58ccae62f24da",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/configs/_base_/models/nonlocal_r50-d8.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "c60f62a7cdf3f5c5096a7a7e725e8268fddcb057",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/configs/_base_/models/ocrnet_hr18.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "615aa3ff703942b6c22b2d6e9642504dd3e41ebd",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/configs/_base_/models/ocrnet_r50-d8.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "9d323dbf9466d41e0800aa57ef84045f3d874bdf",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/configs/_base_/models/pointrend_r50.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "689513fa9d2a40f14bf0ae4ae61f38f0dcc1b3da",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/configs/_base_/models/psanet_r50-d8.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "f451e08ad2eb0732dcb806b1851eb978d4acf136",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/configs/_base_/models/pspnet_r50-d8.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "fcff9ec4f41fad158344ecd77313dc14564f3682",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/configs/_base_/models/pspnet_unet_s5-d16.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "10974962fdd7136031fd06de1700f497d355ceaa",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/configs/_base_/models/upernet_r50.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "41aa4db809dc6e2c508e98051f61807d07477903",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/configs/_base_/models/upernet_uniformer.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "52603890b10f25faf8eec9f9e5a4468fae09b811",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/configs/_base_/schedules/schedule_160k.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "bf780a1b6f6521833c6a5859675147824efa599d",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/configs/_base_/schedules/schedule_20k.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "cdbf841abcb26eed87bf76ab816aff4bae0630ee",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/configs/_base_/schedules/schedule_40k.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "c190cee6bdc7922b688ea75dc8f152fa15c24617",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/configs/_base_/schedules/schedule_80k.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "01db96bf9b0be531aa0eaf62fee51543712f8670",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/exp/upernet_global_small/config.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "9fb22edfa7a32624ea08a63fe7d720c40db3b696",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/exp/upernet_global_small/run.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "d9a85e7a0d3b7c96b060f473d41254b37a382fcb",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/exp/upernet_global_small/test.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "e43737a98a3b174a9f2fe059c06d511144686459",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/exp/upernet_global_small/test_config_g.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "a31e3874f76f9f7b089ac8834d85df2441af9b0e",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/exp/upernet_global_small/test_config_h32.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "3d9e06f029e46c14cb9ddb39319cabe86fef9b44",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/exp/upernet_global_small/test_config_w32.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "210a2989138380559f23045b568d0fbbeb918c03",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "4b4700d6139ae3d604ff6e542468cce4200c020c",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/arraymisc/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "8e47a3545780cf071a1ef8195efb0b7b662c8186",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/arraymisc/quantization.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "7246c897430f0cc7ce12719ad8608824fc734446",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/cnn/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "89e36b8c7851f895d9ae7f07149f0e707456aab0",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/cnn/alexnet.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "0f33124ed23fc6f27119a37bcb5ab004d3572be0",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/cnn/bricks/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "cab2712287d5ef7be2f079dcb54a94b96394eab5",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/cnn/bricks/activation.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "d60fdb904c749ce3b251510dff3cc63cea70d42e",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/cnn/bricks/context_block.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "cf54491997a48ac3e7fadc4183ab7bf3e831024c",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/cnn/bricks/conv.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "b45e758ac6cf8dfb0382d072fe09125bc7e9b888",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/cnn/bricks/conv2d_adaptive_padding.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "e60e7e62245071c77b652093fddebff3948d7c3e",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/cnn/bricks/conv_module.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "a3941e27874993418b3b5708d5a7485f175ff9c8",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/cnn/bricks/conv_ws.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "722d5d8d71f75486e2db3008907c4eadfca41d63",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/cnn/bricks/depthwise_separable_conv_module.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "b7b4fccd457a0d51fb10c789df3c8537fe7b67c1",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/cnn/bricks/drop.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "988d9adf2f289ef223bd1c680a5ae1d3387f0269",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/cnn/bricks/generalized_attention.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "30b1a3d6580cf0360710426fbea1f05acdf07b4b",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/cnn/bricks/hsigmoid.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "7e0c090ff037c99ee6c5c84c4592e87beae02208",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/cnn/bricks/hswish.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "92d00155ef275c1201ea66bba30470a1785cc5d7",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/cnn/bricks/non_local.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "408f4b42731b19a3beeef68b6a5e610d0bbc18b3",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/cnn/bricks/norm.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "e4ac6b28a1789bd551c613a7d3e7b622433ac7ec",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/cnn/bricks/padding.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "07c010d4053174dd41107aa654ea67e82b46a25c",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/cnn/bricks/plugin.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "39eabc58db4b5954478a2ac1ab91cea5e45ab055",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/cnn/bricks/registry.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "c905fffcc8bf998d18d94f927591963c428025e2",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/cnn/bricks/scale.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "e2ca8ed7b749413f011ae54aac0cab27e6f0b51f",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/cnn/bricks/swish.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "e61ae0dd941a7be00b3e41a3de833ec50470a45f",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/cnn/bricks/transformer.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "a1a353767d0ce8518f0d7289bed10dba0178ed12",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/cnn/bricks/upsample.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "8aebf67bf52355a513f21756ee74fe510902d075",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/cnn/bricks/wrappers.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "7567316c566bd3aca6d8f65a84b00e9e890948a7",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/cnn/builder.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "1cb3ac057ee2d52c46fc94685b5d4e698aad8d5f",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/cnn/resnet.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "a263e31c1e3977712827ca229bbc04910b4e928e",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/cnn/utils/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "d10af5feca7f4b8c0ba359b7b1c826f754e048be",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/cnn/utils/flops_counter.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "cb7076f80bf37f7931185bf0293ffcc1ce19c8ef",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/cnn/utils/fuse_conv_bn.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "f78f39181d75bb85c53e8c7c8eaf45690e9f0bee",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/cnn/utils/sync_bn.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "287a1d0bffe26e023029d48634d9b761deda7ba4",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/cnn/utils/weight_init.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "8778b649561a45a9652b1a15a26c2d171e58f3e1",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/cnn/vgg.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "3193b7f664e19ce2458d81c836597fa22e4bb082",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/engine/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "8dbeef271db634ec2dadfda3bc0b5ef9c7a677ff",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/engine/test.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "2051b85f7e59bff7bdbaa131849ce8cd31f059a4",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/fileio/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "950f0c1aeab14b8e308a7455ccd64a95b5d98add",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/fileio/file_client.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "aa24d91972837b8756b225f4879bac20436eb72a",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/fileio/handlers/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "288878bc57282fbb2f12b32290152ca8e9d3cab0",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/fileio/handlers/base.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "18d4f15f74139d20adff18b20be5529c592a66b6",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/fileio/handlers/json_handler.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "b37c79bed4ef9fd8913715e62dbe3fc5cafdc3aa",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/fileio/handlers/pickle_handler.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "c5aa2eea1e8c76f8baf753d1c8c959dee665e543",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/fileio/handlers/yaml_handler.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "aaefde58aa3ea5b58f86249ce7e1c40c186eb8dd",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/fileio/io.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "f60f0d611b8d75692221d0edd7dc993b0a6445c9",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/fileio/parse.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "d0051d609d3de4e7562e3fe638335c66617c4d91",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/image/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "814533952fdfda23d67cb6a3073692d8c1156add",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/image/colorspace.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "cf97c201cb4e43796c911919d03fb26a07ed817d",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/image/geometric.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "d3fa2e8cc06b1a7b0b69de6406980b15d61a1e5d",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/image/io.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "3e61f05e3b05e4c7b40de4eb6c8eb100e6da41d0",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/image/misc.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "5085d012019c0cbf56f66f421a378278c1a058ae",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/image/photometric.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "25cf6f28caecc22a77e3136fefa6b8dfc0e6cb5b",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/model_zoo/deprecated.json"
+  },
+  {
+    "mode": "100644",
+    "oid": "bdb311d9fe6d9f317290feedc9e37236c6cf6e8f",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/model_zoo/mmcls.json"
+  },
+  {
+    "mode": "100644",
+    "oid": "8311db4feef92faa0841c697d75efbee8430c3a0",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/model_zoo/open_mmlab.json"
+  },
+  {
+    "mode": "100644",
+    "oid": "999e090a458ee148ceca0649f1e3806a40e909bd",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/ops/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "4906adaa2cffd1b46912fbe7d4f87ef2f9fa0012",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/ops/assign_score_withk.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "d0466847c6e5c1239e359a0397568413ebc1504a",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/ops/ball_query.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "0c4d58b6c91f652933974f519acd3403a833e906",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/ops/bbox.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "ff305be328e9b0a15e1bbb5e6b41beb940f55c81",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/ops/border_align.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "2d78015e9c2a9e7a52859b4e18f84a9aa63481a0",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/ops/box_iou_rotated.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "5154cb3abfccfbbe0a1b2daa67018dbf80aaf6d2",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/ops/carafe.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "9207aa95e6730bd9b3362dee612059a5f0ce1c5e",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/ops/cc_attention.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "ea1111e1768b5f27e118bf7dbc0d9c70a7afd6d7",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/ops/contour_expand.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "a33d798b43d405e4c86bee4cd6389be21ca9c637",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/ops/corner_pool.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "3d0b79c301b29915dfaf4d2b1846c59be73127d3",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/ops/correlation.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "a3f8c75ee774823eea334e3b3732af6a18f55038",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/ops/deform_conv.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "cc245ba91fee252226ba22e76bb94a35db9a629b",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/ops/deform_roi_pool.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "a2e593df9ee57637038683d7a1efaa347b2b69e7",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/ops/deprecated_wrappers.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "763bc93bd2575c49ca8ccf20996bbd92d1e0d1a4",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/ops/focal_loss.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "374b7a878f1972c183941af28ba1df216ac1a60f",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/ops/furthest_point_sample.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "6d12508469c6c8fa1884debece44c58d158cb6fa",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/ops/fused_bias_leakyrelu.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "f52f1677d8ea0facafc56a3672d37adb44677ff3",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/ops/gather_points.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "6c3ec9d758ebe4e1c2205882af4be154008253a5",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/ops/group_points.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "29f2e5598ae2bb5866ccd15a7d3b4de33c0cd14d",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/ops/info.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "6fc71979190323f44c09f8b7e1761cf49cd2d76b",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/ops/iou3d.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "f335785036669fc19239825b0aae6dde3f73bf92",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/ops/knn.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "cd514cc204c1d571ea5dc7e74b038c0f477a008b",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/ops/masked_conv.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "48ca8cc0a8aca8432835bd760c0403a3c35b34cf",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/ops/merge_cells.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "75559579cf053abcc99538606cbb88c723faf783",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/ops/modulated_deform_conv.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "c52dda18b41705705b47dd0e995b124048c16fba",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/ops/multi_scale_deform_attn.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "6d9634281f486ab284091786886854c451368052",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/ops/nms.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "2143c75f835a467c802fc3c37ecd3ac0f85bcda4",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/ops/pixel_group.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "267f4b3c56630acd85f9bdc630b7be09abab0aba",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/ops/point_sample.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "4003173a53052161dbcd687a2fa1d755642fdab8",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/ops/points_in_boxes.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "a802a74fd6c3610d9ae178e6201f47423eca7ad1",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/ops/points_sampler.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "cdf14e62b50e8d4dd6856c94333c703bcc4c9ab6",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/ops/psa_mask.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "0755aefc66e67233ceae0f4b77948301c443e9fb",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/ops/roi_align.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "0ce4961a3555d4da8bc3e32f1f7d5ad50036587d",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/ops/roi_align_rotated.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "d339d8f2941eabc1cbe181a9c6c5ab5ff4ff4e5f",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/ops/roi_pool.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "291b0e5a9b692492c7d7e495ea639c46042e2f18",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/ops/roiaware_pool3d.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "0a21412c0728431c04b84245bc2e3109eea9aefc",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/ops/roipoint_pool3d.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "b4ee3978e097fca422805db4e31ae481006d7971",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/ops/saconv.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "2b8aa4169e9f6ca4a6f845ce17d6d1e4db416bb8",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/ops/scatter_points.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "c9b016fcbe860989c56cd1040034bcfa60e146d2",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/ops/sync_bn.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "203f47f05d58087e034fb3cd8cd6a09233947b4a",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/ops/three_interpolate.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "2b01047a129989cd5545a0a86f23a487f4a13ce1",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/ops/three_nn.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "472c9fcfe45a124e819b7ed5653e585f94a8811e",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/ops/tin_shift.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "c8bb2c3c949eed38a6465ed369fa881538dca010",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/ops/upfirdn2d.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "ca3226a4fbcbfe58490fa2ea8e1c16b531214121",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/ops/voxelize.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "2ed2c17ad357742e423beeaf4d35db03fe9af469",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/parallel/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "9b5a8a44483ab991411d07122b22a1d027e4be8e",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/parallel/_functions.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "ad749197df21b0d74297548be5f66a696adebf7f",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/parallel/collate.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "cedb0d32a51a1f575a622b38de2cee3ab4757821",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/parallel/data_container.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "79b5f69b654cf647dc7ae9174223781ab5c607d2",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/parallel/data_parallel.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "1e4c27903db58a54d37ea1ed9ec0104098b486f2",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/parallel/distributed.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "676937a2085d4da20fa87923041a200fca6214eb",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/parallel/distributed_deprecated.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "a204a07fba10e614223f090d1a57cf9c4d74d4a1",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/parallel/registry.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "900ff88566f8f14830590459dc4fd16d4b382e47",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/parallel/scatter_gather.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "0f5712cb42c38a2e8563bf563efb6681383cab9b",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/parallel/utils.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "52e4b48d383a84a055dcd7f6236f6e8e58eab924",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/runner/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "617fad9bb89f10a9a0911d962dfb3bc8f3a3628c",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/runner/base_module.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "4928db0a73b56fe0218a4bf66ec4ffa082d31ccc",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/runner/base_runner.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "77c96ba0b2f30ead9da23f293c5dc84dd3e4a74f",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/runner/builder.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "b29ca320679164432f446adad893e33fb2b4b29e",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/runner/checkpoint.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "3f1f5b44168768dfda3947393a63a6cf9cf50b41",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/runner/default_constructor.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "d3a1ef3fda5ceeb31bf15a73779da1b1903ab0fe",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/runner/dist_utils.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "766a9ce6afdf09cd11b1b15005f5132583011348",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/runner/epoch_based_runner.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "1981011d6859192e3e663e29d13500d56ba47f6c",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/runner/fp16_utils.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "915af28cefab14a14c1188ed861161080fd138a3",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/runner/hooks/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "6af3fae43ac4b35532641a81eb13557edfc7dfba",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/runner/hooks/checkpoint.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "b955f81f425be4ac3e6bb3f4aac653887989e872",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/runner/hooks/closure.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "15c7e68088f019802a59e7ae41cc1fe0c7f28f96",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/runner/hooks/ema.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "4d00999ce5665c53bded8de9e084943eee2d230d",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/runner/hooks/evaluation.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "b8855c107727ecf85b917c890fc8b7f6359238a4",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/runner/hooks/hook.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "cfd5002fe85ffc6992155ac01003878064a1d9be",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/runner/hooks/iter_timer.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "a0b6b345640a895368ac8a647afef6f24333d90e",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/runner/hooks/logger/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "f845256729458ced821762a1b8ef881e17ff9955",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/runner/hooks/logger/base.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "687cdc58c0336c92b1e4f9a410ba67ebaab2bc7a",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/runner/hooks/logger/dvclive.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "f9a72592be47b534ce22573775fd5a7e8e86d72d",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/runner/hooks/logger/mlflow.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "7a38772b0c93a8608f32c6357b8616e77c139dc9",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/runner/hooks/logger/neptune.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "1dcf146d8163aff1363e9764999b0a74d674a595",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/runner/hooks/logger/pavi.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "4dd5011dc08def6c09eef86d3ce5b124c9fc5372",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/runner/hooks/logger/tensorboard.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "87b1a3eca9595a130121526f8b4c29915387ab35",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/runner/hooks/logger/text.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "9f6808462eb79ab2b04806a5d9f0d3dd079b5ea9",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/runner/hooks/logger/wandb.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "6365908ddf6070086de2ffc0afada46ed2f32256",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/runner/hooks/lr_updater.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "70cf9a838fb314e3bd3c07aadbc00921a81e83ed",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/runner/hooks/memory.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "60437756ceedf06055ec349df69a25465738d3f0",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/runner/hooks/momentum_updater.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "4ef3e9ff8f9c6926e32bdf027612267b64ed80df",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/runner/hooks/optimizer.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "b70236997eec59c2209ef351ae38863b4112d0ec",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/runner/hooks/profiler.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "ee0dc6bdd8df5775857028aaed5444c0f59caf80",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/runner/hooks/sampler_seed.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "6376b7ff894280cb2782243b25e8973650591577",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/runner/hooks/sync_buffer.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "1df4de8c0285669dec9b014dfd1f3dd1600f0831",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/runner/iter_based_runner.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "d949e2941c5400088c7cd8a1dc893d8b233ae785",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/runner/log_buffer.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "53c34d0470992cbc374f29681fdd00dc0e57968d",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/runner/optimizer/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "f9234eed8f1f186d9d8dfda34562157ee39bdb3a",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/runner/optimizer/builder.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "2c0da3503b75441738efe38d70352b55a210a34a",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/runner/optimizer/default_constructor.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "64cc4e3a05f8d5b89ab6eb32461e6e80f1d62e67",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/runner/priority.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "c5befb8e56ece50b5fecfd007b26f8a29124c0bd",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/runner/utils.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "378a0068432a371af364de9d73785901c0f83383",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/utils/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "17149353aefac6d737c67bb2f35a3a6cd2147b0a",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/utils/config.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "e3f0d92529e193e6d8339419bcd9bed7901a7769",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/utils/env.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "08132d2c1b9a1c28880e4bab4d4fa1ba39d9d083",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/utils/ext_loader.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "4aa0e04bb9b3ab2a4bfbc4def50404ccbac2c6e6",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/utils/logging.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "2c58d0d7fee9fe3d4519270ad8c1e998d0d8a18c",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/utils/misc.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "61873f6dbb9b10ed972c90aa8faa321e3cb3249e",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/utils/parrots_jit.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "93c97640d4b9ed088ca82cfe03e6efebfcfa9dbf",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/utils/parrots_wrapper.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "7dab4b3041413b1432b0f434b8b14783097d33c6",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/utils/path.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "0062f670dd94fa9da559ab26ef85517dcf5211c7",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/utils/progressbar.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "fa9df39bc9f3d8d568361e7250ab35468f2b74e0",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/utils/registry.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "a27f936da8ec14bac18562ede0a79d476d82f797",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/utils/testing.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "e3db7d497d8b374e18b5297e0a1d6eb186fd8cba",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/utils/timer.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "5ca99dc3eda05ef980d9a4249b50deca8273b6cc",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/utils/trace.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "963c45a2e8a86a88413ab6c18c22481fb9831985",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/utils/version_utils.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "1cce4e50bd692d4002e3cac3c545a3fb2efe95d0",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/version.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "73199b01dec52820dc6ca0139903536344d5a1eb",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/video/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "9879154227f640c262853b92c219461c6f67ee8e",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/video/io.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "84160f8d6ef9fceb5a2f89e7481593109fc1905d",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/video/optflow.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "3d90b96e0823d5f116755e7f498d25d17017224a",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/video/processing.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "835df136bdcf69348281d22914d41aa84cdf92b1",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/visualization/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "9041e0e6b7581c3356795d6a3c5e84667c88f025",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/visualization/color.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "61a56c75b67f593c298408462c63c0468be8e276",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/visualization/image.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "c3870c700f7c946177ee5d536ce3f6c814a77ce7",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv/visualization/optflow.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "4b958738b9fd93bfcec239c550df1d9a44b8c536",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv_custom/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "19b87fef0a52d31babcdb3edb8f3089b6420173f",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmcv_custom/checkpoint.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "170724be38de42daf2bc1a1910e181d68818f165",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/apis/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "90bc1c0c68525734bd6793f07c15fe97d3c8342c",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/apis/inference.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "e574eb7da04f09a59cf99ff953c36468ae87a326",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/apis/test.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "63f319a919ff023931a6a663e668f27dd1a07a2e",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/apis/train.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "965605587211b7bf0bd6bc3acdbb33dd49cab023",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/core/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "f7cc4b23413a0639e9de00eeb0bf600632d2c6cd",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/core/evaluation/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "ffae816cf980ce4b03e491cc0c4298cb823797e6",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/core/evaluation/class_names.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "6fc100c8f96e817a6ed2666f7c9f762af2463b48",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/core/evaluation/eval_hooks.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "16c7dd47cadd53cf1caaa194e28a343f2aacc599",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/core/evaluation/metrics.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "93bc129b685e4a3efca2cc891729981b2865900d",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/core/seg/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "db61f03d4abb2072f2532ce4429c0842495e015b",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/core/seg/builder.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "332b242c03d1c5e80d4577df442a9a037b1816e1",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/core/seg/sampler/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "b75b1566c9f18169cee51d4b55d75e0357b69c57",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/core/seg/sampler/base_pixel_sampler.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "88bb10d44026ba9f21756eaea9e550841cd59b9f",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/core/seg/sampler/ohem_pixel_sampler.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "f2678b321c295bcceaef945111ac3524be19d6e4",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/core/utils/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "eb862a82bd47c8624db3dd5c6fb6ad8a03b62466",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/core/utils/misc.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "ebeaef4a28ef655e43578552a8aef6b77f13a636",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/datasets/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "5913e43775ed4920b6934c855eb5a37c54218ebf",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/datasets/ade.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "0798b14cd8b39fc58d8f2a4930f1e079b5bf8b55",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/datasets/builder.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "8bc29bea14704a4407f83474610cbc3bef32c708",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/datasets/chase_db1.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "81e47a914a1aa2e5458e18669d65ffb742f46fc6",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/datasets/cityscapes.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "d8eb2a709cc7a3a68fc6a1e3a1ad98faef4c5b7b",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/datasets/custom.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "d6a5e957ec3b44465432617cf6e8f0b86a8a5efa",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/datasets/dataset_wrappers.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "3cbfda8ae74bdf26c5aef197ff2866a7c7ad0cfd",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/datasets/drive.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "923203b51377f9344277fc561803d7a78bd2c684",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/datasets/hrf.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "541a63c66a13fb16fd52921e755715ad8d078fdd",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/datasets/pascal_context.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "8b9046b07bb4ddea7a707a392b42e72db7c9df67",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/datasets/pipelines/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "cbfcbb925c6d4ebf849328b9f94ef6fc24359bf5",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/datasets/pipelines/compose.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "97db85f4f9db39fb86ba77ead7d1a8407d810adb",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/datasets/pipelines/formating.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "d3692ae91f19b9c7ccf6023168788ff42c9e93e3",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/datasets/pipelines/loading.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "6a1611a04d9d927223c9afbe5bf68af04d62937a",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/datasets/pipelines/test_time_aug.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "94e869b252ef6d8b43604add2bbc02f034614bfb",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/datasets/pipelines/transforms.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "cbd14e0920e7f6a73baff1432e5a32ccfdb0dfae",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/datasets/stare.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "a8855203b14ee0dc4da9099a2945d4aedcffbcd6",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/datasets/voc.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "3cf93f8bec9cf0cef0a3bd76ca3ca92eb188f535",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/models/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "8339983905fb5d20bae42ba6f76fea75d278b1aa",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/models/backbones/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "f8bca442c8f18179f217e40c298fb5ef39df77c4",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/models/backbones/cgnet.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "38c2350177cbc2066f45add568d30eb6041f74f3",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/models/backbones/fast_scnn.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "331ebf3ccb8597b3f507670753789073fc3c946d",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/models/backbones/hrnet.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "ab6b3791692a0d1b5da3601875711710b7bd01ba",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/models/backbones/mobilenet_v2.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "16817400b4102899794fe64c9644713a4e54e2f9",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/models/backbones/mobilenet_v3.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "b45a837f395230029e9d4194ff9f7f2f8f7067b0",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/models/backbones/resnest.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "4e52bf048d28ecb069db4728e5f05ad85ac53198",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/models/backbones/resnet.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "962249ad6fd9b50960ad6426f7ce3cac6ed8c5bc",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/models/backbones/resnext.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "82caa16a94c195c192a2a920fb7bc7e60f0f3ce3",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/models/backbones/unet.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "0c4bb88e4c928540cca9ab609988b916520f5b7a",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/models/backbones/uniformer.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "59e4479650690e08cbc4cab9427aefda47c2116d",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/models/backbones/vit.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "1f5b971252bfc971c3ffbaa27746d69b1d3ea9fd",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/models/builder.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "ac66d3cfe0ea04af45c0f3594bf135841c3812e3",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/models/decode_heads/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "30aaacc2cafc568d3de71d1477b4de0dc0fea9d3",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/models/decode_heads/ann_head.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "c7038bdbe0edf2a1f184b6899486d2d190dda076",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/models/decode_heads/apc_head.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "aa914b5bb25124d1ff199553d96713d6a80484c0",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/models/decode_heads/aspp_head.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "d02122ca0e68743b1bf7a893afae96042f23838c",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/models/decode_heads/cascade_decode_head.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "5b9abb4e747f92657f4220b29788539340986c00",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/models/decode_heads/cc_head.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "5cd49fcfdc7c0a70f9485cc71843dcf3e0cb1774",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/models/decode_heads/da_head.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "88a661b8f6fec5d4c031d3d85e80777ee63951a6",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/models/decode_heads/decode_head.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "19c963923126b53ce22f60813540a35badf24b3d",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/models/decode_heads/dm_head.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "333280c5947066fd3c7ebcfe302a0e7ad65480d5",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/models/decode_heads/dnl_head.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "12267cb40569d2b5a4a2955a6dc2671377ff5e0a",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/models/decode_heads/ema_head.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "da57af617e05d41761628fd2d6d232655b32d905",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/models/decode_heads/enc_head.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "edb32c283fa4baada6b4a0bf3f7540c3580c3468",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/models/decode_heads/fcn_head.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "1241c55b0813d1ecdddf1e66e7c5031fbf78ed50",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/models/decode_heads/fpn_head.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "70741245af975800840709911bd18d72247e3e04",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/models/decode_heads/gc_head.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "69bf320934d787aaa11984a0c4effe9ad8015b22",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/models/decode_heads/lraspp_head.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "3eee424199e6aa363b564e2a3340a070db04db86",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/models/decode_heads/nl_head.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "715852e94e81dc46623972748285d2d19237a341",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/models/decode_heads/ocr_head.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "3342aa28bb8d264b2c3d01cbf5098d145943c193",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/models/decode_heads/point_head.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "480dbd1a081262e45bf87e32c4a339ac8f8b4ffb",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/models/decode_heads/psa_head.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "b5f1e71c70c3a20f4007c263ec471a87bb214a48",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/models/decode_heads/psp_head.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "3339a7ac56e77dfc638e9bffb557d4699148686b",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/models/decode_heads/sep_aspp_head.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "a0986143fa4f2bd36f5271354fe5f843f35b9e6f",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/models/decode_heads/sep_fcn_head.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "9e1301b706b0d83ed714bbdee8ee24693f150455",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/models/decode_heads/uper_head.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "beca72045694273d63465bac2f27dbc6672271db",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/models/losses/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "c0fd2e7e74a0f721c4a814c09d6e453e5956bb38",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/models/losses/accuracy.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "42c0790c98616bb69621deed55547fc04c7392ef",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/models/losses/cross_entropy_loss.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "27a77b962d7d8b3079c7d6cd9db52280c6fb4970",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/models/losses/dice_loss.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "6badb67f6d987b59fb07aa97caaaf89896e27a8d",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/models/losses/lovasz_loss.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "85aec9f3045240c3de96a928324ae8f5c3aebe8b",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/models/losses/utils.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "9b9d3d5b3fe80247642d962edd6fb787537d01d6",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/models/necks/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "a53b2a69500f8c2edb835abc3ff0ccc2173d1fb1",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/models/necks/fpn.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "766144d8136326a1fab5906a153a0c0df69b6b60",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/models/necks/multilevel_neck.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "dca2f09405330743c476e190896bee39c45498ea",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/models/segmentors/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "172fc63b736c4f13be1cd909433bc260760a1eaa",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/models/segmentors/base.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "873957d8d6468147c994493d92ff5c1b15bfb703",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/models/segmentors/cascade_encoder_decoder.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "98392ac04c4c44a7f4e7b1c0808266875877dd1f",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/models/segmentors/encoder_decoder.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "3d3bdd349b9f2ae499a2fcb2ac1d2e3c77befebe",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/models/utils/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "4520b0ff407d2a95a864086bdbca0065f222aa63",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/models/utils/drop.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "53b8fcd41f71d814738f1ac3f5acd3c3d701bf96",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/models/utils/inverted_residual.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "75ad756052529f52fe83bb95dd1f0ecfc9a13078",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/models/utils/make_divisible.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "b2c07b47007e92e4c3945b989e79f9d50306f5fe",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/models/utils/res_layer.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "083bd7d1ccee909c900c7aed2cc928bf14727f3e",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/models/utils/se_layer.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "440c7b73ee4706fde555595926d63a18d7574acc",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/models/utils/self_attention_block.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "378469da76cb7bff6a639e7877b3c275d50490fb",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/models/utils/up_conv_block.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "38141ba3d61f64ddfc0a31574b4648cbad96d7dd",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/models/utils/weight_init.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "bec51c75b9363a9a19e9fb5c35f4e7dbd6f7751c",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/ops/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "7eb3629a6426550b8e4c537ee1ff4341893e489e",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/ops/encoding.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "0ed9a0cb8d7c0e0ec2748dd89c652756653cac78",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/ops/wrappers.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "ac489e2dbbc0e6fa87f5088b4edcc20f8cadc1a6",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/utils/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "65c2134ddbee9655161237dd0894d38c768c2624",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/utils/collect_env.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "4149d9eda3dfef07490352d22ac40c42460315e4",
+    "stage": "0",
+    "path": "lavis/common/annotator/uniformer/mmseg/utils/logger.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "90831643d19cc1b9b0940df3d4fd4d846ba74a05",
+    "stage": "0",
+    "path": "lavis/common/annotator/util.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "2264b0578fd52b805f619a871ce5ff80c0310ccb",
+    "stage": "0",
+    "path": "lavis/common/config.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "296a3c86f29c6e82fa8f1108c7dd9fa7d3e9ce45",
+    "stage": "0",
+    "path": "lavis/common/dist_utils.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "d53a5254d4b319eaf2cbfbd081b0ca8e38c5c7a0",
+    "stage": "0",
+    "path": "lavis/common/gradcam.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "aa1ea0d096db7b4914c6ba2c031c06a40fd793f3",
+    "stage": "0",
+    "path": "lavis/common/logger.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "fb7d5664748f3b591c00e8a09cf46b3960ddda3a",
+    "stage": "0",
+    "path": "lavis/common/optims.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "9039d8aaa580f19cc0d43ed9330bd90055045867",
+    "stage": "0",
+    "path": "lavis/common/registry.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "616588e7cc53b1e2c54d48e4c5789313ea10b044",
+    "stage": "0",
+    "path": "lavis/common/utils.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "9b98da85428159ad0dcfab7685c080848ecf8c7b",
+    "stage": "0",
+    "path": "lavis/common/vqa_tools/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "a386b9094b0528b33e7511aff4027f30459a7ff7",
+    "stage": "0",
+    "path": "lavis/common/vqa_tools/vqa.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "ee808b349bb6166c744338b02af2bc84a68650ff",
+    "stage": "0",
+    "path": "lavis/common/vqa_tools/vqa_eval.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "2562db220cd9b08c0dd02c6b76dae070242e3c20",
+    "stage": "0",
+    "path": "lavis/configs/datasets/aokvqa/defaults.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "939ac9bcc1916c7ab09fe86692aaaeffc780dd22",
+    "stage": "0",
+    "path": "lavis/configs/datasets/avsd/defaults_dial.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "fc9327b41ff273e699869e6d2a6959168b82d819",
+    "stage": "0",
+    "path": "lavis/configs/datasets/blip_diffusion_datasets/defaults.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "9f9ffc8d293fed0bac7d745ee8c00f53ce39565d",
+    "stage": "0",
+    "path": "lavis/configs/datasets/coco/defaults_cap.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "4bcc8a07b23bd77e0457ff5055b5037df7c9112f",
+    "stage": "0",
+    "path": "lavis/configs/datasets/coco/defaults_ret.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "08e036d2fd55408afd6c9a799ce8b8f7c97abd90",
+    "stage": "0",
+    "path": "lavis/configs/datasets/coco/defaults_vqa.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "bfc637955aa6d7972150d671368fa6aa7d235cfd",
+    "stage": "0",
+    "path": "lavis/configs/datasets/coco/eval_vqa.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "7f62cd3a2e5f69cc821ddb683c5eb642700d2274",
+    "stage": "0",
+    "path": "lavis/configs/datasets/conceptual_caption/defaults_12m.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "fcba29b0ec781b3424ef06ffe59b474c82cd14f3",
+    "stage": "0",
+    "path": "lavis/configs/datasets/conceptual_caption/defaults_3m.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "7923d03ce84fea806b7605ff425e0b362506fe62",
+    "stage": "0",
+    "path": "lavis/configs/datasets/didemo/defaults_ret.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "9127cab813b8caa3286a7bf79533f33babbebde3",
+    "stage": "0",
+    "path": "lavis/configs/datasets/flickr30k/defaults.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "86114fb964cda8e58f9848c216c5f4ae5f28ca70",
+    "stage": "0",
+    "path": "lavis/configs/datasets/gqa/balanced_testdev.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "ca420dfdcef381bebb261b4178b9a288bc331d5f",
+    "stage": "0",
+    "path": "lavis/configs/datasets/gqa/balanced_val.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "7c2d87cd7afcedd52f65c5103d5d9d697f5de7f7",
+    "stage": "0",
+    "path": "lavis/configs/datasets/gqa/defaults.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "6a20779b43df16508f096d2159db3357e8b3ee4d",
+    "stage": "0",
+    "path": "lavis/configs/datasets/imagenet/defaults.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "279a736fa1b8a5fd79821a7732c4d3bd7c4d5214",
+    "stage": "0",
+    "path": "lavis/configs/datasets/laion/defaults_2B_multi.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "a3385b46931b640ec18113a20232010f3a11e233",
+    "stage": "0",
+    "path": "lavis/configs/datasets/msrvtt/defaults_cap.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "df1c4ad0a79117604ea903d567948e15ec941382",
+    "stage": "0",
+    "path": "lavis/configs/datasets/msrvtt/defaults_qa.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "f0cc55b39c9ba69f3aa61f17e4c4519923db7df0",
+    "stage": "0",
+    "path": "lavis/configs/datasets/msrvtt/defaults_ret.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "d9e870bd4b6b045034aefe47dbb5f8cff9bdc45b",
+    "stage": "0",
+    "path": "lavis/configs/datasets/msvd/defaults_cap.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "9b4bbbd3fb44bf0bb40d14c68bc07b825a541577",
+    "stage": "0",
+    "path": "lavis/configs/datasets/msvd/defaults_qa.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "96a985598259861e9d23b47d2dffcf7d06b22e69",
+    "stage": "0",
+    "path": "lavis/configs/datasets/nlvr/defaults.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "062b03c00e1bf24461e201a3dcfb9250a456b9d7",
+    "stage": "0",
+    "path": "lavis/configs/datasets/nocaps/defaults.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "a442c9bb2f12951ae812b924b5b12a038bcce75d",
+    "stage": "0",
+    "path": "lavis/configs/datasets/okvqa/defaults.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "6a5a22053831056a241556ed1a37321595f00794",
+    "stage": "0",
+    "path": "lavis/configs/datasets/sbu_caption/defaults.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "91b6cf7fd9b79b1d6a26ae25eed38cda61b83d01",
+    "stage": "0",
+    "path": "lavis/configs/datasets/snli_ve/defaults.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "d60315fcb3d2e5625047cece33ed0f4a24b32a95",
+    "stage": "0",
+    "path": "lavis/configs/datasets/textinv/textinv.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "888f66d60b1c94dda9a314fc7193f1763c471b1d",
+    "stage": "0",
+    "path": "lavis/configs/datasets/vatex/defaults_cap.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "ed303b58d8976ab5a4b1da7c234405a14d559fff",
+    "stage": "0",
+    "path": "lavis/configs/datasets/vg/defaults_caption.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "e12e5c860a0db616a80967f7515b47abedba519e",
+    "stage": "0",
+    "path": "lavis/configs/datasets/vg/defaults_vqa.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "f58d32e264250895ab02b3d2e78a2ba6dfd3c125",
+    "stage": "0",
+    "path": "lavis/configs/default.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "3a2accab99fad7e2a880944515baefab496b18a7",
+    "stage": "0",
+    "path": "lavis/configs/models/albef_classification_ve.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "7def58e04a7b567e0a836e54f3dffdc62e1748ee",
+    "stage": "0",
+    "path": "lavis/configs/models/albef_feature_extractor.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "86f17224aa0dfaa4739725e7c0516df4c679aa2d",
+    "stage": "0",
+    "path": "lavis/configs/models/albef_nlvr.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "26e00efa423345b4a78332635d1a7c2e368fb02e",
+    "stage": "0",
+    "path": "lavis/configs/models/albef_pretrain_base.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "9971e6ca5d9aa85790ee2aefd9b7251e8a8b200c",
+    "stage": "0",
+    "path": "lavis/configs/models/albef_retrieval_coco.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "f5f77f0f99912d0f2c501e567dd0360e5c2b9336",
+    "stage": "0",
+    "path": "lavis/configs/models/albef_retrieval_flickr.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "e35559f356bd77f9eedaa76b43d393a142f40239",
+    "stage": "0",
+    "path": "lavis/configs/models/albef_vqav2.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "e3f58a1308c0d2a2075c037f6defcd4500e29b1b",
+    "stage": "0",
+    "path": "lavis/configs/models/alpro_qa_msrvtt.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "17d606fcc0fd8fb8adedbb992db49f6e56e67c5f",
+    "stage": "0",
+    "path": "lavis/configs/models/alpro_qa_msvd.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "bd021c5a5d2e93e53e74ef4cf2a94bb921a6cd83",
+    "stage": "0",
+    "path": "lavis/configs/models/alpro_retrieval_didemo.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "431aa3ea65f83a6213c88ae07465e0c1ff7cb3ea",
+    "stage": "0",
+    "path": "lavis/configs/models/alpro_retrieval_msrvtt.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "477a9f42513d0afb774735f07177161bdd1ae94b",
+    "stage": "0",
+    "path": "lavis/configs/models/bert_config.json"
+  },
+  {
+    "mode": "100644",
+    "oid": "a21b3a2c9344651c1d88797338de5830ca3fc043",
+    "stage": "0",
+    "path": "lavis/configs/models/bert_config_alpro.json"
+  },
+  {
+    "mode": "100644",
+    "oid": "45bd52ad02917fdb9cf67b209e2c1f3b65d4384a",
+    "stage": "0",
+    "path": "lavis/configs/models/blip-diffusion/blip_diffusion_base.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "d3a65ecc70041fee85c4d1f2db0c82c95f211355",
+    "stage": "0",
+    "path": "lavis/configs/models/blip-diffusion/blip_diffusion_controlnet_canny.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "29421a72565a63a9d60d5c9980a84219fce80155",
+    "stage": "0",
+    "path": "lavis/configs/models/blip-diffusion/blip_diffusion_controlnet_depth.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "275eba088a93654ef69304ff127879e50296a910",
+    "stage": "0",
+    "path": "lavis/configs/models/blip-diffusion/blip_diffusion_controlnet_hed.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "6591e15c1a5c9c6052a95caba26c2b635a842785",
+    "stage": "0",
+    "path": "lavis/configs/models/blip2/blip2_caption_flant5xl.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "5005fb72ada67d0e304483e5b98428f4be7c0236",
+    "stage": "0",
+    "path": "lavis/configs/models/blip2/blip2_caption_opt2.7b.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "464da1bb28668f6aa9106b3aac44cb500f85d727",
+    "stage": "0",
+    "path": "lavis/configs/models/blip2/blip2_caption_opt6.7b.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "03abc369b866db180c4e7bff8b00de637bc55cf0",
+    "stage": "0",
+    "path": "lavis/configs/models/blip2/blip2_coco.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "8c2e3de96890d7a73aa75d4a35a4ff5928deb24d",
+    "stage": "0",
+    "path": "lavis/configs/models/blip2/blip2_instruct_flant5xl.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "c26cce2fc251d91400412ebbdbb66f00ddf77e54",
+    "stage": "0",
+    "path": "lavis/configs/models/blip2/blip2_instruct_flant5xxl.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "10365394c0374595cf59d12ef25da3e64ea496f6",
+    "stage": "0",
+    "path": "lavis/configs/models/blip2/blip2_instruct_vicuna13b.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "5fe2369a829f06e33adc7f762c8b5b17fd4fab6e",
+    "stage": "0",
+    "path": "lavis/configs/models/blip2/blip2_instruct_vicuna7b.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "b61e8f774b8048093ae86bbcbbde69c26170f7fb",
+    "stage": "0",
+    "path": "lavis/configs/models/blip2/blip2_instruct_vicuna7b_lora.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "dbf00ffa9d25beb74e99ae203025557b88125be2",
+    "stage": "0",
+    "path": "lavis/configs/models/blip2/blip2_instruct_vicuna7b_textinv.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "5f0a178acaaa98340a8f990e42d158a1aec2cb80",
+    "stage": "0",
+    "path": "lavis/configs/models/blip2/blip2_instruct_vicuna7b_textinv_cam.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "11cee034c8a54908a12ca67b201a82ffe8a1c76d",
+    "stage": "0",
+    "path": "lavis/configs/models/blip2/blip2_instruct_vicuna7b_textinv_freezeLLM.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "fc71348f164519868323cfaf3db01ca212a7e692",
+    "stage": "0",
+    "path": "lavis/configs/models/blip2/blip2_instruct_vicuna7b_textinv_freezeQformer.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "126025ebaeb20ec88ebc2af61d16acd37843125d",
+    "stage": "0",
+    "path": "lavis/configs/models/blip2/blip2_pretrain.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "cf90da225618de43a3b5fa70954b363227fcd804",
+    "stage": "0",
+    "path": "lavis/configs/models/blip2/blip2_pretrain_flant5xl.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "fca3e9a0aa053245d08d376594f75336ba0150b7",
+    "stage": "0",
+    "path": "lavis/configs/models/blip2/blip2_pretrain_flant5xl_vitL.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "8240904d01dde5b1dfd74baca6bb83421d92ac3e",
+    "stage": "0",
+    "path": "lavis/configs/models/blip2/blip2_pretrain_flant5xxl.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "4adfa5cd42752d01b4c8126d3b21ec85df000eee",
+    "stage": "0",
+    "path": "lavis/configs/models/blip2/blip2_pretrain_llama7b.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "a6e0bccd3fa69814bbcc294bb0a28089f3a62e5a",
+    "stage": "0",
+    "path": "lavis/configs/models/blip2/blip2_pretrain_opt2.7b.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "89adbfe363272a90c5bc80fbdb8ca33f05e0033c",
+    "stage": "0",
+    "path": "lavis/configs/models/blip2/blip2_pretrain_opt6.7b.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "a0a0fc6464abcfea3e08655e43e381c9456f62b5",
+    "stage": "0",
+    "path": "lavis/configs/models/blip2/blip2_pretrain_vitL.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "2ee481c234290fef7d74667c2ce3e8c66fc7a3ab",
+    "stage": "0",
+    "path": "lavis/configs/models/blip_caption_base_coco.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "a0e8ae93c3f5236aac93669c53db448d312aa5eb",
+    "stage": "0",
+    "path": "lavis/configs/models/blip_caption_large_coco.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "bad38f200daeb3177dce269807ffada275e61ac3",
+    "stage": "0",
+    "path": "lavis/configs/models/blip_classification_base.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "eaee381415c9eb7e0bf787ad5cf9b61bf2690489",
+    "stage": "0",
+    "path": "lavis/configs/models/blip_feature_extractor_base.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "9c79db89d3cb55575b5f4b8aa499859c5915b183",
+    "stage": "0",
+    "path": "lavis/configs/models/blip_itm_base.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "9bcbf4850d2eb159c506e52a8fa88de59d3a87d7",
+    "stage": "0",
+    "path": "lavis/configs/models/blip_itm_large.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "02ecb13f11bdd02b161633d0d8c3c74eab64ba21",
+    "stage": "0",
+    "path": "lavis/configs/models/blip_nlvr.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "e265b832a618304d50e17a9dbf242bfe4df720db",
+    "stage": "0",
+    "path": "lavis/configs/models/blip_pretrain_base.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "d01cbe3baf09dd118d3e127c1ce1d8e3ea2238a6",
+    "stage": "0",
+    "path": "lavis/configs/models/blip_pretrain_large.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "30eb79028f12266224e5286e563381ba963bd756",
+    "stage": "0",
+    "path": "lavis/configs/models/blip_retrieval_coco.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "e4bf1fbc2db796a3ce0f08dfa357fe982856d8a0",
+    "stage": "0",
+    "path": "lavis/configs/models/blip_retrieval_flickr.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "b3afe3e7a2e3a55c569a8c7fce3d83d1ef3ddabe",
+    "stage": "0",
+    "path": "lavis/configs/models/blip_vqa_aokvqa.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "eb66ccbbf1f2faed4dfe916b042263861798d951",
+    "stage": "0",
+    "path": "lavis/configs/models/blip_vqa_okvqa.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "4f0ce8daac2d23d47d342f17630ca86f7002cc50",
+    "stage": "0",
+    "path": "lavis/configs/models/blip_vqav2.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "1dbd19be9d289887b4e41bd50acdbdc78709efd3",
+    "stage": "0",
+    "path": "lavis/configs/models/clip/RN101-quickgelu.json"
+  },
+  {
+    "mode": "100644",
+    "oid": "bf5babbc5a3ef48653083f10a549f42afe14727a",
+    "stage": "0",
+    "path": "lavis/configs/models/clip/RN101.json"
+  },
+  {
+    "mode": "100644",
+    "oid": "8c2f91260cdeb043434dc1e893cce81d4ce7f0d1",
+    "stage": "0",
+    "path": "lavis/configs/models/clip/RN50-quickgelu.json"
+  },
+  {
+    "mode": "100644",
+    "oid": "ad98b4b8822d72b5196ddafcb732329ecad2ce56",
+    "stage": "0",
+    "path": "lavis/configs/models/clip/RN50.json"
+  },
+  {
+    "mode": "100644",
+    "oid": "66576383a0cbd2ffcdd7a050e5fcbab420c7fecb",
+    "stage": "0",
+    "path": "lavis/configs/models/clip/RN50x16.json"
+  },
+  {
+    "mode": "100644",
+    "oid": "a41cb630517cc155c1ee6aa8660f6c7948f3ee4b",
+    "stage": "0",
+    "path": "lavis/configs/models/clip/RN50x4.json"
+  },
+  {
+    "mode": "100644",
+    "oid": "9347280c60a2a19233ac027d810ded21c26ea867",
+    "stage": "0",
+    "path": "lavis/configs/models/clip/ViT-B-16-plus-240.json"
+  },
+  {
+    "mode": "100644",
+    "oid": "f9cc3e3b0084590581d1ec3e81b930a9a190e036",
+    "stage": "0",
+    "path": "lavis/configs/models/clip/ViT-B-16-plus.json"
+  },
+  {
+    "mode": "100644",
+    "oid": "9afeef0fbc807f130f2b2bc65c1dd85abc9eba72",
+    "stage": "0",
+    "path": "lavis/configs/models/clip/ViT-B-16.json"
+  },
+  {
+    "mode": "100644",
+    "oid": "27ae13857a0bdf0c7825ba7768de0071bda3e82e",
+    "stage": "0",
+    "path": "lavis/configs/models/clip/ViT-B-32-plus-256.json"
+  },
+  {
+    "mode": "100644",
+    "oid": "f5a063adbf96df9e169706286643ab9a261b251c",
+    "stage": "0",
+    "path": "lavis/configs/models/clip/ViT-B-32-quickgelu.json"
+  },
+  {
+    "mode": "100644",
+    "oid": "abd1f7973dc856ba56004ad0538f4f74f5e08a6d",
+    "stage": "0",
+    "path": "lavis/configs/models/clip/ViT-B-32.json"
+  },
+  {
+    "mode": "100644",
+    "oid": "d2c01733dcab1293858bf8aa200f05cdb0b6f56c",
+    "stage": "0",
+    "path": "lavis/configs/models/clip/ViT-H-14.json"
+  },
+  {
+    "mode": "100644",
+    "oid": "942ed56bf6e24a0c19a41fad87db304444402b4f",
+    "stage": "0",
+    "path": "lavis/configs/models/clip/ViT-H-16.json"
+  },
+  {
+    "mode": "100644",
+    "oid": "c8e5fbac8a14c4c66c57df166ffe5dceb188e436",
+    "stage": "0",
+    "path": "lavis/configs/models/clip/ViT-L-14-280.json"
+  },
+  {
+    "mode": "100644",
+    "oid": "4db3a1e77c891cda4d32ea3b9da9bef2c2aade0c",
+    "stage": "0",
+    "path": "lavis/configs/models/clip/ViT-L-14-336.json"
+  },
+  {
+    "mode": "100644",
+    "oid": "98951b0cbff3776e90b0c2685ce4d04f1f874343",
+    "stage": "0",
+    "path": "lavis/configs/models/clip/ViT-L-14.json"
+  },
+  {
+    "mode": "100644",
+    "oid": "cc09c4877d27597fb0f50332e7cbcf8028586ce2",
+    "stage": "0",
+    "path": "lavis/configs/models/clip/ViT-L-16-320.json"
+  },
+  {
+    "mode": "100644",
+    "oid": "78601e7a6822382e3466c1c00459392ee7768024",
+    "stage": "0",
+    "path": "lavis/configs/models/clip/ViT-L-16.json"
+  },
+  {
+    "mode": "100644",
+    "oid": "b5c4231a67a82d1c30b675719f3004daed84299b",
+    "stage": "0",
+    "path": "lavis/configs/models/clip/ViT-g-14.json"
+  },
+  {
+    "mode": "100644",
+    "oid": "fa4bfb1df0240d72552e7b09dd4d17ee48a1c0e6",
+    "stage": "0",
+    "path": "lavis/configs/models/clip/timm-efficientnetv2_rw_s.json"
+  },
+  {
+    "mode": "100644",
+    "oid": "7bb0957cd23e3dd0fb461764c959a75e04cae743",
+    "stage": "0",
+    "path": "lavis/configs/models/clip/timm-resnet50d.json"
+  },
+  {
+    "mode": "100644",
+    "oid": "c011e0c02b5d63b1ace51e4625d383adc6aedb50",
+    "stage": "0",
+    "path": "lavis/configs/models/clip/timm-resnetaa50d.json"
+  },
+  {
+    "mode": "100644",
+    "oid": "05d0b209ac44198bd0b45c6931dee71eac9b1eab",
+    "stage": "0",
+    "path": "lavis/configs/models/clip/timm-resnetblur50.json"
+  },
+  {
+    "mode": "100644",
+    "oid": "bc08f2b78543857445d22eec7d288c5fe86391a9",
+    "stage": "0",
+    "path": "lavis/configs/models/clip/timm-swin_base_patch4_window7_224.json"
+  },
+  {
+    "mode": "100644",
+    "oid": "133b88f2f919de44c19df8318c7297824accbdce",
+    "stage": "0",
+    "path": "lavis/configs/models/clip/timm-vit_base_patch16_224.json"
+  },
+  {
+    "mode": "100644",
+    "oid": "9dcc6ffbfda4fb9d206bb693f6c3d53f2757aff8",
+    "stage": "0",
+    "path": "lavis/configs/models/clip/timm-vit_base_patch32_224.json"
+  },
+  {
+    "mode": "100644",
+    "oid": "8c3ae01ab318ce07c19b7b6326c07aaec1f321a4",
+    "stage": "0",
+    "path": "lavis/configs/models/clip/timm-vit_small_patch16_224.json"
+  },
+  {
+    "mode": "100644",
+    "oid": "ce3a2d429646b4b58706715d07da0ecb6c0d767b",
+    "stage": "0",
+    "path": "lavis/configs/models/clip_resnet50.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "2a06fa180993c42e63cecee38ec01134c18de7c8",
+    "stage": "0",
+    "path": "lavis/configs/models/clip_vit_base16.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "056e3d967853f5c01426514a9f98622bc92241b8",
+    "stage": "0",
+    "path": "lavis/configs/models/clip_vit_base32.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "8ab9f2610f1ae9e0164f39565a8302ab33123548",
+    "stage": "0",
+    "path": "lavis/configs/models/clip_vit_large14.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "a6510d73763fd4f0e5c6512c10c5c0ad8242499b",
+    "stage": "0",
+    "path": "lavis/configs/models/clip_vit_large14_336.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "7bbdae83fbe10b7e7d9001292eb88ba3da4e2e04",
+    "stage": "0",
+    "path": "lavis/configs/models/gpt_dialogue_base.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "fac355c4312bf54d3d87057d9bc7d665f1f03a06",
+    "stage": "0",
+    "path": "lavis/configs/models/img2prompt-vqa/img2prompt_vqa_base.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "a566c17bbc185f5bf8b83c7ed7dcb02e1a0ba1f9",
+    "stage": "0",
+    "path": "lavis/configs/models/med_config.json"
+  },
+  {
+    "mode": "100644",
+    "oid": "529636d733bf35cdb82ec4c7950ede79a5ce80fc",
+    "stage": "0",
+    "path": "lavis/configs/models/med_config_albef.json"
+  },
+  {
+    "mode": "100644",
+    "oid": "d5090b06f13c6c1e42d91e30d2cd76c2b6264d3a",
+    "stage": "0",
+    "path": "lavis/configs/models/med_large_config.json"
+  },
+  {
+    "mode": "100644",
+    "oid": "31f43778865db534e0070249db1512f50d937238",
+    "stage": "0",
+    "path": "lavis/configs/models/pnp-vqa/pnp_vqa_3b.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "5630578bbe24f4788396fbe40ae365580911d1aa",
+    "stage": "0",
+    "path": "lavis/configs/models/pnp-vqa/pnp_vqa_base.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "bea044c9079c33a7f7ec3a31c13f2da311d042e0",
+    "stage": "0",
+    "path": "lavis/configs/models/pnp-vqa/pnp_vqa_large.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "e5220dc592c03afd94f1a9d2077a2a87a3320856",
+    "stage": "0",
+    "path": "lavis/configs/models/pnp-vqa/unifiedqav2_3b_config.json"
+  },
+  {
+    "mode": "100644",
+    "oid": "24ffa8d18a0f317f3c18e5c67bf97ede953d6436",
+    "stage": "0",
+    "path": "lavis/configs/models/pnp-vqa/unifiedqav2_base_config.json"
+  },
+  {
+    "mode": "100644",
+    "oid": "4f87ec69734d35cdc0d76b1b3f11f9e80df3cdc1",
+    "stage": "0",
+    "path": "lavis/configs/models/pnp-vqa/unifiedqav2_large_config.json"
+  },
+  {
+    "mode": "100644",
+    "oid": "83af2c56f98f8671bc53117dad111634fba535d5",
+    "stage": "0",
+    "path": "lavis/datasets/builders/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "984d30f8e8e78a7e2d6a71fbec6271c7ff974dfa",
+    "stage": "0",
+    "path": "lavis/datasets/builders/base_dataset_builder.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "af7a14f5330885e5614798b38e91a9cd27b4d028",
+    "stage": "0",
+    "path": "lavis/datasets/builders/caption_builder.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "1fa4787bea4eae08114f12112ada29f7105ec686",
+    "stage": "0",
+    "path": "lavis/datasets/builders/classification_builder.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "08a54f2aa4da710af98dc36aac36e2eec5d3dad4",
+    "stage": "0",
+    "path": "lavis/datasets/builders/dialogue_builder.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "90e411eb6d41c23c15dbf5a0c67e2b68d467b43b",
+    "stage": "0",
+    "path": "lavis/datasets/builders/image_text_pair_builder.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "6c71fbe216156f7e18f3a0d49004d558508980e8",
+    "stage": "0",
+    "path": "lavis/datasets/builders/imagefolder_builder.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "98ca3bdf572fe007ea1bd97d75aefcb8ae02fe3d",
+    "stage": "0",
+    "path": "lavis/datasets/builders/retrieval_builder.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "b93368a71f62b463b91f53ba407c767ed44e74cd",
+    "stage": "0",
+    "path": "lavis/datasets/builders/text_to_image_generation_builder.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "3d74a50c6114369201a35eb1ea16b55bc6ff3cfc",
+    "stage": "0",
+    "path": "lavis/datasets/builders/textinv_builder.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "a1a3a1fb95eddf80943ae05bc770c3b53d42b648",
+    "stage": "0",
+    "path": "lavis/datasets/builders/video_qa_builder.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "c08a6d1406cf7a53ca6f8180671ca53e096bfdcc",
+    "stage": "0",
+    "path": "lavis/datasets/builders/vqa_builder.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "0ea4f44d356bf95ab6ca0621c3128bccef76054c",
+    "stage": "0",
+    "path": "lavis/datasets/data_utils.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "a77b770936f353ceba799d53acacdbfb2809aaa4",
+    "stage": "0",
+    "path": "lavis/datasets/datasets/aok_vqa_datasets.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "3e2d599e6117e7abebb70a4b24a42a09b7162dd0",
+    "stage": "0",
+    "path": "lavis/datasets/datasets/avsd_dialogue_datasets.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "a0a02d3dfa6aaa4bd8b73a71f778544907d1cd2f",
+    "stage": "0",
+    "path": "lavis/datasets/datasets/base_dataset.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "b371e20f5a0246bce33f1a1c6f6603ac4508963d",
+    "stage": "0",
+    "path": "lavis/datasets/datasets/caption_datasets.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "400750a75ea947ff5ae230747c5de6f5fe721e55",
+    "stage": "0",
+    "path": "lavis/datasets/datasets/coco_caption_datasets.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "b6e07f09a69d0c65bcffe7ae545ceaddb28ab2a0",
+    "stage": "0",
+    "path": "lavis/datasets/datasets/coco_vqa_datasets.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "fd6a88094c4366fc4a1dd7f0c5c62d3a245a4a37",
+    "stage": "0",
+    "path": "lavis/datasets/datasets/dataloader_utils.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "7596da65f42812d185d91c8c7bcf7776e8362444",
+    "stage": "0",
+    "path": "lavis/datasets/datasets/dialogue_datasets.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "073c57040d7852bffc273ce6177c246a4fce1ab8",
+    "stage": "0",
+    "path": "lavis/datasets/datasets/gqa_datasets.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "9a6e039eeff97a85975bb68ff5bb55fb29d67e15",
+    "stage": "0",
+    "path": "lavis/datasets/datasets/image_text_pair_datasets.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "8057b7e946d5df5c837499a4a92d46e8c56cf03e",
+    "stage": "0",
+    "path": "lavis/datasets/datasets/imagefolder_dataset.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "3d9f283d8d27c11d663d8032b5b2b3012fdd0ec2",
+    "stage": "0",
+    "path": "lavis/datasets/datasets/laion_dataset.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "c1b4fe02ed39bcec396e160bda6fe43246cb4d03",
+    "stage": "0",
+    "path": "lavis/datasets/datasets/multimodal_classification_datasets.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "0cc818c6ac7592686ce104bea345bfe95d727aa0",
+    "stage": "0",
+    "path": "lavis/datasets/datasets/nlvr_datasets.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "9cee7a4f800c67524fffbd3ce1e4fc068fba67e1",
+    "stage": "0",
+    "path": "lavis/datasets/datasets/retrieval_datasets.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "446f3caea6221087dd60d8fb96fecfc4d2e1a2b8",
+    "stage": "0",
+    "path": "lavis/datasets/datasets/snli_ve_datasets.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "bc45d118feca57a5e99981be0539d2b51989d8f6",
+    "stage": "0",
+    "path": "lavis/datasets/datasets/subject_driven_t2i_dataset.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "ef5e378d38725591de08aba4d4f31b3cf9404341",
+    "stage": "0",
+    "path": "lavis/datasets/datasets/textinv_datasets.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "08bd909db553c49495d46ea60e8327d801a52bf5",
+    "stage": "0",
+    "path": "lavis/datasets/datasets/vg_vqa_datasets.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "584b0bcf845bba469457113a9d343a5dd7dc3d64",
+    "stage": "0",
+    "path": "lavis/datasets/datasets/video_caption_datasets.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "7d50ee736b8104c21a3e43bacc0897f45c46a9ae",
+    "stage": "0",
+    "path": "lavis/datasets/datasets/video_vqa_datasets.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "8803b25d7fdff8f80764d95db1f8bb0bd26e93ae",
+    "stage": "0",
+    "path": "lavis/datasets/datasets/vqa_datasets.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "4062f42c8e3870f993fee16032dde12965e391a3",
+    "stage": "0",
+    "path": "lavis/datasets/download_scripts/DownloadConceptualCaptions/LICENSE"
+  },
+  {
+    "mode": "100644",
+    "oid": "0dd0b9d5bfe304770d06b2adc363f33a6c390ced",
+    "stage": "0",
+    "path": "lavis/datasets/download_scripts/DownloadConceptualCaptions/README.md"
+  },
+  {
+    "mode": "100644",
+    "oid": "7ca886ffb664a0c02b45b5b0fabc5159284ef88e",
+    "stage": "0",
+    "path": "lavis/datasets/download_scripts/DownloadConceptualCaptions/create_annotation_12m.ipynb"
+  },
+  {
+    "mode": "100644",
+    "oid": "ce08209d0f16120d2b1c11be095de6482d9fb71f",
+    "stage": "0",
+    "path": "lavis/datasets/download_scripts/DownloadConceptualCaptions/create_annotation_3m.ipynb"
+  },
+  {
+    "mode": "100644",
+    "oid": "c60b6fb8e5ae81783f9fafa71648c147871798ec",
+    "stage": "0",
+    "path": "lavis/datasets/download_scripts/DownloadConceptualCaptions/download_data_cc12m.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "2edd7a224436f7fa2d923501caadd40db040f8a1",
+    "stage": "0",
+    "path": "lavis/datasets/download_scripts/DownloadConceptualCaptions/download_data_cc3m.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "283448aed1b745a975bc89b5c531a853efdd31f4",
+    "stage": "0",
+    "path": "lavis/datasets/download_scripts/download_coco.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "376b71c4de1e83442a0209796c95f55da6b3e71a",
+    "stage": "0",
+    "path": "lavis/datasets/download_scripts/download_didemo.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "3075f02299110b729ccb0f4b34f7b9cf23046b6c",
+    "stage": "0",
+    "path": "lavis/datasets/download_scripts/download_flickr.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "0bce71408c9f8d8973ef8f7fa9419d328127978e",
+    "stage": "0",
+    "path": "lavis/datasets/download_scripts/download_gqa.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "3e9dc1cd942ad3a17d0debe0c2b94e6edbc56c61",
+    "stage": "0",
+    "path": "lavis/datasets/download_scripts/download_msrvtt.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "c4bf5467f3af7acdde7f7a25a38d28c599525771",
+    "stage": "0",
+    "path": "lavis/datasets/download_scripts/download_msvd.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "ab56a7c10d958e6debb3968ca1c4def3da3beb0a",
+    "stage": "0",
+    "path": "lavis/datasets/download_scripts/download_nocaps.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "9ffbf43c670d471f7eb160bcb8a9b6bd887aaf65",
+    "stage": "0",
+    "path": "lavis/datasets/download_scripts/download_sbu.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "7fbb7828f035f2cc9b32471129f0d2ec0f916f8e",
+    "stage": "0",
+    "path": "lavis/datasets/download_scripts/download_vg.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "4c696cf778e1b00d5116169599b686f35b6993cf",
+    "stage": "0",
+    "path": "lavis/models/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "512729237e32354ec0aca598343320afaf7d4acd",
+    "stage": "0",
+    "path": "lavis/models/albef_models/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "2d82de9a40ab53f443bf67fc6cfe24c6b6ed81cd",
+    "stage": "0",
+    "path": "lavis/models/albef_models/albef_classification.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "df7632c6d8e7eac7e6ae019379e53febd3f7ef0c",
+    "stage": "0",
+    "path": "lavis/models/albef_models/albef_feature_extractor.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "5df836b18479600f0c1dedd7d56200b2b6b054d9",
+    "stage": "0",
+    "path": "lavis/models/albef_models/albef_nlvr.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "a3f73f39cf175319aa095cb24f30e9496f305a74",
+    "stage": "0",
+    "path": "lavis/models/albef_models/albef_outputs.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "e25baf30a65f3218bb7b9ab8ebed6b01f74c773b",
+    "stage": "0",
+    "path": "lavis/models/albef_models/albef_pretrain.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "dafea6d806445bb851dc6b4d47281d65d81508cf",
+    "stage": "0",
+    "path": "lavis/models/albef_models/albef_retrieval.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "eb4dcbb9cd34a28637d3420ef4bdad5be47563b3",
+    "stage": "0",
+    "path": "lavis/models/albef_models/albef_vqa.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "1dfd29514a54a24857c775b461a8937243c06784",
+    "stage": "0",
+    "path": "lavis/models/alpro_models/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "68a11a9cfbd95c866597cf0e8d5a126134587de6",
+    "stage": "0",
+    "path": "lavis/models/alpro_models/alpro_outputs.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "2a931be0e23f2c218431288b8390f7a3304702c8",
+    "stage": "0",
+    "path": "lavis/models/alpro_models/alpro_qa.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "f574ad42bdfd2f13b21dc30430b72f9c278d0ced",
+    "stage": "0",
+    "path": "lavis/models/alpro_models/alpro_retrieval.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "873014eedd6cc5348e981c877ccef4a615361f6f",
+    "stage": "0",
+    "path": "lavis/models/base_model.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "c3bb7e11c3a2dbe4dfb56f5659b4e85f72e2a0c1",
+    "stage": "0",
+    "path": "lavis/models/blip2_models/Qformer.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+    "stage": "0",
+    "path": "lavis/models/blip2_models/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "f1bd805d84501d2974afdd1105c6f34f88d87305",
+    "stage": "0",
+    "path": "lavis/models/blip2_models/blip2.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "f32db24d09e23c92d61453e569d58f1d7da18969",
+    "stage": "0",
+    "path": "lavis/models/blip2_models/blip2_image_text_matching.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "2b525b485bde4c9ef7e2f377d5380ec20f367930",
+    "stage": "0",
+    "path": "lavis/models/blip2_models/blip2_opt.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "5d94db7ecce5ac892b746c25240562a7bcdb0015",
+    "stage": "0",
+    "path": "lavis/models/blip2_models/blip2_qformer.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "ba98e431854674ef92d6616a3b0daad432e4801e",
+    "stage": "0",
+    "path": "lavis/models/blip2_models/blip2_t5.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "100a44adba8c79e59701262b36deb5e90076b48d",
+    "stage": "0",
+    "path": "lavis/models/blip2_models/blip2_t5_instruct.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "2208569fad294c30160d6243dc9ec4a58d44c66b",
+    "stage": "0",
+    "path": "lavis/models/blip2_models/blip2_vicuna_instruct.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "d851f574b24804214246332b217f27e15db13588",
+    "stage": "0",
+    "path": "lavis/models/blip2_models/blip2_vicuna_instruct_lora.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "a0f6c3863230b6ba96f60a094164f4aef789612b",
+    "stage": "0",
+    "path": "lavis/models/blip2_models/blip2_vicuna_instruct_textinv.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "32d982bfae361d0d61ff49b141a5c4526dc7237a",
+    "stage": "0",
+    "path": "lavis/models/blip2_models/blip2_vicuna_instruct_textinv_adver_atk.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "a9c1b0210589371e914ce44d95e7d2048ee6cef4",
+    "stage": "0",
+    "path": "lavis/models/blip2_models/blip2_vicuna_instruct_textinv_cam.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "384388d5a1494775418fb3a47315e9f816986ce9",
+    "stage": "0",
+    "path": "lavis/models/blip2_models/blip2_vicuna_instruct_textinv_freezeLLM.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "3c3c8136f85f7cff80f2445d1fa36c46857a3136",
+    "stage": "0",
+    "path": "lavis/models/blip2_models/blip2_vicuna_instruct_textinv_freezeQformer.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "fa2e371f403b7a281c91619360f1544998666c31",
+    "stage": "0",
+    "path": "lavis/models/blip2_models/modeling_llama.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "1d4077c83a706825131be82702deba5e344b87e0",
+    "stage": "0",
+    "path": "lavis/models/blip2_models/modeling_opt.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "10e4d56f2c21b0cbe639e0f568bd352a6cb76351",
+    "stage": "0",
+    "path": "lavis/models/blip2_models/modeling_t5.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+    "stage": "0",
+    "path": "lavis/models/blip_diffusion_models/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "996155e0573aa1e96ab6af159400d44004d69f54",
+    "stage": "0",
+    "path": "lavis/models/blip_diffusion_models/blip_diffusion.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "737b77d3ff431e9f98db898b8fed308c2dd41d09",
+    "stage": "0",
+    "path": "lavis/models/blip_diffusion_models/modeling_ctx_clip.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "7ee8cc8e79ca96b787a53bfff12556c2b7a6583e",
+    "stage": "0",
+    "path": "lavis/models/blip_diffusion_models/ptp_utils.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "17b3a1eaabb6662aa6ce2a2b8b364795de5d659a",
+    "stage": "0",
+    "path": "lavis/models/blip_diffusion_models/utils.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "2b88146b9eb3d60dd10ee2aed8e0a33cba924746",
+    "stage": "0",
+    "path": "lavis/models/blip_models/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "fba1f4893c7bebdb3f6fc5ba87fe055274397d91",
+    "stage": "0",
+    "path": "lavis/models/blip_models/blip.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "26f0690a596039a33edfb90b34b3fc0a62ef28ce",
+    "stage": "0",
+    "path": "lavis/models/blip_models/blip_caption.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "46c49099d6170fd74b8cbdfae8b1925707e493b6",
+    "stage": "0",
+    "path": "lavis/models/blip_models/blip_classification.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "31df635b2e36b57dc2c5d211b76f3735a3e273df",
+    "stage": "0",
+    "path": "lavis/models/blip_models/blip_feature_extractor.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "a691984f8eec5540e476f7c188e36c1fccab5ea7",
+    "stage": "0",
+    "path": "lavis/models/blip_models/blip_image_text_matching.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "a67d7a1b2c27a200efaae5dda5da1c5fc9ca78e8",
+    "stage": "0",
+    "path": "lavis/models/blip_models/blip_nlvr.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "9d18ddcabb68f09e1b4952d337d0206efcd8e8ad",
+    "stage": "0",
+    "path": "lavis/models/blip_models/blip_outputs.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "a8077cae11eb35b8e09d4fdfd77ea3c58ef6ea0f",
+    "stage": "0",
+    "path": "lavis/models/blip_models/blip_pretrain.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "44e9c5c998d60400c2443112f69f4be5ad415048",
+    "stage": "0",
+    "path": "lavis/models/blip_models/blip_retrieval.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "dd6e4144b8243e251d4c1c6451f88f97ef641a8b",
+    "stage": "0",
+    "path": "lavis/models/blip_models/blip_vqa.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "2b12b1c34c1c5d5a5acc43b9dc3f26ef876515c2",
+    "stage": "0",
+    "path": "lavis/models/blip_models/nlvr_encoder.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "325e25255550a00fdd082deb82a8a0da567cadb0",
+    "stage": "0",
+    "path": "lavis/models/clip_models/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "7b5088a527f720063f044eb928eee315f63b2fc0",
+    "stage": "0",
+    "path": "lavis/models/clip_models/bpe_simple_vocab_16e6.txt.gz"
+  },
+  {
+    "mode": "100644",
+    "oid": "3a7bb032e01189d923c4e78b63bec94138d481f7",
+    "stage": "0",
+    "path": "lavis/models/clip_models/clip_outputs.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "da92413b1a26df994eb48c714a4c03be6c409fcf",
+    "stage": "0",
+    "path": "lavis/models/clip_models/loss.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "8c3d5651848c6935e584abab1f9ecaad873b5392",
+    "stage": "0",
+    "path": "lavis/models/clip_models/model.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "a1b5ec9171fd7a51e36e845a02304eb837142ba1",
+    "stage": "0",
+    "path": "lavis/models/clip_models/pics/CLIP.png"
+  },
+  {
+    "mode": "100644",
+    "oid": "a8d9834952263a0cd19c775d2576628e4ee580cd",
+    "stage": "0",
+    "path": "lavis/models/clip_models/pretrained.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "13bf04fc23e2691902f8b7da67ac99d19a696116",
+    "stage": "0",
+    "path": "lavis/models/clip_models/timm_model.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "7e19124df29ace4b7e0599d1082e80d38aca0748",
+    "stage": "0",
+    "path": "lavis/models/clip_models/tokenizer.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "e1104418cf7fb3f9bf169d52a0f8a051b9200c42",
+    "stage": "0",
+    "path": "lavis/models/clip_models/transform.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "9ba9191a8c8043ed07d96144b4c10fcffb08cc9c",
+    "stage": "0",
+    "path": "lavis/models/clip_models/utils.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "6b73df57abeb1d894bfd7b41ae03be8ede86845c",
+    "stage": "0",
+    "path": "lavis/models/clip_vit.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "5b80b8206e35456ef3c7eb3278e2b65901a8aa7e",
+    "stage": "0",
+    "path": "lavis/models/eva_vit.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "1ea769701c7119a3a11b43627519cf51b8f66adf",
+    "stage": "0",
+    "path": "lavis/models/gpt_models/gpt_dialogue.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "bf9d1ec8674c89a26e8a1d374c6ea80a16bc6c5b",
+    "stage": "0",
+    "path": "lavis/models/img2prompt_models/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "0df1807eb3cae7e62d5fe85d5058eb3e9657c4b1",
+    "stage": "0",
+    "path": "lavis/models/img2prompt_models/img2prompt_vqa.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "e963ffb3b3d3a1389e0da1ba0f9c9ac9fb6e84b2",
+    "stage": "0",
+    "path": "lavis/models/med.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "44178e5503d448c954785201b5261eaa0df71ec5",
+    "stage": "0",
+    "path": "lavis/models/pnp_vqa_models/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "43da9ac1452aa2aa4d5de48409ced8628b34b093",
+    "stage": "0",
+    "path": "lavis/models/pnp_vqa_models/pnp_unifiedqav2_fid.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "59b9d888bdcb999ca65eabfda7c457b7041524c4",
+    "stage": "0",
+    "path": "lavis/models/pnp_vqa_models/pnp_vqa.py"
+  },
+  {
+    "mode": "100755",
+    "oid": "1da75fc4c6577d8629ccb82f7a2b97b116c5b2bc",
+    "stage": "0",
+    "path": "lavis/models/timesformer/__init__.py"
+  },
+  {
+    "mode": "100755",
+    "oid": "ad23cc5a75e48d08137053c5e481a2feb8356b50",
+    "stage": "0",
+    "path": "lavis/models/timesformer/conv2d_same.py"
+  },
+  {
+    "mode": "100755",
+    "oid": "a1ef6bb31fae6253a1e3f23a2570c290d5cdf432",
+    "stage": "0",
+    "path": "lavis/models/timesformer/features.py"
+  },
+  {
+    "mode": "100755",
+    "oid": "1a8ebd1415fff35cd0f1e365a6f666dcb2f04fee",
+    "stage": "0",
+    "path": "lavis/models/timesformer/helpers.py"
+  },
+  {
+    "mode": "100755",
+    "oid": "bfa849b93479d796c8cf0c4fde999ed028f9ae45",
+    "stage": "0",
+    "path": "lavis/models/timesformer/linear.py"
+  },
+  {
+    "mode": "100755",
+    "oid": "a6202b40636684b4a9c4feb8af5be227180ca966",
+    "stage": "0",
+    "path": "lavis/models/timesformer/vit.py"
+  },
+  {
+    "mode": "100755",
+    "oid": "5045d586495ca8ddab3f52d5f0a1b207fe263762",
+    "stage": "0",
+    "path": "lavis/models/timesformer/vit_utils.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "f35b7bb6886f8e4455330cf7c330a18e57f11db7",
+    "stage": "0",
+    "path": "lavis/models/vit.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "b601492d9176ae03c5fe035080856f3c1ed10a73",
+    "stage": "0",
+    "path": "lavis/processors/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "fbcc03211f176c5f63529659674200eed759ec70",
+    "stage": "0",
+    "path": "lavis/processors/alpro_processors.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "b4c9d86859270a046623661a632587f2b3136b46",
+    "stage": "0",
+    "path": "lavis/processors/base_processor.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "b6c073dce3adac844b6b65517fcc210139383f63",
+    "stage": "0",
+    "path": "lavis/processors/blip_diffusion_processors.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "15f988d0b5a6a21e441ab8d3798dce2644499d43",
+    "stage": "0",
+    "path": "lavis/processors/blip_processors.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "08bd066de69e01c8a90ca9f8546ab046ae08cd78",
+    "stage": "0",
+    "path": "lavis/processors/clip_processors.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "597a29315d4e1a575e7209edb0618eeaf4fc024a",
+    "stage": "0",
+    "path": "lavis/processors/functional_video.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "2fe6204c674a2f4b500a0b0ef79a9f02068dbb66",
+    "stage": "0",
+    "path": "lavis/processors/gpt_processors.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "5c6a9e6d62f74358f490d19546c9829b3ac6aaef",
+    "stage": "0",
+    "path": "lavis/processors/randaugment.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "bafb74d2a0a68b0b2ff496c1549bde46799dbaef",
+    "stage": "0",
+    "path": "lavis/processors/transforms_video.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "908a9148da81580aadae2d76ed97e1afb7a2a266",
+    "stage": "0",
+    "path": "lavis/projects/albef/eval/nlvr_eval.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "ff6680dea8d7116be6041c35ad4604c9820e0988",
+    "stage": "0",
+    "path": "lavis/projects/albef/eval/ret_coco_eval.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "6352802b27e77032f4b080ec06fd72d2f3f15b82",
+    "stage": "0",
+    "path": "lavis/projects/albef/eval/ret_flickr30k_eval.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "3c0c187cb27427e58c51cade194a7a4ca96ccfdd",
+    "stage": "0",
+    "path": "lavis/projects/albef/eval/snli_ve_eval.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "872be8e6097e63066918e1e003e21737050320cd",
+    "stage": "0",
+    "path": "lavis/projects/albef/eval/vqa_test.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "ccdbcd6f8f685dd8e39121b99cb5b6b40693a51e",
+    "stage": "0",
+    "path": "lavis/projects/albef/eval/vqa_val.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "6d4fead2f45a8072f5169e73ad1f4f40a294613e",
+    "stage": "0",
+    "path": "lavis/projects/albef/train/aokvqa_ft.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "c4eedcad4fbf6ee5ce326e832874c487f80986de",
+    "stage": "0",
+    "path": "lavis/projects/albef/train/nlvr_ft.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "c79bb698a4b7effb52314cb663d85aace395fe36",
+    "stage": "0",
+    "path": "lavis/projects/albef/train/okvqa_ft.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "a4c413fcc781f3645f13afe6128ba803a3c9b3c9",
+    "stage": "0",
+    "path": "lavis/projects/albef/train/pretrain.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "402f603e28bde787c4156f317fd42b7929bc3cc3",
+    "stage": "0",
+    "path": "lavis/projects/albef/train/ret_coco_ft.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "7cab3a5d38ec24a88d1794866db71ed9d91fda79",
+    "stage": "0",
+    "path": "lavis/projects/albef/train/ret_flickr30k_ft.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "c9eced3ed9972839e0521ead4d6ce03688b302d5",
+    "stage": "0",
+    "path": "lavis/projects/albef/train/snli_ve_ft.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "32bef6c2a48de7f08041a4ed61566436e1749933",
+    "stage": "0",
+    "path": "lavis/projects/albef/train/vqa_ft.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "e6f0956d08137e7c1391ff81e9c78b892ac44073",
+    "stage": "0",
+    "path": "lavis/projects/alpro/eval/didemo_ret_eval.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "83e261c9f950a4c4d330fc6a802dfe163cbde5bb",
+    "stage": "0",
+    "path": "lavis/projects/alpro/eval/msrvtt_qa_eval.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "ab496b3cc5167e8641afb562e8c9604977b6ece9",
+    "stage": "0",
+    "path": "lavis/projects/alpro/eval/msrvtt_ret_eval.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "00e84b13250d8f206ffebf582ef218c7b8fc52da",
+    "stage": "0",
+    "path": "lavis/projects/alpro/eval/msvd_qa_eval.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "98e2841599275206b8421be634736955b2914918",
+    "stage": "0",
+    "path": "lavis/projects/alpro/train/didemo_ret_ft.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "1cd1913ed6b2de03d19c2f64ab743814d6ca447c",
+    "stage": "0",
+    "path": "lavis/projects/alpro/train/msrvtt_qa_ft.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "dafbc1cd24dcf655bd247f9507bc5f8392506333",
+    "stage": "0",
+    "path": "lavis/projects/alpro/train/msrvtt_retrieval_ft.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "5da629e48ce0f63525db5aeca8d1869b45ebd7ce",
+    "stage": "0",
+    "path": "lavis/projects/alpro/train/msvd_qa_ft.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "be5f0ed8b1b1a01add60220acc3fd6f74ccfd869",
+    "stage": "0",
+    "path": "lavis/projects/blip/coco_cap_ft_iter.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "56862a93131223e4e6188c052608f3dbc9df628a",
+    "stage": "0",
+    "path": "lavis/projects/blip/eval/aokvqa_eval.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "e3120d82445845676ea1e47fac4770c0d9b6518b",
+    "stage": "0",
+    "path": "lavis/projects/blip/eval/caption_coco_eval.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "d6896275de6833bb33da1f251f9c302d2f0695fb",
+    "stage": "0",
+    "path": "lavis/projects/blip/eval/caption_coco_eval_large.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "198589a947fcbb1fc44ba035187e7602a0cefdbb",
+    "stage": "0",
+    "path": "lavis/projects/blip/eval/nlvr_eval.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "fdfff37cfe6872d8b808b26fb1d4185fd3428672",
+    "stage": "0",
+    "path": "lavis/projects/blip/eval/nocaps_eval.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "f6d5e2e47d4aef9f6cbeb822e068dcdad5d798fd",
+    "stage": "0",
+    "path": "lavis/projects/blip/eval/okvqa_eval.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "1d4cdcf84abf6684150b6687233667d9c61a82ef",
+    "stage": "0",
+    "path": "lavis/projects/blip/eval/ret_coco_eval.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "f3f881def9f24dbc5260fdda7d1b42eb77981420",
+    "stage": "0",
+    "path": "lavis/projects/blip/eval/ret_flickr_eval.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "389a7e17b71df6acb04e546e2375e0429328fa2d",
+    "stage": "0",
+    "path": "lavis/projects/blip/eval/vqav2_eval.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "e6e4762458134517cdeecf006b097ba8570447f4",
+    "stage": "0",
+    "path": "lavis/projects/blip/train/aokvqa_ft.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "4cf5e628d5bc4497776b008b29a5a8f6d17f7b84",
+    "stage": "0",
+    "path": "lavis/projects/blip/train/caption_coco_ft.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "98733a3f6cd0a272929ca41e6fbbb33608e03755",
+    "stage": "0",
+    "path": "lavis/projects/blip/train/caption_coco_large_ft.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "c3b0f66ce595997eb0e2fef74dc04f97b948ad9c",
+    "stage": "0",
+    "path": "lavis/projects/blip/train/nlvr_ft.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "ad79e80ab4b158e7ef28ce1bc450ee1a5eb87ba7",
+    "stage": "0",
+    "path": "lavis/projects/blip/train/okvqa_ft.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "409d4caec3d26a05525f42897b0541a01cd3f027",
+    "stage": "0",
+    "path": "lavis/projects/blip/train/pretrain_14m.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "25a1d467860764be0010f833128cf641ea589f51",
+    "stage": "0",
+    "path": "lavis/projects/blip/train/retrieval_coco_ft.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "2e5fb922fb95f29eeaf589afa35569c3b4c0ebc0",
+    "stage": "0",
+    "path": "lavis/projects/blip/train/retrieval_flickr_ft.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "f1f092433d0f54ab081a93bb21592f687f8a6e0c",
+    "stage": "0",
+    "path": "lavis/projects/blip/train/vqav2_ft.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+    "stage": "0",
+    "path": "lavis/projects/blip2/eval/caption_coco_flant5xl_eval.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "1032e76848f811bd9a0a09a34cd9be1a81c5af22",
+    "stage": "0",
+    "path": "lavis/projects/blip2/eval/caption_coco_opt2.7b_eval.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "c0a832df5afa2296e6dafb3016ae3138ce2a6489",
+    "stage": "0",
+    "path": "lavis/projects/blip2/eval/caption_coco_opt6.7b_eval.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "c484a716e6c00399f571bf4a12e188e3d505374f",
+    "stage": "0",
+    "path": "lavis/projects/blip2/eval/gqa_zeroshot_flant5xl_eval.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "20058b1b5a1e5fd7eaaa720cbad8cf15956b5ed5",
+    "stage": "0",
+    "path": "lavis/projects/blip2/eval/okvqa_zeroshot_flant5xl_eval.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "d9f35006068fbc0836d58cdfc0a19d957f2e766d",
+    "stage": "0",
+    "path": "lavis/projects/blip2/eval/ret_coco_eval.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "c668535dfc5cb38a17f576150293eafbeb469636",
+    "stage": "0",
+    "path": "lavis/projects/blip2/eval/ret_flickr_eval.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "0e6d223c787afdeb1d5a76fa5ac5964e2d31d2f8",
+    "stage": "0",
+    "path": "lavis/projects/blip2/eval/vqav2_zeroshot_flant5xl_eval.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "7f30e7a5c213b224e5bb1a0cb21f8a71f850e849",
+    "stage": "0",
+    "path": "lavis/projects/blip2/eval/vqav2_zeroshot_opt_eval.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "e57d38bc63b405bfa775be7a1e22bb29235eaf47",
+    "stage": "0",
+    "path": "lavis/projects/blip2/train/caption_coco_ft.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "e784c0a2e8fb5fae3f280a62f2e39be6a256061a",
+    "stage": "0",
+    "path": "lavis/projects/blip2/train/pretrain_stage1.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "ca057b4e982103bdc97dcaac0c090bd37a682a59",
+    "stage": "0",
+    "path": "lavis/projects/blip2/train/pretrain_stage2.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "8527a8540dbdc24eaf48a45c43d5475bbaa0a42e",
+    "stage": "0",
+    "path": "lavis/projects/blip2/train/retrieval_coco_ft.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "eafbb38667a41cc77ad601c250dbd4233ebf19be",
+    "stage": "0",
+    "path": "lavis/projects/blip_diffusion/finetune-db-dog.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "cf05fc0b0f6df66128caec6ea8843f100b536af8",
+    "stage": "0",
+    "path": "lavis/projects/blip_diffusion/finetune-db-pink-dress.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "74018de6f73a80231c3bc1996bdd1773e90753e7",
+    "stage": "0",
+    "path": "lavis/projects/blip_diffusion/finetune-db-shein-jacket.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "8f5982cdd080bcb6159aa5ebaf4c56874fb6112e",
+    "stage": "0",
+    "path": "lavis/projects/blip_diffusion/finetune-db-template.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "f93933f17eb903afeb7ba6d02b92197434d5b90f",
+    "stage": "0",
+    "path": "lavis/projects/clip/exp_coco_ret_eval.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "a3ca9a294aaf81c75469b6337d05b313c2c34719",
+    "stage": "0",
+    "path": "lavis/projects/clip/exp_flickr_ret_eval.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "33ef0501c5c161115f90eb7b3de9a7d668189360",
+    "stage": "0",
+    "path": "lavis/projects/clip/exp_imnet_zs_eval.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "c74e377a16d58697fa4372f8fc2b8927741e8a00",
+    "stage": "0",
+    "path": "lavis/projects/gpt/eval/dialogue_avsd_eval.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "6ef0e2cc64bae38fe9e52f88b57d00b84cbf5184",
+    "stage": "0",
+    "path": "lavis/projects/gpt/train/dialogue_avsd_ft.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "948f300e24d97fa142d5884453108e69f7ed8c1f",
+    "stage": "0",
+    "path": "lavis/projects/lora/lora_train.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "d8c97adfdb987426a8fc7f2f22dafe8c91967788",
+    "stage": "0",
+    "path": "lavis/projects/pnp-vqa/eval/gqa_eval.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "933691c2cb1730878c7c05fc3e3c507047977fdb",
+    "stage": "0",
+    "path": "lavis/projects/pnp-vqa/eval/gqa_eval_3b.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "537936aa4c4f95e3c94138d48ddd2da09600c9f0",
+    "stage": "0",
+    "path": "lavis/projects/pnp-vqa/eval/gqa_eval_large.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "f29e95db6c75bef1219b083b23f310840507e72d",
+    "stage": "0",
+    "path": "lavis/projects/pnp-vqa/eval/okvqa_eval.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "3a0c2dd26cb0e46a7d8ab990dbb23153bdea136c",
+    "stage": "0",
+    "path": "lavis/projects/pnp-vqa/eval/okvqa_eval_3b.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "a55d7f25f6175c21bb6ae29c5544e0811e34d4b5",
+    "stage": "0",
+    "path": "lavis/projects/pnp-vqa/eval/okvqa_eval_large.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "e6f26b6e3166372314a300aa2e2c8e437a2e93f0",
+    "stage": "0",
+    "path": "lavis/projects/pnp-vqa/eval/vqav2_eval.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "dc0db0176caf98f24527808752d16533b510144f",
+    "stage": "0",
+    "path": "lavis/projects/pnp-vqa/eval/vqav2_eval_3b.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "3e59eae9985a3ca5df3bc62036c9fc267f4e72f1",
+    "stage": "0",
+    "path": "lavis/projects/pnp-vqa/eval/vqav2_eval_large.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "a5f3d387a6f419db69f77fa36a01ca3f00b13734",
+    "stage": "0",
+    "path": "lavis/projects/pnp-vqa/eval/vqav2_test_eval.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "799ad56333158b4bfb73775deb48ed4d81d1f9c0",
+    "stage": "0",
+    "path": "lavis/projects/pnp-vqa/eval/vqav2_test_eval_3b.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "10aa447ed472a13fa77014698071053334ddaa3b",
+    "stage": "0",
+    "path": "lavis/projects/pnp-vqa/eval/vqav2_test_eval_large.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "b3227433666e67c8b1073fd5d2d9e3f44497874f",
+    "stage": "0",
+    "path": "lavis/projects/textual-inversion/textinv_freezeLLM_train.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "b092010745920fcc375b543b285f5c188c00d90b",
+    "stage": "0",
+    "path": "lavis/projects/textual-inversion/textinv_freezeQformer_train.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "86abe7c25f533359e09255b12ff02504965a0c21",
+    "stage": "0",
+    "path": "lavis/projects/textual-inversion/textinv_train.yaml"
+  },
+  {
+    "mode": "100644",
+    "oid": "60849cd4413751ae22673a04b2868b8a98ef8e5f",
+    "stage": "0",
+    "path": "lavis/runners/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "4ecc085b9fcd41971918c565b8bb31fa29854cb7",
+    "stage": "0",
+    "path": "lavis/runners/runner_base.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "ba96a48f9b31399ad108a77cc82529d353420d67",
+    "stage": "0",
+    "path": "lavis/runners/runner_iter.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "1056d3a454ccc5fe98e8dd8af5e6eee3cdf9fc5a",
+    "stage": "0",
+    "path": "lavis/runners/runner_textinv.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "ad572885c56b4e037cac0dcec5980e1e36a128d3",
+    "stage": "0",
+    "path": "lavis/tasks/__init__.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "6a54507bd8de586f37521d36772d1bfbb1bf5a14",
+    "stage": "0",
+    "path": "lavis/tasks/base_task.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "8a4685b70ca385f5df6faedee06636429c74bebd",
+    "stage": "0",
+    "path": "lavis/tasks/captioning.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "2477bad209d1b14f8a41b33e6494b8384b9f9671",
+    "stage": "0",
+    "path": "lavis/tasks/dialogue.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "218c535682b4382c8fde54887dc2e55107465c7f",
+    "stage": "0",
+    "path": "lavis/tasks/image_text_pretrain.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "bc85170c0564dc5f17931ef6b712ec27dbfec523",
+    "stage": "0",
+    "path": "lavis/tasks/multimodal_classification.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "deacce9ccf53d020dbd7f95e5c45e91cc58b6492",
+    "stage": "0",
+    "path": "lavis/tasks/retrieval.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "ab58a2e1e25cf0a9f132845f1ca4a111a915a53d",
+    "stage": "0",
+    "path": "lavis/tasks/text_to_image_generation.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "fa805c2cf8aaa9186c43290281506361c6f27e29",
+    "stage": "0",
+    "path": "lavis/tasks/textinv.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "3c6211801f005cecedb36cd1a8ec59ca9621e646",
+    "stage": "0",
+    "path": "lavis/tasks/vqa.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "254f464b8ccf370f6263febb0bc73b9639f52d4e",
+    "stage": "0",
+    "path": "lavis/tasks/vqa_reading_comprehension.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "718a8326c102c35a354ac367084c46a75ab85885",
+    "stage": "0",
+    "path": "projects/blip-diffusion/README.md"
+  },
+  {
+    "mode": "100644",
+    "oid": "ea85c363ceb546220e2e0c7daccdc5101036e975",
+    "stage": "0",
+    "path": "projects/blip-diffusion/images/black-cat.png"
+  },
+  {
+    "mode": "100644",
+    "oid": "5a2081728f4515a64fe5d168f3a9b330ae530ad3",
+    "stage": "0",
+    "path": "projects/blip-diffusion/images/cat-sofa.png"
+  },
+  {
+    "mode": "100644",
+    "oid": "b9b08a60fd9a8436fdfaea083527f66d2381599c",
+    "stage": "0",
+    "path": "projects/blip-diffusion/images/dog.png"
+  },
+  {
+    "mode": "100644",
+    "oid": "3bf9b67b27a6391579fb1371a2e67e4b1ba73642",
+    "stage": "0",
+    "path": "projects/blip-diffusion/images/dog2.png"
+  },
+  {
+    "mode": "100644",
+    "oid": "f7726c1a276e72464ae5ac062fcf0a7952a3495f",
+    "stage": "0",
+    "path": "projects/blip-diffusion/images/dreambooth/dog/00.jpg"
+  },
+  {
+    "mode": "100644",
+    "oid": "a57b56ae13d6440100916786ce3ccaa2fd94066d",
+    "stage": "0",
+    "path": "projects/blip-diffusion/images/dreambooth/dog/01.jpg"
+  },
+  {
+    "mode": "100644",
+    "oid": "92dfe04c96fb1d36242aae3da107e0e42199f2c0",
+    "stage": "0",
+    "path": "projects/blip-diffusion/images/dreambooth/dog/02.jpg"
+  },
+  {
+    "mode": "100644",
+    "oid": "2a910d0c57a399c5a059210e708a591654012b67",
+    "stage": "0",
+    "path": "projects/blip-diffusion/images/dreambooth/dog/03.jpg"
+  },
+  {
+    "mode": "100644",
+    "oid": "2e6c6bc937f85a0f58846e2ed222210d7e40bf5c",
+    "stage": "0",
+    "path": "projects/blip-diffusion/images/dreambooth/dog/04.jpg"
+  },
+  {
+    "mode": "100644",
+    "oid": "1af3342ef3d3ba1f7cfb84342123eb3fd8ebb0e5",
+    "stage": "0",
+    "path": "projects/blip-diffusion/images/dreambooth/dog8/00.jpg"
+  },
+  {
+    "mode": "100644",
+    "oid": "9b67d30c2902c98c9ff2efc8043345cc316fb062",
+    "stage": "0",
+    "path": "projects/blip-diffusion/images/dreambooth/dog8/01.jpg"
+  },
+  {
+    "mode": "100644",
+    "oid": "f5818db48e2705fc7a2259927ed8cc70a08c4c9a",
+    "stage": "0",
+    "path": "projects/blip-diffusion/images/dreambooth/dog8/02.jpg"
+  },
+  {
+    "mode": "100644",
+    "oid": "69602fa079214eaaba6e62dfd8350415de1aa020",
+    "stage": "0",
+    "path": "projects/blip-diffusion/images/dreambooth/dog8/03.jpg"
+  },
+  {
+    "mode": "100644",
+    "oid": "074c061d1ff6f78a5a4f5e555146e216e3f20e16",
+    "stage": "0",
+    "path": "projects/blip-diffusion/images/dreambooth/dog8/04.jpg"
+  },
+  {
+    "mode": "100644",
+    "oid": "e65e9b0c50d643d213a6d6ce1651ca5e3279ae9b",
+    "stage": "0",
+    "path": "projects/blip-diffusion/images/dress-model.png"
+  },
+  {
+    "mode": "100644",
+    "oid": "44e162a5e09f2bc453b2fd0ad93f662478bf4494",
+    "stage": "0",
+    "path": "projects/blip-diffusion/images/flower.jpg"
+  },
+  {
+    "mode": "100644",
+    "oid": "d3c32ec4a4c64cfd0edc461dc8c71fb7ef7308b8",
+    "stage": "0",
+    "path": "projects/blip-diffusion/images/green-skirt.png"
+  },
+  {
+    "mode": "100644",
+    "oid": "0ba574b14be1a2c4886386650daf4e2e63f2e6df",
+    "stage": "0",
+    "path": "projects/blip-diffusion/images/jacket-letter-s/jacket-letter-s.png"
+  },
+  {
+    "mode": "100644",
+    "oid": "4e290b51de2d8cd5a2c7a2566ff5bc52222ce8e1",
+    "stage": "0",
+    "path": "projects/blip-diffusion/images/kettle.jpg"
+  },
+  {
+    "mode": "100644",
+    "oid": "c41b48bf0b1d59c0a20cbffbeb135c075823bc31",
+    "stage": "0",
+    "path": "projects/blip-diffusion/images/pink-dress.png"
+  },
+  {
+    "mode": "100644",
+    "oid": "c41b48bf0b1d59c0a20cbffbeb135c075823bc31",
+    "stage": "0",
+    "path": "projects/blip-diffusion/images/pink-dress/pink-dress.png"
+  },
+  {
+    "mode": "100644",
+    "oid": "d74dc0935a5935e68e26038f1881b2ed67b23a4f",
+    "stage": "0",
+    "path": "projects/blip-diffusion/images/shein-jacket/shein-jacket.jpg"
+  },
+  {
+    "mode": "100644",
+    "oid": "88bb6d11bffdd40dbd8f03d5e3141333134b1786",
+    "stage": "0",
+    "path": "projects/blip-diffusion/notebooks/editing_real_finetuned.ipynb"
+  },
+  {
+    "mode": "100644",
+    "oid": "a71ebba689b4555a98476a2fa51a05e3a3f16808",
+    "stage": "0",
+    "path": "projects/blip-diffusion/notebooks/editing_real_zeroshot.ipynb"
+  },
+  {
+    "mode": "100644",
+    "oid": "62b7b01705af222c9447fa5e930a743204e82e70",
+    "stage": "0",
+    "path": "projects/blip-diffusion/notebooks/editing_synthetic_zeroshot.ipynb"
+  },
+  {
+    "mode": "100644",
+    "oid": "6dd3723cca3e7e6699b04e05418a4647381da3a2",
+    "stage": "0",
+    "path": "projects/blip-diffusion/notebooks/editing_tryon_zeroshot.ipynb"
+  },
+  {
+    "mode": "100644",
+    "oid": "d50716585ebd02e57b77fa464b266452040c62d6",
+    "stage": "0",
+    "path": "projects/blip-diffusion/notebooks/generation_finetuned_dog.ipynb"
+  },
+  {
+    "mode": "100644",
+    "oid": "9731df8acc6f85aab21cf06ea230772f8eecdf49",
+    "stage": "0",
+    "path": "projects/blip-diffusion/notebooks/generation_zeroshot.ipynb"
+  },
+  {
+    "mode": "100644",
+    "oid": "f96a20e45535e8d043cb98950a1426d65146bbac",
+    "stage": "0",
+    "path": "projects/blip-diffusion/notebooks/stylization.ipynb"
+  },
+  {
+    "mode": "100644",
+    "oid": "8c9889625e3c798e6a53fa509b1274bff6fbb246",
+    "stage": "0",
+    "path": "projects/blip-diffusion/teaser-website.png"
+  },
+  {
+    "mode": "100644",
+    "oid": "f2e77486cf243a211743a61fd219a1e3c3074c3d",
+    "stage": "0",
+    "path": "projects/blip2/README.md"
+  },
+  {
+    "mode": "100644",
+    "oid": "3d9b2eff7f9e9b04ed080f94bdc17aad17947457",
+    "stage": "0",
+    "path": "projects/blip2/blip2_illustration.png"
+  },
+  {
+    "mode": "100644",
+    "oid": "027210e873fe1afbafd9613e3e93bb382f719af9",
+    "stage": "0",
+    "path": "projects/blip2/model_card.pdf"
+  },
+  {
+    "mode": "100644",
+    "oid": "43287622dc278c1ea18f42611b8ca95fce6bc1f8",
+    "stage": "0",
+    "path": "projects/img2llm-vqa/Caption.png"
+  },
+  {
+    "mode": "100644",
+    "oid": "ca8a9ddb863eae294f6808323776f96702971f72",
+    "stage": "0",
+    "path": "projects/img2llm-vqa/Illustration.png"
+  },
+  {
+    "mode": "100644",
+    "oid": "68bb8612a9ec880a50503dd5df267ba59373ae0f",
+    "stage": "0",
+    "path": "projects/img2llm-vqa/QuestionGeneration.png"
+  },
+  {
+    "mode": "100644",
+    "oid": "203346719ae228332434eccf9250c8b6a02ac9c6",
+    "stage": "0",
+    "path": "projects/img2llm-vqa/README.md"
+  },
+  {
+    "mode": "100644",
+    "oid": "291c626f557f0738b38cd4d7db858709679598bb",
+    "stage": "0",
+    "path": "projects/img2llm-vqa/demo.png"
+  },
+  {
+    "mode": "100644",
+    "oid": "7b0ad9dc0c9b2f0e07bbc623a6cc46a5105c73ed",
+    "stage": "0",
+    "path": "projects/img2llm-vqa/img2llm_vqa.ipynb"
+  },
+  {
+    "mode": "100644",
+    "oid": "5f1a394fb70a873c6546071871f4765220b59750",
+    "stage": "0",
+    "path": "projects/img2llm-vqa/img2llm_vqa.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "0ef861e132d0e6ef429164e8978dba9b0ce4a859",
+    "stage": "0",
+    "path": "projects/img2prompt-vqa/README.md"
+  },
+  {
+    "mode": "100644",
+    "oid": "d7de18de165919cfbd5c17c63646e8011fa25af7",
+    "stage": "0",
+    "path": "projects/instructblip/README.md"
+  },
+  {
+    "mode": "100644",
+    "oid": "e8590f2427988f670de3275996a4521595c7de0c",
+    "stage": "0",
+    "path": "projects/instructblip/comparison.png"
+  },
+  {
+    "mode": "100644",
+    "oid": "ca59b3ddc2b15c557cc5be98683f9322807c39b3",
+    "stage": "0",
+    "path": "projects/instructblip/run_demo.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "ea3b778ed93aec21eafa688e1b155f4afb3c71af",
+    "stage": "0",
+    "path": "projects/instructblip/showcase.png"
+  },
+  {
+    "mode": "100644",
+    "oid": "3de39462754cd58009675a784674cdd7570d38f2",
+    "stage": "0",
+    "path": "projects/pnp-vqa/README.md"
+  },
+  {
+    "mode": "100644",
+    "oid": "0650f83b6f988b7e8f74d8bb1ae7565291a68c38",
+    "stage": "0",
+    "path": "projects/pnp-vqa/pnp_vqa.ipynb"
+  },
+  {
+    "mode": "100644",
+    "oid": "03ee15459de7279676958ef0b9c80766f3e8ee75",
+    "stage": "0",
+    "path": "projects/pnp-vqa/pnp_vqa.png"
+  },
+  {
+    "mode": "100644",
+    "oid": "13ad91031e7fa812665559aaffb1336981cf6b80",
+    "stage": "0",
+    "path": "pyproject.toml"
+  },
+  {
+    "mode": "100644",
+    "oid": "b50cc4004a9924e89f953f563047ad423df922bc",
+    "stage": "0",
+    "path": "requirements.txt"
+  },
+  {
+    "mode": "100644",
+    "oid": "f68cff8aaa0873349d257211a2b31eea2a858f4c",
+    "stage": "0",
+    "path": "run_scripts/albef/eval/eval_albef_nlvr.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "c5fd5e421b89b51676958e4d5f651014d00e7359",
+    "stage": "0",
+    "path": "run_scripts/albef/eval/eval_albef_ve.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "2830d414fd7695fa04d96427453393d4ae7577de",
+    "stage": "0",
+    "path": "run_scripts/albef/eval/eval_coco_retrieval.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "962e027d972c904e8eee1b25250c3e897093152b",
+    "stage": "0",
+    "path": "run_scripts/albef/eval/eval_flickr30k_retrieval.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "e645acfdb070b164ee7eca2a6212dc3970b9a96b",
+    "stage": "0",
+    "path": "run_scripts/albef/eval/test_albef_vqa.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "cf5ec5961e6b1a09b4777492fe80244d9f2c625f",
+    "stage": "0",
+    "path": "run_scripts/albef/eval/val_albef_vqa.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "1d03fd183e4298294a6afdd7f24d68c7eecc036d",
+    "stage": "0",
+    "path": "run_scripts/albef/train/pretrain.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "f157c510b913cc4215fdab774bdf99810df33a16",
+    "stage": "0",
+    "path": "run_scripts/albef/train/train_aokvqa_albef.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "eb794ab9f184a7a6958be4da76e18bc075f2bbc8",
+    "stage": "0",
+    "path": "run_scripts/albef/train/train_coco_retrieval_albef.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "d0bc83a48016e01e7f289235f038aaa4a50fcc79",
+    "stage": "0",
+    "path": "run_scripts/albef/train/train_flickr30k_retrieval_albef.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "f4a1a6b30a98deef72250567298465b29fd309ba",
+    "stage": "0",
+    "path": "run_scripts/albef/train/train_nlvr_albef.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "6ec705fea3d3e15e06d9494b3d3d82c2878cea51",
+    "stage": "0",
+    "path": "run_scripts/albef/train/train_okvqa_albef.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "8bf7f12c9f986e816ef120793aeac942b9dbf723",
+    "stage": "0",
+    "path": "run_scripts/albef/train/train_ve_albef.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "f2ce331c20382679374920812db62d5c987e6a17",
+    "stage": "0",
+    "path": "run_scripts/albef/train/train_vqa_albef.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "d342576514dde87567889a09d7ffcdf8b9008e5f",
+    "stage": "0",
+    "path": "run_scripts/alpro/eval/eval_didemo_ret.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "df73de8c35e48840a04aafe99057c2f460c4f97e",
+    "stage": "0",
+    "path": "run_scripts/alpro/eval/eval_msrvtt_qa.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "376c1cf69e5a3c1bcd6a864e95ca27d1767364fe",
+    "stage": "0",
+    "path": "run_scripts/alpro/eval/eval_msrvtt_ret.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "bd1bc106534809f4f146fa5db6c0f3673a565846",
+    "stage": "0",
+    "path": "run_scripts/alpro/eval/eval_msvd_qa.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "5ae0f75de5529a7723e1a5a456c1c5dc2c4d7940",
+    "stage": "0",
+    "path": "run_scripts/alpro/train/train_didemo_ret.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "0eff321863c8929a80b576e4be7842da79ff9a32",
+    "stage": "0",
+    "path": "run_scripts/alpro/train/train_msrvtt_qa.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "bec2ab1e9b96add134a432a5e77e8cd51b1a557e",
+    "stage": "0",
+    "path": "run_scripts/alpro/train/train_msrvtt_ret.sh"
+  },
+  {
+    "mode": "100755",
+    "oid": "9a499a34816b99e4c51482750c5c2c7dc6e35500",
+    "stage": "0",
+    "path": "run_scripts/alpro/train/train_msvd_qa.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "5767a3f2cf14cf56e1d5be6d0e0a326783bd4697",
+    "stage": "0",
+    "path": "run_scripts/blip-diffusion/train_db.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "52cdb4b3fd8e2eca61ff8659ef60bfa80c79ea83",
+    "stage": "0",
+    "path": "run_scripts/blip-diffusion/train_db_dog.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "de6942c25aa78688adc9f6b4173bbf2806ec70a6",
+    "stage": "0",
+    "path": "run_scripts/blip-diffusion/train_db_jacket_s.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "57c604cc08eed2cb51dd829982df2c8cf51c56f2",
+    "stage": "0",
+    "path": "run_scripts/blip-diffusion/train_db_pink_dress.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "da1ad3b1512441b29509066e1b07482d0bd320ae",
+    "stage": "0",
+    "path": "run_scripts/blip-diffusion/train_db_shein_jacket.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "52ec3c93751356c1e25d041cb09cd43bda32e57b",
+    "stage": "0",
+    "path": "run_scripts/blip/eval/eval_aokvqa.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "d58ff5840e0ef031bc422a5d3b49570d9c1ac0f4",
+    "stage": "0",
+    "path": "run_scripts/blip/eval/eval_coco_cap.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "96528bf4f108817fa5286629a53aeb976b3b690a",
+    "stage": "0",
+    "path": "run_scripts/blip/eval/eval_coco_cap_large.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "af15f0a65c1ea2e45edcfeb480f444f5d8e4d79e",
+    "stage": "0",
+    "path": "run_scripts/blip/eval/eval_nlvr.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "2bfac9f9713659cf460e17354a509be002b9aaf0",
+    "stage": "0",
+    "path": "run_scripts/blip/eval/eval_nocaps.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "4a6c8a21de6a75d961a4eea7d41cb8128266021e",
+    "stage": "0",
+    "path": "run_scripts/blip/eval/eval_okvqa.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "dc0d8db0250dd381d0e375ef45815c73be9f0e75",
+    "stage": "0",
+    "path": "run_scripts/blip/eval/eval_ret_coco.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "1fb4198d0504f3268af6f3fc9122822121c2924f",
+    "stage": "0",
+    "path": "run_scripts/blip/eval/eval_ret_flickr.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "049902e9177dd94b7be2641ae85c67bca3851018",
+    "stage": "0",
+    "path": "run_scripts/blip/eval/validate_vqa.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "03235d643d86449801906d78ab69f36e74d714af",
+    "stage": "0",
+    "path": "run_scripts/blip/train/pretrain.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "62c93dbbc2b75ed53c2a43749ba8ff9fb34a1dcb",
+    "stage": "0",
+    "path": "run_scripts/blip/train/train_aokvqa.sh"
+  },
+  {
+    "mode": "100755",
+    "oid": "9a85f56a12c23bc4cf26ee4210cb9534f6dfd9d1",
+    "stage": "0",
+    "path": "run_scripts/blip/train/train_caption_coco.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "50588f7ba45dd130230d831fa15562e635059a63",
+    "stage": "0",
+    "path": "run_scripts/blip/train/train_caption_coco_large.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "8abc10b69719b44d3166eb951c27890ab2f5572c",
+    "stage": "0",
+    "path": "run_scripts/blip/train/train_caption_coco_large_iters.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "8933421ec2b0675d263ec4363fd909be9ac767e6",
+    "stage": "0",
+    "path": "run_scripts/blip/train/train_nlvr.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "9e6cc2f8f70c96d5875a8fecc276b5edfe3d0956",
+    "stage": "0",
+    "path": "run_scripts/blip/train/train_okvqa.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "93fb85673bcb826bc5a2f7663908bc5b71bca76e",
+    "stage": "0",
+    "path": "run_scripts/blip/train/train_retrieval_coco.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "34fcba80b3a6f2d120641b84db11fe75b61aaff4",
+    "stage": "0",
+    "path": "run_scripts/blip/train/train_retrieval_flickr.sh"
+  },
+  {
+    "mode": "100755",
+    "oid": "f1ff4ff57c91706044d088765a1f266c6b9f64e5",
+    "stage": "0",
+    "path": "run_scripts/blip/train/train_vqa.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "92469207be9a10994d09541c0d86a822fbe26eec",
+    "stage": "0",
+    "path": "run_scripts/blip2/eval/eval_cap_coco_flant5xl.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "9938b47eb5215e5c8a91325fb0e7f62eb9ebd4d2",
+    "stage": "0",
+    "path": "run_scripts/blip2/eval/eval_cap_coco_opt2.7b.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "3156cbeecb279b90d3d37004870d95eb9e91a2da",
+    "stage": "0",
+    "path": "run_scripts/blip2/eval/eval_cap_coco_opt6.7b.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "e16e50043a02af0044965fbbc75ea3eacb156cc2",
+    "stage": "0",
+    "path": "run_scripts/blip2/eval/eval_gqa_zeroshot_flant5xl.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "8e0d7833130eff68d6c92f04822077b6aa0976da",
+    "stage": "0",
+    "path": "run_scripts/blip2/eval/eval_okvqa_zeroshot_flant5xl.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "26364a20d55056eeb169f8d6752e26f399194a81",
+    "stage": "0",
+    "path": "run_scripts/blip2/eval/eval_ret_coco.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "e58fdbe3536deba6e9aab6932b6ad9f3793a885e",
+    "stage": "0",
+    "path": "run_scripts/blip2/eval/eval_ret_flickr.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "c60a786a77d5f36ba06b309904ae21dda12a1071",
+    "stage": "0",
+    "path": "run_scripts/blip2/eval/validate_vqa_zeroshot_flant5xl.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "8e0b326a0d5c58a0539a3e627c6b17d7b0a6adde",
+    "stage": "0",
+    "path": "run_scripts/blip2/eval/validate_vqa_zeroshot_opt.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "fcbf075ca3c2ef84e7c6da307e093dd608d3f776",
+    "stage": "0",
+    "path": "run_scripts/blip2/train/pretrain_stage1.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "0f2dbb278c725cd26f134351007d71bb92fc81af",
+    "stage": "0",
+    "path": "run_scripts/blip2/train/pretrain_stage2.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "2433ffcc76982870a24088777b226efadfd77858",
+    "stage": "0",
+    "path": "run_scripts/blip2/train/train_caption_coco.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "192d3010e77dccd143fe92529e8bf5f7f309c616",
+    "stage": "0",
+    "path": "run_scripts/blip2/train/train_retrieval_coco.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "66070c3d29aaae58fb4e6985989a722698ef7104",
+    "stage": "0",
+    "path": "run_scripts/clip/eval/eval_clip_ret_coco.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "289e590bd53b69bd85ebc7d665e8def8b1c3ba88",
+    "stage": "0",
+    "path": "run_scripts/clip/eval/eval_clip_ret_flickr.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "c5c404baa1fd676b379b135463d87588f6412a4c",
+    "stage": "0",
+    "path": "run_scripts/clip/eval/eval_clip_zs_imnet.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "9fcf4d373a147cab540a0ce0bf8618ec531f9db7",
+    "stage": "0",
+    "path": "run_scripts/gpt/eval/eval_video_dialogue_avsd.sh"
+  },
+  {
+    "mode": "100755",
+    "oid": "f1e89439361802c88018d0e5095aecc79e5a0e9f",
+    "stage": "0",
+    "path": "run_scripts/gpt/train/train_video_dialogue_avsd.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "719d9d3c48c6af32ec25005f12cf935ff25d3c8d",
+    "stage": "0",
+    "path": "run_scripts/pnp-vqa/eval/eval_gqa.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "d5c15805a64e1796864ced60ce740d139c6580a8",
+    "stage": "0",
+    "path": "run_scripts/pnp-vqa/eval/eval_gqa_3b.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "4491cd8d444be42c903f5a287706f7e42e75686e",
+    "stage": "0",
+    "path": "run_scripts/pnp-vqa/eval/eval_gqa_large.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "27344bdfe1a05b3539e7607d50e0a63972b0bf20",
+    "stage": "0",
+    "path": "run_scripts/pnp-vqa/eval/eval_okvqa.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "1bf5d6bef4167af5452d9b89cf1229c260354dcc",
+    "stage": "0",
+    "path": "run_scripts/pnp-vqa/eval/eval_okvqa_3b.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "75f55d78467526298df6f0ddabdb0a14a62ac852",
+    "stage": "0",
+    "path": "run_scripts/pnp-vqa/eval/eval_okvqa_large.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "3e2f013fa333323c3b4f10798099ba1a9008304a",
+    "stage": "0",
+    "path": "run_scripts/pnp-vqa/eval/eval_vqav2.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "fc1f803c69b0efc2a32ca99cae175626a64e0c46",
+    "stage": "0",
+    "path": "run_scripts/pnp-vqa/eval/eval_vqav2_3b.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "af54a822176bb9a51ac4570fad2ad411fe909f0b",
+    "stage": "0",
+    "path": "run_scripts/pnp-vqa/eval/eval_vqav2_large.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "695f985bd2dc569eb54d5e9c7f88dc5f93f80dc3",
+    "stage": "0",
+    "path": "run_scripts/pnp-vqa/eval/eval_vqav2_test.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "48e061fc2ed083a34268d4af28b0a009670a29c0",
+    "stage": "0",
+    "path": "run_scripts/pnp-vqa/eval/eval_vqav2_test_3b.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "fc01ebb691f09ede4a08132b40278783b1cbc477",
+    "stage": "0",
+    "path": "run_scripts/pnp-vqa/eval/eval_vqav2_test_large.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "ba3c8ba9c3767f37d5315711fe6bb330c973d61e",
+    "stage": "0",
+    "path": "run_scripts/run_browser.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "b6d87ed56180be7acfc60ae43820f77ba7d3cedd",
+    "stage": "0",
+    "path": "run_scripts/run_demo.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "ab5f221760d9ee57e9386c74247e11c3b67744f5",
+    "stage": "0",
+    "path": "run_scripts/textual-inversion/train.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "c9618749a95f30f771ba390e686a064a29c22f7c",
+    "stage": "0",
+    "path": "run_scripts/textual-inversion/train_freezeLLM.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "41bb447f2219ee0c9e5ad8ef31a3a4d79537e0f8",
+    "stage": "0",
+    "path": "run_scripts/textual-inversion/train_freezeQformer.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "fbc60270f3dcbac67a5836524f87fe45f847dba5",
+    "stage": "0",
+    "path": "run_scripts/textual-inversion/train_lora.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "e92614e815193d81daa94d56f16e557171ffb9bf",
+    "stage": "0",
+    "path": "setup.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "324ddf123d1c5fa6f650917ad2976bce009edb3f",
+    "stage": "0",
+    "path": "test.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "a7320eb7db5e5cae6c2d9bcceee04bc5049f14fb",
+    "stage": "0",
+    "path": "test.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "6588443cc1f9176637f5f816fa8f0d98ef2f02a1",
+    "stage": "0",
+    "path": "tests/models/test_albef.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "ac9fcb46d068c46c469150b9b01b4785e8dbf550",
+    "stage": "0",
+    "path": "tests/models/test_blip.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "ce012084f2186e319cf974b10531d9051bb2c3f4",
+    "stage": "0",
+    "path": "tests/models/test_blip2.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "c43bb108a56109d34d64448ffcaf7a86432eb5d9",
+    "stage": "0",
+    "path": "tests/models/test_pnp_vqa.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "af90a27f7fd44fa4c52ca52fceb64889bf7f4de2",
+    "stage": "0",
+    "path": "train.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "df492bf4a59da148c9a4de2876df20237095a976",
+    "stage": "0",
+    "path": "utils/gen_path.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "81230c3803c96de4211dfe42f15b46c384119aa2",
+    "stage": "0",
+    "path": "utils/gen_path_label.py"
+  },
+  {
+    "mode": "100644",
+    "oid": "0967bfad2147d7a956cff21a3aef32ebeacc5128",
+    "stage": "0",
+    "path": "utils/gen_path_label.sh"
+  },
+  {
+    "mode": "100644",
+    "oid": "b312946b6ddc0a90c23f5caddb481acc956cbb8c",
+    "stage": "0",
+    "path": "utils/plot.py"
+  }
+]

@@ -1,0 +1,52 @@
+{
+  "argv": [
+    "/home/z/anaconda3/bin/torchrun",
+    "--standalone",
+    "--nproc_per_node=4",
+    "--log-dir",
+    "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_logs/primary_v2_recovery_20260923T065528Z/seed_42_step_1/rank_logs",
+    "--redirects",
+    "3",
+    "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/scripts/evaluation_runtime_timeout.py",
+    "--config",
+    "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/configs/semantic_jev.yaml",
+    "--seed",
+    "42",
+    "--checkpoint",
+    "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/training/seed_42/best_model.pth",
+    "--domains",
+    "cdf",
+    "--conditions",
+    "meaningless_candidates",
+    "--feature-cache-root",
+    "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/feature_cache",
+    "--output-dir",
+    "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2/seed_42"
+  ],
+  "checkpoint_sha256": "4a8a588b095436dd7dd99cff2b8900b10d4ef0dd9309b17c92571fd6fc3b60d5",
+  "config_sha256": "f192983448e3a848a32199272916a381b4317eba46b7715f8e126b4f7cf27957",
+  "configured_per_gpu_batch": 128,
+  "cwd": "/home/z/project/deepfake_detection",
+  "environment_overrides": {
+    "CUDA_VISIBLE_DEVICES": "0,1,2,3",
+    "MKL_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "PYTHONUNBUFFERED": "1"
+  },
+  "evaluation_source_bundle_sha256": "0529ab9127e142d18afef5f0ffd52c2781ff506e449cded116510afd8e3d0af7",
+  "evaluator_sha256": "0fac70d9ff4525fb49463f5f214a1c5d2d0983bf5b7ce8c9e80bd3800d8d4676",
+  "groups": [
+    [
+      42,
+      "meaningless_candidates",
+      "cdf"
+    ]
+  ],
+  "nccl_timeout_seconds": 3600,
+  "recovery_supervisor_sha256": "da365c8325f2baa89cf0a1a44b42f26da77b72e168b9f170bfd1c556cbdcf886",
+  "runtime_wrapper_sha256": "b5f42cd9fbe490684d94333bfa56565cd8e2d78173d20579c2f282597055da8d",
+  "seed": 42,
+  "started_at_utc": "2026-09-23T07:57:17.706412+00:00",
+  "step": 1
+}

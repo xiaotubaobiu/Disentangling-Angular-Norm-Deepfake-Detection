@@ -1,0 +1,8 @@
+=== norm_shortcut_raw_s42 length-only FF++/CDF/DFD ===
+W0506 11:36:04.999000 1532910 site-packages/torch/distributed/run.py:792] 
+W0506 11:36:04.999000 1532910 site-packages/torch/distributed/run.py:792] *****************************************
+W0506 11:36:04.999000 1532910 site-packages/torch/distributed/run.py:792] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W0506 11:36:04.999000 1532910 site-packages/torch/distributed/run.py:792] *****************************************
+DataLoader: batch_size_per_gpu=256 num_workers_per_rank=4 prefetch_factor=4
+Results written to /home/z/project/deepfake_detection/experiments/outputs/raw_length_only_eval/norm_shortcut_raw_s42/20260506_113609/results_summary.txt
+Best CDF: {'variant': 'feature_length', 'param': 0.0, 'split': 'cdf', 'auc': 0.8186268935086203, 'eer': 0.2590211754537597, 'acc_0.5': 0.9173630454967502, 'val_threshold': 12.154186248779297, 'val_acc_at_threshold': 0.6075000166893005, 'acc_val_threshold': 0.3370473537604457, 'rows_before_dedup': 396288, 'rows_after_dedup': 311984, 'unique_sample_ids_before': 311984, 'unique_image_paths_before': 311984, 'unique_videos_after': 2154}

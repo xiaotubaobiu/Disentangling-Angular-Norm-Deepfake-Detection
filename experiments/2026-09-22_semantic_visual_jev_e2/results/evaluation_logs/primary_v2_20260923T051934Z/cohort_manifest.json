@@ -1,0 +1,33 @@
+{
+  "code_commit": "103ab5c8fd7eedf5d2ba5c1a0f9fd24ad14c2107",
+  "conditions": [
+    "fixed_h1",
+    "seen",
+    "heldout",
+    "permutation",
+    "counterfactual",
+    "meaningless_candidates",
+    "meaningless_questions"
+  ],
+  "configured_per_gpu_batch": 128,
+  "created_at_utc": "2026-09-23T05:19:34Z",
+  "domains": [
+    "ffpp",
+    "cdf"
+  ],
+  "environment": {
+    "CUDA_VISIBLE_DEVICES": "0,1,2,3",
+    "MKL_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "PYTHONUNBUFFERED": "1"
+  },
+  "evaluation_root": "/home/z/project/deepfake_detection/experiments/2026-09-22_semantic_visual_jev_e2/results/evaluation_primary_v2",
+  "max_simultaneous_launchers": 2,
+  "seeds": [
+    42,
+    7,
+    2048
+  ],
+  "source_bundle_sha256": "0529ab9127e142d18afef5f0ffd52c2781ff506e449cded116510afd8e3d0af7"
+}

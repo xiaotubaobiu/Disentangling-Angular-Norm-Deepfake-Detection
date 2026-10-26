@@ -1,0 +1,392 @@
+# Review package: ed3af13b4acfbe766f254116d799a1b5ee18e125..1b998c5b83706fe3b4b9d326b48384801a0c1450
+
+## Commits
+1b998c5 feat: freeze E2 semantic language bank
+
+## Files changed
+ .../configs/language_bank.yaml                     | 141 ++++++++++++++++
+ src/data/semantic_language.py                      | 183 +++++++++++++++++++++
+ tests/test_semantic_language.py                    |  38 +++++
+ 3 files changed, 362 insertions(+)
+
+## Diff
+diff --git a/experiments/2026-09-22_semantic_visual_jev_e2/configs/language_bank.yaml b/experiments/2026-09-22_semantic_visual_jev_e2/configs/language_bank.yaml
+new file mode 100644
+index 0000000..3a95738
+--- /dev/null
++++ b/experiments/2026-09-22_semantic_visual_jev_e2/configs/language_bank.yaml
+@@ -0,0 +1,141 @@
++version: 1
++fixed_h1:
++  question: {id: fixed_h1_q, split: fixed, kind: question, text: "Which description best matches this facial image?"}
++  candidates:
++    - {id: fixed_h1_real, split: fixed, kind: candidate, semantic: real, text: "an authentic facial image."}
++    - {id: fixed_h1_fake, split: fixed, kind: candidate, semantic: fake, text: "a manipulated deepfake facial image."}
++
++answer_sets:
++  train:
++    - id: answer_train_short
++      options:
++        - {id: answer_train_yes_short, split: train, kind: candidate, semantic: yes, text: "yes."}
++        - {id: answer_train_no_short, split: train, kind: candidate, semantic: no, text: "no."}
++    - id: answer_train_full
++      options:
++        - {id: answer_train_yes_full, split: train, kind: candidate, semantic: yes, text: "yes, it is."}
++        - {id: answer_train_no_full, split: train, kind: candidate, semantic: no, text: "no, it is not."}
++  heldout:
++    - id: answer_heldout_formal
++      options:
++        - {id: answer_heldout_yes_formal, split: heldout, kind: candidate, semantic: yes, text: "affirmative."}
++        - {id: answer_heldout_no_formal, split: heldout, kind: candidate, semantic: no, text: "negative."}
++    - id: answer_heldout_statement
++      options:
++        - {id: answer_heldout_yes_statement, split: heldout, kind: candidate, semantic: yes, text: "that is correct."}
++        - {id: answer_heldout_no_statement, split: heldout, kind: candidate, semantic: no, text: "that is incorrect."}
++
++tasks:
++  T1:
++    train:
++      questions:
++        - {id: t1_q_train, split: train, kind: question, text: "What is the authenticity status of this facial image?"}
++      candidate_sets:
++        - id: t1_c_train
++          options:
++            - {id: t1_real_train, split: train, kind: candidate, semantic: real, text: "an authentic face image."}
++            - {id: t1_fake_train, split: train, kind: candidate, semantic: fake, text: "a manipulated face image."}
++    heldout:
++      questions:
++        - {id: t1_q_heldout, split: heldout, kind: question, text: "Which authenticity category correctly describes this face?"}
++      candidate_sets:
++        - id: t1_c_heldout
++          options:
++            - {id: t1_real_heldout, split: heldout, kind: candidate, semantic: real, text: "a bona fide facial photograph."}
++            - {id: t1_fake_heldout, split: heldout, kind: candidate, semantic: fake, text: "a facial photograph containing digital tampering."}
++
++  T2:
++    train:
++      questions:
++        - {id: t2_real_q1_train, split: train, kind: question, yes_means: real, text: "Is this facial image authentic?"}
++        - {id: t2_real_q2_train, split: train, kind: question, yes_means: real, text: "Does this face appear unaltered?"}
++        - {id: t2_fake_q1_train, split: train, kind: question, yes_means: fake, text: "Is this facial image manipulated?"}
++        - {id: t2_fake_q2_train, split: train, kind: question, yes_means: fake, text: "Has this face been digitally altered?"}
++      answer_sets: [answer_train_short, answer_train_full]
++    heldout:
++      questions:
++        - {id: t2_real_q1_heldout, split: heldout, kind: question, yes_means: real, text: "Was this face captured without forensic modification?"}
++        - {id: t2_real_q2_heldout, split: heldout, kind: question, yes_means: real, text: "Is the depicted face genuine and untouched?"}
++        - {id: t2_fake_q1_heldout, split: heldout, kind: question, yes_means: fake, text: "Does this face contain artificial manipulation?"}
++        - {id: t2_fake_q2_heldout, split: heldout, kind: question, yes_means: fake, text: "Has the facial content been tampered with?"}
++      answer_sets: [answer_heldout_formal, answer_heldout_statement]
++
++  T3:
++    train:
++      questions:
++        - {id: t3_q_train, split: train, kind: question, text: "Which description best characterizes this face image?"}
++      candidate_sets:
++        - id: t3_c1_train
++          options:
++            - {id: t3_real_c1_train, split: train, kind: candidate, semantic: real, text: "a real human face photo."}
++            - {id: t3_fake_c1_train, split: train, kind: candidate, semantic: fake, text: "a fake face photo."}
++        - id: t3_c2_train
++          options:
++            - {id: t3_real_c2_train, split: train, kind: candidate, semantic: real, text: "a genuine facial image."}
++            - {id: t3_fake_c2_train, split: train, kind: candidate, semantic: fake, text: "a manipulated facial image."}
++        - id: t3_c3_train
++          options:
++            - {id: t3_real_c3_train, split: train, kind: candidate, semantic: real, text: "an unaltered facial photograph."}
++            - {id: t3_fake_c3_train, split: train, kind: candidate, semantic: fake, text: "a forged facial photograph."}
++    heldout:
++      questions:
++        - {id: t3_q_heldout, split: heldout, kind: question, text: "Select the phrase that accurately states this face's authenticity."}
++      candidate_sets:
++        - id: t3_c1_heldout
++          options:
++            - {id: t3_real_c1_heldout, split: heldout, kind: candidate, semantic: real, text: "a bona fide camera photograph of a face."}
++            - {id: t3_fake_c1_heldout, split: heldout, kind: candidate, semantic: fake, text: "a digitally tampered facial photograph."}
++        - id: t3_c2_heldout
++          options:
++            - {id: t3_real_c2_heldout, split: heldout, kind: candidate, semantic: real, text: "a natural untouched facial image."}
++            - {id: t3_fake_c2_heldout, split: heldout, kind: candidate, semantic: fake, text: "an artificially altered facial image."}
++
++  T4:
++    train:
++      questions:
++        - {id: t4_swap_q_train, split: train, kind: question, yes_means: swap, text: "Is this face identity-swapped?"}
++        - {id: t4_reenact_q_train, split: train, kind: question, yes_means: reenact, text: "Is this face facially reenacted?"}
++      answer_sets: [answer_train_short, answer_train_full]
++    heldout:
++      questions:
++        - {id: t4_swap_q_heldout, split: heldout, kind: question, yes_means: swap, text: "Was the person's facial identity replaced with another?"}
++        - {id: t4_reenact_q_heldout, split: heldout, kind: question, yes_means: reenact, text: "Was this facial performance driven or reenacted?"}
++      answer_sets: [answer_heldout_formal, answer_heldout_statement]
++
++  T5:
++    train:
++      questions:
++        - {id: t5_q_train, split: train, kind: question, text: "What is the likely provenance of this facial image?"}
++      candidate_sets:
++        - id: t5_c1_train
++          options:
++            - {id: t5_camera_c1_train, split: train, kind: candidate, semantic: camera, text: "a camera-captured, unmanipulated face."}
++            - {id: t5_swap_c1_train, split: train, kind: candidate, semantic: swap, text: "an identity-swapped face."}
++            - {id: t5_reenact_c1_train, split: train, kind: candidate, semantic: reenact, text: "a facially reenacted face."}
++        - id: t5_c2_train
++          options:
++            - {id: t5_camera_c2_train, split: train, kind: candidate, semantic: camera, text: "an authentic face recorded by a camera."}
++            - {id: t5_swap_c2_train, split: train, kind: candidate, semantic: swap, text: "a face created by identity replacement."}
++            - {id: t5_reenact_c2_train, split: train, kind: candidate, semantic: reenact, text: "a face modified by expression or pose reenactment."}
++    heldout:
++      questions:
++        - {id: t5_q_heldout, split: heldout, kind: question, text: "Which process most likely produced the face shown here?"}
++      candidate_sets:
++        - id: t5_c_heldout
++          options:
++            - {id: t5_camera_heldout, split: heldout, kind: candidate, semantic: camera, text: "a naturally recorded face with no digital facial edit."}
++            - {id: t5_swap_heldout, split: heldout, kind: candidate, semantic: swap, text: "a face whose identity was replaced by a different person."}
++            - {id: t5_reenact_heldout, split: heldout, kind: candidate, semantic: reenact, text: "a face whose motion or expression was artificially driven."}
++
++controls:
++  candidate_sets:
++    binary:
++      - {id: nonsense_binary_a, split: control, kind: candidate, text: "the daxen facial state."}
++      - {id: nonsense_binary_b, split: control, kind: candidate, text: "the norvik facial state."}
++    ternary:
++      - {id: nonsense_ternary_a, split: control, kind: candidate, text: "the pelto image origin."}
++      - {id: nonsense_ternary_b, split: control, kind: candidate, text: "the ravik image origin."}
++      - {id: nonsense_ternary_c, split: control, kind: candidate, text: "the sulem image origin."}
++  questions:
++    - {id: nonsense_q1, split: control, kind: question, text: "Does this item satisfy the unnamed property?"}
++    - {id: nonsense_q2, split: control, kind: question, text: "Which abstract condition applies to this item?"}
+diff --git a/src/data/semantic_language.py b/src/data/semantic_language.py
+new file mode 100644
+index 0000000..08983e0
+--- /dev/null
++++ b/src/data/semantic_language.py
+@@ -0,0 +1,183 @@
++"""Frozen semantic-language manifest parsing and validation."""
++
++from dataclasses import dataclass
++from pathlib import Path
++from typing import Any
++
++import yaml
++
++
++SEMANTIC_TO_ID = {
++    "real": 0,
++    "fake": 1,
++    "no": 2,
++    "yes": 3,
++    "camera": 4,
++    "swap": 5,
++    "reenact": 6,
++}
++
++
++@dataclass(frozen=True)
++class TextEntry:
++    name: str
++    text_id: int
++    text: str
++    split: str
++    kind: str
++    semantic: str | None = None
++    yes_means: str | None = None
++
++
++@dataclass(frozen=True)
++class CandidateSet:
++    name: str
++    options: tuple[TextEntry, ...]
++
++
++@dataclass(frozen=True)
++class TaskLanguage:
++    task_id: str
++    split: str
++    questions: tuple[TextEntry, ...]
++    candidate_sets: tuple[CandidateSet, ...]
++
++
++class LanguageBank:
++    def __init__(self, raw: dict[str, Any], text_entries: tuple[TextEntry, ...]):
++        self.raw = raw
++        self.text_entries = text_entries
++        self._by_name = {entry.name: entry for entry in text_entries}
++        self._by_id = {entry.text_id: entry for entry in text_entries}
++        self.tasks = raw.get("tasks", {})
++        self._task_languages = _build_task_languages(raw, self._by_name)
++
++    def text_id(self, name: str) -> int:
++        return self._by_name[name].text_id
++
++    def text(self, name_or_id: str | int) -> str:
++        if isinstance(name_or_id, str):
++            return self._by_name[name_or_id].text
++        return self._by_id[name_or_id].text
++
++    def entries(self, split: str, kind: str | None = None) -> tuple[TextEntry, ...]:
++        return tuple(
++            entry for entry in self.text_entries
++            if entry.split == split and (kind is None or entry.kind == kind)
++        )
++
++    def task(self, task_id: str, split: str) -> TaskLanguage:
++        return self._task_languages[(task_id, split)]
++
++
++def load_language_bank(path: str | Path) -> LanguageBank:
++    raw = yaml.safe_load(Path(path).read_text())
++    if not isinstance(raw, dict):
++        raise ValueError("manifest must be a mapping")
++    entries = _collect_and_validate_entries(raw)
++    return LanguageBank(raw=raw, text_entries=entries)
++
++
++def _collect_and_validate_entries(raw: dict[str, Any]) -> tuple[TextEntry, ...]:
++    records = list(_walk_text_records(raw))
++    names = [record["id"] for record in records]
++    texts = [record["text"] for record in records]
++    if len(names) != len(set(names)):
++        raise ValueError("duplicate symbolic text id")
++    if len(texts) != len(set(texts)):
++        raise ValueError("duplicate full text string")
++    for record in records:
++        semantic = _semantic(record.get("semantic"))
++        yes_means = record.get("yes_means")
++        if semantic is not None and semantic not in SEMANTIC_TO_ID:
++            raise ValueError(f"invalid semantic: {semantic}")
++        if yes_means is not None and yes_means not in {"real", "fake", "swap", "reenact"}:
++            raise ValueError(f"invalid yes_means semantic: {yes_means}")
++    _validate_schema(raw)
++    train = {record["text"] for record in records if record["split"] == "train"}
++    heldout = {record["text"] for record in records if record["split"] == "heldout"}
++    if train & heldout:
++        raise ValueError("train and heldout text strings overlap")
++    ordered = sorted(records, key=lambda record: record["id"])
++    return tuple(
++        TextEntry(
++            name=record["id"], text_id=index, text=record["text"],
++            split=record["split"], kind=record["kind"],
++            semantic=_semantic(record.get("semantic")), yes_means=record.get("yes_means"),
++        )
++        for index, record in enumerate(ordered)
++    )
++
++
++def _walk_text_records(value: Any):
++    if isinstance(value, dict):
++        if {"id", "split", "kind", "text"} <= value.keys():
++            yield value
++        else:
++            for child in value.values():
++                yield from _walk_text_records(child)
++    elif isinstance(value, list):
++        for child in value:
++            yield from _walk_text_records(child)
++
++
++def _semantic(value: Any) -> str | None:
++    if value is True:
++        return "yes"
++    if value is False:
++        return "no"
++    return value
++
++
++def _validate_schema(raw: dict[str, Any]) -> None:
++    answer_sets = {
++        item["id"]: item
++        for items in raw.get("answer_sets", {}).values()
++        for item in items
++    }
++    for name, answer_set in answer_sets.items():
++        options = answer_set.get("options", [])
++        if len(options) != 2 or {_semantic(option.get("semantic")) for option in options} != {"yes", "no"}:
++            raise ValueError(f"non-binary answer set: {name}")
++    for task_id, task in raw.get("tasks", {}).items():
++        for split, language in task.items():
++            for reference in language.get("answer_sets", []):
++                if reference not in answer_sets:
++                    raise ValueError(f"unknown task reference: {reference}")
++            candidate_sets = language.get("candidate_sets", [])
++            if task_id == "T5":
++                for candidate_set in candidate_sets:
++                    options = candidate_set.get("options", [])
++                    if len(options) != 3 or {_semantic(item.get("semantic")) for item in options} != {"camera", "swap", "reenact"}:
++                        raise ValueError(f"non-ternary T5 set: {candidate_set.get('id')}")
++    controls = raw.get("controls", {}).get("candidate_sets", {})
++    if len(controls.get("binary", [])) != 2:
++        raise ValueError("non-binary control set")
++    if len(controls.get("ternary", [])) != 3:
++        raise ValueError("non-ternary control set")
++
++
++def _build_task_languages(raw: dict[str, Any], by_name: dict[str, TextEntry]) -> dict[tuple[str, str], TaskLanguage]:
++    answer_sets = {
++        item["id"]: item["options"]
++        for items in raw.get("answer_sets", {}).values()
++        for item in items
++    }
++    result = {}
++    for task_id, task in raw.get("tasks", {}).items():
++        for split, language in task.items():
++            candidate_sets = [
++                CandidateSet(item["id"], tuple(by_name[option["id"]] for option in item["options"]))
++                for item in language.get("candidate_sets", [])
++            ]
++            candidate_sets.extend(
++                CandidateSet(name, tuple(by_name[option["id"]] for option in answer_sets[name]))
++                for name in language.get("answer_sets", [])
++            )
++            result[(task_id, split)] = TaskLanguage(
++                task_id=task_id,
++                split=split,
++                questions=tuple(by_name[item["id"]] for item in language.get("questions", [])),
++                candidate_sets=tuple(candidate_sets),
++            )
++    return result
+diff --git a/tests/test_semantic_language.py b/tests/test_semantic_language.py
+new file mode 100644
+index 0000000..f24ad20
+--- /dev/null
++++ b/tests/test_semantic_language.py
+@@ -0,0 +1,38 @@
++from pathlib import Path
++
++import pytest
++
++from data.semantic_language import SEMANTIC_TO_ID, load_language_bank
++
++
++MANIFEST = Path(
++    "experiments/2026-09-22_semantic_visual_jev_e2/configs/language_bank.yaml"
++)
++
++
++def test_language_bank_has_five_tasks_and_nine_train_questions():
++    bank = load_language_bank(MANIFEST)
++    assert set(bank.tasks) == {"T1", "T2", "T3", "T4", "T5"}
++    assert len(bank.entries("train", kind="question")) == 9
++    assert set(SEMANTIC_TO_ID) == {
++        "real", "fake", "no", "yes", "camera", "swap", "reenact",
++    }
++
++
++def test_train_and_heldout_full_strings_are_disjoint():
++    bank = load_language_bank(MANIFEST)
++    train = {entry.text for entry in bank.entries("train")}
++    heldout = {entry.text for entry in bank.entries("heldout")}
++    assert train.isdisjoint(heldout)
++
++
++def test_duplicate_text_or_id_is_rejected(tmp_path):
++    path = tmp_path / "bad.yaml"
++    path.write_text(
++        "texts:\n"
++        "  - {id: a, split: train, kind: question, text: duplicate}\n"
++        "  - {id: a, split: heldout, kind: question, text: duplicate}\n"
++        "tasks: {}\n"
++    )
++    with pytest.raises(ValueError, match="duplicate"):
++        load_language_bank(path)

@@ -1,0 +1,9 @@
+Three projects now have independent Git repositories.
+outer-git/ contains the original /home/z/project/.git, including its index and refs.
+nested-git/ preserves original nested .git metadata; see metadata_moves.json for exact mappings.
+archive/ contains the original detection legacy workspace and its complete Git metadata.
+organization/ contains the previous cloud archive receipts and validation records.
+edited-originals/ preserves files changed during path cleanup.
+repository_history.json records original HEADs, refs and tracked working changes.
+The old compatibility links are recorded in compatibility-links/ and are no longer active.
+Restore metadata to its original location only after removing or backing up a new repository.

@@ -1,0 +1,58 @@
+Evaluating h1_jev_seed7 on ffpp
+evaluated_local_batches=200/321 elapsed_s=126.6
+{
+  "ffpp": {
+    "frame": {
+      "auc": 0.9958403576309282,
+      "ap": 0.9997979723006415,
+      "brier": 0.04234040591385978,
+      "acc_at_0_5": 0.9840059359413001,
+      "eer": 0.02658412771297284,
+      "count": 97036
+    },
+    "video": {
+      "auc": 0.9985390168442764,
+      "ap": 0.9999298270249088,
+      "brier": 0.04114871104896671,
+      "acc_at_0_5": 0.9895047556575927,
+      "eer": 0.014018071993321193,
+      "count": 3049
+    },
+    "elapsed_seconds": 185.67150712013245,
+    "candidate_swap_check": {
+      "max_logit_permutation_error": 0.0,
+      "remapped_loss_error": 0.0,
+      "passed": true
+    }
+  }
+}
+Evaluating h1_jev_seed7 on cdf
+evaluated_local_batches=200/774 elapsed_s=133.7
+evaluated_local_batches=400/774 elapsed_s=220.3
+evaluated_local_batches=600/774 elapsed_s=307.0
+{
+  "cdf": {
+    "frame": {
+      "auc": 0.879514663400655,
+      "ap": 0.9972353028644547,
+      "brier": 0.04161871344764065,
+      "acc_at_0_5": 0.9818388122467819,
+      "eer": 0.19785882478503117,
+      "count": 311984
+    },
+    "video": {
+      "auc": 0.9092433439995748,
+      "ap": 0.998049954948996,
+      "brier": 0.04120066581132042,
+      "acc_at_0_5": 0.9823250176749824,
+      "eer": 0.16598312584431446,
+      "count": 9901
+    },
+    "elapsed_seconds": 398.50262475013733,
+    "candidate_swap_check": {
+      "max_logit_permutation_error": 0.0,
+      "remapped_loss_error": 0.0,
+      "passed": true
+    }
+  }
+}
