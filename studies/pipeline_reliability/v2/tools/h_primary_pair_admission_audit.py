@@ -1,8 +1,8 @@
 """Finite original H LAST admission metadata audit, preparation-only by default.
 
 No dispatcher, training, scoring, GPU, model/image/chunk read or Q issuance.
-Qualified mode: CLIP/DINO only, anchored to their accepted own-backbone real Q.
-Prototype mode: DINO7/EFF7 only. EFF formal remains disabled.
+Qualified mode: all3 registered backbones, each anchored to its accepted own real Q.
+Prototype mode: DINO7/EFF7 only; prototype evidence never issues its own Q.
 
 Future producer contract (root launches once; this module never launches it):
   wrapper_format H_PRIMARY_PAIR_ADMISSION_TEMPLATE_V1; attempt_utc YYYYMMDDTHHMMSSZ
@@ -40,7 +40,8 @@ CPU_HASHES={'parallel_source.py':'a6133c824913ab3bf361095b415eefc9ef75be39ab32fb
 ENTRY_REVIEW_SHA='67c9588c6960b9c5f29e513ae22bb8ba57d10b8e201b4bf1d190f93a74d8fc23'
 QUALIFICATIONS={
  'clip_vit_b16':dict(path=str(ROOT/'reports/H_parallel_CPU_actual_qualification_clip_vit_b16_20261025T0830.json'),sha256='0ae309b3366de860cbd77f539c24a05aae3ec1180dbbd84bbbff95ed3111d7f7',prototype_seed=42,candidate_sha256='3e6c6366089ac131804e26d260e40f7af7c0bac92c87ee2b763d8a507c8c48f7',audit_path=str(ROOT/'qualification/H_parallel_fresh_validation/independent_actual_CPU_parallel_pair_admission_audit.json'),audit_sha256='a7d29d89b9dcfc9fea48c6e6488e1632273fd3980a907161ed3e7de045165bf3'),
- 'dinov2_vit_b14':dict(path=str(ROOT/'reports/H_parallel_CPU_actual_qualification_dinov2_vit_b14.json'),sha256='ab853480f704f24d4b080e04f0bcefb81fd31c4426e74aa36a351d7e8925bebe',prototype_seed=7,candidate_sha256='ff866b5a2504fa56d0c447b4ae2b23dba20af297a272331978dd13ee0ba050c8',audit_path=str(ROOT/'qualification/H_parallel_fresh_validation/independent_actual_CPU_parallel_pair_admission_audit_dinov2_vit_b14.json'),audit_sha256='0b5b9c1011fa2159066112f0ac5d530b866f168882df76a1ab874b1deb3baa85')}
+ 'dinov2_vit_b14':dict(path=str(ROOT/'reports/H_parallel_CPU_actual_qualification_dinov2_vit_b14.json'),sha256='ab853480f704f24d4b080e04f0bcefb81fd31c4426e74aa36a351d7e8925bebe',prototype_seed=7,candidate_sha256='ff866b5a2504fa56d0c447b4ae2b23dba20af297a272331978dd13ee0ba050c8',audit_path=str(ROOT/'qualification/H_parallel_fresh_validation/independent_actual_CPU_parallel_pair_admission_audit_dinov2_vit_b14.json'),audit_sha256='0b5b9c1011fa2159066112f0ac5d530b866f168882df76a1ab874b1deb3baa85'),
+ 'efficientnet_b0':dict(path=str(ROOT/'reports/H_parallel_CPU_actual_qualification_efficientnet_b0.json'),sha256='fc1106633391cdf2b5bfaaad1c4e5b25e6c9adbd53e26a08793da3cd5540c772',prototype_seed=7,candidate_sha256='1c54480fe43637e8711feb563f4f327479e4f36b45c5dd12b593eff1193dae2e',audit_path=str(ROOT/'qualification/H_parallel_fresh_validation/independent_actual_CPU_parallel_pair_admission_audit_efficientnet_b0.json'),audit_sha256='c71f5776a64810c374c279d75e9e42ee3ab46071dc51316db5628d2aef4368f6')}
 LEGACY={('clip_vit_b16',3407):('H_primary_admit_clip_seed3407_slot1_20261025T2000',1,'b6aca21f368587e26430c5ef3f7bf9a13d170083f19b58ddff3874f13bda8131'),('dinov2_vit_b14',7):('H_primary_DINO_CPU_qualification_candidate_seed7_slot0_20261025T2030',0,'2e05c7339e89c259a368d0a5f8592404f446704093ab0134347d6aa32b4b4545'),('efficientnet_b0',7):('H_primary_EFF_CPU_qualification_candidate_seed7_slot0_20261025T2155',0,'261e6ecebc24990098ecaad3d961304c5db5bfe262ced047f8e01c3f9b532057')}
 def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
 def read(p):return json.loads(Path(p).read_text())
@@ -61,7 +62,7 @@ require(len(_functions)==3,'accepted pure qualification helpers');_qns=dict(Path
 
 def validate_mode(bone,seed,mode):
  require(bone in LABELS and type(seed) is int and seed in SEEDS,'registered original H3bone/five-seed scope')
- require((mode=='qualified_pair' and bone in QUALIFICATIONS) or (mode=='actual_qualification_prototype' and bone in ('dinov2_vit_b14','efficientnet_b0') and seed==7),'own actual qualification required; EFF formal disabled')
+ require((mode=='qualified_pair' and bone in QUALIFICATIONS) or (mode=='actual_qualification_prototype' and bone in ('dinov2_vit_b14','efficientnet_b0') and seed==7),'fixed own actual qualification required')
 
 def generated_wrapper_code(bone,seed,slot):
  require(bone in LABELS and type(seed) is int and seed in SEEDS and type(slot) is int and slot in (0,1),'finite wrapper parameters')

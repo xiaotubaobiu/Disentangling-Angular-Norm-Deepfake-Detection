@@ -12,9 +12,9 @@ def real_Q_inputs(m,bone):
  spec=m.QUALIFICATIONS[bone];Q=m.read(spec['path']);C=m.read(Q['candidate_report']);A=m.read(Q['independent_actual_audit']);ER=m.read(Q['primary_entry_review']);ref,pins=real_family(m,bone);return Q,C,A,ER,ref,pins
 
 def test_preparation_has_no_authority():
- m=module();d=m.main([]);assert d['preparation_only'] is True and d['production_admission_started'] is False;assert d['future_wrapper_format']=='H_PRIMARY_PAIR_ADMISSION_TEMPLATE_V1';assert d['qualified_backbones']==['clip_vit_b16','dinov2_vit_b14']
+ m=module();d=m.main([]);assert d['preparation_only'] is True and d['production_admission_started'] is False;assert d['future_wrapper_format']=='H_PRIMARY_PAIR_ADMISSION_TEMPLATE_V1';assert d['qualified_backbones']==['clip_vit_b16','dinov2_vit_b14','efficientnet_b0']
 
-@pytest.mark.parametrize('bone,seed,mode,allowed',[(b,s,'qualified_pair',b!='efficientnet_b0') for b in ('clip_vit_b16','dinov2_vit_b14','efficientnet_b0') for s in (7,42,123,2026,3407)]+[('dinov2_vit_b14',7,'actual_qualification_prototype',True),('efficientnet_b0',7,'actual_qualification_prototype',True),('clip_vit_b16',7,'actual_qualification_prototype',False),('dinov2_vit_b14',42,'actual_qualification_prototype',False),('efficientnet_b0',True,'actual_qualification_prototype',False)])
+@pytest.mark.parametrize('bone,seed,mode,allowed',[(b,s,'qualified_pair',True) for b in ('clip_vit_b16','dinov2_vit_b14','efficientnet_b0') for s in (7,42,123,2026,3407)]+[('dinov2_vit_b14',7,'actual_qualification_prototype',True),('efficientnet_b0',7,'actual_qualification_prototype',True),('clip_vit_b16',7,'actual_qualification_prototype',False),('dinov2_vit_b14',42,'actual_qualification_prototype',False),('efficientnet_b0',True,'actual_qualification_prototype',False)])
 def test_finite_mode_scope(bone,seed,mode,allowed):
  m=module()
  if allowed:assert m.validate_mode(bone,seed,mode) is None
@@ -47,7 +47,7 @@ def test_future_launch_parameter_or_code_drift_rejected(field,value):
  m=module();L=future_launch(m);L[field]=value
  with pytest.raises((AssertionError,ValueError)):m.validate_launch(L,'dinov2_vit_b14',123,R/'reports/H_primary_admit_dinov2_vit_b14_seed123_slot1_20261025T230000Z_launch.json')
 
-@pytest.mark.parametrize('bone',['clip_vit_b16','dinov2_vit_b14'])
+@pytest.mark.parametrize('bone',['clip_vit_b16','dinov2_vit_b14','efficientnet_b0'])
 def test_real_own_qualification_chain_metadata_only(bone):
  m=module();Q,C,A,ER,ref,pins=real_Q_inputs(m,bone);m.validate_qualification_body(bone,Q,C,A,ER,ref,pins);extra={};got=m.validate_qualification(bone,dict(path=m.QUALIFICATIONS[bone]['path'],sha256=m.QUALIFICATIONS[bone]['sha256']),ref,pins,extra);assert got==Q;assert len(extra)>=4;assert all(m.sha(p)==h for p,h in extra.items())
 
@@ -104,7 +104,7 @@ def public_fixture(tmp_path,monkeypatch,bone='dinov2_vit_b14',mode='qualified_pa
  refs={k:dict(path=str(v),sha256=g.sha(v)) for k,v in names.items()}
  if mode=='qualified_pair':
   spec=copy.deepcopy(g.QUALIFICATIONS[bone]);proto=spec['prototype_seed'];Cq=copy.deepcopy(baseC);Cq.update(seed=proto,identity=h.expected_identity(bone,proto,expected,baseC['identity']['cache_completion_sha256'],ref));cqp=root/f'reports/H_{bone}_seed{proto}_independent_7role_parallel_candidate_20261025T0645.json';ns['dump'](cqp,Cq)
-  aqp=h.old.F/('independent_actual_CPU_parallel_pair_admission_audit.json' if bone=='clip_vit_b16' else 'independent_actual_CPU_parallel_pair_admission_audit_dinov2_vit_b14.json');Aq=copy.deepcopy(ref);Aq.update(backbone=bone,seed=proto,receipt_path=str(cqp),receipt_sha256=g.sha(cqp),receipt_status=Cq['status'],original_primary_pair_identity=Cq['identity'],pinned_sha256=expected,functional_allowed_backbones=[bone],intended_functional_validator_use=['independent_role_admission','primary_pair_analysis'],implementation_sha256=copy.deepcopy(g.CPU_HASHES));ns['dump'](aqp,Aq)
+  aqp=h.old.F/('independent_actual_CPU_parallel_pair_admission_audit.json' if bone=='clip_vit_b16' else f'independent_actual_CPU_parallel_pair_admission_audit_{bone}.json');Aq=copy.deepcopy(ref);Aq.update(backbone=bone,seed=proto,receipt_path=str(cqp),receipt_sha256=g.sha(cqp),receipt_status=Cq['status'],original_primary_pair_identity=Cq['identity'],pinned_sha256=expected,functional_allowed_backbones=[bone],intended_functional_validator_use=['independent_role_admission','primary_pair_analysis'],implementation_sha256=copy.deepcopy(g.CPU_HASHES));ns['dump'](aqp,Aq)
   if aqp==h.old.REFERENCE:h.old.REFERENCE_SHA=g.sha(aqp)
   erp=h.old.F/'independent_cpu_primary_analysis_entry_fix_confirmation.json';erp.write_bytes((R/'qualification/H_parallel_fresh_validation'/erp.name).read_bytes());qpath=root/'reports'/Path(spec['path']).name;Q=g.read(spec['path']);Q.update(candidate_report=str(cqp),candidate_report_sha256=g.sha(cqp),independent_actual_audit=str(aqp),independent_actual_audit_sha256=g.sha(aqp),primary_entry_review=str(erp),primary_entry_review_sha256=g.sha(erp));ns['dump'](qpath,Q);spec.update(path=str(qpath),sha256=g.sha(qpath),candidate_sha256=g.sha(cqp),audit_path=str(aqp),audit_sha256=g.sha(aqp));g.QUALIFICATIONS=copy.deepcopy(g.QUALIFICATIONS);g.QUALIFICATIONS[bone]=spec;refs['CPU_qualification']=dict(path=str(qpath),sha256=g.sha(qpath));refs['candidate']['sha256']=g.sha(names['candidate'])
  b=g.HERE/f'{names["launch"].name.removesuffix("_launch.json")}_{mode}_matrix_admission_bindings.json'
@@ -117,11 +117,11 @@ def public_fixture(tmp_path,monkeypatch,bone='dinov2_vit_b14',mode='qualified_pa
 
 def run_public(g,b,mode):return g.main(['--execute','--binding',str(b),'--binding-sha',g.sha(b),'--mode',mode,'--slot','1'])
 
-@pytest.mark.parametrize('bone,mode,future',[('clip_vit_b16','qualified_pair',False),('dinov2_vit_b14','qualified_pair',False),('dinov2_vit_b14','qualified_pair',True),('dinov2_vit_b14','actual_qualification_prototype',False),('efficientnet_b0','actual_qualification_prototype',False)])
+@pytest.mark.parametrize('bone,mode,future',[('clip_vit_b16','qualified_pair',False),('dinov2_vit_b14','qualified_pair',False),('dinov2_vit_b14','qualified_pair',True),('dinov2_vit_b14','actual_qualification_prototype',False),('efficientnet_b0','actual_qualification_prototype',False),('efficientnet_b0','qualified_pair',False),('efficientnet_b0','qualified_pair',True)])
 def test_public_main_full_metadata_surrogate_positive(tmp_path,monkeypatch,bone,mode,future):
  g,b,names,entries,dump=public_fixture(tmp_path,monkeypatch,bone,mode,future);result=run_public(g,b,mode);d=g.read(result['output']);assert len(entries)==1 and len(d['canonical_shared107_pin_sha256'])==107 and len(d['role_marker_checks'])==14 and len(d['role_manifest_footer_metadata'])==7;assert result['CPU_qualification_issued'] is False and d['source_checks_in_ledger_receipts']==140;assert d['bracketed_readonly_evidence_sha256'][g.__file__]==g.sha(g.__file__);assert d['production_GPU_allowed'] is False and d['M_authorized'] is False
  if mode=='qualified_pair':assert g.QUALIFICATIONS[bone]['path'] in d['bracketed_readonly_evidence_sha256']
- if future:assert Path(d['producer_process_witness_path']).name.startswith('H_primary_admit_dinov2_vit_b14_seed123_slot1_20261025T230000Z')
+ if future:assert Path(d['producer_process_witness_path']).name.startswith(f'H_primary_admit_{bone}_seed123_slot1_20261025T230000Z')
 
 @pytest.mark.parametrize('case',['missing_Q','wrong_Q_SHA','foreign_Q_path','wrongbone_Q','FAILED_aux','CLIP_aux','bool_aux140','foreign_aux_namespace','bool140','marker_dimension','marker_head','frame_count','source_manifest','footer','conflicting_pin','late_PID','before_output_drift','wrong_snapshot','wrong_attempt','witness_wrong_code','stdout_early_complete','time_exit1'])
 def test_public_main_fails_closed_and_no_positive_output(tmp_path,monkeypatch,case):
@@ -182,7 +182,7 @@ def test_public_main_fails_closed_and_no_positive_output(tmp_path,monkeypatch,ca
  assert not out.exists()
 
 
-def test_EFF_formal_rejected_before_even_fake_slot(tmp_path,monkeypatch):
+def test_EFF_prototype_five_refs_cannot_authorize_formal_before_even_fake_slot(tmp_path,monkeypatch):
  g,b,names,entries,dump=public_fixture(tmp_path,monkeypatch,'efficientnet_b0','actual_qualification_prototype')
  with pytest.raises(AssertionError):run_public(g,b,'qualified_pair')
  assert entries==[]
@@ -257,3 +257,29 @@ def test_future_binding_contract_names_each_mode(tmp_path,monkeypatch):
  for mode in ('actual_qualification_prototype','qualified_pair'):
   _,binding=g.launch_layout(L,'dinov2_vit_b14',123,mode=mode);assert binding==g.HERE/f'{stem}_{mode}_matrix_admission_bindings.json'
  assert g.main([])['future_binding']=='<stem>_<mode>_matrix_admission_bindings.json'
+
+
+
+def test_eff_anchor_values_are_exact_accepted_own_C_Aq_Q():
+ m=module();spec=m.QUALIFICATIONS['efficientnet_b0'];assert spec==dict(path=str(R/'reports/H_parallel_CPU_actual_qualification_efficientnet_b0.json'),sha256='fc1106633391cdf2b5bfaaad1c4e5b25e6c9adbd53e26a08793da3cd5540c772',prototype_seed=7,candidate_sha256='1c54480fe43637e8711feb563f4f327479e4f36b45c5dd12b593eff1193dae2e',audit_path=str(R/'qualification/H_parallel_fresh_validation/independent_actual_CPU_parallel_pair_admission_audit_efficientnet_b0.json'),audit_sha256='c71f5776a64810c374c279d75e9e42ee3ab46071dc51316db5628d2aef4368f6')
+
+
+@pytest.mark.parametrize('case',['wrongbone_Q','wrong_Q_SHA','unaccepted_self_declared_Q','prototype_binding_as_qualified','qualified_binding_as_prototype'])
+def test_eff_formal_own_Q_and_mode_boundaries(tmp_path,monkeypatch,case):
+ mode='actual_qualification_prototype' if case=='prototype_binding_as_qualified' else 'qualified_pair';g,b,names,entries,dump=public_fixture(tmp_path,monkeypatch,'efficientnet_b0',mode);requested=mode
+ if case=='prototype_binding_as_qualified':requested='qualified_pair'
+ elif case=='qualified_binding_as_prototype':requested='actual_qualification_prototype'
+ else:
+  bd=g.read(b);qr=bd['proofs']['CPU_qualification'];Q=g.read(qr['path']);spec=g.QUALIFICATIONS['efficientnet_b0']
+  if case=='wrong_Q_SHA':qr['sha256']='0'*64
+  elif case=='wrongbone_Q':
+   # SHA-correct fixture Q must still fail semantic same-backbone admission.
+   Q['allowed_backbones']=['dinov2_vit_b14'];dump(qr['path'],Q);qr['sha256']=g.sha(qr['path']);spec['sha256']=qr['sha256']
+  else:
+   # A well-shaped new self-declared Q cannot replace the accepted fixed rawSHA.
+   Q['utc']='unaccepted_new_qualification';dump(qr['path'],Q);qr['sha256']=g.sha(qr['path'])
+  dump(b,bd)
+ with pytest.raises((AssertionError,KeyError,ValueError)):run_public(g,b,requested)
+ assert not (g.HERE/'H_EFF_seed7_parallel_cache_admission_independent_audit.json').exists()
+ assert not (g.HERE/'H_EFF_seed7_actual_CPU_qualification_metadata_audit.json').exists()
+ if 'binding_as' in case:assert entries==[]
