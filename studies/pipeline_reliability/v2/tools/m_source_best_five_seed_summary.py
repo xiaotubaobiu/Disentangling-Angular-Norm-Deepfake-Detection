@@ -14,7 +14,7 @@ import pandas as pd
 CODE=Path(__file__).resolve().parents[1]
 ROOT=Path('/home/z/workspace/deepfake_pipeline_reliability_v2_20261023')
 AUDIT=Path(__file__).parent/'m_source_best_result_audit.py'
-AUDIT_SHA='72f28181f6aef259a9686d35d2848cfb5f9f041f9184389c48e67f21ed24e419'
+AUDIT_SHA='85420f856d8b869033642b6c8c90b5917d6205dc088d8a6a2edc05564fb5d8a7'
 PLAN=Path('/home/z/obsidian/paper/deepfake-detector/新实验设计/20261023/新实验计划_本机适配版.md')
 PLAN_SHA='b018b01915a62c645fc3718134970cd49dc0651ecfd02792220f3a0086c6594d'
 def require(ok,why):

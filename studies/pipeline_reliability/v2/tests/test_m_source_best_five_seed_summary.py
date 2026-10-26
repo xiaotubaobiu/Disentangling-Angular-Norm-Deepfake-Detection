@@ -321,7 +321,7 @@ def accepted_item_fixture(tmp_path,monkeypatch):
   ref=tiny_ref(m,root/'proofs'/f'{name}.json',{'name':name});refs[name]=ref;initial[ref['path']]=ref['sha256']
  contexts={}
  for h in spec['runs']:
-  contexts[h]=dict(checkpoint_selection='source_best',route='H',seed=7,backbone=spec['backbone'],parent_run_id=spec['runs'][h],epochs=30,source_best_epoch=prefix(spec)[h]['epoch'],source_best_prefix={k:v for k,v in prefix(spec)[h].items() if k!='seed'})
+  contexts[h]=dict(schema='M_SOURCE_BEST_RAW_FP32_CACHE_V1',run_id=spec['runs'][h],checkpoint_selection='source_best',route='H',seed=7,backbone=spec['backbone'],parent_run_id=spec['runs'][h],epochs=30,source_best_epoch=prefix(spec)[h]['epoch'],source_best_prefix={k:v for k,v in prefix(spec)[h].items() if k!='seed'})
  ident=dict(schema='M_STATISTIC_STATIC_IDENTITY_V1',scope='SELECTED_FOUR_CORE_SOURCE_BEST_DESCRIPTIVE_SENSITIVITY',job=spec,checkpoint_selection='source_best',CAL_repeats=200,TEST_repeats=2000,resampling_seed=20261023,update_matched_primary_claim=False,code_sha256=m.audit.producer_package_codes(),input_admission_sha256=refs['input_admission']['sha256'],source_contexts=contexts,cache_completion_sha256={})
  for h,run in spec['runs'].items():
   for role in ('B/SOURCE_CAL','B/SOURCE_TEST','B/TARGET_TEST'):

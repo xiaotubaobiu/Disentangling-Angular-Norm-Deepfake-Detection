@@ -335,7 +335,10 @@ def check_selection(job,contexts,limitations):
     require(job==job_spec(job['route'],job['backbone'],job['seed']) and set(contexts)==set(job['runs']),'frozen selected job/contexts')
     disclosed={}
     for label,c in contexts.items():
-        require(c['checkpoint_selection']=='source_best' and c['route']==job['route'] and c['seed']==job['seed'] and c['backbone']==job['backbone'] and c['parent_run_id']==job['runs'][label],'source-only registered source-best context')
+        # Native cache contexts bind the seed via the registered formal run ID.
+        # They do not contain a redundant top-level seed; reject conflicts if supplied.
+        require(c.get('schema')=='M_SOURCE_BEST_RAW_FP32_CACHE_V1' and c.get('checkpoint_selection')=='source_best' and c.get('route')==job['route'] and c.get('backbone')==job['backbone'] and c.get('run_id')==c.get('parent_run_id')==job['runs'][label],'source-only registered source-best context')
+        require('seed' not in c or (type(c['seed']) is int and c['seed']==job['seed']),'conflicting redundant source context seed')
         best=c['source_best_prefix'];epoch=best['epoch']
         require(type(epoch) is int and 1<=epoch<=c['epochs'] and c['source_best_epoch']==epoch,'source DEV selected prefix within frozen budget')
         require(all(type(best[x]) is int and best[x]>=0 for x in ('attempts','successful_updates','AMP_skips')) and best['successful_updates']+best['AMP_skips']==best['attempts'],'selected prefix attempt/success/skip ledger')

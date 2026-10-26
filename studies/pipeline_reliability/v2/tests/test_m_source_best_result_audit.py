@@ -129,7 +129,7 @@ def test_default_entry_prepares_only(monkeypatch):
 
 def test_selection_prefix_is_bound_and_fails_closed(h_values):
     spec=dict(route='H',backbone='clip_vit_b16',seed=7,job_id='H_clip_vit_b16_seed7',runs={h:f'H_formal_clip_vit_b16_{h}_seed7' for h in ('B','AB')})
-    contexts={h:dict(checkpoint_selection='source_best',route='H',seed=7,backbone='clip_vit_b16',parent_run_id=run,epochs=30,source_best_epoch=e,source_best_prefix=dict(epoch=e,attempts=e*10,successful_updates=e*10,AMP_skips=0)) for (h,run),e in zip(spec['runs'].items(),(1,2))}
+    contexts={h:dict(schema='M_SOURCE_BEST_RAW_FP32_CACHE_V1',run_id=run,checkpoint_selection='source_best',route='H',seed=7,backbone='clip_vit_b16',parent_run_id=run,epochs=30,source_best_epoch=e,source_best_prefix=dict(epoch=e,attempts=e*10,successful_updates=e*10,AMP_skips=0)) for (h,run),e in zip(spec['runs'].items(),(1,2))}
     audit.check_selection(spec,contexts,h_values['limitations.json'])
     contexts['B']['source_best_prefix']['AMP_skips']=1
     with pytest.raises(ValueError):audit.check_selection(spec,contexts,h_values['limitations.json'])
@@ -142,7 +142,7 @@ def metadata_fixture(tmp_path,monkeypatch,h_values):
     monkeypatch.setattr(audit,'ROOT',tmp_path)
     input_sha='a'*64
     job=audit.job_spec('H','clip_vit_b16',7)
-    contexts={h:dict(checkpoint_selection='source_best',route='H',seed=7,backbone=job['backbone'],parent_run_id=run,epochs=30,source_best_epoch=e,source_best_prefix=dict(epoch=e,attempts=e*10,successful_updates=e*10,AMP_skips=0)) for (h,run),e in zip(job['runs'].items(),(1,2))}
+    contexts={h:dict(schema='M_SOURCE_BEST_RAW_FP32_CACHE_V1',run_id=run,checkpoint_selection='source_best',route='H',seed=7,backbone=job['backbone'],parent_run_id=run,epochs=30,source_best_epoch=e,source_best_prefix=dict(epoch=e,attempts=e*10,successful_updates=e*10,AMP_skips=0)) for (h,run),e in zip(job['runs'].items(),(1,2))}
     counter=[0]
     def proof(name,value):
         p=tmp_path/(name+'.json');p.parent.mkdir(parents=True,exist_ok=True)
@@ -360,3 +360,25 @@ def test_MCORE002_complete_head_file_SHA_rejects_private_header_padding(tmp_path
     with pytest.raises(ValueError,match='fixed SHA drift'):
         audit.metadata_chain(request,reader,audit.Pins())
     assert entered==[], 'Changed private head must be rejected before numeric np.load'
+
+
+@pytest.mark.parametrize('route',['D','H'])
+@pytest.mark.parametrize('seed',[7,42,123,2026,3407])
+def test_actual_context_binds_seed_through_canonical_run_identity(route,seed):
+    # Actual M_SOURCE_BEST_RAW_FP32_CACHE_V1 has no redundant top-level seed.
+    job=audit.job_spec(route,'clip_vit_b16',seed)
+    contexts={}
+    disclosed={}
+    for label,run in job['runs'].items():
+        contexts[label]=dict(schema='M_SOURCE_BEST_RAW_FP32_CACHE_V1',checkpoint_selection='source_best',route=route,backbone=job['backbone'],run_id=run,parent_run_id=run,epochs=30,source_best_epoch=23,source_best_prefix=dict(epoch=23,attempts=18377,successful_updates=18374,AMP_skips=3))
+        disclosed[label]=dict(seed=seed,epoch=23,attempts=18377,successful_updates=18374,AMP_skips=3)
+    limitations=dict(checkpoint_selection='source_best',update_matched_primary_claim=False,source_only_selected_prefix=disclosed if route=='H' else disclosed['D'])
+    limitations.update({'source_best_epochs':{h:23 for h in job['runs']}} if route=='H' else {'source_best_epoch':23})
+    assert audit.check_selection(job,contexts,limitations)==disclosed
+    for field,value in [('run_id','D_formal_clip_vit_b16_seed42'),('parent_run_id','OTHER'),('schema','OTHER'),('seed',False),('seed',seed+1)]:
+        bad=copy.deepcopy(contexts);key=next(iter(bad))
+        bad[key][field]=value if value!=bad[key].get(field) else 'OTHER'
+        with pytest.raises(ValueError):audit.check_selection(job,bad,limitations)
+    with_seed=copy.deepcopy(contexts)
+    for c in with_seed.values():c['seed']=seed
+    assert audit.check_selection(job,with_seed,limitations)==disclosed
