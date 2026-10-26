@@ -1,8 +1,0 @@
-_base_: configs/dinov2_base.yaml
-experiment_name: multibb_normtrain_s42_dinov2
-model:
-  name: dinov2_vitb14
-  normalize_features: true
-train:
-  lr: 0.00001
-  seed: 42

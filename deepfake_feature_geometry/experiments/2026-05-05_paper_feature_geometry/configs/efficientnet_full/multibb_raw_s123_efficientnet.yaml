@@ -1,8 +1,0 @@
-_base_: configs/efficientnet_base.yaml
-experiment_name: multibb_raw_s123_efficientnet
-model:
-  name: efficientnet_b0
-  normalize_features: false
-train:
-  lr: 0.0003
-  seed: 123
