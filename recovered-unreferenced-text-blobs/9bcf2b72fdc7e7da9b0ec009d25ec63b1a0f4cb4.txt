@@ -1,0 +1,20 @@
+[START] multibb_normtrain_s2048_dinov2 | DINOv2 | normtrain | seed=2048
+Using cache found in /home/z/.cache/torch/hub/facebookresearch_dinov2_main
+/home/z/.cache/torch/hub/facebookresearch_dinov2_main/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/home/z/.cache/torch/hub/facebookresearch_dinov2_main/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/home/z/.cache/torch/hub/facebookresearch_dinov2_main/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+[FFPP] loading...
+  [FFPP] step=200 frames=102400 fps=198
+  [FFPP] norm: AUC=0.999635 videos=1138 frames=164221
+[CDF] loading...
+  [CDF] step=200 frames=102400 fps=225
+  [CDF] step=400 frames=204800 fps=238
+  [CDF] step=600 frames=307200 fps=243
+  [CDF] norm: AUC=0.821481 videos=2154 frames=396284
+[DFD] loading...
+  [DFD] step=200 frames=102400 fps=230
+  [DFD] norm: AUC=0.831450 videos=3429 frames=103339
+[DONE] multibb_normtrain_s2048_dinov2

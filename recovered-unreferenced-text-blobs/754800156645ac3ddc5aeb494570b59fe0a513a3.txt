@@ -1,0 +1,13 @@
+[START] multibb_normtrain_s42_efficientnet | EfficientNet | normtrain | seed=42
+[FFPP] loading...
+  [FFPP] step=200 frames=102400 fps=182
+  [FFPP] norm: AUC=0.992349 videos=1138 frames=164221
+[CDF] loading...
+  [CDF] step=200 frames=102400 fps=542
+  [CDF] step=400 frames=204800 fps=592
+  [CDF] step=600 frames=307200 fps=621
+  [CDF] norm: AUC=0.747103 videos=2154 frames=396284
+[DFD] loading...
+  [DFD] step=200 frames=102400 fps=440
+  [DFD] norm: AUC=0.675645 videos=3429 frames=103339
+[DONE] multibb_normtrain_s42_efficientnet

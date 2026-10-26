@@ -1,0 +1,19 @@
+[START] norm_shortcut_raw_s7 | CLIP | raw | seed=7
+[FFPP] loading...
+  [FFPP] step=200 frames=102400 fps=153
+  [FFPP] raw: AUC=0.999800 videos=1138 frames=164221
+  [FFPP] direction: AUC=0.999835 videos=1138 frames=164221
+  [FFPP] length: AUC=0.962647 videos=1138 frames=164221
+[CDF] loading...
+  [CDF] step=200 frames=102400 fps=248
+  [CDF] step=400 frames=204800 fps=267
+  [CDF] step=600 frames=307200 fps=274
+  [CDF] raw: AUC=0.799217 videos=2154 frames=396284
+  [CDF] direction: AUC=0.822397 videos=2154 frames=396284
+  [CDF] length: AUC=0.783714 videos=2154 frames=396284
+[DFD] loading...
+  [DFD] step=200 frames=102400 fps=255
+  [DFD] raw: AUC=0.828717 videos=3429 frames=103339
+  [DFD] direction: AUC=0.813836 videos=3429 frames=103339
+  [DFD] length: AUC=0.383737 videos=3429 frames=103339
+[DONE] norm_shortcut_raw_s7

@@ -1,0 +1,13 @@
+[START] norm_shortcut_normtrain_s999 | CLIP | normtrain | seed=999
+[FFPP] loading...
+  [FFPP] step=200 frames=102400 fps=166
+  [FFPP] norm: AUC=0.999821 videos=1138 frames=164221
+[CDF] loading...
+  [CDF] step=200 frames=102400 fps=250
+  [CDF] step=400 frames=204800 fps=271
+  [CDF] step=600 frames=307200 fps=279
+  [CDF] norm: AUC=0.779651 videos=2154 frames=396284
+[DFD] loading...
+  [DFD] step=200 frames=102400 fps=266
+  [DFD] norm: AUC=0.832166 videos=3429 frames=103339
+[DONE] norm_shortcut_normtrain_s999

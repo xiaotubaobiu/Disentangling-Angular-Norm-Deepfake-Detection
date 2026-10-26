@@ -1,0 +1,123 @@
+# src/deepfake_detection/models/midt.py
+from __future__ import annotations
+
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+
+
+class MIDTWrapper(nn.Module):
+    """Method-Invariant Direction Training wrapper.
+
+    Wraps any backbone with:
+    - raw_head: classifier on raw features f
+    - dir_head: classifier on L2-normalized features f_hat
+    - EMA direction centroids per (method, class) for alignment loss
+    """
+
+    def __init__(self, backbone, feature_dim: int, num_classes: int = 2,
+                 centroid_momentum: float = 0.9, num_methods: int = 16):
+        super().__init__()
+        self.backbone = backbone
+        self.feature_dim = feature_dim
+        self.normalize_features = False  # MIDT handles normalization internally
+
+        self.raw_head = nn.Linear(feature_dim, num_classes)
+        self.dir_head = nn.Linear(feature_dim, num_classes)
+
+        self.centroid_momentum = centroid_momentum
+        self.num_methods = num_methods
+
+        # EMA centroids: shape (num_classes, num_methods, feature_dim)
+        # Index: centroids[class_idx][method_idx] = direction centroid
+        self.register_buffer(
+            "centroid_initialized",
+            torch.zeros(2, num_methods, dtype=torch.bool),
+        )
+        self.register_buffer(
+            "centroids",
+            torch.zeros(2, num_methods, feature_dim),
+        )
+        # Per-method sample counts for centroid averaging
+        self.register_buffer(
+            "centroid_counts",
+            torch.zeros(2, num_methods, dtype=torch.float),
+        )
+
+    def extract_features(self, images):
+        return self.backbone(images)
+
+    def forward(self, images):
+        """Standard forward for backward compatibility. Returns raw logits."""
+        features = self.extract_features(images)
+        return self.raw_head(features)
+
+    def forward_dual(self, images):
+        """Returns (raw_logits, dir_logits, features)."""
+        features = self.extract_features(images)
+        raw_logits = self.raw_head(features)
+        f_hat = F.normalize(features, dim=-1)
+        dir_logits = self.dir_head(f_hat)
+        return raw_logits, dir_logits, features
+
+    @torch.no_grad()
+    def update_centroids(self, f_hat, labels, method_ids):
+        """Update EMA direction centroids from current batch.
+
+        Args:
+            f_hat: L2-normalized features, shape (B, D)
+            labels: class labels, shape (B,)
+            method_ids: integer method indices, shape (B,)
+        """
+        for c in range(2):
+            for m in range(self.num_methods):
+                mask = (labels == c) & (method_ids == m)
+                n = mask.sum()
+                if n == 0:
+                    continue
+                batch_centroid = f_hat[mask].mean(dim=0)
+                if not self.centroid_initialized[c, m]:
+                    self.centroids[c, m] = batch_centroid
+                    self.centroid_initialized[c, m] = True
+                    self.centroid_counts[c, m] = n.float()
+                else:
+                    mom = self.centroid_momentum
+                    self.centroids[c, m] = mom * self.centroids[c, m] + (1 - mom) * batch_centroid
+                    self.centroid_counts[c, m] += n.float()
+
+    def compute_alignment_loss(self):
+        """L_align: penalize dispersion of per-class direction centroids across methods.
+
+        L_align = sum_c (1/M^2) sum_{m!=m'} [1 - cos(mu_hat_c^m, mu_hat_c^{m'})]
+        """
+        loss = torch.tensor(0.0, device=self.centroids.device)
+        count = 0
+        for c in range(2):
+            initialized = self.centroid_initialized[c]  # (num_methods,)
+            active_indices = torch.where(initialized)[0]
+            M = len(active_indices)
+            if M < 2:
+                continue
+            active_centroids = self.centroids[c, active_indices]  # (M, D)
+            # Pairwise cosine similarity: (M, M)
+            active_centroids_norm = F.normalize(active_centroids, dim=-1)
+            sim_matrix = active_centroids_norm @ active_centroids_norm.t()
+            # Sum of (1 - cos_sim) for all pairs m != m'
+            mask = ~torch.eye(M, dtype=torch.bool, device=sim_matrix.device)
+            loss = loss + sim_matrix[mask].sub(1.0).neg().mean()
+            count += 1
+        if count > 0:
+            loss = loss / count
+        return loss
+
+    def centroid_state_dict(self):
+        return {
+            "centroids": self.centroids.clone(),
+            "centroid_initialized": self.centroid_initialized.clone(),
+            "centroid_counts": self.centroid_counts.clone(),
+        }
+
+    def load_centroid_state(self, state):
+        self.centroids.copy_(state["centroids"])
+        self.centroid_initialized.copy_(state["centroid_initialized"])
+        self.centroid_counts.copy_(state["centroid_counts"])

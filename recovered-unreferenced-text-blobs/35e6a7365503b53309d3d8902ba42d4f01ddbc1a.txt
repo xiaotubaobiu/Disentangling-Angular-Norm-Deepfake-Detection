@@ -1,0 +1,105 @@
+#!/usr/bin/env bash
+set -euo pipefail
+cd "$(dirname "$0")/.."
+
+SCRIPT="scripts/eval_decomposition_unified.py"
+LOGDIR="experiments/unified_eval_logs"
+OUTDIR="experiments/unified_eval_results"
+mkdir -p "$LOGDIR" "$OUTDIR"
+
+rm -f "$OUTDIR"/*.csv
+
+ALL_EXPS=(
+    # CLIP raw (5 seeds)
+    experiments/20260505_130308
+    experiments/20260505_163304
+    experiments/20260505_200221
+    experiments/20260505_234842
+    experiments/20260506_032147
+    # CLIP normtrain (5 seeds)
+    experiments/20260505_145908
+    experiments/20260505_181828
+    experiments/20260505_215543
+    experiments/20260506_013459
+    experiments/20260506_050719
+    # EfficientNet raw (5 seeds)
+    experiments/20260513_184611
+    experiments/20260513_201947
+    experiments/20260513_215025
+    experiments/20260513_232156
+    experiments/20260514_005332
+    # EfficientNet normtrain (5 seeds)
+    experiments/20260514_022532
+    experiments/20260514_035545
+    experiments/20260514_053108
+    experiments/20260514_070630
+    experiments/20260514_083702
+    # DINOv2 raw (5 seeds)
+    experiments/20260514_220057
+    experiments/20260514_233921
+    experiments/20260515_011736
+    experiments/20260515_025614
+    experiments/20260515_043436
+    # DINOv2 normtrain (5 seeds)
+    experiments/20260515_061244
+    experiments/20260515_075109
+    experiments/20260515_092837
+    experiments/20260515_110724
+    experiments/20260515_125037
+)
+
+N_GPUS=8
+N_EXPS=${#ALL_EXPS[@]}
+
+echo "=== Unified Decomposition Evaluation ==="
+echo "Total experiments: $N_EXPS | GPUs: $N_GPUS"
+echo ""
+
+run_one() {
+    local exp_dir="$1"
+    local gpu="$2"
+    local name
+    name=$(basename "$exp_dir")
+    CUDA_VISIBLE_DEVICES="$gpu" python "$SCRIPT" \
+        --experiment-dir "$exp_dir" \
+        --device cuda:0 \
+        --batch-size 512 \
+        --num-workers 8 \
+        --output-csv "$OUTDIR/${name}.csv" \
+        > "$LOGDIR/${name}.log" 2>&1
+    echo "[GPU $gpu] Done: $name"
+}
+
+idx=0
+batch_num=0
+while [ $idx -lt $N_EXPS ]; do
+    batch_num=$((batch_num + 1))
+    pids=()
+    for gpu in $(seq 0 $((N_GPUS - 1))); do
+        [ $idx -ge $N_EXPS ] && break
+        exp="${ALL_EXPS[$idx]}"
+        echo "[Batch $batch_num | GPU $gpu] Starting $(basename "$exp")"
+        run_one "$exp" "$gpu" &
+        pids+=($!)
+        idx=$((idx + 1))
+    done
+
+    echo "Waiting for batch $batch_num ($(($idx - ${#pids[@]}))–$((idx - 1)) / $N_EXPS)..."
+    for pid in "${pids[@]}"; do
+        wait "$pid" || echo "[WARN] PID $pid exited with error"
+    done
+    echo "Batch $batch_num done. ($idx / $N_EXPS)"
+    echo ""
+done
+
+# Merge all partial CSVs
+OUTPUT_CSV="experiments/unified_decomposition_results.csv"
+echo "backbone,train_mode,seed,inference_mode,ffpp_auc,cdf_auc,dfd_auc" > "$OUTPUT_CSV"
+for csv_file in "$OUTDIR"/*.csv; do
+    [ -f "$csv_file" ] && tail -n +2 "$csv_file" >> "$OUTPUT_CSV"
+done
+
+TOTAL=$(tail -n +2 "$OUTPUT_CSV" | wc -l)
+echo "=== Complete: $TOTAL rows in $OUTPUT_CSV ==="
+echo ""
+cat "$OUTPUT_CSV"

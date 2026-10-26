@@ -1,0 +1,26 @@
+[START] multibb_raw_s999_dinov2 | DINOv2 | raw | seed=999
+Using cache found in /home/z/.cache/torch/hub/facebookresearch_dinov2_main
+/home/z/.cache/torch/hub/facebookresearch_dinov2_main/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/home/z/.cache/torch/hub/facebookresearch_dinov2_main/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/home/z/.cache/torch/hub/facebookresearch_dinov2_main/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+[FFPP] loading...
+  [FFPP] step=200 frames=102400 fps=151
+  [FFPP] raw: AUC=0.998361 videos=1138 frames=164221
+  [FFPP] direction: AUC=0.998855 videos=1138 frames=164221
+  [FFPP] length: AUC=0.487532 videos=1138 frames=164221
+[CDF] loading...
+  [CDF] step=200 frames=102400 fps=209
+  [CDF] step=400 frames=204800 fps=226
+  [CDF] step=600 frames=307200 fps=232
+  [CDF] raw: AUC=0.849264 videos=2154 frames=396284
+  [CDF] direction: AUC=0.857202 videos=2154 frames=396284
+  [CDF] length: AUC=0.635895 videos=2154 frames=396284
+[DFD] loading...
+  [DFD] step=200 frames=102400 fps=223
+  [DFD] raw: AUC=0.802455 videos=3429 frames=103339
+  [DFD] direction: AUC=0.797564 videos=3429 frames=103339
+  [DFD] length: AUC=0.431805 videos=3429 frames=103339
+[DONE] multibb_raw_s999_dinov2

@@ -1,0 +1,190 @@
+#!/usr/bin/env python3
+"""Unified decomposition evaluation producing video-level AUC.
+
+For each experiment checkpoint, evaluates all applicable inference modes
+on FFPP, CDF, and DFD domains using video-level AUC aggregation — the same
+methodology as evaluate_norm_correction.py.
+
+Modes:
+  raw experiments  → raw, direction, length  (3 inference modes)
+  normtrain experiments → norm               (1 inference mode)
+
+Output CSV: backbone, train_mode, seed, inference_mode, ffpp_auc, cdf_auc, dfd_auc
+"""
+
+from __future__ import annotations
+
+import argparse
+import csv
+import os
+import sys
+import time
+from pathlib import Path
+
+import torch
+
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from deepfake_detection.data.builders import build_eval_loader, build_external_eval_loader
+from deepfake_detection.data.index_external import (
+    index_binary_external_dataset,
+    load_external_index_cache,
+    write_external_index_cache,
+)
+from deepfake_detection.evaluation.norm_correction import apply_partial_norm
+from deepfake_detection.evaluation.sample_eval import (
+    build_sample_rows,
+    deduplicate_sample_rows,
+    sample_rows_to_video_predictions,
+)
+from deepfake_detection.models.factory import build_model
+from train import load_config
+
+BACKBONE_MAP = {
+    "clip_finetune": "CLIP",
+    "dinov2_vitb14": "DINOv2",
+    "efficientnet_b0": "EfficientNet",
+}
+
+DFD_REAL_ROOT = "/Dataset/deepfake_detection/FaceForensics++/original_sequences/actors/c23/frames"
+DFD_FAKE_ROOT = "/Dataset/deepfake_detection/FaceForensics++/manipulated_sequences/DeepFakeDetection/c23/frames"
+DFD_CACHE = "experiments/external_index_cache/dfd_frames32_seed42.json"
+
+
+def extract_features(model, images):
+    if hasattr(model, "visual"):
+        return model.visual(images.float()).float()
+    if hasattr(model, "backbone"):
+        return model.backbone(images).float()
+    raise ValueError(f"Unknown architecture: {type(model)}")
+
+
+def get_dfd_records():
+    if os.path.exists(DFD_CACHE):
+        return load_external_index_cache(DFD_CACHE)
+    os.makedirs(os.path.dirname(DFD_CACHE), exist_ok=True)
+    records = index_binary_external_dataset("dfd", DFD_REAL_ROOT, DFD_FAKE_ROOT, 32, 42)
+    write_external_index_cache(records, DFD_CACHE)
+    return records
+
+
+def score_mode(features, norms, weight, bias, device, mode):
+    if mode == "raw":
+        corrected = apply_partial_norm(features, 0.0)
+        logits = corrected @ weight.t().to(device) + bias.to(device)
+        return torch.softmax(logits, dim=1)[:, 1]
+    if mode in ("direction", "norm"):
+        corrected = apply_partial_norm(features, 1.0)
+        logits = corrected @ weight.t().to(device) + bias.to(device)
+        return torch.softmax(logits, dim=1)[:, 1]
+    if mode == "length":
+        return norms
+    raise ValueError(f"Unknown mode: {mode}")
+
+
+@torch.no_grad()
+def evaluate_domain(model, loader, device, weight, bias, modes, domain, log_every=200):
+    rows_by_mode = {m: [] for m in modes}
+    start = time.time()
+    total = 0
+
+    for step, batch in enumerate(loader, 1):
+        images = batch["image"].to(device, non_blocking=True)
+        features = extract_features(model, images)
+        norms = features.norm(dim=-1).float()
+
+        for mode in modes:
+            probs = score_mode(features, norms, weight, bias, device, mode)
+            clamped = probs.clamp(1e-12, 1 - 1e-12)
+            fake_logits = torch.stack([1 - clamped, clamped], dim=1).log()
+            rows_by_mode[mode].extend(build_sample_rows(batch, fake_logits, probs, norms))
+
+        total += images.shape[0]
+        if log_every > 0 and step % log_every == 0:
+            elapsed = max(time.time() - start, 1e-6)
+            print(f"  [{domain}] step={step} frames={total} fps={total / elapsed:.0f}", flush=True)
+
+    results = {}
+    for mode in modes:
+        deduped = deduplicate_sample_rows(rows_by_mode[mode])
+        labels, scores = sample_rows_to_video_predictions(deduped)
+        from sklearn.metrics import roc_auc_score
+        auc = roc_auc_score(labels, scores) if len(set(labels)) >= 2 else 0.0
+        results[mode] = {"auc": auc, "n_videos": len(labels), "n_frames": total}
+        print(f"  [{domain}] {mode}: AUC={auc:.6f} videos={len(labels)} frames={total}", flush=True)
+
+    return results
+
+
+def main():
+    p = argparse.ArgumentParser()
+    p.add_argument("--experiment-dir", required=True)
+    p.add_argument("--device", default="cuda:0")
+    p.add_argument("--batch-size", type=int, default=512)
+    p.add_argument("--num-workers", type=int, default=8)
+    p.add_argument("--output-csv", required=True)
+    args = p.parse_args()
+
+    cfg = load_config(os.path.join(args.experiment_dir, "config", "config.yaml"))
+    ckpt_path = os.path.join(args.experiment_dir, "output", "best_model.pth")
+    if not os.path.exists(ckpt_path):
+        print(f"[SKIP] No checkpoint: {ckpt_path}", flush=True)
+        return
+
+    model_cfg = cfg["model"]
+    backbone = BACKBONE_MAP.get(model_cfg["name"], model_cfg["name"])
+    train_mode = "normtrain" if model_cfg.get("normalize_features", False) else "raw"
+    seed = cfg["train"]["seed"]
+    exp_name = cfg.get("experiment_name", os.path.basename(args.experiment_dir))
+
+    cfg["train"]["per_gpu_batch"] = args.batch_size
+    cfg["train"]["num_workers"] = args.num_workers
+
+    print(f"[START] {exp_name} | {backbone} | {train_mode} | seed={seed}", flush=True)
+
+    device = torch.device(args.device)
+    model = build_model(model_cfg).to(device)
+    ckpt = torch.load(ckpt_path, map_location=device, weights_only=False)
+    model.load_state_dict(ckpt["model_state_dict"])
+    model.eval()
+
+    weight = model.classifier.weight.detach().cpu().float()
+    bias = model.classifier.bias.detach().cpu().float()
+
+    modes = ["raw", "direction", "length"] if train_mode == "raw" else ["norm"]
+    domain_results = {}
+
+    for domain in ["ffpp", "cdf", "dfd"]:
+        print(f"[{domain.upper()}] loading...", flush=True)
+        if domain == "dfd":
+            records = get_dfd_records()
+            loader = build_external_eval_loader(
+                cfg, records, distributed=False,
+                batch_size=args.batch_size, num_workers=args.num_workers,
+            )
+        else:
+            loader = build_eval_loader(cfg, domain, distributed=False)
+        domain_results[domain] = evaluate_domain(
+            model, loader, device, weight, bias, modes, domain.upper(),
+        )
+        del loader
+
+    # Append to CSV
+    write_header = not os.path.exists(args.output_csv)
+    with open(args.output_csv, "a", newline="") as f:
+        w = csv.writer(f)
+        if write_header:
+            w.writerow(["backbone", "train_mode", "seed", "inference_mode", "ffpp_auc", "cdf_auc", "dfd_auc"])
+        for mode in modes:
+            ffpp = domain_results["ffpp"][mode]["auc"]
+            cdf = domain_results["cdf"][mode]["auc"]
+            dfd = domain_results["dfd"][mode]["auc"]
+            w.writerow([backbone, train_mode, seed, mode, f"{ffpp:.6f}", f"{cdf:.6f}", f"{dfd:.6f}"])
+
+    print(f"[DONE] {exp_name}", flush=True)
+
+
+if __name__ == "__main__":
+    main()

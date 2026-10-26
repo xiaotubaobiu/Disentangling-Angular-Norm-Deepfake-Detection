@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+export PYTHONPATH=src
+CONFIGS=(
+  configs/exp3_normcls_itc_l003_fullffpp_ema_s42.yaml
+  configs/exp3_normcls_itc_l001_fullffpp_ema_s42.yaml
+  configs/exp4_clip_prompt_bgcontrast_fullffpp_s42.yaml
+)
+
+for i in "${!CONFIGS[@]}"; do
+  run_idx=$((i + 1))
+  cfg="${CONFIGS[$i]}"
+  echo "===== follow-up [$run_idx/${#CONFIGS[@]}] $cfg ====="
+  torchrun --nproc_per_node=8 train.py --config "$cfg"
+done

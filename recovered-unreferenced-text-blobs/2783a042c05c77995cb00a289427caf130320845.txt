@@ -1,0 +1,19 @@
+[START] multibb_raw_s7_efficientnet | EfficientNet | raw | seed=7
+[FFPP] loading...
+  [FFPP] step=200 frames=102400 fps=182
+  [FFPP] raw: AUC=0.992156 videos=1138 frames=164221
+  [FFPP] direction: AUC=0.994446 videos=1138 frames=164221
+  [FFPP] length: AUC=0.522509 videos=1138 frames=164221
+[CDF] loading...
+  [CDF] step=200 frames=102400 fps=532
+  [CDF] step=400 frames=204800 fps=581
+  [CDF] step=600 frames=307200 fps=615
+  [CDF] raw: AUC=0.760292 videos=2154 frames=396284
+  [CDF] direction: AUC=0.764218 videos=2154 frames=396284
+  [CDF] length: AUC=0.686570 videos=2154 frames=396284
+[DFD] loading...
+  [DFD] step=200 frames=102400 fps=444
+  [DFD] raw: AUC=0.685198 videos=3429 frames=103339
+  [DFD] direction: AUC=0.678230 videos=3429 frames=103339
+  [DFD] length: AUC=0.391713 videos=3429 frames=103339
+[DONE] multibb_raw_s7_efficientnet
