@@ -1,3 +1,5 @@
+> 历史执行计划：保留当时路径与决策。当前期刊主线为 `src/journal_detector`；旧实验产物已按用户要求清理，现行操作见根目录 README。
+
 # Conference training / DF40 augmentation / 21-method main implementation plan
 
 User specification: 2026-11-02 request (repeated three times); implementation and GitHub consolidation explicitly authorized.

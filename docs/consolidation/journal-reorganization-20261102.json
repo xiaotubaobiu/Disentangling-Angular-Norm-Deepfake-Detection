@@ -55,12 +55,99 @@
     "test_duration_seconds": 362.77,
     "command": "OMP_NUM_THREADS=4 python -m pytest -q --tb=short",
     "environment": "/home/z/.venvs/deepfake-journal",
-    "raw_indices_sha256_verified": 42
+    "raw_indices_sha256_verified": 42,
+    "fresh_clone_portable_tests_passed": 6,
+    "fresh_clone_status": "NOT_PREPARED",
+    "post_cleanup_raw_indices_verified": 42,
+    "post_cleanup_obsidian_hashes_verified": 8
   },
   "new_training_started": false,
   "cleanup": {
     "authorization": "保留 /Dataset 原始数据，删除本项目缓存、派生数据、权重和结果",
-    "status": "primary project artifact deletion in progress; final receipt follows",
-    "unrelated_jev_evidence_preserved": "/home/z/workspace/jev_phase1_wav2lip_evidence_20261102"
+    "status": "complete",
+    "unrelated_jev_evidence_preserved": "/home/z/workspace/jev_phase1_wav2lip_evidence_20261102",
+    "primary": {
+      "authorized_targets": [
+        {
+          "path": "/home/z/workspace/deepfake_detector_v11_20261007",
+          "device": 64769,
+          "deleted": true
+        },
+        {
+          "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023",
+          "device": 64769,
+          "deleted": true
+        },
+        {
+          "path": "/home/z/workspace/deepfake_conference21_20261102",
+          "device": 64769,
+          "deleted": true
+        },
+        {
+          "path": "/Dataset/deepfake_detection/derived/pipeline_reliability_v2_20261023",
+          "device": 2082,
+          "deleted": true
+        },
+        {
+          "path": "/home/z/workspace/deepfake_conference21_environment_20261102",
+          "device": 64769,
+          "deleted": true
+        },
+        {
+          "path": "/home/z/workspace/deepfake_detector_publish_20261023",
+          "device": 64769,
+          "deleted": true
+        },
+        {
+          "path": "/home/z/workspace/dinov2_official_reference_20261102",
+          "device": 64769,
+          "deleted": true
+        }
+      ],
+      "free_before_bytes": {
+        "/home/z/workspace": 656178999296,
+        "/Dataset": 2417549852672
+      },
+      "preserve": "/Dataset original data; only named project-derived directory removed",
+      "free_after_primary_cleanup_bytes": {
+        "/home/z/workspace": 1098780782592,
+        "/Dataset": 2495202009088
+      }
+    },
+    "additional_deleted": [
+      {
+        "path": "/home/z/workspace/deepfake_docs_reorganize_20261102",
+        "absent": true
+      },
+      {
+        "path": "/home/z/workspace/github_archives/deepfake_detector_conference_5cc0105_20261102",
+        "absent": true
+      },
+      {
+        "path": "/home/z/workspace/github_archives/pre-main-all-branches-20261102.bundle",
+        "absent": true
+      },
+      {
+        "path": "/tmp/angular_norm_inspect_20261012",
+        "absent": true
+      },
+      {
+        "path": "/home/z/workspace/deepfake_detector_main_20261102",
+        "absent": true
+      }
+    ],
+    "fresh_checkout": "/home/z/project/deepfake_detector",
+    "retired_checkout_deleted": true,
+    "fresh_checkout_source_commit": "000cf28ba89205faea6c101f6a2faadca0432ceb",
+    "retained_environment": "/home/z/.venvs/deepfake-journal",
+    "raw_dataset_directories_preserved": [
+      "DF40_all",
+      "FaceForensics++",
+      "Celeb-DF-v2-raw"
+    ],
+    "observed_free_space_increase_GiB": {
+      "/home/z/workspace": 412.21,
+      "/Dataset": 72.32
+    }
   }
 }

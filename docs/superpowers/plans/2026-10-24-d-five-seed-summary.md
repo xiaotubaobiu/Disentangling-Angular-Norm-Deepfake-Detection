@@ -1,3 +1,5 @@
+> 历史执行计划：保留当时路径与决策。当前期刊主线为 `src/journal_detector`；旧实验产物已按用户要求清理，现行操作见根目录 README。
+
 # D Five-Seed Summary Implementation Plan
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox syntax.
