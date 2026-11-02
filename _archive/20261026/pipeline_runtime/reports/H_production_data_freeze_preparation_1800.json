@@ -1,9 +1,0 @@
-{
-  "utc": "2026-10-23T18:03:37.244552+00:00",
-  "status": "PREPARED_NOT_LAUNCHED_WAITING_GENUINE_INDEPENDENT_PASS",
-  "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_production_data_freeze_1800.py",
-  "sha256": "e8302ebd3c769d5b25bd9bde8e4f9fcc622821e28b9b05a937ea6b15ba514074",
-  "frozen_protocol_changed": false,
-  "command": "CUDA_VISIBLE_DEVICES= OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 PYTHONPATH=/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2 /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -u /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_production_data_freeze_1800.py",
-  "scope": "One-shot wrapper retains OS child returncode, exclusive supervisor/worker locks, invokes existing freeze_h_data without changing or bypassing its full scan. No GPU/training."
-}

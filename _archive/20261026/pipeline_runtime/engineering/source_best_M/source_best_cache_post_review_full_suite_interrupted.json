@@ -1,9 +1,0 @@
-{
-  "utc": "2026-10-25T10:48:57Z",
-  "target_pid": 203061,
-  "scope": "ROOT_OWN_ENGINEERING_PYTEST_ONLY",
-  "reason": "new independently reproduced nonempty lock metadata-capacity residual; avoid testing mutable/unfixed candidate",
-  "verified_command": "/usr/bin/time -v -o /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/engineering/source_best_M/source_best_cache_post_review_full_suite_time_v.log /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python -m pytest -q tests --tb=short ",
-  "action": "SIGTERM_TO_VERIFIED_OWN_TEST_PROCESS_GROUP",
-  "outcome": "termination_requested; no experiment/owner/primary-analysis process targeted"
-}

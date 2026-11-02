@@ -1,0 +1,66 @@
+{
+  "date": "2026-11-02",
+  "scope": "Journal source reorganization and user-requested project artifact cleanup",
+  "obsidian_root": "paper/deepfake-detector",
+  "notes": [
+    {
+      "path": "31方法实验/实验计划.md",
+      "bytes": 29243,
+      "sha256": "a3a5f32a9bb8e9add81256ba18ac221fcc54ca036ab5d574b567f8dabdaf34a7"
+    },
+    {
+      "path": "31方法实验/实验记录.md",
+      "bytes": 24449,
+      "sha256": "c23b71e3e8ccdeb40cb58aa4fab9fca6864e34450006a2da2a6850ad80d1d96d"
+    },
+    {
+      "path": "31方法实验/实验结果.md",
+      "bytes": 66534,
+      "sha256": "603bf12b60cbffb26e6a5756be38ff0ab6c7ab2d9e75f000a5874acd908234e8"
+    },
+    {
+      "path": "31方法实验/中文稿.md",
+      "bytes": 53094,
+      "sha256": "e80709e1f5ce8e6984d850300d5123ede8f2e2dd1d5bfd1ff6cda4b020da0791"
+    },
+    {
+      "path": "21 方法实验/实验计划.md",
+      "bytes": 21899,
+      "sha256": "9a2892dfe44ebb4ae8308fd86318a66cf93fdf52cb6f4b3ebdd5eb7a7b4ba60a"
+    },
+    {
+      "path": "21 方法实验/实验记录.md",
+      "bytes": 8176,
+      "sha256": "d82cccd70377cf6ecc7757d1606f02bdda61a4876cdab43183002054e8928d51"
+    },
+    {
+      "path": "21 方法实验/实验结果.md",
+      "bytes": 186364,
+      "sha256": "e33e1be22f71a1301873b545a991d799541e58b8315a8775db57ccc7d838aa6e"
+    },
+    {
+      "path": "21 方法实验/中文稿.md",
+      "bytes": 53360,
+      "sha256": "4b7482771e16b74be5a2e45684736295e216e30513eb3e3085ed22fd6a269d89"
+    }
+  ],
+  "code_layout": {
+    "current": "src/journal_detector",
+    "historical_31": "legacy/31_methods",
+    "historical_21": "legacy/21_methods",
+    "conference": "refs/heads/codex/conference-original"
+  },
+  "validation": {
+    "tests_passed": 93,
+    "test_duration_seconds": 362.77,
+    "command": "OMP_NUM_THREADS=4 python -m pytest -q --tb=short",
+    "environment": "/home/z/.venvs/deepfake-journal",
+    "raw_indices_sha256_verified": 42
+  },
+  "new_training_started": false,
+  "cleanup": {
+    "authorization": "保留 /Dataset 原始数据，删除本项目缓存、派生数据、权重和结果",
+    "status": "primary project artifact deletion in progress; final receipt follows",
+    "unrelated_jev_evidence_preserved": "/home/z/workspace/jev_phase1_wav2lip_evidence_20261102"
+  }
+}

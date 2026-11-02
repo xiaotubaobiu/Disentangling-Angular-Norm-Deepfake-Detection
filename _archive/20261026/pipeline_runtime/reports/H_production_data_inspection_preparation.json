@@ -1,9 +1,0 @@
-{
-  "utc": "2026-10-23T15:00:03.563509+00:00",
-  "status": "PREPARED_NOT_LAUNCHED",
-  "path": "/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_production_data_inspection.py",
-  "sha256": "d628b7b1c2ddb632a106ba3feef27bbcff02205e92a85309a3104277b11e587e",
-  "precondition": "Fresh audit rc0+completecurrentcodebound8431receipt, no existing freeze/inspection, exclusiveinspectionlock",
-  "command": "CUDA_VISIBLE_DEVICES= OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 PYTHONPATH=/home/z/workspace/deepfake_detector_publish_20261023/studies/pipeline_reliability/v2 /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/environment/bin/python /home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/H_production_data_inspection.py",
-  "does_not_freeze_or_train": true
-}

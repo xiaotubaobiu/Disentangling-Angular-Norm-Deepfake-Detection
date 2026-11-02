@@ -1,9 +1,0 @@
-# Selected source-best M
-
-Human selected the previously prepared M candidate on2026-10-25. Authority: reports/source_best_M_selection_and_resource_gate_20261025T0340.json, bound to the existing M/F decision packet. This is the existing four-core-comparison design, not an F expansion.
-
-45 effective formal endpoints: D15,H30;3backbones and seeds7,42,123,2026,3407. No new training, no development substitution, no shared-best-epoch invention. D roles train/source_cal/source_test/target_full/target_cal/target_test; H native B SOURCE_CAL/SOURCE_TEST/TARGET_TEST only for both trained histories. Retain applicable200CAL/2000TEST draws and frozen score/rank/threshold/NA/source isolation. H best epochs and update counts may differ and cannot support equal-update primary claims.
-
-Primary work and original shared GPU ownership have priority. No primary code/artifact edits. New secondary namespace and identity must bind the original complete formal run, original source-best epoch/hash/tensors, selection rule, split/head/environment and code version. H target access requires original full-three effective gate; effective precision only. Production M launch requires reviewed code and a fresh full remaining primary+M+temporary+50GiB budget. Old169GiB does not fit. Unvalidated compact estimates receive zero credit.
-
-Storage approach chosen by implementer: first test byte-preserving gzip JSON as a simple schema-independent option. The old counts-matrix prototype only covered one source schema and is not sufficient for production. Compare real bytes/SHA under independent decompression across normal/closure/RQ4 schemas, keep all draws/metrics/NA/metadata and originals, and profile real H payloads when available. Any narrower encoding is unnecessary unless this fails resource admission. No cold migration or deletion is performed by the storage candidate.

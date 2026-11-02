@@ -1,8 +1,0 @@
-{
-  "utc": "2026-10-24T06:33:36.344571+00:00",
-  "failed_action": "Bounded read-only terminal observer",
-  "error": "TypeError: completed_this_session is a list of run-id strings, not dictionaries",
-  "failure_before_wait_or_any_training_mutation": true,
-  "fix": "Validate string-list schema and compare set(list) directly",
-  "queue_training_protocol_changed": false
-}

@@ -1,9 +1,0 @@
-# Finite H primary cache continuation after exclusive stage handoff
-
-Reuse original HQueue.batch and HQueue._devices unchanged, replacing only worker launch with the original cache_h.extract CLI through a bounded entry wrapper. Never compete: default read-only; execute requires complete final all3 effective registry, old owner2222605 absent, no matching H training workers, original H_pipeline.lock nonblocking exclusive ownership and full preflight under lock. No new training or M outputs. Primary30effective models×7roles, existing data/config/final FP32 encoder/head unchanged. Original extract retains all current gate/fresh-ledger/cache checks, source/target rights and GPU lifetime locks.
-
-A per-invocation nonce receipt is written only AFTER original extract returns. Queue operational completion requires this receipt's nonce/config/registry/entry SHA, aggregate markerSHA and all7 role markerSHAs. Existing unverified markers alone never bypass a worker; original extract validates/resumes them. Queue status/operational receipt is not independent scientific cache/analysis acceptance. Independent7role admission and actual metrics remain required before two-slot analysis.
-
-Fresh approved full primary budget at admission includes all remaining writes+16GiB temp+50GiB reserve, M/compact/cold credit0. During this finite stage retain the immutable full admission amount as a conservative upper bound, freshly reread free bytes and all pinned identities before every launch, saving a capacity observation. Completed writes are NOT subtracted, preventing accidental optimistic admission. No frozen training/data/code mutation; use0–3 physical idle devices/locks and D priority through original methods. Any failure leaves healthy workers untouched and stops further dispatch; no automatic retry, restart or removal.
-
-CPU synthetic tests first; independent code review before production. No actual GPU execution until registry+lock+budget gates pass.

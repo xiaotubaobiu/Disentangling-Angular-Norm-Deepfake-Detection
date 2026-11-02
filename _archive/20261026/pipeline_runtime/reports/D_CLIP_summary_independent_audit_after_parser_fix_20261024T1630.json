@@ -1,9 +1,0 @@
-{
-  "utc": "2026-10-24T16:50:26.665987+00:00",
-  "returncode": 1,
-  "seconds": 1.167764381505549,
-  "script_sha256": "0690a7694beac7a7ab977cb16d7b62c21e6b0e04ba8accb1f6f803c4c45bd8ee",
-  "stdout": "",
-  "stderr": "Traceback (most recent call last):\n  File \"/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/D_summary_independent_validation/audit.py\", line 145, in <module>\n    if __name__=='__main__':run(sys.argv[1],sys.argv[2])\n  File \"/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/D_summary_independent_validation/audit.py\", line 139, in run\n    actual=read_csv(output/(name+'.csv'));checks[name]={'rows':len(actual),'fields_verified':check_rows(actual,want,keys[name])}\n  File \"/home/z/workspace/deepfake_pipeline_reliability_v2_20261023/qualification/D_summary_independent_validation/audit.py\", line 57, in check_rows\n    else:assert got==want,(key,name,got,want)\nAssertionError: (('clip_vit_b16', 'source_test', 'correct', 'raw', 'mean_logit', 'cell', 'ranking', 'pooled_auc'), 'expected_seeds', '[7, 42, 123, 2026, 3407]', '(7, 42, 123, 2026, 3407)')\n",
-  "reason_for_rerun": "Auditor-only CSV list normalization corrected after failing regression; producer outputs unchanged."
-}
