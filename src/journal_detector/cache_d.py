@@ -6,8 +6,10 @@ provenance and every committed chunk. ``load_features`` returns manifest,
 raw FP32 features, ORIGINAL FP32 two-output weights, and ORIGINAL FP32 biases.
 Promote both head rows to FP64 before subtracting them in the scoring module.
 
-Only source-DEV selected EMA best_model.pth from a matching TRAINING_COMPLETE formal run is accepted. Source
-development checkpoints and any earlier experiment's models are ineligible.
+Only source-DEV selected EMA best_model.pth from a matching TRAINING_COMPLETE
+formal run is accepted. Epoch budgets may use isolated target development under
+the v2 protocol; that provenance remains explicit in every cache identity.
+Development checkpoints and any earlier experiment's models are ineligible.
 Chunk markers are committed after atomic .npy writes; incomplete unmarked files
 are overwritten on resume, while corrupted committed chunks cause a hard stop.
 """
@@ -47,6 +49,38 @@ def _required_hash(path, description):
     return trainer.digest(path)
 
 
+def _epoch_recipe_provenance(config, task, receipt):
+    """Keep target-assisted budget selection distinct from formal selection."""
+    from .protocol import PROTOCOL
+    out = dict(protocol=config.get('protocol'), target_development_used=False,
+               formal_trajectory_target_used=False)
+    if config.get('protocol') != PROTOCOL:
+        if receipt.get('target_development_used', False) is not False:
+            raise ValueError('legacy formal provenance cannot hide target development')
+        return out
+    root = Path(config['artifact_root']).resolve()
+    name = task.get('epoch_recipe_path')
+    if not isinstance(name, str) or not name:
+        raise ValueError('frozen epoch recipe path is required')
+    path = Path(name)
+    path = (root / path).resolve() if not path.is_absolute() else path.resolve()
+    if not path.is_relative_to(root):
+        raise ValueError('frozen epoch recipe must belong to the registered artifact root')
+    expected = task.get('epoch_recipe_sha256')
+    if _required_hash(path, 'frozen epoch recipe') != expected:
+        raise ValueError('frozen epoch recipe hash mismatch')
+    recipe = json.loads(path.read_text())
+    if (recipe.get('target_development_used') is not True
+            or recipe.get('backbone') != task['backbone']
+            or recipe.get('chosen_epochs') != task['epochs']):
+        raise ValueError('frozen epoch recipe development/backbone/budget mismatch')
+    if (receipt.get('target_development_used') is not True
+            or receipt.get('epoch_recipe_sha256') != expected):
+        raise ValueError('formal completion epoch recipe/development provenance mismatch')
+    return dict(out, target_development_used=True, epoch_recipe_path=str(path),
+                epoch_recipe_sha256=expected)
+
+
 def _context(config_path, run_id):
     """Recompute the trainer's complete identity without running any inference."""
     if not isinstance(run_id, str) or not re.fullmatch(r'[A-Za-z0-9_.-]+', run_id) or run_id in ('.', '..'):
@@ -74,8 +108,14 @@ def _context(config_path, run_id):
     if train_path != data / 'train.parquet' or dev_path != data / 'dev.parquet':
         raise ValueError('protocol D requires new data/D train and dev manifests')
     init = Path(config['backbones'][backbone]['weight_path']).resolve()
-    from .protocol import validate_config
+    from .protocol import PROTOCOL, SEEDS, validate_config
     validate_config(config)
+    if config.get('protocol') == PROTOCOL:
+        formal=[item for item in config['runs'].values()
+                if item.get('route')=='D' and item.get('phase')=='formal']
+        expected={(name,seed) for name in DIMENSIONS for seed in SEEDS}
+        if len(formal)!=15 or {(item['backbone'],item['seed']) for item in formal}!=expected:
+            raise ValueError('formal D extraction requires all fifteen (15) frozen backbone/seed runs')
     identity=trainer.training_identity(config,task)
     run_root = root / 'runs' / run_id
     final_path = run_root / 'best_model.pth'
@@ -93,7 +133,8 @@ def _context(config_path, run_id):
         or not 1 <= receipt.get('best_epoch',0) <= receipt['epochs']):
         raise ValueError('formal checkpoint epoch/selection mismatch')
     if receipt.get('target_used') is not False:
-        raise ValueError('formal completion provenance does not certify source-only selection')
+        raise ValueError('formal trajectory must not evaluate target development or TEST')
+    development = _epoch_recipe_provenance(config, task, receipt)
     final_hash = _required_hash(final_path, 'formal best EMA checkpoint')
     if receipt.get('best_sha256') != final_hash:
         raise ValueError('formal checkpoint hash mismatch')
@@ -104,6 +145,7 @@ def _context(config_path, run_id):
         'training_identity': identity, 'checkpoint_path': str(final_path),
         'checkpoint_sha256': final_hash, 'training_complete_sha256': receipt_hash,
         'cache_code_sha256': _cache_code_hash(),
+        **development,
     }
     return base, config, task
 
@@ -438,7 +480,9 @@ def _extract(config_path, run_id, device='cuda'):
     for role in roles:
         if _role_identity(base, role, identities[role]['source_manifest_path']) != identities[role]:
             raise ValueError('role manifest provenance changed during extraction')
-    result = dict(status='CACHE_COMPLETE', run_id=run_id, identity=base, roles=outputs)
+    result = dict(status='CACHE_COMPLETE', run_id=run_id, identity=base, roles=outputs,
+                  target_development_used=base['target_development_used'],
+                  formal_trajectory_target_used=False)
     trainer.save_json(out / 'complete.json', result)
     return result
 

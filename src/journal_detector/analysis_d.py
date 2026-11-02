@@ -181,6 +181,16 @@ def _digest(path):
     return digest.hexdigest()
 
 
+def guard_bootstrap_group_support(result, videos):
+    """Attach class/method support to both fast normal and joint bootstraps."""
+    if 'closure' in result:
+        units=videos[['video_uid','label','method_id']].drop_duplicates()
+        membership=result['closure'][['video_uid','closure_id']].drop_duplicates()
+        units=units.merge(membership,on='video_uid',how='left',validate='one_to_one')
+        return score.enforce_bootstrap_group_support(result,units,group_column='closure_id')
+    return score.enforce_bootstrap_group_support(result,videos)
+
+
 def formal_cache_status(config_path):
     config = json.loads(Path(config_path).read_text())
     root = Path(config['artifact_root'])
@@ -278,7 +288,8 @@ def analyze_run(config_path, run_id):
     """Production analysis, fixed at 200 CAL subsets and 2000 TEST draws.
 
     Guard and loaders reject development, stale, partial, or historical caches.
-    Target use is permitted only after source-only formal recipe freezing.
+    Formal checkpoint selection uses source DEV. The v2 epoch budget can be
+    selected on isolated CDF DEV; its frozen provenance remains explicit.
     """
     from . import cache_d
     from . import bootstrap_fast as boot
@@ -327,6 +338,7 @@ def analyze_run(config_path, run_id):
     del h, train
     independent_reports = []
     numerical_unresolved = []
+    statistical_support = []
     for role in ('source_test', 'target_full'):
         frames, h, w, bias = cache_d.load_features(cache_root / role, identity=expected_role(role))
         if not np.array_equal(w, W) or not np.array_equal(bias, b):
@@ -353,12 +365,18 @@ def analyze_run(config_path, run_id):
         for name in ('video_diagnostics', 'method_diagnostics', 'numerical_audits'):
             _csv(folder / f'{name}.csv', controls[name])
         _save_json(folder / 'pair_transition_ledgers.json', controls['transition_ledgers'])
-        _save_json(folder / 'closure_bootstrap.json', boot.bootstrap_d_fast(result['frames'], fixed_methods=methods))
+        closure=guard_bootstrap_group_support(boot.bootstrap_d_fast(result['frames'], fixed_methods=methods),result['frames'])
+        _save_json(folder / 'closure_bootstrap.json', closure)
+        statistical_support.append(dict(role=role,analysis='joint_source_collision_closure',
+            **{key:closure[key] for key in ('n_real_groups','n_fake_groups','method_fake_group_counts','conditional_interval_stability')}))
         for representation in ('raw', 'l2'):
             for aggregation in ('mean_logit', 'mean_probability'):
                 v = result['videos'].query('grouping == "correct" and representation == @representation and aggregation == @aggregation')
+                normal=guard_bootstrap_group_support(boot.bootstrap_video_metrics_fast(v, fixed_methods=methods),v)
                 _save_json(folder / f'normal_bootstrap_{representation}_{aggregation}.json',
-                           boot.bootstrap_video_metrics_fast(v, fixed_methods=methods))
+                           normal)
+                statistical_support.append(dict(role=role,analysis='correct_video_groups',representation=representation,aggregation=aggregation,
+                    **{key:normal[key] for key in ('n_real_groups','n_fake_groups','method_fake_group_counts','conditional_interval_stability')}))
         del result, h, frames
     rq4 = output / 'rq4'; rq4.mkdir(exist_ok=True)
     margins = {}
@@ -404,16 +422,27 @@ def analyze_run(config_path, run_id):
                 target_thresholds=target_thresholds) if target_thresholds else dict(
                     status='UNAVAILABLE_CALIBRATION_BUDGET', calibration_budget=20,
                     available_target_real_videos=len(pools['target_cal']), intervals=None)
+            primary=guard_bootstrap_group_support(primary,pools['target_test'])
             _save_json(folder / 'primary_n20_vs_source_bootstrap.json', primary)
+            statistical_support.append(dict(role='target_test',analysis='target_calibration_vs_source',representation=representation,aggregation=aggregation,
+                **{key:primary[key] for key in ('n_real_groups','n_fake_groups','method_fake_group_counts','conditional_interval_stability')}))
     _save_json(output / 'independent_rank_recomputation.json', independent_reports)
     _save_json(output / 'limitations.json', dict(
         target_scope=freeze['cdf_calibration_scope'], numerical_unresolved=numerical_unresolved,
+        target_development_used=bool(base.get('target_development_used',False)),
+        formal_trajectory_target_used=False,epoch_recipe_sha256=base.get('epoch_recipe_sha256'),
+        development_scope='Isolated CDF DEV may select the frozen epoch budget; the formal best EMA is selected on source DEV only.',
+        independent_group_support=statistical_support,
+        sparse_group_intervals='Insufficient real/fake or method group support makes affected conditional intervals NA; the minimum is a reporting gate, not a significance guarantee.',
+        numerical_score_spaces='Rank AUC/oracle/bootstrap retain FP64 or arbitrary-precision ordering; calibrated deployment decisions use the explicitly frozen FP64 empirical score space.',
         intervals='Pointwise conditional on the frozen model, known source/proxy groups, CAL pool and recorded subsets.',
         calibration_subset_spread='Reported separately in the 200 rows per budget; these are not independent training models.',
         interpretation='Fixed original-head inference interventions; no claim about all classifiers or strict population NP guarantees.'))
     artifacts = {str(p.relative_to(output)): _digest(p) for p in sorted(output.rglob('*')) if p.is_file() and p != complete}
     receipt = dict(status='ANALYSIS_COMPLETE_WITH_NUMERIC_NA' if numerical_unresolved else 'ANALYSIS_COMPLETE',
         utc=datetime.now(timezone.utc).isoformat(), run_id=run_id, seed=task['seed'], backbone=task['backbone'],
+        target_development_used=bool(base.get('target_development_used',False)),formal_trajectory_target_used=False,
+        epoch_recipe_sha256=base.get('epoch_recipe_sha256'),
         identity=identity, artifact_sha256=artifacts, independent_recompute='PASSED_FOR_ALL_REPORTABLE_CELLS')
     _save_json(complete, receipt)
     return receipt

@@ -28,6 +28,19 @@ DATA_ROOT = Path('/Dataset/deepfake_detection/DF40_all')
 DEFAULT_OUTPUT = REPOSITORY_ROOT / 'outputs/journal_21methods'
 SCHEMA = ['image_path','label','method_id','video_id','video_uid','group_id','domain','role','rgb_sha256','content_sha256','source_ids']
 SEED = 20261023
+CDF_DEVELOPMENT_POLICY = {
+    'version': 'cdf_joint_relation_development_v1',
+    'selection_seed': 20261102,
+    'real_video_target': 20,
+    'fake_videos_per_method_cap': 20,
+    'calibration_video_target': 80,
+    'seed_real_video_ids': [],
+    'development_component_selection': 'smallest_feasible_fake_bearing_component_prefer_all_registered_methods',
+    'development_scoring': 'score_capped_subset_quarantine_entire_touched_joint_component',
+    'calibration_selection': 'whole_real_only_joint_components_historical_CAL_first_then_other_real_only',
+    'test_selection': 'all_remaining_non_DEV_non_CAL_components_no_historical_TEST_restriction',
+    'unusable_fake_development_fallback': 'real_only_development_and_explicit_not_usable_status',
+}
 
 
 def digest(path):
@@ -106,6 +119,42 @@ def attach_components(frames, splits):
     out = frames.copy(); out['group_id'] = out.video_uid.map(lookup)
     out['group_basis'] = np.where(out.domain.eq('ff') & out.source_ids.ne('[]'),
         'known_FF_filename_source_pair_plus_full_RGB_component', 'video_surrogate_plus_full_RGB_component')
+    return attach_cdf_relations(out)
+
+
+def cdf_name_tokens(value):
+    """Conservative filename identity proxy; id1 must never match id10."""
+    return sorted(set(re.findall(r'(?<![A-Za-z0-9])id\d+(?!\d)', str(value))))
+
+
+def attach_cdf_relations(frames):
+    """Joint closure of full known groups, explicit sources and CDF name proxies.
+
+    The known group was formed using *all candidate RGB frames*, including frames
+    never selected for fixed-eight scoring. New tokens encountered through any
+    known-group edge participate in the same closure; there is no one-hop limit.
+    This relation graph is separate from the authenticated-source/RGB group_id.
+    """
+    out = frames.copy()
+    units = out.loc[out.domain.eq('cdf'), ['video_uid', 'video_id', 'group_id', 'source_ids']].drop_duplicates()
+    if units.video_uid.duplicated().any():
+        raise ValueError('Inconsistent CDF video relation metadata')
+    comp = Components()
+    token_map = {}
+    for row in units.sort_values('video_uid').itertuples(index=False):
+        node = 'video/' + row.video_uid
+        comp.union(node, 'known_group/' + str(row.group_id))
+        comp.union(node, 'cdf_name/' + row.video_id)
+        tokens = cdf_name_tokens(row.video_id)
+        token_map[row.video_uid] = json.dumps(tokens)
+        for token in tokens:
+            comp.union(node, 'cdf_identity_proxy/' + token)
+        for source in json.loads(row.source_ids):
+            comp.union(node, 'cdf_explicit_source/' + str(source))
+    lookup = {uid: hashlib.sha256(comp.find('video/' + uid).encode()).hexdigest()
+              for uid in units.video_uid}
+    out['cdf_relation_group_id'] = out.video_uid.map(lookup).fillna('')
+    out['cdf_name_tokens'] = out.video_uid.map(token_map).fillna('[]')
     return out
 
 
@@ -204,6 +253,9 @@ def load_definition(definition_root=DEFINITION_ROOT):
         definition[name] = json.loads((root/(name+'.json')).read_text())
     definition['splits'] = {name:json.loads((root/(name+'.json')).read_text()) for name in ['train','val','test']}
     definition['split_provenance'] = json.loads((root/'source_splits_provenance.json').read_text())
+    policy_path = root/'cdf_development_policy.json'
+    definition['cdf_development_policy'] = (json.loads(policy_path.read_text())
+        if policy_path.exists() else dict(CDF_DEVELOPMENT_POLICY))
     for name, evidence in definition['split_provenance'].items():
         if digest(root/(name+'.json')) != evidence['sha256']: raise ValueError('Official FF split hash mismatch')
     if set(definition['indices_sha256']) != {f'{m}_{d}.json' for m in METHODS for d in ['ff','cdf']}:
@@ -286,37 +338,197 @@ def audit_images(frames, out, workers=4):
 
 
 def cdf_proxy_split(selected, full, definition, out):
-    """Recheck historical real candidate assignment using full known RGB closure."""
+    """Freeze score-blind DEV, ranking, CAL and TEST on the joint candidate graph.
+
+    target_full remains the formal ranking filename for existing consumers. Its
+    contents exclude the entire development closure. CAL/TEST are separate RQ4
+    cohorts; ranking may contain the RQ4 calibration videos, as in the prior design.
+    """
+    out = Path(out); out.mkdir(parents=True, exist_ok=True)
+    policy = {**CDF_DEVELOPMENT_POLICY, **definition.get('cdf_development_policy', {})}
+    for key in ['real_video_target', 'fake_videos_per_method_cap', 'calibration_video_target']:
+        if not isinstance(policy[key], int) or policy[key] < 0:
+            raise ValueError('Invalid CDF development allocation budget: ' + key)
     split = definition['cdf_real_split']
-    cal_uids = {video_uid('cdf','real',v) for v in split['calibration_pool']}
-    target=selected[selected.role.eq('target_full')].copy()
-    cal=target[target.video_uid.isin(cal_uids)].copy()
-    if cal.video_uid.nunique()!=len(cal_uids): raise ValueError('Historical real calibration candidate no longer eligible')
-    cal_groups=set(full.loc[full.video_uid.isin(cal_uids),'group_id'])
-    def tokens(value): return set(re.findall(r'(?<![A-Za-z0-9])id\d+(?!\d)',value))
-    cal_tokens=set().union(*(tokens(v) for v in cal.video_id))
-    blocked_groups=set(cal_groups)
-    # Expand known full-association groups touched by any conservative identity token.
-    target_full=full[full.domain.eq('cdf')]
-    proxy_uids=set(target_full.loc[target_full.video_id.map(lambda v:bool(tokens(v)&cal_tokens)),'video_uid'])
-    blocked_groups.update(target_full.loc[target_full.video_uid.isin(proxy_uids),'group_id'])
-    test=target[~target.group_id.isin(blocked_groups) & ~target.video_uid.isin(cal_uids)].copy()
-    real_test_uids=set(split['heldout_test'])
-    test=test[test.label.eq(1)|test.video_id.isin(real_test_uids)]
-    cal['role']='target_cal';test['role']='target_test'
-    if set(cal.group_id)&set(test.group_id) or set(cal.rgb_sha256)&set(test.rgb_sha256): raise ValueError('CDF CAL/TEST known-content overlap')
-    cal.to_parquet(out/'target_cal.parquet',index=False);test.to_parquet(out/'target_test.parquet',index=False)
-    excluded=target[~target.video_uid.isin(set(cal.video_uid)|set(test.video_uid))].drop_duplicates('video_uid')
-    excluded['exclusion_reason']='full_known_RGB_component_or_conservative_id_name_proxy_connected_to_entire_CAL_pool'
-    excluded.to_parquet(out/'target_calibration_exclusions.parquet',index=False)
-    evidence={'status':'PROXY_SCOPE_EMPIRICAL_ONLY','cal_real_videos':cal.video_uid.nunique(),'test_real_videos':test.loc[test.label.eq(0),'video_uid'].nunique(),
-        'test_fake_videos':test.loc[test.label.eq(1),'video_uid'].nunique(),'excluded_videos':excluded.video_uid.nunique(),
-        'historic_split_sha256':split['source_split_sha256'],'historic_protocol_sha256':split['source_protocol_sha256'],
-        'cal_candidate_pool':'same prior score-blind80 real candidates, requalified for current fixed8 and full association graph',
-        'isolation':'video UID, all candidate RGB-connected components, conservative id-name token proxy for the entire CAL pool',
-        'ancestor_independence_certified':False,'strict_NP_population_guarantee':False,
-        'unresolved':'Complete generated-parent, donor/driver, audio and YouTube identity ancestry is not available. A filename is a proxy, not authenticated identity.'}
-    save_json(out/'cdf_calibration_scope.json',evidence)
+    full = attach_cdf_relations(full) if 'cdf_relation_group_id' not in full else full
+    candidate = full[full.domain.eq('cdf')].copy()
+    relation_columns = ['cdf_relation_group_id', 'cdf_name_tokens']
+    relation_map = candidate[['video_uid', *relation_columns]].drop_duplicates()
+    target = selected[selected.role.eq('target_full')].drop(columns=relation_columns, errors='ignore')
+    target = target.merge(relation_map, on='video_uid', validate='many_to_one')
+    units = target.drop_duplicates('video_uid').copy()
+    all_units = candidate.drop_duplicates('video_uid').copy()
+    all_units['fixed8_qualified'] = all_units.video_uid.isin(set(units.video_uid))
+    group_column = 'cdf_relation_group_id'
+    fake_groups = set(all_units.loc[all_units.label.eq(1), group_column])
+    historical_cal = set(split['calibration_pool'])
+    historical_test = set(split['heldout_test'])
+    seed = int(policy['selection_seed'])
+    def order(value):
+        return hashlib.sha256(f'{seed}:{value}'.encode()).hexdigest()
+    def ordered(frame):
+        return frame.assign(_order=frame.video_uid.map(order)).sort_values(
+            ['_order', 'video_uid'], kind='stable').drop(columns='_order')
+    method_set = set(units.loc[units.label.eq(1), 'method_id'])
+    group_units = {group: rows for group, rows in units.groupby(group_column, sort=True)}
+    candidate_sizes = all_units.groupby(group_column).size().to_dict()
+    dev_groups = set()
+    seeded = set(policy.get('seed_real_video_ids', []))
+    unknown_seeds = seeded - set(units.loc[units.label.eq(0), 'video_id'])
+    if unknown_seeds:
+        raise ValueError('Ineligible explicit CDF development seed real IDs: ' + str(sorted(unknown_seeds)))
+    dev_groups.update(units.loc[units.label.eq(0) & units.video_id.isin(seeded), group_column])
+    eligible_fake_components = []
+    for group in sorted(fake_groups):
+        component = group_units.get(group)
+        if component is None or not component.label.eq(1).any():
+            continue
+        remaining = units[~units[group_column].isin(dev_groups | {group})]
+        remaining_methods = set(remaining.loc[remaining.label.eq(1), 'method_id'])
+        if remaining_methods != method_set or not remaining.label.eq(0).any():
+            continue
+        coverage = set(component.loc[component.label.eq(1), 'method_id'])
+        eligible_fake_components.append((group, len(coverage), candidate_sizes[group]))
+    if (policy['fake_videos_per_method_cap'] > 0
+            and not units.loc[units[group_column].isin(dev_groups), 'label'].eq(1).any()
+            and eligible_fake_components):
+        # Prefer complete method coverage, then the smallest complete candidate
+        # component. Eligibility is always recomputed after the full RGB audit.
+        chosen = min(eligible_fake_components,
+            key=lambda item: (item[1] != len(method_set), -item[1], item[2], order(item[0])))
+        dev_groups.add(chosen[0])
+    real_target = policy['real_video_target']
+    real_only = [group for group in group_units if group not in fake_groups and group not in dev_groups]
+    def development_priority(group):
+        real = group_units[group]
+        old_test = real.video_id.isin(historical_test).sum()
+        old_cal = real.video_id.isin(historical_cal).sum()
+        return (not bool(old_test), bool(old_cal), len(real), order(group))
+    # A real-only component is either wholly reserved or wholly left available.
+    # Never select one member merely to fill the real scoring quota.
+    for group in sorted(real_only, key=development_priority):
+        current = units[units[group_column].isin(dev_groups) & units.label.eq(0)].video_uid.nunique()
+        count = group_units[group].video_uid.nunique()
+        if current >= real_target:
+            break
+        if count > real_target - current:
+            continue
+        remaining = units[~units[group_column].isin(dev_groups | {group})]
+        if not remaining.label.eq(0).any() or not remaining.label.eq(1).any():
+            continue
+        dev_groups.add(group)
+    development_candidates = units[units[group_column].isin(dev_groups)]
+    scored = list(ordered(development_candidates[development_candidates.label.eq(0)]).head(real_target).video_uid)
+    for method, rows in development_candidates[development_candidates.label.eq(1)].groupby('method_id', sort=True):
+        scored.extend(ordered(rows).head(policy['fake_videos_per_method_cap']).video_uid)
+    scored = set(scored)
+    dev = target[target.video_uid.isin(scored)].copy()
+    dev['role'] = 'cdf_dev'
+    ranking = target[~target[group_column].isin(dev_groups)].copy()
+    ranking['role'] = 'target_full'
+    remaining_units = units[~units[group_column].isin(dev_groups)]
+    cal_groups = set(); cal_count = 0
+    def calibration_priority(group):
+        rows = group_units[group]
+        return (-int(rows.video_id.isin(historical_cal).sum()), len(rows), order(group))
+    cal_candidates = [group for group in group_units if group not in fake_groups and group not in dev_groups]
+    for group in sorted(cal_candidates, key=calibration_priority):
+        count = group_units[group].video_uid.nunique()
+        if count + cal_count > policy['calibration_video_target']:
+            continue
+        would_test = remaining_units[~remaining_units[group_column].isin(cal_groups | {group})]
+        if not would_test.label.eq(0).any() or not would_test.label.eq(1).any():
+            continue
+        cal_groups.add(group); cal_count += count
+    cal = ranking[ranking[group_column].isin(cal_groups)].copy()
+    test = ranking[~ranking[group_column].isin(cal_groups)].copy()
+    cal['role'] = 'target_cal'; test['role'] = 'target_test'
+    for left, right, label in [(dev, ranking, 'DEV/ranking'), (dev, cal, 'DEV/CAL'),
+                               (dev, test, 'DEV/TEST'), (cal, test, 'CAL/TEST')]:
+        for key in ['video_uid', 'group_id', 'rgb_sha256', group_column]:
+            if set(left[key]) & set(right[key]):
+                raise ValueError('CDF ' + label + ' overlap in ' + key)
+    blocked_units = all_units[all_units[group_column].isin(dev_groups)].copy()
+    blocked_units['development_group_id'] = blocked_units[group_column]
+    group_scored = {group: json.dumps(sorted(dev.loc[dev[group_column].eq(group), 'video_uid'].unique()))
+                    for group in dev_groups}
+    blocked_units['development_scored_video_uids'] = blocked_units[group_column].map(group_scored)
+    blocked_units['role'] = np.where(blocked_units.video_uid.isin(scored), 'cdf_dev', 'excluded')
+    blocked_units['disposition'] = np.where(blocked_units.video_uid.isin(scored),
+        'development_scoring_and_formal_exclusion', 'unscored_development_relation_quarantine')
+    blocked_units['exclusion_reason'] = 'cdf_development_full_candidate_joint_relation_component'
+    blocked_units['excluded_from'] = 'target_full,target_cal,target_test'
+    cal_excluded = all_units[all_units[group_column].isin(cal_groups)
+                             & ~all_units.video_uid.isin(set(cal.video_uid))].copy()
+    cal_excluded['calibration_group_id'] = cal_excluded[group_column]
+    cal_excluded['role'] = 'excluded'
+    cal_excluded['exclusion_reason'] = 'target_calibration_full_candidate_joint_relation_component'
+    cal_excluded['excluded_from'] = 'target_test'
+    for name, frame in [('cdf_dev', dev), ('target_full', ranking), ('target_cal', cal), ('target_test', test),
+                        ('cdf_development_exclusions', blocked_units), ('target_calibration_exclusions', cal_excluded)]:
+        frame.to_parquet(out/(name + '.parquet'), index=False)
+    ledger = pd.concat([blocked_units, cal_excluded], ignore_index=True)
+    ledger.to_parquet(out/'cdf_role_exclusion_ledger.parquet', index=False)
+    all_units['component_allocation'] = np.where(all_units[group_column].isin(dev_groups), 'development',
+        np.where(all_units[group_column].isin(cal_groups), 'calibration', 'test'))
+    all_units['scored_in_development'] = all_units.video_uid.isin(scored)
+    all_units.to_parquet(out/'cdf_candidate_videos.parquet', index=False)
+    all_units[['video_uid', 'video_id', 'group_id', group_column, 'source_ids', 'cdf_name_tokens']].to_parquet(
+        out/'cdf_relation_membership.parquet', index=False)
+    component_records = []
+    for group, component in all_units.groupby(group_column, sort=True):
+        qualified = component[component.fixed8_qualified]
+        component_records.append({'cdf_relation_group_id': group,
+            'candidate_videos': len(component), 'candidate_real_videos': int(component.label.eq(0).sum()),
+            'candidate_fake_videos': int(component.label.eq(1).sum()), 'qualified_videos': len(qualified),
+            'qualified_real_videos': int(qualified.label.eq(0).sum()),
+            'qualified_fake_videos': int(qualified.label.eq(1).sum()),
+            'fake_method_count': component.loc[component.label.eq(1), 'method_id'].nunique(),
+            'fake_method_video_counts': json.dumps(component.loc[component.label.eq(1)].groupby('method_id').size().to_dict(), sort_keys=True),
+            'historical_cal_real_videos': int((component.label.eq(0) & component.video_id.isin(historical_cal)).sum()),
+            'allocation': 'development' if group in dev_groups else 'calibration' if group in cal_groups else 'test',
+            'development_scored_videos': int(component.scored_in_development.sum())})
+    pd.DataFrame(component_records).to_csv(out/'cdf_split_components.csv', index=False)
+    dev_reals = dev.loc[dev.label.eq(0), 'video_uid'].nunique()
+    dev_fakes = dev.loc[dev.label.eq(1), 'video_uid'].nunique()
+    dev_methods = dev[dev.label.eq(1)].drop_duplicates('video_uid').groupby('method_id').size().to_dict()
+    usable = bool(dev_reals and dev_fakes)
+    scope = {'status': 'USABLE' if usable else 'NOT_USABLE', 'usable_for_epoch_selection': usable,
+        'protocol': policy['version'], 'real_video_target': real_target, 'real_video_actual': dev_reals,
+        'fake_videos_per_method_cap': policy['fake_videos_per_method_cap'], 'fake_video_actual': dev_fakes,
+        'fake_method_video_counts': dev_methods, 'fake_method_coverage': sorted(dev_methods),
+        'target_met': dev_reals == real_target and set(dev_methods) == set(METHODS),
+        'development_joint_groups': sorted(dev_groups), 'quarantined_candidate_videos': len(blocked_units),
+        'unscored_quarantined_candidate_videos': int((~blocked_units.video_uid.isin(scored)).sum()),
+        'candidate_joint_groups': len(component_records), 'full_candidate_videos': len(all_units),
+        'development_only': True, 'formal_cache_role': False, 'target_scores_used': False,
+        'selection_rationale': 'Score-blind smallest feasible fake-bearing joint component, prefer complete method coverage; capped scoring subset, entire component quarantined; supplement whole real-only components, historical TEST preferred.',
+        'fallback_reason': '' if usable else 'No feasible fake-bearing development component can be held out while preserving formal method coverage and two-class test; no target predictions may be used to choose epochs.',
+        'policy': policy}
+    save_json(out/'cdf_development_scope.json', scope)
+    save_json(out/'cdf_development_policy.json', policy)
+    budgets = [n for n in [10, 20, 40, 80] if n <= cal.video_uid.nunique()]
+    evidence = {'status': 'PROXY_SCOPE_EMPIRICAL_ONLY', 'cal_real_videos': cal.video_uid.nunique(),
+        'test_real_videos': test.loc[test.label.eq(0), 'video_uid'].nunique(),
+        'test_fake_videos': test.loc[test.label.eq(1), 'video_uid'].nunique(),
+        'ranking_real_videos': ranking.loc[ranking.label.eq(0), 'video_uid'].nunique(),
+        'ranking_fake_videos': ranking.loc[ranking.label.eq(1), 'video_uid'].nunique(),
+        'excluded_videos': len(cal_excluded), 'development_excluded_candidate_videos': len(blocked_units),
+        'available_target_calibration_budgets': budgets,
+        'unavailable_target_calibration_budgets': [n for n in [10, 20, 40, 80] if n not in budgets],
+        'historic_split_sha256': split['source_split_sha256'], 'historic_protocol_sha256': split['source_protocol_sha256'],
+        'historical_cal_candidates_retained': int(cal.drop_duplicates('video_uid').video_id.isin(historical_cal).sum()),
+        'cal_candidate_pool': 'New score-blind whole real-only joint components; historical80 IDs preferred, remaining real-only components may replace linked historical candidates. Maximum80; reserve two-class TEST.',
+        'test_candidate_pool': 'All qualified remaining non-development non-calibration joint components; previous97 restriction is superseded.',
+        'ranking_cohort': 'CDF_formal_ranking_after_development_relation_exclusion',
+        'isolation': 'Joint transitive closure of all-candidate exact RGB/known source groups, same CDF names across methods and conservative id-token proxies.',
+        'ancestor_independence_certified': False, 'strict_NP_population_guarantee': False,
+        'development': scope,
+        'unresolved': 'Complete generated-parent, donor/driver, audio and YouTube identity ancestry is not available. A filename is a proxy, not authenticated identity.'}
+    save_json(out/'cdf_calibration_scope.json', evidence)
+    if set(test.label.unique()) != {0, 1} or set(ranking.label.unique()) != {0, 1}:
+        save_json(out/'cdf_allocation_failure.json', {'status': 'NO_USABLE_TWO_CLASS_FORMAL_TEST', 'scope': evidence})
+        raise ValueError('CDF joint relation allocation leaves no usable two-class formal TEST')
     return evidence
 
 
@@ -350,32 +562,50 @@ def build(output_root=DEFAULT_OUTPUT, data_root=DATA_ROOT, definition_root=DEFIN
     frames=assign_roles(frames,roles)
     print('D full source/video/RGB graph',flush=True)
     frames=attach_components(frames,splits);frames=apply_dispositions(frames)
-    frames['experiment_role']=frames.role
-    frames.to_parquet(out/'full_associations.parquet',index=False)
     eligible=frames[frames.role.ne('excluded')].copy();selected=select_eight(eligible)
     missing=set(eligible.video_uid)-set(selected.video_uid)
     exclusions=frames[frames.role.eq('excluded')].copy()
     insufficient=eligible[eligible.video_uid.isin(missing)].copy();insufficient['exclusion_reason']='fewer_than8_distinct_valid_RGB_frames';insufficient['role']='excluded'
     exclusions=pd.concat([exclusions,insufficient],ignore_index=True)
-    exclusions.to_parquet(out/'exclusions.parquet',index=False)
     for role in ['train','dev','source_test','target_full']:
         got=set(selected.loc[selected.role.eq(role)&selected.label.eq(1),'method_id'])
         if got!=set(METHODS): raise ValueError(f'Missing21method coverage in {role}: {set(METHODS)-got}')
     if selected.groupby('rgb_sha256').role.nunique().max()>1: raise ValueError('Selected RGB crosses roles')
     if selected.groupby('group_id').role.nunique().max()>1: raise ValueError('Selected full graph component crosses roles')
     if selected.groupby('video_uid').size().ne(8).any() or selected.groupby('video_uid').rgb_sha256.nunique().ne(8).any(): raise ValueError('Fixed8 video qualification failed')
+    print('D score-blind CDF joint-relation DEV/CAL/TEST allocation',flush=True)
+    cdf=cdf_proxy_split(selected,frames,definition,out)
+    cdf_dev=pd.read_parquet(out/'cdf_dev.parquet')
+    cdf_ranking=pd.read_parquet(out/'target_full.parquet')
+    selected=pd.concat([selected[~selected.domain.eq('cdf')],cdf_dev,cdf_ranking],ignore_index=True)
+    selected['experiment_role']=selected.role
+    dev_groups=set(cdf['development']['development_joint_groups'])
+    dev_scored_uids=set(cdf_dev.video_uid)
+    blocked=frames.domain.eq('cdf') & frames.cdf_relation_group_id.isin(dev_groups)
+    quarantine=blocked & ~frames.video_uid.isin(dev_scored_uids)
+    frames.loc[blocked & frames.video_uid.isin(dev_scored_uids),'role']='cdf_dev'
+    frames.loc[quarantine,'role']='excluded'
+    frames.loc[quarantine,'exclusion_reason']=frames.loc[quarantine,'exclusion_reason'].map(
+        lambda value:';'.join(filter(None,[value,'cdf_development_full_candidate_joint_relation_component'])))
+    frames['experiment_role']=frames.role
+    frames.to_parquet(out/'full_associations.parquet',index=False)
+    development_exclusions=frames[quarantine].copy()
+    exclusions=pd.concat([exclusions,development_exclusions],ignore_index=True).drop_duplicates(['video_uid','image_path'])
+    exclusions.to_parquet(out/'exclusions.parquet',index=False)
     train,associations=canonical_training_pool(selected[selected.role.eq('train')])
     train.to_parquet(out/'train.parquet',index=False);associations.to_parquet(out/'training_associations.parquet',index=False)
     selected.to_parquet(out/'selected_associations.parquet',index=False)
-    for role in ['dev','source_cal','source_test','target_full']:
+    for role in ['dev','source_cal','source_test','target_full','cdf_dev']:
         selected[selected.role.eq(role)].to_parquet(out/f'{role}.parquet',index=False)
-    identity=selected.drop_duplicates('video_uid')[['dataset','domain','role','label','method_id','method_type','video_id','video_uid','group_id','source_ids','relation_evidence','group_basis']]
+    identity=selected.drop_duplicates('video_uid')[['dataset','domain','role','label','method_id','method_type','video_id','video_uid','group_id','source_ids','relation_evidence','group_basis','cdf_relation_group_id','cdf_name_tokens']]
     identity.to_parquet(out/'video_identity.parquet',index=False)
     counts=selected.groupby(['role','method_id','label']).agg(rows=('image_path','size'),videos=('video_uid','nunique'),unique_RGB=('rgb_sha256','nunique'),groups=('group_id','nunique')).reset_index()
+    rq4=pd.concat([pd.read_parquet(out/'target_cal.parquet'),pd.read_parquet(out/'target_test.parquet')],ignore_index=True)
+    rq4_counts=rq4.groupby(['role','method_id','label']).agg(rows=('image_path','size'),videos=('video_uid','nunique'),unique_RGB=('rgb_sha256','nunique'),groups=('group_id','nunique')).reset_index()
+    counts=pd.concat([counts,rq4_counts],ignore_index=True)
     counts.to_csv(out/'counts.csv',index=False)
     qualification=train.groupby('method_id',sort=True).head(2).copy()
     qualification.to_parquet(out/'qualification_source.parquet',index=False)
-    cdf=cdf_proxy_split(selected,frames,definition,out)
     masses=associations.groupby('method_id').sampling_contribution.sum().to_dict()
     exclusion_counts=exclusions.drop_duplicates('video_uid').groupby('exclusion_reason').size().to_dict()
     hashes={p.name:digest(p) for p in sorted(out.glob('*')) if p.is_file() and p.name not in ['freeze.json','audit_progress.json']}
@@ -385,7 +615,9 @@ def build(output_root=DEFAULT_OUTPUT, data_root=DATA_ROOT, definition_root=DEFIN
         'code_sha256':digest(__file__),'canonical_train_inputs':len(train),'training_association_rows':len(associations),'samples_per_epoch':math.ceil(len(train)/128)*128,
         'sampling_method_probability':masses,'source_pair_partition':{'train_pairs':306,'dev_pairs':54,'seed':SEED},
         'counts':counts.to_dict('records'),'exclusion_video_counts':exclusion_counts,'unresolved_source_index_videos':len(unknown),
-        'cache_audit':audit,'cdf_calibration_scope':cdf,
+        'cache_audit':audit,'cdf_calibration_scope':cdf,'cdf_development_scope':cdf['development'],
+        'cdf_development_policy_sha256':digest(out/'cdf_development_policy.json'),
+        'cdf_ranking_cohort':'CDF_formal_ranking_after_development_relation_exclusion',
         'independence_scope':'Known FF filename sources, official source pairs, and full candidate exact RGB components; unknown audio/driver ancestry remains unverified. CDF uses video/content and conservative identity-name proxies only.',
         'source_validation_and_test_disjoint':True,'target_scores_used':False,'original_data_modified':False,'elapsed_seconds':time.time()-start}
     save_json(out/'freeze.json',receipt)

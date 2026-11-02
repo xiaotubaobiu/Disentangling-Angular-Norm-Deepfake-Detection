@@ -605,7 +605,10 @@ def d_effects(metrics, *, seed=None, tolerance=1e-10):
         valid=sc is not None and si is not None
         rows.append(dict(seed=seed,aggregation=aggregation,delta_correct=correct,
             delta_collision=collision,interaction=collision-correct,sign_correct=sc,
-            sign_collision=si,reversal=bool(valid and sc*si == -1),valid=valid,tolerance=tolerance))
+            sign_collision=si,reversal=bool(valid and sc*si == -1),
+            reversal_correct_negative_collision_positive=bool(valid and correct<0 and collision>0),
+            reversal_correct_positive_collision_negative=bool(valid and correct>0 and collision<0),
+            valid=valid,tolerance=tolerance))
     return pd.DataFrame(rows)
 
 
@@ -617,14 +620,74 @@ def summarize_seed_effects(effects, *, expected_seeds=(7,42,123,2026,3407), tole
         complete=set(part.seed)==set(expected_seeds) and bool(part.valid.all())
         row=dict(aggregation=aggregation,n_seeds=len(part),complete_five_seeds=complete,
                  n_valid_seeds=int(part.valid.sum()),n_seed_reversals=int(part.reversal.sum()))
+        valid=part.valid.astype(bool)
+        row['n_seed_reversals_correct_negative_collision_positive']=int((valid & part.delta_correct.lt(0) & part.delta_collision.gt(0)).sum())
+        row['n_seed_reversals_correct_positive_collision_negative']=int((valid & part.delta_correct.gt(0) & part.delta_collision.lt(0)).sum())
         for column in ('delta_correct','delta_collision','interaction'):
             values=part.loc[part.valid,column]
             row[f'{column}_mean']=float(values.mean())
             row[f'{column}_sample_sd']=float(values.std(ddof=1)) if len(values)>1 else float('nan')
         a,b=row['delta_correct_mean'],row['delta_collision_mean']
         row['mean_reversal']=bool((a>tolerance and b< -tolerance) or (a< -tolerance and b>tolerance))
+        row['mean_reversal_correct_negative_collision_positive']=bool(a<0 and b>0)
+        row['mean_reversal_correct_positive_collision_negative']=bool(a>0 and b<0)
+        row['directional_reversal_sign_rule']='strict_zero; bidirectional reversal retains its recorded tolerance'
         rows.append(row)
     return pd.DataFrame(rows)
+
+
+def independent_group_support(videos, *, group_column='group_id', min_groups=20):
+    """Describe class/method support for a conditional group-bootstrap report.
+
+    The inherited minimum is an operational reporting gate, not a significance
+    test or a guarantee of population independence. Group identities remain the
+    caller's known relationships or proxies.
+    """
+    required={'video_uid','label','method_id',group_column}
+    if not required.issubset(videos) or videos[list(required)].isna().any().any():
+        raise ValueError('complete natural-video class and group identities required')
+    q=videos[list(required)].drop_duplicates()
+    if q.video_uid.duplicated().any() or not set(q.label)<={0,1}:
+        raise ValueError('natural video has conflicting group/class identity')
+    counts={label:int(q.loc[q.label.eq(label),group_column].nunique()) for label in (0,1)}
+    methods={str(method):int(part[group_column].nunique())
+             for method,part in q[q.label.eq(1)].groupby('method_id',sort=True)}
+    fractions={}
+    for label,name in ((0,'real'),(1,'fake')):
+        sizes=q[q.label.eq(label)].groupby(group_column).size()
+        fractions[name]=float(sizes.max()/sizes.sum()) if len(sizes) else None
+    pooled=all(value>=min_groups for value in counts.values())
+    macro=pooled and bool(methods) and all(value>=min_groups for value in methods.values())
+    return dict(n_real_groups=counts[0],n_fake_groups=counts[1],
+        method_fake_group_counts=methods,largest_class_group_fraction=fractions,
+        min_independent_groups_per_class=min_groups,pooled_class_groups_sufficient=pooled,
+        macro_class_groups_sufficient=macro,
+        methods_below_group_reporting_minimum=[name for name,n in methods.items() if n<min_groups],
+        group_reporting_gate='conservative_operational_reporting_gate_not_significance_or_independence_guarantee')
+
+
+def enforce_bootstrap_group_support(result, videos, *, group_column='group_id'):
+    """Suppress unsupported conditional intervals while preserving exact points."""
+    out=dict(result)
+    support=independent_group_support(videos,group_column=group_column,min_groups=result.get('min_groups',20))
+    out.update(support)
+    if not support['pooled_class_groups_sufficient']:
+        out.update(intervals=None,conditional_interval_stability='insufficient_independent_class_groups')
+        if out.get('status')=='ok':out['status']='insufficient_class_groups'
+        out['limitation']='Too few independent real or fake groups for the inherited conditional-interval reporting gate; retain descriptive point estimates and training-seed variation.'
+    elif not support['macro_class_groups_sufficient']:
+        out['conditional_interval_stability']='insufficient_independent_method_groups'
+        intervals=out.get('intervals')
+        if isinstance(intervals,pd.DataFrame):
+            intervals=intervals.copy()
+            key='comparison' if 'comparison' in intervals else 'metric'
+            mask=intervals[key].str.contains('macro_',regex=False)
+            intervals.loc[mask,['lower','upper']]=np.nan
+            intervals.loc[mask,'interval_status']='NA_insufficient_independent_method_groups'
+            out['intervals']=intervals
+    else:
+        out['conditional_interval_stability']='reporting_gate_passed_no_sufficiency_claim'
+    return out
 
 
 def bootstrap_d_comparisons(frame_scores, *, repeats=2000, seed=20261023, fixed_methods=None,
@@ -654,9 +717,15 @@ def bootstrap_d_comparisons(frame_scores, *, repeats=2000, seed=20261023, fixed_
               min_groups=min_groups,max_group_fraction=max_group_fraction,
               inference_scope='conditional_on_known_source_and_collision_closure',
               macro_invalid_repeats=0,pooled_invalid_repeats=0)
+    units=q[['video_uid','label','method_id']].drop_duplicates().copy()
+    units['closure_id']=units.video_uid.map(closure_map)
+    support=independent_group_support(units,group_column='closure_id',min_groups=min_groups)
+    base.update(support)
     if len(groups)<min_groups or base['largest_group_fraction']>max_group_fraction:
-        return dict(**base,status='insufficient_closure_groups',intervals=None,draws=pd.DataFrame(),
-                    limitation='closure too few/concentrated; report per-seed descriptions only')
+        return enforce_bootstrap_group_support(dict(**base,status='insufficient_closure_groups',intervals=None,draws=pd.DataFrame(),
+                    limitation='closure too few/concentrated; report per-seed descriptions only'),units,group_column='closure_id')
+    if not support['pooled_class_groups_sufficient']:
+        return enforce_bootstrap_group_support(dict(**base,status='insufficient_class_groups',intervals=None,draws=pd.DataFrame()),units,group_column='closure_id')
     rng=np.random.default_rng(seed);rows=[]
     for repeat in range(repeats):
         sampled=rng.choice(groups,size=len(groups),replace=True)
@@ -687,7 +756,7 @@ def bootstrap_d_comparisons(frame_scores, *, repeats=2000, seed=20261023, fixed_
         upper=float(valid[name].dropna().quantile(.975)) if valid[name].notna().any() else float('nan'),
         valid_repeats=int(valid[name].notna().sum()),interval_type='pointwise_conditional_percentile')
         for name,estimate in base['point_estimates'].items()])
-    return dict(**base,status='ok' if len(valid) else 'no_valid_draws',intervals=intervals,draws=draws)
+    return enforce_bootstrap_group_support(dict(**base,status='ok' if len(valid) else 'no_valid_draws',intervals=intervals,draws=draws),units,group_column='closure_id')
 
 
 def bootstrap_video_metrics(videos, *, threshold=None, repeats=2000, seed=20261023,
@@ -708,7 +777,10 @@ def bootstrap_video_metrics(videos, *, threshold=None, repeats=2000, seed=202610
         inference_scope='conditional_on_caller_known_source_groups',min_groups=min_groups,
         max_group_fraction=max_group_fraction)
     if len(groups)<min_groups or base['largest_group_fraction']>max_group_fraction:
-        return dict(**base,status='insufficient_source_groups',draws=pd.DataFrame(),intervals=None)
+        return enforce_bootstrap_group_support(dict(**base,status='insufficient_source_groups',draws=pd.DataFrame(),intervals=None),q)
+    support=independent_group_support(q,min_groups=min_groups)
+    if not support['pooled_class_groups_sufficient']:
+        return enforce_bootstrap_group_support(dict(**base,status='insufficient_class_groups',intervals=None,draws=pd.DataFrame()),q)
     rng=np.random.default_rng(seed);rows=[]
     for repeat in range(repeats):
         pieces=[]
@@ -729,4 +801,4 @@ def bootstrap_video_metrics(videos, *, threshold=None, repeats=2000, seed=202610
     intervals=pd.DataFrame([dict(metric=name,estimate=base['point_estimate'][name],
         lower=float(valid[name].quantile(.025)),upper=float(valid[name].quantile(.975)),
         valid_repeats=int(valid[name].notna().sum()),interval_type='pointwise_conditional_percentile') for name in columns]) if len(valid) else None
-    return dict(**base,status='ok' if len(valid) else 'no_valid_draws',draws=draws,intervals=intervals)
+    return enforce_bootstrap_group_support(dict(**base,status='ok' if len(valid) else 'no_valid_draws',draws=draws,intervals=intervals),q)

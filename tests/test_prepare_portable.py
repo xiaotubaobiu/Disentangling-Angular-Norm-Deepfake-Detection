@@ -43,7 +43,10 @@ def test_registered_config_requires_no_weights_and_resolves_paths(tmp_path):
     assert config['artifact_root'] == str(tmp_path / 'output')
     assert len(config['runs']) == 15
     assert all(Path(v['weight_path']).is_absolute() for v in config['backbones'].values())
-    assert all('/weights/' in v['weight_path'] for v in config['backbones'].values())
+    raw_config=json.loads(prep.DEFAULT_CONFIG.read_text())
+    base=prep.DEFAULT_CONFIG.parent.parent
+    assert all(v['weight_path']==str((base/raw_config['backbones'][b]['weight_path']).resolve())
+               for b,v in config['backbones'].items())
     assert all(v['weight_url'].startswith('https://') for v in config['backbones'].values())
 
 
@@ -151,8 +154,11 @@ def test_complete_prepare_from_synthetic_42_indices_without_legacy_artifacts(tmp
     assert np.isclose(train.sampling_mass.sum(), 1)
     freeze = json.loads((output / 'data/D/freeze.json').read_text())
     assert freeze['cdf_calibration_scope']['cal_real_videos'] == 80
-    assert freeze['cdf_calibration_scope']['test_real_videos'] == 97
+    assert freeze['cdf_calibration_scope']['test_real_videos'] == 77
     assert freeze['cdf_calibration_scope']['test_fake_videos'] == 21
+    assert freeze['cdf_development_scope']['real_video_actual'] == 20
+    assert freeze['cdf_development_scope']['status'] == 'NOT_USABLE'
+    assert freeze['cdf_development_scope']['fake_video_actual'] == 0
     assert freeze['cache_audit']['fresh_rehashed'] == counter
     assert len(pd.read_parquet(output / 'data/D/source_cal.parquet')) == 8
     assert prep.status(config_path, output)['data_prepared'] is True

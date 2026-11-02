@@ -117,7 +117,7 @@ def experiment(tmp_path,monkeypatch):
         'manifest_sha256':{p.name:trainer.digest(p) for p in data.glob('*.parquet')},'cdf_calibration_scope':{'status':'SYNTHETIC_ONLY','ancestor_independence_certified':False}})
     tasks={f'D_formal_clip_vit_b16_seed{s}':dict(backbone='clip_vit_b16',seed=s,epochs=15,phase='formal',route='D',recipe_frozen=True,
         train_manifest='data/D/train.parquet',dev_manifest='data/D/dev.parquet',qualification_gate='qualification/D_gate.json',microbatch=128,lr=1e-5,precision="AMP") for s in [7,42,123,2026,3407]}
-    from journal_detector.protocol import PROTOCOL,LRS
+    from journal_detector.protocol import LEGACY_PROTOCOL as PROTOCOL,LRS
     all_tasks=dict(tasks)
     for b,lr in LRS.items():
         if b=='clip_vit_b16':continue
@@ -158,7 +158,7 @@ def test_missing_analysis_does_not_start_scoring_or_write_summary(experiment,mon
     assert not(root/'analysis/D/clip_vit_b16/five_seed_summary').exists()
 
 
-@pytest.mark.parametrize('change',['artifact','omitted_inventory','final_checkpoint','config','manifest'])
+@pytest.mark.parametrize('change',['artifact','omitted_inventory','final_checkpoint','config','manifest','development_provenance'])
 def test_rejects_stale_or_corrupt_input_provenance(experiment,change):
     import json
     root,path,tasks=experiment;run=list(tasks)[0];out=root/'analysis/D'/run
@@ -169,6 +169,8 @@ def test_rejects_stale_or_corrupt_input_provenance(experiment,change):
         with (root/'runs'/run/'best_model.pth').open('ab') as f:f.write(b'tamper')
     elif change=='config':
         j=json.loads(path.read_text());j['cache_batch_size']=17;path.write_text(json.dumps(j))
+    elif change=='development_provenance':
+        p=out/'complete.json';j=json.loads(p.read_text());j['target_development_used']=True;p.write_text(json.dumps(j))
     else:
         p=root/'data/D/target_test.parquet';q=pd.read_parquet(p);q.loc[0,'sample_id']='changed';q.to_parquet(p,index=False)
     assert hasattr(module,'summarize_backbone'), 'D verified filesystem summary entry is missing'

@@ -53,7 +53,9 @@ def effect_summary(rows):
             if not row['complete_five_seeds']:
                 for key in row:
                     if key.endswith('_mean') or key.endswith('_sample_sd'):row[key]=float('nan')
-                row['mean_reversal']=None
+                for key in ('mean_reversal','mean_reversal_correct_negative_collision_positive',
+                            'mean_reversal_correct_positive_collision_negative'):
+                    row[key]=None
             result.append(row)
     return pd.DataFrame(result)
 
@@ -216,6 +218,10 @@ def _accept(config_path,root,run,backbone,seed):
     # function. Existing cache/context validators perform all live read-only checks.
     base,config,task=cache_d._context(config_path,run)
     if Path(base['artifact_root'])!=root or task['seed']!=seed or task['backbone']!=backbone:raise ValueError('D live context changed')
+    if (receipt.get('target_development_used',False)!=bool(base.get('target_development_used',False))
+            or receipt.get('formal_trajectory_target_used',False) is not False
+            or receipt.get('epoch_recipe_sha256')!=base.get('epoch_recipe_sha256')):
+        raise ValueError('D analysis development/epoch provenance differs from its formal cache context')
     cache=root/'features/D'/run;cache_marker=cache/'complete.json';_safe_path(cache_marker,root)
     cache_hash=digest(cache_marker)
     if json.loads(cache_marker.read_text()).get('status')!='CACHE_COMPLETE':raise ValueError('all seven D cache roles must be complete')
@@ -275,7 +281,8 @@ def _collect(root,runs,backbone,accepted):
             if set(stored.index)!=set(AGGREGATIONS) or stored.index.duplicated().any():raise ValueError('D effect aggregation inventory changed')
             for agg in AGGREGATIONS:
                 for name in ('delta_correct','delta_collision','interaction'):io._equal(stored.loc[agg,name],recomputed.loc[agg,name],'same-seed '+name)
-                for name in ('valid','reversal'):
+                for name in ('valid','reversal','reversal_correct_negative_collision_positive',
+                             'reversal_correct_positive_collision_negative'):
                     if stored.loc[agg,name]!=recomputed.loc[agg,name]:raise ValueError('same-seed effect flag changed')
             effects.append(_tag(stored.reset_index(),seed,backbone,role))
             numerical.append(_tag(pd.read_csv(base/'numerical_audits.csv',float_precision='round_trip'),seed,backbone,role))
@@ -374,12 +381,20 @@ def summarize_backbone(config_path,backbone):
         for name,table in tables.items():_atomic_write(output/f'{name}.csv',root,lambda stream,q=table:io._csv(stream,q))
         _json(output/'supporting_artifacts.json',root,dict(models=support,
             conditional_intervals='Retained per seed in original normal/closure/bootstrap files; never average CI endpoints.',
+            independent_group_support={str(seed):json.loads((folder/'limitations.json').read_text()).get('independent_group_support',[])
+                for seed,(folder,_,_) in accepted.items()},
             mechanisms='Original per-video/method diagnostics, controls and3x3ledgers remain bound by path/hash.',calibration_repeats=200,test_bootstrap_repeats=2000))
         _json(output/'limitations.json',root,dict(backbone=backbone,training_seed_count=5,sample_sd_ddof=1,
+            target_development_used=any(bool(r.get('target_development_used',False)) for _,r,_ in accepted.values()),
+            formal_trajectory_target_used=False,
+            epoch_recipe_sha256={str(seed):r.get('epoch_recipe_sha256') for seed,(_,r,_) in accepted.items()},
+            development='Isolated CDF DEV can select the frozen epoch budget; formal checkpoints remain source-DEV-selected EMA.',
             inference='descriptive across five registered training seeds; no15-model IID or significance claim',
             missing='five-model mean/SD NA when any seed unavailable; same-seed reversal denominators explicit',
             calibration='200subsets reduced within model first; subset spread is distinct from training-seed SD',
             intervals='Pointwise per-seed conditional TEST intervals retained by bound reference, no new cross-seed CI',
+            sparse_groups='Real, fake and per-method independent group counts remain explicit; affected conditional intervals are NA when their reporting gate fails.',
+            directional_reversals='Correct-negative/collision-positive and its opposite are counted separately; the bidirectional total alone does not establish apparent improvement.',
             cohorts='source_test/target_full andRQ4target_test never pooled; oracle diagnostic uses actual vertices',
             independence='Frozen source/content/name-proxy scope only; no strict population NP guarantee',
             numerical_NA={str(seed):r['status']=='ANALYSIS_COMPLETE_WITH_NUMERIC_NA' for seed,(_,r,_) in accepted.items()}))
@@ -387,6 +402,9 @@ def summarize_backbone(config_path,backbone):
         hashes={name:digest(output/name) for name in inventory}
         result=dict(schema='D_FIVE_SEED_SUMMARY_COMPLETE_V1',status='SUMMARY_COMPLETE_WITH_NUMERIC_NA' if any(r['status']=='ANALYSIS_COMPLETE_WITH_NUMERIC_NA' for _,r,_ in accepted.values()) else 'SUMMARY_COMPLETE',
             utc=datetime.now(timezone.utc).isoformat(),identity=identity,artifact_sha256=hashes,backbone=backbone,training_seed_count=5)
+        result.update(target_development_used=any(bool(r.get('target_development_used',False)) for _,r,_ in accepted.values()),
+            formal_trajectory_target_used=False,
+            epoch_recipe_sha256={str(seed):r.get('epoch_recipe_sha256') for seed,(_,r,_) in accepted.items()})
         _json(complete,root,result);return result
 
 

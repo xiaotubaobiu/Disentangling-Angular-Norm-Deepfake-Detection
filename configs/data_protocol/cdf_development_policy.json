@@ -1,0 +1,13 @@
+{
+  "version": "cdf_joint_relation_development_v1",
+  "selection_seed": 20261102,
+  "real_video_target": 20,
+  "fake_videos_per_method_cap": 20,
+  "calibration_video_target": 80,
+  "seed_real_video_ids": [],
+  "development_component_selection": "smallest_feasible_fake_bearing_component_prefer_all_registered_methods",
+  "development_scoring": "score_capped_subset_quarantine_entire_touched_joint_component",
+  "calibration_selection": "whole_real_only_joint_components_historical_CAL_first_then_other_real_only",
+  "test_selection": "all_remaining_non_DEV_non_CAL_components_no_historical_TEST_restriction",
+  "unusable_fake_development_fallback": "real_only_development_and_explicit_not_usable_status"
+}

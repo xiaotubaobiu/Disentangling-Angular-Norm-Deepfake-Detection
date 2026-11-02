@@ -1,6 +1,7 @@
 """Conference training with epoch LR, parameter EMA, early stopping and recovery.
 
-This runner never manages services and never selects recipes with target scores.
+Only development trajectories may evaluate the isolated CDF development role.
+Formal TEST/CAL roles are never read by this training module.
 """
 from pathlib import Path
 from collections import Counter
@@ -168,7 +169,7 @@ def fp64_margin(features,weight,bias):
     return features.double()@(w[1]-w[0])+(b[1]-b[0])
 
 
-def save_state(path,model,optimizer,scaler,epoch,identity,history,attempts=None,best_model=None,best_epoch=None,best_score=None,consecutive_skips=0,ema=None,selection=None):
+def save_state(path,model,optimizer,scaler,epoch,identity,history,attempts=None,best_model=None,best_epoch=None,best_score=None,consecutive_skips=0,ema=None,selection=None,development_stop=None,cdf_best_model=None):
     p=Path(path);p.parent.mkdir(parents=True,exist_ok=True)
     state={'model':model.state_dict(),'optimizer':optimizer.state_dict(),
       'scaler':scaler.state_dict() if scaler is not None else None,
@@ -178,6 +179,8 @@ def save_state(path,model,optimizer,scaler,epoch,identity,history,attempts=None,
       'consecutive_skips':consecutive_skips,
       'ema':ema.state_dict() if ema is not None else None,
       'selection':selection.state_dict() if selection is not None else None,
+      'development_stop':development_stop.state_dict() if development_stop is not None else None,
+      'cdf_best_model':cdf_best_model,
       'python_rng':random.getstate(),'numpy_rng':np.random.get_state(),
       'torch_rng':torch.get_rng_state(),
       'cuda_rng':torch.cuda.get_rng_state_all() if torch.cuda.is_initialized() else None}
@@ -309,9 +312,13 @@ def source_metrics(model,frame,backbone,micro,device,workers=4):
     return {'macro_auc':float(np.mean(list(per.values()))),'pooled_auc':auc_independent(video.label,video.score),'method_auc':per},video
 
 
-def code_hash():
+def code_hash(route='D'):
     h=hashlib.sha256();base=Path(__file__).resolve().parents[2]
-    for p in sorted(list((base/'src/journal_detector').glob('*.py'))+list((base/'third_party').rglob('*.py'))):
+    names=['trainer.py','models.py','augmentation.py','protocol.py','data_d.py','development.py']
+    if route=='H':names+=['trainer_h.py','data_h.py','geometry_h.py']
+    paths=[base/'src/journal_detector'/n for n in names if (base/'src/journal_detector'/n).is_file()]
+    for folder in ['dinov2','df40']:paths+=list((base/'third_party'/folder).rglob('*.py'))
+    for p in sorted(paths):
         h.update(str(p.relative_to(base)).encode());h.update(p.read_bytes())
     return h.hexdigest()
 
@@ -322,7 +329,35 @@ def training_identity(config,task):
     identity={'config':hashlib.sha256(json.dumps(task,sort_keys=True).encode()).hexdigest(),
       'train_manifest':digest(root/task['train_manifest']),'dev_manifest':digest(root/task['dev_manifest']),
       'initialization':digest(init),'environment':digest(root/'configs/requirements.execution.lock.txt'),
-      'code':code_hash(),'data_freeze':digest(root/'data/D/freeze.json')}
+      'code':code_hash(task.get('route','D')),'data_freeze':digest(root/('data/H/train_dev_freeze.json' if task.get('route')=='H' else 'data/D/freeze.json'))}
+    if task.get('cdf_development_manifest'):
+        cdf_path=root/task['cdf_development_manifest']
+        if task.get('phase')!='development' or task['cdf_development_manifest']!='data/D/cdf_dev.parquet':
+            raise ValueError('CDF role may be used only by registered development')
+        actual=digest(cdf_path)
+        freeze=json.loads((root/'data/D/freeze.json').read_text())
+        if freeze.get('manifest_sha256',{}).get('cdf_dev.parquet')!=actual:
+            raise ValueError('frozen CDF development manifest hash differs from data freeze')
+        identity['cdf_development_manifest']=actual
+    if task.get('epoch_recipe_sha256'):
+        recipe_path=Path(task.get('epoch_recipe_path',''))
+        if not recipe_path.is_absolute():recipe_path=root/recipe_path
+        if not recipe_path.is_file() or digest(recipe_path)!=task['epoch_recipe_sha256']:
+            raise ValueError('frozen epoch recipe provenance mismatch')
+        recipe=json.loads(recipe_path.read_text())
+        route=task.get('route','D')
+        if recipe.get('route')!=route:raise ValueError('epoch recipe route differs from task route')
+        if recipe.get('schema')!='EPOCH_RECIPE_V2' or recipe.get('status')!='FROZEN':
+            raise ValueError('epoch recipe is not a frozen v2 decision')
+        if recipe.get('data_freeze_sha256')!=identity['data_freeze']:
+            raise ValueError('epoch recipe data freeze differs from actual training data')
+        if recipe.get('target_development_used') is not (route=='D'):
+            raise ValueError('epoch recipe target development scope differs from route')
+        if route=='H' and recipe.get('paired_histories')!=['B','AB']:
+            raise ValueError('H recipe must cover both paired histories')
+        if recipe.get('backbone')!=task['backbone'] or recipe.get('chosen_epochs')!=task['epochs']:
+            raise ValueError('task differs from frozen development epoch recipe')
+        identity['epoch_recipe_sha256']=task['epoch_recipe_sha256']
     if identity['initialization']!=config['backbones'][task['backbone']]['weight_sha256']:
         raise ValueError('pretrained initialization hash mismatch')
     return identity
@@ -355,6 +390,17 @@ def _train(config_path,run_id,device='cuda'):
     optimizer=torch.optim.AdamW(model.parameters(),lr=lr,weight_decay=5e-4)
     scaler=torch.amp.GradScaler('cuda',init_scale=128) if str(device).startswith('cuda') else None
     ema=EMA(model);selection=Selection();best_model=None
+    phase=task.get('phase','formal');cdf_frame=None;development_stop=None;cdf_best_model=None
+    if task.get('cdf_development_manifest'):
+        if phase!='development' or task['cdf_development_manifest']!='data/D/cdf_dev.parquet':
+            raise ValueError('target evaluation is restricted to isolated development trajectories')
+        cdf_frame=pd.read_parquet(root/task['cdf_development_manifest'])
+        if cdf_frame.empty or set(cdf_frame.label)!={0,1}:
+            raise ValueError('CDF development requires finite usable real and fake cohorts')
+        if 'role' in cdf_frame and not cdf_frame.role.eq('cdf_dev').all():
+            raise ValueError('CDF development manifest role mismatch')
+        from .development import DevelopmentStop
+        development_stop=DevelopmentStop()
     draws_count=math.ceil(len(frame)/128)*128;steps=draws_count//128
     start_epoch=0;history=[];attempts=0;consecutive_skips=0
     if (out/'state.pt').exists():
@@ -364,8 +410,13 @@ def _train(config_path,run_id,device='cuda'):
         best_model=state['best_model'];consecutive_skips=state['consecutive_skips']
         if best_model is None:raise ValueError('checkpoint lacks recoverable best EMA state')
         save_best(out,best_model,identity,selection)
+        if development_stop is not None:
+            if state.get('development_stop') is None:raise ValueError('resume lacks CDF development stopper')
+            development_stop=DevelopmentStop.from_state(state['development_stop'])
+            cdf_best_model=state['cdf_best_model']
+            save_cdf_best(out,cdf_best_model,identity,development_stop.cdf)
     for epoch in range(start_epoch,epochs):
-        if selection.stopped:break
+        if (development_stop.stopped if development_stop is not None else selection.stopped):break
         start=time.time();model.train();draws,methods=epoch_draws(frame,seed,epoch+1,draws_count)
         np.save(out/f'epoch_{epoch+1:02d}_samples.npy',draws,allow_pickle=False)
         np.save(out/f'epoch_{epoch+1:02d}_methods.npy',methods,allow_pickle=False)
@@ -384,24 +435,40 @@ def _train(config_path,run_id,device='cuda'):
             metrics,scores=source_metrics(model,dev,backbone,micro,device,config.get('workers',4))
             improved=selection.observe(metrics['pooled_auc'],epoch+1)
             if improved:best_model={k:v.detach().cpu().clone() for k,v in model.state_dict().items()}
+            cdf_metrics=None;cdf_improved=False
+            if cdf_frame is not None:
+                cdf_metrics,cdf_scores=source_metrics(model,cdf_frame,backbone,micro,device,config.get('workers',4))
+                cdf_improved=development_stop.observe(metrics['pooled_auc'],cdf_metrics['pooled_auc'],epoch+1)
+                if cdf_improved:cdf_best_model={k:v.detach().cpu().clone() for k,v in model.state_dict().items()}
+                cdf_scores.to_parquet(out/f'epoch_{epoch+1:02d}_cdf_dev.parquet',index=False)
         scores.to_parquet(out/f'epoch_{epoch+1:02d}_source_dev.parquet',index=False)
         row={'epoch':epoch+1,'lr':epoch_lr(epoch,epochs,lr),'train_loss':loss/steps,'attempts':steps,
           'success':success,'skip':steps-success,'draw_count':draws_count,'method_counts':dict(Counter(methods.tolist())),
           'sample_sha256':digest(out/f'epoch_{epoch+1:02d}_samples.npy'),
           'augmentation_sha256':digest(out/f'epoch_{epoch+1:02d}_augmentation_seeds.npy'),
           'dev':metrics,'selection':selection.state_dict(),'seconds':time.time()-start}
+        if cdf_metrics is not None:
+            row.update(cdf_dev=cdf_metrics,development_stop=development_stop.state_dict())
         history.append(row)
         save_state(out/'state.pt',model,optimizer,scaler,epoch+1,identity,history,attempts,
-          best_model,selection.best_epoch,selection.best_score,consecutive_skips,ema,selection)
+          best_model,selection.best_epoch,selection.best_score,consecutive_skips,ema,selection,development_stop,cdf_best_model)
         save_json(out/'history.json',history)
         if improved:save_best(out,best_model,identity,selection)
+        if cdf_improved:save_cdf_best(out,cdf_best_model,identity,development_stop.cdf)
         print(json.dumps({'run':run_id,**row},allow_nan=False),flush=True)
     if not history or best_model is None:raise ValueError('no valid source-selected checkpoint')
     result={'status':'TRAINING_COMPLETE','identity':identity,'best_sha256':digest(out/'best_model.pth'),
       'epochs':len(history),'max_epochs':epochs,'best_epoch':selection.best_epoch,
-      'early_stopped':selection.stopped,'attempts':attempts,'success':sum(h['success'] for h in history),
+      'early_stopped':development_stop.stopped if development_stop is not None else selection.stopped,'attempts':attempts,'success':sum(h['success'] for h in history),
       'skip':sum(h['skip'] for h in history),'selection':'source_dev_pooled_mean_probability_auc_ema',
-      'target_used':False,'ema_decay':.999}
+      'target_used':cdf_frame is not None,'ema_decay':.999,'phase':phase,
+      'target_development_used':bool(cdf_frame is not None or task.get('epoch_recipe_sha256')),
+      'epoch_recipe_sha256':task.get('epoch_recipe_sha256')}
+    if development_stop is not None:
+        result.update(cdf_best_epoch=development_stop.cdf.best_epoch,
+                      cdf_best_auc=development_stop.cdf.best_score,
+                      cdf_best_sha256=digest(out/'cdf_best_model.pth'),
+                      stopped_by='source_and_cdf_development_joint_plateau')
     save_json(out/'complete.json',result);return result
 
 
@@ -410,6 +477,15 @@ def save_best(out,model_state,identity,selection):
     torch.save({'model':model_state,'identity':identity,'epoch':selection.best_epoch,
       'auc':selection.best_score,'weights':'ema','ema_decay':.999},tmp)
     os.replace(tmp,out/'best_model.pth')
+
+
+def save_cdf_best(out,model_state,identity,selection):
+    if model_state is None:raise ValueError('missing recoverable CDF development checkpoint')
+    tmp=out/'cdf_best_model.pth.tmp'
+    torch.save({'model':model_state,'identity':identity,'epoch':selection.best_epoch,
+        'auc':selection.best_score,'weights':'ema','ema_decay':.999,
+        'selection':'isolated_cdf_dev_pooled_mean_probability_auc_ema'},tmp)
+    os.replace(tmp,out/'cdf_best_model.pth')
 
 
 if __name__=='__main__':
