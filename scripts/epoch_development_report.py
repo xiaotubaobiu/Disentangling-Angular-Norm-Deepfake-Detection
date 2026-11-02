@@ -225,7 +225,8 @@ def freeze(root,runs,route,backbone,epochs,enqueue=False,development_config=None
                     argv=[sys.executable,'-m','journal_detector.trainer_h','--config',str(path),'--b-run',b,'--ab-run',ab]
                 if job_id in known:continue
                 registry['jobs'].append({'id':job_id,'route':route,'priority':4,'argv':argv,
-                    'depends_on_files':[str(data_freeze),str(root/f'operations/code_ready_{route}.json')],
+                    'depends_on_files':[str(data_freeze),str(root/f'operations/code_ready_{route}.json'),
+                        str(root/'operations/gpu_resume_qualification.json')],
                     'code_gate':str(root/f'operations/code_ready_{route}.json')})
             trainer.save_json(queue,registry)
     return {'recipe':str(recipe_path),'formal_config':str(path),'report':report}
