@@ -185,6 +185,8 @@ def freeze(root,runs,route,backbone,epochs,enqueue=False,development_config=None
     else:trainer.save_json(recipe_path,recipe)
     config=json.loads((root/'configs/development.json').read_text());config['runs']={}
     config['target_development_used']=route=='D'
+    if route=='D':
+        config.update(workers=12,cache_workers=6)
     for seed in protocol.SEEDS if route=='D' else protocol.H_SEEDS:
         for history in ['B'] if route=='D' else ['B','AB']:
             run=f'D_formal_{backbone}_seed{seed}' if route=='D' else f'H_formal_{backbone}_{history}_seed{seed}'
