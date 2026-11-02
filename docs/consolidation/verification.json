@@ -1,0 +1,31 @@
+{
+  "status": "CODE_VALIDATED_NOT_TRAINED",
+  "test_suite": {
+    "passed": 87,
+    "failed": 0,
+    "seconds": 346.74,
+    "scope": "CPU tests including interrupted training state with synthetic model, official augmentation equivalence, official DINO interpolation value/gradient, all eight scoring cells and cache-analysis-five-seed integration"
+  },
+  "real_pretrained_cpu_forward_backward": {
+    "clip_vit_b16": {
+      "dimension": 512,
+      "parameters_trainable": 86193666
+    },
+    "dinov2_vit_b14": {
+      "dimension": 768,
+      "parameters_trainable": 86582018
+    },
+    "efficientnet_b0": {
+      "dimension": 1280,
+      "parameters_trainable": 4010110
+    }
+  },
+  "frozen_manifest_sha256": "6f30a13cc60778b77653493f78be0535a928879ec93226d139f724eab3c23a67",
+  "registered_models": 15,
+  "formal_training_started": false,
+  "formal_target_inference_started": false,
+  "gpu_batch128_capacity_verified": false,
+  "independent_review": "DINO CUDA bicubic deterministic issue found and corrected using official CPU interpolation bridge; followup review found no new blocker",
+  "historical_root_files_moved_byte_identically": 47,
+  "vendor_whitespace": "Official source retained verbatim; diff whitespace check excludes third_party"
+}

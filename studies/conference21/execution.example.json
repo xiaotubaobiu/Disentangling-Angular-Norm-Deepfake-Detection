@@ -1,0 +1,240 @@
+{
+  "backbones": {
+    "clip_vit_b16": {
+      "learning_rate": 1e-05,
+      "weight_path": "/home/z/.cache/clip/ViT-B-16.pt",
+      "weight_sha256": "5806e77cd80f8b59890b7e101eabd078d9fb84e6937f9e85e4ecb61988df416f"
+    },
+    "dinov2_vit_b14": {
+      "learning_rate": 5e-05,
+      "weight_path": "/home/z/project/deepfake_detector/artifacts/weights/dinov2_vitb14_pretrain.pth",
+      "weight_sha256": "0b8b82f85de91b424aded121c7e1dcc2b7bc6d0adeea651bf73a13307fad8c73"
+    },
+    "efficientnet_b0": {
+      "learning_rate": 0.0001,
+      "weight_path": "/home/z/project/deepfake_detector/artifacts/weights/efficientnet_b0.pth",
+      "weight_sha256": "7f5810bc96def8f7552d5b7e68d53c4786f81167d28291b21c0d90e1fca14934"
+    }
+  },
+  "allowed_gpus": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "allowed_gpu_uuids": [
+    "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e",
+    "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+    "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+    "GPU-626ec32f-1401-c959-74b0-db04ed63c646"
+  ],
+  "protocol": "conference21-ema-df40-20261102",
+  "artifact_root": "/home/z/workspace/deepfake_conference21_20261102",
+  "effective_batch": 128,
+  "workers": 4,
+  "formal_seeds": [
+    7,
+    42,
+    123,
+    2026,
+    3407
+  ],
+  "checkpoint_selection": "source_dev_pooled_mean_probability_auc_ema",
+  "runs": {
+    "D_formal_clip_vit_b16_seed7": {
+      "route": "D",
+      "phase": "formal",
+      "recipe_frozen": true,
+      "backbone": "clip_vit_b16",
+      "seed": 7,
+      "epochs": 15,
+      "microbatch": 128,
+      "precision": "AMP",
+      "lr": 1e-05,
+      "train_manifest": "data/D/train.parquet",
+      "dev_manifest": "data/D/dev.parquet"
+    },
+    "D_formal_clip_vit_b16_seed42": {
+      "route": "D",
+      "phase": "formal",
+      "recipe_frozen": true,
+      "backbone": "clip_vit_b16",
+      "seed": 42,
+      "epochs": 15,
+      "microbatch": 128,
+      "precision": "AMP",
+      "lr": 1e-05,
+      "train_manifest": "data/D/train.parquet",
+      "dev_manifest": "data/D/dev.parquet"
+    },
+    "D_formal_clip_vit_b16_seed123": {
+      "route": "D",
+      "phase": "formal",
+      "recipe_frozen": true,
+      "backbone": "clip_vit_b16",
+      "seed": 123,
+      "epochs": 15,
+      "microbatch": 128,
+      "precision": "AMP",
+      "lr": 1e-05,
+      "train_manifest": "data/D/train.parquet",
+      "dev_manifest": "data/D/dev.parquet"
+    },
+    "D_formal_clip_vit_b16_seed2026": {
+      "route": "D",
+      "phase": "formal",
+      "recipe_frozen": true,
+      "backbone": "clip_vit_b16",
+      "seed": 2026,
+      "epochs": 15,
+      "microbatch": 128,
+      "precision": "AMP",
+      "lr": 1e-05,
+      "train_manifest": "data/D/train.parquet",
+      "dev_manifest": "data/D/dev.parquet"
+    },
+    "D_formal_clip_vit_b16_seed3407": {
+      "route": "D",
+      "phase": "formal",
+      "recipe_frozen": true,
+      "backbone": "clip_vit_b16",
+      "seed": 3407,
+      "epochs": 15,
+      "microbatch": 128,
+      "precision": "AMP",
+      "lr": 1e-05,
+      "train_manifest": "data/D/train.parquet",
+      "dev_manifest": "data/D/dev.parquet"
+    },
+    "D_formal_dinov2_vit_b14_seed7": {
+      "route": "D",
+      "phase": "formal",
+      "recipe_frozen": true,
+      "backbone": "dinov2_vit_b14",
+      "seed": 7,
+      "epochs": 15,
+      "microbatch": 128,
+      "precision": "AMP",
+      "lr": 5e-05,
+      "train_manifest": "data/D/train.parquet",
+      "dev_manifest": "data/D/dev.parquet"
+    },
+    "D_formal_dinov2_vit_b14_seed42": {
+      "route": "D",
+      "phase": "formal",
+      "recipe_frozen": true,
+      "backbone": "dinov2_vit_b14",
+      "seed": 42,
+      "epochs": 15,
+      "microbatch": 128,
+      "precision": "AMP",
+      "lr": 5e-05,
+      "train_manifest": "data/D/train.parquet",
+      "dev_manifest": "data/D/dev.parquet"
+    },
+    "D_formal_dinov2_vit_b14_seed123": {
+      "route": "D",
+      "phase": "formal",
+      "recipe_frozen": true,
+      "backbone": "dinov2_vit_b14",
+      "seed": 123,
+      "epochs": 15,
+      "microbatch": 128,
+      "precision": "AMP",
+      "lr": 5e-05,
+      "train_manifest": "data/D/train.parquet",
+      "dev_manifest": "data/D/dev.parquet"
+    },
+    "D_formal_dinov2_vit_b14_seed2026": {
+      "route": "D",
+      "phase": "formal",
+      "recipe_frozen": true,
+      "backbone": "dinov2_vit_b14",
+      "seed": 2026,
+      "epochs": 15,
+      "microbatch": 128,
+      "precision": "AMP",
+      "lr": 5e-05,
+      "train_manifest": "data/D/train.parquet",
+      "dev_manifest": "data/D/dev.parquet"
+    },
+    "D_formal_dinov2_vit_b14_seed3407": {
+      "route": "D",
+      "phase": "formal",
+      "recipe_frozen": true,
+      "backbone": "dinov2_vit_b14",
+      "seed": 3407,
+      "epochs": 15,
+      "microbatch": 128,
+      "precision": "AMP",
+      "lr": 5e-05,
+      "train_manifest": "data/D/train.parquet",
+      "dev_manifest": "data/D/dev.parquet"
+    },
+    "D_formal_efficientnet_b0_seed7": {
+      "route": "D",
+      "phase": "formal",
+      "recipe_frozen": true,
+      "backbone": "efficientnet_b0",
+      "seed": 7,
+      "epochs": 15,
+      "microbatch": 128,
+      "precision": "AMP",
+      "lr": 0.0001,
+      "train_manifest": "data/D/train.parquet",
+      "dev_manifest": "data/D/dev.parquet"
+    },
+    "D_formal_efficientnet_b0_seed42": {
+      "route": "D",
+      "phase": "formal",
+      "recipe_frozen": true,
+      "backbone": "efficientnet_b0",
+      "seed": 42,
+      "epochs": 15,
+      "microbatch": 128,
+      "precision": "AMP",
+      "lr": 0.0001,
+      "train_manifest": "data/D/train.parquet",
+      "dev_manifest": "data/D/dev.parquet"
+    },
+    "D_formal_efficientnet_b0_seed123": {
+      "route": "D",
+      "phase": "formal",
+      "recipe_frozen": true,
+      "backbone": "efficientnet_b0",
+      "seed": 123,
+      "epochs": 15,
+      "microbatch": 128,
+      "precision": "AMP",
+      "lr": 0.0001,
+      "train_manifest": "data/D/train.parquet",
+      "dev_manifest": "data/D/dev.parquet"
+    },
+    "D_formal_efficientnet_b0_seed2026": {
+      "route": "D",
+      "phase": "formal",
+      "recipe_frozen": true,
+      "backbone": "efficientnet_b0",
+      "seed": 2026,
+      "epochs": 15,
+      "microbatch": 128,
+      "precision": "AMP",
+      "lr": 0.0001,
+      "train_manifest": "data/D/train.parquet",
+      "dev_manifest": "data/D/dev.parquet"
+    },
+    "D_formal_efficientnet_b0_seed3407": {
+      "route": "D",
+      "phase": "formal",
+      "recipe_frozen": true,
+      "backbone": "efficientnet_b0",
+      "seed": 3407,
+      "epochs": 15,
+      "microbatch": 128,
+      "precision": "AMP",
+      "lr": 0.0001,
+      "train_manifest": "data/D/train.parquet",
+      "dev_manifest": "data/D/dev.parquet"
+    }
+  }
+}
