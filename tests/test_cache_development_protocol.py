@@ -191,3 +191,15 @@ def test_CDF_joint_relations_replace_raw_groups_in_rank_and_operating_bootstraps
         analysis_d.guard_bootstrap_group_support(bootstrap_fast.bootstrap_operating_comparison(normal,0.,[0.],repeats=5),normal)]
     assert all(report['n_fake_groups']==3 and report['intervals'] is None for report in reports)
     assert promoted.analysis_group_scope.str.contains('CDF').all()
+
+
+def test_d_cache_role_must_match_frozen_manifest_before_first_export(tmp_path):
+    root=tmp_path;data=root/'data/D';data.mkdir(parents=True)
+    role=data/'target_test.parquet';role.write_bytes(b'frozen test cohort')
+    trainer.save_json(data/'freeze.json',{'status':'FROZEN','manifest_sha256':{
+        'target_test.parquet':trainer.digest(role)}})
+    base={'artifact_root':str(root)}
+    cache_d._role_identity(base,'target_test',role)
+    role.write_bytes(b'changed test cohort after development exclusion')
+    with pytest.raises(ValueError,match='frozen|freeze'):
+        cache_d._role_identity(base,'target_test',role)

@@ -154,8 +154,11 @@ def _role_identity(base, role, manifest):
     manifest = Path(manifest).resolve()
     if role not in ROLES or manifest != Path(base['artifact_root']) / f'data/D/{role}.parquet':
         raise ValueError('unregistered D manifest role identity')
-    return dict(base, role=role, source_manifest_path=str(manifest),
-                source_manifest_sha256=_required_hash(manifest, 'role manifest'))
+    actual = _required_hash(manifest, 'role manifest')
+    freeze = json.loads((Path(base['artifact_root']) / 'data/D/freeze.json').read_text())
+    if freeze.get('status') != 'FROZEN' or freeze.get('manifest_sha256', {}).get(manifest.name) != actual:
+        raise ValueError('D role manifest differs from the frozen cohort')
+    return dict(base, role=role, source_manifest_path=str(manifest), source_manifest_sha256=actual)
 
 
 def _validate_live(identity):
