@@ -165,3 +165,29 @@ def test_high_precision_ranking_survives_sparse_group_receipt_roundtrip(tmp_path
     restored = analysis_d.read_scores(tmp_path / 'scores.csv')
     assert analysis_d.independent_auc(restored.label, restored.rank_score) == 1.
     assert all(isinstance(value, mp.mpf) for value in restored.rank_score)
+
+
+def test_CDF_joint_relations_replace_raw_groups_in_rank_and_operating_bootstraps():
+    rows=[];features=[]
+    for i in range(30):
+        for label in (0,1):
+            uid=f'cdf/{label}/{i}'
+            for frame in range(8):
+                rows.append(dict(video_uid=uid,video_id=f'{label}_{i}',image_path=f'/{uid}/{frame}.png',
+                    label=label,method_id='m' if label else 'real',group_id=f'raw{i}',
+                    cdf_relation_group_id=f'relation{i%3}',domain='cdf',role='target_full',rgb_sha256=f'{uid}/{frame}'))
+                features.append([(-1 if not label else 1)*(1+i*.01+frame*.001),1.])
+    frames=pd.DataFrame(rows)
+    result=analysis_d.analyze_rank_role(frames,np.asarray(features,dtype=np.float32),
+        np.asarray([[0.,0.],[1.,0.]],dtype=np.float32),np.zeros(2,dtype=np.float32),
+        training_radii=np.asarray([1.]),training_weights=np.asarray([1.]),fixed_methods=['m'],seed=7)
+    promoted=result['frames']
+    assert promoted.group_id.nunique()==3
+    assert promoted.original_content_group_id.nunique()==30
+    assert frames.group_id.nunique()==30 and 'original_content_group_id' not in frames
+    normal=result['videos'].query("grouping=='correct' and representation=='raw' and aggregation=='mean_logit'")
+    reports=[analysis_d.guard_bootstrap_group_support(bootstrap_fast.bootstrap_video_metrics_fast(normal,repeats=5),normal),
+        analysis_d.guard_bootstrap_group_support(bootstrap_fast.bootstrap_d_fast(promoted,repeats=5),promoted),
+        analysis_d.guard_bootstrap_group_support(bootstrap_fast.bootstrap_operating_comparison(normal,0.,[0.],repeats=5),normal)]
+    assert all(report['n_fake_groups']==3 and report['intervals'] is None for report in reports)
+    assert promoted.analysis_group_scope.str.contains('CDF').all()

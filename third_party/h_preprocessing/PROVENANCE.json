@@ -1,0 +1,38 @@
+{
+  "architecture": "RetinaFace MobileNet0.25",
+  "checkpoint": {
+    "download_url": "https://drive.google.com/uc?export=download&id=15zP8BP-5IvWXWZoYTNdvUJUiBqZ1hxu1",
+    "filename": "mobilenet0.25_Final.pth",
+    "official_README_model_folder": "https://drive.google.com/drive/folders/1oZRSG0ZegbVkVwUd8wUIQx8W7yfZ_ki1",
+    "sha256": "2979b33ffafda5d74b6948cd7a5b9a7a62f62b949cef24e95fd15d2883a65220"
+  },
+  "commit": "b984b4b775b2c4dced95c1eadd195a5c7d32a60b",
+  "dlib": {
+    "code_license": "Boost Software License 1.0",
+    "compressed_sha256": "7d6637b8f34ddb0c1363e09a4628acb34314019ec3566fd66b80c04dda6980f5",
+    "predictor_sha256": "fbdc2cb80eb9aa7a758672cbfdda32ba6300efe9b6e6c7a299ff7e736b11b92f",
+    "predictor_training_data": "iBUG 300-W; source notes exclude commercial use",
+    "predictor_url": "https://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2",
+    "repository": "https://github.com/davisking/dlib",
+    "version": "20.0.0"
+  },
+  "files_sha256": {
+    "LICENSE.MIT": "41034e3430e3b7fd63031bcc6f9dd9740fa910328f3168208ca032807f026147",
+    "README.md": "8aaf60848f3cf4535616fd8bb8481dc65dc03087fc82adde71258c0761aa6fe6",
+    "data/__init__.py": "7042b01993ad7df86d5dd99a3d526a39ff11b6db611ebb4c8144afd89bef69a0",
+    "data/config.py": "70a8c14459ee47637785b1537da839e03e30d6500dec89e42fb646447d1349ba",
+    "data/data_augment.py": "98cd104d693d25e3b76be6680762b5c130193a5b632e48d73d03df0ea1450881",
+    "data/wider_face.py": "ce0da4b0c234684d49677ebe38cbf39fb628702c61872be75e7106928e816223",
+    "detect.py": "ab7d6c3e9d5590f65e6b2fe4ab4f8504d9469b50219e16a618b52e7f58c79c64",
+    "layers/__init__.py": "e4a6bf6c44d23bce70391a4ace320c3ca1082ea54bf0947fcb47a4dcde5a936e",
+    "layers/functions/prior_box.py": "8185ffb26bdf0e10ec83cb286c0834e7a48d4832cb31d7bd7da4810309de6321",
+    "models/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "models/net.py": "dbb885c0d7bd02865c38f6c9f06a03b0c586201a824f797c57ce87ca466a896f",
+    "models/retinaface.py": "367da7b58830d340952b5676504b25d3af3b05992793fc29e100d6ebe17a24c9",
+    "utils/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "utils/box_utils.py": "734588d011237ad33a937f2278a7927a02e299edfa19ac21d38626e75888d260",
+    "utils/nms/py_cpu_nms.py": "d9f6e53641524e2a77d44af4c880dca4f82006967a5b46063375639a47535336"
+  },
+  "license": "MIT",
+  "repository": "https://github.com/biubug6/Pytorch_Retinaface"
+}

@@ -139,8 +139,32 @@ def verify_saved_metrics(videos, metrics, fixed_methods):
     return out
 
 
+def analysis_frame_groups(frames):
+    """Use the frozen full CDF relation closure for every analysis resampling.
+
+    Preserve the manifest's content groups in the exported frame table. This
+    promotion changes neither frozen input files nor feature alignment, and
+    does not reinterpret H's source/target domains.
+    """
+    q=frames.copy()
+    if 'domain' not in q:
+        return q
+    cdf=q.domain.eq('cdf')
+    q['analysis_group_scope']='frozen_source_or_caller_content_groups'
+    if cdf.any() and 'cdf_relation_group_id' in q:
+        relation=q.loc[cdf,'cdf_relation_group_id']
+        if relation.isna().any() or not relation.map(lambda value:isinstance(value,str) and bool(value)).all():
+            raise ValueError('frozen CDF joint relation groups must be complete')
+        if 'original_content_group_id' not in q:q['original_content_group_id']=q.group_id
+        q.loc[cdf,'group_id']=relation
+        q.loc[cdf,'analysis_group_scope']='frozen_CDF_known_content_same_video_identity_token_joint_relation_closure'
+    elif cdf.any():
+        q.loc[cdf,'analysis_group_scope']='legacy_CDF_content_groups_without_joint_relation_manifest'
+    return q
+
+
 def analyze_rank_role(frames, features, W, b, *, training_radii, training_weights, fixed_methods, seed):
-    margins = score.frame_margins(frames, features, W, b)
+    margins = score.frame_margins(analysis_frame_groups(frames), features, W, b)
     videos, metrics = score.score_cached_frames(margins, fixed_methods=fixed_methods)
     return dict(frames=margins, videos=videos, metrics=metrics,
         effects=score.d_effects(metrics, seed=seed),
@@ -384,7 +408,7 @@ def analyze_run(config_path, run_id):
         frames, h, w, bias = cache_d.load_features(cache_root / role, identity=expected_role(role))
         if not np.array_equal(w, W) or not np.array_equal(bias, b):
             raise ValueError('RQ4 head differs between frozen roles')
-        margins[role] = score.frame_margins(frames, h, W, b)
+        margins[role] = score.frame_margins(analysis_frame_groups(frames), h, W, b)
         margins[role].to_parquet(rq4 / f'{role}_frame_margins.parquet', index=False)
         del frames, h
     _save_json(rq4 / 'scope.json', freeze['cdf_calibration_scope'])
@@ -433,6 +457,7 @@ def analyze_run(config_path, run_id):
         formal_trajectory_target_used=False,epoch_recipe_sha256=base.get('epoch_recipe_sha256'),
         development_scope='Isolated CDF DEV may select the frozen epoch budget; the formal best EMA is selected on source DEV only.',
         independent_group_support=statistical_support,
+        analysis_group_scope='CDF uses its frozen known-content/same-video/identity-token joint relation closure when present; original_content_group_id is retained in frame exports. Source groups retain their frozen identity; unknown ancestry is not certified.',
         sparse_group_intervals='Insufficient real/fake or method group support makes affected conditional intervals NA; the minimum is a reporting gate, not a significance guarantee.',
         numerical_score_spaces='Rank AUC/oracle/bootstrap retain FP64 or arbitrary-precision ordering; calibrated deployment decisions use the explicitly frozen FP64 empirical score space.',
         intervals='Pointwise conditional on the frozen model, known source/proxy groups, CAL pool and recorded subsets.',
