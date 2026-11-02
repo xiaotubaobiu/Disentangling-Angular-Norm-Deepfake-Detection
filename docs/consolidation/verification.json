@@ -27,5 +27,10 @@
   "gpu_batch128_capacity_verified": false,
   "independent_review": "DINO CUDA bicubic deterministic issue found and corrected using official CPU interpolation bridge; followup review found no new blocker",
   "historical_root_files_moved_byte_identically": 47,
-  "vendor_whitespace": "Official source retained verbatim; diff whitespace check excludes third_party"
+  "vendor_whitespace": "Official source retained verbatim; diff whitespace check excludes third_party",
+  "post_cleanup_focused_tests": {
+    "passed": 8,
+    "failed": 0,
+    "seconds": 20.65
+  }
 }

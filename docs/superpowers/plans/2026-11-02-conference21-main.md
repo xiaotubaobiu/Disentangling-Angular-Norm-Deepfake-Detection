@@ -17,6 +17,6 @@ Data: frozen latest FS9/FR12 manifests, fixed8 distinct RGB per natural video, c
 - [x] Implement trainer, official model adapter and seeded DF40 augmentation; freeze config and artifact namespace.
 - [x] Integrate frozen-manifest preparation, cache selection, eight-cell scoring/calibration and CLI.
 - [x] Run CPU tests plus architecture forward/backward checks; no full training or target inference.
-- [ ] Review diff and provenance; publish main/tags, set main default, retire eight branches with expected-SHA guards, verify conference SHA unchanged and only two branch heads remain.
+- [x] Review diff and provenance; publish main/tags, set main default, retire eight branches with expected-SHA guards, verify conference SHA unchanged and only two branch heads remain.
 
 Review risks: stale old caches/checkpoints must fail identity checks; resume must preserve EMA/best/wait/scheduler; selected best need not be last; BN buffers must follow conference semantics; deterministic official DINO interpolation backward must work; no claim that batch128 fits GPUs before qualification.
