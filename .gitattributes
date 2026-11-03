@@ -3,3 +3,8 @@ paper/ieee-access/vendor/** -whitespace
 paper/ieee-access/latex/*.cls -whitespace
 paper/ieee-access/latex/*.bst -whitespace
 paper/ieee-access/latex/*.sty -whitespace
+# Provider BibTeX and exact exported copies retain their supplied whitespace.
+paper/ieee-access/*.bib -whitespace
+paper/ieee-access/latex/*.bib -whitespace
+# The generated manuscript template keeps a terminal blank line.
+paper/ieee-access/manuscript_en.qmd whitespace=-blank-at-eof
