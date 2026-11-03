@@ -1,0 +1,149 @@
+{
+  "status": "PASS_D_DEVELOPMENT_ALL12_RUNS_CURVES",
+  "created": "2026-11-03T19:24:09.414835+09:00",
+  "all_runs": 12,
+  "developer_seeds": [
+    1007,
+    1042
+  ],
+  "all_epoch_observations": 102,
+  "main_panel_observations": 72,
+  "other_panel_observations": 30,
+  "original_history_values_reconstructed": true,
+  "PDF_font_minimum_pt": 7,
+  "alignment": "PASS",
+  "PDF_collision": "0FAIL0WARN_BOTH_FIGURES",
+  "source_preflight": {
+    "ready": true,
+    "strict": false,
+    "counts": {
+      "PASS": 20,
+      "WARN": 1,
+      "FAIL": 0
+    }
+  },
+  "source_warning_review": {
+    "UNCERTAINTY-ENCODING": "False positive from seed/mean-probability terminology. Every panel is one observed run, with no aggregation across seeds; error bars would misrepresent these observations."
+  },
+  "producer_sha256": "e87b143a250f73fdd11aa98256a6318f226a5ffe00529814f49803b5082b3afb",
+  "render_receipt_sha256": "406d8dd0bfc7907acda2f602604ca24a6489651e16f9a82ef0d3031c3809151b",
+  "visual_review_pending": false,
+  "training_performed": false,
+  "model_inference_performed": false,
+  "TEST_used": false,
+  "full_figures_and_each_panel_visually_inspected": true,
+  "panel_review": [
+    {
+      "figure": "common_budgets",
+      "panel": "a",
+      "verdict": "PASS",
+      "replicate": "One cap-specific developer run, no seed aggregate",
+      "observed_extrema_visible": true,
+      "data_within_axis_limits": true,
+      "axes_legend_and_text_clear": true
+    },
+    {
+      "figure": "common_budgets",
+      "panel": "b",
+      "verdict": "PASS",
+      "replicate": "One cap-specific developer run, no seed aggregate",
+      "observed_extrema_visible": true,
+      "data_within_axis_limits": true,
+      "axes_legend_and_text_clear": true
+    },
+    {
+      "figure": "common_budgets",
+      "panel": "c",
+      "verdict": "PASS",
+      "replicate": "One cap-specific developer run, no seed aggregate",
+      "observed_extrema_visible": true,
+      "data_within_axis_limits": true,
+      "axes_legend_and_text_clear": true
+    },
+    {
+      "figure": "common_budgets",
+      "panel": "d",
+      "verdict": "PASS",
+      "replicate": "One cap-specific developer run, no seed aggregate",
+      "observed_extrema_visible": true,
+      "data_within_axis_limits": true,
+      "axes_legend_and_text_clear": true
+    },
+    {
+      "figure": "common_budgets",
+      "panel": "e",
+      "verdict": "PASS",
+      "replicate": "One cap-specific developer run, no seed aggregate",
+      "observed_extrema_visible": true,
+      "data_within_axis_limits": true,
+      "axes_legend_and_text_clear": true
+    },
+    {
+      "figure": "common_budgets",
+      "panel": "f",
+      "verdict": "PASS",
+      "replicate": "One cap-specific developer run, no seed aggregate",
+      "observed_extrema_visible": true,
+      "data_within_axis_limits": true,
+      "axes_legend_and_text_clear": true
+    },
+    {
+      "figure": "other_budgets",
+      "panel": "a",
+      "verdict": "PASS",
+      "replicate": "One cap-specific developer run, no seed aggregate",
+      "observed_extrema_visible": true,
+      "data_within_axis_limits": true,
+      "axes_legend_and_text_clear": true
+    },
+    {
+      "figure": "other_budgets",
+      "panel": "b",
+      "verdict": "PASS",
+      "replicate": "One cap-specific developer run, no seed aggregate",
+      "observed_extrema_visible": true,
+      "data_within_axis_limits": true,
+      "axes_legend_and_text_clear": true
+    },
+    {
+      "figure": "other_budgets",
+      "panel": "c",
+      "verdict": "PASS",
+      "replicate": "One cap-specific developer run, no seed aggregate",
+      "observed_extrema_visible": true,
+      "data_within_axis_limits": true,
+      "axes_legend_and_text_clear": true
+    },
+    {
+      "figure": "other_budgets",
+      "panel": "d",
+      "verdict": "PASS",
+      "replicate": "One cap-specific developer run, no seed aggregate",
+      "observed_extrema_visible": true,
+      "data_within_axis_limits": true,
+      "axes_legend_and_text_clear": true
+    },
+    {
+      "figure": "other_budgets",
+      "panel": "e",
+      "verdict": "PASS",
+      "replicate": "One cap-specific developer run, no seed aggregate",
+      "observed_extrema_visible": true,
+      "data_within_axis_limits": true,
+      "axes_legend_and_text_clear": true
+    },
+    {
+      "figure": "other_budgets",
+      "panel": "f",
+      "verdict": "PASS",
+      "replicate": "One cap-specific developer run, no seed aggregate",
+      "observed_extrema_visible": true,
+      "data_within_axis_limits": true,
+      "axes_legend_and_text_clear": true
+    }
+  ],
+  "visual_review_notes": {
+    "common_budgets": "All six source/CDF pairs and observed maxima readable; identical axes geometry and y scale; cap5 versus formal cap2 stated.",
+    "other_budgets": "All remaining six independent runs preserved; two-point cap2 traces not extended; longer pilots end at actual observed epochs."
+  }
+}

@@ -1,6 +1,7 @@
 """Preprocessing figures must preserve cohorts and matched training pairs."""
 import importlib.util
 import itertools
+import json
 from pathlib import Path
 
 import numpy as np
@@ -114,3 +115,68 @@ def test_three_finished_model_markers_do_not_replace_the_strict_summary(tmp_path
     m = module()
     with pytest.raises(ValueError, match='strict three-seed summary'):
         m.load_verified(tmp_path)
+
+
+def mixed_inputs(tmp_path, monkeypatch):
+    m = module()
+    roots = {b: str(tmp_path / b) for b in m.BACKBONES}
+    for b, root in roots.items():
+        for seed in m.SEEDS:
+            marker = Path(root) / f'analysis/H/{b}/seed{seed}/complete.json'
+            marker.parent.mkdir(parents=True)
+            marker.write_text(json.dumps({'identity': {'cache_contexts': {h: {
+                'artifact_root': root, 'epochs': 10 if b != 'efficientnet_b0' else 15
+            } for h in ['B', 'AB']}}}))
+
+    def loaded(root, backbones):
+        b, = backbones
+        frames = {k: pd.DataFrame({'backbone': [b]})
+                  for k in ['metrics', 'comparisons', 'official_comparisons', 'paired']}
+        sources = {'data/H/freeze.json': 'full', 'data/H/train_dev_freeze.json': 'source'}
+        sources.update({f'analysis/H/{b}/seed{s}/complete.json': m.digest(
+            Path(root) / f'analysis/H/{b}/seed{s}/complete.json') for s in m.SEEDS})
+        return dict(**frames, sources=sources, backbones=[b], training_seeds=list(m.SEEDS))
+    monkeypatch.setattr(m, 'load_verified', loaded)
+    return m, roots
+
+
+def test_mixed_roots_preserve_backbone_source_paths(tmp_path, monkeypatch):
+    m, roots = mixed_inputs(tmp_path, monkeypatch)
+    data = m.load_verified_roots(roots, epoch_budgets=dict(zip(m.BACKBONES, [10, 10, 15])))
+    assert list(data['metrics'].backbone) == list(m.BACKBONES)
+    assert data['roots'] == roots
+    assert len(data['sources']) == 15
+    assert all(Path(p).is_absolute() for p in data['sources'])
+
+
+def test_mixed_roots_reject_incomplete_backbone_map(tmp_path, monkeypatch):
+    m, roots = mixed_inputs(tmp_path, monkeypatch)
+    roots.pop('dinov2_vit_b14')
+    with pytest.raises(ValueError, match='exactly'):
+        m.load_verified_roots(roots)
+
+
+def test_mixed_roots_reject_different_frozen_cohorts(tmp_path, monkeypatch):
+    m, roots = mixed_inputs(tmp_path, monkeypatch)
+    original = m.load_verified
+
+    def mismatched(root, backbones):
+        data = original(root, backbones)
+        if backbones == ['dinov2_vit_b14']:
+            data['sources']['data/H/freeze.json'] = 'different'
+        return data
+    monkeypatch.setattr(m, 'load_verified', mismatched)
+    with pytest.raises(ValueError, match='frozen'):
+        m.load_verified_roots(roots)
+
+
+@pytest.mark.parametrize('field,value,match', [
+    ('epochs', 60, 'budget'), ('artifact_root', '/wrong/root', 'root')])
+def test_mixed_roots_reject_old_budget_or_relocated_identity(tmp_path, monkeypatch, field, value, match):
+    m, roots = mixed_inputs(tmp_path, monkeypatch)
+    marker = Path(roots['dinov2_vit_b14']) / 'analysis/H/dinov2_vit_b14/seed7/complete.json'
+    record = json.loads(marker.read_text())
+    record['identity']['cache_contexts']['B'][field] = value
+    marker.write_text(json.dumps(record))
+    with pytest.raises(ValueError, match=match):
+        m.load_verified_roots(roots, epoch_budgets=dict(zip(m.BACKBONES, [10, 10, 15])))

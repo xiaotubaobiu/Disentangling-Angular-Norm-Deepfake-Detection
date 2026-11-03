@@ -1,0 +1,36 @@
+{
+  "status": "PASS_STRICT_H_WORKER_AND_INDEPENDENT_ALL_TABLE_REDUCTIONS",
+  "created": "2026-11-03T12:45:54.214542+00:00",
+  "backbone": "dinov2_vit_b14",
+  "training_seed_pairs": [
+    7,
+    42,
+    123
+  ],
+  "strict_summary_sha256": "e8a66231175bb0d57355d455fe9a3bc1649d8c95efdc595eaa411469114c1125",
+  "strict_worker_exit_sha256": "6b66c834bd439006b442df7cce2994d2a09534991ba2026ed40be7714220bc6d",
+  "sealed_digest_transaction_sha256": "2e622e486bb42372e5dd59dfba71ceb8bf8512b9ec12e7dbdb877f7730ac4ae9",
+  "summary_rows_checked": 672,
+  "mean_and_sample_SD_fields_checked": 1344,
+  "counts_signs_completeness_and_NA_checked": true,
+  "primary_and_sensitivity_contrasts_reconstructed": 24,
+  "input_sha256": {
+    "data/H/freeze.json": "26550334c922cfaa2fed3cfa6fbed7a1805696551239f5b058f8ccc43bae3eb7",
+    "data/H/train_dev_freeze.json": "fc82fb72632213ba98b6f8d64f84f7c5d70fcaaf49164c9e43a3e76894e970cf",
+    "analysis/H/dinov2_vit_b14/three_seed_summary/per_seed_metrics.csv": "78ecd4a9566c096b291a11a2dab8c908dc6da55d56594261f86b7cbb380b3400",
+    "analysis/H/dinov2_vit_b14/three_seed_summary/supporting_artifacts.json": "c8dac8211d4b46796253c03aff6779886329f6bd2d4f79ed789980481a8ed3d9",
+    "analysis/H/dinov2_vit_b14/three_seed_summary/three_seed_metrics.csv": "5cb60259f241f0d99b0d6188f5af25c41e8e0afd8ff9eccbbcfe260290c0c32a",
+    "analysis/H/dinov2_vit_b14/three_seed_summary/three_seed_comparisons.csv": "f2b4498abfdd63b9ee3e53ae062fae56032c00303a4191d8a437903db476a4a9",
+    "analysis/H/dinov2_vit_b14/three_seed_summary/identity.json": "4026cb75fe78d2494794c88e373d3f4e197c0f5ec450e2be02152d947928a772",
+    "analysis/H/dinov2_vit_b14/three_seed_summary/limitations.json": "da7ed5d27a708130eee09ea0cc2c24fba2a5fb7a4e3bcbc64ebad0e1fdeaa34d",
+    "analysis/H/dinov2_vit_b14/three_seed_summary/per_seed_comparisons.csv": "504dd551fa17112061a853dbdc07f60a5d55b6bd6446a7ccced09c1d4964dc88",
+    "analysis/H/dinov2_vit_b14/three_seed_summary/coverage.json": "867a627fc1d8b1486624be440526fa6ecfb3c15a3c345997c7bb73e3941f2f6e",
+    "analysis/H/dinov2_vit_b14/seed7/complete.json": "ae7ef8b7b39ffbf61154d82451e159bce748873d5ca837c21c154ead79d87464",
+    "analysis/H/dinov2_vit_b14/seed42/complete.json": "add70449d8c7af6f97e2f609e229a442011dad25ad2df09fd149e2659b308abe",
+    "analysis/H/dinov2_vit_b14/seed123/complete.json": "90e45cda5cd5dca08e909b062adc8af9ff37a6d0d6ee24af2fd278b6829295f4",
+    "analysis/H/dinov2_vit_b14/three_seed_summary/complete.json": "e8a66231175bb0d57355d455fe9a3bc1649d8c95efdc595eaa411469114c1125"
+  },
+  "producer_sha256": "006b8a857ce3997b19b08d3a88cd64d1351f50a56e5f6df9c8e5addd3c062231",
+  "scope": "Original strict worker owns live raw/cache validation. This check independently reduces all saved original metric/comparison summaries and validates figure-reader identities.",
+  "full_goal_complete": false
+}

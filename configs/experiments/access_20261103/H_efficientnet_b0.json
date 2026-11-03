@@ -1,0 +1,27 @@
+{
+  "schema": "EPOCH_RECIPE_V2",
+  "status": "FROZEN",
+  "route": "H",
+  "backbone": "efficientnet_b0",
+  "chosen_epochs": 10,
+  "target_development_used": false,
+  "test_used": false,
+  "development_seeds": [
+    1007,
+    1042
+  ],
+  "paired_histories": [
+    "B",
+    "AB"
+  ],
+  "data_freeze_sha256": "fc82fb72632213ba98b6f8d64f84f7c5d70fcaaf49164c9e43a3e76894e970cf",
+  "fixed_learning_rate": 0.0001,
+  "actual_batch": 128,
+  "criterion": "paired_source_dev_B_auc",
+  "fixed_epoch_budget": true,
+  "decision_origin": "Explicit user-requested fixed-budget revision after review of initial H results. This is not the original source-only developer budget.",
+  "previous_budget": 15,
+  "prior_target_results_observed": true,
+  "per_epoch_target_selection": false,
+  "created": "2026-11-03T21:10:16.166196+09:00"
+}

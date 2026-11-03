@@ -1,0 +1,27 @@
+{
+  "status": "PASS_STRICT_WORKER_AND_INDEPENDENT_TABLE_REDUCTIONS",
+  "created": "2026-11-03T05:20:53.409300+00:00",
+  "backbone": "clip_vit_b16",
+  "training_seeds": [
+    7,
+    42,
+    123,
+    2026,
+    3407
+  ],
+  "strict_summary_sha256": "7c6ec757a1d102dd66e0e45d43213cc6781afed82a98e23fa74f87f839bf1cde",
+  "strict_worker_exit_sha256": "e95d70490955c8a9c9bad965390d78899d04442c4b73b6dd9fba0e4fe5432089",
+  "strict_summary_artifact_count": 15,
+  "independently_reduced_mean_and_sd_values": {
+    "metrics": 64,
+    "calibration": 432,
+    "calibration_comparisons": 288,
+    "oracles": 216,
+    "effects": 24,
+    "method": 2016
+  },
+  "method_summary_sha256": "e7bd9f3a0bb16ff070a883d3cd4a6e9461d595543e877553ca57aa92998c0f06",
+  "producer_sha256": "421ac346d795030604b7f0265d76d5ef7b16160d6a970e29a5c51f6a45b075c5",
+  "scope": "Original strict worker owns complete live raw/cache validation; this receipt verifies committed outputs and independently recomputes model-summary statistics.",
+  "full_goal_complete": false
+}

@@ -1,6 +1,8 @@
 # Deepfake Detector：期刊实验主线
 
-本仓库用于正在执行的期刊实验。D路线研究推理归一化、视频聚合和阈值迁移，H路线研究完整人脸预处理历史。正式范围为D的15个模型＋已触发扩展的H的18个模型，共33个，正式训练、分析和统计汇总已全部验收；中文稿与最终证据归档正在收尾。
+本仓库用于IEEE Access期刊实验。D路线研究推理归一化、视频聚合和阈值迁移，H路线研究完整人脸预处理历史。正式范围为D的15个模型＋H的18个模型，共33个；本次以十二个从公开初始化重新训练的十轮H-DINOv2/EfficientNet模型替换原长预算主结果，D和H-CLIP保留原预测。
+
+论文入口：[英文Quarto源稿](paper/ieee-access/manuscript_en.qmd)、[中文稿](paper/ieee-access/manuscript_zh.md)、[可独立编译的LaTeX目录](paper/ieee-access/latex/)、[Overleaf教程](paper/ieee-access/OVERLEAF_教程.md)。作者暂为Shiyu Chen和Kangbin Yim，后者通讯；基金、会议前作引用及作者简介明确保留待补。
 
 ```text
 src/journal_detector/      当前训练、数据准备、推理与评价代码
@@ -11,6 +13,7 @@ third_party/               固定版本的官方DINOv2、DF40参考实现
 legacy/31_methods/         第二阶段31方法实验的历史代码
 legacy/21_methods/         第三阶段21方法实验的历史代码
 docs/                     使用说明、版本沿革与核验记录
+paper/ieee-access/         当前中英文稿、官方模板、LaTeX/PDF与Overleaf教程
 run.py                     统一命令入口
 requirements.lock.txt      Python依赖版本
 ```
@@ -27,14 +30,14 @@ requirements.lock.txt      Python依赖版本
 | 微调范围 | 视觉编码器全部参数＋二分类头 | 同左 | 同左 |
 | 每卡实际batch | 128 | 128 | 128 |
 | D最大预算，已冻结 | 2 | 30 | 2 |
-| H最大预算，已冻结 | 10 | 60 | 15 |
+| H当前预算 | 最大10 | 固定训满10 | 固定训满10 |
 | 训练输出L2 | 关闭 | 关闭 | 关闭 |
 
-共用 AdamW、CE、WD=5e-4、AMP、梯度裁剪1、epoch级warmup1＋cosine、EMA=.999。每轮使用EMA计算源DEV正确视频分组的mean-probability pooled AUC，严格提高才保存；连续5轮不提高早停。所有测试加载最佳EMA `best_model.pth`。
+共用 AdamW、CE、WD=5e-4、AMP、梯度裁剪1、epoch级warmup1＋cosine、EMA=.999。每轮使用EMA计算源DEV正确视频分组的mean-probability pooled AUC，严格提高才保存；除本次固定十轮的H-DINO与EfficientNet外，连续5轮不提高早停。所有测试加载预算内最佳EMA `best_model.pth`。
 
-开发种子为1007、1042。D利用源DEV和隔离CDF-DEV开发总预算，正式种子7/42/123/2026/3407的训练轨迹只按源DEV选点。H只使用源DEV：在共同B输入上，以B/AB两模型平均AUC选择共同epoch和共同早停，正式种子7/42/123。H-DINO从公开初始化重新开始的60轮双种子开发已完成，实际结束48/60轮、共同最佳43/57轮；源学习与停止边界复核后冻结最大60轮，六个正式模型及其完整三seed分析均已验收。其源验证泛化仍弱于EfficientNet；预算冻结不表示高性能或统计收敛。最大预算、实际停止轮数和最佳轮数分别记录。
+开发种子为1007、1042。D利用源DEV和隔离CDF-DEV开发总预算，正式种子7/42/123/2026/3407的训练轨迹只按源DEV选点。H在共同B输入上，以B/AB两模型平均AUC选择共同epoch，正式种子7/42/123。H-DINO与EfficientNet在查看初版H结果后按用户要求修订为固定十轮：十二模型从公开初始化重新开始，cosine按十轮预算重算，其余参数不变；预算内仍按共同源DEV选EMA，不逐轮使用DFD。此修订不能称为最初未见目标结果的预算选择。原长预算证据保留在历史归档，当前主表使用新十二模型；缩短预算本身不构成充分学习或收敛的保证。
 
-六份原始epoch决定、33个正式任务及数据/环境哈希已保存为[本轮实际配置快照](configs/experiments/journal_20261102/README.md)。D每轮799个batch，H每模型每轮185个；CLIP最大2轮与10轮分别最多1598与1850次更新尝试，轮数需结合每轮工作量解释。
+原始epoch决定、33个任务及数据/环境哈希保存在[初版实际配置快照](configs/experiments/journal_20261102/README.md)；本次覆盖H-DINO/EfficientNet的十二任务与十轮配方见[修订配置](configs/experiments/access_20261103/README.md)。D每轮799个batch，H每模型每轮185个；CLIP最大2轮与10轮分别最多1598与1850次更新尝试，轮数需结合每轮工作量解释。
 
 使用DF40官方图像增强，随后使用各骨干对应的预训练输入归一化。DINOv2保留官方模型、权重与插值公式；位置插值在CPU执行并保留梯度，以支持PyTorch确定性反向。
 
@@ -58,9 +61,9 @@ RQ4的21方法TPR可从已保存分数和阈值导出，操作见[方法级TPR](
 
 本轮实际使用的精确排序分解、聚合基线恒等式及独立训练/结果核验源码，逐字节保存在[辅助分析来源快照](scripts/reproducibility/journal_20261102/README.md)，并附原始路径与SHA256。它们保留实际产物根依赖，当前训练入口不会导入这些来源副本。
 
-本轮协议为`journal_detector-target-dev-20261102-v2`。`configs/journal.json`和`run.py`保留原15轮基础模板入口；本轮实际开发、epoch冻结和正式配置位于独立产物根，操作本轮运行时使用说明中的直接模块接口。本机产物根为`/home/z/workspace/deepfake_journal_20261102`，仅使用物理GPU0–3。
+本轮协议为`journal_detector-target-dev-20261102-v2`。`configs/journal.json`和`run.py`保留原15轮基础模板入口；实际实验使用独立产物根的直接模块接口。原结果根为`/home/z/workspace/deepfake_journal_20261102`，本次H十轮修订根为`/home/z/workspace/deepfake_access_20261103`，每个骨干的汇总来源显式登记；仅使用物理GPU0–3。
 
-当前代码不依赖历史实验的本地权重、预测缓存或结果目录。原始数据保留在 `/Dataset`；数据划分定义保存在 `configs/data_protocol/`，以后可以重新审计并构建清单。
+训练入口使用公开初始化。论文复算读取明确登记的两处产物根，不混入31方法/旧21方法结果。原始数据保留在 `/Dataset`；数据划分定义保存在 `configs/data_protocol/`。
 
 ## 实验沿革与文档
 
@@ -70,6 +73,6 @@ Obsidian主目录 `paper/deepfake-detector/` 按阶段保留：
 
 - `31方法实验/`：实验计划、实验记录、实验结果、中文稿。
 - `21 方法实验/`：实验计划、实验记录、实验结果、中文稿。
-- `期刊实验_20261102/`：本轮实验计划、实验记录、实验结果、中文稿。
+- `期刊实验_20261102/`：本轮实验计划、实验记录、实验结果、中文稿、新增英文稿.qmd。
 
 其中“实验结果”保留关键数值，“实验记录”区分观测与原因解释，“中文稿”保存各阶段可用的论文叙事。旧实验结果不混作下一轮结果。

@@ -1,10 +1,10 @@
-# IEEE Access H-DINO10 Implementation Plan
+# IEEE Access H Ten-Epoch Revision Implementation Plan
 
 > **For agentic workers:** Use superpowers:executing-plans to implement this plan task-by-task.
 
-**Goal:** Replace only six H-DINO60 models with fresh fixed10 models, revise the Chinese manuscript, add an English Quarto manuscript and compile an IEEE Access LaTeX delivery with an Overleaf Git tutorial.
+**Goal:** Replace six H-DINO60 and six H-EfficientNet15 models with fresh fixed10 models, revise the Chinese manuscript, add an English Quarto manuscript and compile an IEEE Access LaTeX delivery with an Overleaf Git tutorial.
 
-**Architecture:** Keep the original execution worktree and all old artifacts immutable. This isolated worktree adds an opt-in fixed-epoch selection policy; a new artifact root copies frozen metadata but reads original image bytes. Final tables combine newly accepted DINO summaries with unchanged CLIP/EfficientNet summaries through explicitly recorded roots. Quarto consumes accepted tables and figures, emits portable IEEE Access TeX and a locally verified PDF.
+**Architecture:** Keep the original execution worktree and all old artifacts immutable. This isolated worktree adds an opt-in fixed-epoch selection policy; a new artifact root copies frozen metadata but reads original image bytes. Final tables combine newly accepted DINO summaries with unchanged CLIP and revised EfficientNet summaries through explicitly recorded roots. Quarto consumes accepted tables and figures, emits portable IEEE Access TeX and a locally verified PDF.
 
 **Tech Stack:** Existing PyTorch environment, Python/pandas, Quarto, official IEEE Access class, pdfLaTeX/BibTeX.
 
@@ -13,16 +13,16 @@
 ## Global Constraints
 
 - Only physicalGPU0–3; preserve GPU4–7 and all original/Dataset bytes.
-- H-DINO: seeds7/42/123, both B/AB, full10 epochs, LR5e-5, batch128, original augmentation/optimizer/EMA. Best paired sourceDEV-B mean-prob EMA remains the selection rule.
-- D15 and H CLIP/EfficientNet unchanged. Retain old60 results in their original archive; replace all primary H-DINO tables/figures/text only after all three pairs accepted.
+- H-DINO and H-EfficientNet: seeds7/42/123, both B/AB, full10 epochs, LR5e-5/1e-4 respectively, batch128, original augmentation/optimizer/EMA. Best paired sourceDEV-B mean-prob EMA remains the selection rule.
+- D15 and H CLIP unchanged. Retain old60 results in their original archive; replace all primary H-DINO/EfficientNet tables/figures/text only after all six pairs accepted.
 - Authors are Shiyu Chen and Kangbin Yim, in that order; Yim is corresponding author. Do not invent missing conference/funding/biography details.
-- Prepare Overleaf folder and tutorial; no remote writes or credentials requested.
+- Publish the standalone LaTeX project under /home/z/obsidian/paper/deepfake-detector/期刊实验_20261102/latex. User authorizes Overleaf creation/upload; Git token is conversation-only, and an existing-project URL is needed for Git access.
 
 ## Review Focus
 
 1. Fixed10 training must finish10 even when source AUC plateaus, retain earlier bestEMA, and recover after interruption; legacy early stopping must remain unchanged.
 2. Mixed-root H publication must bind each backbone to its own complete three-seed summary, same frozen cohorts, and reject duplicates/missing seeds.
-3. All old H-DINO60 numeric prose, tables and figures must be replaced together; D outputs must remain byte-identical.
+3. All old H-DINO60 and H-EfficientNet15 numeric prose, tables and figures must be replaced together; D outputs must remain byte-identical.
 4. English citations and claims must match actual accepted sources, especially the revised budget, processing coverage, and bounded rank example.
 5. LaTeX folder must compile independently of Quarto/source absolute paths, include class/bibliography/figures, and never publish training artifacts or credentials.
 
@@ -31,7 +31,7 @@
 - Add failing regression to existing paired-resume test: fixed10 plateau runs10 and chooses epoch1; legacy stops6.
 - Add focused selection policy tests for mismatched/nonboolean policy values.
 - Implement a small opt-in selection factory in trainer_h.py; defaultpatience5 unchanged, fixed policy patience epochs+1.
-- Run focused training/protocol tests. Copy immutable H metadata into the revision root and verify hashes. Freeze user-requested10 budget and exact six-run registry, including post-initial-results revision provenance.
+- Run focused training/protocol tests. Copy immutable H metadata into the revision root and verify hashes. Freeze user-requested10 budget and exact six-run registry per revised backbone, including post-initial-results revision provenance.
 - Launch three paired runs on idle approved GPUs with persistent completion/log handles. Queue six exports and three pair analyses plus strict summary.
 
 ### Task2: IEEE Access manuscript tooling during training
@@ -53,3 +53,7 @@
 - Prepare a clean Overleaf import ZIP and commands using a separate document checkout, token authentication, actual remote branch detection and no force-push.
 - Run relevant complete tests and one final fresh-context whole-change review; address material findings with regressions.
 - Publish code/documents per existing authorized Git workflow, preserve conference branch, and deliver Chinese/English/TeX/PDF/tutorial with remaining author-supplied fields clearly identified.
+
+## User scope extension
+
+The user additionally requests H EfficientNet to use10epochs and all corrected manuscripts to be synchronized to the Obsidian latex project. Restart all six EfficientNet models with10-epoch cosine, preserving source-only paired bestEMA selection. Update both revised backbones together; do not retain oldEfficientNet rank examples or performance values. Three H backbone budgets are now10.

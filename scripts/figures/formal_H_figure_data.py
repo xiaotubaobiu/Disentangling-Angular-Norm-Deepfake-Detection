@@ -150,3 +150,47 @@ def load_verified(root, backbones=BACKBONES):
     return dict(metrics=pd.concat(metrics, ignore_index=True), comparisons=pd.concat(comparisons, ignore_index=True),
         official_comparisons=pd.concat(summaries, ignore_index=True), paired=pd.concat(paired, ignore_index=True),
         sources=sources, backbones=list(backbones), training_seeds=list(SEEDS))
+
+
+def load_verified_roots(roots, backbones=BACKBONES, epoch_budgets=None):
+    """Combine accepted backbones while binding every artifact to its real root.
+
+    A revised training budget may replace one backbone without relocating or
+    rewriting the immutable receipts for the other backbones.
+    """
+    backbones = list(backbones)
+    if (len(backbones) != len(set(backbones)) or not backbones
+            or not set(backbones).issubset(BACKBONES) or set(roots) != set(backbones)):
+        raise ValueError('roots must name exactly the distinct requested backbones')
+    if epoch_budgets is not None and set(epoch_budgets) != set(backbones):
+        raise ValueError('epoch budget map must cover exactly the requested backbones')
+    roots = {b: str(Path(roots[b]).resolve()) for b in backbones}
+    outputs, sources, frozen = [], {}, None
+    for backbone in backbones:
+        root = Path(roots[backbone])
+        data = load_verified(root, [backbone])
+        cohort = tuple(data['sources'][p] for p in ['data/H/freeze.json', 'data/H/train_dev_freeze.json'])
+        if frozen is not None and cohort != frozen:
+            raise ValueError('mixed H roots must share the identical frozen cohorts')
+        frozen = cohort
+        for seed in SEEDS:
+            relative = f'analysis/H/{backbone}/seed{seed}/complete.json'
+            marker = root / relative
+            expected = data['sources'][relative]
+            record = json.loads(marker.read_text())
+            if digest(marker) != expected:
+                raise ValueError('H pair changed during mixed-root identity validation')
+            for context in record['identity']['cache_contexts'].values():
+                if Path(context['artifact_root']).resolve() != root:
+                    raise ValueError('H cache artifact root differs from the registered source root')
+                if epoch_budgets is not None and context['epochs'] != epoch_budgets[backbone]:
+                    raise ValueError('H cache budget differs from the requested publication revision')
+        for name, expected in data['sources'].items():
+            absolute = str(root / name)
+            if absolute in sources and sources[absolute] != expected:
+                raise ValueError('conflicting H publication artifact hashes')
+            sources[absolute] = expected
+        outputs.append(data)
+    return dict(**{name: pd.concat([d[name] for d in outputs], ignore_index=True)
+                  for name in ['metrics', 'comparisons', 'official_comparisons', 'paired']},
+                sources=sources, roots=roots, backbones=backbones, training_seeds=list(SEEDS))

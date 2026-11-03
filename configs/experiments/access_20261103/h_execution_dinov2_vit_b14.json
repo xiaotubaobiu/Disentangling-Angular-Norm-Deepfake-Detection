@@ -1,0 +1,166 @@
+{
+  "backbones": {
+    "clip_vit_b16": {
+      "learning_rate": 1e-05,
+      "weight_path": "/home/z/workspace/deepfake_journal_20261102/weights/ViT-B-16.pt",
+      "weight_sha256": "5806e77cd80f8b59890b7e101eabd078d9fb84e6937f9e85e4ecb61988df416f",
+      "weight_url": "https://openaipublic.azureedge.net/clip/models/5806e77cd80f8b59890b7e101eabd078d9fb84e6937f9e85e4ecb61988df416f/ViT-B-16.pt"
+    },
+    "dinov2_vit_b14": {
+      "learning_rate": 5e-05,
+      "weight_path": "/home/z/workspace/deepfake_journal_20261102/weights/dinov2_vitb14_pretrain.pth",
+      "weight_sha256": "0b8b82f85de91b424aded121c7e1dcc2b7bc6d0adeea651bf73a13307fad8c73",
+      "weight_url": "https://dl.fbaipublicfiles.com/dinov2/dinov2_vitb14/dinov2_vitb14_pretrain.pth"
+    },
+    "efficientnet_b0": {
+      "learning_rate": 0.0001,
+      "weight_path": "/home/z/workspace/deepfake_journal_20261102/weights/efficientnet_b0.pth",
+      "weight_sha256": "7f5810bc96def8f7552d5b7e68d53c4786f81167d28291b21c0d90e1fca14934",
+      "weight_url": "https://download.pytorch.org/models/efficientnet_b0_rwightman-7f5810bc.pth"
+    }
+  },
+  "allowed_gpus": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "allowed_gpu_uuids": [
+    "GPU-dd00bb59-65e7-1146-bcc2-976a5d7d408e",
+    "GPU-6f9d6999-0958-10be-4e84-7e4b9df2b29c",
+    "GPU-5df5602a-848e-d944-26cd-aec11b964b45",
+    "GPU-626ec32f-1401-c959-74b0-db04ed63c646"
+  ],
+  "protocol": "journal_detector-target-dev-20261102-v2",
+  "artifact_root": "/home/z/workspace/deepfake_access_20261103",
+  "effective_batch": 128,
+  "workers": 6,
+  "formal_seeds": [
+    7,
+    42,
+    123,
+    2026,
+    3407
+  ],
+  "checkpoint_selection": "source_dev_pooled_mean_probability_auc_ema",
+  "runs": {
+    "H_formal_dinov2_vit_b14_B_seed7": {
+      "route": "H",
+      "phase": "formal",
+      "recipe_frozen": true,
+      "backbone": "dinov2_vit_b14",
+      "seed": 7,
+      "epochs": 10,
+      "microbatch": 128,
+      "precision": "AMP",
+      "lr": 5e-05,
+      "train_manifest": "data/H/B/train.parquet",
+      "dev_manifest": "data/H/B/dev.parquet",
+      "epoch_recipe_path": "/home/z/workspace/deepfake_access_20261103/configs/epoch_recipes/H_dinov2_vit_b14.json",
+      "epoch_recipe_sha256": "6f604f5d5e85d22d99d4e74fb3b37659f491f4ba4154341cb931a495d0f898e6",
+      "history": "B",
+      "fixed_epoch_budget": true
+    },
+    "H_formal_dinov2_vit_b14_AB_seed7": {
+      "route": "H",
+      "phase": "formal",
+      "recipe_frozen": true,
+      "backbone": "dinov2_vit_b14",
+      "seed": 7,
+      "epochs": 10,
+      "microbatch": 128,
+      "precision": "AMP",
+      "lr": 5e-05,
+      "train_manifest": "data/H/AB/train.parquet",
+      "dev_manifest": "data/H/B/dev.parquet",
+      "epoch_recipe_path": "/home/z/workspace/deepfake_access_20261103/configs/epoch_recipes/H_dinov2_vit_b14.json",
+      "epoch_recipe_sha256": "6f604f5d5e85d22d99d4e74fb3b37659f491f4ba4154341cb931a495d0f898e6",
+      "history": "AB",
+      "fixed_epoch_budget": true
+    },
+    "H_formal_dinov2_vit_b14_B_seed42": {
+      "route": "H",
+      "phase": "formal",
+      "recipe_frozen": true,
+      "backbone": "dinov2_vit_b14",
+      "seed": 42,
+      "epochs": 10,
+      "microbatch": 128,
+      "precision": "AMP",
+      "lr": 5e-05,
+      "train_manifest": "data/H/B/train.parquet",
+      "dev_manifest": "data/H/B/dev.parquet",
+      "epoch_recipe_path": "/home/z/workspace/deepfake_access_20261103/configs/epoch_recipes/H_dinov2_vit_b14.json",
+      "epoch_recipe_sha256": "6f604f5d5e85d22d99d4e74fb3b37659f491f4ba4154341cb931a495d0f898e6",
+      "history": "B",
+      "fixed_epoch_budget": true
+    },
+    "H_formal_dinov2_vit_b14_AB_seed42": {
+      "route": "H",
+      "phase": "formal",
+      "recipe_frozen": true,
+      "backbone": "dinov2_vit_b14",
+      "seed": 42,
+      "epochs": 10,
+      "microbatch": 128,
+      "precision": "AMP",
+      "lr": 5e-05,
+      "train_manifest": "data/H/AB/train.parquet",
+      "dev_manifest": "data/H/B/dev.parquet",
+      "epoch_recipe_path": "/home/z/workspace/deepfake_access_20261103/configs/epoch_recipes/H_dinov2_vit_b14.json",
+      "epoch_recipe_sha256": "6f604f5d5e85d22d99d4e74fb3b37659f491f4ba4154341cb931a495d0f898e6",
+      "history": "AB",
+      "fixed_epoch_budget": true
+    },
+    "H_formal_dinov2_vit_b14_B_seed123": {
+      "route": "H",
+      "phase": "formal",
+      "recipe_frozen": true,
+      "backbone": "dinov2_vit_b14",
+      "seed": 123,
+      "epochs": 10,
+      "microbatch": 128,
+      "precision": "AMP",
+      "lr": 5e-05,
+      "train_manifest": "data/H/B/train.parquet",
+      "dev_manifest": "data/H/B/dev.parquet",
+      "epoch_recipe_path": "/home/z/workspace/deepfake_access_20261103/configs/epoch_recipes/H_dinov2_vit_b14.json",
+      "epoch_recipe_sha256": "6f604f5d5e85d22d99d4e74fb3b37659f491f4ba4154341cb931a495d0f898e6",
+      "history": "B",
+      "fixed_epoch_budget": true
+    },
+    "H_formal_dinov2_vit_b14_AB_seed123": {
+      "route": "H",
+      "phase": "formal",
+      "recipe_frozen": true,
+      "backbone": "dinov2_vit_b14",
+      "seed": 123,
+      "epochs": 10,
+      "microbatch": 128,
+      "precision": "AMP",
+      "lr": 5e-05,
+      "train_manifest": "data/H/AB/train.parquet",
+      "dev_manifest": "data/H/B/dev.parquet",
+      "epoch_recipe_path": "/home/z/workspace/deepfake_access_20261103/configs/epoch_recipes/H_dinov2_vit_b14.json",
+      "epoch_recipe_sha256": "6f604f5d5e85d22d99d4e74fb3b37659f491f4ba4154341cb931a495d0f898e6",
+      "history": "AB",
+      "fixed_epoch_budget": true
+    }
+  },
+  "development_seeds": [
+    1007,
+    1042
+  ],
+  "h_formal_seeds": [
+    7,
+    42,
+    123
+  ],
+  "epoch_development_caps": {
+    "clip_vit_b16": 10,
+    "efficientnet_b0": 15,
+    "dinov2_vit_b14": 10
+  },
+  "target_development_used": false,
+  "revision": "IEEE_Access_H_DINO_fixed10_20261103"
+}

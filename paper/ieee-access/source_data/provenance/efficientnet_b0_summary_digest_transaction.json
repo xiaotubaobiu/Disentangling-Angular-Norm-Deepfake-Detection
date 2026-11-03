@@ -1,0 +1,52 @@
+{
+  "status": "PASS_SEALED_LARGE_FILE_DIGEST_TRANSACTION",
+  "sealed": true,
+  "created": "2026-11-03T12:45:50.617495+00:00",
+  "backbone": "efficientnet_b0",
+  "original_summary_function": "journal_detector.summary_h.summarize_backbone",
+  "original_summary_code_sha256": "928e876ba96c248e5a6b1cec533da6860ef1ff77a7d528775cba3819973570f0",
+  "original_training_code_sha256": "83f6380480d1c34a659d5d6c9bbc70b607f093f35c5ddeeeabec24a4c181660e",
+  "summary_complete_sha256": "4cf8fe554745c03f89746676d7b77fee2228f202c8e6228baea7f027ac52ee46",
+  "wrapper_sha256": "5a7335aa005c0f3d6d5098340f337ea960739f90c996473d3fdfa77c96e71234",
+  "digest_helper_sha256": "438bf7c713bd2a729b9c23e8c96bd19720894dee53909e63ed6f60cc52399f49",
+  "minimum_cached_bytes": 134217728,
+  "repeated_large_reads_avoided": 189,
+  "large_inputs": {
+    "/home/z/workspace/deepfake_access_20261103/pairs/efficientnet_b0_seed7_formal_cap10/state.pt": {
+      "signature": [
+        64769,
+        42996609,
+        162081422,
+        1793708594342471318,
+        1793708594830478580
+      ],
+      "sha256": "1d44163a6e4d759dc1d29719afd9ade3a96b7868bffcb13ff65cc439213ca3c6",
+      "bytes": 162081422
+    },
+    "/home/z/workspace/deepfake_access_20261103/pairs/efficientnet_b0_seed42_formal_cap10/state.pt": {
+      "signature": [
+        64769,
+        42996607,
+        162081422,
+        1793708590254410167,
+        1793708590698416838
+      ],
+      "sha256": "dfba6b6cfda50de9b25401a2495c64fa11910b87421bcebb7edfb60fe9669062",
+      "bytes": 162081422
+    },
+    "/home/z/workspace/deepfake_access_20261103/pairs/efficientnet_b0_seed123_formal_cap10/state.pt": {
+      "signature": [
+        64769,
+        42996623,
+        162081422,
+        1793708606238645906,
+        1793708606638651690
+      ],
+      "sha256": "08b91a6ccd5fd53075c216e5111f13a69ba5d2d2b6989895a6de9ff22e26f15f",
+      "bytes": 162081422
+    }
+  },
+  "guarantee": "Each large input fully hashed at first use and fully reread before success; metadata guard on every reuse. Small code/metadata hashes and all original numeric/identity validations remain active.",
+  "statistical_code_modified": false,
+  "model_or_score_modified": false
+}

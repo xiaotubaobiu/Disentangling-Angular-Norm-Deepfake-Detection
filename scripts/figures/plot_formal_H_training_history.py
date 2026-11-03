@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
 import numpy as np
 
-from formal_H_figure_data import BACKBONES, CONTRASTS, SEEDS, digest, load_verified
+from formal_H_figure_data import BACKBONES, CONTRASTS, SEEDS, digest, load_verified, load_verified_roots
 
 DISPLAY = {'clip_vit_b16': 'CLIP', 'dinov2_vit_b14': 'DINOv2', 'efficientnet_b0': 'EfficientNet-B0'}
 DOMAINS = [('source_test', '#4E79A7', 'FF++'), ('target_test', '#CC8F5B', 'DFD')]
@@ -19,11 +19,18 @@ DOMAINS = [('source_test', '#4E79A7', 'FF++'), ('target_test', '#CC8F5B', 'DFD')
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--root', type=Path, required=True)
+    parser.add_argument('--roots-map', type=Path, help='JSON with roots and expected_epoch_budgets for an explicit revision')
     parser.add_argument('--qa-dir', type=Path, required=True)
     parser.add_argument('--backbone', choices=BACKBONES)
     parser.add_argument('--output-dir', type=Path)
     args = parser.parse_args()
-    data = load_verified(args.root, [args.backbone] if args.backbone else BACKBONES)
+    backbones = [args.backbone] if args.backbone else BACKBONES
+    if args.roots_map:
+        mapping = json.loads(args.roots_map.read_text())
+        data = load_verified_roots({b: mapping['roots'][b] for b in backbones}, backbones,
+            {b: mapping['expected_epoch_budgets'][b] for b in backbones})
+    else:
+        data = load_verified(args.root, backbones)
     sys.path.insert(0, str(args.qa_dir))
     from audit_panel_alignment import require_matplotlib_panel_alignment
     plt.rcParams.update({'font.family': 'sans-serif', 'font.sans-serif': ['DejaVu Sans'],

@@ -1,0 +1,64 @@
+% Pandoc/Quarto adapter for the unmodified IEEE Access 2026-05-13 class.
+\documentclass{ieeeaccess}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx,textcomp,booktabs,array,multirow}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage[hidelinks]{hyperref}
+\usepackage{bm}
+\makeatletter
+\AtBeginDocument{\DeclareMathVersion{bold}
+\SetSymbolFont{operators}{bold}{T1}{times}{b}{n}
+\SetSymbolFont{NewLetters}{bold}{T1}{times}{b}{it}
+\SetMathAlphabet{\mathrm}{bold}{T1}{times}{b}{n}
+\SetMathAlphabet{\mathit}{bold}{T1}{times}{b}{it}
+\SetMathAlphabet{\mathbf}{bold}{T1}{times}{b}{n}
+\SetMathAlphabet{\mathtt}{bold}{OT1}{pcr}{b}{n}
+\SetSymbolFont{symbols}{bold}{OMS}{cmsy}{b}{n}
+\renewcommand\boldmath{\@nomath\boldmath\mathversion{bold}}}
+\makeatother
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\providecommand{\pandocbounded}[1]{#1}
+$for(header-includes)$
+$header-includes$
+$endfor$
+% Quarto loads caption/subcaption for cross references. Preserve the caption
+% typography supplied by ieeeaccess.cls instead of caption's generic fallback.
+\DeclareCaptionFont{accessfigure}{\figcapfont}
+\DeclareCaptionFont{accessfigurelabel}{\color{accessblue}\figcapheadfont}
+\DeclareCaptionFont{accesstable}{\tablecapfont}
+\DeclareCaptionFont{accesstablelabel}{\color{accessblue}\tablecapheadfont}
+\captionsetup[figure]{font=accessfigure,labelfont=accessfigurelabel,labelsep=period,justification=raggedright,singlelinecheck=false}
+\captionsetup[table]{font=accesstable,labelfont=accesstablelabel,labelsep=period,justification=raggedright,singlelinecheck=false}
+\AtBeginDocument{\renewcommand{\figurename}{FIGURE}\renewcommand{\tablename}{TABLE}}
+\begin{document}
+\vol{XX}
+\year{XXXX}
+\history{Manuscript prepared for review.}
+\doi{To be assigned}
+\title{$title$}
+\author{\uppercase{Shiyu Chen}\authorrefmark{1}, AND
+\uppercase{Kangbin Yim}\authorrefmark{2}}
+\address[1]{Department of Software Convergence, Soonchunhyang University,
+Asan 31538, Republic of Korea (e-mail: chen@sch.ac.kr)}
+\address[2]{Department of Information Security, Soonchunhyang University,
+Asan 31538, Republic of Korea (e-mail: yim@sch.ac.kr)}
+\corresp{Corresponding author: Kangbin Yim (e-mail: yim@sch.ac.kr).}
+\markboth{Chen and Yim: $short-title$}{Chen and Yim: $short-title$}
+\begin{abstract}
+$abstract$
+\end{abstract}
+\begin{keywords}
+$for(keywords)$$keywords$$sep$, $endfor$
+\end{keywords}
+\titlepgskip=-21pt
+\maketitle
+$body$
+$if(bibliography)$
+\bibliographystyle{IEEEtran}
+\bibliography{$for(bibliography)$$bibliography$$sep$,$endfor$}
+$endif$
+$for(include-after)$
+$include-after$
+$endfor$
+\EOD
+\end{document}
