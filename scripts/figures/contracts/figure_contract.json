@@ -1,0 +1,46 @@
+{
+  "status": "PLANNED_FROM_ACCEPTED_DATA",
+  "backend": "python",
+  "created": "2026-11-03T07:21:32.551512+09:00",
+  "export": {
+    "width_mm": 183,
+    "font_floor_pt": 5,
+    "formats": [
+      "pdf",
+      "svg",
+      "png"
+    ],
+    "png_dpi": 600,
+    "alignment_tolerance_pt": 1.5,
+    "text_editable": true
+  },
+  "statistics": "Coverage is a census of frozen candidate videos, no sampling CI. Model contrasts use all three matched training seeds with mean and sample SD; no p-values.",
+  "scope": "These two figures cover frozen H data and accepted EfficientNet-B0 three-seed results only. D and H extended-backbone figures require their complete formal summaries.",
+  "figures": {
+    "H_preprocessing_coverage": {
+      "question": "How does complete preprocessing history change video eligibility across class and domain?",
+      "claim": "Retaining all eight fixed frames gives much lower and class-dependent preprocessing coverage in DFD, and B and AB retain different video sets.",
+      "archetype": "quantitative grid",
+      "a": "Primary coverage comparison: B, AB and common B/AB percentage for real/fake videos in FF++ source TEST and DFD.",
+      "b": "Decomposition: common, B-only, AB-only and neither fractions explain the overlap and population changes.",
+      "denominators": {
+        "FFPP_real": 140,
+        "FFPP_fake": 560,
+        "DFD_real": 363,
+        "DFD_fake": 3068
+      },
+      "source": "reports/H_preprocessing/b_vs_ab_membership.csv",
+      "exclusions": "Display TEST roles and pooled fake class for the coverage claim; full 22-row role/method census is retained as a source-data supplement. No sampled or dropped video within displayed roles."
+    },
+    "H_efficientnet_paired_effects": {
+      "question": "Does preprocessing history affect matched deployment performance and sensitivity to preprocessing mismatch?",
+      "claim": "EfficientNet-B0 shows mixed-sign DFD deployment differences but consistently positive history-by-test-input interaction across three matched seeds.",
+      "archetype": "quantitative grid",
+      "a": "Primary fixed-B deployment contrast M2 minus M1 on all B-eligible videos, source and DFD domains.",
+      "b": "Within-common-cohort interaction plus constituent input-switch effects show why a mixed deployment difference does not remove preprocessing mismatch.",
+      "baseline": "Raw, mean-logit video aggregation, unchanged trained head; all seeds 7,42,123.",
+      "source": "analysis/H/efficientnet_b0/three_seed_summary/per_seed_comparisons.csv",
+      "exclusions": "Main display is declared primary raw mean-logit pooled AUC contrasts; mean-prob/macro/threshold full results remain in the original accepted summary. No seed excluded."
+    }
+  }
+}

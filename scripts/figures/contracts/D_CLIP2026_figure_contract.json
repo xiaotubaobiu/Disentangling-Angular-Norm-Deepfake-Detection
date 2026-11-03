@@ -1,0 +1,35 @@
+{
+  "status": "PLANNED_FROM_ACCEPTED_DATA",
+  "backend": "python",
+  "created": "2026-11-03T07:21:32.551512+09:00",
+  "export": {
+    "width_mm": 183,
+    "font_floor_pt": 5,
+    "formats": [
+      "pdf",
+      "svg",
+      "png"
+    ],
+    "png_dpi": 600,
+    "alignment_tolerance_pt": 1.5,
+    "text_editable": true
+  },
+  "statistics": "Coverage is a census of frozen candidate videos, no sampling CI. Model contrasts use all three matched training seeds with mean and sample SD; no p-values.",
+  "scope": "These two figures cover frozen H data and accepted EfficientNet-B0 three-seed results only. D and H extended-backbone figures require their complete formal summaries.",
+  "figures": {
+    "D_CLIP2026_grouping_counterexample": {
+      "question": "How can grouping by bare video ID reverse the Raw/L2 AUC comparison when frame predictions are fixed?",
+      "claim": "For the accepted mean-logit CLIP seed2026 counterexample, changed ID weights alone flip the Raw/L2 difference; subsequent group averaging partially offsets it.",
+      "archetype": "quantitative grid",
+      "a": "Decomposition: two individually singleton-heavy methods receive much greater effective fake mass before group-score averaging.",
+      "b": "Fixed-score evaluation intervention: trace L2-minus-Raw under original natural weights, equal-ID member weights, then equal-ID mean scores.",
+      "source": [
+        "reports/grouping_decomposition/CDF_effective_method_weights_CLIP2026.csv",
+        "reports/grouping_decomposition/grouping_decomposition_cells.csv"
+      ],
+      "scope": "One explicitly selected existence counterexample, not a five-seed/backbone robustness estimate. Source finite complete cohort:157real12037fake/1830collisionIDs.",
+      "uncertainty": "No error bar: deterministic score comparisons from one model and fixed finite cohort. It is not an estimate of seed variation; target relation-bootstrap CI unavailable under frozen support rule.",
+      "exclusions": "Aggregate19methods into Other19 only for weight display, retaining all21methods in source CSV. Plot one declared reweight-then-average path; both-order exact decomposition retained in original full cells CSV. No selected test videos or fake methods omitted from metrics."
+    }
+  }
+}

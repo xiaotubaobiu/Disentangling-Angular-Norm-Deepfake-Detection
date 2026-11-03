@@ -1,0 +1,48 @@
+{
+  "backend": "python",
+  "status": "CONTRACT_BEFORE_DRAWING",
+  "created": "2026-11-03T09:04:00.470082+09:00",
+  "question": "Are FF++ source-selected and isolated CDF-development-selected best epochs close?",
+  "claim": "They are not uniformly close: the two DINOv2 developers differ by17/19epochs, while short CLIP/EfficientNet windows constrain observed gaps.",
+  "archetype": "quantitative grid",
+  "panels": [
+    {
+      "panel": "a",
+      "role": "Full completed-development comparison and window boundary",
+      "input": "all12completed developer trajectories, paired source/CDF best epochs",
+      "n": 12
+    },
+    {
+      "panel": "b",
+      "role": "Temporal explanation of source-fit versus transfer divergence",
+      "input": "all27+25epoch rows of both DINOv2 developers; source and CDF AUC",
+      "n": "2separate developers, no averaging"
+    }
+  ],
+  "data_mapping": {
+    "source_best_epoch": "complete.best_epoch, first maximum dev.pooled_auc",
+    "cdf_best_epoch": "complete.cdf_best_epoch, first maximum cdf_dev.pooled_auc",
+    "curve_x": "history.epoch",
+    "curve_y": "100*history[dev/cdf_dev].pooled_auc",
+    "replicate": "developer seed1007/1042, caps kept separate",
+    "frozen_marker": "chosen cap2CLIP/2Eff/30DINO"
+  },
+  "scope": "Development diagnostic supplement, not formal5seed TEST or new model selection.",
+  "exclusions": "No completed trajectory omitted from panel a. Panel b intentionally explains the DINO counterexample; full102epoch rows retained as source data.",
+  "uncertainty": "No seed aggregates or sampling CIs; separate deterministic observed histories. No inference about population equality.",
+  "style_reuse": "Style-only inheritance from project plotting code, no reused statistical transform.",
+  "export": {
+    "width_mm": 183,
+    "height_mm": 110,
+    "font_pt": 7,
+    "formats": [
+      "PDF",
+      "SVG",
+      "PNG600dpi",
+      "TIFF600dpi"
+    ],
+    "alignment_tolerance_pt": 1.5
+  },
+  "journal_specific_compliance_claim": false,
+  "training_performed": false
+}
