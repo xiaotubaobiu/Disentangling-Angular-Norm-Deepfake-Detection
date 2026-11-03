@@ -1,0 +1,29 @@
+{
+  "schema": "JOURNAL_FIGURE_CONTRACT_V1",
+  "question": "How do aggregation and incorrect video grouping change the measured effect of inference L2 across the three frozen backbones?",
+  "interpretation": "Compare matched L2-minus-Raw effects, and their grouping interaction, without treating a larger gain as a higher absolute AUC.",
+  "scope": "Frozen formal D models and original strict five-seed summaries only; no retraining, inference, selection, or new confidence interval.",
+  "archetype": "quantitative grid",
+  "backend": "python",
+  "dimensions_mm": [183, 88],
+  "panels": {
+    "a": {
+      "role": "establish",
+      "comparison": "L2 AUC minus Raw AUC under correct natural-video grouping",
+      "purpose": "Estimate the inference intervention before changing the video definition."
+    },
+    "b": {
+      "role": "discriminate",
+      "comparison": "(L2 minus Raw) under collision grouping minus (L2 minus Raw) under correct grouping",
+      "purpose": "Measure how the evaluation rule changes the inferred benefit; positive interaction alone is not a sign reversal."
+    }
+  },
+  "source_data": "All eight absolute AUC cells and all five seeds per selected backbone and TEST domain; paired panel values and their sample-SD summaries.",
+  "replication": "Five matched training seeds: 7, 42, 123, 2026, 3407. CAL subsets, video pairs, and bootstrap draws do not increase this n.",
+  "uncertainty": "Mean and sample SD (ddof=1) of within-seed differences; all individual training seeds shown. No new target TEST CI.",
+  "exclusions": "No selected backbone, seed, grouping, aggregation, or representation omitted from absolute-AUC Source Data. Panels display the two pre-specified contrasts; original collision deltas remain available in the bound strict summary.",
+  "acceptance": "Complete strict summary plus source-analysis identity, committed artifact hashes, exact matched cells, and effect reconstruction. Real rendering waits for those gates.",
+  "exports": ["editable PDF", "editable SVG", "600dpi PNG", "600dpi TIFF", "CSV Source Data", "Chinese caption", "render receipt"],
+  "qa": "Render-time strict panel alignment, source preflight, PDF glyph floor, collision audit, all-panel visual inspection. Minimum intended text size 7pt; absolute glyph floor 5pt.",
+  "decision": "Routine extension of the approved final-figure deliverable using the existing Python workflow; scientific estimates and frozen experimental choices are unchanged."
+}
