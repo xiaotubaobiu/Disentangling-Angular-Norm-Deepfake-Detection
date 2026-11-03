@@ -1,11 +1,11 @@
 {
   "status": "PASS_ACTUAL_MANUSCRIPT_PDF_VISUAL_AND_BUILD_CHECKS",
   "pages": 11,
-  "pdf_sha256": "319a3bce49850f2ee881bd2d7e6a42868d7142c1a31806ed752c03aa9e6e0a96",
-  "tex_sha256": "5fe29dc7772851db3b93201d23e07e32bb10a5f4daa76e4505f0b078a1ef9fde",
-  "qmd_sha256": "4fcb0b7155aff900bae38604f57db2f06c21acb7a6ffff8ac9574b40e7cd3afb",
-  "archive_sha256": "42c0fff99876ac7f5f4f0cd3e7d6bf327514c9fe7b30ca0b8eb37e3eafed0d26",
-  "build_receipt_sha256": "5020d7c7c5537f4597bdd1b607f96305102af9a2fb14258b419d507bc4a010f3",
+  "pdf_sha256": "1d11d82517bf89f40f92f66a8c264a810636ec7117383e9c16642cdd93264581",
+  "tex_sha256": "e66c1e658715f8606b83e1d80b718e4e92a4d9e316bfeee473e5e9d650ebdc26",
+  "qmd_sha256": "b245a03244a0ab20d0b9bbade459f6ee88b9ee25735c00baddb98aaf301c1909",
+  "archive_sha256": "02358470f9f77765cb99c6431d08c1382e47258fa9f1c0c29364a29de0f329b6",
+  "build_receipt_sha256": "55f13b3aad31f443a7a07d47aa9f85a38ada5498854ec7bb87e75b25c846d11e",
   "standalone_compile": "PASSED",
   "cross_references": "resolved, no literal Table tilde",
   "independent_manuscript_claims": 90,
@@ -15,6 +15,14 @@
     "conference_title_venue_year_citation",
     "two_author_biographies"
   ],
-  "software_build_log": "final_paper_build_corrected.log",
-  "visual_contact_sheet": "/home/z/workspace/deepfake_access_20261103/reports/final_pdf_review_corrected/all_pages_contact.png"
+  "software_build_log": "final_paper_build_review_corrected.log",
+  "visual_contact_sheet": "/home/z/workspace/deepfake_access_20261103/reports/final_pdf_review_corrected/all_pages_contact.png",
+  "review_copyedit": "Added missing negative polarity label to EfficientNet paired-seed count; no numbers changed",
+  "visual_review_after_copyedit": {
+    "changed_pages": [
+      6
+    ],
+    "changed_page_inspected": true,
+    "all_other_10_pages_pixel_identical": true
+  }
 }

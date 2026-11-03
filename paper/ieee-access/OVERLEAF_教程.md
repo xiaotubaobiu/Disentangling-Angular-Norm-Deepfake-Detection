@@ -1,5 +1,9 @@
 # 将 IEEE Access 稿件同步到 Overleaf
 
+当前已同步：[Overleaf 项目](https://www.overleaf.com/project/6ae9d9c5fe829b1a7b43ec90)，主分支 `main`，主文件 `main.tex`；远端提交 `92124edbbf1ba3971daf28d9dafd4166df47455d` 已核对。本地独立文档仓库为 `/home/z/workspace/deepfake_overleaf_6ae9d9c5fe829b1a7b43ec90`，remote 名称是 `overleaf`。当前 PDF 为 11 页，已通过本地独立 LaTeX 编译；Git 不返回 Overleaf 网页端编译状态。
+
+后续可直接进入上述文档仓库使用 `git pull --ff-only overleaf main` 和 `git push overleaf HEAD:main`。认证时输入 Git 令牌，不将令牌写入 remote URL。下文同时保留新建项目、设置 remote 和重新生成文件的完整步骤。
+
 本目录的 `manuscript_en.qmd` 是英文稿源文件。`latex/` 是由 Quarto 生成、已经单独通过 pdfLaTeX/BibTeX 编译的交付目录。Overleaf 使用其中的 `main.tex`，不需要安装 Quarto，也不需要训练数据、权重或 Python 环境。
 
 ## 1. 先用 ZIP 建立项目
@@ -13,7 +17,7 @@
 在该项目的 **Integrations → Git** 中复制 Git URL，形如：
 
 ```text
-https://git@git.overleaf.com/你的项目ID
+https://git@git.overleaf.com/6ae9d9c5fe829b1a7b43ec90
 ```
 
 Git 集成需要账户或所属机构具备相应功能。若界面没有 Git 集成，仍可通过 ZIP 上传更新文件。[Overleaf Git 官方说明](https://docs.overleaf.com/integrations-and-add-ons/git-integration-and-github-synchronization/git-integration)
@@ -22,11 +26,11 @@ Git 集成需要账户或所属机构具备相应功能。若界面没有 Git �
 
 ## 3. 在独立的论文目录设置 remote
 
-将下面 URL 中的项目ID换成实际值。这些命令在有 Overleaf 项目后执行。已获授权上传；Git令牌认证只能用于已有项目，实际同步需项目Git URL。完整本地项目位于 `/home/z/obsidian/paper/deepfake-detector/期刊实验_20261102/latex`。
+下面 URL 已填入本次项目ID。这些命令在有 Overleaf 项目后执行。本次项目已经完成 Git 同步。完整本地项目位于 `/home/z/obsidian/paper/deepfake-detector/期刊实验_20261102/latex`。
 
 ```bash
 mkdir -p ~/paper
-git clone https://git@git.overleaf.com/你的项目ID ~/paper/deepfake-access-overleaf
+git clone https://git@git.overleaf.com/6ae9d9c5fe829b1a7b43ec90 ~/paper/deepfake-access-overleaf
 cd ~/paper/deepfake-access-overleaf
 git remote rename origin overleaf
 git remote -v

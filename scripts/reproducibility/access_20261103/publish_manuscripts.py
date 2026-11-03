@@ -196,7 +196,7 @@ mean-prob的平均交互分别为CLIP {pm(mp[0], True)}、DINOv2 {pm(mp[1], True
               ['Target real calibration', '64', '0'], ['DF40-CDF threshold test', '93', '12,037']]
     inserts = {
         'H_SELECTION_SENTENCE': selected_en,
-        'H_EFF_FIXED_SENTENCE': f'EfficientNet-B0 changes by {pm(eff_fixed, True, True)} points, with {int(eff_fixed.n_positive)} positive and {int(eff_fixed.n_negative)} seed differences.',
+        'H_EFF_FIXED_SENTENCE': f'EfficientNet-B0 changes by {pm(eff_fixed, True, True)} points, with {int(eff_fixed.n_positive)} positive and {int(eff_fixed.n_negative)} negative paired differences.',
         'H_EFF_INPUT_SENTENCE': f'EfficientNet-B0 changes by {pm(eff_input[0], True, True)} and {pm(eff_input[1], True, True)} points for $M_1$ and $M_2$, respectively, giving interaction {pm(eff_input[2], True, True)} points.',
         'H_RANK_WITNESS': witness_en,
         'H_RANK_ABSTRACT': ('paired comparisons can change the ordering of backbones when test preprocessing changes' if target_rank_flips else 'paired comparisons quantify changes in the gaps between backbones when test preprocessing changes'),
@@ -335,7 +335,7 @@ D八格共享特征与原头。默认/源真实/目标真实阈值使用同一TE
 
 H图以新DINO及EfficientNet替换原数据，并核对Source Data、PDF字体、面板和碰撞；D正式图保持原字节，另加入已有开发曲线。中英文稿通过同一当前主表生成。英文采用IEEE Access官方2026-05-13模板，Quarto输出LaTeX后还须独立pdfLaTeX/BibTeX编译并逐页检查；构建和视觉核查回执另附。
 
-作者暂为Shiyu Chen、Kangbin Yim两位，后者通讯。基金、会议前作的题名/会议/年份/引用及两位正式简介待作者补充，不编造条目。完整LaTeX项目放在本笔记目录的`latex/`子目录。用户已授权上传Overleaf；同步需实际项目Git URL，不在稿件或仓库保存认证令牌。论文讨论保留低源学习、处理成功子集、聚合基线及种子级反转的实际边界。
+作者暂为Shiyu Chen、Kangbin Yim两位，后者通讯。基金、会议前作的题名/会议/年份/引用及两位正式简介待作者补充，不编造条目。完整LaTeX项目放在本笔记目录的`latex/`子目录。已连接[Overleaf项目](https://www.overleaf.com/project/6ae9d9c5fe829b1a7b43ec90)；源文件使用独立Git文档目录同步，认证令牌不进入任何文件，最终上传回执另附。论文讨论保留低源学习、处理成功子集、聚合基线及种子级反转的实际边界。
 '''
     (output / '实验记录.md').write_text(record)
     provenance = dict(status='VERIFIED_RESULT_MANUSCRIPTS_GENERATED', table_receipt_sha256=sha(folder / 'complete.json'),
