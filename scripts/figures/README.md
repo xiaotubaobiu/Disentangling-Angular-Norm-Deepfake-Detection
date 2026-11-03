@@ -1,6 +1,6 @@
 # 本轮论文图表的重绘代码
 
-前三个Python脚本逐字节保留此前已经实际绘图和验收的代码，其余两个用于完成正式五seed后的推理/分组与阈值操作点图。它们读取保存的评价结果，不加载模型，也不重新训练、推理或选择权重。输入为本轮产物根，输出为该根下的`figures/`；重新执行会更新对应图表及渲染回执。
+前三个Python脚本逐字节保留此前已经实际绘图和验收的代码，其余脚本用于正式推理/分组、阈值操作点和跨骨干预处理对照图。它们读取保存的评价结果，不加载模型，也不重新训练、推理或选择权重。输入为本轮产物根，输出为该根下的`figures/`；重新执行会更新对应图表及渲染回执。
 
 | 脚本 | 输出与证据范围 | 输入与统计单位 |
 |---|---|---|
@@ -9,12 +9,15 @@
 | `plot_D_development_selection.py` | 源DEV/CDF-DEV最佳轮数；DINO开发曲线 | 全部12条已完成开发轨迹、102条epoch记录；开发数据，不是正式TEST选点 |
 | `plot_formal_D_inference_grouping.py` | 正确分组的L2−Raw；错误合并对该增益的影响 | 原严格五seed汇总；逐seed配对差及均值±样本SD；附全部八格绝对AUC |
 | `plot_formal_D_operating_points.py` | 源真实CAL与目标真实n20的FPR、TPR和BA | 保存的逐模型校准摘要及官方五seed均值/样本SD；不重新计算阈值 |
+| `plot_formal_H_training_history.py` | 全部B队列固定部署差；共同队列四格交互 | 原严格三seed汇总；三个配对差与官方均值/样本SD，保留各自队列 |
 
 H初始配对差值图显示全部三个训练seed，以及均值±样本SD。D正式推理/分组图显示五个训练seed的配对差及均值±样本SD；阈值图显示五个模型的绝对FPR、TPR和BA及其均值±样本SD。不能用200个校准子集代替五个训练seed。覆盖率为冻结候选视频的普查；单模型分解和独立开发曲线不画推断性置信区间。跨骨干完整D图和H其余骨干的图表须等待相应严格汇总。
 
 正式D脚本通过`formal_D_figure_data.py`核验原严格汇总、全部已提交工件哈希和五个模型的分析回执，并从八格AUC还原差值。默认要求三个骨干全部完成；`--backbone`可显式绘制一个已完成五seed的骨干。该选项仍要求完整五seed，不会以部分种子生成均值。图中主对照为正确分组的L2增益和分组交互；全部八格绝对AUC保存在Source Data，避免把增益放大解读为绝对AUC提高。
 
 阈值图沿用同一严格输入入口，逐个还原图中24个官方均值/SD单元及120个逐模型操作点（每骨干）。图中只显示预先指定的源CAL与目标n20主比较；完整Source Data保留默认阈值、10/20/40/80预算和所有原指标，不把n80的NA填成零。200个CAL子集已在单模型内平均，误差线只来自五个训练模型。三个面板依次呈现误报、召回及综合操作点，阈值改变不改变同一视频分数的AUC。
+
+正式H脚本通过`formal_H_figure_data.py`核验八份原汇总工件、三个原配对分析回执以及冻结源/完整数据身份。每骨干144个原指标设置必须齐全，视频数量与各自队列一致；从同队列四格AUC重建24个主对照与mean-prob敏感性配对差，并核对官方三seed均值/样本SD。两个面板显示Raw mean-logit的固定B部署差与四格交互。完整Source Data另保留144行原指标、1,008行原比较、336行官方比较摘要、24行配对差、四个队列计数及四个图示官方摘要（每骨干）。
 
 ## 环境和命令
 
@@ -34,11 +37,15 @@ python scripts/figures/plot_formal_D_inference_grouping.py \
   --root "$JOURNAL_ARTIFACT_ROOT" --qa-dir "$FIGURE_QA_DIR"
 python scripts/figures/plot_formal_D_operating_points.py \
   --root "$JOURNAL_ARTIFACT_ROOT" --qa-dir "$FIGURE_QA_DIR"
+python scripts/figures/plot_formal_H_training_history.py \
+  --root "$JOURNAL_ARTIFACT_ROOT" --qa-dir "$FIGURE_QA_DIR"
 ```
 
 若只有DINOv2的原严格五seed汇总完成，可在推理/分组命令上添加`--backbone dinov2_vit_b14`。推理/分组脚本同时输出CDF和源TEST两图，默认保存到`figures/formal_D_inference_grouping/`；可用`--output-dir`指定独立重绘目录。首次DINOv2实测输出为`figures/D_dinov2_five_seed/`，两图的四面板、实际PDF最小7pt文字、对齐和碰撞检查均已通过；这不表示另外两个骨干已完成。
 
 两个正式D命令均支持`--backbone dinov2_vit_b14`。阈值图默认输出`figures/formal_D_operating_points/`；首次单骨干实测使用`--output-dir "$JOURNAL_ARTIFACT_ROOT/figures/D_dinov2_operating_points"`。三面板共享评分行，保留全部均值±SD误差线的绘制范围；Source Data包含完整校准表、图示逐模型点及官方摘要。
+
+正式H命令默认要求三个骨干均完成原严格三seed汇总，输出`figures/formal_H_training_history/`。单骨干实测可显式使用`--backbone efficientnet_b0 --output-dir "$JOURNAL_ARTIFACT_ROOT/figures/H_efficientnet_formal_training_history"`；仍要求该骨干完整三个配对种子，不能用未完成的种子生成均值。首次实测只覆盖EfficientNet-B0，完整三骨干渲染须待另外两份严格汇总。
 
 渲染时使用1.5pt容差检查各面板的最终绘图区，并导出PDF、可编辑SVG、600dpi PNG和TIFF，以及CSV Source Data。`contracts/`保存科学问题、面板含义、统计和导出定义；H脚本还要求产物`figures/figure_contract.json`存在。
 

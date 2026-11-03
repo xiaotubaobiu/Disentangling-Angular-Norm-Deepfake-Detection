@@ -1,0 +1,32 @@
+{
+  "schema": "JOURNAL_FIGURE_CONTRACT_V1",
+  "question": "Does preprocessing training history alter fixed-B deployment performance or the response to a change in test preprocessing across backbones?",
+  "backend": "python",
+  "archetype": "quantitative grid",
+  "input_gate": "All3 original strict H three-seed summaries and bound model/data/cache identities required for the final3backbone figure.",
+  "scope": "Raw mean-logit primary; FF++source and DFDtarget shown; exactly seeds7/42/123 within each backbone.",
+  "panels": [
+    {
+      "panel": "a",
+      "role": "Fixed deployment comparison",
+      "contrast": "H10−H00 on all-B-eligible videos"
+    },
+    {
+      "panel": "b",
+      "role": "Train/test preprocessing interaction",
+      "contrast": "(H11−H10)−(H01−H00) on shared B/AB-eligible videos"
+    }
+  ],
+  "cohorts": "Never subtract all-B and common-cohort scores. All backbones share each frozen respective TEST cohort. Keep preprocessing failure/coverage in the already accepted coverage figure.",
+  "replication": "All3 matched model-seed contrasts and mean±sampleSD; no averaging bootstrap interval endpoints or claiming unavailable DFD CIs.",
+  "source_data": "All4 H cells, all3 seeds, both domains and cohort definitions; mean-prob sensitivity retained in full results. Source-only H development and common DEV-B epoch selection unchanged.",
+  "exports": [
+    "editablePDF",
+    "editableSVG",
+    "600dpiPNG",
+    "600dpiTIFF",
+    "CSV SourceData",
+    "Chinese caption"
+  ],
+  "qa": "Use the established Python/Matplotlib runtime and panel alignment/PDF font/collision/all-panel visual gates. No new image preprocessing or inference."
+}
