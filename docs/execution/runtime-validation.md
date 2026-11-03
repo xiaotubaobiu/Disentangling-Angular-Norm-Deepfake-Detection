@@ -64,3 +64,18 @@ training or inference. Qualification does not substitute for the original
 validators or authorize changing an active worker. Runtime scheduling changes
 to pending specs require a registry/supervisor handoff with all existing
 scientific process handles preserved.
+
+D children also pin the qualified input-scheduling helper to
+`d0b58294028860a5897cde8475451c9ba5304e0c2430d4977a97ed30e2d9dcf0`.
+They check its resolved import identity before importing/installing it, and
+recheck it on every original acceptance call, including final revalidation.
+Runtime logs and qualification receipts bind that dependency explicitly.
+
+`REPORT.json` must be a **new file** beneath the artifact root's
+`operations/summary_validation_qualification/` directory. The CLI rejects paths
+outside that directory, aliased namespace directories, existing files and
+symlink/hardlink collisions before acceptance begins. The final write uses
+exclusive creation and does not follow a report-file symlink. Reports therefore
+cannot overwrite a config, completion marker or scientific artifact, or add an
+unregistered file to a completed summary's strict inventory. Use a distinct
+report filename for each qualification; existing receipts are preserved.

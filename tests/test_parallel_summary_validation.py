@@ -5,6 +5,7 @@ import os
 from pathlib import Path
 import subprocess
 import sys
+import json
 
 import pytest
 
@@ -131,3 +132,115 @@ def test_cli_rejects_changed_original_summary_before_reading_a_config(tmp_path, 
     assert result.returncode != 0
     assert 'summary' in result.stderr.lower() and 'hash' in result.stderr.lower()
     assert not (tmp_path/'analysis').exists()
+
+
+def test_d_child_rejects_unqualified_helper_before_import_side_effects(tmp_path):
+    sentinel = tmp_path / 'helper_imported.txt'
+    (tmp_path / 'run_parallel_d_validation.py').write_text(
+        'from pathlib import Path\n'
+        f'Path({str(sentinel)!r}).write_text("changed helper was imported")\n'
+        'def install_validation_threads(threads): pass\n')
+    code = '''
+from pathlib import Path
+import journal_detector.summary_d as summary
+import run_parallel_summary_validation as runtime
+runtime._invoke_original('journal_detector.summary_d',
+    (Path('missing-config.json'), Path('.'), 'missing-run', 'efficientnet_b0', 7),
+    runtime.digest(summary.__file__), runtime.digest(runtime.__file__))
+'''
+    env = dict(os.environ, CUDA_VISIBLE_DEVICES='', PYTHONPATH=os.pathsep.join(
+        [str(tmp_path), str(SCRIPT.parent), str(SCRIPT.parents[1] / 'src')]))
+    result = subprocess.run([sys.executable, '-c', code], env=env,
+        capture_output=True, text=True, timeout=45)
+    assert result.returncode != 0
+    assert not sentinel.exists(), 'unqualified helper was executed before its identity was checked'
+    assert 'validation helper hash' in result.stderr.lower()
+
+
+def qualification_probe(tmp_path):
+    """Exercise the real CLI around a small completed-summary boundary fixture."""
+    package = tmp_path / 'modules' / 'journal_detector'
+    package.mkdir(parents=True)
+    (package / '__init__.py').write_text('')
+    summary = package / 'summary_h.py'
+    summary.write_text('''
+from pathlib import Path
+import json
+SEEDS = (7, 42, 123)
+def _registry(config, backbone):
+    return Path(json.loads(Path(config).read_text())['artifact_root']), {}
+def _accept(config, backbone, seed):
+    root, _ = _registry(config, backbone)
+    (root / 'acceptance_started.txt').write_text('acceptance ran')
+    return seed
+def summarize_backbone(config, backbone):
+    root, _ = _registry(config, backbone)
+    for _ in range(2):
+        for seed in SEEDS: _accept(config, backbone, seed)
+    marker = root / 'analysis/H/efficientnet_b0/three_seed_summary/complete.json'
+    return json.loads(marker.read_text())
+''')
+    root = tmp_path / 'experiment'
+    output = root / 'analysis/H/efficientnet_b0/three_seed_summary'
+    output.mkdir(parents=True)
+    artifact = output / 'metrics.csv'
+    artifact.write_text('seed,auc\n7,0.9\n')
+    marker = output / 'complete.json'
+    marker.write_text(json.dumps({'artifact_sha256': {
+        'metrics.csv': hashlib.sha256(artifact.read_bytes()).hexdigest()}}))
+    config = root / 'config.json'
+    config.write_text(json.dumps({'artifact_root': str(root)}))
+    env = dict(os.environ, CUDA_VISIBLE_DEVICES='',
+        PYTHONPATH=os.pathsep.join([str(package.parent), str(SCRIPT.parent)]))
+    command = [sys.executable, str(SCRIPT), hashlib.sha256(SCRIPT.read_bytes()).hexdigest(),
+        'journal_detector.summary_h', '--summary-sha', hashlib.sha256(summary.read_bytes()).hexdigest(),
+        '--config', str(config), '--backbone', 'efficientnet_b0', '--qualify']
+    return root, output, marker, artifact, config, env, command
+
+
+@pytest.mark.parametrize('destination', ['marker', 'artifact', 'new_summary_file', 'config',
+    'outside_namespace', 'symlink_namespace', 'existing_hardlink'])
+def test_qualification_rejects_unsafe_report_before_acceptance(tmp_path, destination):
+    root, output, marker, artifact, config, env, command = qualification_probe(tmp_path)
+    namespace = root / 'operations/summary_validation_qualification'
+    targets = {'marker': marker, 'artifact': artifact, 'new_summary_file': output / 'qualification.json',
+        'config': config, 'outside_namespace': root / 'unregistered-report.json'}
+    if destination == 'symlink_namespace':
+        namespace.parent.mkdir(parents=True)
+        namespace.symlink_to(output, target_is_directory=True)
+        report = namespace / 'qualification.json'
+    elif destination == 'existing_hardlink':
+        namespace.mkdir(parents=True)
+        report = namespace / 'report.json'
+        os.link(artifact, report)
+    else:
+        report = targets[destination]
+    before = {p: p.read_bytes() for p in [marker, artifact, config]}
+    result = subprocess.run(command + ['--qualification-report', str(report)], env=env,
+        capture_output=True, text=True, timeout=30)
+    assert result.returncode != 0
+    assert 'qualification report' in result.stderr.lower()
+    assert not (root / 'acceptance_started.txt').exists()
+    assert all(path.read_bytes() == value for path, value in before.items())
+    assert set(p.name for p in output.iterdir()) == {'complete.json', 'metrics.csv'}
+
+
+def test_qualification_exclusively_writes_report_outside_summary_and_preserves_artifacts(tmp_path):
+    root, output, marker, artifact, config, env, command = qualification_probe(tmp_path)
+    report = root / 'operations/summary_validation_qualification/report.json'
+    before = {p: p.read_bytes() for p in [marker, artifact, config]}
+    first = subprocess.run(command + ['--qualification-report', str(report)], env=env,
+        capture_output=True, text=True, timeout=30)
+    assert first.returncode == 0, first.stderr
+    payload = json.loads(report.read_text())
+    assert payload['status'] == 'QUALIFIED_ORIGINAL_COMPLETED_SUMMARY_UNCHANGED'
+    assert payload['acceptance_rounds'] == 2 and payload['original_acceptance_calls'] == 6
+    assert all(path.read_bytes() == value for path, value in before.items())
+    assert set(p.name for p in output.iterdir()) == {'complete.json', 'metrics.csv'}
+    report_bytes = report.read_bytes()
+    (root / 'acceptance_started.txt').unlink()
+    second = subprocess.run(command + ['--qualification-report', str(report)], env=env,
+        capture_output=True, text=True, timeout=30)
+    assert second.returncode != 0
+    assert not (root / 'acceptance_started.txt').exists()
+    assert report.read_bytes() == report_bytes

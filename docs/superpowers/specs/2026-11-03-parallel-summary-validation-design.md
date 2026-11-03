@@ -25,6 +25,12 @@ the summary; no failed seed is omitted or retried. Pools close when the wrapper
 exits. A qualification run may only read a previously completed strict summary
 and must return its exact existing completion record without changing artifacts.
 
+The qualified D input-scheduling helper is a pinned runtime dependency, checked
+before import/installation and again for every acceptance call. Qualification
+reports are exclusive new outputs within the artifact root's unaliased
+`operations/summary_validation_qualification/` namespace; reject protected,
+existing or aliased destinations before running any acceptance.
+
 Deployment requires focused tests, the full CPU suite, real completed-summary
 qualification and independent review. Only the not-yet-started EfficientNet D
 and CLIP H summary specs may change. Their data/config dependencies, original

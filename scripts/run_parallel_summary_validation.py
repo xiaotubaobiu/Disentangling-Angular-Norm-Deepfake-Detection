@@ -13,9 +13,44 @@ import sys
 import time
 
 
+D_VALIDATION_HELPER_SHA256 = 'd0b58294028860a5897cde8475451c9ba5304e0c2430d4977a97ed30e2d9dcf0'
+
+
 def digest(path):
     with Path(path).open('rb') as stream:
         return hashlib.file_digest(stream, 'sha256').hexdigest()
+
+
+def _verified_d_helper():
+    spec = importlib.util.find_spec('run_parallel_d_validation')
+    if spec is None or not spec.origin or digest(spec.origin) != D_VALIDATION_HELPER_SHA256:
+        raise ValueError('D validation helper hash does not match the qualified dependency')
+    helper = importlib.import_module('run_parallel_d_validation')
+    if (Path(helper.__file__).resolve() != Path(spec.origin).resolve()
+            or digest(helper.__file__) != D_VALIDATION_HELPER_SHA256):
+        raise ValueError('D validation helper hash changed during import')
+    return helper
+
+
+def _qualification_report_path(root, requested):
+    namespace = Path(root).resolve() / 'operations/summary_validation_qualification'
+    if namespace.resolve() != namespace or requested is None:
+        raise ValueError('qualification report requires an unaliased operations namespace')
+    requested = Path(requested)
+    report = requested.resolve()
+    if (not report.is_relative_to(namespace) or report == namespace
+            or requested.is_symlink() or report.exists()):
+        raise ValueError('qualification report must be a new file in operations/summary_validation_qualification')
+    return report
+
+
+def _write_qualification_report(root, requested, record):
+    report = _qualification_report_path(root, requested)
+    report.parent.mkdir(parents=True, exist_ok=True)
+    # Exclusive creation also rejects a file/alias introduced during validation.
+    flags = os.O_WRONLY | os.O_CREAT | os.O_EXCL | os.O_NOFOLLOW
+    with os.fdopen(os.open(report, flags, 0o600), 'w') as stream:
+        stream.write(json.dumps(record, indent=2) + '\n')
 
 
 def _limit_loaded_libraries():
@@ -38,17 +73,19 @@ def _invoke_original(module_name, args, module_sha, runtime_sha):
     module = importlib.import_module(module_name)
     if digest(module.__file__) != module_sha:
         raise ValueError('original summary module hash changed in validation child')
+    # Recheck on every acceptance, including the final round in reused children.
+    helper = _verified_d_helper() if module_name == 'journal_detector.summary_d' else None
     # Each spawned process has its own numerical-library and precision state.
     if not globals().get('_CHILD_SETUP'):
         _limit_loaded_libraries()
-        if module_name == 'journal_detector.summary_d':
-            from run_parallel_d_validation import install_validation_threads
-            install_validation_threads(32)
+        if helper is not None:
+            helper.install_validation_threads(32)
         print(json.dumps(dict(runtime='SUMMARY_VALIDATION_CHILD', pid=os.getpid(),
             CUDA_VISIBLE_DEVICES=os.environ['CUDA_VISIBLE_DEVICES'],
             torch_threads=sys.modules['torch'].get_num_threads() if 'torch' in sys.modules else None,
             torch_interop_threads=sys.modules['torch'].get_num_interop_threads() if 'torch' in sys.modules else None,
-            opencv_threads=sys.modules['cv2'].getNumThreads() if 'cv2' in sys.modules else None)), flush=True)
+            opencv_threads=sys.modules['cv2'].getNumThreads() if 'cv2' in sys.modules else None,
+            d_validation_helper_sha256=D_VALIDATION_HELPER_SHA256 if helper is not None else None)), flush=True)
         globals()['_CHILD_SETUP'] = True
     return module._accept(*args)
 
@@ -138,7 +175,8 @@ def main():
     before = None
     artifact_hashes = {}
     if args.qualify:
-        if args.qualification_report is None or not marker.is_file():
+        report = _qualification_report_path(root, args.qualification_report)
+        if not marker.is_file():
             raise ValueError('qualification requires a completed strict summary and report destination')
         before = json.loads(marker.read_text())
         artifact_hashes = {name: digest(marker.parent / name) for name in before['artifact_sha256']}
@@ -150,6 +188,7 @@ def main():
     with AcceptanceRounds(args.module, arguments, args.workers) as rounds:
         print(json.dumps(dict(runtime='PARALLEL_STRICT_SUMMARY_ACCEPTANCE', module=args.module,
             runtime_sha256=expected_runtime, summary_sha256=args.summary_sha,
+            d_validation_helper_sha256=D_VALIDATION_HELPER_SHA256 if is_d else None,
             processes=args.workers, CUDA_VISIBLE_DEVICES='', original_collection_unchanged=True)), flush=True)
         module._accept = rounds.accept
         try:
@@ -167,11 +206,11 @@ def main():
             processes=args.workers, acceptance_rounds=rounds.round_count,
             original_acceptance_calls=rounds.accepted_call_count, elapsed_seconds=time.monotonic()-started,
             original_summary_sha256=args.summary_sha, runtime_sha256=expected_runtime,
+            d_validation_helper_sha256=D_VALIDATION_HELPER_SHA256 if is_d else None,
             summary_complete_sha256=marker_sha, artifact_sha256=artifact_hashes,
             original_collection_statistics_and_cross_seed_checks_unchanged=True,
             training_or_inference=False)
-        args.qualification_report.parent.mkdir(parents=True, exist_ok=True)
-        args.qualification_report.write_text(json.dumps(record, indent=2)+'\n')
+        _write_qualification_report(root, report, record)
         print(json.dumps(record, indent=2), flush=True)
     else:
         print(json.dumps(module.io._jsonable(result), indent=2, allow_nan=False), flush=True)

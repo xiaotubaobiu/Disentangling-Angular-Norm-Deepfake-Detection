@@ -39,7 +39,7 @@ self-hash/module/config/backbone and original-module-hash arguments.
 - [x] Run the focused file and observe failures from the absent implementation.
 - [x] Implement only the round adapter and original summary invocation.
 - [x] Focused tests pass, then full `pytest tests -q` passes.
-- [ ] Verify frozen scientific hashes before and after; ledger evidence.
+- [x] Verify frozen scientific hashes before and after; ledger evidence.
 
 ### Task 2: Qualification, review and pending-only deployment
 
@@ -50,10 +50,10 @@ Interfaces: `--qualify` requires an existing strict completion record, performs
 the normal original readback with parallel acceptance and verifies every saved
 summary artifact and completion hash remain unchanged.
 
-- [ ] Qualify on completed H EfficientNet and completed D DINOv2 summaries.
-- [ ] Compare returned complete records and before/after artifact hashes exactly.
-- [ ] Obtain one fresh review of the complete change; fix important findings in one pass with regression tests.
-- [ ] Only after all gates pass, commit/archive the wrapper and update the two
-  not-started specs through a recorded coordinator-only handoff.
-- [ ] Verify live scientific process PID/start handles survive the handoff and
-  original scientific/config/checkpoint hashes remain unchanged.
+- [x] Qualify on completed H EfficientNet and completed D DINOv2 summaries.
+- [x] Compare returned complete records and before/after artifact hashes exactly.
+- [x] Obtain one fresh review of the complete change; fix important findings in one pass with regression tests.
+- [x] After all gates, archive/commit the wrapper. Both target specs had already
+  started, so retain them unchanged; no handoff or production migration.
+- [x] Verify both original scientific PID/start handles and spec/registry/scientific
+  hashes remain unchanged. No handoff was needed or performed.
