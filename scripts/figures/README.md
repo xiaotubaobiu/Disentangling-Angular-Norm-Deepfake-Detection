@@ -11,7 +11,7 @@
 | `plot_formal_D_operating_points.py` | 源真实CAL与目标真实n20的FPR、TPR和BA | 保存的逐模型校准摘要及官方五seed均值/样本SD；不重新计算阈值 |
 | `plot_formal_H_training_history.py` | 全部B队列固定部署差；共同队列四格交互 | 原严格三seed汇总；三个配对差与官方均值/样本SD，保留各自队列 |
 
-H初始配对差值图显示全部三个训练seed，以及均值±样本SD。D正式推理/分组图显示五个训练seed的配对差及均值±样本SD；阈值图显示五个模型的绝对FPR、TPR和BA及其均值±样本SD。不能用200个校准子集代替五个训练seed。覆盖率为冻结候选视频的普查；单模型分解和独立开发曲线不画推断性置信区间。跨骨干完整D图和H其余骨干的图表须等待相应严格汇总。
+H初始配对差值图显示全部三个训练seed，以及均值±样本SD。D正式推理/分组图显示五个训练seed的配对差及均值±样本SD；阈值图显示五个模型的绝对FPR、TPR和BA及其均值±样本SD。不能用200个校准子集代替五个训练seed。覆盖率为冻结候选视频的普查；单模型分解和独立开发曲线不画推断性置信区间。三骨干的完整D五seed和H三seed汇总均已完成，最终全骨干图已实际渲染并通过核验。
 
 正式D脚本通过`formal_D_figure_data.py`核验原严格汇总、全部已提交工件哈希和五个模型的分析回执，并从八格AUC还原差值。默认要求三个骨干全部完成；`--backbone`可显式绘制一个已完成五seed的骨干。该选项仍要求完整五seed，不会以部分种子生成均值。图中主对照为正确分组的L2增益和分组交互；全部八格绝对AUC保存在Source Data，避免把增益放大解读为绝对AUC提高。
 
@@ -47,7 +47,7 @@ python scripts/figures/plot_formal_H_training_history.py \
 
 正式H命令默认要求三个骨干均完成原严格三seed汇总，输出`figures/formal_H_training_history/`。单骨干实测可显式使用`--backbone efficientnet_b0 --output-dir "$JOURNAL_ARTIFACT_ROOT/figures/H_efficientnet_formal_training_history"`；仍要求该骨干完整三个配对种子，不能用未完成的种子生成均值。首次实测只覆盖EfficientNet-B0，完整三骨干渲染须待另外两份严格汇总。
 
-渲染时使用1.5pt容差检查各面板的最终绘图区，并导出PDF、可编辑SVG、600dpi PNG和TIFF，以及CSV Source Data。`contracts/`保存科学问题、面板含义、统计和导出定义；H脚本还要求产物`figures/figure_contract.json`存在。
+渲染时使用1.5pt容差检查各面板的最终绘图区，并导出PDF、可编辑SVG、600dpi PNG和TIFF，以及CSV Source Data。`contracts/`保存科学问题、面板含义、统计和导出定义；旧覆盖/初始配对脚本`plot_accepted_H_results.py`另要求产物`figures/figure_contract.json`存在；正式H脚本使用仓库内的独立合同。
 
 原验收回执和原输入必须完整。开发曲线回执保留实际运行的绝对输入路径作为哈希溯源；移动产物后应重新生成、核验相应比较回执，不将修改路径后的清单冒充原身份。
 
@@ -65,3 +65,5 @@ python "$FIGURE_QA_DIR/audit_figure_collisions.py" \
 对其余脚本和每个输出PDF执行同样检查，并逐面板查看最终版。渲染回执的`AWAITING_PDF_AND_VISUAL_QA`表示刚生成文件，不能替代PDF文字/碰撞检查、数值溯源和视觉复核。静态检查对“不适用的误差条”可能给出警告，应按上述统计单位逐项审阅；不据此添加虚构误差范围。
 
 本目录的复制不改变训练、缓存、评分、统计或已冻结输入。重绘复核应使用独立输出目录，保留先前验收图表及其哈希。
+
+本轮最终全骨干输出保留于产物根的`figures/D_all_backbones_inference_grouping/`（CDF与源TEST两PDF）、`figures/D_all_backbones_operating_points/`与`figures/H_all_backbones_formal_training_history/`。共四PDF、九面板，均完成原表Source Data逐项核对、1.5pt对齐、至少7pt文字、0FAIL/0WARN碰撞及实际逐面板/整图视觉检查。最终验收另外记录两份数据reader源码的SHA256；回执为`operations/final_three_backbone_figures_acceptance.json`。
