@@ -1,0 +1,227 @@
+{
+  "schema": "EPOCH_RECIPE_V2",
+  "status": "FROZEN",
+  "route": "D",
+  "backbone": "dinov2_vit_b14",
+  "chosen_epochs": 30,
+  "target_development_used": true,
+  "test_used": false,
+  "development_seeds": [
+    1007,
+    1042
+  ],
+  "paired_histories": null,
+  "data_freeze_sha256": "e37f8e74388516b32449d656e83d4a71b3e65db4f03a7debb8761572716fbd82",
+  "development_report": {
+    "route": "D",
+    "backbone": "dinov2_vit_b14",
+    "epochs": 30,
+    "development_runs": [
+      {
+        "run_id": "D_development_dinov2_vit_b14_seed1007_cap30",
+        "seed": 1007,
+        "history": "B",
+        "source_selected_epoch": 22,
+        "actual_stop_epoch": 27,
+        "early_stopped": true,
+        "score": 0.8013095238095238,
+        "state_path": "/home/z/workspace/deepfake_journal_20261102/runs/D_development_dinov2_vit_b14_seed1007_cap30/state.pt",
+        "state_sha256": "2d84c8876e7cfbe732576dee68bc4926673a40f0317ffbdab8a96e11261f2e8a",
+        "checkpoint_sha256": "670a948bafc4eda4e71b33692771dcf8f60313a80898d9f62135c0904502e3a5",
+        "training_identity": {
+          "config": "4d7325541c9328e748d89a5e8ee6c157c4729135039ca8c0f6a9bf164614f05d",
+          "train_manifest": "ff789c70e34bb67b1625304879f4936ee15018086b125fa422fa0554127b8687",
+          "dev_manifest": "ba8d5ac7b0dc387c5fd64ecd557869b4873c289120f19ff65b4e19582660770d",
+          "initialization": "0b8b82f85de91b424aded121c7e1dcc2b7bc6d0adeea651bf73a13307fad8c73",
+          "environment": "75a1b5bdc2545a6fb1f66d8186270f31619377ea86246e26fcc99795e55a84b6",
+          "code": "75e35f4d0925daa3e9dc87cd116b5c7ab4d70c639e75785f1e411b04d55b8c15",
+          "data_freeze": "e37f8e74388516b32449d656e83d4a71b3e65db4f03a7debb8761572716fbd82",
+          "cdf_development_manifest": "5ff6ec9bc7d40cb2a4ecfa0970e1106e5b663ac4af6edd3b70705b5652345d6a"
+        },
+        "complete_sha256": "27bb4d34a5e3ac08770bcc2e980b0d7a0de1be02e1d5e3c04d68c81395d3e7de",
+        "history_sha256": "9d754bad4cdb8a021b254bed95e363a8d15ec10d2b35ea0d537bc4dc283768e6",
+        "task_sha256": "003cbd434839380a10145eae3317f4143a149a3d2d00cd6acb38ccdda43bc14a"
+      },
+      {
+        "run_id": "D_development_dinov2_vit_b14_seed1042_cap30",
+        "seed": 1042,
+        "history": "B",
+        "source_selected_epoch": 20,
+        "actual_stop_epoch": 25,
+        "early_stopped": true,
+        "score": 0.7264285714285714,
+        "state_path": "/home/z/workspace/deepfake_journal_20261102/runs/D_development_dinov2_vit_b14_seed1042_cap30/state.pt",
+        "state_sha256": "c5efcc146277d60eb90086f7fbfb4633332b8c9891f3c184d4e6942635942e6f",
+        "checkpoint_sha256": "afb199a5902af967946028ce68742d00ea26b187291a84b82cd560d82f07aeca",
+        "training_identity": {
+          "config": "2a9bc6de2d59593ef3c2f94e89fbd523136badf9d9d68b17f6051dcae29c31d1",
+          "train_manifest": "ff789c70e34bb67b1625304879f4936ee15018086b125fa422fa0554127b8687",
+          "dev_manifest": "ba8d5ac7b0dc387c5fd64ecd557869b4873c289120f19ff65b4e19582660770d",
+          "initialization": "0b8b82f85de91b424aded121c7e1dcc2b7bc6d0adeea651bf73a13307fad8c73",
+          "environment": "75a1b5bdc2545a6fb1f66d8186270f31619377ea86246e26fcc99795e55a84b6",
+          "code": "75e35f4d0925daa3e9dc87cd116b5c7ab4d70c639e75785f1e411b04d55b8c15",
+          "data_freeze": "e37f8e74388516b32449d656e83d4a71b3e65db4f03a7debb8761572716fbd82",
+          "cdf_development_manifest": "5ff6ec9bc7d40cb2a4ecfa0970e1106e5b663ac4af6edd3b70705b5652345d6a"
+        },
+        "complete_sha256": "18144a19690f995860ea122debee31116e93f675532ec90813fbb513975aa0d9",
+        "history_sha256": "a4ecf389b9a7c05346649d571f8d523e7ad6607491d924a6a5bf433075881733",
+        "task_sha256": "cbb52f1f85eeb50a01850aedcb6a2a37f09dfb6f317b6bcd160eb4e6288aa106"
+      }
+    ],
+    "development_config_path": "/home/z/workspace/deepfake_journal_20261102/configs/development.json",
+    "development_config_sha256": "5edbf9657d5fc60f399b52507e170d06527598fc8de2651addb4092edc474402",
+    "mean_score": 0.7638690476190476,
+    "score_kind": "cdf_dev_at_source_selected_ema",
+    "epoch_candidate": {
+      "candidate_best_epoch": 1,
+      "development_seeds": [
+        1007,
+        1042
+      ],
+      "criterion": "mean_registered_development_seed_cdf_auc_earliest_maximum",
+      "cdf_development_used": true,
+      "test_used": false,
+      "epochs": [
+        {
+          "epoch": 1,
+          "mean_cdf_auc": 0.8051190476190476,
+          "mean_source_auc": 0.7509982971477225
+        },
+        {
+          "epoch": 2,
+          "mean_cdf_auc": 0.7841666666666667,
+          "mean_source_auc": 0.803207747977863
+        },
+        {
+          "epoch": 3,
+          "mean_cdf_auc": 0.7961309523809523,
+          "mean_source_auc": 0.824076202639421
+        },
+        {
+          "epoch": 4,
+          "mean_cdf_auc": 0.7923809523809524,
+          "mean_source_auc": 0.8375457641549595
+        },
+        {
+          "epoch": 5,
+          "mean_cdf_auc": 0.7930357142857143,
+          "mean_source_auc": 0.8489165602383993
+        },
+        {
+          "epoch": 6,
+          "mean_cdf_auc": 0.7866666666666666,
+          "mean_source_auc": 0.8560110685398041
+        },
+        {
+          "epoch": 7,
+          "mean_cdf_auc": 0.7761904761904762,
+          "mean_source_auc": 0.864414644529587
+        },
+        {
+          "epoch": 8,
+          "mean_cdf_auc": 0.7666666666666666,
+          "mean_source_auc": 0.8730821626223926
+        },
+        {
+          "epoch": 9,
+          "mean_cdf_auc": 0.7659523809523809,
+          "mean_source_auc": 0.8785334184759472
+        },
+        {
+          "epoch": 10,
+          "mean_cdf_auc": 0.7670833333333333,
+          "mean_source_auc": 0.8804214559386974
+        },
+        {
+          "epoch": 11,
+          "mean_cdf_auc": 0.7691071428571428,
+          "mean_source_auc": 0.8818901660280971
+        },
+        {
+          "epoch": 12,
+          "mean_cdf_auc": 0.7707142857142857,
+          "mean_source_auc": 0.8825862068965518
+        },
+        {
+          "epoch": 13,
+          "mean_cdf_auc": 0.7619642857142856,
+          "mean_source_auc": 0.883544061302682
+        },
+        {
+          "epoch": 14,
+          "mean_cdf_auc": 0.757797619047619,
+          "mean_source_auc": 0.8837590464027245
+        },
+        {
+          "epoch": 15,
+          "mean_cdf_auc": 0.7586904761904762,
+          "mean_source_auc": 0.8852596849723287
+        },
+        {
+          "epoch": 16,
+          "mean_cdf_auc": 0.7573214285714286,
+          "mean_source_auc": 0.8866070668369519
+        },
+        {
+          "epoch": 17,
+          "mean_cdf_auc": 0.7497619047619047,
+          "mean_source_auc": 0.8878097062579822
+        },
+        {
+          "epoch": 18,
+          "mean_cdf_auc": 0.75125,
+          "mean_source_auc": 0.8898510004257131
+        },
+        {
+          "epoch": 19,
+          "mean_cdf_auc": 0.753452380952381,
+          "mean_source_auc": 0.8906641123882504
+        },
+        {
+          "epoch": 20,
+          "mean_cdf_auc": 0.7605952380952381,
+          "mean_source_auc": 0.892183908045977
+        },
+        {
+          "epoch": 21,
+          "mean_cdf_auc": 0.7564285714285715,
+          "mean_source_auc": 0.8920200085142613
+        },
+        {
+          "epoch": 22,
+          "mean_cdf_auc": 0.75875,
+          "mean_source_auc": 0.8911621966794381
+        },
+        {
+          "epoch": 23,
+          "mean_cdf_auc": 0.7589880952380952,
+          "mean_source_auc": 0.8888314176245211
+        },
+        {
+          "epoch": 24,
+          "mean_cdf_auc": 0.7566071428571428,
+          "mean_source_auc": 0.8870838654746701
+        },
+        {
+          "epoch": 25,
+          "mean_cdf_auc": 0.755,
+          "mean_source_auc": 0.8864985100042571
+        }
+      ],
+      "candidate_requires_fresh_cosine_budget_confirmation": true
+    },
+    "boundary_improving": [],
+    "test_used": false
+  },
+  "fixed_learning_rate": 5e-05,
+  "actual_batch": 128,
+  "criterion": "cdf_dev_at_source_selected_ema",
+  "stopping_decision": {
+    "basis": "empirical_plateau",
+    "rationale": "Both registered development trajectories actually triggered joint source/CDF patience5 at27 and25 epochs; source-selected EMA epochs are22 and20. Mean source AUC at the CDF curve maximum(epoch1) is75.0998%, versus89.2750% at the two source-selected checkpoints, so the early CDF peak is not used to freeze an insufficiently learned source detector. Retain the fully verified30-epoch maximum with formal source-only bestEMA/patience5. Report CDF development mean76.3869% at the selected source checkpoints and the early-target/source tradeoff; no claim this maximizes target AUC or all hyperparameters. Actual development AMP skips2/1 are retained; no formal TEST used.",
+    "recent_three_epoch_gain_limit": 0.005,
+    "interpretation": "Descriptive epoch-budget plateau gate; not statistical convergence.",
+    "test_used": false
+  },
+  "decision_time": 1793636341.9972403
+}

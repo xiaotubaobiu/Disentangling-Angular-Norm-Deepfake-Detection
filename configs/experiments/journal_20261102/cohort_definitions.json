@@ -1,0 +1,1741 @@
+{
+  "schema": "JOURNAL_FROZEN_COHORT_COUNTS_AND_HASHES_V1",
+  "definition_scope": "Aggregated frozen cohort definitions and manifest hashes; raw video/image data are external experiment inputs.",
+  "D_freeze_sha256": "e37f8e74388516b32449d656e83d4a71b3e65db4f03a7debb8761572716fbd82",
+  "H_source_freeze_sha256": "fc82fb72632213ba98b6f8d64f84f7c5d70fcaaf49164c9e43a3e76894e970cf",
+  "H_full_freeze_sha256": "26550334c922cfaa2fed3cfa6fbed7a1805696551239f5b058f8ccc43bae3eb7",
+  "D": {
+    "protocol": "journal_detector-target-dev-20261102-v2",
+    "method_registry": {
+      "FS9": [
+        "fsgan",
+        "faceswap",
+        "simswap",
+        "inswap",
+        "blendface",
+        "uniface",
+        "mobileswap",
+        "e4s",
+        "facedancer"
+      ],
+      "FR12": [
+        "fomm",
+        "facevid2vid",
+        "wav2lip",
+        "MRAA",
+        "one_shot_free",
+        "pirender",
+        "tpsm",
+        "lia",
+        "danet",
+        "sadtalker",
+        "mcnet",
+        "hyperreenact"
+      ]
+    },
+    "method_count": 21,
+    "manifest_sha256": {
+      "audit_metadata.parquet": "3a94497bbb91a5d7c44461dd73abb5e03e4a525585eabd36eefd6a115e8efe7e",
+      "audit_receipt.json": "ecb8b6e1f505a1b650e10b05605b37317e489be71385b7d45cbbe1cd609afe26",
+      "cdf_calibration_scope.json": "1fdb5bbe13618214b7b01933f348182e3006dc382ae351343c847ea2a96a2261",
+      "cdf_candidate_videos.parquet": "cfa7582607a5a7108a446c99c9a8a603c5cf58a90982c6fc2e4aa7268a9ffb74",
+      "cdf_dev.parquet": "5ff6ec9bc7d40cb2a4ecfa0970e1106e5b663ac4af6edd3b70705b5652345d6a",
+      "cdf_development_exclusions.parquet": "3b62aa679f8cfc6e8a46fa15e9d629e69f70664b010b336940c325bd80b4ae4e",
+      "cdf_development_policy.json": "71bb708fa32b81c5c2a9ea019880ddbd3fbfa921c41f0864694364970efc0924",
+      "cdf_development_scope.json": "b25b7df6b1d162c8217460dedbcf35bc0a1f702450077d237f627e33e8268d1f",
+      "cdf_relation_membership.parquet": "93ee5c3984ece9893e49530c376df639261de47cccffb9642272ec8e92610efa",
+      "cdf_role_exclusion_ledger.parquet": "817d7760a45b588b14a2383ca7f7840708108804f6d51efb2fdf011c98568270",
+      "cdf_split_components.csv": "ecc52cba877486fd9195c23297c244c64e8e84f4d83842c95810ceb0f931d0f8",
+      "counts.csv": "b4c71c1f8386c7835faacf0450a9477dc5e086b622f2cb65b419120dcc965bc9",
+      "dev.parquet": "ba8d5ac7b0dc387c5fd64ecd557869b4873c289120f19ff65b4e19582660770d",
+      "exclusions.parquet": "97eb02d41e9d4600428fca240570ee4db21d87e5433735d8f1a9e31a4811b2fe",
+      "full_associations.parquet": "14cc846dd39840d0cb58b6d558f6e930aec626ac141a82a2e968d279df8295a8",
+      "qualification_source.parquet": "a1a03eaf57144f72d1a70f0600143f9a3832a68804fefed7135c20fc564ae4ef",
+      "real_index_provenance.parquet": "b68b8bddbbc6d072a36bbcfd4bcc836ea229d140aab4f2b8613bb48864c22dcc",
+      "selected_associations.parquet": "2f8de60937bff92d0db107ff56b03ba81f8fd8850ba8e1f32f23e3c98fcf263e",
+      "source_cal.parquet": "9062eea5be49e3c2c9d2139cb6cefeef370ad979a24774ea8b056d8390a98701",
+      "source_pair_partition.json": "4a2298429077eb27bf6363209297f58979ed4fa9b5798ab75234080e01809026",
+      "source_test.parquet": "39db2d896991052a30a4c01d44f1116351d2419ed646f0e8fe09ec90c86675a1",
+      "target_cal.parquet": "b752538776b0e6ffc0c30ef2a5fcae647d32b553bb1f5d3279c0a4658e9e24b0",
+      "target_calibration_exclusions.parquet": "043285871d0e07e62a43b197a170357af966e20c586fdb55697fd8876c840aea",
+      "target_full.parquet": "ec25839179c9147334596c1397400cdcdf5f0400d1123d4ef193bac700d62f8a",
+      "target_test.parquet": "2c9141e918d82de31cb585ed4db82009f39890c6e4bf5646d8e51bc9b9ad28a6",
+      "train.parquet": "ff789c70e34bb67b1625304879f4936ee15018086b125fa422fa0554127b8687",
+      "training_associations.parquet": "e8f01fced8f9caabfdf92c554b2c54d611cbebcee7e741b811f706dfa1ee35a6",
+      "unknown_source_index_audit.json": "dd37965ed6e2b06acf235d53a6d12fd1382fe9d28932f836ff40d966032d1775",
+      "video_identity.parquet": "fb89eed412d9162a8fd520673887252535ca9fe88badd79254e22c66ad6fce74"
+    },
+    "canonical_train_inputs": 102225,
+    "training_association_rows": 102744,
+    "samples_per_epoch": 102272,
+    "sampling_method_probability": {
+      "MRAA": 0.023809523809523808,
+      "blendface": 0.023809523809523808,
+      "danet": 0.023809523809523808,
+      "e4s": 0.023809523809523808,
+      "facedancer": 0.023809523809523808,
+      "faceswap": 0.023809523809523808,
+      "facevid2vid": 0.023809523809523805,
+      "fomm": 0.023809523809523808,
+      "fsgan": 0.023809523809523805,
+      "hyperreenact": 0.023809523809523808,
+      "inswap": 0.023809523809523808,
+      "lia": 0.023809523809523808,
+      "mcnet": 0.023809523809523808,
+      "mobileswap": 0.023809523809523808,
+      "one_shot_free": 0.023809523809523808,
+      "pirender": 0.023809523809523808,
+      "real": 0.5,
+      "sadtalker": 0.023809523809523808,
+      "simswap": 0.023809523809523808,
+      "tpsm": 0.023809523809523808,
+      "uniface": 0.023809523809523808,
+      "wav2lip": 0.023809523809523805
+    },
+    "counts": [
+      {
+        "role": "cdf_dev",
+        "method_id": "MRAA",
+        "label": 1,
+        "rows": 160,
+        "videos": 20,
+        "unique_RGB": 160,
+        "groups": 20
+      },
+      {
+        "role": "cdf_dev",
+        "method_id": "blendface",
+        "label": 1,
+        "rows": 160,
+        "videos": 20,
+        "unique_RGB": 160,
+        "groups": 20
+      },
+      {
+        "role": "cdf_dev",
+        "method_id": "danet",
+        "label": 1,
+        "rows": 160,
+        "videos": 20,
+        "unique_RGB": 160,
+        "groups": 20
+      },
+      {
+        "role": "cdf_dev",
+        "method_id": "e4s",
+        "label": 1,
+        "rows": 160,
+        "videos": 20,
+        "unique_RGB": 160,
+        "groups": 20
+      },
+      {
+        "role": "cdf_dev",
+        "method_id": "facedancer",
+        "label": 1,
+        "rows": 160,
+        "videos": 20,
+        "unique_RGB": 160,
+        "groups": 20
+      },
+      {
+        "role": "cdf_dev",
+        "method_id": "faceswap",
+        "label": 1,
+        "rows": 160,
+        "videos": 20,
+        "unique_RGB": 160,
+        "groups": 20
+      },
+      {
+        "role": "cdf_dev",
+        "method_id": "facevid2vid",
+        "label": 1,
+        "rows": 160,
+        "videos": 20,
+        "unique_RGB": 160,
+        "groups": 20
+      },
+      {
+        "role": "cdf_dev",
+        "method_id": "fomm",
+        "label": 1,
+        "rows": 160,
+        "videos": 20,
+        "unique_RGB": 160,
+        "groups": 20
+      },
+      {
+        "role": "cdf_dev",
+        "method_id": "fsgan",
+        "label": 1,
+        "rows": 160,
+        "videos": 20,
+        "unique_RGB": 153,
+        "groups": 18
+      },
+      {
+        "role": "cdf_dev",
+        "method_id": "hyperreenact",
+        "label": 1,
+        "rows": 160,
+        "videos": 20,
+        "unique_RGB": 160,
+        "groups": 20
+      },
+      {
+        "role": "cdf_dev",
+        "method_id": "inswap",
+        "label": 1,
+        "rows": 160,
+        "videos": 20,
+        "unique_RGB": 160,
+        "groups": 20
+      },
+      {
+        "role": "cdf_dev",
+        "method_id": "lia",
+        "label": 1,
+        "rows": 160,
+        "videos": 20,
+        "unique_RGB": 160,
+        "groups": 20
+      },
+      {
+        "role": "cdf_dev",
+        "method_id": "mcnet",
+        "label": 1,
+        "rows": 160,
+        "videos": 20,
+        "unique_RGB": 160,
+        "groups": 20
+      },
+      {
+        "role": "cdf_dev",
+        "method_id": "mobileswap",
+        "label": 1,
+        "rows": 160,
+        "videos": 20,
+        "unique_RGB": 160,
+        "groups": 20
+      },
+      {
+        "role": "cdf_dev",
+        "method_id": "one_shot_free",
+        "label": 1,
+        "rows": 160,
+        "videos": 20,
+        "unique_RGB": 160,
+        "groups": 20
+      },
+      {
+        "role": "cdf_dev",
+        "method_id": "pirender",
+        "label": 1,
+        "rows": 160,
+        "videos": 20,
+        "unique_RGB": 160,
+        "groups": 20
+      },
+      {
+        "role": "cdf_dev",
+        "method_id": "real",
+        "label": 0,
+        "rows": 160,
+        "videos": 20,
+        "unique_RGB": 160,
+        "groups": 20
+      },
+      {
+        "role": "cdf_dev",
+        "method_id": "sadtalker",
+        "label": 1,
+        "rows": 160,
+        "videos": 20,
+        "unique_RGB": 160,
+        "groups": 20
+      },
+      {
+        "role": "cdf_dev",
+        "method_id": "simswap",
+        "label": 1,
+        "rows": 160,
+        "videos": 20,
+        "unique_RGB": 160,
+        "groups": 20
+      },
+      {
+        "role": "cdf_dev",
+        "method_id": "tpsm",
+        "label": 1,
+        "rows": 160,
+        "videos": 20,
+        "unique_RGB": 160,
+        "groups": 20
+      },
+      {
+        "role": "cdf_dev",
+        "method_id": "uniface",
+        "label": 1,
+        "rows": 160,
+        "videos": 20,
+        "unique_RGB": 160,
+        "groups": 20
+      },
+      {
+        "role": "cdf_dev",
+        "method_id": "wav2lip",
+        "label": 1,
+        "rows": 160,
+        "videos": 20,
+        "unique_RGB": 160,
+        "groups": 20
+      },
+      {
+        "role": "dev",
+        "method_id": "MRAA",
+        "label": 1,
+        "rows": 856,
+        "videos": 107,
+        "unique_RGB": 856,
+        "groups": 54
+      },
+      {
+        "role": "dev",
+        "method_id": "blendface",
+        "label": 1,
+        "rows": 864,
+        "videos": 108,
+        "unique_RGB": 864,
+        "groups": 54
+      },
+      {
+        "role": "dev",
+        "method_id": "danet",
+        "label": 1,
+        "rows": 856,
+        "videos": 107,
+        "unique_RGB": 856,
+        "groups": 54
+      },
+      {
+        "role": "dev",
+        "method_id": "e4s",
+        "label": 1,
+        "rows": 864,
+        "videos": 108,
+        "unique_RGB": 864,
+        "groups": 54
+      },
+      {
+        "role": "dev",
+        "method_id": "facedancer",
+        "label": 1,
+        "rows": 864,
+        "videos": 108,
+        "unique_RGB": 864,
+        "groups": 54
+      },
+      {
+        "role": "dev",
+        "method_id": "faceswap",
+        "label": 1,
+        "rows": 864,
+        "videos": 108,
+        "unique_RGB": 864,
+        "groups": 54
+      },
+      {
+        "role": "dev",
+        "method_id": "facevid2vid",
+        "label": 1,
+        "rows": 864,
+        "videos": 108,
+        "unique_RGB": 864,
+        "groups": 54
+      },
+      {
+        "role": "dev",
+        "method_id": "fomm",
+        "label": 1,
+        "rows": 864,
+        "videos": 108,
+        "unique_RGB": 864,
+        "groups": 54
+      },
+      {
+        "role": "dev",
+        "method_id": "fsgan",
+        "label": 1,
+        "rows": 848,
+        "videos": 106,
+        "unique_RGB": 848,
+        "groups": 53
+      },
+      {
+        "role": "dev",
+        "method_id": "hyperreenact",
+        "label": 1,
+        "rows": 688,
+        "videos": 86,
+        "unique_RGB": 688,
+        "groups": 54
+      },
+      {
+        "role": "dev",
+        "method_id": "inswap",
+        "label": 1,
+        "rows": 824,
+        "videos": 103,
+        "unique_RGB": 824,
+        "groups": 52
+      },
+      {
+        "role": "dev",
+        "method_id": "lia",
+        "label": 1,
+        "rows": 864,
+        "videos": 108,
+        "unique_RGB": 864,
+        "groups": 54
+      },
+      {
+        "role": "dev",
+        "method_id": "mcnet",
+        "label": 1,
+        "rows": 856,
+        "videos": 107,
+        "unique_RGB": 856,
+        "groups": 54
+      },
+      {
+        "role": "dev",
+        "method_id": "mobileswap",
+        "label": 1,
+        "rows": 864,
+        "videos": 108,
+        "unique_RGB": 864,
+        "groups": 54
+      },
+      {
+        "role": "dev",
+        "method_id": "one_shot_free",
+        "label": 1,
+        "rows": 864,
+        "videos": 108,
+        "unique_RGB": 864,
+        "groups": 54
+      },
+      {
+        "role": "dev",
+        "method_id": "pirender",
+        "label": 1,
+        "rows": 864,
+        "videos": 108,
+        "unique_RGB": 864,
+        "groups": 54
+      },
+      {
+        "role": "dev",
+        "method_id": "real",
+        "label": 0,
+        "rows": 864,
+        "videos": 108,
+        "unique_RGB": 864,
+        "groups": 54
+      },
+      {
+        "role": "dev",
+        "method_id": "sadtalker",
+        "label": 1,
+        "rows": 848,
+        "videos": 106,
+        "unique_RGB": 848,
+        "groups": 54
+      },
+      {
+        "role": "dev",
+        "method_id": "simswap",
+        "label": 1,
+        "rows": 864,
+        "videos": 108,
+        "unique_RGB": 864,
+        "groups": 54
+      },
+      {
+        "role": "dev",
+        "method_id": "tpsm",
+        "label": 1,
+        "rows": 864,
+        "videos": 108,
+        "unique_RGB": 864,
+        "groups": 54
+      },
+      {
+        "role": "dev",
+        "method_id": "uniface",
+        "label": 1,
+        "rows": 392,
+        "videos": 49,
+        "unique_RGB": 392,
+        "groups": 36
+      },
+      {
+        "role": "dev",
+        "method_id": "wav2lip",
+        "label": 1,
+        "rows": 864,
+        "videos": 108,
+        "unique_RGB": 864,
+        "groups": 54
+      },
+      {
+        "role": "source_cal",
+        "method_id": "real",
+        "label": 0,
+        "rows": 1120,
+        "videos": 140,
+        "unique_RGB": 1120,
+        "groups": 70
+      },
+      {
+        "role": "source_test",
+        "method_id": "MRAA",
+        "label": 1,
+        "rows": 1120,
+        "videos": 140,
+        "unique_RGB": 1120,
+        "groups": 70
+      },
+      {
+        "role": "source_test",
+        "method_id": "blendface",
+        "label": 1,
+        "rows": 1120,
+        "videos": 140,
+        "unique_RGB": 1120,
+        "groups": 70
+      },
+      {
+        "role": "source_test",
+        "method_id": "danet",
+        "label": 1,
+        "rows": 1120,
+        "videos": 140,
+        "unique_RGB": 1120,
+        "groups": 70
+      },
+      {
+        "role": "source_test",
+        "method_id": "e4s",
+        "label": 1,
+        "rows": 920,
+        "videos": 115,
+        "unique_RGB": 920,
+        "groups": 58
+      },
+      {
+        "role": "source_test",
+        "method_id": "facedancer",
+        "label": 1,
+        "rows": 1120,
+        "videos": 140,
+        "unique_RGB": 1120,
+        "groups": 70
+      },
+      {
+        "role": "source_test",
+        "method_id": "faceswap",
+        "label": 1,
+        "rows": 1120,
+        "videos": 140,
+        "unique_RGB": 1120,
+        "groups": 70
+      },
+      {
+        "role": "source_test",
+        "method_id": "facevid2vid",
+        "label": 1,
+        "rows": 1120,
+        "videos": 140,
+        "unique_RGB": 1120,
+        "groups": 70
+      },
+      {
+        "role": "source_test",
+        "method_id": "fomm",
+        "label": 1,
+        "rows": 1120,
+        "videos": 140,
+        "unique_RGB": 1120,
+        "groups": 70
+      },
+      {
+        "role": "source_test",
+        "method_id": "fsgan",
+        "label": 1,
+        "rows": 1120,
+        "videos": 140,
+        "unique_RGB": 1120,
+        "groups": 70
+      },
+      {
+        "role": "source_test",
+        "method_id": "hyperreenact",
+        "label": 1,
+        "rows": 1120,
+        "videos": 140,
+        "unique_RGB": 1120,
+        "groups": 70
+      },
+      {
+        "role": "source_test",
+        "method_id": "inswap",
+        "label": 1,
+        "rows": 944,
+        "videos": 118,
+        "unique_RGB": 944,
+        "groups": 68
+      },
+      {
+        "role": "source_test",
+        "method_id": "lia",
+        "label": 1,
+        "rows": 1120,
+        "videos": 140,
+        "unique_RGB": 1120,
+        "groups": 70
+      },
+      {
+        "role": "source_test",
+        "method_id": "mcnet",
+        "label": 1,
+        "rows": 1120,
+        "videos": 140,
+        "unique_RGB": 1120,
+        "groups": 70
+      },
+      {
+        "role": "source_test",
+        "method_id": "mobileswap",
+        "label": 1,
+        "rows": 1120,
+        "videos": 140,
+        "unique_RGB": 1120,
+        "groups": 70
+      },
+      {
+        "role": "source_test",
+        "method_id": "one_shot_free",
+        "label": 1,
+        "rows": 1120,
+        "videos": 140,
+        "unique_RGB": 1120,
+        "groups": 70
+      },
+      {
+        "role": "source_test",
+        "method_id": "pirender",
+        "label": 1,
+        "rows": 1120,
+        "videos": 140,
+        "unique_RGB": 1120,
+        "groups": 70
+      },
+      {
+        "role": "source_test",
+        "method_id": "real",
+        "label": 0,
+        "rows": 1120,
+        "videos": 140,
+        "unique_RGB": 1120,
+        "groups": 70
+      },
+      {
+        "role": "source_test",
+        "method_id": "sadtalker",
+        "label": 1,
+        "rows": 1048,
+        "videos": 131,
+        "unique_RGB": 1048,
+        "groups": 70
+      },
+      {
+        "role": "source_test",
+        "method_id": "simswap",
+        "label": 1,
+        "rows": 1120,
+        "videos": 140,
+        "unique_RGB": 1120,
+        "groups": 70
+      },
+      {
+        "role": "source_test",
+        "method_id": "tpsm",
+        "label": 1,
+        "rows": 1120,
+        "videos": 140,
+        "unique_RGB": 1120,
+        "groups": 70
+      },
+      {
+        "role": "source_test",
+        "method_id": "uniface",
+        "label": 1,
+        "rows": 1120,
+        "videos": 140,
+        "unique_RGB": 1120,
+        "groups": 70
+      },
+      {
+        "role": "source_test",
+        "method_id": "wav2lip",
+        "label": 1,
+        "rows": 1120,
+        "videos": 140,
+        "unique_RGB": 1120,
+        "groups": 70
+      },
+      {
+        "role": "target_full",
+        "method_id": "MRAA",
+        "label": 1,
+        "rows": 4824,
+        "videos": 603,
+        "unique_RGB": 4824,
+        "groups": 603
+      },
+      {
+        "role": "target_full",
+        "method_id": "blendface",
+        "label": 1,
+        "rows": 4776,
+        "videos": 597,
+        "unique_RGB": 4745,
+        "groups": 587
+      },
+      {
+        "role": "target_full",
+        "method_id": "danet",
+        "label": 1,
+        "rows": 4832,
+        "videos": 604,
+        "unique_RGB": 4832,
+        "groups": 604
+      },
+      {
+        "role": "target_full",
+        "method_id": "e4s",
+        "label": 1,
+        "rows": 2168,
+        "videos": 271,
+        "unique_RGB": 2168,
+        "groups": 271
+      },
+      {
+        "role": "target_full",
+        "method_id": "facedancer",
+        "label": 1,
+        "rows": 4824,
+        "videos": 603,
+        "unique_RGB": 4814,
+        "groups": 593
+      },
+      {
+        "role": "target_full",
+        "method_id": "faceswap",
+        "label": 1,
+        "rows": 4760,
+        "videos": 595,
+        "unique_RGB": 4692,
+        "groups": 584
+      },
+      {
+        "role": "target_full",
+        "method_id": "facevid2vid",
+        "label": 1,
+        "rows": 4784,
+        "videos": 598,
+        "unique_RGB": 4784,
+        "groups": 598
+      },
+      {
+        "role": "target_full",
+        "method_id": "fomm",
+        "label": 1,
+        "rows": 4824,
+        "videos": 603,
+        "unique_RGB": 4824,
+        "groups": 603
+      },
+      {
+        "role": "target_full",
+        "method_id": "fsgan",
+        "label": 1,
+        "rows": 4576,
+        "videos": 572,
+        "unique_RGB": 4390,
+        "groups": 513
+      },
+      {
+        "role": "target_full",
+        "method_id": "hyperreenact",
+        "label": 1,
+        "rows": 4792,
+        "videos": 599,
+        "unique_RGB": 4792,
+        "groups": 599
+      },
+      {
+        "role": "target_full",
+        "method_id": "inswap",
+        "label": 1,
+        "rows": 3088,
+        "videos": 386,
+        "unique_RGB": 3078,
+        "groups": 379
+      },
+      {
+        "role": "target_full",
+        "method_id": "lia",
+        "label": 1,
+        "rows": 4800,
+        "videos": 600,
+        "unique_RGB": 4800,
+        "groups": 600
+      },
+      {
+        "role": "target_full",
+        "method_id": "mcnet",
+        "label": 1,
+        "rows": 4824,
+        "videos": 603,
+        "unique_RGB": 4824,
+        "groups": 603
+      },
+      {
+        "role": "target_full",
+        "method_id": "mobileswap",
+        "label": 1,
+        "rows": 4760,
+        "videos": 595,
+        "unique_RGB": 4698,
+        "groups": 584
+      },
+      {
+        "role": "target_full",
+        "method_id": "one_shot_free",
+        "label": 1,
+        "rows": 4824,
+        "videos": 603,
+        "unique_RGB": 4824,
+        "groups": 603
+      },
+      {
+        "role": "target_full",
+        "method_id": "pirender",
+        "label": 1,
+        "rows": 4752,
+        "videos": 594,
+        "unique_RGB": 4752,
+        "groups": 594
+      },
+      {
+        "role": "target_full",
+        "method_id": "real",
+        "label": 0,
+        "rows": 1256,
+        "videos": 157,
+        "unique_RGB": 1256,
+        "groups": 157
+      },
+      {
+        "role": "target_full",
+        "method_id": "sadtalker",
+        "label": 1,
+        "rows": 4824,
+        "videos": 603,
+        "unique_RGB": 4824,
+        "groups": 603
+      },
+      {
+        "role": "target_full",
+        "method_id": "simswap",
+        "label": 1,
+        "rows": 4784,
+        "videos": 598,
+        "unique_RGB": 4757,
+        "groups": 589
+      },
+      {
+        "role": "target_full",
+        "method_id": "tpsm",
+        "label": 1,
+        "rows": 4832,
+        "videos": 604,
+        "unique_RGB": 4832,
+        "groups": 604
+      },
+      {
+        "role": "target_full",
+        "method_id": "uniface",
+        "label": 1,
+        "rows": 4672,
+        "videos": 584,
+        "unique_RGB": 4646,
+        "groups": 574
+      },
+      {
+        "role": "target_full",
+        "method_id": "wav2lip",
+        "label": 1,
+        "rows": 4976,
+        "videos": 622,
+        "unique_RGB": 4956,
+        "groups": 612
+      },
+      {
+        "role": "train",
+        "method_id": "MRAA",
+        "label": 1,
+        "rows": 4872,
+        "videos": 609,
+        "unique_RGB": 4872,
+        "groups": 306
+      },
+      {
+        "role": "train",
+        "method_id": "blendface",
+        "label": 1,
+        "rows": 4824,
+        "videos": 603,
+        "unique_RGB": 4824,
+        "groups": 305
+      },
+      {
+        "role": "train",
+        "method_id": "danet",
+        "label": 1,
+        "rows": 4864,
+        "videos": 608,
+        "unique_RGB": 4864,
+        "groups": 306
+      },
+      {
+        "role": "train",
+        "method_id": "e4s",
+        "label": 1,
+        "rows": 4872,
+        "videos": 609,
+        "unique_RGB": 4872,
+        "groups": 305
+      },
+      {
+        "role": "train",
+        "method_id": "facedancer",
+        "label": 1,
+        "rows": 4864,
+        "videos": 608,
+        "unique_RGB": 4864,
+        "groups": 305
+      },
+      {
+        "role": "train",
+        "method_id": "faceswap",
+        "label": 1,
+        "rows": 4896,
+        "videos": 612,
+        "unique_RGB": 4896,
+        "groups": 306
+      },
+      {
+        "role": "train",
+        "method_id": "facevid2vid",
+        "label": 1,
+        "rows": 4856,
+        "videos": 607,
+        "unique_RGB": 4856,
+        "groups": 306
+      },
+      {
+        "role": "train",
+        "method_id": "fomm",
+        "label": 1,
+        "rows": 4880,
+        "videos": 610,
+        "unique_RGB": 4880,
+        "groups": 306
+      },
+      {
+        "role": "train",
+        "method_id": "fsgan",
+        "label": 1,
+        "rows": 4640,
+        "videos": 580,
+        "unique_RGB": 4640,
+        "groups": 290
+      },
+      {
+        "role": "train",
+        "method_id": "hyperreenact",
+        "label": 1,
+        "rows": 4008,
+        "videos": 501,
+        "unique_RGB": 4008,
+        "groups": 306
+      },
+      {
+        "role": "train",
+        "method_id": "inswap",
+        "label": 1,
+        "rows": 4480,
+        "videos": 560,
+        "unique_RGB": 4480,
+        "groups": 300
+      },
+      {
+        "role": "train",
+        "method_id": "lia",
+        "label": 1,
+        "rows": 4872,
+        "videos": 609,
+        "unique_RGB": 4872,
+        "groups": 306
+      },
+      {
+        "role": "train",
+        "method_id": "mcnet",
+        "label": 1,
+        "rows": 4880,
+        "videos": 610,
+        "unique_RGB": 4880,
+        "groups": 306
+      },
+      {
+        "role": "train",
+        "method_id": "mobileswap",
+        "label": 1,
+        "rows": 4880,
+        "videos": 610,
+        "unique_RGB": 4880,
+        "groups": 305
+      },
+      {
+        "role": "train",
+        "method_id": "one_shot_free",
+        "label": 1,
+        "rows": 4880,
+        "videos": 610,
+        "unique_RGB": 4880,
+        "groups": 306
+      },
+      {
+        "role": "train",
+        "method_id": "pirender",
+        "label": 1,
+        "rows": 4872,
+        "videos": 609,
+        "unique_RGB": 4872,
+        "groups": 306
+      },
+      {
+        "role": "train",
+        "method_id": "real",
+        "label": 0,
+        "rows": 4888,
+        "videos": 611,
+        "unique_RGB": 4888,
+        "groups": 306
+      },
+      {
+        "role": "train",
+        "method_id": "sadtalker",
+        "label": 1,
+        "rows": 4680,
+        "videos": 585,
+        "unique_RGB": 4680,
+        "groups": 306
+      },
+      {
+        "role": "train",
+        "method_id": "simswap",
+        "label": 1,
+        "rows": 4840,
+        "videos": 605,
+        "unique_RGB": 4840,
+        "groups": 305
+      },
+      {
+        "role": "train",
+        "method_id": "tpsm",
+        "label": 1,
+        "rows": 4888,
+        "videos": 611,
+        "unique_RGB": 4888,
+        "groups": 306
+      },
+      {
+        "role": "train",
+        "method_id": "uniface",
+        "label": 1,
+        "rows": 2152,
+        "videos": 269,
+        "unique_RGB": 2152,
+        "groups": 214
+      },
+      {
+        "role": "train",
+        "method_id": "wav2lip",
+        "label": 1,
+        "rows": 4856,
+        "videos": 607,
+        "unique_RGB": 4856,
+        "groups": 306
+      },
+      {
+        "role": "target_cal",
+        "method_id": "real",
+        "label": 0,
+        "rows": 512,
+        "videos": 64,
+        "unique_RGB": 512,
+        "groups": 64
+      },
+      {
+        "role": "target_test",
+        "method_id": "MRAA",
+        "label": 1,
+        "rows": 4824,
+        "videos": 603,
+        "unique_RGB": 4824,
+        "groups": 603
+      },
+      {
+        "role": "target_test",
+        "method_id": "blendface",
+        "label": 1,
+        "rows": 4776,
+        "videos": 597,
+        "unique_RGB": 4745,
+        "groups": 587
+      },
+      {
+        "role": "target_test",
+        "method_id": "danet",
+        "label": 1,
+        "rows": 4832,
+        "videos": 604,
+        "unique_RGB": 4832,
+        "groups": 604
+      },
+      {
+        "role": "target_test",
+        "method_id": "e4s",
+        "label": 1,
+        "rows": 2168,
+        "videos": 271,
+        "unique_RGB": 2168,
+        "groups": 271
+      },
+      {
+        "role": "target_test",
+        "method_id": "facedancer",
+        "label": 1,
+        "rows": 4824,
+        "videos": 603,
+        "unique_RGB": 4814,
+        "groups": 593
+      },
+      {
+        "role": "target_test",
+        "method_id": "faceswap",
+        "label": 1,
+        "rows": 4760,
+        "videos": 595,
+        "unique_RGB": 4692,
+        "groups": 584
+      },
+      {
+        "role": "target_test",
+        "method_id": "facevid2vid",
+        "label": 1,
+        "rows": 4784,
+        "videos": 598,
+        "unique_RGB": 4784,
+        "groups": 598
+      },
+      {
+        "role": "target_test",
+        "method_id": "fomm",
+        "label": 1,
+        "rows": 4824,
+        "videos": 603,
+        "unique_RGB": 4824,
+        "groups": 603
+      },
+      {
+        "role": "target_test",
+        "method_id": "fsgan",
+        "label": 1,
+        "rows": 4576,
+        "videos": 572,
+        "unique_RGB": 4390,
+        "groups": 513
+      },
+      {
+        "role": "target_test",
+        "method_id": "hyperreenact",
+        "label": 1,
+        "rows": 4792,
+        "videos": 599,
+        "unique_RGB": 4792,
+        "groups": 599
+      },
+      {
+        "role": "target_test",
+        "method_id": "inswap",
+        "label": 1,
+        "rows": 3088,
+        "videos": 386,
+        "unique_RGB": 3078,
+        "groups": 379
+      },
+      {
+        "role": "target_test",
+        "method_id": "lia",
+        "label": 1,
+        "rows": 4800,
+        "videos": 600,
+        "unique_RGB": 4800,
+        "groups": 600
+      },
+      {
+        "role": "target_test",
+        "method_id": "mcnet",
+        "label": 1,
+        "rows": 4824,
+        "videos": 603,
+        "unique_RGB": 4824,
+        "groups": 603
+      },
+      {
+        "role": "target_test",
+        "method_id": "mobileswap",
+        "label": 1,
+        "rows": 4760,
+        "videos": 595,
+        "unique_RGB": 4698,
+        "groups": 584
+      },
+      {
+        "role": "target_test",
+        "method_id": "one_shot_free",
+        "label": 1,
+        "rows": 4824,
+        "videos": 603,
+        "unique_RGB": 4824,
+        "groups": 603
+      },
+      {
+        "role": "target_test",
+        "method_id": "pirender",
+        "label": 1,
+        "rows": 4752,
+        "videos": 594,
+        "unique_RGB": 4752,
+        "groups": 594
+      },
+      {
+        "role": "target_test",
+        "method_id": "real",
+        "label": 0,
+        "rows": 744,
+        "videos": 93,
+        "unique_RGB": 744,
+        "groups": 93
+      },
+      {
+        "role": "target_test",
+        "method_id": "sadtalker",
+        "label": 1,
+        "rows": 4824,
+        "videos": 603,
+        "unique_RGB": 4824,
+        "groups": 603
+      },
+      {
+        "role": "target_test",
+        "method_id": "simswap",
+        "label": 1,
+        "rows": 4784,
+        "videos": 598,
+        "unique_RGB": 4757,
+        "groups": 589
+      },
+      {
+        "role": "target_test",
+        "method_id": "tpsm",
+        "label": 1,
+        "rows": 4832,
+        "videos": 604,
+        "unique_RGB": 4832,
+        "groups": 604
+      },
+      {
+        "role": "target_test",
+        "method_id": "uniface",
+        "label": 1,
+        "rows": 4672,
+        "videos": 584,
+        "unique_RGB": 4646,
+        "groups": 574
+      },
+      {
+        "role": "target_test",
+        "method_id": "wav2lip",
+        "label": 1,
+        "rows": 4976,
+        "videos": 622,
+        "unique_RGB": 4956,
+        "groups": 612
+      }
+    ],
+    "cdf_calibration_scope": {
+      "status": "PROXY_SCOPE_EMPIRICAL_ONLY",
+      "cal_real_videos": 64,
+      "test_real_videos": 93,
+      "test_fake_videos": 12037,
+      "ranking_real_videos": 157,
+      "ranking_fake_videos": 12037,
+      "excluded_videos": 0,
+      "development_excluded_candidate_videos": 890,
+      "available_target_calibration_budgets": [
+        10,
+        20,
+        40
+      ],
+      "unavailable_target_calibration_budgets": [
+        80
+      ],
+      "historic_split_sha256": "fa19b5c48ea231ff186b552c12e178803c4e6898b4d6afeb784803c16cefebac",
+      "historic_protocol_sha256": "c9bccbeec85304cc6349c0eeb3e4100d432bfc21104aa70657b815a2a535b855",
+      "historical_cal_candidates_retained": 32,
+      "cal_candidate_pool": "New score-blind whole real-only joint components; historical80 IDs preferred, remaining real-only components may replace linked historical candidates. Maximum80; reserve two-class TEST.",
+      "test_candidate_pool": "All qualified remaining non-development non-calibration joint components; previous97 restriction is superseded.",
+      "ranking_cohort": "CDF_formal_ranking_after_development_relation_exclusion",
+      "isolation": "Joint transitive closure of all-candidate exact RGB/known source groups, same CDF names across methods and conservative id-token proxies.",
+      "ancestor_independence_certified": false,
+      "strict_NP_population_guarantee": false,
+      "development": {
+        "status": "USABLE",
+        "usable_for_epoch_selection": true,
+        "protocol": "cdf_joint_relation_development_v1",
+        "real_video_target": 20,
+        "real_video_actual": 20,
+        "fake_videos_per_method_cap": 20,
+        "fake_video_actual": 420,
+        "fake_method_video_counts": {
+          "MRAA": 20,
+          "blendface": 20,
+          "danet": 20,
+          "e4s": 20,
+          "facedancer": 20,
+          "faceswap": 20,
+          "facevid2vid": 20,
+          "fomm": 20,
+          "fsgan": 20,
+          "hyperreenact": 20,
+          "inswap": 20,
+          "lia": 20,
+          "mcnet": 20,
+          "mobileswap": 20,
+          "one_shot_free": 20,
+          "pirender": 20,
+          "sadtalker": 20,
+          "simswap": 20,
+          "tpsm": 20,
+          "uniface": 20,
+          "wav2lip": 20
+        },
+        "fake_method_coverage": [
+          "MRAA",
+          "blendface",
+          "danet",
+          "e4s",
+          "facedancer",
+          "faceswap",
+          "facevid2vid",
+          "fomm",
+          "fsgan",
+          "hyperreenact",
+          "inswap",
+          "lia",
+          "mcnet",
+          "mobileswap",
+          "one_shot_free",
+          "pirender",
+          "sadtalker",
+          "simswap",
+          "tpsm",
+          "uniface",
+          "wav2lip"
+        ],
+        "target_met": true,
+        "development_joint_groups": [
+          "2c0c75bb626320877fed31afd42fa5476b3547fbbad2fdde8d63e7f132e60d70",
+          "394a8a35b846d3d16b03cdb9739fb6408fa06b44a093a80b3495fb8596b18855",
+          "3decb2e9fa901ddd87d8ff26070d2db1cf1eee873a69c428bb7f784c81cdcd78",
+          "420d8b12ba4985e001359eec7d09f5905ca2ef4c248fd72a9b6d6b7515b49d1b",
+          "450f218e52155364aa7300f57cb854949f7d0468f3cc24254777ec2b2578cd72",
+          "578796c7c974c44ba720c7edde98cd95a6498ba7672c568a313aadd68933d3f3",
+          "65ddb58285efc2cba89e300d34972766627f76b45061cf045f9355049aab959b",
+          "7f722301fb5367119ac53026fb800af193323b5a9e44ed4bb1e039e4d77dc6c8",
+          "a54aadf739bebeef13d238931be68efabd51c1f087141650f10335c718d0dc8a",
+          "ab041d7296564e10309c0672626c7d135d663a030cf71bc4e5869e808e5aeea4",
+          "d021b37efacce3bbe1fb3418138de07a8a45a3a5467617c69af2460d85ed4f57",
+          "ed7aebd68140dc633b410463a153614352cff5008198e9c9c6ea79217dceda4c"
+        ],
+        "quarantined_candidate_videos": 890,
+        "unscored_quarantined_candidate_videos": 450,
+        "candidate_joint_groups": 73,
+        "full_candidate_videos": 13109,
+        "development_only": true,
+        "formal_cache_role": false,
+        "target_scores_used": false,
+        "selection_rationale": "Score-blind smallest feasible fake-bearing joint component, prefer complete method coverage; capped scoring subset, entire component quarantined; supplement whole real-only components, historical TEST preferred.",
+        "fallback_reason": "",
+        "policy": {
+          "version": "cdf_joint_relation_development_v1",
+          "selection_seed": 20261102,
+          "real_video_target": 20,
+          "fake_videos_per_method_cap": 20,
+          "calibration_video_target": 80,
+          "seed_real_video_ids": [],
+          "development_component_selection": "smallest_feasible_fake_bearing_component_prefer_all_registered_methods",
+          "development_scoring": "score_capped_subset_quarantine_entire_touched_joint_component",
+          "calibration_selection": "whole_real_only_joint_components_historical_CAL_first_then_other_real_only",
+          "test_selection": "all_remaining_non_DEV_non_CAL_components_no_historical_TEST_restriction",
+          "unusable_fake_development_fallback": "real_only_development_and_explicit_not_usable_status"
+        }
+      },
+      "unresolved": "Complete generated-parent, donor/driver, audio and YouTube identity ancestry is not available. A filename is a proxy, not authenticated identity."
+    },
+    "cdf_development_scope": {
+      "status": "USABLE",
+      "usable_for_epoch_selection": true,
+      "protocol": "cdf_joint_relation_development_v1",
+      "real_video_target": 20,
+      "real_video_actual": 20,
+      "fake_videos_per_method_cap": 20,
+      "fake_video_actual": 420,
+      "fake_method_video_counts": {
+        "MRAA": 20,
+        "blendface": 20,
+        "danet": 20,
+        "e4s": 20,
+        "facedancer": 20,
+        "faceswap": 20,
+        "facevid2vid": 20,
+        "fomm": 20,
+        "fsgan": 20,
+        "hyperreenact": 20,
+        "inswap": 20,
+        "lia": 20,
+        "mcnet": 20,
+        "mobileswap": 20,
+        "one_shot_free": 20,
+        "pirender": 20,
+        "sadtalker": 20,
+        "simswap": 20,
+        "tpsm": 20,
+        "uniface": 20,
+        "wav2lip": 20
+      },
+      "fake_method_coverage": [
+        "MRAA",
+        "blendface",
+        "danet",
+        "e4s",
+        "facedancer",
+        "faceswap",
+        "facevid2vid",
+        "fomm",
+        "fsgan",
+        "hyperreenact",
+        "inswap",
+        "lia",
+        "mcnet",
+        "mobileswap",
+        "one_shot_free",
+        "pirender",
+        "sadtalker",
+        "simswap",
+        "tpsm",
+        "uniface",
+        "wav2lip"
+      ],
+      "target_met": true,
+      "development_joint_groups": [
+        "2c0c75bb626320877fed31afd42fa5476b3547fbbad2fdde8d63e7f132e60d70",
+        "394a8a35b846d3d16b03cdb9739fb6408fa06b44a093a80b3495fb8596b18855",
+        "3decb2e9fa901ddd87d8ff26070d2db1cf1eee873a69c428bb7f784c81cdcd78",
+        "420d8b12ba4985e001359eec7d09f5905ca2ef4c248fd72a9b6d6b7515b49d1b",
+        "450f218e52155364aa7300f57cb854949f7d0468f3cc24254777ec2b2578cd72",
+        "578796c7c974c44ba720c7edde98cd95a6498ba7672c568a313aadd68933d3f3",
+        "65ddb58285efc2cba89e300d34972766627f76b45061cf045f9355049aab959b",
+        "7f722301fb5367119ac53026fb800af193323b5a9e44ed4bb1e039e4d77dc6c8",
+        "a54aadf739bebeef13d238931be68efabd51c1f087141650f10335c718d0dc8a",
+        "ab041d7296564e10309c0672626c7d135d663a030cf71bc4e5869e808e5aeea4",
+        "d021b37efacce3bbe1fb3418138de07a8a45a3a5467617c69af2460d85ed4f57",
+        "ed7aebd68140dc633b410463a153614352cff5008198e9c9c6ea79217dceda4c"
+      ],
+      "quarantined_candidate_videos": 890,
+      "unscored_quarantined_candidate_videos": 450,
+      "candidate_joint_groups": 73,
+      "full_candidate_videos": 13109,
+      "development_only": true,
+      "formal_cache_role": false,
+      "target_scores_used": false,
+      "selection_rationale": "Score-blind smallest feasible fake-bearing joint component, prefer complete method coverage; capped scoring subset, entire component quarantined; supplement whole real-only components, historical TEST preferred.",
+      "fallback_reason": "",
+      "policy": {
+        "version": "cdf_joint_relation_development_v1",
+        "selection_seed": 20261102,
+        "real_video_target": 20,
+        "fake_videos_per_method_cap": 20,
+        "calibration_video_target": 80,
+        "seed_real_video_ids": [],
+        "development_component_selection": "smallest_feasible_fake_bearing_component_prefer_all_registered_methods",
+        "development_scoring": "score_capped_subset_quarantine_entire_touched_joint_component",
+        "calibration_selection": "whole_real_only_joint_components_historical_CAL_first_then_other_real_only",
+        "test_selection": "all_remaining_non_DEV_non_CAL_components_no_historical_TEST_restriction",
+        "unusable_fake_development_fallback": "real_only_development_and_explicit_not_usable_status"
+      }
+    },
+    "cdf_ranking_cohort": "CDF_formal_ranking_after_development_relation_exclusion",
+    "independence_scope": "Known FF filename sources, official source pairs, and full candidate exact RGB components; unknown audio/driver ancestry remains unverified. CDF uses video/content and conservative identity-name proxies only.",
+    "source_validation_and_test_disjoint": true
+  },
+  "H": {
+    "scope": "ALL_H_ROLES",
+    "draw_count": 23680,
+    "training_identity": "ordered logical mother_id, shared across B/AB",
+    "protocol_sha256": "92c5a640120e07f3b7129943a4e42f81dd89b46d9846b8d39a369e8c5787ee7d",
+    "source_manifest_sha256": {
+      "AB/dev.parquet": "1ba271f72ef1f4f77f9860ba31182f5a1ecd0639e10028f7e6e12e361a2c2473",
+      "AB/source_cal.parquet": "35c01a33bb9a8d8250606aac3e38656986f2289fc70cdd77792bc0af20778f0a",
+      "AB/train.parquet": "d4e9f623653f410bacd6fa31189ab14f37ba43890f78c64e20afaf2b98f551f0",
+      "B/dev.parquet": "6499f26a699fc5dd4ac4a523cd47710d9c5efa927505918fcf5c200d7840ab43",
+      "B/source_cal.parquet": "2bd8ab66e2636030c48cc85708a37e1288d50165cc3c350dd415087240dac8dd",
+      "B/train.parquet": "799540b270199232520939d3d290e319e7e4a69b4b312a240801a2e75e951d94",
+      "common/AB/dev.parquet": "1ba271f72ef1f4f77f9860ba31182f5a1ecd0639e10028f7e6e12e361a2c2473",
+      "common/AB/source_cal.parquet": "35c01a33bb9a8d8250606aac3e38656986f2289fc70cdd77792bc0af20778f0a",
+      "common/AB/train.parquet": "d4e9f623653f410bacd6fa31189ab14f37ba43890f78c64e20afaf2b98f551f0",
+      "common/B/dev.parquet": "6499f26a699fc5dd4ac4a523cd47710d9c5efa927505918fcf5c200d7840ab43",
+      "common/B/source_cal.parquet": "84021d576bba4be58fd537ce4d03af986d9839d40f2d3be315c84a423c8d1b24",
+      "common/B/train.parquet": "799540b270199232520939d3d290e319e7e4a69b4b312a240801a2e75e951d94"
+    },
+    "full_manifest_sha256": {
+      "AB/dev.parquet": "1ba271f72ef1f4f77f9860ba31182f5a1ecd0639e10028f7e6e12e361a2c2473",
+      "AB/source_cal.parquet": "35c01a33bb9a8d8250606aac3e38656986f2289fc70cdd77792bc0af20778f0a",
+      "AB/source_test.parquet": "eea38bf16b0f98303aab1cacf61cda708595da45bd3ec1dac4d72780aae29289",
+      "AB/target_test.parquet": "cc1b8b91ed71ffb526d1a443a998b535fd2fbf13f2e22323c746c1f8ce831a26",
+      "AB/train.parquet": "d4e9f623653f410bacd6fa31189ab14f37ba43890f78c64e20afaf2b98f551f0",
+      "B/dev.parquet": "6499f26a699fc5dd4ac4a523cd47710d9c5efa927505918fcf5c200d7840ab43",
+      "B/source_cal.parquet": "2bd8ab66e2636030c48cc85708a37e1288d50165cc3c350dd415087240dac8dd",
+      "B/source_test.parquet": "d09f4f9920077efbd4818fa872605d0c4843388c9f82f91e9200b8e678222966",
+      "B/target_test.parquet": "fe2a488c5b3731a85bd42cdb688d004fd43c356d3a58510fffc39a66b7773beb",
+      "B/train.parquet": "799540b270199232520939d3d290e319e7e4a69b4b312a240801a2e75e951d94",
+      "common/AB/dev.parquet": "1ba271f72ef1f4f77f9860ba31182f5a1ecd0639e10028f7e6e12e361a2c2473",
+      "common/AB/source_cal.parquet": "35c01a33bb9a8d8250606aac3e38656986f2289fc70cdd77792bc0af20778f0a",
+      "common/AB/source_test.parquet": "eea38bf16b0f98303aab1cacf61cda708595da45bd3ec1dac4d72780aae29289",
+      "common/AB/target_test.parquet": "cc1b8b91ed71ffb526d1a443a998b535fd2fbf13f2e22323c746c1f8ce831a26",
+      "common/AB/train.parquet": "d4e9f623653f410bacd6fa31189ab14f37ba43890f78c64e20afaf2b98f551f0",
+      "common/B/dev.parquet": "6499f26a699fc5dd4ac4a523cd47710d9c5efa927505918fcf5c200d7840ab43",
+      "common/B/source_cal.parquet": "84021d576bba4be58fd537ce4d03af986d9839d40f2d3be315c84a423c8d1b24",
+      "common/B/source_test.parquet": "3bd55044502ec14bab5452cc51fa65a4e289921983941c26851c493bcceb2c7b",
+      "common/B/target_test.parquet": "9b4c387fa5db420fdd150c91fafac91995d971747f9366d899c092fce3ad4647",
+      "common/B/train.parquet": "799540b270199232520939d3d290e319e7e4a69b4b312a240801a2e75e951d94"
+    },
+    "tables": {
+      "AB/dev": {
+        "label_videos": {
+          "0": 106,
+          "1": 419
+        },
+        "rows": 4200,
+        "sha256": "1ba271f72ef1f4f77f9860ba31182f5a1ecd0639e10028f7e6e12e361a2c2473",
+        "videos": 525
+      },
+      "AB/source_cal": {
+        "label_videos": {
+          "0": 138
+        },
+        "rows": 1104,
+        "sha256": "35c01a33bb9a8d8250606aac3e38656986f2289fc70cdd77792bc0af20778f0a",
+        "videos": 138
+      },
+      "AB/source_test": {
+        "label_videos": {
+          "0": 136,
+          "1": 543
+        },
+        "rows": 5432,
+        "sha256": "eea38bf16b0f98303aab1cacf61cda708595da45bd3ec1dac4d72780aae29289",
+        "videos": 679
+      },
+      "AB/target_test": {
+        "label_videos": {
+          "0": 90,
+          "1": 1271
+        },
+        "rows": 10888,
+        "sha256": "cc1b8b91ed71ffb526d1a443a998b535fd2fbf13f2e22323c746c1f8ce831a26",
+        "videos": 1361
+      },
+      "AB/train": {
+        "label_videos": {
+          "0": 590,
+          "1": 2361
+        },
+        "rows": 23608,
+        "sha256": "d4e9f623653f410bacd6fa31189ab14f37ba43890f78c64e20afaf2b98f551f0",
+        "videos": 2951
+      },
+      "B/dev": {
+        "label_videos": {
+          "0": 106,
+          "1": 419
+        },
+        "rows": 4200,
+        "sha256": "6499f26a699fc5dd4ac4a523cd47710d9c5efa927505918fcf5c200d7840ab43",
+        "videos": 525
+      },
+      "B/source_cal": {
+        "label_videos": {
+          "0": 139
+        },
+        "rows": 1112,
+        "sha256": "2bd8ab66e2636030c48cc85708a37e1288d50165cc3c350dd415087240dac8dd",
+        "videos": 139
+      },
+      "B/source_test": {
+        "label_videos": {
+          "0": 139,
+          "1": 558
+        },
+        "rows": 5576,
+        "sha256": "d09f4f9920077efbd4818fa872605d0c4843388c9f82f91e9200b8e678222966",
+        "videos": 697
+      },
+      "B/target_test": {
+        "label_videos": {
+          "0": 162,
+          "1": 1977
+        },
+        "rows": 17112,
+        "sha256": "fe2a488c5b3731a85bd42cdb688d004fd43c356d3a58510fffc39a66b7773beb",
+        "videos": 2139
+      },
+      "B/train": {
+        "label_videos": {
+          "0": 590,
+          "1": 2361
+        },
+        "rows": 23608,
+        "sha256": "799540b270199232520939d3d290e319e7e4a69b4b312a240801a2e75e951d94",
+        "videos": 2951
+      },
+      "common/AB/dev": {
+        "label_videos": {
+          "0": 106,
+          "1": 419
+        },
+        "rows": 4200,
+        "sha256": "1ba271f72ef1f4f77f9860ba31182f5a1ecd0639e10028f7e6e12e361a2c2473",
+        "videos": 525
+      },
+      "common/AB/source_cal": {
+        "label_videos": {
+          "0": 138
+        },
+        "rows": 1104,
+        "sha256": "35c01a33bb9a8d8250606aac3e38656986f2289fc70cdd77792bc0af20778f0a",
+        "videos": 138
+      },
+      "common/AB/source_test": {
+        "label_videos": {
+          "0": 136,
+          "1": 543
+        },
+        "rows": 5432,
+        "sha256": "eea38bf16b0f98303aab1cacf61cda708595da45bd3ec1dac4d72780aae29289",
+        "videos": 679
+      },
+      "common/AB/target_test": {
+        "label_videos": {
+          "0": 90,
+          "1": 1271
+        },
+        "rows": 10888,
+        "sha256": "cc1b8b91ed71ffb526d1a443a998b535fd2fbf13f2e22323c746c1f8ce831a26",
+        "videos": 1361
+      },
+      "common/AB/train": {
+        "label_videos": {
+          "0": 590,
+          "1": 2361
+        },
+        "rows": 23608,
+        "sha256": "d4e9f623653f410bacd6fa31189ab14f37ba43890f78c64e20afaf2b98f551f0",
+        "videos": 2951
+      },
+      "common/B/dev": {
+        "label_videos": {
+          "0": 106,
+          "1": 419
+        },
+        "rows": 4200,
+        "sha256": "6499f26a699fc5dd4ac4a523cd47710d9c5efa927505918fcf5c200d7840ab43",
+        "videos": 525
+      },
+      "common/B/source_cal": {
+        "label_videos": {
+          "0": 138
+        },
+        "rows": 1104,
+        "sha256": "84021d576bba4be58fd537ce4d03af986d9839d40f2d3be315c84a423c8d1b24",
+        "videos": 138
+      },
+      "common/B/source_test": {
+        "label_videos": {
+          "0": 136,
+          "1": 543
+        },
+        "rows": 5432,
+        "sha256": "3bd55044502ec14bab5452cc51fa65a4e289921983941c26851c493bcceb2c7b",
+        "videos": 679
+      },
+      "common/B/target_test": {
+        "label_videos": {
+          "0": 90,
+          "1": 1271
+        },
+        "rows": 10888,
+        "sha256": "9b4c387fa5db420fdd150c91fafac91995d971747f9366d899c092fce3ad4647",
+        "videos": 1361
+      },
+      "common/B/train": {
+        "label_videos": {
+          "0": 590,
+          "1": 2361
+        },
+        "rows": 23608,
+        "sha256": "799540b270199232520939d3d290e319e7e4a69b4b312a240801a2e75e951d94",
+        "videos": 2951
+      }
+    },
+    "candidate_videos": 8431,
+    "DFD_parent_identity_certified": false
+  }
+}

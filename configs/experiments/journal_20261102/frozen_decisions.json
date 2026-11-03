@@ -1,0 +1,194 @@
+{
+  "schema": "JOURNAL_FROZEN_EXPERIMENT_DECISIONS_V1",
+  "protocol": "journal_detector-target-dev-20261102-v2",
+  "archived_from_code_commit": "77c3f9b1bbb16c27834cf9e61356db941f6cf3bb",
+  "definition_scope": "Six fixed D/H budgets; execution completion is tracked by runtime receipts, not by these definitions.",
+  "training_constants": {
+    "full_visual_encoder_finetuning": true,
+    "binary_linear_head": true,
+    "additional_training_output_L2": false,
+    "effective_batch": 128,
+    "optimizer": "AdamW",
+    "objective": "cross_entropy",
+    "weight_decay": 0.0005,
+    "AMP": "CUDA_FP16",
+    "gradient_clip_max_norm": 1.0,
+    "EMA_decay": 0.999,
+    "EMA_buffers": "live model values",
+    "epoch_schedule": "conference epoch warmup1 then cosine; epoch1 and2 use baseLR",
+    "learning_rate_search_performed": false,
+    "augmentation": "pinned DF40 official implementation",
+    "physical_GPU_policy": [
+      0,
+      1,
+      2,
+      3
+    ]
+  },
+  "initializations": {
+    "clip_vit_b16": {
+      "learning_rate": 1e-05,
+      "weight_sha256": "5806e77cd80f8b59890b7e101eabd078d9fb84e6937f9e85e4ecb61988df416f",
+      "weight_url": "https://openaipublic.azureedge.net/clip/models/5806e77cd80f8b59890b7e101eabd078d9fb84e6937f9e85e4ecb61988df416f/ViT-B-16.pt",
+      "artifact_relative_weight_path": "weights/ViT-B-16.pt"
+    },
+    "dinov2_vit_b14": {
+      "learning_rate": 5e-05,
+      "weight_sha256": "0b8b82f85de91b424aded121c7e1dcc2b7bc6d0adeea651bf73a13307fad8c73",
+      "weight_url": "https://dl.fbaipublicfiles.com/dinov2/dinov2_vitb14/dinov2_vitb14_pretrain.pth",
+      "artifact_relative_weight_path": "weights/dinov2_vitb14_pretrain.pth"
+    },
+    "efficientnet_b0": {
+      "learning_rate": 0.0001,
+      "weight_sha256": "7f5810bc96def8f7552d5b7e68d53c4786f81167d28291b21c0d90e1fca14934",
+      "weight_url": "https://download.pytorch.org/models/efficientnet_b0_rwightman-7f5810bc.pth",
+      "artifact_relative_weight_path": "weights/efficientnet_b0.pth"
+    }
+  },
+  "decisions": [
+    {
+      "route": "D",
+      "backbone": "clip_vit_b16",
+      "max_epochs": 2,
+      "fixed_learning_rate": 1e-05,
+      "actual_batch": 128,
+      "formal_seeds": [
+        7,
+        42,
+        123,
+        2026,
+        3407
+      ],
+      "formal_checkpoint_selection": "source_dev_pooled_mean_probability_auc_ema",
+      "formal_early_stop_patience": 5,
+      "target_development_used": true,
+      "data_freeze_sha256": "e37f8e74388516b32449d656e83d4a71b3e65db4f03a7debb8761572716fbd82",
+      "epoch_recipe_file": "epoch_recipes/D_clip_vit_b16.json",
+      "epoch_recipe_sha256": "91773122cd6bc744426cca1e5a268a20b24aa6555d14cc0983429366c763a73d",
+      "development_seeds": [
+        1007,
+        1042
+      ],
+      "budget_decision_basis": "fresh_cosine_comparison"
+    },
+    {
+      "route": "D",
+      "backbone": "dinov2_vit_b14",
+      "max_epochs": 30,
+      "fixed_learning_rate": 5e-05,
+      "actual_batch": 128,
+      "formal_seeds": [
+        7,
+        42,
+        123,
+        2026,
+        3407
+      ],
+      "formal_checkpoint_selection": "source_dev_pooled_mean_probability_auc_ema",
+      "formal_early_stop_patience": 5,
+      "target_development_used": true,
+      "data_freeze_sha256": "e37f8e74388516b32449d656e83d4a71b3e65db4f03a7debb8761572716fbd82",
+      "epoch_recipe_file": "epoch_recipes/D_dinov2_vit_b14.json",
+      "epoch_recipe_sha256": "e9a4c2b4db57ef4e69d020212efe0c4bd2259ac550fea4a3f66d730676c61be3",
+      "development_seeds": [
+        1007,
+        1042
+      ],
+      "budget_decision_basis": "empirical_plateau"
+    },
+    {
+      "route": "D",
+      "backbone": "efficientnet_b0",
+      "max_epochs": 2,
+      "fixed_learning_rate": 0.0001,
+      "actual_batch": 128,
+      "formal_seeds": [
+        7,
+        42,
+        123,
+        2026,
+        3407
+      ],
+      "formal_checkpoint_selection": "source_dev_pooled_mean_probability_auc_ema",
+      "formal_early_stop_patience": 5,
+      "target_development_used": true,
+      "data_freeze_sha256": "e37f8e74388516b32449d656e83d4a71b3e65db4f03a7debb8761572716fbd82",
+      "epoch_recipe_file": "epoch_recipes/D_efficientnet_b0.json",
+      "epoch_recipe_sha256": "8de28af564413242b1885b12b8a6c726ef7f4fd5e9f872885aeccd961101e57f",
+      "development_seeds": [
+        1007,
+        1042
+      ],
+      "budget_decision_basis": "fresh_cosine_comparison"
+    },
+    {
+      "route": "H",
+      "backbone": "clip_vit_b16",
+      "max_epochs": 10,
+      "fixed_learning_rate": 1e-05,
+      "actual_batch": 128,
+      "formal_seeds": [
+        7,
+        42,
+        123
+      ],
+      "formal_checkpoint_selection": "paired_source_dev_B_mean_probability_auc_ema",
+      "formal_early_stop_patience": 5,
+      "target_development_used": false,
+      "data_freeze_sha256": "fc82fb72632213ba98b6f8d64f84f7c5d70fcaaf49164c9e43a3e76894e970cf",
+      "epoch_recipe_file": "epoch_recipes/H_clip_vit_b16.json",
+      "epoch_recipe_sha256": "6f56717200dd074e83a6a2f51f474f470ac6c2ba9b4521e06596b2a93537c191",
+      "development_seeds": [
+        1007,
+        1042
+      ],
+      "budget_decision_basis": "empirical_plateau"
+    },
+    {
+      "route": "H",
+      "backbone": "dinov2_vit_b14",
+      "max_epochs": 60,
+      "fixed_learning_rate": 5e-05,
+      "actual_batch": 128,
+      "formal_seeds": [
+        7,
+        42,
+        123
+      ],
+      "formal_checkpoint_selection": "paired_source_dev_B_mean_probability_auc_ema",
+      "formal_early_stop_patience": 5,
+      "target_development_used": false,
+      "data_freeze_sha256": "fc82fb72632213ba98b6f8d64f84f7c5d70fcaaf49164c9e43a3e76894e970cf",
+      "epoch_recipe_file": "epoch_recipes/H_dinov2_vit_b14.json",
+      "epoch_recipe_sha256": "4de14764221335ddea3196c1c2e90fd487b60ca7b342b8f6bb42ba9512736e7b",
+      "development_seeds": [
+        1007,
+        1042
+      ],
+      "budget_decision_basis": "observed_nonboundary_or_early_stop"
+    },
+    {
+      "route": "H",
+      "backbone": "efficientnet_b0",
+      "max_epochs": 15,
+      "fixed_learning_rate": 0.0001,
+      "actual_batch": 128,
+      "formal_seeds": [
+        7,
+        42,
+        123
+      ],
+      "formal_checkpoint_selection": "paired_source_dev_B_mean_probability_auc_ema",
+      "formal_early_stop_patience": 5,
+      "target_development_used": false,
+      "data_freeze_sha256": "fc82fb72632213ba98b6f8d64f84f7c5d70fcaaf49164c9e43a3e76894e970cf",
+      "epoch_recipe_file": "epoch_recipes/H_efficientnet_b0.json",
+      "epoch_recipe_sha256": "6d66be4c894631f4ca18dd538b4d467090784f657c00291baf55d98a02025c46",
+      "development_seeds": [
+        1007,
+        1042
+      ],
+      "budget_decision_basis": "empirical_plateau"
+    }
+  ]
+}

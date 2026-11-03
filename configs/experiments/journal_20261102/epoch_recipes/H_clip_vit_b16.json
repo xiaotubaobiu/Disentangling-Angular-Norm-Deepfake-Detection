@@ -1,0 +1,152 @@
+{
+  "schema": "EPOCH_RECIPE_V2",
+  "status": "FROZEN",
+  "route": "H",
+  "backbone": "clip_vit_b16",
+  "chosen_epochs": 10,
+  "target_development_used": false,
+  "test_used": false,
+  "development_seeds": [
+    1007,
+    1042
+  ],
+  "paired_histories": [
+    "B",
+    "AB"
+  ],
+  "data_freeze_sha256": "fc82fb72632213ba98b6f8d64f84f7c5d70fcaaf49164c9e43a3e76894e970cf",
+  "development_report": {
+    "route": "H",
+    "backbone": "clip_vit_b16",
+    "epochs": 10,
+    "development_runs": [
+      {
+        "run_id": "H_development_clip_vit_b16_B_seed1007_cap10",
+        "seed": 1007,
+        "history": "B",
+        "source_selected_epoch": 10,
+        "actual_stop_epoch": 10,
+        "early_stopped": false,
+        "score": 0.9969153870401225,
+        "state_path": "/home/z/workspace/deepfake_journal_20261102/pairs/clip_vit_b16_seed1007_development_cap10/state.pt",
+        "state_sha256": "d4ee136311a7a0233ae5c91805199382b619b3c3f05fd8564d64e318e1a63234",
+        "checkpoint_sha256": "3fc829cf18448a7bf492c4332dc65e1e0a0ac820840ee28c7e870c65ea27c044",
+        "training_identity": {
+          "config": "0f4b57206752a72f70f3ac008b98e1f45ec7665a4ccba29651e91d01b71f922a",
+          "train_manifest": "799540b270199232520939d3d290e319e7e4a69b4b312a240801a2e75e951d94",
+          "dev_manifest": "6499f26a699fc5dd4ac4a523cd47710d9c5efa927505918fcf5c200d7840ab43",
+          "initialization": "5806e77cd80f8b59890b7e101eabd078d9fb84e6937f9e85e4ecb61988df416f",
+          "environment": "75a1b5bdc2545a6fb1f66d8186270f31619377ea86246e26fcc99795e55a84b6",
+          "code": "3167ce1256c43692b23b90861afdc15bd71e1f871b57faba97c900495c628dd7",
+          "data_freeze": "fc82fb72632213ba98b6f8d64f84f7c5d70fcaaf49164c9e43a3e76894e970cf"
+        },
+        "complete_sha256": "5fdf59cd8deb8d7321df07d63d6b3f437823626e644eda2ffd422ece02421c5e",
+        "history_sha256": "ae10cc87b4473ccd540e7fe2e09d6b44684745739da587bae60e5355d16ad67c",
+        "task_sha256": "c4c21719d5016d4a79752ae0f34f7896165018ba96ef612bbda45a69009fcf53"
+      },
+      {
+        "run_id": "H_development_clip_vit_b16_AB_seed1007_cap10",
+        "seed": 1007,
+        "history": "AB",
+        "source_selected_epoch": 10,
+        "actual_stop_epoch": 10,
+        "early_stopped": false,
+        "score": 0.9946413293105777,
+        "state_path": "/home/z/workspace/deepfake_journal_20261102/pairs/clip_vit_b16_seed1007_development_cap10/state.pt",
+        "state_sha256": "d4ee136311a7a0233ae5c91805199382b619b3c3f05fd8564d64e318e1a63234",
+        "checkpoint_sha256": "9ce83c5c02de206bfca3d2ba735ed57ec648597bbf4fb7964b7b612671805478",
+        "training_identity": {
+          "config": "fce124f11e5fa0b48f1e97bf530c07d23fc86bea0d222f274535e5c20ed87944",
+          "train_manifest": "d4e9f623653f410bacd6fa31189ab14f37ba43890f78c64e20afaf2b98f551f0",
+          "dev_manifest": "6499f26a699fc5dd4ac4a523cd47710d9c5efa927505918fcf5c200d7840ab43",
+          "initialization": "5806e77cd80f8b59890b7e101eabd078d9fb84e6937f9e85e4ecb61988df416f",
+          "environment": "75a1b5bdc2545a6fb1f66d8186270f31619377ea86246e26fcc99795e55a84b6",
+          "code": "3167ce1256c43692b23b90861afdc15bd71e1f871b57faba97c900495c628dd7",
+          "data_freeze": "fc82fb72632213ba98b6f8d64f84f7c5d70fcaaf49164c9e43a3e76894e970cf"
+        },
+        "complete_sha256": "389dfa1daa42b9e6d119bd37edd558388a5fa335c90812a6103d833c3bf46d19",
+        "history_sha256": "da1286bf888d1cb4b0a0fa3d44f6f17efe3e928cd2cdc4d481ad8d5ec89c720d",
+        "task_sha256": "7bd28241885eb89e2fdbc1a6daea6137fb8b9af67ac326e83417297a65aa9ac5"
+      },
+      {
+        "run_id": "H_development_clip_vit_b16_B_seed1042_cap10",
+        "seed": 1042,
+        "history": "B",
+        "source_selected_epoch": 10,
+        "actual_stop_epoch": 10,
+        "early_stopped": false,
+        "score": 0.9965101094249561,
+        "state_path": "/home/z/workspace/deepfake_journal_20261102/pairs/clip_vit_b16_seed1042_development_cap10/state.pt",
+        "state_sha256": "536ff98c4e9f5496b1020814ebd7b9fd99313bcd345471234ba53ec938d7b5cd",
+        "checkpoint_sha256": "c4cd6879d5bfabd52a4e1c74882ac8d270fadb58f01075eafe43f5a1e6812aa3",
+        "training_identity": {
+          "config": "f78a05aa28c3fe4e8f3a3e96439305cba8d351b11875b76f5a025e1da0b93361",
+          "train_manifest": "799540b270199232520939d3d290e319e7e4a69b4b312a240801a2e75e951d94",
+          "dev_manifest": "6499f26a699fc5dd4ac4a523cd47710d9c5efa927505918fcf5c200d7840ab43",
+          "initialization": "5806e77cd80f8b59890b7e101eabd078d9fb84e6937f9e85e4ecb61988df416f",
+          "environment": "75a1b5bdc2545a6fb1f66d8186270f31619377ea86246e26fcc99795e55a84b6",
+          "code": "3167ce1256c43692b23b90861afdc15bd71e1f871b57faba97c900495c628dd7",
+          "data_freeze": "fc82fb72632213ba98b6f8d64f84f7c5d70fcaaf49164c9e43a3e76894e970cf"
+        },
+        "complete_sha256": "b3b5f2e839b28a8004bf6e2708037390a0a0db167aa5b698f63d8253902a68fb",
+        "history_sha256": "b07dada0a7d80c334e05d037fa1bb404d8f6f02bdade965ea90b267d6985fa31",
+        "task_sha256": "c1920f2b44037dbb16bf54af3f11c096081f1e5c122a7db862ee9d3967d32348"
+      },
+      {
+        "run_id": "H_development_clip_vit_b16_AB_seed1042_cap10",
+        "seed": 1042,
+        "history": "AB",
+        "source_selected_epoch": 10,
+        "actual_stop_epoch": 10,
+        "early_stopped": false,
+        "score": 0.9953393074255865,
+        "state_path": "/home/z/workspace/deepfake_journal_20261102/pairs/clip_vit_b16_seed1042_development_cap10/state.pt",
+        "state_sha256": "536ff98c4e9f5496b1020814ebd7b9fd99313bcd345471234ba53ec938d7b5cd",
+        "checkpoint_sha256": "38a88b902f283a166fe89674545ec08adb180e21821e338f42aa20f377178b55",
+        "training_identity": {
+          "config": "f911b585a75ab73e4d6c0bdec13f8fc9e44c300dd792356fb031c1f4452a4087",
+          "train_manifest": "d4e9f623653f410bacd6fa31189ab14f37ba43890f78c64e20afaf2b98f551f0",
+          "dev_manifest": "6499f26a699fc5dd4ac4a523cd47710d9c5efa927505918fcf5c200d7840ab43",
+          "initialization": "5806e77cd80f8b59890b7e101eabd078d9fb84e6937f9e85e4ecb61988df416f",
+          "environment": "75a1b5bdc2545a6fb1f66d8186270f31619377ea86246e26fcc99795e55a84b6",
+          "code": "3167ce1256c43692b23b90861afdc15bd71e1f871b57faba97c900495c628dd7",
+          "data_freeze": "fc82fb72632213ba98b6f8d64f84f7c5d70fcaaf49164c9e43a3e76894e970cf"
+        },
+        "complete_sha256": "6c0f4bd3407785fc821ce45a826faadcabbefdadf047f1e77e18b645a7943313",
+        "history_sha256": "de142e9139794373b1e44b7d484e5d909df85b6f2a76f028d45e6e1fc8574509",
+        "task_sha256": "37dd0d27553d04d2782f0887a7880bfefd8af9058cab81f71763a8e788acb3d8"
+      }
+    ],
+    "development_config_path": "/home/z/workspace/deepfake_journal_20261102/configs/h_development_clip_vit_b16.json",
+    "development_config_sha256": "2938ce4d7c8b4e73cd47ef514b6c1f9bb96ee45b51b68d2b7643e8a87c2bf395",
+    "mean_score": 0.9958515333003106,
+    "score_kind": "paired_source_dev_B_auc",
+    "epoch_candidate": null,
+    "boundary_improving": [
+      {
+        "seed": 1007,
+        "observations": 3,
+        "recent_gain": 0.002229026883415086,
+        "criterion": "paired_source_DEV_B"
+      },
+      {
+        "seed": 1042,
+        "observations": 3,
+        "recent_gain": 0.0012721214031612416,
+        "criterion": "paired_source_DEV_B"
+      }
+    ],
+    "test_used": false
+  },
+  "fixed_learning_rate": 1e-05,
+  "actual_batch": 128,
+  "criterion": "paired_source_dev_B_auc",
+  "stopping_decision": {
+    "basis": "empirical_plateau",
+    "rationale": "Both source-only H development pairs completed the registered10-epoch budget with common source-selected EMA epoch10. The last three paired-source-DEV mean AUC gains are0.2229027 and0.1272121percentagepoints, each below the predefined0.25pp descriptive reporting gate; overall paired-source mean99.5852%. Keep the actually verified10-epoch maximum with common source-bestEMA/patience5 for three formal pairs. Allfour models have1850successful updates and0AMPskips. This is a finite verified budget choice, not an early-stop or mathematical convergence claim; no CDF or DFD score used for epochs.",
+    "recent_three_epoch_gain_limit": 0.0025,
+    "interpretation": "Descriptive epoch-budget plateau gate; not statistical convergence.",
+    "test_used": false
+  },
+  "decision_time": 1793636585.6761277
+}

@@ -1,0 +1,70 @@
+{
+  "A": {
+    "alignment": "orientation-preserving least-squares similarity to ArcFace112 template x3",
+    "architecture": "MobileNet0.25",
+    "commit": "b984b4b775b2c4dced95c1eadd195a5c7d32a60b",
+    "detector": "biubug6/Pytorch_Retinaface",
+    "detector_max_long_side": 1024,
+    "landmarks": 5,
+    "nms_iou": 0.4,
+    "output_size": 336,
+    "post_nms_top_k": 750,
+    "pre_nms_top_k": 5000,
+    "score_threshold": 0.6,
+    "template_pixel_centres": [
+      [
+        114.88380000000001,
+        155.0889
+      ],
+      [
+        220.5954,
+        154.5042
+      ],
+      [
+        168.0756,
+        215.20979999999997
+      ],
+      [
+        124.6479,
+        277.0965
+      ],
+      [
+        212.18970000000002,
+        276.6123
+      ]
+    ],
+    "upsampling": false,
+    "weight_sha256": "2979b33ffafda5d74b6948cd7a5b9a7a62f62b949cef24e95fd15d2883a65220"
+  },
+  "AB": "read saved A.png AND A_mask.png; complete fresh B detector+68predictor+alignment",
+  "B": {
+    "adjust_threshold": 0.0,
+    "alignment": "dlib.get_face_chip_details(68points,size=224,padding=0.25); get_mapping_to_chip geometry",
+    "detector": "dlib.get_frontal_face_detector HOG/SVM",
+    "detector_max_long_side": 1024,
+    "dlib_version": "20.0.0",
+    "landmarks": 68,
+    "output_size": 224,
+    "score_threshold": 0.0,
+    "upsample_num_times": 1,
+    "weight_sha256": "fbdc2cb80eb9aa7a758672cbfdda32ba6300efe9b6e6c7a299ff7e736b11b92f"
+  },
+  "eligibility": "8 unique mothers and all8 successful unique finalRGB per version; no replacement",
+  "face_selection": "largest bbox area; score descending; bbox lexicographic; landmarks lexicographic",
+  "geometry_code_sha256": "25c8a9e2e2b8987bdd6f5ae5ce000e251a1f0d451fb0d6083f5909b34f8b312b",
+  "mask": "binary validity of mapped pixel centres; AB inherits A validity",
+  "mask_interpolation": "OpenCV INTER_NEAREST",
+  "mother_selection": "32 uniform-time targets; sequential firstPTS at/after target; chronological RGB dedup; rint-linspace8; full decode fallback",
+  "mother_selection_before_detection": true,
+  "mothers_per_video": 8,
+  "padding": "BORDER_CONSTANT zero",
+  "png_compression": 3,
+  "primary_source_provenance_sha256": "3477ec1a650bc924db5d91a9a19230f832e6a8afec30dd6894678a28776bb295",
+  "rgb_interpolation": "OpenCV INTER_CUBIC",
+  "schema": "JOURNAL_H_RETINAFACE5_336_DLIB68_224_V1",
+  "versions": {
+    "numpy": "1.26.4",
+    "opencv": "4.11.0",
+    "torch": "2.6.0+cu124"
+  }
+}

@@ -1,0 +1,136 @@
+{
+  "schema": "EPOCH_RECIPE_V2",
+  "status": "FROZEN",
+  "route": "H",
+  "backbone": "dinov2_vit_b14",
+  "chosen_epochs": 60,
+  "target_development_used": false,
+  "test_used": false,
+  "development_seeds": [
+    1007,
+    1042
+  ],
+  "paired_histories": [
+    "B",
+    "AB"
+  ],
+  "data_freeze_sha256": "fc82fb72632213ba98b6f8d64f84f7c5d70fcaaf49164c9e43a3e76894e970cf",
+  "development_report": {
+    "route": "H",
+    "backbone": "dinov2_vit_b14",
+    "epochs": 60,
+    "development_runs": [
+      {
+        "run_id": "H_development_dinov2_vit_b14_B_seed1007_cap60",
+        "seed": 1007,
+        "history": "B",
+        "source_selected_epoch": 43,
+        "actual_stop_epoch": 48,
+        "early_stopped": true,
+        "score": 0.7747782230828117,
+        "state_path": "/home/z/workspace/deepfake_journal_20261102/pairs/dinov2_vit_b14_seed1007_development_cap60/state.pt",
+        "state_sha256": "425fb1f044843083ce3da8cefad9f066100332ce1b6d3dd447db3e7f447847d2",
+        "checkpoint_sha256": "817aa59f535879e4caab537753765354e9761bcc2e698f109e65f26fe585901c",
+        "training_identity": {
+          "config": "ccca434fd079bace6594803e2c86f1ad24e83968eb17061e6d2138825eabfc0c",
+          "train_manifest": "799540b270199232520939d3d290e319e7e4a69b4b312a240801a2e75e951d94",
+          "dev_manifest": "6499f26a699fc5dd4ac4a523cd47710d9c5efa927505918fcf5c200d7840ab43",
+          "initialization": "0b8b82f85de91b424aded121c7e1dcc2b7bc6d0adeea651bf73a13307fad8c73",
+          "environment": "75a1b5bdc2545a6fb1f66d8186270f31619377ea86246e26fcc99795e55a84b6",
+          "code": "3167ce1256c43692b23b90861afdc15bd71e1f871b57faba97c900495c628dd7",
+          "data_freeze": "fc82fb72632213ba98b6f8d64f84f7c5d70fcaaf49164c9e43a3e76894e970cf"
+        },
+        "complete_sha256": "681ae5545dcaad6f1e3cfb0f2fd2e0fc43f300c0a4c1ba9efd99831db5b28fc6",
+        "history_sha256": "7672414c361921be667c29ff19f8a7cb83b7102fbce4c9f48069e98986aaffde",
+        "task_sha256": "a14e12cc6dbe0dc72cf688fde04fb84ebb0a3250370f08b8abcda9779355d1e4"
+      },
+      {
+        "run_id": "H_development_dinov2_vit_b14_AB_seed1007_cap60",
+        "seed": 1007,
+        "history": "AB",
+        "source_selected_epoch": 43,
+        "actual_stop_epoch": 48,
+        "early_stopped": true,
+        "score": 0.7460035124059982,
+        "state_path": "/home/z/workspace/deepfake_journal_20261102/pairs/dinov2_vit_b14_seed1007_development_cap60/state.pt",
+        "state_sha256": "425fb1f044843083ce3da8cefad9f066100332ce1b6d3dd447db3e7f447847d2",
+        "checkpoint_sha256": "f9387270b38c37fc930916dfcb9cee86cf72502e500511f87e02764bc6f738f6",
+        "training_identity": {
+          "config": "ea5c2341f07a3c87f12ac7fb35e4ba7c0f56d347145a078c75fc6620305c53a7",
+          "train_manifest": "d4e9f623653f410bacd6fa31189ab14f37ba43890f78c64e20afaf2b98f551f0",
+          "dev_manifest": "6499f26a699fc5dd4ac4a523cd47710d9c5efa927505918fcf5c200d7840ab43",
+          "initialization": "0b8b82f85de91b424aded121c7e1dcc2b7bc6d0adeea651bf73a13307fad8c73",
+          "environment": "75a1b5bdc2545a6fb1f66d8186270f31619377ea86246e26fcc99795e55a84b6",
+          "code": "3167ce1256c43692b23b90861afdc15bd71e1f871b57faba97c900495c628dd7",
+          "data_freeze": "fc82fb72632213ba98b6f8d64f84f7c5d70fcaaf49164c9e43a3e76894e970cf"
+        },
+        "complete_sha256": "cc1bd8ccfaf58b1f8ea55a84c822076871755c79553936237b00dcfa12f961e5",
+        "history_sha256": "97e9c079824fe5d18bdac545373a041bc4efaecf7b996a00d34f5d153f5ddcba",
+        "task_sha256": "f68e99046c89223ae77c5ecb875c38eff9f8e44986e894686dc760d8e3ca7ee7"
+      },
+      {
+        "run_id": "H_development_dinov2_vit_b14_B_seed1042_cap60",
+        "seed": 1042,
+        "history": "B",
+        "source_selected_epoch": 57,
+        "actual_stop_epoch": 60,
+        "early_stopped": false,
+        "score": 0.7763993335434772,
+        "state_path": "/home/z/workspace/deepfake_journal_20261102/pairs/dinov2_vit_b14_seed1042_development_cap60/state.pt",
+        "state_sha256": "d45594b890ed27d3aa0e13fe974946697d53b3b22da6aca2e63a0f055ba8b9e9",
+        "checkpoint_sha256": "a411b522565c3737165d4a5e28c187c8b45f84d10cea26028390cd5912528bda",
+        "training_identity": {
+          "config": "6754c772687fe19b3b79eb2b21c79320b33fb529aa23b3438580e4d8d4469e1d",
+          "train_manifest": "799540b270199232520939d3d290e319e7e4a69b4b312a240801a2e75e951d94",
+          "dev_manifest": "6499f26a699fc5dd4ac4a523cd47710d9c5efa927505918fcf5c200d7840ab43",
+          "initialization": "0b8b82f85de91b424aded121c7e1dcc2b7bc6d0adeea651bf73a13307fad8c73",
+          "environment": "75a1b5bdc2545a6fb1f66d8186270f31619377ea86246e26fcc99795e55a84b6",
+          "code": "3167ce1256c43692b23b90861afdc15bd71e1f871b57faba97c900495c628dd7",
+          "data_freeze": "fc82fb72632213ba98b6f8d64f84f7c5d70fcaaf49164c9e43a3e76894e970cf"
+        },
+        "complete_sha256": "2a8dbf64b55337d976671de7a80d7bed44dc33cb2f1dd158cf39504616a500bc",
+        "history_sha256": "30991c27f80398877a7dd07e89d8eb99ae28d76940954b5ce6636659021a53b6",
+        "task_sha256": "ba0d75e4c3b22fc09208c44546f52b53ed39099fc64d8b1eabb4515176357dcf"
+      },
+      {
+        "run_id": "H_development_dinov2_vit_b14_AB_seed1042_cap60",
+        "seed": 1042,
+        "history": "AB",
+        "source_selected_epoch": 57,
+        "actual_stop_epoch": 60,
+        "early_stopped": false,
+        "score": 0.7800018012338452,
+        "state_path": "/home/z/workspace/deepfake_journal_20261102/pairs/dinov2_vit_b14_seed1042_development_cap60/state.pt",
+        "state_sha256": "d45594b890ed27d3aa0e13fe974946697d53b3b22da6aca2e63a0f055ba8b9e9",
+        "checkpoint_sha256": "eb8131aba5fdb5803d5ad6b33414dac91868e441c4f0a19b688b8eb8a172616e",
+        "training_identity": {
+          "config": "452dfa8bc38a20191ce0db6c051a2f1c103223d50c85cdac3ff2934a0f5e05d8",
+          "train_manifest": "d4e9f623653f410bacd6fa31189ab14f37ba43890f78c64e20afaf2b98f551f0",
+          "dev_manifest": "6499f26a699fc5dd4ac4a523cd47710d9c5efa927505918fcf5c200d7840ab43",
+          "initialization": "0b8b82f85de91b424aded121c7e1dcc2b7bc6d0adeea651bf73a13307fad8c73",
+          "environment": "75a1b5bdc2545a6fb1f66d8186270f31619377ea86246e26fcc99795e55a84b6",
+          "code": "3167ce1256c43692b23b90861afdc15bd71e1f871b57faba97c900495c628dd7",
+          "data_freeze": "fc82fb72632213ba98b6f8d64f84f7c5d70fcaaf49164c9e43a3e76894e970cf"
+        },
+        "complete_sha256": "f114191c0283c854582abbb9a65d49e60df0d86194231079fca599cce70e9d95",
+        "history_sha256": "49f8cc18fe3ddfa564d67e7fb5dfc5c16445784f0f6e508e262f4bb586532862",
+        "task_sha256": "64fb8fb18dec19acc1baf16123dd718f8349948e6d0d6032f6e174c9f0dd1254"
+      }
+    ],
+    "development_config_path": "/home/z/workspace/deepfake_journal_20261102/configs/h_development_dinov2_vit_b14_cap60.json",
+    "development_config_sha256": "03d5e9ee3f308789974264955195eac88bb7aa8f663be8f2c210d143bc8e87c3",
+    "mean_score": 0.7692957175665331,
+    "score_kind": "paired_source_dev_B_auc",
+    "epoch_candidate": null,
+    "boundary_improving": [],
+    "test_used": false
+  },
+  "fixed_learning_rate": 5e-05,
+  "actual_batch": 128,
+  "criterion": "paired_source_dev_B_auc",
+  "stopping_decision": {
+    "basis": "observed_nonboundary_or_early_stop",
+    "test_used": false
+  },
+  "decision_time": 1793663344.5385618
+}
