@@ -1,0 +1,5 @@
+# Keep upstream IEEE template bytes unchanged, including upstream whitespace.
+paper/ieee-access/vendor/** -whitespace
+paper/ieee-access/latex/*.cls -whitespace
+paper/ieee-access/latex/*.bst -whitespace
+paper/ieee-access/latex/*.sty -whitespace
