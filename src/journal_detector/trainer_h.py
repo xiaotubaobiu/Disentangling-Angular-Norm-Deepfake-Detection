@@ -25,6 +25,17 @@ class PairedSelection(t.Selection):
     def from_state(cls,state):return cls(**state)
 
 
+def make_pair_selection(btask,abtask):
+    """Keep source-best EMA selection while optionally running the full budget."""
+    left=btask.get('fixed_epoch_budget',False)
+    right=abtask.get('fixed_epoch_budget',False)
+    if type(left) is not bool or type(right) is not bool or left!=right:
+        raise ValueError('H pair fixed epoch budget must be matching booleans')
+    if btask['epochs']!=abtask['epochs']:
+        raise ValueError('H pair epoch budget differs')
+    return PairedSelection(patience=btask['epochs']+1 if left else 5)
+
+
 def validate_pair_frames(b,ab):
     for name,frame in [('B',b),('AB',ab)]:
         if frame.empty or frame.mother_id.duplicated().any():
@@ -96,7 +107,7 @@ def _train_pair(config_path,b_run,ab_run,device='cuda'):
         scalers[h]=torch.amp.GradScaler('cuda',init_scale=128) if str(device).startswith('cuda') else None
         emas[h]=t.EMA(models[h])
     draw_count=math.ceil(len(frame['B'])/128)*128;steps=draw_count//128
-    selection=PairedSelection();best={};histories={h:[] for h in models};skips={h:0 for h in models}
+    selection=make_pair_selection(btask,abtask);best={};histories={h:[] for h in models};skips={h:0 for h in models}
     start=0;attempts=0
     pair_root=root/'pairs'/f"{backbone}_seed{seed}_{btask['phase']}_cap{epochs}";pair_root.mkdir(parents=True,exist_ok=True)
     state_path=pair_root/'state.pt';pair_identity={'B':ids['B'],'AB':ids['AB']}

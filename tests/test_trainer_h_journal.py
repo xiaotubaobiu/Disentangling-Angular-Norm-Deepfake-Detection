@@ -49,7 +49,8 @@ def test_h_paired_dropout_randomness_is_identical_for_each_update():
     for p,q in zip(a.parameters(),b.parameters()):assert torch.equal(p,q)
 
 
-def test_h_pair_atomic_resume_retains_common_epoch_and_both_checkpoints(tmp_path,monkeypatch):
+@pytest.mark.parametrize('fixed_budget,expected_epochs', [(False,6),(True,10)])
+def test_h_pair_atomic_resume_retains_common_epoch_and_both_checkpoints(tmp_path,monkeypatch,fixed_budget,expected_epochs):
     import copy,json
     from journal_detector import trainer as t, trainer_h as h, models, data_h
     a,b=paired_frames()
@@ -57,7 +58,7 @@ def test_h_pair_atomic_resume_retains_common_epoch_and_both_checkpoints(tmp_path
         folder=tmp_path/'data/H'/history;folder.mkdir(parents=True)
         frame.to_parquet(folder/'train.parquet');frame.to_parquet(folder/'dev.parquet')
     base=dict(route='H',phase='development',recipe_frozen=False,backbone='efficientnet_b0',
-        seed=1007,epochs=10,microbatch=128,precision='AMP',lr=1e-4,dev_manifest='data/H/B/dev.parquet')
+        seed=1007,epochs=10,microbatch=128,precision='AMP',lr=1e-4,dev_manifest='data/H/B/dev.parquet',fixed_epoch_budget=fixed_budget)
     tasks={name:{**base,'history':history,'train_manifest':f'data/H/{history}/train.parquet'} for name,history in [('b','B'),('ab','AB')]}
     config=dict(protocol='journal_detector-target-dev-20261102-v2',artifact_root=str(tmp_path),
         effective_batch=128,formal_seeds=[7,42,123,2026,3407],h_formal_seeds=[7,42,123],
@@ -77,10 +78,31 @@ def test_h_pair_atomic_resume_retains_common_epoch_and_both_checkpoints(tmp_path
     with pytest.raises(RuntimeError,match='interruption'):h._train_pair(path,'b','ab','cpu')
     monkeypatch.setattr(t,'save_json',original)
     result=h._train_pair(path,'b','ab','cpu')
-    assert {r['epochs'] for r in result.values()}=={6}
+    assert {r['epochs'] for r in result.values()}=={expected_epochs}
     assert {r['best_epoch'] for r in result.values()}=={1}
     assert all(r['selection']==h.H_SELECTION and not r['target_used'] for r in result.values())
     for run in ['b','ab']:
         ckpt=torch.load(tmp_path/'runs'/run/'best_model.pth',weights_only=False)
         assert ckpt['epoch']==1 and ckpt['selection']==h.H_SELECTION
     assert h._train_pair(path,'b','ab','cpu')==result
+
+
+def test_h_fixed_budget_policy_retains_best_source_epoch_without_early_stop():
+    from journal_detector.trainer_h import make_pair_selection
+    task={'epochs':10,'fixed_epoch_budget':True}
+    selection=make_pair_selection(task,task)
+    for epoch in range(1,11):
+        selection.observe(.8,.8,epoch)
+    assert selection.best_epoch==1 and not selection.stopped
+    assert selection.patience==11
+    legacy=make_pair_selection({'epochs':10},{'epochs':10})
+    for epoch in range(1,7):legacy.observe(.8,.8,epoch)
+    assert legacy.stopped and legacy.best_epoch==1
+
+
+@pytest.mark.parametrize('left,right', [(True,False),('yes','yes'),(1,1)])
+def test_h_fixed_budget_policy_rejects_ambiguous_or_mismatched_pairs(left,right):
+    from journal_detector.trainer_h import make_pair_selection
+    with pytest.raises(ValueError,match='budget'):
+        make_pair_selection({'epochs':10,'fixed_epoch_budget':left},
+                            {'epochs':10,'fixed_epoch_budget':right})
