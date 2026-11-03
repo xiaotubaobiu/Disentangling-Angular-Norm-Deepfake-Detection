@@ -1,0 +1,38 @@
+{
+  "schema": "JOURNAL_FIGURE_CONTRACT_V1",
+  "question": "Does target-real n20 calibration improve the source-calibrated operating point, and what happens to recall and balanced accuracy?",
+  "backend": "python",
+  "archetype": "quantitative grid",
+  "scope": "Frozen correct-grouping RQ4 TEST:93real/12037fake; Raw/L2 × mean-logit/mean-prob; five formal seeds per selected backbone.",
+  "input_gate": "Reuse verified strict D five-seed summary and bound artifact/analysis hashes; default requires all3 backbones, optional explicit one-backbone mode still requires5 complete seeds.",
+  "panels": [
+    {
+      "panel": "a",
+      "metric": "fpr",
+      "role": "False-positive benefit or failure"
+    },
+    {
+      "panel": "b",
+      "metric": "tpr",
+      "role": "Recall cost or benefit"
+    },
+    {
+      "panel": "c",
+      "metric": "pooled_ba",
+      "role": "Combined operating outcome"
+    }
+  ],
+  "display": "Three aligned horizontal paired-dot panels; one row per backbone/score; source-real CAL vs target-real n20; all5 model points plus official model mean±sampleSD. Standard0..100% axes; no ROC curve implied.",
+  "replication": "Reduce200 CAL subsets within each model first. Whiskers are SD across5 training-model estimates, never pooled1000subsets or TEST CI.",
+  "source_data": "Export untouched complete per-seed calibration table including default,10/20/40/80 and all metrics; plotted source/n20 rows and official means/SD separately. Preserve unavailable80 asNA.",
+  "exclusions": "Only source vs n20 is drawn, matching the pre-specified primary comparison; no score flow, model seed, or method selected by favorable TEST outcome.",
+  "exports": [
+    "editablePDF",
+    "editableSVG",
+    "600dpiPNG",
+    "600dpiTIFF",
+    "CSV SourceData",
+    "Chinese caption"
+  ],
+  "qa": "Strict render-time alignment, actual PDF font floor, collision audit, source-table reconstruction and all-panel visual review. Do not claim all-backbone real integration from DINO alone."
+}
