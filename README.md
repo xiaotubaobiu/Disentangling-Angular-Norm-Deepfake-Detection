@@ -56,6 +56,8 @@ python -m pytest tests -q
 
 RQ4的21方法TPR可从已保存分数和阈值导出，操作见[方法级TPR](docs/期刊实验代码说明.md#已保存分数的方法级tpr)。补充导出逐项还原原FP/TP计数，区分CAL子集波动与训练seed波动；正式五种子汇总仍要求全部原分析通过验收。
 
+本轮实际使用的精确排序分解、聚合基线恒等式及独立训练/结果核验源码，逐字节保存在[辅助分析来源快照](scripts/reproducibility/journal_20261102/README.md)，并附原始路径与SHA256。它们保留实际产物根依赖，当前训练入口不会导入这些来源副本。
+
 本轮协议为`journal_detector-target-dev-20261102-v2`。`configs/journal.json`和`run.py`保留原15轮基础模板入口；本轮实际开发、epoch冻结和正式配置位于独立产物根，操作本轮运行时使用说明中的直接模块接口。本机产物根为`/home/z/workspace/deepfake_journal_20261102`，仅使用物理GPU0–3。
 
 当前代码不依赖历史实验的本地权重、预测缓存或结果目录。原始数据保留在 `/Dataset`；数据划分定义保存在 `configs/data_protocol/`，以后可以重新审计并构建清单。
