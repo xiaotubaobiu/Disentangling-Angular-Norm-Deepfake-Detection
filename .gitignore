@@ -1,7 +1,15 @@
 __pycache__/
 *.py[cod]
 .pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.cache/
 .venv
+# Local experiment data, checkpoints, receipts and historical checkouts.
+/local/
+/data/
+/datasets/
+/checkpoints/
 outputs/
 weights
 *.egg-info/
@@ -9,5 +17,15 @@ weights
 *.pt
 *.ckpt
 *.onnx
+*.safetensors
+*.torchscript
+# Credentials must never be included with the experiment source.
+.env
+.env.*
+*.pem
+*.key
+credentials.json
+token.json
+# The independent Overleaf repository lives in Obsidian.
 paper/ieee-access/latex/
 paper/ieee-access/latex_overleaf.zip
