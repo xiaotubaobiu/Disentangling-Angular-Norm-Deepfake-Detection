@@ -1,8 +1,8 @@
-# Deepfake Detector：期刊实验主线
+# Deepfake Detector：训练与管线实证代码
 
 本仓库用于IEEE Access期刊实验。D路线研究推理归一化、视频聚合和阈值迁移，H路线研究完整人脸预处理历史。正式范围为D的15个模型＋H的18个模型，共33个；本次以十二个从公开初始化重新训练的十轮H-DINOv2/EfficientNet模型替换原长预算主结果，D和H-CLIP保留原预测。
 
-论文入口：[英文Quarto源稿](paper/ieee-access/manuscript_en.qmd)、[中文稿](paper/ieee-access/manuscript_zh.md)、[Overleaf教程](paper/ieee-access/OVERLEAF_教程.md)。独立的LaTeX/Overleaf仓库位于 `/home/z/obsidian/paper/deepfake-detector/期刊实验_20261102/latex`，由其自身的Git历史管理。作者暂为Shiyu Chen和Kangbin Yim，后者通讯；基金、会议前作引用及作者简介明确保留待补。
+本仓库保存训练、数据处理、推理、评价和辅助分析代码，以及必要的配置与说明。实验文档与稿件位于 Obsidian 的 `paper/deepfake-detector/`；LaTeX/Overleaf 仓库单独位于该目录下的 `期刊实验_20261102/latex`。
 
 ```text
 src/journal_detector/      当前训练、数据准备、推理与评价代码
@@ -13,13 +13,12 @@ third_party/               固定版本的官方DINOv2、DF40参考实现
 legacy/31_methods/         第二阶段31方法实验的历史代码
 legacy/21_methods/         第三阶段21方法实验的历史代码
 docs/                     使用说明、版本沿革与核验记录
-paper/ieee-access/         当前中英文源稿、官方模板、构建脚本与Overleaf教程
 local/experiments/        本机实验数据、权重和结果，排除版本控制
 run.py                     统一命令入口
 requirements.lock.txt      Python依赖版本
 ```
 
-会议原版单独保存在 [`codex/conference-original`](https://github.com/xiaotubaobiu/Disentangling-Angular-Norm-Deepfake-Detection/tree/codex/conference-original)，不在main重复保存。
+会议原版单独保存在 [`conference-original`](https://github.com/xiaotubaobiu/Disentangling-Angular-Norm-Deepfake-Detection/tree/conference-original)，不在main重复保存。
 
 ## 当前配方
 

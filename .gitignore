@@ -26,6 +26,9 @@ weights
 *.key
 credentials.json
 token.json
-# The independent Overleaf repository lives in Obsidian.
-paper/ieee-access/latex/
-paper/ieee-access/latex_overleaf.zip
+# Manuscripts and their delivery tools remain local or in Obsidian.
+/paper/
+/scripts/reproducibility/access_20261103/publish_manuscripts.py
+/scripts/reproducibility/access_20261103/verify_manuscripts.py
+/tests/test_access_delivery.py
+/configs/experiments/access_20261103/document_toolchain.json

@@ -1,6 +1,6 @@
 # 2026-11-02 分支整合与期刊目录整理
 
-八个原分支的精确 tip 和归档标签见 `branches-20261102.json`。以 `archive/pipeline-latest-20261026` 为工作树基础，其余历史通过 Git ours 合并保留祖先；完整旧版本仍可从归档标签恢复。远端仅保留 `main` 和未改动的 `codex/conference-original` 两个分支。
+八个原分支的精确 tip 和归档标签见 `branches-20261102.json`。以 `archive/pipeline-latest-20261026` 为工作树基础，其余历史通过 Git ours 合并保留祖先；完整旧版本仍可从归档标签恢复。远端保留 `main` 和会议原版 `conference-original` 两个分支。会议分支于2026-11-04从 `codex/conference-original` 改名，提交仍为 `5cc0105477509566295ea6cd3c277cdcf4ede82e`；历史回执保留原名称。
 
 后续按用户要求将当前代码迁至 `src/journal_detector`，31 方法和 21 方法历史代码分别置于 `legacy/31_methods`、`legacy/21_methods`，删除 main 当前文件树中的会议重复快照和历史结果文件。当前操作以根目录 README 和 `docs/期刊实验代码说明.md` 为准。
 
