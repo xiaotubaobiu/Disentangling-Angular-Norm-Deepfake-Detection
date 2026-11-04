@@ -119,7 +119,7 @@ See `IEEE_TEMPLATE_PROVENANCE.json` for the source URL and SHA-256 hashes.
 
 Compile with `pdflatex main.tex`, `bibtex main`, then `pdflatex main.tex` twice.
 No Quarto installation or experiment files are needed in Overleaf.
-The canonical editable manuscript is `manuscript_en.qmd` in the parent project;
+The canonical editable manuscript is `manuscript_en.qmd` in the experiment repository;
 rendering it again regenerates `main.tex`. Preserve any Overleaf edits before
 replacing generated files. This draft contains explicitly marked author inputs
 that must be completed before submission.
@@ -144,7 +144,8 @@ that must be completed before submission.
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--source', type=Path, default=Path(__file__).with_name('manuscript_en.qmd'))
-    parser.add_argument('--output', type=Path, default=Path(__file__).with_name('latex'))
+    parser.add_argument('--output', type=Path, required=True,
+                        help='Fresh export folder outside the experiment checkout; preserve the existing Overleaf Git repository')
     parser.add_argument('--quarto', default=shutil.which('quarto'))
     parser.add_argument('--tex-bin', type=Path)
     args = parser.parse_args()

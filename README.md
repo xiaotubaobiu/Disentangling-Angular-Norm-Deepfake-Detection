@@ -2,7 +2,7 @@
 
 本仓库用于IEEE Access期刊实验。D路线研究推理归一化、视频聚合和阈值迁移，H路线研究完整人脸预处理历史。正式范围为D的15个模型＋H的18个模型，共33个；本次以十二个从公开初始化重新训练的十轮H-DINOv2/EfficientNet模型替换原长预算主结果，D和H-CLIP保留原预测。
 
-论文入口：[英文Quarto源稿](paper/ieee-access/manuscript_en.qmd)、[中文稿](paper/ieee-access/manuscript_zh.md)、[可独立编译的LaTeX目录](paper/ieee-access/latex/)、[Overleaf教程](paper/ieee-access/OVERLEAF_教程.md)。作者暂为Shiyu Chen和Kangbin Yim，后者通讯；基金、会议前作引用及作者简介明确保留待补。
+论文入口：[英文Quarto源稿](paper/ieee-access/manuscript_en.qmd)、[中文稿](paper/ieee-access/manuscript_zh.md)、[Overleaf教程](paper/ieee-access/OVERLEAF_教程.md)。独立的LaTeX/Overleaf仓库位于 `/home/z/obsidian/paper/deepfake-detector/期刊实验_20261102/latex`，由其自身的Git历史管理。作者暂为Shiyu Chen和Kangbin Yim，后者通讯；基金、会议前作引用及作者简介明确保留待补。
 
 ```text
 src/journal_detector/      当前训练、数据准备、推理与评价代码
@@ -13,7 +13,8 @@ third_party/               固定版本的官方DINOv2、DF40参考实现
 legacy/31_methods/         第二阶段31方法实验的历史代码
 legacy/21_methods/         第三阶段21方法实验的历史代码
 docs/                     使用说明、版本沿革与核验记录
-paper/ieee-access/         当前中英文稿、官方模板、LaTeX/PDF与Overleaf教程
+paper/ieee-access/         当前中英文源稿、官方模板、构建脚本与Overleaf教程
+local/experiments/        本机实验数据、权重和结果，排除版本控制
 run.py                     统一命令入口
 requirements.lock.txt      Python依赖版本
 ```
@@ -61,7 +62,7 @@ RQ4的21方法TPR可从已保存分数和阈值导出，操作见[方法级TPR](
 
 本轮实际使用的精确排序分解、聚合基线恒等式及独立训练/结果核验源码，逐字节保存在[辅助分析来源快照](scripts/reproducibility/journal_20261102/README.md)，并附原始路径与SHA256。它们保留实际产物根依赖，当前训练入口不会导入这些来源副本。
 
-本轮协议为`journal_detector-target-dev-20261102-v2`。`configs/journal.json`和`run.py`保留原15轮基础模板入口；实际实验使用独立产物根的直接模块接口。原结果根为`/home/z/workspace/deepfake_journal_20261102`，本次H十轮修订根为`/home/z/workspace/deepfake_access_20261103`，每个骨干的汇总来源显式登记；仅使用物理GPU0–3。
+本轮协议为`journal_detector-target-dev-20261102-v2`。`configs/journal.json`和`run.py`保留原15轮基础模板入口；实际实验使用独立产物根的直接模块接口。原结果根现位于 `/home/z/workspace/project/pipeline/local/experiments/journal_20261102`，本次H十轮修订根位于 `/home/z/workspace/project/pipeline/local/experiments/access_20261103`。原workspace路径保留兼容链接；历史回执和冻结配置保留原文，每个骨干的汇总来源显式登记；仅使用物理GPU0–3。
 
 训练入口使用公开初始化。论文复算读取明确登记的两处产物根，不混入31方法/旧21方法结果。原始数据保留在 `/Dataset`；数据划分定义保存在 `configs/data_protocol/`。
 
