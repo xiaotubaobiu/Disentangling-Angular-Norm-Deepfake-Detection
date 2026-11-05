@@ -61,7 +61,7 @@ RQ4的21方法TPR可从已保存分数和阈值导出，操作见[方法级TPR](
 
 本轮实际使用的精确排序分解、聚合基线恒等式及独立训练/结果核验源码，逐字节保存在[辅助分析来源快照](scripts/reproducibility/journal_20261102/README.md)，并附原始路径与SHA256。它们保留实际产物根依赖，当前训练入口不会导入这些来源副本。
 
-本轮协议为`journal_detector-target-dev-20261102-v2`。`configs/journal.json`和`run.py`保留原15轮基础模板入口；实际实验使用独立产物根的直接模块接口。原结果根现位于 `/home/z/workspace/project/pipeline/local/experiments/journal_20261102`，本次H十轮修订根位于 `/home/z/workspace/project/pipeline/local/experiments/access_20261103`。原workspace路径保留兼容链接；历史回执和冻结配置保留原文，每个骨干的汇总来源显式登记；仅使用物理GPU0–3。
+本轮协议为`journal_detector-target-dev-20261102-v2`。`configs/journal.json`和`run.py`保留原15轮基础模板入口；实际实验使用独立产物根的直接模块接口。原结果根现位于 `/home/z/workspace/project/pipeline/local/experiments/journal_20261102`，本次H十轮修订根位于 `/home/z/workspace/project/pipeline/local/experiments/access_20261103`。旧路径兼容入口已移除；历史回执和冻结配置保留原文，每个骨干的汇总来源显式登记；仅使用物理GPU0–3。
 
 训练入口使用公开初始化。论文复算读取明确登记的两处产物根，不混入31方法/旧21方法结果。原始数据保留在 `/Dataset`；数据划分定义保存在 `configs/data_protocol/`。
 
