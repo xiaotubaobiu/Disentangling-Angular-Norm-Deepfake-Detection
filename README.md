@@ -4,7 +4,11 @@
 
 本仓库保存训练、数据处理、推理、评价和辅助分析代码，以及必要的配置与说明。实验文档与稿件位于 Obsidian 的 `paper/deepfake-detector/`；LaTeX/Overleaf 仓库单独位于该目录下的 `期刊实验_20261102/latex`。
 
+本机根目录提供两个软链接入口：`paper` 指向 `/home/z/obsidian/paper/deepfake-detector/期刊实验_20261102`，`data` 指向 `/Dataset/deepfake_detection`。两者均由Git忽略，不复制原文件，也不上传到GitHub。通过 `paper/latex` 进入时，Git仍使用Obsidian中的独立Overleaf仓库。其他机器克隆代码后可按实际路径重建这两个入口。
+
 ```text
+paper                     本机论文软链接，内部latex单独由Overleaf Git管理
+data                      本机原始数据软链接
 src/journal_detector/      当前训练、数据准备、推理与评价代码
 configs/                   基础模板、公开权重信息和可重建的数据划分定义
 scripts/                   开发预算注册、验收及受控运行入口

@@ -7,7 +7,7 @@ __pycache__/
 .venv
 # Local experiment data, checkpoints, receipts and historical checkouts.
 /local/
-/data/
+/data
 /datasets/
 /checkpoints/
 outputs/
@@ -26,8 +26,9 @@ weights
 *.key
 credentials.json
 token.json
-# Manuscripts and their delivery tools remain local or in Obsidian.
-/paper/
+# Local manuscript shortcut and delivery tools stay outside this repository.
+# No trailing slash: ignore the shortcut itself when it is a symlink.
+/paper
 /scripts/reproducibility/access_20261103/publish_manuscripts.py
 /scripts/reproducibility/access_20261103/verify_manuscripts.py
 /tests/test_access_delivery.py
