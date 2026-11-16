@@ -1,82 +1,90 @@
-# Deepfake Detector：训练与管线实证代码
+# Pipeline Effects in Cross-Domain Face Deepfake Detection
 
-本仓库用于IEEE Access期刊实验。D路线研究推理归一化、视频聚合和阈值迁移，H路线研究完整人脸预处理历史。正式范围为D的15个模型＋H的18个模型，共33个；本次以十二个从公开初始化重新训练的十轮H-DINOv2/EfficientNet模型替换原长预算主结果，D和H-CLIP保留原预测。
+Public code repository for the manuscript **Pipeline Effects in Cross-Domain Face Deepfake Detection**, prepared for IEEE Access.
 
-本仓库保存训练、数据处理、推理、评价和辅助分析代码，以及必要的配置与说明。实验文档与稿件位于 Obsidian 的 `paper/deepfake-detector/`；LaTeX/Overleaf 仓库单独位于该目录下的 `期刊实验_20261102/latex`。
+This work evaluates how preprocessing history, frame-to-video scoring, and threshold transfer affect cross-domain face deepfake detection. It studies CLIP ViT-B/16, DINOv2 ViT-B/14, and EfficientNet-B0 using paired comparisons; it does not introduce a new detector architecture.
 
-本机根目录提供两个软链接入口：`paper` 指向 `/home/z/obsidian/paper/deepfake-detector/期刊实验_20261102`，`data` 指向 `/Dataset/deepfake_detection`。两者均由Git忽略，不复制原文件，也不上传到GitHub。通过 `paper/latex` 进入时，Git仍使用Obsidian中的独立Overleaf仓库。其他机器克隆代码后可按实际路径重建这两个入口。
+Repository: [xiaotubaobiu/Disentangling-Angular-Norm-Deepfake-Detection](https://github.com/xiaotubaobiu/Disentangling-Angular-Norm-Deepfake-Detection).
+
+## Experiments
+
+- **Preprocessing history (H):** compare direct dlib processing (B, 224 × 224) with RetinaFace processing (A, 336 × 336) followed by a new dlib detection/alignment pass (A→B, 224 × 224). Train on FF++ c23 and evaluate on FF++ and DFD with all four train/test pipeline combinations. Report video coverage separately from AUC on eligible videos. Three backbones, three seeds, and two training pipelines give 18 models.
+- **Feature scoring and video aggregation (D):** evaluate the full 2 × 2 × 2 combination of Raw/L2 features, mean-logit/mean-probability pooling, and correct/erroneous video grouping. Each natural video contributes eight frames. Correct grouping retains the manipulation method in the video identity; erroneous grouping pools the eight frames from each of the methods sharing an identifier. Three backbones and five seeds give 15 models.
+- **Threshold transfer:** compare default thresholds, source-real calibration, and target-real calibration using 10/20/40 real videos. Report AUC, balanced accuracy, FPR, and TPR on a fixed decision-test cohort.
+
+D evaluates the same 21 DF40 manipulation methods (9 face swapping and 12 face reenactment methods) across FF++ and Celeb-DF source content. These target samples are the DF40-CDF collection, rather than the original Celeb-DF fake-video collection.
+
+## Branches and source layout
+
+The `main` branch contains the journal implementation. The separate [`conference-original`](https://github.com/xiaotubaobiu/Disentangling-Angular-Norm-Deepfake-Detection/tree/conference-original) branch preserves the conference implementation, including the historical method-blind video-grouping rule analyzed and corrected in the journal work.
 
 ```text
-paper                     本机论文软链接，内部latex单独由Overleaf Git管理
-data                      本机原始数据软链接
-src/journal_detector/      当前训练、数据准备、推理与评价代码
-configs/                   基础模板、公开权重信息和可重建的数据划分定义
-scripts/                   开发预算注册、验收及受控运行入口
-tests/                     当前代码测试
-third_party/               固定版本的官方DINOv2、DF40参考实现
-legacy/31_methods/         第二阶段31方法实验的历史代码
-legacy/21_methods/         第三阶段21方法实验的历史代码
-docs/                     使用说明、版本沿革与核验记录
-local/experiments/        本机实验数据、权重和结果，排除版本控制
-run.py                     统一命令入口
-requirements.lock.txt      Python依赖版本
+src/journal_detector/      Training, data preparation, inference, and evaluation
+configs/                   Model settings, dataset protocols, and run snapshots
+scripts/                   Development, execution, validation, and analysis tools
+tests/                     Implementation tests
+third_party/               Pinned upstream implementations and their licenses
+legacy/31_methods/         Historical 31-method implementation
+legacy/21_methods/         Historical 21-method implementation
+docs/                      Usage instructions and execution history
+run.py                     Command-line entry point
+requirements.lock.txt      Recorded experiment environment
 ```
 
-会议原版单独保存在 [`conference-original`](https://github.com/xiaotubaobiu/Disentangling-Angular-Norm-Deepfake-Detection/tree/conference-original)，不在main重复保存。
+## Training protocol
 
-## 当前配方
-
-| 项目 | CLIP | DINOv2 | EfficientNet |
+| Setting | CLIP | DINOv2 | EfficientNet-B0 |
 |---|---|---|---|
-| 官方骨干 | OpenAI ViT-B/16 | Meta ViT-B/14 | ImageNet B0 |
-| 特征维度 | 512 | 768 | 1280 |
-| 学习率 | 1e-5 | 5e-5 | 1e-4 |
-| 微调范围 | 视觉编码器全部参数＋二分类头 | 同左 | 同左 |
-| 每卡实际batch | 128 | 128 | 128 |
-| D最大预算，已冻结 | 2 | 30 | 2 |
-| H当前预算 | 最大10 | 固定训满10 | 固定训满10 |
-| 训练输出L2 | 关闭 | 关闭 | 关闭 |
+| Initialization | OpenAI ViT-B/16 | Official ViT-B/14 | ImageNet B0 |
+| Feature dimension | 512 | 768 | 1280 |
+| Learning rate | 1e-5 | 5e-5 | 1e-4 |
+| D maximum epochs | 2 | 30 | 2 |
+| Final H maximum epochs | 10 | 10 | 10 |
 
-共用 AdamW、CE、WD=5e-4、AMP、梯度裁剪1、epoch级warmup1＋cosine、EMA=.999。每轮使用EMA计算源DEV正确视频分组的mean-probability pooled AUC，严格提高才保存；除本次固定十轮的H-DINO与EfficientNet外，连续5轮不提高早停。所有测试加载预算内最佳EMA `best_model.pth`。
+All models fine-tune the full visual encoder and binary head without training-time output L2 normalization. Shared settings are AdamW, cross-entropy loss, weight decay 5e-4, batch size 128 per GPU, AMP, gradient-norm clipping at 1.0, epoch-based warmup/cosine scheduling, and EMA decay 0.999. DF40 image augmentations precede the normalization required by each pretrained backbone.
 
-开发种子为1007、1042。D利用源DEV和隔离CDF-DEV开发总预算，正式种子7/42/123/2026/3407的训练轨迹只按源DEV选点。H在共同B输入上，以B/AB两模型平均AUC选择共同epoch，正式种子7/42/123。H-DINO与EfficientNet在查看初版H结果后按用户要求修订为固定十轮：十二模型从公开初始化重新开始，cosine按十轮预算重算，其余参数不变；预算内仍按共同源DEV选EMA，不逐轮使用DFD。此修订不能称为最初未见目标结果的预算选择。原长预算证据保留在历史归档，当前主表使用新十二模型；缩短预算本身不构成充分学习或收敛的保证。
+D uses development seeds 1007 and 1042 to select the epoch budgets with source validation and an isolated CDF development set. Formal seeds are 7, 42, 123, 2026, and 3407. Each formal run selects its best EMA checkpoint by correctly grouped source-validation mean-probability AUC within the frozen budget. Patience is five epochs.
 
-原始epoch决定、33个任务及数据/环境哈希保存在[初版实际配置快照](configs/experiments/journal_20261102/README.md)；本次覆盖H-DINO/EfficientNet的十二任务与十轮配方见[修订配置](configs/experiments/access_20261103/README.md)。D每轮799个batch，H每模型每轮185个；CLIP最大2轮与10轮分别最多1598与1850次更新尝试，轮数需结合每轮工作量解释。
+H uses seeds 7, 42, and 123. Within each seed and backbone, B/AB models share initialization and sampling/augmentation random keys. A common checkpoint epoch maximizes their average AUC on the same source-B validation cohort. The final paired runs select epoch 10. DINOv2 and EfficientNet-B0 were rerun with ten-epoch schedules after inspection of longer exploratory runs; this is a matched-budget sensitivity experiment. DINOv2 source-validation performance was still improving at the cap. The original H-CLIP runs are retained. One D epoch has 799 mini-batches; one H epoch has 185.
 
-使用DF40官方图像增强，随后使用各骨干对应的预训练输入归一化。DINOv2保留官方模型、权重与插值公式；位置插值在CPU执行并保留梯度，以支持PyTorch确定性反向。
+The [initial run snapshots](configs/experiments/journal_20261102/README.md) document the original execution protocol. The [H revision configurations](configs/experiments/access_20261103/README.md) specify the twelve replacement DINOv2/EfficientNet-B0 runs. Historical configurations remain available for provenance; use the final revision when reconstructing manuscript H results.
 
-数据与评价沿用最新21方法的FS9＋FR12协议：每自然视频8帧、独立源DEV、RGB去重、真实总采样概率.5、伪造每方法.5/21。三骨干×种子7/42/123/2026/3407，共15个模型。八组对照为正确/错误分组×Raw/L2×mean-logit/mean-probability，同时保留阈值迁移、目标真实样本校准、数值审计和五种子汇总。
+## Data and evaluation cohorts
 
-CDF独立DEV为20真＋420假，21方法各20个伪造；关联闭包共890个候选视频，全部排除在正式排序和阈值校准池之外。正式排序队列157真＋12,037假；阈值实验单独使用64真CAL与93真＋12,037假固定TEST。关联规则、清单哈希和适用边界见使用说明。
+Obtain FF++, DFD, DF40, and pretrained model weights through their official distribution channels and observe their access and licensing requirements. Images, videos, trained checkpoints, prediction caches, and manuscript sources are not distributed in this code repository. Split definitions are stored in `configs/data_protocol/`.
 
-H使用FF++ c23原视频训练/源评价，DFD c23跨域测试。B是dlib 68点对齐224；A是RetinaFace 5点对齐336；A→B在保存的A图像上重新完整运行B。B和A→B模型共享初始化、母帧、抽样及增强随机键，完成四格交叉评价，并报告处理失败率和共同成功队列。
+D training samples real inputs with total probability 0.5 and each fake method with probability 0.5/21, with replacement. Evaluation uses eight fixed, distinct RGB frames per natural video.
 
-## 操作
+The isolated CDF development cohort contains 20 real and 420 fake videos; related videos are excluded from formal evaluation and calibration. The formal ranking cohort contains 157 real and 12,037 fake videos. Threshold comparisons reserve 64 real videos for calibration and use the same 93-real/12,037-fake decision-test cohort for every threshold policy.
+
+H uses the same raw frames for B and A→B. Failed preprocessing does not trigger replacement-frame sampling. All-B and common-success cohorts are reported separately, so coverage changes are not confused with paired performance changes.
+
+## Usage and reproducibility
+
+Use an isolated Python 3.11 environment and consult `requirements.lock.txt` for the recorded package versions. CUDA/PyTorch installation must match the execution environment; the recorded runs used PyTorch 2.6.0 with CUDA 12.4.
 
 ```bash
+git clone https://github.com/xiaotubaobiu/Disentangling-Angular-Norm-Deepfake-Detection.git
+cd Disentangling-Angular-Norm-Deepfake-Detection
 python run.py --help
 python run.py status
 python -m pytest tests -q
 ```
 
-数据准备、预训练权重位置与逐步命令见 [使用说明](docs/期刊实验代码说明.md)，运行时线程和完整校验调度见[运行时校验](docs/execution/runtime-validation.md)。实际AMP batch128与恢复一致性已通过GPU资格检查。
+The commands above inspect the interface/status and run implementation tests. Dataset preparation and experimental runs require locally configured data, pretrained weights, and output paths.
 
-RQ4的21方法TPR可从已保存分数和阈值导出，操作见[方法级TPR](docs/期刊实验代码说明.md#已保存分数的方法级tpr)。补充导出逐项还原原FP/TP计数，区分CAL子集波动与训练seed波动；正式五种子汇总仍要求全部原分析通过验收。
+- [Detailed usage and data preparation (Chinese)](docs/期刊实验代码说明.md): module roles, split construction, and execution commands; historical sections describe earlier budgets.
+- [Runtime validation](docs/execution/runtime-validation.md): GPU/environment qualification and restart checks.
+- [Retained analysis source snapshots](scripts/reproducibility/journal_20261102/README.md): provenance and checksums for auxiliary analyses. Some scripts require retained per-frame predictions and experiment artifacts.
 
-本轮实际使用的精确排序分解、聚合基线恒等式及独立训练/结果核验源码，逐字节保存在[辅助分析来源快照](scripts/reproducibility/journal_20261102/README.md)，并附原始路径与SHA256。它们保留实际产物根依赖，当前训练入口不会导入这些来源副本。
+The accompanying manuscript supplement contains seed-level tables, numerical summaries, and reproduction scripts. Full prediction/checkpoint artifacts are not bundled here. Historical receipts may record the original machine's absolute paths; configure paths for your own environment rather than treating those paths as dependencies. Optional local `data`, `paper`, and `local/` entries are ignored by Git; the manuscript/Overleaf repository is maintained separately.
 
-本轮协议为`journal_detector-target-dev-20261102-v2`。`configs/journal.json`和`run.py`保留原15轮基础模板入口；实际实验使用独立产物根的直接模块接口。原结果根现位于 `/home/z/workspace/project/pipeline/local/experiments/journal_20261102`，本次H十轮修订根位于 `/home/z/workspace/project/pipeline/local/experiments/access_20261103`。旧路径兼容入口已移除；历史回执和冻结配置保留原文，每个骨干的汇总来源显式登记；仅使用物理GPU0–3。
+## Authors
 
-训练入口使用公开初始化。论文复算读取明确登记的两处产物根，不混入31方法/旧21方法结果。原始数据保留在 `/Dataset`；数据划分定义保存在 `configs/data_protocol/`。
+Shiyu Chen, Nomundari Batbayar, Munkhdelgerekh Batzorig, Tserenochir Batkhuyag, Esam Ali Mohammed ALBHELI, and Kangbin Yim.
 
-## 实验沿革与文档
+Munkhdelgerekh Batzorig and Kangbin Yim are with the Department of Information Security Engineering, Soonchunhyang University. The other authors are with the Department of Software Convergence at the same university.
 
-共三阶段已完成训练：会议阶段、31方法阶段、21方法阶段；本主线是本轮期刊实验，33个正式模型及完整统计结果已验收。历史代码目录仅供查阅，当前入口不会导入它们。完整历史提交与原始代码仍可通过归档标签恢复。
+Corresponding author: Kangbin Yim — yim@sch.ac.kr.
 
-Obsidian主目录 `paper/deepfake-detector/` 按阶段保留：
-
-- `31方法实验/`：实验计划、实验记录、实验结果、中文稿。
-- `21 方法实验/`：实验计划、实验记录、实验结果、中文稿。
-- `期刊实验_20261102/`：本轮实验计划、实验记录、实验结果、中文稿、新增英文稿.qmd。
-
-其中“实验结果”保留关键数值，“实验记录”区分观测与原因解释，“中文稿”保存各阶段可用的论文叙事。旧实验结果不混作下一轮结果。
+Third-party code retains the license and attribution supplied by its respective project.
